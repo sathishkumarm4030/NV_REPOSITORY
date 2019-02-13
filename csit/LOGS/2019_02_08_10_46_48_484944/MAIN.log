@@ -1,0 +1,1144 @@
+2019-02-08 10:47:09,198 - VD1 - INFO - ORG NAME:PRAVINK
+2019-02-08 10:47:14,049 - VD1 - DEBUG - {
+  "versanms.sdwan-org-workflow": {
+    "orgName": "PRAVINK",
+    "globalId": "115",
+    "parentOrg": "Colt",
+    "ikeAuthType": "psk",
+    "sharedControlPlane": false,
+    "controllers": ["NV-WC01-N2-BLR", "NV-WC02-N4-MUM", "NV-WC01-N4-MUM"],
+    "vrfs": [{ "name": "LAN1-VRF", "id": "1270", "enableVPN": "true", "tooltip": "" },{ "name": "LAN2-VRF", "id": "1271", "enableVPN": "true", "tooltip": "" }],
+    "supportedRoles": []
+  }
+}
+2019-02-08 10:47:14,049 - VD1 - INFO - PASS
+2019-02-08 10:47:29,158 - VD1 - INFO - set devices device NV-GW01-N4-MUM config interfaces tvi-0/230 enable true
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/230 mode ipsec
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/230 type p2mp-vxlan
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/230 unit 0 enable true
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/230 description "VxLAN PRAVINK Management"
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/230 unit 0 family
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/230 unit 0 family inet
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/230 unit 0 family inet address 50.115.4.1/32
+
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/231 enable true
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/231 mode ipsec
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/231 type p2mp-esp
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/231 unit 0 enable true
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/231 description "ESP PRAVINK Management"
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/231 unit 0 enable true
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/231 unit 0 family
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/231 unit 0 family inet
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/231 unit 0 family inet address 60.115.4.1/32
+
+
+
+
+set devices device NV-GW01-N4-MUM config interfaces ptvi230 parent-interface tvi-0/231.0 remote-address 10.115.64.5
+
+
+
+set devices device NV-GW01-N4-MUM config interfaces ptvi231 parent-interface tvi-0/231.0 remote-address 10.115.64.6
+
+set devices device NV-GW01-N4-MUM config interfaces vni-0/0 unit 1270 vlan-id 1270
+set devices device NV-GW01-N4-MUM config interfaces vni-0/0 unit 1270 enable true
+set devices device NV-GW01-N4-MUM config interfaces vni-0/0 unit 1270 family
+set devices device NV-GW01-N4-MUM config interfaces vni-0/0 unit 1270 family inet
+set devices device NV-GW01-N4-MUM config interfaces vni-0/0 unit 1270 family inet address 193.115.9.2/30
+
+
+
+
+
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/1270 enable true
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/1270 mode ipsec
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/1270 type paired
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/1270 paired-interface tvi-0/3170
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/1270 unit 0 enable true
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/1270 unit 0 family
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/1270 unit 0 family inet
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/1270 unit 0 family inet address 10.63.47.65/30
+
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/3170 mode ipsec
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/3170 type paired
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/3170 paired-interface tvi-0/1270
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/3170 unit 0 enable true
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/3170 unit 0 family
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/3170 unit 0 family inet
+set devices device NV-GW01-N4-MUM config interfaces tvi-0/3170 unit 0 family inet address 10.63.47.66/30
+
+set devices device NV-GW01-N4-MUM config networks PRAVINK-MPLS1 interfaces [ vni-0/0.1270 ]
+
+
+
+
+
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK available-routing-instances [ INT-TRANSP-VR MPLS-TRANSP-VR PRAVINK-Control-VR PRAVINK-EXPORT1-VRF PRAVINK-LAN1-VRF ]
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK traffic-identification using [ ptvi230 ptvi231 tvi-0/230.0 tvi-0/231.0 tvi-0/1270.0 tvi-0/3170.0 ]
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK owned-routing-instances [ INT-TRANSP-VR MPLS-TRANSP-VR PRAVINK-Control-VR PRAVINK-EXPORT1-VRF PRAVINK-LAN1-VRF ]
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK traffic-identification using-networks [ PRAVINK-MPLS1 ]
+
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK available-provider-orgs [ PRAVINK ]
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK available-service-node-groups [ default-sng ]
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK sd-wan site
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK sd-wan site global-tenant-id 115
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK sd-wan site site-name NV-GW01-N4-MUM
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK sd-wan site management-routing-instance PRAVINK-Control-VR
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK sd-wan site wan-interfaces vni-0/1.411 sla-monitoring fc_be interval 1
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK sd-wan site wan-interfaces vni-0/1.411 sla-monitoring fc_be logging-interval 5
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK sd-wan site wan-interfaces vni-0/1.411 encryption optional
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK sd-wan site wan-interfaces vni-0/1.412 sla-monitoring fc_be interval 1
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK sd-wan site wan-interfaces vni-0/1.412 sla-monitoring fc_be logging-interval 5
+
+
+
+
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK sd-wan controllers NV-WC01-N4-MUM management-addresses IKE ip-address 10.115.0.5
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK sd-wan controllers NV-WC01-N4-MUM management-addresses IKE routing-instance PRAVINK-Control-VR
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK sd-wan controllers NV-WC01-N4-MUM management-addresses secure ip-address 10.115.64.5
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK sd-wan controllers NV-WC01-N4-MUM management-addresses secure routing-instance PRAVINK-Control-VR
+
+
+
+
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK sd-wan controllers NV-WC02-N4-MUM management-addresses IKE ip-address 10.115.0.6
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK sd-wan controllers NV-WC02-N4-MUM management-addresses IKE routing-instance PRAVINK-Control-VR
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK sd-wan controllers NV-WC02-N4-MUM management-addresses secure ip-address 10.115.64.6
+set devices device NV-GW01-N4-MUM config orgs org PRAVINK sd-wan controllers NV-WC02-N4-MUM management-addresses secure routing-instance PRAVINK-Control-VR
+
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK security access-policies Policy1 rules R1 set action allow
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK security access-policies Policy1 rules R1 set lef profile Default-Logging-Profile
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK security access-policies Policy1 rules R1 set lef event end
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK security access-policies Policy1 rules R1 set lef options send-pcap-data enable false
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK objects zones trust
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK objects zones untrust
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK objects zones host
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK traffic-monitoring logging-control Default-Logging-Control profile Default-Logging-Profile
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK traffic-monitoring logging-control Default-Logging-Control options
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK traffic-monitoring logging-control Default-Logging-Control options stats
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK traffic-monitoring logging-control Default-Logging-Control options stats all
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK traffic-monitoring policies Analytics-policy rules rule1 set lef profile Default-Logging-Profile
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef collectors LEF-Collector-log_collector1 destination-address 10.91.116.71 destination-port 5140
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef collectors LEF-Collector-log_collector1 routing-instance PRAVINK-Control-VR
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef collectors LEF-Collector-log_collector1 transport tcp
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef collectors LEF-Collector-log_collector1 template Default-LEF-Template
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef collectors LEF-Collector-log_collector2 destination-address 10.91.116.72 destination-port 5140
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef collectors LEF-Collector-log_collector2 routing-instance PRAVINK-Control-VR
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef collectors LEF-Collector-log_collector2 transport tcp
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef collectors LEF-Collector-log_collector2 template Default-LEF-Template
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef collector-groups Default-Collector-Group collectors [ LEF-Collector-log_collector1 LEF-Collector-log_collector2 ]
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef templates Default-LEF-Template type ipfix
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef profiles Default-Logging-Profile collector-group Default-Collector-Group
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef default-profile Default-Logging-Profile
+
+
+
+
+
+
+
+
+
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 vpn-type branch-sdwan
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 local-auth-info
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 local-auth-info auth-type psk
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 local-auth-info id-type email
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 local-auth-info key NV-GW01-N4-MUM
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 local-auth-info id-string NV-GW01-N4-MUM@PRAVINK.com
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 local
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 local address 50.115.4.1
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 routing-instance PRAVINK-Control-VR
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 tunnel-routing-instance PRAVINK-Control-VR
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 tunnel-initiate automatic
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 ipsec fragmentation pre-fragmentation
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 ipsec transform esp-aes128-sha1
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 ipsec mode tunnel
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 ipsec pfs-group mod-none
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 ipsec anti-replay enable
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 ipsec life duration 25000
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 ike version v2
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 ike group mod19
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 ike transform aes128-sha1
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 ike lifetime 27000
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 ike dpd-timeout 10
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 peer-auth-info
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 peer-auth-info auth-type psk
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 peer-auth-info id-type email
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 peer-auth-info key NV-WC01-N4-MUM
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 peer-auth-info id-string NV-WC01-N4-MUM@PRAVINK.com
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 peer
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 peer address 10.115.0.5
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 tunnel-interface ptvi230
+
+
+
+
+
+
+
+
+
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 vpn-type branch-sdwan
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 local-auth-info
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 local-auth-info auth-type psk
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 local-auth-info id-type email
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 local-auth-info key NV-GW01-N4-MUM
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 local-auth-info id-string NV-GW01-N4-MUM@PRAVINK.com
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 local
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 local address 50.115.4.1
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 routing-instance PRAVINK-Control-VR
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 tunnel-routing-instance PRAVINK-Control-VR
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 tunnel-initiate automatic
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 ipsec fragmentation pre-fragmentation
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 ipsec transform esp-aes128-sha1
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 ipsec mode tunnel
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 ipsec pfs-group mod-none
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 ipsec anti-replay enable
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 ipsec life duration 25000
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 ike version v2
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 ike group mod19
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 ike transform aes128-sha1
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 ike lifetime 27000
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 ike dpd-timeout 10
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 peer-auth-info
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 peer-auth-info auth-type psk
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 peer-auth-info id-type email
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 peer-auth-info key NV-WC02-N4-MUM
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 peer-auth-info id-string NV-WC02-N4-MUM@PRAVINK.com
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 peer
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 peer address 10.115.0.6
+set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 tunnel-interface ptvi231
+
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR instance-type virtual-router
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR mpls-vpn-core
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR interfaces [ ptvi230 ptvi231 tvi-0/230.0 tvi-0/231.0 ]
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR routing-options mpls-vpn-local-router-address 60.115.4.1
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR routing-options static route 0.0.0.0/0 60.115.4.1 tvi-0/231.0 preference 1
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR routing-options static route 0.0.0.0/0 60.115.4.1 tvi-0/231.0 tag 0
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 router-id 60.115.4.1 local-as as-number 65505
+
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 hold-time 90
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 peer-as 65505
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 route-flap free-max-time 180
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 route-flap reuse-max-time 60
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 route-flap reuse-size 256
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 route-flap reuse-array-size 1024
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 graceful-restart enable
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 graceful-restart recovery-time 120
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 graceful-restart select-defer-time 120
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 graceful-restart stalepath-time 120
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 graceful-restart dynamic-peer-restart-time 0
+
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 ibgp-preference 200
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 ebgp-preference 20
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC type internal
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC family inet unicast
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC family inet versa-private
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC family inet-vpn unicast
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC bfd-liveness-detection
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC bfd-liveness-detection minimum-receive-interval 1000
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC bfd-liveness-detection multiplier 3
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC bfd-liveness-detection transmit-interval minimum-interval 1000
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC neighbor 
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC neighbor  peer-as 65505
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC neighbor 
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC neighbor  peer-as 65505
+set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 debug level debug
+2019-02-08 10:48:27,146 - VD1 - INFO - configure
+Entering configuration mode private
+Current configuration users:
+admin tcp (maapi from 127.0.0.1) on since 2019-02-08 06:51:13 private mode
+Administrator ssh (cli from 10.91.124.96) on since 2019-02-08 06:45:15 private mode
+[ok][2019-02-08 06:51:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/230 enable true
+[ok][2019-02-08 06:51:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/230 mode ipsec
+[ok][2019-02-08 06:51:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/230 type p2mp-vxlan
+[ok][2019-02-08 06:51:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/230 unit 0 enable true
+[ok][2019-02-08 06:51:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/230 description "VxLAN PRAVINK Management"
+[ok][2019-02-08 06:51:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/230 unit 0 family
+[ok][2019-02-08 06:51:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/230 unit 0 family inet
+[ok][2019-02-08 06:51:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/230 unit 0 family inet address 50.115.4.1/32
+[ok][2019-02-08 06:51:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/231 enable true
+[ok][2019-02-08 06:51:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/231 mode ipsec
+[ok][2019-02-08 06:51:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/231 type p2mp-esp
+[ok][2019-02-08 06:51:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/231 unit 0 enable true
+[ok][2019-02-08 06:51:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/231 description "ESP PRAVINK Management"
+[ok][2019-02-08 06:51:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/231 unit 0 enable true
+[ok][2019-02-08 06:51:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/231 unit 0 family
+[ok][2019-02-08 06:51:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/231 unit 0 family inet
+[ok][2019-02-08 06:51:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/231 unit 0 family inet address 60.115.4.1/32
+[ok][2019-02-08 06:51:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces ptvi230 parent-interface tvi-0/231.0 remote-address 10.115.64.5
+[ok][2019-02-08 06:51:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces ptvi231 parent-interface tvi-0/231.0 remote-address 10.115.64.6
+[ok][2019-02-08 06:51:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces vni-0/0 unit 1270 vlan-id 1270
+[ok][2019-02-08 06:51:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces vni-0/0 unit 1270 enable true
+[ok][2019-02-08 06:51:38]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces vni-0/0 unit 1270 family
+[ok][2019-02-08 06:51:38]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces vni-0/0 unit 1270 family inet
+[ok][2019-02-08 06:51:38]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces vni-0/0 unit 1270 family inet address 193.115.9.2/30
+[ok][2019-02-08 06:51:39]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/1270 enable true
+[ok][2019-02-08 06:51:39]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/1270 mode ipsec
+[ok][2019-02-08 06:51:39]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/1270 type paired
+[ok][2019-02-08 06:51:39]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/1270 paired-interface tvi-0/3170
+[ok][2019-02-08 06:51:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/1270 unit 0 enable true
+[ok][2019-02-08 06:51:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/1270 unit 0 family
+[ok][2019-02-08 06:51:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/1270 unit 0 family inet
+[ok][2019-02-08 06:51:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/1270 unit 0 family inet address 10.63.47.65/30
+[ok][2019-02-08 06:51:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/3170 mode ipsec
+[ok][2019-02-08 06:51:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/3170 type paired
+[ok][2019-02-08 06:51:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/3170 paired-interface tvi-0/1270
+[ok][2019-02-08 06:51:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/3170 unit 0 enable true
+[ok][2019-02-08 06:51:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/3170 unit 0 family
+[ok][2019-02-08 06:51:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/3170 unit 0 family inet
+[ok][2019-02-08 06:51:42]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config interfaces tvi-0/3170 unit 0 family inet address 10.63.47.66/30
+[ok][2019-02-08 06:51:42]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config networks  PRAVINK-MPLS1 interfaces [ vni-0/0.1270 ]
+[ok][2019-02-08 06:51:42]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org  PRAVINK available-routing-instances [ INT-TRANSP-VR MPLS-TRANSP-VR PRAVINK-Control-VR PRAVINK-EXPORT1-VRF PRAVINK-LAN1-VRF ]
+[ok][2019-02-08 06:51:42]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org  PRAVINK traffic-identification using [ ptvi230 ptvi231 tvi-0/230.0 tvi-0/231.0  tvi-0/1270.0 tvi-0/3170.0 ]
+[ok][2019-02-08 06:51:43]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org  PRAVINK owned-routing-instances [ INT-TRANSP-VR MPLS-TRANSP-VR PRAVINK-Control-VR PRAVINK-EXPORT1-VRF PRAVINK-LAN1-VRF ]
+[ok][2019-02-08 06:51:43]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org  PRAVINK traffic-identification using-networks [ PRAVINK-MPLS1 ]
+[ok][2019-02-08 06:51:43]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org  PRAVINK available-provider-orgs [ PRAVINK ]
+[ok][2019-02-08 06:51:44]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org  PRAVINK available-service-node-groups [ default-sng ]
+[ok][2019-02-08 06:51:44]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org  PRAVINK sd-wan site
+[ok][2019-02-08 06:51:44]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org  PRAVINK sd-wan site global-tenant-id 115
+[ok][2019-02-08 06:51:45]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org  PRAVINK sd-wan site site-name NV-GW01-N4-MUM
+[ok][2019-02-08 06:51:45]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org  PRAVINK sd-wan site management-routing-instance PRAVINK-Control-VR
+[ok][2019-02-08 06:51:45]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org  PRAVINK sd-wan site wan-interfaces vni-0/1.411 sla-monitoring fc_be interval 1
+[ok][2019-02-08 06:51:45]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org  PRAVINK sd-wan site wan-interfaces vni-0/1.411 sla-monitoring fc_be logging-interval 5
+[ok][2019-02-08 06:51:46]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org  PRAVINK sd-wan site wan-interfaces vni-0/1.411 encryption optional
+[ok][2019-02-08 06:51:46]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org  PRAVINK sd-wan site wan-interfaces vni-0/1.412 sla-monitoring fc_be interval 1
+[ok][2019-02-08 06:51:46]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org  PRAVINK sd-wan site wan-interfaces vni-0/1.412 sla-monitoring fc_be logging-interval 5
+[ok][2019-02-08 06:51:47]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org  PRAVINK sd-wan controllers NV-WC01-N4-MUM management-addresses IKE ip-address 10.115.0.5
+Value for 'routing-instance' (<string>): set devices device NV-GW01-N4-MUM config orgs org PRAVINK sd-wan controllers NV-WC01-N4-MUM management-addresses IKE routing-instance PRAVINK-Control-VR
+[ok][2019-02-08 06:51:47]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org  PRAVINK sd-wan controllers NV-WC01-N4-MUM management-addresses secure ip-address 10.115.64.5
+Value for 'routing-instance' (<string>): set devices device NV-GW01-N4-MUM config orgs org PRAVINK sd-wan controllers NV-WC01-N4-MUM management-addresses secure routing-instance PRAVINK-Control-VR
+[ok][2019-02-08 06:51:48]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org  PRAVINK sd-wan controllers NV-WC02-N4-MUM management-addresses IKE ip-address 10.115.0.6
+Value for 'routing-instance' (<string>): set devices device NV-GW01-N4-MUM config orgs org PRAVINK sd-wan controllers NV-WC02-N4-MUM management-addresses IKE routing-instance PRAVINK-Control-VR
+[ok][2019-02-08 06:51:48]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org  PRAVINK sd-wan controllers NV-WC02-N4-MUM management-addresses secure ip-address 10.115.64.6
+Value for 'routing-instance' (<string>): set devices device NV-GW01-N4-MUM config orgs org PRAVINK sd-wan controllers NV-WC02-N4-MUM management-addresses secure routing-instance PRAVINK-Control-VR
+[ok][2019-02-08 06:51:48]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK security access-policies Policy1 rules R1 set action allow
+[ok][2019-02-08 06:51:49]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK security access-policies Policy1 rules R1 set lef profile Default-Logging-Profile
+[ok][2019-02-08 06:51:50]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK security access-policies Policy1 rules R1 set lef event end
+[ok][2019-02-08 06:51:50]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK security access-policies Policy1 rules R1 set lef options send-pcap-data enable false
+[ok][2019-02-08 06:51:51]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK objects zones trust
+[ok][2019-02-08 06:51:51]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK objects zones untrust
+[ok][2019-02-08 06:51:51]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK objects zones host
+[ok][2019-02-08 06:51:51]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK traffic-monitoring logging-control Default-Logging-Control profile Default-Logging-Profile
+[ok][2019-02-08 06:51:52]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK traffic-monitoring logging-control Default-Logging-Control options
+[ok][2019-02-08 06:51:52]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK traffic-monitoring logging-control Default-Logging-Control options stats
+[ok][2019-02-08 06:51:52]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK traffic-monitoring logging-control Default-Logging-Control options stats all
+[ok][2019-02-08 06:51:52]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK traffic-monitoring policies Analytics-policy rules rule1 set lef profile Default-Logging-Profile
+[ok][2019-02-08 06:51:53]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef collectors LEF-Collector-log_collector1 destination-address 10.91.116.71 destination-port 5140
+[ok][2019-02-08 06:51:53]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef collectors LEF-Collector-log_collector1 routing-instance PRAVINK-Control-VR
+[ok][2019-02-08 06:51:53]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef collectors LEF-Collector-log_collector1 transport tcp
+[ok][2019-02-08 06:51:54]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef collectors LEF-Collector-log_collector1 template Default-LEF-Template
+[ok][2019-02-08 06:51:54]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef collectors LEF-Collector-log_collector2 destination-address 10.91.116.72 destination-port 5140
+[ok][2019-02-08 06:51:55]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef collectors LEF-Collector-log_collector2 routing-instance PRAVINK-Control-VR
+[ok][2019-02-08 06:51:55]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef collectors LEF-Collector-log_collector2 transport tcp
+[ok][2019-02-08 06:51:55]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef collectors LEF-Collector-log_collector2 template Default-LEF-Template
+[ok][2019-02-08 06:51:56]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef collector-groups Default-Collector-Group collectors [ LEF-Collector-log_collector1 LEF-Collector-log_collector2 ]
+[ok][2019-02-08 06:51:56]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef templates Default-LEF-Template type ipfix
+[ok][2019-02-08 06:51:56]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef profiles Default-Logging-Profile collector-group Default-Collector-Group
+[ok][2019-02-08 06:51:56]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK lef default-profile Default-Logging-Profile
+[ok][2019-02-08 06:51:57]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 vpn-type branch-sdwan
+[ok][2019-02-08 06:51:57]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 local-auth-info
+[ok][2019-02-08 06:51:57]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 local-auth-info auth-type psk
+[ok][2019-02-08 06:51:58]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 local-auth-info id-type email
+[ok][2019-02-08 06:51:58]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 local-auth-info key NV-GW01-N4-MUM
+[ok][2019-02-08 06:51:58]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 local-auth-info id-string NV-GW01-N4-MUM@PRAVINK.com
+[ok][2019-02-08 06:51:59]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 local
+[ok][2019-02-08 06:51:59]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 local address 50.115.4.1
+[ok][2019-02-08 06:51:59]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 routing-instance PRAVINK-Control-VR 
+[ok][2019-02-08 06:52:00]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 tunnel-routing-instance PRAVINK-Control-VR
+[ok][2019-02-08 06:52:00]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 tunnel-initiate automatic
+[ok][2019-02-08 06:52:00]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 ipsec fragmentation pre-fragmentation
+[ok][2019-02-08 06:52:01]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 ipsec transform esp-aes128-sha1
+[ok][2019-02-08 06:52:01]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 ipsec mode tunnel
+[ok][2019-02-08 06:52:01]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 ipsec pfs-group mod-none
+[ok][2019-02-08 06:52:02]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 ipsec anti-replay enable
+[ok][2019-02-08 06:52:02]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 ipsec life duration 25000
+[ok][2019-02-08 06:52:02]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 ike version v2
+[ok][2019-02-08 06:52:03]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 ike group mod19
+[ok][2019-02-08 06:52:03]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 ike transform aes128-sha1
+[ok][2019-02-08 06:52:03]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 ike lifetime 27000
+[ok][2019-02-08 06:52:04]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 ike dpd-timeout 10
+[ok][2019-02-08 06:52:04]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 peer-auth-info
+[ok][2019-02-08 06:52:05]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 peer-auth-info auth-type psk
+[ok][2019-02-08 06:52:05]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 peer-auth-info id-type email
+[ok][2019-02-08 06:52:05]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 peer-auth-info key NV-WC01-N4-MUM
+[ok][2019-02-08 06:52:06]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 peer-auth-info id-string NV-WC01-N4-MUM@PRAVINK.com
+[ok][2019-02-08 06:52:06]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 peer
+[ok][2019-02-08 06:52:06]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 peer address 10.115.0.5
+[ok][2019-02-08 06:52:07]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL1 tunnel-interface ptvi230
+[ok][2019-02-08 06:52:07]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 vpn-type branch-sdwan
+[ok][2019-02-08 06:52:07]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 local-auth-info
+[ok][2019-02-08 06:52:07]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 local-auth-info auth-type psk
+[ok][2019-02-08 06:52:08]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 local-auth-info id-type email
+[ok][2019-02-08 06:52:08]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 local-auth-info key NV-GW01-N4-MUM
+[ok][2019-02-08 06:52:08]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 local-auth-info id-string NV-GW01-N4-MUM@PRAVINK.com
+[ok][2019-02-08 06:52:09]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 local
+[ok][2019-02-08 06:52:09]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 local address 50.115.4.1
+[ok][2019-02-08 06:52:09]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 routing-instance PRAVINK-Control-VR 
+[ok][2019-02-08 06:52:10]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 tunnel-routing-instance PRAVINK-Control-VR
+[ok][2019-02-08 06:52:10]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 tunnel-initiate automatic
+[ok][2019-02-08 06:52:10]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 ipsec fragmentation pre-fragmentation
+[ok][2019-02-08 06:52:10]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 ipsec transform esp-aes128-sha1
+[ok][2019-02-08 06:52:11]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 ipsec mode tunnel
+[ok][2019-02-08 06:52:11]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 ipsec pfs-group mod-none
+[ok][2019-02-08 06:52:12]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 ipsec anti-replay enable
+[ok][2019-02-08 06:52:12]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 ipsec life duration 25000
+[ok][2019-02-08 06:52:12]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 ike version v2
+[ok][2019-02-08 06:52:13]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 ike group mod19
+[ok][2019-02-08 06:52:13]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 ike transform aes128-sha1
+[ok][2019-02-08 06:52:13]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 ike lifetime 27000
+[ok][2019-02-08 06:52:13]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 ike dpd-timeout 10
+[ok][2019-02-08 06:52:14]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 peer-auth-info
+[ok][2019-02-08 06:52:14]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 peer-auth-info auth-type psk
+[ok][2019-02-08 06:52:14]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 peer-auth-info id-type email
+[ok][2019-02-08 06:52:15]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 peer-auth-info key NV-WC02-N4-MUM
+[ok][2019-02-08 06:52:15]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 peer-auth-info id-string NV-WC02-N4-MUM@PRAVINK.com
+[ok][2019-02-08 06:52:15]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 peer
+[ok][2019-02-08 06:52:15]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 peer address 10.115.0.6
+[ok][2019-02-08 06:52:16]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config orgs org-services PRAVINK ipsec vpn-profile GW-CTRL2 tunnel-interface ptvi231
+[ok][2019-02-08 06:52:16]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR instance-type virtual-router
+[ok][2019-02-08 06:52:16]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR mpls-vpn-core
+[ok][2019-02-08 06:52:16]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR interfaces [ ptvi230 ptvi231 tvi-0/230.0 tvi-0/231.0 ]
+[ok][2019-02-08 06:52:17]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR routing-options mpls-vpn-local-router-address 60.115.4.1
+[ok][2019-02-08 06:52:17]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR routing-options static route 0.0.0.0/0 60.115.4.1 tvi-0/231.0 preference 1
+[ok][2019-02-08 06:52:17]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR routing-options static route 0.0.0.0/0 60.115.4.1 tvi-0/231.0 tag 0
+[ok][2019-02-08 06:52:17]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 router-id 60.115.4.1 local-as as-number 65505
+[ok][2019-02-08 06:52:18]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 hold-time 90
+[ok][2019-02-08 06:52:18]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 peer-as 65505
+[ok][2019-02-08 06:52:19]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 route-flap free-max-time 180
+[ok][2019-02-08 06:52:19]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 route-flap reuse-max-time 60
+[ok][2019-02-08 06:52:19]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 route-flap reuse-size 256
+[ok][2019-02-08 06:52:20]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 route-flap reuse-array-size 1024
+[ok][2019-02-08 06:52:20]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 graceful-restart enable
+[ok][2019-02-08 06:52:20]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 graceful-restart maximum-restart-time 120
+[ok][2019-02-08 06:52:21]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 graceful-restart recovery-time 120
+[ok][2019-02-08 06:52:21]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 graceful-restart select-defer-time 120
+[ok][2019-02-08 06:52:21]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 graceful-restart stalepath-time 120
+[ok][2019-02-08 06:52:22]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 graceful-restart dynamic-peer-restart-time 0
+[ok][2019-02-08 06:52:22]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 ibgp-preference 200
+[ok][2019-02-08 06:52:22]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 ebgp-preference 20
+[ok][2019-02-08 06:52:23]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC type internal
+[ok][2019-02-08 06:52:23]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC family inet unicast
+[ok][2019-02-08 06:52:23]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC family inet versa-private
+[ok][2019-02-08 06:52:24]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC family inet-vpn unicast
+[ok][2019-02-08 06:52:24]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC bfd-liveness-detection
+[ok][2019-02-08 06:52:25]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC bfd-liveness-detection minimum-receive-interval 1000
+[ok][2019-02-08 06:52:25]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC bfd-liveness-detection multiplier 3
+[ok][2019-02-08 06:52:25]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC bfd-liveness-detection transmit-interval minimum-interval 1000
+[ok][2019-02-08 06:52:26]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC neighbor 
+----------------------------------------------------------------------------------------------------------------------------------------------------^
+syntax error: incomplete path: 'devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC neighbor'
+[error][2019-02-08 06:52:26]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC neighbor 
+Possible completions:
+  <a.b.c.d> or <x:x:x:x::x> - IP/IPv6 address format
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC neighbor peer-as
+Possible completions:
+  <a.b.c.d> or <x:x:x:x::x> - IP/IPv6 address format
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC neighbor peer-as65505 
+----------------------------------------------------------------------------------------------------------------------------------------------------^
+syntax error: "peer-as65505" is not a valid value.
+[error][2019-02-08 06:52:27]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC neighbor 
+----------------------------------------------------------------------------------------------------------------------------------------------------^
+syntax error: incomplete path: 'devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC neighbor'
+[error][2019-02-08 06:52:27]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC neighbor 
+Possible completions:
+  <a.b.c.d> or <x:x:x:x::x> - IP/IPv6 address format
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC neighbor peer-as
+Possible completions:
+  <a.b.c.d> or <x:x:x:x::x> - IP/IPv6 address format
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 group GW-WC neighbor peer-as65505 
+----------------------------------------------------------------------------------------------------------------------------------------------------^
+syntax error: "peer-as65505" is not a valid value.
+[error][2019-02-08 06:52:28]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N4-MUM config routing-instances PRAVINK-Control-VR protocols bgp 115 debug level debug
+[ok][2019-02-08 06:52:28]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 

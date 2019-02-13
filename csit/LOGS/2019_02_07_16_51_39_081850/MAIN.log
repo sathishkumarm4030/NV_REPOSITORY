@@ -1,0 +1,287 @@
+2019-02-07 16:51:58,885 - VD1 - INFO - ORG NAME:FEB7
+2019-02-07 16:51:58,942 - VD1 - DEBUG - {
+  "versanms.sdwan-org-workflow": {
+    "orgName": "FEB7",
+    "globalId": "235",
+    "parentOrg": "Colt",
+    "ikeAuthType": "psk",
+    "sharedControlPlane": false,
+    "controllers": ["NV-WC01-N2-BLR", "NV-WC02-N4-MUM", "NV-WC02-N2-BLR"],
+    "vrfs": [{ "name": "LAN1-VRF", "id": "2470", "enableVPN": "true", "tooltip": "" },{ "name": "LAN2-VRF", "id": "2471", "enableVPN": "true", "tooltip": "" },{ "name": "LAN3-VRF", "id": "2472", "enableVPN": "true", "tooltip": "" }],
+    "supportedRoles": []
+  }
+}
+2019-02-07 16:51:58,942 - VD1 - INFO - PASS
+2019-02-07 16:52:13,974 - VD1 - INFO - set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 graceful-restart maximum-restart-time 15
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 hold-time 90
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 graceful-restart recovery-time 15
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 graceful-restart select-defer-time 15
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 graceful-restart stalepath-time 15
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 prefix-list MGMT-VA-SB seq 10 permit
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 prefix-list MGMT-VA-SB seq 10 address-family ipv4 unicast address-mask 10.91.140.0/22
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 prefix-list MGMT-VA-SB seq 10 address-family ipv4 unicast ge_le ge 27
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 prefix-list MGMT-VA-SB seq 10 address-family ipv4 unicast ge_le le 32
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-Controllers term 1REJECT-MGMT-ROUTES match community "(^|,)100:1($|,)"
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-Controllers term 1REJECT-MGMT-ROUTES action reject
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-Controllers term 2ACCEPT-L-CPE-ROUTES match family inet-vpn
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-Controllers term 2ACCEPT-L-CPE-ROUTES match community "(^|,)91:10($|,)"
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-Controllers term 2ACCEPT-L-CPE-ROUTES action accept
+delete devices device NV-WC01-N2-BLR config routing-instances FEB7--Control-VR routing-options static route 0.0.0.0/0 0.0.0.0 none
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR routing-options static route 0.0.0.0/0 0.0.0.0 tvi-0/471.0
+delete devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging psk-auth-clients
+set devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging psk-auth-clients
+
+
+
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-Controllers term 3DENY-REST match family inet-vpn
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-Controllers term 3DENY-REST action reject
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 1ACCEPT-MGMT-VA-SB match ip nlri prefix-list MGMT-VA-SB
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 1ACCEPT-MGMT-VA-SB action accept
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 2REJECT-MGMT-ROUTES match community "(^|,)100:1($|,)"
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 2REJECT-MGMT-ROUTES action reject
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 3REJECT-L-PGW-ROUTES match community "(^|,)91:11($|,)"
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 3REJECT-L-PGW-ROUTES match family inet-vpn
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 3REJECT-L-PGW-ROUTES action reject
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 4REJECT-L-SGW-ROUTES match community "(^|,)91:12($|,)"
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 4REJECT-L-SGW-ROUTES match family inet-vpn
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 4REJECT-L-SGW-ROUTES action reject
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 5ACCEPT-L-CPE-ROUTES match family inet-vpn
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 5ACCEPT-L-CPE-ROUTES match community "(^|,)91:10($|,)"
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 5ACCEPT-L-CPE-ROUTES action accept
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES match community "(^|,)*:10($|,)"
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES action accept
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES action community 666:666
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES action community-action set-specific
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 7DENY-REST match family inet-vpn
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 7DENY-REST action reject
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy IMPORT-FEB7-GW-TO-WC term 1REJECT-R-CPE-ROUTES match community "(^|,)666:666($|,)"
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy IMPORT-FEB7-GW-TO-WC term 1REJECT-R-CPE-ROUTES action reject
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy IMPORT-FEB7-GW-TO-WC term 2ACCEPT-REST match family inet-vpn
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy IMPORT-FEB7-GW-TO-WC term 2ACCEPT-REST action accept
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW import IMPORT-FEB7-GW-TO-WC
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW export IMPORT-FEB7-WC-TO-GW
+delete devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group Branches allow
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group Branches allow all
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW type internal
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW family inet unicast
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW family inet versa-private
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW family inet-vpn unicast
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW export EXPORT-FEB7-WC-TO-GW
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW route-reflector-client
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW bfd-liveness-detection
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW bfd-liveness-detection minimum-receive-interval 1000
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW bfd-liveness-detection multiplier 3
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW bfd-liveness-detection transmit-interval minimum-interval 1000
+
+
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW neighbor 40.235.2.1
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW neighbor 40.235.2.1 peer-as 65505
+
+
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW neighbor 40.235.2.2
+set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW neighbor 40.235.2.2 peer-as 65505
+
+
+
+
+set devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging local-auth-info key NV-WC01-N2-BLR
+set devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging local-auth-info id-string NV-WC01-N2-BLR@FEB7.com
+
+
+
+
+
+set devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging psk-auth-clients remote-client NV-GW01-N2-BLR@FEB7.com id-type email
+set devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging psk-auth-clients remote-client NV-GW01-N2-BLR@FEB7.com key NV-GW01-N2-BLR
+
+
+
+
+
+set devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging psk-auth-clients remote-client NV-GW02-N2-BLR@FEB7.com id-type email
+set devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging psk-auth-clients remote-client NV-GW02-N2-BLR@FEB7.com key NV-GW02-N2-BLR
+
+2019-02-07 16:52:16,790 - VD1 - INFO - configure
+Entering configuration mode private
+[ok][2019-02-07 12:56:17]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 graceful-restart maximum-restart-time 15
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 hold-time 90
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 hold-time 90" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 graceful-restart recovery-time 15
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 graceful-restart recovery-time 15" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 graceful-restart select-defer-time 15
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 graceful-restart select-defer-time 15" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 graceful-restart stalepath-time 15
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 graceful-restart stalepath-time 15" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 graceful-restart dynamic-peer-restart-time 0
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 graceful-restart dynamic-peer-restart-time 0" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 prefix-list MGMT-VA-SB seq 10 permit
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 prefix-list MGMT-VA-SB seq 10 permit" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 prefix-list MGMT-VA-SB seq 10 address-family ipv4 unicast address-mask 10.91.140.0/22
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 prefix-list MGMT-VA-SB seq 10 address-family ipv4 unicast address-mask 10.91.140.0/22" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 prefix-list MGMT-VA-SB seq 10 address-family ipv4 unicast ge_le ge 27
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 prefix-list MGMT-VA-SB seq 10 address-family ipv4 unicast ge_le ge 27" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 prefix-list MGMT-VA-SB seq 10 address-family ipv4 unicast ge_le le 32
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 prefix-list MGMT-VA-SB seq 10 address-family ipv4 unicast ge_le le 32" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-Controllers term 1REJECT-MGMT-ROUTES match community "(^|,)100:1($|,)"
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-Controllers term 1REJECT-MGMT-ROUTES match community "(^|,)100:1($|,)"" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-Controllers term 1REJECT-MGMT-ROUTES action reject
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-Controllers term 1REJECT-MGMT-ROUTES action reject" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-Controllers term 2ACCEPT-L-CPE-ROUTES match family inet-vpn
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-Controllers term 2ACCEPT-L-CPE-ROUTES match family inet-vpn" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-Controllers term 2ACCEPT-L-CPE-ROUTES match community "(^|,)91:10($|,)"
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-Controllers term 2ACCEPT-L-CPE-ROUTES match community "(^|,)91:10($|,)"" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-Controllers term 2ACCEPT-L-CPE-ROUTES action accept
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-Controllers term 2ACCEPT-L-CPE-ROUTES action accept" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : delete devices device NV-WC01-N2-BLR config routing-instances FEB7--Control-VR routing-options static route 0.0.0.0/0 0.0.0.0 none
+Error: bad value: "delete devices device NV-WC01-N2-BLR config routing-instances FEB7--Control-VR routing-options static route 0.0.0.0/0 0.0.0.0 none" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR routing-options static route 0.0.0.0/0 0.0.0.0 tvi-0/471.0
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR routing-options static route 0.0.0.0/0 0.0.0.0 tvi-0/471.0" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : delete devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging psk-auth-clients
+Error: bad value: "delete devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging psk-auth-clients" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging psk-auth-clients
+Error: bad value: "set devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging psk-auth-clients" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : 
+Error: bad value: "" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : 
+Error: bad value: "" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : 
+Error: bad value: "" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-Controllers term 3DENY-REST match family inet-vpn
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-Controllers term 3DENY-REST match family inet-vpn" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-Controllers term 3DENY-REST action reject
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-Controllers term 3DENY-REST action reject" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 1ACCEPT-MGMT-VA-SB match ip nlri prefix-list MGMT-VA-SB
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 1ACCEPT-MGMT-VA-SB match ip nlri prefix-list MGMT-VA-SB" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 1ACCEPT-MGMT-VA-SB action accept
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 1ACCEPT-MGMT-VA-SB action accept" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 2REJECT-MGMT-ROUTES match community "(^|,)100:1($|,)"
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 2REJECT-MGMT-ROUTES match community "(^|,)100:1($|,)"" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 2REJECT-MGMT-ROUTES action reject
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 2REJECT-MGMT-ROUTES action reject" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 3REJECT-L-PGW-ROUTES match community "(^|,)91:11($|,)"
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 3REJECT-L-PGW-ROUTES match community "(^|,)91:11($|,)"" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 3REJECT-L-PGW-ROUTES match family inet-vpn
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 3REJECT-L-PGW-ROUTES match family inet-vpn" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 3REJECT-L-PGW-ROUTES action reject
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 3REJECT-L-PGW-ROUTES action reject" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 4REJECT-L-SGW-ROUTES match community "(^|,)91:12($|,)"
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 4REJECT-L-SGW-ROUTES match community "(^|,)91:12($|,)"" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 4REJECT-L-SGW-ROUTES match family inet-vpn
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 4REJECT-L-SGW-ROUTES match family inet-vpn" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 4REJECT-L-SGW-ROUTES action reject
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 4REJECT-L-SGW-ROUTES action reject" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 5ACCEPT-L-CPE-ROUTES match family inet-vpn
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 5ACCEPT-L-CPE-ROUTES match family inet-vpn" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 5ACCEPT-L-CPE-ROUTES match community "(^|,)91:10($|,)"
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 5ACCEPT-L-CPE-ROUTES match community "(^|,)91:10($|,)"" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 5ACCEPT-L-CPE-ROUTES action accept
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 5ACCEPT-L-CPE-ROUTES action accept" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES match community "(^|,)*:10($|,)"
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES match community "(^|,)*:10($|,)"" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES action accept
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES action accept" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES action community 666:666
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES action community 666:666" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES action community-action set-specific
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES action community-action set-specific" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 7DENY-REST match family inet-vpn
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 7DENY-REST match family inet-vpn" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 7DENY-REST action reject
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy EXPORT-FEB7-WC-TO-GW term 7DENY-REST action reject" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy IMPORT-FEB7-GW-TO-WC term 1REJECT-R-CPE-ROUTES match community "(^|,)666:666($|,)"
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy IMPORT-FEB7-GW-TO-WC term 1REJECT-R-CPE-ROUTES match community "(^|,)666:666($|,)"" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy IMPORT-FEB7-GW-TO-WC term 1REJECT-R-CPE-ROUTES action reject
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy IMPORT-FEB7-GW-TO-WC term 1REJECT-R-CPE-ROUTES action reject" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy IMPORT-FEB7-GW-TO-WC term 2ACCEPT-REST match family inet-vpn
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy IMPORT-FEB7-GW-TO-WC term 2ACCEPT-REST match family inet-vpn" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy IMPORT-FEB7-GW-TO-WC term 2ACCEPT-REST action accept
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 routing-peer-policy IMPORT-FEB7-GW-TO-WC term 2ACCEPT-REST action accept" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW import IMPORT-FEB7-GW-TO-WC
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW import IMPORT-FEB7-GW-TO-WC" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW export IMPORT-FEB7-WC-TO-GW
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW export IMPORT-FEB7-WC-TO-GW" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : delete devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group Branches allow
+Error: bad value: "delete devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group Branches allow" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group Branches allow all
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group Branches allow all" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW type internal
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW type internal" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW family inet unicast
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW family inet unicast" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW family inet versa-private
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW family inet versa-private" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW family inet-vpn unicast
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW family inet-vpn unicast" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW export EXPORT-FEB7-WC-TO-GW
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW export EXPORT-FEB7-WC-TO-GW" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW route-reflector-client
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW route-reflector-client" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW bfd-liveness-detection
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW bfd-liveness-detection" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW bfd-liveness-detection minimum-receive-interval 1000 
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW bfd-liveness-detection minimum-receive-interval 1000" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW bfd-liveness-detection multiplier 3
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW bfd-liveness-detection multiplier 3" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW bfd-liveness-detection transmit-interval minimum-interval 1000
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW bfd-liveness-detection transmit-interval minimum-interval 1000" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : 
+Error: bad value: "" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : 
+Error: bad value: "" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW neighbor 40.235.2.1
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW neighbor 40.235.2.1" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW neighbor 40.235.2.1 peer-as 65505
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW neighbor 40.235.2.1 peer-as 65505" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : 
+Error: bad value: "" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : 
+Error: bad value: "" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW neighbor 40.235.2.2
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW neighbor 40.235.2.2" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW neighbor 40.235.2.2 peer-as 65505
+Error: bad value: "set devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 group VNF-GW neighbor 40.235.2.2 peer-as 65505" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : 
+Error: bad value: "" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : 
+Error: bad value: "" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : 
+Error: bad value: "" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : 
+Error: bad value: "" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging local-auth-info key NV-WC01-N2-BLR
+Error: bad value: "set devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging local-auth-info key NV-WC01-N2-BLR" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging local-auth-info id-string NV-WC01-N2-BLR@FEB7.com
+Error: bad value: "set devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging local-auth-info id-string NV-WC01-N2-BLR@FEB7.com" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : 
+Error: bad value: "" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : 
+Error: bad value: "" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : 
+Error: bad value: "" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : 
+Error: bad value: "" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : 
+Error: bad value: "" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging psk-auth-clients remote-client NV-GW01-N2-BLR@FEB7.com id-type email
+Error: bad value: "set devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging psk-auth-clients remote-client NV-GW01-N2-BLR@FEB7.com id-type email" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging psk-auth-clients remote-client NV-GW01-N2-BLR@FEB7.com key NV-GW01-N2-BLR
+Error: bad value: "set devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging psk-auth-clients remote-client NV-GW01-N2-BLR@FEB7.com key NV-GW01-N2-BLR" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : 
+Error: bad value: "" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : 
+Error: bad value: "" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : 
+Error: bad value: "" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : 
+Error: bad value: "" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : 
+Error: bad value: "" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging psk-auth-clients remote-client NV-GW02-N2-BLR@FEB7.com id-type email
+Error: bad value: "set devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging psk-auth-clients remote-client NV-GW02-N2-BLR@FEB7.com id-type email" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : set devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging psk-auth-clients remote-client NV-GW02-N2-BLR@FEB7.com key NV-GW02-N2-BLR
+Error: bad value: "set devices device NV-WC01-N2-BLR config orgs org-services FEB7 ipsec vpn-profile FEB7-PostStaging psk-auth-clients remote-client NV-GW02-N2-BLR@FEB7.com key NV-GW02-N2-BLR" is not a valid value.
+Value for 'devices device NV-WC01-N2-BLR config routing-instances FEB7-Control-VR protocols bgp 235 router-id' : 

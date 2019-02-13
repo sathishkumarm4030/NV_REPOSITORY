@@ -1,0 +1,913 @@
+2019-02-11 15:54:06,755 - VD1 - INFO - ORG NAME:HONDA
+2019-02-11 15:54:17,624 - VD1 - DEBUG - {
+  "versanms.sdwan-org-workflow": {
+    "orgName": "HONDA",
+    "globalId": "137",
+    "parentOrg": "Colt",
+    "ikeAuthType": "psk",
+    "sharedControlPlane": false,
+    "controllers": ["NV-WC01-N2-BLR", "NV-WC02-N4-MUM", "NV-WC02-N2-BLR", "NV-WC01-N4-MUM", "NV-WC01-N5-LON", "NV-WC02-N5-LON"],
+    "vrfs": [{ "name": "LAN1-VRF", "id": "1490", "enableVPN": "true", "tooltip": "" },{ "name": "LAN2-VRF", "id": "1491", "enableVPN": "true", "tooltip": "" },{ "name": "LAN3-VRF", "id": "1492", "enableVPN": "true", "tooltip": "" },{ "name": "LAN4-VRF", "id": "1493", "enableVPN": "true", "tooltip": "" },{ "name": "LAN5-VRF", "id": "1494", "enableVPN": "true", "tooltip": "" }],
+    "supportedRoles": []
+  }
+}
+2019-02-11 15:54:17,624 - VD1 - INFO - PASS
+2019-02-11 15:54:27,913 - VD1 - INFO - set devices device NV-GW01-N2-BLR config interfaces tvi-0/274 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/274 mode ipsec
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/274 type p2mp-vxlan
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/274 unit 0 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/274 description "VxLAN HONDA Management"
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/274 unit 0 family
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/274 unit 0 family inet
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/274 unit 0 family inet address 30.137.2.1/32
+
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/275 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/275 mode ipsec
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/275 type p2mp-esp
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/275 unit 0 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/275 description "ESP HONDA Management"
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/275 unit 0 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/275 unit 0 family
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/275 unit 0 family inet
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/275 unit 0 family inet address 40.137.2.1/32
+
+
+
+
+set devices device NV-GW01-N2-BLR config interfaces ptvi274 parent-interface tvi-0/275.0 remote-address 10.137.64.23
+
+
+
+set devices device NV-GW01-N2-BLR config interfaces ptvi275 parent-interface tvi-0/275.0 remote-address 10.137.64.24
+
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1490 vlan-id 1490
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1490 enable true
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1490 family
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1490 family inet
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1490 family inet address 193.137.1.2/30
+
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1491 vlan-id 1491
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1491 enable true
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1491 family
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1491 family inet
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1491 family inet address 193.137.1.6/30
+
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1492 vlan-id 1492
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1492 enable true
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1492 family
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1492 family inet
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1492 family inet address 193.137.1.10/30
+
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1493 vlan-id 1493
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1493 enable true
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1493 family
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1493 family inet
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1493 family inet address 193.137.1.14/30
+
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1494 vlan-id 1494
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1494 enable true
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1494 family
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1494 family inet
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 1494 family inet address 193.137.1.18/30
+
+
+
+
+
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1490 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1490 mode ipsec
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1490 type paired
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1490 paired-interface tvi-0/3390
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1490 unit 0 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1490 unit 0 family
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1490 unit 0 family inet
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1490 unit 0 family inet address 10.137.47.65/30
+
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3390 mode ipsec
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3390 type paired
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3390 paired-interface tvi-0/1490
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3390 unit 0 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3390 unit 0 family
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3390 unit 0 family inet
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3390 unit 0 family inet address 10.137.47.66/30
+
+set devices device NV-GW01-N2-BLR config networks HONDA-MPLS1 interfaces [ vni-0/0.1490 ]
+
+
+
+
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1491 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1491 mode ipsec
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1491 type paired
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1491 paired-interface tvi-0/3391
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1491 unit 0 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1491 unit 0 family
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1491 unit 0 family inet
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1491 unit 0 family inet address 10.137.47.69/30
+
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3391 mode ipsec
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3391 type paired
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3391 paired-interface tvi-0/1491
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3391 unit 0 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3391 unit 0 family
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3391 unit 0 family inet
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3391 unit 0 family inet address 10.137.47.70/30
+
+set devices device NV-GW01-N2-BLR config networks HONDA-MPLS2 interfaces [ vni-0/0.1491 ]
+
+
+
+
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1492 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1492 mode ipsec
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1492 type paired
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1492 paired-interface tvi-0/3392
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1492 unit 0 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1492 unit 0 family
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1492 unit 0 family inet
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1492 unit 0 family inet address 10.137.47.73/30
+
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3392 mode ipsec
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3392 type paired
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3392 paired-interface tvi-0/1492
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3392 unit 0 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3392 unit 0 family
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3392 unit 0 family inet
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3392 unit 0 family inet address 10.137.47.74/30
+
+set devices device NV-GW01-N2-BLR config networks HONDA-MPLS3 interfaces [ vni-0/0.1492 ]
+
+
+
+
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1493 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1493 mode ipsec
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1493 type paired
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1493 paired-interface tvi-0/3393
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1493 unit 0 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1493 unit 0 family
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1493 unit 0 family inet
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1493 unit 0 family inet address 10.137.47.77/30
+
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3393 mode ipsec
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3393 type paired
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3393 paired-interface tvi-0/1493
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3393 unit 0 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3393 unit 0 family
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3393 unit 0 family inet
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3393 unit 0 family inet address 10.137.47.78/30
+
+set devices device NV-GW01-N2-BLR config networks HONDA-MPLS4 interfaces [ vni-0/0.1493 ]
+
+
+
+
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1494 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1494 mode ipsec
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1494 type paired
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1494 paired-interface tvi-0/3394
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1494 unit 0 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1494 unit 0 family
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1494 unit 0 family inet
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/1494 unit 0 family inet address 10.137.47.81/30
+
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3394 mode ipsec
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3394 type paired
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3394 paired-interface tvi-0/1494
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3394 unit 0 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3394 unit 0 family
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3394 unit 0 family inet
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/3394 unit 0 family inet address 10.137.47.82/30
+
+set devices device NV-GW01-N2-BLR config networks HONDA-MPLS5 interfaces [ vni-0/0.1494 ]
+
+
+
+
+
+set devices device NV-GW01-N2-BLR config orgs org HONDA available-routing-instances [ INT-TRANSP-VR MPLS-TRANSP-VR HONDA-Control-VR HONDA-EXPORT1-VRF HONDA-EXPORT2-VRF HONDA-EXPORT3-VRF HONDA-EXPORT4-VRF HONDA-EXPORT5-VRF HONDA-LAN1-VRF HONDA-LAN2-VRF HONDA-LAN3-VRF HONDA-LAN4-VRF HONDA-LAN5-VRF ]
+set devices device NV-GW01-N2-BLR config orgs org HONDA traffic-identification using [ ptvi274 ptvi275 tvi-0/274.0 tvi-0/275.0 tvi-0/1490.0 tvi-0/3390.0 tvi-0/1491.0 tvi-0/3391.0 tvi-0/1492.0 tvi-0/3392.0 tvi-0/1493.0 tvi-0/3393.0 tvi-0/1494.0 tvi-0/3394.0 ]
+set devices device NV-GW01-N2-BLR config orgs org HONDA owned-routing-instances [ INT-TRANSP-VR MPLS-TRANSP-VR HONDA-Control-VR HONDA-EXPORT1-VRF HONDA-EXPORT2-VRF HONDA-EXPORT3-VRF HONDA-EXPORT4-VRF HONDA-EXPORT5-VRF HONDA-LAN1-VRF HONDA-LAN2-VRF HONDA-LAN3-VRF HONDA-LAN4-VRF HONDA-LAN5-VRF  ]
+set devices device NV-GW01-N2-BLR config orgs org HONDA traffic-identification using-networks [ HONDA-MPLS1 HONDA-MPLS2 HONDA-MPLS3 HONDA-MPLS4 HONDA-MPLS5 ]
+
+set devices device NV-GW01-N2-BLR config orgs org HONDA available-provider-orgs [ HONDA ]
+set devices device NV-GW01-N2-BLR config orgs org HONDA available-service-node-groups [ default-sng ]
+set devices device NV-GW01-N2-BLR config orgs org HONDA sd-wan site
+set devices device NV-GW01-N2-BLR config orgs org HONDA sd-wan site global-tenant-id 137
+set devices device NV-GW01-N2-BLR config orgs org HONDA sd-wan site site-name NV-GW01-N2-BLR
+set devices device NV-GW01-N2-BLR config orgs org HONDA sd-wan site management-routing-instance HONDA-Control-VR
+set devices device NV-GW01-N2-BLR config orgs org HONDA sd-wan site wan-interfaces vni-0/1.454 sla-monitoring fc_be interval 1
+set devices device NV-GW01-N2-BLR config orgs org HONDA sd-wan site wan-interfaces vni-0/1.454 sla-monitoring fc_be logging-interval 5
+set devices device NV-GW01-N2-BLR config orgs org HONDA sd-wan site wan-interfaces vni-0/1.454 encryption optional
+set devices device NV-GW01-N2-BLR config orgs org HONDA sd-wan site wan-interfaces vni-0/1.464 sla-monitoring fc_be interval 1
+set devices device NV-GW01-N2-BLR config orgs org HONDA sd-wan site wan-interfaces vni-0/1.464 sla-monitoring fc_be logging-interval 5
+
+
+
+
+set devices device NV-GW01-N2-BLR config orgs org HONDA sd-wan controllers NV-WC01-N2-BLR management-addresses IKE ip-address 10.137.0.23 routing-instance HONDA-Control-VR
+set devices device NV-GW01-N2-BLR config orgs org HONDA sd-wan controllers NV-WC01-N2-BLR management-addresses secure ip-address 10.137.64.23 routing-instance HONDA-Control-VR
+
+
+
+
+set devices device NV-GW01-N2-BLR config orgs org HONDA sd-wan controllers NV-WC02-N2-BLR management-addresses IKE ip-address 10.137.0.24 routing-instance HONDA-Control-VR
+set devices device NV-GW01-N2-BLR config orgs org HONDA sd-wan controllers NV-WC02-N2-BLR management-addresses secure ip-address 10.137.64.24 routing-instance HONDA-Control-VR
+
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA security access-policies Policy1 rules R1 set action allow
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA security access-policies Policy1 rules R1 set lef profile Default-Logging-Profile
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA security access-policies Policy1 rules R1 set lef event end
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA security access-policies Policy1 rules R1 set lef options send-pcap-data enable false
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA objects zones trust
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA objects zones untrust
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA objects zones host
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA traffic-monitoring logging-control Default-Logging-Control profile Default-Logging-Profile
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA traffic-monitoring logging-control Default-Logging-Control options
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA traffic-monitoring logging-control Default-Logging-Control options stats
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA traffic-monitoring logging-control Default-Logging-Control options stats all
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA traffic-monitoring policies Analytics-policy rules rule1 set lef profile Default-Logging-Profile
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA lef collectors LEF-Collector-log_collector1 destination-address 10.91.116.71 destination-port 5140
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA lef collectors LEF-Collector-log_collector1 routing-instance HONDA-Control-VR
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA lef collectors LEF-Collector-log_collector1 transport tcp
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA lef collectors LEF-Collector-log_collector1 template Default-LEF-Template
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA lef collectors LEF-Collector-log_collector2 destination-address 10.91.116.72 destination-port 5140
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA lef collectors LEF-Collector-log_collector2 routing-instance HONDA-Control-VR
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA lef collectors LEF-Collector-log_collector2 transport tcp
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA lef collectors LEF-Collector-log_collector2 template Default-LEF-Template
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA lef collector-groups Default-Collector-Group collectors [ LEF-Collector-log_collector1 LEF-Collector-log_collector2 ]
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA lef templates Default-LEF-Template type ipfix
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA lef profiles Default-Logging-Profile collector-group Default-Collector-Group
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA lef default-profile Default-Logging-Profile
+
+
+
+
+
+
+
+
+
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 vpn-type branch-sdwan
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 local-auth-info
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 local-auth-info auth-type psk
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 local-auth-info id-type email
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 local-auth-info key NV-GW01-N2-BLR
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 local-auth-info id-string NV-GW01-N2-BLR@HONDA.com
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 local
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 local address 30.137.2.1
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 routing-instance HONDA-Control-VR
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 tunnel-routing-instance HONDA-Control-VR
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 tunnel-initiate automatic
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 ipsec fragmentation pre-fragmentation
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 ipsec transform esp-aes128-sha1
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 ipsec mode tunnel
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 ipsec pfs-group mod-none
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 ipsec anti-replay enable
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 ipsec life duration 25000
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 ike version v2
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 ike group mod19
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 ike transform aes128-sha1
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 ike lifetime 27000
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 ike dpd-timeout 10
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 peer-auth-info
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 peer-auth-info auth-type psk
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 peer-auth-info id-type email
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 peer-auth-info key NV-WC01-N2-BLR
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 peer-auth-info id-string NV-WC01-N2-BLR@HONDA.com
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 peer
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 peer address 10.137.0.23
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL1 tunnel-interface ptvi274
+
+
+
+
+
+
+
+
+
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 vpn-type branch-sdwan
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 local-auth-info
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 local-auth-info auth-type psk
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 local-auth-info id-type email
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 local-auth-info key NV-GW01-N2-BLR
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 local-auth-info id-string NV-GW01-N2-BLR@HONDA.com
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 local
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 local address 30.137.2.1
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 routing-instance HONDA-Control-VR
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 tunnel-routing-instance HONDA-Control-VR
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 tunnel-initiate automatic
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 ipsec fragmentation pre-fragmentation
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 ipsec transform esp-aes128-sha1
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 ipsec mode tunnel
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 ipsec pfs-group mod-none
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 ipsec anti-replay enable
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 ipsec life duration 25000
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 ike version v2
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 ike group mod19
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 ike transform aes128-sha1
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 ike lifetime 27000
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 ike dpd-timeout 10
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 peer-auth-info
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 peer-auth-info auth-type psk
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 peer-auth-info id-type email
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 peer-auth-info key NV-WC02-N2-BLR
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 peer-auth-info id-string NV-WC02-N2-BLR@HONDA.com
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 peer
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 peer address 10.137.0.24
+set devices device NV-GW01-N2-BLR config orgs org-services HONDA ipsec vpn-profile GW-CTRL2 tunnel-interface ptvi275
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR instance-type virtual-router
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR mpls-vpn-core
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR interfaces [ ptvi274 ptvi275 tvi-0/274.0 tvi-0/275.0 ]
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR routing-options mpls-vpn-local-router-address 40.137.2.1
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR routing-options static route 0.0.0.0/0 40.137.2.1 tvi-0/275.0 preference 1
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR routing-options static route 0.0.0.0/0 40.137.2.1 tvi-0/275.0 tag 0
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 router-id 40.137.2.1 local-as as-number 65505
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 hold-time 90
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 peer-as 65505
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 route-flap free-max-time 180
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 route-flap reuse-max-time 60
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 route-flap reuse-size 256
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 route-flap reuse-array-size 1024
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 graceful-restart enable
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 graceful-restart recovery-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 graceful-restart select-defer-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 graceful-restart stalepath-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 graceful-restart dynamic-peer-restart-time 0
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 ibgp-preference 200
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 ebgp-preference 20
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 group GW-WC type internal
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 group GW-WC family inet unicast
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 group GW-WC family inet versa-private
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 group GW-WC family inet-vpn unicast
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 group GW-WC bfd-liveness-detection
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 group GW-WC bfd-liveness-detection minimum-receive-interval 1000
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 group GW-WC bfd-liveness-detection multiplier 3
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 group GW-WC bfd-liveness-detection transmit-interval minimum-interval 1000
+
+
+
+
+
+
+
+
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 group GW-WC neighbor 10.137.64.23
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 group GW-WC neighbor 10.137.64.23 peer-as 65505
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 debug level debug
+
+
+
+
+
+
+
+
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 group GW-WC neighbor 10.137.64.24
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 group GW-WC neighbor 10.137.64.24 peer-as 65505
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-Control-VR protocols bgp 137 debug level debug
+
+
+
+
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF instance-type vrf
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF global-vrf-id 14902
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF mpls-vpn-core-instance HONDA-Control-VR
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF interfaces [ tvi-0/3390.0 ]
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF route-distinguisher 1490L:14902
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF vrf-export-target target:1490L:14902
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 router-id 10.137.47.66 local-as as-number 65506
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 route-flap free-max-time 180
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 route-flap reuse-max-time 60
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 route-flap reuse-size 256
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 route-flap reuse-array-size 1024
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 graceful-restart recovery-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 graceful-restart select-defer-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 graceful-restart stalepath-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 prefix-list NNI1-INT seq 10 permit
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 prefix-list NNI1-INT seq 10 address-family ipv4 unicast address-mask 193.137.1.0/30
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT match ip nlri prefix-list NNI1-INT
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES match community "(^|,)91:20($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community 91:11
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community-action set-specific
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 ibgp-preference 200
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 ebgp-preference 20
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 group EBGP-With-LAN_VRF type external
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 group EBGP-With-LAN_VRF import IMPORT-POLICY-FROM-LAN-VRF
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 group EBGP-With-LAN_VRF neighbor 10.137.47.65 local-address 10.137.47.66
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 group EBGP-With-LAN_VRF neighbor 10.137.47.65 peer-as 15404
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT1-VRF protocols bgp 13702 debug level debug
+
+
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action set-origin igp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT match protocol direct
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action set-origin igp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC match protocol static
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action set-origin igp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF instance-type vrf
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF global-vrf-id 1490
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF networks [ HONDA-MPLS1 ]
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF mpls-vpn-core-instance HONDA-Control-VR
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF interfaces [ tvi-0/1490.0 ]
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF route-distinguisher 1490L:1490
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF vrf-import-target target:1490L:1490
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF vrf-export-target target:1490L:14902
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 router-id 193.137.1.2 local-as as-number 15404
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 route-flap free-max-time 180
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 route-flap reuse-max-time 60
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 route-flap reuse-size 256
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 route-flap reuse-array-size 1024
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 graceful-restart recovery-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 graceful-restart select-defer-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 graceful-restart stalepath-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 prefix-list PTVI-INT seq 10 permit
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 prefix-list PTVI-INT seq 10 address-family ipv4 unicast address-mask 10.137.47.64/30
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT match ip nlri prefix-list PTVI-INT
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP match community "(^|,)91:11($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM match community "(^|,)91:10($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community 100:10
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community-action set-specific
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 4DENY-REST action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP match community "(^|,)91:11($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 2ALLOW-REST action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES match community "(^|,)100:10($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community 91:20
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community-action set-specific
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 ibgp-preference 200
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 ebgp-preference 20
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 group EBGP-WITH-EXPORT_VRF type external
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 group EBGP-WITH-EXPORT_VRF export EXPORT-PAIR-TVI-LOOP-PREV
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 group EBGP-WITH-EXPORT_VRF neighbor 10.137.47.66 local-address 10.137.47.65
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 group EBGP-WITH-EXPORT_VRF neighbor 10.137.47.66 peer-as 65506
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI type external
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI import IMPORT-POLICY-NNI
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI export EXPORT-POLICY-NNI
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI neighbor 193.137.1.1 local-address 193.137.1.2
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI neighbor 193.137.1.1 peer-as 8220
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN1-VRF protocols bgp 13701 debug level debug
+
+
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF instance-type vrf
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF global-vrf-id 14912
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF mpls-vpn-core-instance HONDA-Control-VR
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF interfaces [ tvi-0/3391.0 ]
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF route-distinguisher 1491L:14912
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF vrf-export-target target:1491L:14912
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 router-id 10.137.47.70 local-as as-number 65506
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 route-flap free-max-time 180
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 route-flap reuse-max-time 60
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 route-flap reuse-size 256
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 route-flap reuse-array-size 1024
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 graceful-restart recovery-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 graceful-restart select-defer-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 graceful-restart stalepath-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 prefix-list NNI1-INT seq 10 permit
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 prefix-list NNI1-INT seq 10 address-family ipv4 unicast address-mask 193.137.1.4/30
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT match ip nlri prefix-list NNI1-INT
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES match community "(^|,)91:20($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community 91:11
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community-action set-specific
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 ibgp-preference 200
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 ebgp-preference 20
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 group EBGP-With-LAN_VRF type external
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 group EBGP-With-LAN_VRF import IMPORT-POLICY-FROM-LAN-VRF
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 group EBGP-With-LAN_VRF neighbor 10.137.47.69 local-address 10.137.47.70
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 group EBGP-With-LAN_VRF neighbor 10.137.47.69 peer-as 15404
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT2-VRF protocols bgp 13702 debug level debug
+
+
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action set-origin igp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT match protocol direct
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action set-origin igp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC match protocol static
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action set-origin igp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF instance-type vrf
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF global-vrf-id 1491
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF networks [ HONDA-MPLS2 ]
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF mpls-vpn-core-instance HONDA-Control-VR
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF interfaces [ tvi-0/1491.0 ]
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF route-distinguisher 1491L:1491
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF vrf-import-target target:1491L:1491
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF vrf-export-target target:1491L:14912
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 router-id 193.137.1.2 local-as as-number 15404
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 route-flap free-max-time 180
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 route-flap reuse-max-time 60
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 route-flap reuse-size 256
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 route-flap reuse-array-size 1024
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 graceful-restart recovery-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 graceful-restart select-defer-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 graceful-restart stalepath-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 prefix-list PTVI-INT seq 10 permit
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 prefix-list PTVI-INT seq 10 address-family ipv4 unicast address-mask 10.137.47.68/30
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT match ip nlri prefix-list PTVI-INT
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP match community "(^|,)91:11($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM match community "(^|,)91:10($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community 100:10
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community-action set-specific
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 4DENY-REST action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP match community "(^|,)91:11($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 2ALLOW-REST action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES match community "(^|,)100:10($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community 91:20
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community-action set-specific
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 ibgp-preference 200
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 ebgp-preference 20
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 group EBGP-WITH-EXPORT_VRF type external
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 group EBGP-WITH-EXPORT_VRF export EXPORT-PAIR-TVI-LOOP-PREV
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 group EBGP-WITH-EXPORT_VRF neighbor 10.137.47.70 local-address 10.137.47.69
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 group EBGP-WITH-EXPORT_VRF neighbor 10.137.47.70 peer-as 65506
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI type external
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI import IMPORT-POLICY-NNI
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI export EXPORT-POLICY-NNI
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI neighbor 193.137.1.1 local-address 193.137.1.2
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI neighbor 193.137.1.1 peer-as 8220
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN2-VRF protocols bgp 13701 debug level debug
+
+
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF instance-type vrf
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF global-vrf-id 14922
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF mpls-vpn-core-instance HONDA-Control-VR
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF interfaces [ tvi-0/3392.0 ]
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF route-distinguisher 1492L:14922
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF vrf-export-target target:1492L:14922
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 router-id 10.137.47.74 local-as as-number 65506
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 route-flap free-max-time 180
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 route-flap reuse-max-time 60
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 route-flap reuse-size 256
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 route-flap reuse-array-size 1024
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 graceful-restart recovery-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 graceful-restart select-defer-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 graceful-restart stalepath-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 prefix-list NNI1-INT seq 10 permit
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 prefix-list NNI1-INT seq 10 address-family ipv4 unicast address-mask 193.137.1.8/30
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT match ip nlri prefix-list NNI1-INT
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES match community "(^|,)91:20($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community 91:11
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community-action set-specific
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 ibgp-preference 200
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 ebgp-preference 20
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 group EBGP-With-LAN_VRF type external
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 group EBGP-With-LAN_VRF import IMPORT-POLICY-FROM-LAN-VRF
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 group EBGP-With-LAN_VRF neighbor 10.137.47.73 local-address 10.137.47.74
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 group EBGP-With-LAN_VRF neighbor 10.137.47.73 peer-as 15404
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT3-VRF protocols bgp 13702 debug level debug
+
+
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action set-origin igp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT match protocol direct
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action set-origin igp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC match protocol static
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action set-origin igp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF instance-type vrf
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF global-vrf-id 1492
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF networks [ HONDA-MPLS3 ]
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF mpls-vpn-core-instance HONDA-Control-VR
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF interfaces [ tvi-0/1492.0 ]
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF route-distinguisher 1492L:1492
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF vrf-import-target target:1492L:1492
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF vrf-export-target target:1492L:14922
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 router-id 193.137.1.2 local-as as-number 15404
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 route-flap free-max-time 180
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 route-flap reuse-max-time 60
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 route-flap reuse-size 256
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 route-flap reuse-array-size 1024
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 graceful-restart recovery-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 graceful-restart select-defer-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 graceful-restart stalepath-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 prefix-list PTVI-INT seq 10 permit
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 prefix-list PTVI-INT seq 10 address-family ipv4 unicast address-mask 10.137.47.72/30
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT match ip nlri prefix-list PTVI-INT
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP match community "(^|,)91:11($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM match community "(^|,)91:10($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community 100:10
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community-action set-specific
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 4DENY-REST action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP match community "(^|,)91:11($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 2ALLOW-REST action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES match community "(^|,)100:10($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community 91:20
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community-action set-specific
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 ibgp-preference 200
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 ebgp-preference 20
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 group EBGP-WITH-EXPORT_VRF type external
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 group EBGP-WITH-EXPORT_VRF export EXPORT-PAIR-TVI-LOOP-PREV
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 group EBGP-WITH-EXPORT_VRF neighbor 10.137.47.74 local-address 10.137.47.73
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 group EBGP-WITH-EXPORT_VRF neighbor 10.137.47.74 peer-as 65506
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI type external
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI import IMPORT-POLICY-NNI
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI export EXPORT-POLICY-NNI
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI neighbor 193.137.1.1 local-address 193.137.1.2
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI neighbor 193.137.1.1 peer-as 8220
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN3-VRF protocols bgp 13701 debug level debug
+
+
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF instance-type vrf
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF global-vrf-id 14932
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF mpls-vpn-core-instance HONDA-Control-VR
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF interfaces [ tvi-0/3393.0 ]
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF route-distinguisher 1493L:14932
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF vrf-export-target target:1493L:14932
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 router-id 10.137.47.78 local-as as-number 65506
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 route-flap free-max-time 180
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 route-flap reuse-max-time 60
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 route-flap reuse-size 256
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 route-flap reuse-array-size 1024
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 graceful-restart recovery-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 graceful-restart select-defer-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 graceful-restart stalepath-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 prefix-list NNI1-INT seq 10 permit
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 prefix-list NNI1-INT seq 10 address-family ipv4 unicast address-mask 193.137.1.12/30
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT match ip nlri prefix-list NNI1-INT
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES match community "(^|,)91:20($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community 91:11
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community-action set-specific
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 ibgp-preference 200
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 ebgp-preference 20
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 group EBGP-With-LAN_VRF type external
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 group EBGP-With-LAN_VRF import IMPORT-POLICY-FROM-LAN-VRF
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 group EBGP-With-LAN_VRF neighbor 10.137.47.77 local-address 10.137.47.78
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 group EBGP-With-LAN_VRF neighbor 10.137.47.77 peer-as 15404
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT4-VRF protocols bgp 13702 debug level debug
+
+
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action set-origin igp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT match protocol direct
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action set-origin igp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC match protocol static
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action set-origin igp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF instance-type vrf
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF global-vrf-id 1493
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF networks [ HONDA-MPLS4 ]
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF mpls-vpn-core-instance HONDA-Control-VR
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF interfaces [ tvi-0/1493.0 ]
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF route-distinguisher 1493L:1493
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF vrf-import-target target:1493L:1493
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF vrf-export-target target:1493L:14932
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 router-id 193.137.1.2 local-as as-number 15404
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 route-flap free-max-time 180
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 route-flap reuse-max-time 60
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 route-flap reuse-size 256
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 route-flap reuse-array-size 1024
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 graceful-restart recovery-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 graceful-restart select-defer-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 graceful-restart stalepath-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 prefix-list PTVI-INT seq 10 permit
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 prefix-list PTVI-INT seq 10 address-family ipv4 unicast address-mask 10.137.47.76/30
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT match ip nlri prefix-list PTVI-INT
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP match community "(^|,)91:11($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM match community "(^|,)91:10($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community 100:10
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community-action set-specific
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 4DENY-REST action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP match community "(^|,)91:11($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 2ALLOW-REST action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES match community "(^|,)100:10($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community 91:20
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community-action set-specific
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 ibgp-preference 200
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 ebgp-preference 20
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 group EBGP-WITH-EXPORT_VRF type external
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 group EBGP-WITH-EXPORT_VRF export EXPORT-PAIR-TVI-LOOP-PREV
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 group EBGP-WITH-EXPORT_VRF neighbor 10.137.47.78 local-address 10.137.47.77
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 group EBGP-WITH-EXPORT_VRF neighbor 10.137.47.78 peer-as 65506
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI type external
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI import IMPORT-POLICY-NNI
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI export EXPORT-POLICY-NNI
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI neighbor 193.137.1.1 local-address 193.137.1.2
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI neighbor 193.137.1.1 peer-as 8220
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN4-VRF protocols bgp 13701 debug level debug
+
+
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF instance-type vrf
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF global-vrf-id 14942
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF mpls-vpn-core-instance HONDA-Control-VR
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF interfaces [ tvi-0/3394.0 ]
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF route-distinguisher 1494L:14942
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF vrf-export-target target:1494L:14942
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 router-id 10.137.47.82 local-as as-number 65506
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 route-flap free-max-time 180
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 route-flap reuse-max-time 60
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 route-flap reuse-size 256
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 route-flap reuse-array-size 1024
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 graceful-restart recovery-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 graceful-restart select-defer-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 graceful-restart stalepath-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 prefix-list NNI1-INT seq 10 permit
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 prefix-list NNI1-INT seq 10 address-family ipv4 unicast address-mask 193.137.1.16/30
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT match ip nlri prefix-list NNI1-INT
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES match community "(^|,)91:20($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community 91:11
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community-action set-specific
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 ibgp-preference 200
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 ebgp-preference 20
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 group EBGP-With-LAN_VRF type external
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 group EBGP-With-LAN_VRF import IMPORT-POLICY-FROM-LAN-VRF
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 group EBGP-With-LAN_VRF neighbor 10.137.47.81 local-address 10.137.47.82
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 group EBGP-With-LAN_VRF neighbor 10.137.47.81 peer-as 15404
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-EXPORT5-VRF protocols bgp 13702 debug level debug
+
+
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action set-origin igp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT match protocol direct
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action set-origin igp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC match protocol static
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action set-origin igp
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF instance-type vrf
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF global-vrf-id 1494
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF networks [ HONDA-MPLS5 ]
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF mpls-vpn-core-instance HONDA-Control-VR
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF interfaces [ tvi-0/1494.0 ]
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF route-distinguisher 1494L:1494
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF vrf-import-target target:1494L:1494
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF vrf-export-target target:1494L:14942
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 router-id 193.137.1.2 local-as as-number 15404
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 route-flap free-max-time 180
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 route-flap reuse-max-time 60
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 route-flap reuse-size 256
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 route-flap reuse-array-size 1024
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 graceful-restart recovery-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 graceful-restart select-defer-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 graceful-restart stalepath-time 120
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 prefix-list PTVI-INT seq 10 permit
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 prefix-list PTVI-INT seq 10 address-family ipv4 unicast address-mask 10.137.47.80/30
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT match ip nlri prefix-list PTVI-INT
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP match community "(^|,)91:11($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM match community "(^|,)91:10($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community 100:10
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community-action set-specific
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 routing-peer-policy EXPORT-POLICY-NNI term 4DENY-REST action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP match community "(^|,)91:11($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 2ALLOW-REST action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES match community "(^|,)100:10($|,)"
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES action reject
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action accept
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community 91:20
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community-action set-specific
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 ibgp-preference 200
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 ebgp-preference 20
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 group EBGP-WITH-EXPORT_VRF type external
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 group EBGP-WITH-EXPORT_VRF export EXPORT-PAIR-TVI-LOOP-PREV
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 group EBGP-WITH-EXPORT_VRF neighbor 10.137.47.82 local-address 10.137.47.81
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 group EBGP-WITH-EXPORT_VRF neighbor 10.137.47.82 peer-as 65506
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI type external
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI import IMPORT-POLICY-NNI
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI export EXPORT-POLICY-NNI
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI neighbor 193.137.1.1 local-address 193.137.1.2
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 group EBGP-With-SAR-TypeA-NNI neighbor 193.137.1.1 peer-as 8220
+set devices device NV-GW01-N2-BLR config routing-instances HONDA-LAN5-VRF protocols bgp 13701 debug level debug
+
+

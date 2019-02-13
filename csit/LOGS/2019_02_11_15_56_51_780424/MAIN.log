@@ -1,0 +1,3063 @@
+2019-02-11 15:57:03,692 - VD1 - INFO - ORG NAME:THAMES
+2019-02-11 15:57:06,007 - VD1 - DEBUG - {
+  "versanms.sdwan-org-workflow": {
+    "orgName": "THAMES",
+    "globalId": "138",
+    "parentOrg": "Colt",
+    "ikeAuthType": "psk",
+    "sharedControlPlane": false,
+    "controllers": ["NV-WC01-N2-BLR", "NV-WC02-N4-MUM", "NV-WC01-N5-LON", "NV-WC02-N5-LON"],
+    "vrfs": [{ "name": "LAN1-VRF", "id": "1500", "enableVPN": "true", "tooltip": "" },{ "name": "LAN2-VRF", "id": "1501", "enableVPN": "true", "tooltip": "" },{ "name": "LAN3-VRF", "id": "1502", "enableVPN": "true", "tooltip": "" }],
+    "supportedRoles": []
+  }
+}
+2019-02-11 15:57:06,008 - VD1 - INFO - PASS
+2019-02-11 15:57:16,238 - VD1 - INFO - set devices device NV-GW01-N5-LON config interfaces tvi-0/276 enable true
+set devices device NV-GW01-N5-LON config interfaces tvi-0/276 mode ipsec
+set devices device NV-GW01-N5-LON config interfaces tvi-0/276 type p2mp-vxlan
+set devices device NV-GW01-N5-LON config interfaces tvi-0/276 unit 0 enable true
+set devices device NV-GW01-N5-LON config interfaces tvi-0/276 description "VxLAN THAMES Management"
+set devices device NV-GW01-N5-LON config interfaces tvi-0/276 unit 0 family
+set devices device NV-GW01-N5-LON config interfaces tvi-0/276 unit 0 family inet
+set devices device NV-GW01-N5-LON config interfaces tvi-0/276 unit 0 family inet address 30.138.6.1/32
+
+set devices device NV-GW01-N5-LON config interfaces tvi-0/277 enable true
+set devices device NV-GW01-N5-LON config interfaces tvi-0/277 mode ipsec
+set devices device NV-GW01-N5-LON config interfaces tvi-0/277 type p2mp-esp
+set devices device NV-GW01-N5-LON config interfaces tvi-0/277 unit 0 enable true
+set devices device NV-GW01-N5-LON config interfaces tvi-0/277 description "ESP THAMES Management"
+set devices device NV-GW01-N5-LON config interfaces tvi-0/277 unit 0 enable true
+set devices device NV-GW01-N5-LON config interfaces tvi-0/277 unit 0 family
+set devices device NV-GW01-N5-LON config interfaces tvi-0/277 unit 0 family inet
+set devices device NV-GW01-N5-LON config interfaces tvi-0/277 unit 0 family inet address 40.138.6.1/32
+
+
+
+
+set devices device NV-GW01-N5-LON config interfaces ptvi276 parent-interface tvi-0/277.0 remote-address 10.138.64.11
+
+
+
+set devices device NV-GW01-N5-LON config interfaces ptvi277 parent-interface tvi-0/277.0 remote-address 10.138.64.10
+
+set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1500 vlan-id 1500
+set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1500 enable true
+set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1500 family
+set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1500 family inet
+set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1500 family inet address 193.138.11.2/30
+
+set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1501 vlan-id 1501
+set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1501 enable true
+set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1501 family
+set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1501 family inet
+set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1501 family inet address 193.138.11.6/30
+
+set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1502 vlan-id 1502
+set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1502 enable true
+set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1502 family
+set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1502 family inet
+set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1502 family inet address 193.138.11.10/30
+
+
+
+
+
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1500 enable true
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1500 mode ipsec
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1500 type paired
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1500 paired-interface tvi-0/3400
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1500 unit 0 enable true
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1500 unit 0 family
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1500 unit 0 family inet
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1500 unit 0 family inet address 10.138.47.65/30
+
+set devices device NV-GW01-N5-LON config interfaces tvi-0/3400 mode ipsec
+set devices device NV-GW01-N5-LON config interfaces tvi-0/3400 type paired
+set devices device NV-GW01-N5-LON config interfaces tvi-0/3400 paired-interface tvi-0/1500
+set devices device NV-GW01-N5-LON config interfaces tvi-0/3400 unit 0 enable true
+set devices device NV-GW01-N5-LON config interfaces tvi-0/3400 unit 0 family
+set devices device NV-GW01-N5-LON config interfaces tvi-0/3400 unit 0 family inet
+set devices device NV-GW01-N5-LON config interfaces tvi-0/3400 unit 0 family inet address 10.138.47.66/30
+
+set devices device NV-GW01-N5-LON config networks THAMES-MPLS1 interfaces [ vni-0/0.1500 ]
+
+
+
+
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1501 enable true
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1501 mode ipsec
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1501 type paired
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1501 paired-interface tvi-0/3401
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1501 unit 0 enable true
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1501 unit 0 family
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1501 unit 0 family inet
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1501 unit 0 family inet address 10.138.47.69/30
+
+set devices device NV-GW01-N5-LON config interfaces tvi-0/3401 mode ipsec
+set devices device NV-GW01-N5-LON config interfaces tvi-0/3401 type paired
+set devices device NV-GW01-N5-LON config interfaces tvi-0/3401 paired-interface tvi-0/1501
+set devices device NV-GW01-N5-LON config interfaces tvi-0/3401 unit 0 enable true
+set devices device NV-GW01-N5-LON config interfaces tvi-0/3401 unit 0 family
+set devices device NV-GW01-N5-LON config interfaces tvi-0/3401 unit 0 family inet
+set devices device NV-GW01-N5-LON config interfaces tvi-0/3401 unit 0 family inet address 10.138.47.70/30
+
+set devices device NV-GW01-N5-LON config networks THAMES-MPLS2 interfaces [ vni-0/0.1501 ]
+
+
+
+
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1502 enable true
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1502 mode ipsec
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1502 type paired
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1502 paired-interface tvi-0/3402
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1502 unit 0 enable true
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1502 unit 0 family
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1502 unit 0 family inet
+set devices device NV-GW01-N5-LON config interfaces tvi-0/1502 unit 0 family inet address 10.138.47.73/30
+
+set devices device NV-GW01-N5-LON config interfaces tvi-0/3402 mode ipsec
+set devices device NV-GW01-N5-LON config interfaces tvi-0/3402 type paired
+set devices device NV-GW01-N5-LON config interfaces tvi-0/3402 paired-interface tvi-0/1502
+set devices device NV-GW01-N5-LON config interfaces tvi-0/3402 unit 0 enable true
+set devices device NV-GW01-N5-LON config interfaces tvi-0/3402 unit 0 family
+set devices device NV-GW01-N5-LON config interfaces tvi-0/3402 unit 0 family inet
+set devices device NV-GW01-N5-LON config interfaces tvi-0/3402 unit 0 family inet address 10.138.47.74/30
+
+set devices device NV-GW01-N5-LON config networks THAMES-MPLS3 interfaces [ vni-0/0.1502 ]
+
+
+
+
+
+set devices device NV-GW01-N5-LON config orgs org THAMES available-routing-instances [ INT-TRANSP-VR MPLS-TRANSP-VR THAMES-Control-VR THAMES-EXPORT1-VRF THAMES-EXPORT2-VRF THAMES-EXPORT3-VRF THAMES-LAN1-VRF THAMES-LAN2-VRF THAMES-LAN3-VRF ]
+set devices device NV-GW01-N5-LON config orgs org THAMES traffic-identification using [ ptvi276 ptvi277 tvi-0/276.0 tvi-0/277.0 tvi-0/1500.0 tvi-0/3400.0 tvi-0/1501.0 tvi-0/3401.0 tvi-0/1502.0 tvi-0/3402.0 ]
+set devices device NV-GW01-N5-LON config orgs org THAMES owned-routing-instances [ INT-TRANSP-VR MPLS-TRANSP-VR THAMES-Control-VR THAMES-EXPORT1-VRF THAMES-EXPORT2-VRF THAMES-EXPORT3-VRF THAMES-LAN1-VRF THAMES-LAN2-VRF THAMES-LAN3-VRF  ]
+set devices device NV-GW01-N5-LON config orgs org THAMES traffic-identification using-networks [ THAMES-MPLS1 THAMES-MPLS2 THAMES-MPLS3 ]
+
+set devices device NV-GW01-N5-LON config orgs org THAMES available-provider-orgs [ THAMES ]
+set devices device NV-GW01-N5-LON config orgs org THAMES available-service-node-groups [ default-sng ]
+set devices device NV-GW01-N5-LON config orgs org THAMES sd-wan site
+set devices device NV-GW01-N5-LON config orgs org THAMES sd-wan site global-tenant-id 138
+set devices device NV-GW01-N5-LON config orgs org THAMES sd-wan site site-name NV-GW01-N5-LON
+set devices device NV-GW01-N5-LON config orgs org THAMES sd-wan site management-routing-instance THAMES-Control-VR
+set devices device NV-GW01-N5-LON config orgs org THAMES sd-wan site wan-interfaces vni-0/1.396 sla-monitoring fc_be interval 1
+set devices device NV-GW01-N5-LON config orgs org THAMES sd-wan site wan-interfaces vni-0/1.396 sla-monitoring fc_be logging-interval 5
+set devices device NV-GW01-N5-LON config orgs org THAMES sd-wan site wan-interfaces vni-0/1.396 encryption optional
+set devices device NV-GW01-N5-LON config orgs org THAMES sd-wan site wan-interfaces vni-0/1.397 sla-monitoring fc_be interval 1
+set devices device NV-GW01-N5-LON config orgs org THAMES sd-wan site wan-interfaces vni-0/1.397 sla-monitoring fc_be logging-interval 5
+
+
+
+
+set devices device NV-GW01-N5-LON config orgs org THAMES sd-wan controllers NV-WC01-N5-LON management-addresses IKE ip-address 10.138.0.11 routing-instance THAMES-Control-VR
+set devices device NV-GW01-N5-LON config orgs org THAMES sd-wan controllers NV-WC01-N5-LON management-addresses secure ip-address 10.138.64.11 routing-instance THAMES-Control-VR
+
+
+
+
+set devices device NV-GW01-N5-LON config orgs org THAMES sd-wan controllers NV-WC02-N5-LON management-addresses IKE ip-address 10.138.0.10 routing-instance THAMES-Control-VR
+set devices device NV-GW01-N5-LON config orgs org THAMES sd-wan controllers NV-WC02-N5-LON management-addresses secure ip-address 10.138.64.10 routing-instance THAMES-Control-VR
+
+set devices device NV-GW01-N5-LON config orgs org-services THAMES security access-policies Policy1 rules R1 set action allow
+set devices device NV-GW01-N5-LON config orgs org-services THAMES security access-policies Policy1 rules R1 set lef profile Default-Logging-Profile
+set devices device NV-GW01-N5-LON config orgs org-services THAMES security access-policies Policy1 rules R1 set lef event end
+set devices device NV-GW01-N5-LON config orgs org-services THAMES security access-policies Policy1 rules R1 set lef options send-pcap-data enable false
+set devices device NV-GW01-N5-LON config orgs org-services THAMES objects zones trust
+set devices device NV-GW01-N5-LON config orgs org-services THAMES objects zones untrust
+set devices device NV-GW01-N5-LON config orgs org-services THAMES objects zones host
+set devices device NV-GW01-N5-LON config orgs org-services THAMES traffic-monitoring logging-control Default-Logging-Control profile Default-Logging-Profile
+set devices device NV-GW01-N5-LON config orgs org-services THAMES traffic-monitoring logging-control Default-Logging-Control options
+set devices device NV-GW01-N5-LON config orgs org-services THAMES traffic-monitoring logging-control Default-Logging-Control options stats
+set devices device NV-GW01-N5-LON config orgs org-services THAMES traffic-monitoring logging-control Default-Logging-Control options stats all
+set devices device NV-GW01-N5-LON config orgs org-services THAMES traffic-monitoring policies Analytics-policy rules rule1 set lef profile Default-Logging-Profile
+set devices device NV-GW01-N5-LON config orgs org-services THAMES lef collectors LEF-Collector-log_collector1 destination-address 10.91.116.71 destination-port 5140
+set devices device NV-GW01-N5-LON config orgs org-services THAMES lef collectors LEF-Collector-log_collector1 routing-instance THAMES-Control-VR
+set devices device NV-GW01-N5-LON config orgs org-services THAMES lef collectors LEF-Collector-log_collector1 transport tcp
+set devices device NV-GW01-N5-LON config orgs org-services THAMES lef collectors LEF-Collector-log_collector1 template Default-LEF-Template
+set devices device NV-GW01-N5-LON config orgs org-services THAMES lef collectors LEF-Collector-log_collector2 destination-address 10.91.116.72 destination-port 5140
+set devices device NV-GW01-N5-LON config orgs org-services THAMES lef collectors LEF-Collector-log_collector2 routing-instance THAMES-Control-VR
+set devices device NV-GW01-N5-LON config orgs org-services THAMES lef collectors LEF-Collector-log_collector2 transport tcp
+set devices device NV-GW01-N5-LON config orgs org-services THAMES lef collectors LEF-Collector-log_collector2 template Default-LEF-Template
+set devices device NV-GW01-N5-LON config orgs org-services THAMES lef collector-groups Default-Collector-Group collectors [ LEF-Collector-log_collector1 LEF-Collector-log_collector2 ]
+set devices device NV-GW01-N5-LON config orgs org-services THAMES lef templates Default-LEF-Template type ipfix
+set devices device NV-GW01-N5-LON config orgs org-services THAMES lef profiles Default-Logging-Profile collector-group Default-Collector-Group
+set devices device NV-GW01-N5-LON config orgs org-services THAMES lef default-profile Default-Logging-Profile
+
+
+
+
+
+
+
+
+
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 vpn-type branch-sdwan
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 local-auth-info
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 local-auth-info auth-type psk
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 local-auth-info id-type email
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 local-auth-info key NV-GW01-N5-LON
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 local-auth-info id-string NV-GW01-N5-LON@THAMES.com
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 local
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 local address 30.138.6.1
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 routing-instance THAMES-Control-VR
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 tunnel-routing-instance THAMES-Control-VR
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 tunnel-initiate automatic
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 ipsec fragmentation pre-fragmentation
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 ipsec transform esp-aes128-sha1
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 ipsec mode tunnel
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 ipsec pfs-group mod-none
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 ipsec anti-replay enable
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 ipsec life duration 25000
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 ike version v2
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 ike group mod19
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 ike transform aes128-sha1
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 ike lifetime 27000
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 ike dpd-timeout 10
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 peer-auth-info
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 peer-auth-info auth-type psk
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 peer-auth-info id-type email
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 peer-auth-info key NV-WC01-N5-LON
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 peer-auth-info id-string NV-WC01-N5-LON@THAMES.com
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 peer
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 peer address 10.138.0.11
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 tunnel-interface ptvi276
+
+
+
+
+
+
+
+
+
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 vpn-type branch-sdwan
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 local-auth-info
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 local-auth-info auth-type psk
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 local-auth-info id-type email
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 local-auth-info key NV-GW01-N5-LON
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 local-auth-info id-string NV-GW01-N5-LON@THAMES.com
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 local
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 local address 30.138.6.1
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 routing-instance THAMES-Control-VR
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 tunnel-routing-instance THAMES-Control-VR
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 tunnel-initiate automatic
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 ipsec fragmentation pre-fragmentation
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 ipsec transform esp-aes128-sha1
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 ipsec mode tunnel
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 ipsec pfs-group mod-none
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 ipsec anti-replay enable
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 ipsec life duration 25000
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 ike version v2
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 ike group mod19
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 ike transform aes128-sha1
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 ike lifetime 27000
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 ike dpd-timeout 10
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 peer-auth-info
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 peer-auth-info auth-type psk
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 peer-auth-info id-type email
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 peer-auth-info key NV-WC02-N5-LON
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 peer-auth-info id-string NV-WC02-N5-LON@THAMES.com
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 peer
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 peer address 10.138.0.10
+set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 tunnel-interface ptvi277
+
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR instance-type virtual-router
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR mpls-vpn-core
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR interfaces [ ptvi276 ptvi277 tvi-0/276.0 tvi-0/277.0 ]
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR routing-options mpls-vpn-local-router-address 40.138.6.1
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR routing-options static route 0.0.0.0/0 40.138.6.1 tvi-0/277.0 preference 1
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR routing-options static route 0.0.0.0/0 40.138.6.1 tvi-0/277.0 tag 0
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 router-id 40.138.6.1 local-as as-number 65505
+
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 hold-time 90
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 peer-as 65505
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 route-flap free-max-time 180
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 route-flap reuse-max-time 60
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 route-flap reuse-size 256
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 route-flap reuse-array-size 1024
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 graceful-restart enable
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 graceful-restart recovery-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 graceful-restart select-defer-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 graceful-restart stalepath-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 graceful-restart dynamic-peer-restart-time 0
+
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 ibgp-preference 200
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 ebgp-preference 20
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC type internal
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC family inet unicast
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC family inet versa-private
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC family inet-vpn unicast
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC bfd-liveness-detection
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC bfd-liveness-detection minimum-receive-interval 1000
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC bfd-liveness-detection multiplier 3
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC bfd-liveness-detection transmit-interval minimum-interval 1000
+
+
+
+
+
+
+
+
+
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC neighbor 10.138.64.11
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC neighbor 10.138.64.11 peer-as 65505
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 debug level debug
+
+
+
+
+
+
+
+
+
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC neighbor 10.138.64.10
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC neighbor 10.138.64.10 peer-as 65505
+set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 debug level debug
+
+
+
+
+
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF instance-type vrf
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF global-vrf-id 15002
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF mpls-vpn-core-instance THAMES-Control-VR
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF interfaces [ tvi-0/3400.0 ]
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF route-distinguisher 1500L:15002
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF vrf-export-target target:1500L:15002
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 router-id 10.138.47.66 local-as as-number 65506
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 route-flap free-max-time 180
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 route-flap reuse-max-time 60
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 route-flap reuse-size 256
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 route-flap reuse-array-size 1024
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 graceful-restart recovery-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 graceful-restart select-defer-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 graceful-restart stalepath-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 permit
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 address-family ipv4 unicast address-mask 193.138.11.0/30
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT match ip nlri prefix-list NNI1-INT
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT action reject
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES match community "(^|,)44:20($|,)"
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES action reject
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community 44:11
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community-action set-specific
+
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 ibgp-preference 200
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 ebgp-preference 20
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 group EBGP-With-LAN_VRF type external
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 group EBGP-With-LAN_VRF import IMPORT-POLICY-FROM-LAN-VRF
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 group EBGP-With-LAN_VRF neighbor 10.138.47.65 local-address 10.138.47.66
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 group EBGP-With-LAN_VRF neighbor 10.138.47.65 peer-as 15404
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 debug level debug
+
+
+
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action set-origin igp
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT match protocol direct
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action set-origin igp
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC match protocol static
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action set-origin igp
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF instance-type vrf
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF global-vrf-id 1500
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF networks [ THAMES-MPLS1 ]
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF mpls-vpn-core-instance THAMES-Control-VR
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF interfaces [ tvi-0/1500.0 ]
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF route-distinguisher 1500L:1500
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF vrf-import-target target:1500L:1500
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF vrf-export-target target:1500L:15002
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 router-id 193.138.11.2 local-as as-number 15404
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 route-flap free-max-time 180
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 route-flap reuse-max-time 60
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 route-flap reuse-size 256
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 route-flap reuse-array-size 1024
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 graceful-restart recovery-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 graceful-restart select-defer-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 graceful-restart stalepath-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 permit
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 address-family ipv4 unicast address-mask 10.138.47.64/30
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT match ip nlri prefix-list PTVI-INT
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT action reject
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP match community "(^|,)44:11($|,)"
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP action reject
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM match community "(^|,)44:10($|,)"
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community 100:10
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community-action set-specific
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 4DENY-REST action reject
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP match community "(^|,)44:11($|,)"
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP action reject
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 2ALLOW-REST action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES match community "(^|,)100:10($|,)"
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES action reject
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community 44:20
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community-action set-specific
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 ibgp-preference 200
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 ebgp-preference 20
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF type external
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF export EXPORT-PAIR-TVI-LOOP-PREV
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF neighbor 10.138.47.66 local-address 10.138.47.65
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF neighbor 10.138.47.66 peer-as 65506
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI type external
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI import IMPORT-POLICY-NNI
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI export EXPORT-POLICY-NNI
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI neighbor 193.138.11.1 local-address 193.138.11.2
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI neighbor 193.138.11.1 peer-as 8220
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 debug level debug
+
+
+
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF instance-type vrf
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF global-vrf-id 15012
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF mpls-vpn-core-instance THAMES-Control-VR
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF interfaces [ tvi-0/3401.0 ]
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF route-distinguisher 1501L:15012
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF vrf-export-target target:1501L:15012
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 router-id 10.138.47.70 local-as as-number 65506
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 route-flap free-max-time 180
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 route-flap reuse-max-time 60
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 route-flap reuse-size 256
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 route-flap reuse-array-size 1024
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 graceful-restart recovery-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 graceful-restart select-defer-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 graceful-restart stalepath-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 permit
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 address-family ipv4 unicast address-mask 193.138.11.4/30
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT match ip nlri prefix-list NNI1-INT
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT action reject
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES match community "(^|,)44:20($|,)"
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES action reject
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community 44:11
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community-action set-specific
+
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 ibgp-preference 200
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 ebgp-preference 20
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 group EBGP-With-LAN_VRF type external
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 group EBGP-With-LAN_VRF import IMPORT-POLICY-FROM-LAN-VRF
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 group EBGP-With-LAN_VRF neighbor 10.138.47.69 local-address 10.138.47.70
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 group EBGP-With-LAN_VRF neighbor 10.138.47.69 peer-as 15404
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 debug level debug
+
+
+
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action set-origin igp
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT match protocol direct
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action set-origin igp
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC match protocol static
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action set-origin igp
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF instance-type vrf
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF global-vrf-id 1501
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF networks [ THAMES-MPLS2 ]
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF mpls-vpn-core-instance THAMES-Control-VR
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF interfaces [ tvi-0/1501.0 ]
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF route-distinguisher 1501L:1501
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF vrf-import-target target:1501L:1501
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF vrf-export-target target:1501L:15012
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 router-id 193.138.11.2 local-as as-number 15404
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 route-flap free-max-time 180
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 route-flap reuse-max-time 60
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 route-flap reuse-size 256
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 route-flap reuse-array-size 1024
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 graceful-restart recovery-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 graceful-restart select-defer-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 graceful-restart stalepath-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 permit
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 address-family ipv4 unicast address-mask 10.138.47.68/30
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT match ip nlri prefix-list PTVI-INT
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT action reject
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP match community "(^|,)44:11($|,)"
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP action reject
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM match community "(^|,)44:10($|,)"
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community 100:10
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community-action set-specific
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 4DENY-REST action reject
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP match community "(^|,)44:11($|,)"
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP action reject
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 2ALLOW-REST action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES match community "(^|,)100:10($|,)"
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES action reject
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community 44:20
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community-action set-specific
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 ibgp-preference 200
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 ebgp-preference 20
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF type external
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF export EXPORT-PAIR-TVI-LOOP-PREV
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF neighbor 10.138.47.70 local-address 10.138.47.69
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF neighbor 10.138.47.70 peer-as 65506
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI type external
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI import IMPORT-POLICY-NNI
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI export EXPORT-POLICY-NNI
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI neighbor 193.138.11.1 local-address 193.138.11.2
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI neighbor 193.138.11.1 peer-as 8220
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 debug level debug
+
+
+
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF instance-type vrf
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF global-vrf-id 15022
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF mpls-vpn-core-instance THAMES-Control-VR
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF interfaces [ tvi-0/3402.0 ]
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF route-distinguisher 1502L:15022
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF vrf-export-target target:1502L:15022
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 router-id 10.138.47.74 local-as as-number 65506
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 route-flap free-max-time 180
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 route-flap reuse-max-time 60
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 route-flap reuse-size 256
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 route-flap reuse-array-size 1024
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 graceful-restart recovery-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 graceful-restart select-defer-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 graceful-restart stalepath-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 permit
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 address-family ipv4 unicast address-mask 193.138.11.8/30
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT match ip nlri prefix-list NNI1-INT
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT action reject
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES match community "(^|,)44:20($|,)"
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES action reject
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community 44:11
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community-action set-specific
+
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 ibgp-preference 200
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 ebgp-preference 20
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 group EBGP-With-LAN_VRF type external
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 group EBGP-With-LAN_VRF import IMPORT-POLICY-FROM-LAN-VRF
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 group EBGP-With-LAN_VRF neighbor 10.138.47.73 local-address 10.138.47.74
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 group EBGP-With-LAN_VRF neighbor 10.138.47.73 peer-as 15404
+set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 debug level debug
+
+
+
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action set-origin igp
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT match protocol direct
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action set-origin igp
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC match protocol static
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action set-origin igp
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF instance-type vrf
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF global-vrf-id 1502
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF networks [ THAMES-MPLS3 ]
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF mpls-vpn-core-instance THAMES-Control-VR
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF interfaces [ tvi-0/1502.0 ]
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF route-distinguisher 1502L:1502
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF vrf-import-target target:1502L:1502
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF vrf-export-target target:1502L:15022
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 router-id 193.138.11.2 local-as as-number 15404
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 route-flap free-max-time 180
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 route-flap reuse-max-time 60
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 route-flap reuse-size 256
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 route-flap reuse-array-size 1024
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 graceful-restart recovery-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 graceful-restart select-defer-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 graceful-restart stalepath-time 120
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 permit
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 address-family ipv4 unicast address-mask 10.138.47.72/30
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT match ip nlri prefix-list PTVI-INT
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT action reject
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP match community "(^|,)44:11($|,)"
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP action reject
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM match community "(^|,)44:10($|,)"
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community 100:10
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community-action set-specific
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 4DENY-REST action reject
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP match community "(^|,)44:11($|,)"
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP action reject
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 2ALLOW-REST action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES match community "(^|,)100:10($|,)"
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES action reject
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action accept
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community 44:20
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community-action set-specific
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 ibgp-preference 200
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 ebgp-preference 20
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF type external
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF export EXPORT-PAIR-TVI-LOOP-PREV
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF neighbor 10.138.47.74 local-address 10.138.47.73
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF neighbor 10.138.47.74 peer-as 65506
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI type external
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI import IMPORT-POLICY-NNI
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI export EXPORT-POLICY-NNI
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI neighbor 193.138.11.1 local-address 193.138.11.2
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI neighbor 193.138.11.1 peer-as 8220
+set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 debug level debug
+
+
+2019-02-11 16:00:04,982 - VD1 - INFO - configure
+Entering configuration mode private
+[ok][2019-02-11 12:01:18]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/276 enable true
+[ok][2019-02-11 12:01:18]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/276 mode ipsec
+[ok][2019-02-11 12:01:18]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/276 type p2mp-vxlan
+[ok][2019-02-11 12:01:19]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/276 unit 0 enable true
+[ok][2019-02-11 12:01:19]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/276 description "VxLAN THAMES Management"
+[ok][2019-02-11 12:01:19]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/276 unit 0 family
+[ok][2019-02-11 12:01:20]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/276 unit 0 family inet
+[ok][2019-02-11 12:01:20]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/276 unit 0 family inet address 30.138.6.1/32
+[ok][2019-02-11 12:01:20]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/277 enable true
+[ok][2019-02-11 12:01:20]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/277 mode ipsec
+[ok][2019-02-11 12:01:21]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/277 type p2mp-esp
+[ok][2019-02-11 12:01:21]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/277 unit 0 enable true
+[ok][2019-02-11 12:01:21]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/277 description "ESP THAMES Management"
+[ok][2019-02-11 12:01:21]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/277 unit 0 enable true
+[ok][2019-02-11 12:01:22]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/277 unit 0 family
+[ok][2019-02-11 12:01:22]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/277 unit 0 family inet
+[ok][2019-02-11 12:01:22]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/277 unit 0 family inet address 40.138.6.1/32
+[ok][2019-02-11 12:01:22]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces ptvi276 parent-interface tvi-0/277.0 remote-address 10.138.64.11
+[ok][2019-02-11 12:01:23]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces ptvi277 parent-interface tvi-0/277.0 remote-address 10.138.64.10
+[ok][2019-02-11 12:01:23]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1500 vlan-id 1500
+[ok][2019-02-11 12:01:23]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1500 enable true
+[ok][2019-02-11 12:01:24]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1500 family
+[ok][2019-02-11 12:01:24]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1500 family inet
+[ok][2019-02-11 12:01:24]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1500 family inet address 193.138.11.2/30
+[ok][2019-02-11 12:01:24]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1501 vlan-id 1501
+[ok][2019-02-11 12:01:25]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1501 enable true
+[ok][2019-02-11 12:01:25]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1501 family
+[ok][2019-02-11 12:01:25]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1501 family inet
+[ok][2019-02-11 12:01:26]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1501 family inet address 193.138.11.6/30
+[ok][2019-02-11 12:01:26]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1502 vlan-id 1502
+[ok][2019-02-11 12:01:26]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1502 enable true
+[ok][2019-02-11 12:01:26]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1502 family
+[ok][2019-02-11 12:01:27]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1502 family inet
+[ok][2019-02-11 12:01:27]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces vni-0/0 unit 1502 family inet address 193.138.11.10/30
+[ok][2019-02-11 12:01:27]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1500 enable true
+[ok][2019-02-11 12:01:28]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1500 mode ipsec
+[ok][2019-02-11 12:01:28]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1500 type paired
+[ok][2019-02-11 12:01:28]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1500 paired-interface tvi-0/3400
+[ok][2019-02-11 12:01:28]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1500 unit 0 enable true
+[ok][2019-02-11 12:01:29]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1500 unit 0 family
+[ok][2019-02-11 12:01:29]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1500 unit 0 family inet
+[ok][2019-02-11 12:01:29]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1500 unit 0 family inet address 10.138.47.65/30
+[ok][2019-02-11 12:01:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/3400 mode ipsec
+[ok][2019-02-11 12:01:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/3400 type paired
+[ok][2019-02-11 12:01:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/3400 paired-interface tvi-0/1500
+[ok][2019-02-11 12:01:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/3400 unit 0 enable true
+[ok][2019-02-11 12:01:31]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/3400 unit 0 family
+[ok][2019-02-11 12:01:31]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/3400 unit 0 family inet
+[ok][2019-02-11 12:01:31]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/3400 unit 0 family inet address 10.138.47.66/30
+[ok][2019-02-11 12:01:31]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config networks  THAMES-MPLS1 interfaces [ vni-0/0.1500 ]
+[ok][2019-02-11 12:01:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1501 enable true
+[ok][2019-02-11 12:01:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1501 mode ipsec
+[ok][2019-02-11 12:01:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1501 type paired
+[ok][2019-02-11 12:01:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1501 paired-interface tvi-0/3401
+[ok][2019-02-11 12:01:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1501 unit 0 enable true
+[ok][2019-02-11 12:01:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1501 unit 0 family
+[ok][2019-02-11 12:01:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1501 unit 0 family inet
+[ok][2019-02-11 12:01:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1501 unit 0 family inet address 10.138.47.69/30
+[ok][2019-02-11 12:01:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/3401 mode ipsec
+[ok][2019-02-11 12:01:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/3401 type paired
+[ok][2019-02-11 12:01:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/3401 paired-interface tvi-0/1501
+[ok][2019-02-11 12:01:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/3401 unit 0 enable true
+[ok][2019-02-11 12:01:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/3401 unit 0 family
+[ok][2019-02-11 12:01:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/3401 unit 0 family inet
+[ok][2019-02-11 12:01:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/3401 unit 0 family inet address 10.138.47.70/30
+[ok][2019-02-11 12:01:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config networks  THAMES-MPLS2 interfaces [ vni-0/0.1501 ]
+[ok][2019-02-11 12:01:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1502 enable true
+[ok][2019-02-11 12:01:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1502 mode ipsec
+[ok][2019-02-11 12:01:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1502 type paired
+[ok][2019-02-11 12:01:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1502 paired-interface tvi-0/3402
+[ok][2019-02-11 12:01:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1502 unit 0 enable true
+[ok][2019-02-11 12:01:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1502 unit 0 family
+[ok][2019-02-11 12:01:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1502 unit 0 family inet
+[ok][2019-02-11 12:01:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/1502 unit 0 family inet address 10.138.47.73/30
+[ok][2019-02-11 12:01:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/3402 mode ipsec
+[ok][2019-02-11 12:01:38]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/3402 type paired
+[ok][2019-02-11 12:01:38]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/3402 paired-interface tvi-0/1502
+[ok][2019-02-11 12:01:38]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/3402 unit 0 enable true
+[ok][2019-02-11 12:01:38]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/3402 unit 0 family
+[ok][2019-02-11 12:01:39]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/3402 unit 0 family inet
+[ok][2019-02-11 12:01:39]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config interfaces tvi-0/3402 unit 0 family inet address 10.138.47.74/30
+[ok][2019-02-11 12:01:39]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config networks  THAMES-MPLS3 interfaces [ vni-0/0.1502 ]
+[ok][2019-02-11 12:01:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org  THAMES available-routing-instances [ INT-TRANSP-VR MPLS-TRANSP-VR THAMES-Control-VR THAMES-EXPORT1-VRF THAMES-EXPORT2-VRF THAMES-EXPORT3-VRF THAMES-LAN1-VRF THAMES-LAN2-VRF THAMES-LAN3-VRF ]
+[ok][2019-02-11 12:01:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org  THAMES traffic-identification using [ ptvi276 ptvi277 tvi-0/276.0 tvi-0/277.0 tvi-0/1500.0 tvi-0/3400.0 tvi-0/1501.0 tvi-0/3401.0 tvi-0/1502.0 tvi-0/3402.0 ]
+[ok][2019-02-11 12:01:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org  THAMES owned-routing-instances [ INT-TRANSP-VR MPLS-TRANSP-VR THAMES-Control-VR  THAMES-EXPORT1-VRF THAMES-EXPORT2-VRF THAMES-EXPORT3-VRF THAMES-LAN1-VRF THAMES-LAN2-VRF THAMES-LAN3-VRF 
+Possible completions:
+  string  ]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org THAMES owned-routing-instances [ INT-TRANSP-VR MPLS-TRANSP-VR THAMES-Control-VR THAMES-EXPORT1-VRF THAMES-EXPORT2-VRF THAMES-EXPORT3-VRF THAMES-LAN1-VRF THAMES-LAN2-VRF THAMES-LAN3-VRF ]
+[ok][2019-02-11 12:01:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org  THAMES traffic-identification using-networks [ THAMES-MPLS1 THAMES-MPLS2 THAMES-MPLS3 ]
+[ok][2019-02-11 12:01:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org  THAMES available-provider-orgs [ THAMES ]
+[ok][2019-02-11 12:01:42]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org  THAMES available-service-node-groups [ default-sng ]
+[ok][2019-02-11 12:01:42]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org  THAMES sd-wan site
+[ok][2019-02-11 12:01:42]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org  THAMES sd-wan site global-tenant-id 138
+[ok][2019-02-11 12:01:43]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org  THAMES sd-wan site site-name NV-GW01-N5-LON
+[ok][2019-02-11 12:01:43]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org  THAMES sd-wan site management-routing-instance THAMES-Control-VR
+[ok][2019-02-11 12:01:43]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org  THAMES sd-wan site wan-interfaces vni-0/1.396 sla-monitoring fc_be interval 1
+[ok][2019-02-11 12:01:44]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org  THAMES sd-wan site wan-interfaces vni-0/1.396 sla-monitoring fc_be logging-interval 5
+[ok][2019-02-11 12:01:44]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org  THAMES sd-wan site wan-interfaces vni-0/1.396 encryption optional
+[ok][2019-02-11 12:01:44]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org  THAMES sd-wan site wan-interfaces vni-0/1.397 sla-monitoring fc_be interval 1
+[ok][2019-02-11 12:01:45]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org  THAMES sd-wan site wan-interfaces vni-0/1.397 sla-monitoring fc_be logging-interval 5
+[ok][2019-02-11 12:01:45]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org  THAMES sd-wan controllers NV-WC01-N5-LON management-addresses IKE ip-address 10.138.0.11 routing-instance THAMES-Control-VR
+[ok][2019-02-11 12:01:46]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org  THAMES sd-wan controllers NV-WC01-N5-LON management-addresses secure ip-address  10.138.64.11 routing-instance THAMES-Control-VR
+[ok][2019-02-11 12:01:46]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org  THAMES sd-wan controllers NV-WC02-N5-LON management-addresses IKE ip-address 10.138.0.10 routing-instance THAMES-Control-VR
+[ok][2019-02-11 12:01:47]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org  THAMES sd-wan controllers NV-WC02-N5-LON management-addresses secure ip-address  10.138.64.10 routing-instance THAMES-Control-VR
+[ok][2019-02-11 12:01:47]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org -services THAMES security access-policies Policy1 rules R1 set action allow
+[ok][2019-02-11 12:01:47]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES security access-policies Policy1 rules R1 set lef profile Default-Logging-Profile
+[ok][2019-02-11 12:01:48]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES security access-policies Policy1 rules R1 set lef event end
+[ok][2019-02-11 12:01:48]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES security access-policies Policy1 rules R1 set lef options send-pcap-data enable false
+[ok][2019-02-11 12:01:49]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES objects zones trust
+[ok][2019-02-11 12:01:49]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES objects zones untrust
+[ok][2019-02-11 12:01:49]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES objects zones host
+[ok][2019-02-11 12:01:49]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES traffic-monitoring logging-control Default-Logging-Control profile Default-Logging-Profile
+[ok][2019-02-11 12:01:50]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES traffic-monitoring logging-control Default-Logging-Control options
+[ok][2019-02-11 12:01:50]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES traffic-monitoring logging-control Default-Logging-Control options stats
+[ok][2019-02-11 12:01:50]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES traffic-monitoring logging-control Default-Logging-Control options stats all
+[ok][2019-02-11 12:01:51]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES traffic-monitoring policies Analytics-policy rules rule1 set lef profile Default-Logging-Profile
+[ok][2019-02-11 12:01:51]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES lef collectors LEF-Collector-log_collector1 destination-address  10.91.116.71 destination-port 5140
+[ok][2019-02-11 12:01:52]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES lef collectors LEF-Collector-log_collector1 routing-instance THAMES-Control-VR
+[ok][2019-02-11 12:01:52]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES lef collectors LEF-Collector-log_collector1 transport tcp
+[ok][2019-02-11 12:01:52]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES lef collectors LEF-Collector-log_collector1 template Default-LEF-Template
+[ok][2019-02-11 12:01:53]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES lef collectors LEF-Collector-log_collector2 destination-address  10.91.116.72 destination-port 5140
+[ok][2019-02-11 12:01:53]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES lef collectors LEF-Collector-log_collector2 routing-instance THAMES-Control-VR
+[ok][2019-02-11 12:01:53]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES lef collectors LEF-Collector-log_collector2 transport tcp
+[ok][2019-02-11 12:01:53]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES lef collectors LEF-Collector-log_collector2 template Default-LEF-Template
+[ok][2019-02-11 12:01:54]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES lef collector-groups Default-Collector-Group collectors [ LEF-Collector-log_collector1 LEF-Collector-log_collector2 ]
+[ok][2019-02-11 12:01:54]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES lef templates Default-LEF-Template type ipfix
+[ok][2019-02-11 12:01:54]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES lef profiles Default-Logging-Profile collector-group Default-Collector-Group
+[ok][2019-02-11 12:01:55]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES lef default-profile Default-Logging-Profile
+[ok][2019-02-11 12:01:55]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 vpn-type branch-sdwan
+[ok][2019-02-11 12:01:55]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 local-auth-info
+[ok][2019-02-11 12:01:56]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 local-auth-info auth-type psk
+[ok][2019-02-11 12:01:56]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 local-auth-info id-type email
+[ok][2019-02-11 12:01:56]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 local-auth-info key NV-GW01-N5-LON
+[ok][2019-02-11 12:01:57]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 local-auth-info id-string NV-GW01-N5-LON@THAMES.com
+[ok][2019-02-11 12:01:57]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 local
+[ok][2019-02-11 12:01:57]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 local address 30.138.6.1
+[ok][2019-02-11 12:01:58]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 routing-instance THAMES-Control-VR
+[ok][2019-02-11 12:01:58]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 tunnel-routing-instance THAMES-Control-VR
+[ok][2019-02-11 12:01:58]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 tunnel-initiate automatic
+[ok][2019-02-11 12:01:58]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 ipsec fragmentation pre-fragmentation
+[ok][2019-02-11 12:01:59]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 ipsec transform esp-aes128-sha1
+[ok][2019-02-11 12:01:59]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 ipsec mode tunnel
+[ok][2019-02-11 12:01:59]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 ipsec pfs-group mod-none
+[ok][2019-02-11 12:02:00]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 ipsec anti-replay enable
+[ok][2019-02-11 12:02:00]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 ipsec life duration 25000
+[ok][2019-02-11 12:02:01]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 ike version v2
+[ok][2019-02-11 12:02:01]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 ike group mod19
+[ok][2019-02-11 12:02:01]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 ike transform aes128-sha1
+[ok][2019-02-11 12:02:02]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 ike lifetime 27000
+[ok][2019-02-11 12:02:02]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 ike dpd-timeout 10
+[ok][2019-02-11 12:02:02]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 peer-auth-info
+[ok][2019-02-11 12:02:02]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 peer-auth-info auth-type psk
+[ok][2019-02-11 12:02:03]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 peer-auth-info id-type email
+[ok][2019-02-11 12:02:03]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 peer-auth-info key NV-WC01-N5-LON
+[ok][2019-02-11 12:02:03]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 peer-auth-info id-string NV-WC01-N5-LON@THAMES.com
+[ok][2019-02-11 12:02:04]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 peer
+[ok][2019-02-11 12:02:04]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 peer address 10.138.0.11
+[ok][2019-02-11 12:02:04]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL1 tunnel-interface ptvi276
+[ok][2019-02-11 12:02:05]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 vpn-type branch-sdwan
+[ok][2019-02-11 12:02:05]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 local-auth-info
+[ok][2019-02-11 12:02:05]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 local-auth-info auth-type psk
+[ok][2019-02-11 12:02:06]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 local-auth-info id-type email
+[ok][2019-02-11 12:02:06]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 local-auth-info key NV-GW01-N5-LON
+[ok][2019-02-11 12:02:06]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 local-auth-info id-string NV-GW01-N5-LON@THAMES.com
+[ok][2019-02-11 12:02:07]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 local
+[ok][2019-02-11 12:02:07]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 local address 30.138.6.1
+[ok][2019-02-11 12:02:07]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 routing-instance THAMES-Control-VR
+[ok][2019-02-11 12:02:08]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 tunnel-routing-instance THAMES-Control-VR
+[ok][2019-02-11 12:02:08]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 tunnel-initiate automatic
+[ok][2019-02-11 12:02:08]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 ipsec fragmentation pre-fragmentation
+[ok][2019-02-11 12:02:08]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 ipsec transform esp-aes128-sha1
+[ok][2019-02-11 12:02:09]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 ipsec mode tunnel
+[ok][2019-02-11 12:02:09]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 ipsec pfs-group mod-none
+[ok][2019-02-11 12:02:09]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 ipsec anti-replay enable
+[ok][2019-02-11 12:02:10]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 ipsec life duration 25000
+[ok][2019-02-11 12:02:10]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 ike version v2
+[ok][2019-02-11 12:02:10]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 ike group mod19
+[ok][2019-02-11 12:02:11]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 ike transform aes128-sha1
+[ok][2019-02-11 12:02:11]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 ike lifetime 27000
+[ok][2019-02-11 12:02:11]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 ike dpd-timeout 10
+[ok][2019-02-11 12:02:11]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 peer-auth-info
+[ok][2019-02-11 12:02:12]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 peer-auth-info auth-type psk
+[ok][2019-02-11 12:02:12]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 peer-auth-info id-type email
+[ok][2019-02-11 12:02:12]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 peer-auth-info key NV-WC02-N5-LON
+[ok][2019-02-11 12:02:13]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 peer-auth-info id-string NV-WC02-N5-LON@THAMES.com
+[ok][2019-02-11 12:02:13]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 peer
+[ok][2019-02-11 12:02:13]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 peer address 10.138.0.10
+[ok][2019-02-11 12:02:13]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config orgs org-services THAMES ipsec vpn-profile GW-CTRL2 tunnel-interface ptvi277
+[ok][2019-02-11 12:02:14]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR instance-type virtual-router
+[ok][2019-02-11 12:02:14]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR mpls-vpn-core
+[ok][2019-02-11 12:02:14]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR interfaces [ ptvi276 ptvi277 tvi-0/276.0 tvi-0/277.0  ]
+[ok][2019-02-11 12:02:14]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR routing-options mpls-vpn-local-router-address 40.138.6.1
+[ok][2019-02-11 12:02:14]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR routing-options static route 0.0.0.0/0 40.138.6.1 tvi-0/277.0 preference 1
+[ok][2019-02-11 12:02:15]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR routing-options static route 0.0.0.0/0 40.138.6.1 tvi-0/277.0 tag 0
+[ok][2019-02-11 12:02:15]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 router-id 40.138.6.1 local-as as-number 65505
+[ok][2019-02-11 12:02:15]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 hold-time 90
+[ok][2019-02-11 12:02:16]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 peer-as 65505
+[ok][2019-02-11 12:02:16]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 route-flap free-max-time 180
+[ok][2019-02-11 12:02:16]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 route-flap reuse-max-time 60
+[ok][2019-02-11 12:02:17]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 route-flap reuse-size 256
+[ok][2019-02-11 12:02:17]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 route-flap reuse-array-size 1024
+[ok][2019-02-11 12:02:17]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 graceful-restart enable
+[ok][2019-02-11 12:02:17]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 graceful-restart maximum-restart-time 120
+[ok][2019-02-11 12:02:18]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 graceful-restart recovery-time 120 
+[ok][2019-02-11 12:02:18]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 graceful-restart select-defer-time  120
+[ok][2019-02-11 12:02:18]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 graceful-restart stalepath-time 120
+[ok][2019-02-11 12:02:18]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 graceful-restart dynamic-peer-restart-time 0
+[ok][2019-02-11 12:02:19]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 ibgp-preference 200
+[ok][2019-02-11 12:02:19]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 ebgp-preference 20
+[ok][2019-02-11 12:02:19]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC type internal
+[ok][2019-02-11 12:02:20]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC family inet unicast
+[ok][2019-02-11 12:02:20]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC family inet versa-private
+[ok][2019-02-11 12:02:20]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC family inet-vpn unicast
+[ok][2019-02-11 12:02:21]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC bfd-liveness-detection 
+[ok][2019-02-11 12:02:21]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC bfd-liveness-detection  minimum-receive-interval 1000
+[ok][2019-02-11 12:02:21]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC bfd-liveness-detection  multiplier 3
+[ok][2019-02-11 12:02:22]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC bfd-liveness-detection  transmit-interval minimum-interval 1000
+[ok][2019-02-11 12:02:22]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC neighbor 10.138.64.11
+[ok][2019-02-11 12:02:23]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC neighbor 10.138.64.11  peer-as 65505
+[ok][2019-02-11 12:02:23]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 debug level debug
+[ok][2019-02-11 12:02:23]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC neighbor 10.138.64.10
+[ok][2019-02-11 12:02:24]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 group GW-WC neighbor 10.138.64.10  peer-as 65505
+[ok][2019-02-11 12:02:24]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-Control-VR protocols bgp 138 debug level debug
+[ok][2019-02-11 12:02:24]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+[ok][2019-02-11 12:02:25]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+[ok][2019-02-11 12:02:25]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+[ok][2019-02-11 12:02:25]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF instance-type vrf
+[ok][2019-02-11 12:02:25]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF global-vrf-id 15002
+[ok][2019-02-11 12:02:26]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF mpls-vpn-core-instance THAMES-Control-VR
+[ok][2019-02-11 12:02:26]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF interfaces [ tvi-0/3400.0 ]
+[ok][2019-02-11 12:02:26]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF route-distinguisher 1500L:15002
+[ok][2019-02-11 12:02:26]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF vrf-export-target target:1500L:15002
+[ok][2019-02-11 12:02:27]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 router-id 10.138.47.66 local-as  as-number 65506
+[ok][2019-02-11 12:02:27]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 route-flap free-max-time 180
+[ok][2019-02-11 12:02:27]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 route-flap reuse-max-time 60
+[ok][2019-02-11 12:02:28]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 route-flap reuse-size 256
+[ok][2019-02-11 12:02:28]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 route-flap reuse-array-size 1024
+[ok][2019-02-11 12:02:28]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 graceful-restart maximum-restart-time 120
+[ok][2019-02-11 12:02:29]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 graceful-restart recovery-time  120
+[ok][2019-02-11 12:02:29]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 graceful-restart select-defer-time 120
+[ok][2019-02-11 12:02:29]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 graceful-restart stalepath-time  120
+[ok][2019-02-11 12:02:29]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 graceful-restart dynamic-peer-restart-time 0
+[ok][2019-02-11 12:02:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 permit
+[ok][2019-02-11 12:02:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 address-family ipv4 unicast address-mask 193.138.11.0/30
+[ok][2019-02-11 12:02:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le ge 30
+[ok][2019-02-11 12:02:31]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le le 32
+[ok][2019-02-11 12:02:31]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT match ip nlri prefix-list NNI1-INT
+[ok][2019-02-11 12:02:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT action reject
+[ok][2019-02-11 12:02:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES match community "(^|,)44:20($|,)"
+[ok][2019-02-11 12:02:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES action reject
+[ok][2019-02-11 12:02:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action accept
+[ok][2019-02-11 12:02:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community 44:11
+[ok][2019-02-11 12:02:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community-action set-specific
+[ok][2019-02-11 12:02:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 ibgp-preference 200
+[ok][2019-02-11 12:02:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 ebgp-preference 20
+[ok][2019-02-11 12:02:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 group EBGP-With-LAN_VRF type external
+[ok][2019-02-11 12:02:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 group EBGP-With-LAN_VRF import  IMPORT-POLICY-FROM-LAN-VRF
+[ok][2019-02-11 12:02:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 group EBGP-With-LAN_VRF neighbor 10.138.47.65 local-address 10.138.47.66
+[ok][2019-02-11 12:02:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 group EBGP-With-LAN_VRF neighbor 10.138.47.65 peer-as 15404
+[ok][2019-02-11 12:02:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT1-VRF protocols bgp 13802 debug level debug
+[ok][2019-02-11 12:02:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-BGP match protocol bgp
+[ok][2019-02-11 12:02:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-BGP action accept
+[ok][2019-02-11 12:02:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-BGP action set-origin igp
+[ok][2019-02-11 12:02:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-DIRECT match protocol direct
+[ok][2019-02-11 12:02:38]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-DIRECT action accept
+[ok][2019-02-11 12:02:38]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-DIRECT action set-origin igp
+[ok][2019-02-11 12:02:38]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-STATIC match protocol static
+[ok][2019-02-11 12:02:39]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-STATIC action accept
+[ok][2019-02-11 12:02:39]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-STATIC action set-origin igp
+[ok][2019-02-11 12:02:39]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+[ok][2019-02-11 12:02:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF instance-type vrf
+[ok][2019-02-11 12:02:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF global-vrf-id 1500
+[ok][2019-02-11 12:02:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF networks [ THAMES-MPLS1 ]
+[ok][2019-02-11 12:02:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF mpls-vpn-core-instance THAMES-Control-VR
+[ok][2019-02-11 12:02:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF interfaces [ tvi-0/1500.0 ]
+[ok][2019-02-11 12:02:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF route-distinguisher 1500L:1500
+[ok][2019-02-11 12:02:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF vrf-import-target target:1500L:1500
+[ok][2019-02-11 12:02:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF vrf-export-target target:1500L:15002
+[ok][2019-02-11 12:02:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 router-id 193.138.11.2 local-as as-number 15404
+[ok][2019-02-11 12:02:42]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 route-flap free-max-time 180
+[ok][2019-02-11 12:02:42]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 route-flap reuse-max-time 60
+[ok][2019-02-11 12:02:42]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 route-flap reuse-size 256
+[ok][2019-02-11 12:02:43]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 route-flap reuse-array-size 1024
+[ok][2019-02-11 12:02:43]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 graceful-restart maximum-restart-time 120
+[ok][2019-02-11 12:02:43]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 graceful-restart recovery-time 120 
+[ok][2019-02-11 12:02:44]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 graceful-restart select-defer-time  120
+[ok][2019-02-11 12:02:44]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 graceful-restart stalepath-time 120
+[ok][2019-02-11 12:02:44]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 graceful-restart dynamic-peer-restart-time 0
+[ok][2019-02-11 12:02:45]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 permit 
+[ok][2019-02-11 12:02:45]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 address-family ipv4 unicast address-mask 10.138.47.64/30
+[ok][2019-02-11 12:02:46]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le ge 30
+[ok][2019-02-11 12:02:46]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le le 32
+[ok][2019-02-11 12:02:47]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT match ip nlri prefix-list PTVI-INT
+[ok][2019-02-11 12:02:47]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT action reject
+[ok][2019-02-11 12:02:48]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP match community "(^|,)44:11($|,)"
+[ok][2019-02-11 12:02:48]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP action reject
+[ok][2019-02-11 12:02:49]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM match community "(^|,)44:10($|,)"
+[ok][2019-02-11 12:02:49]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action accept
+[ok][2019-02-11 12:02:49]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community 100:10
+[ok][2019-02-11 12:02:50]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community-action set-specific
+[ok][2019-02-11 12:02:51]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 4DENY-REST action reject
+[ok][2019-02-11 12:02:51]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP match community "(^|,)44:11($|,)"
+[ok][2019-02-11 12:02:51]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP action reject
+[ok][2019-02-11 12:02:52]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 2ALLOW-REST action accept
+[ok][2019-02-11 12:02:52]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES match community "(^|,)100:10($|,)"
+[ok][2019-02-11 12:02:52]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES action reject
+[ok][2019-02-11 12:02:53]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action accept
+[ok][2019-02-11 12:02:53]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community 44:20
+[ok][2019-02-11 12:02:54]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community-action set-specific
+[ok][2019-02-11 12:02:54]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 ibgp-preference 200
+[ok][2019-02-11 12:02:54]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 ebgp-preference 20
+[ok][2019-02-11 12:02:55]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF type external
+[ok][2019-02-11 12:02:55]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF export  EXPORT-PAIR-TVI-LOOP-PREV
+[ok][2019-02-11 12:02:55]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF neighbor 10.138.47.66 local-address 10.138.47.65
+[ok][2019-02-11 12:02:56]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF neighbor 10.138.47.66 peer-as 65506
+[ok][2019-02-11 12:02:56]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI type  external
+[ok][2019-02-11 12:02:57]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI import IMPORT-POLICY-NNI
+[ok][2019-02-11 12:02:57]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI export EXPORT-POLICY-NNI
+[ok][2019-02-11 12:02:57]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI neighbor 193.138.11.1 local-address 193.138.11.2
+[ok][2019-02-11 12:02:58]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI neighbor 193.138.11.1 peer-as 8220
+[ok][2019-02-11 12:02:58]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN1-VRF protocols bgp 13801 debug level debug
+[ok][2019-02-11 12:02:59]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+[ok][2019-02-11 12:02:59]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+[ok][2019-02-11 12:02:59]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+[ok][2019-02-11 12:03:00]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF instance-type vrf
+[ok][2019-02-11 12:03:00]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF global-vrf-id 15012
+[ok][2019-02-11 12:03:00]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF mpls-vpn-core-instance THAMES-Control-VR
+[ok][2019-02-11 12:03:00]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF interfaces [ tvi-0/3401.0 ]
+[ok][2019-02-11 12:03:00]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF route-distinguisher 1501L:15012
+[ok][2019-02-11 12:03:00]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF vrf-export-target target:1501L:15012
+[ok][2019-02-11 12:03:00]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 router-id 10.138.47.70 local-as  as-number 65506
+[ok][2019-02-11 12:03:01]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 route-flap free-max-time 180
+[ok][2019-02-11 12:03:01]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 route-flap reuse-max-time 60
+[ok][2019-02-11 12:03:01]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 route-flap reuse-size 256
+[ok][2019-02-11 12:03:02]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 route-flap reuse-array-size 1024
+[ok][2019-02-11 12:03:02]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 graceful-restart maximum-restart-time 120
+[ok][2019-02-11 12:03:02]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 graceful-restart recovery-time  120
+[ok][2019-02-11 12:03:03]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 graceful-restart select-defer-time 120
+[ok][2019-02-11 12:03:03]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 graceful-restart stalepath-time  120
+[ok][2019-02-11 12:03:04]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 graceful-restart dynamic-peer-restart-time 0
+[ok][2019-02-11 12:03:04]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 permit
+[ok][2019-02-11 12:03:04]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 address-family ipv4 unicast address-mask 193.138.11.4/30
+[ok][2019-02-11 12:03:05]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le ge 30
+[ok][2019-02-11 12:03:05]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le le 32
+[ok][2019-02-11 12:03:06]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT match ip nlri prefix-list NNI1-INT
+[ok][2019-02-11 12:03:06]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT action reject
+[ok][2019-02-11 12:03:07]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES match community "(^|,)44:20($|,)"
+[ok][2019-02-11 12:03:07]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES action reject
+[ok][2019-02-11 12:03:08]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action accept
+[ok][2019-02-11 12:03:08]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community 44:11
+[ok][2019-02-11 12:03:08]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community-action set-specific
+[ok][2019-02-11 12:03:09]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 ibgp-preference 200
+[ok][2019-02-11 12:03:09]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 ebgp-preference 20
+[ok][2019-02-11 12:03:09]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 group EBGP-With-LAN_VRF type external
+[ok][2019-02-11 12:03:09]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 group EBGP-With-LAN_VRF import  IMPORT-POLICY-FROM-LAN-VRF
+[ok][2019-02-11 12:03:10]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 group EBGP-With-LAN_VRF neighbor 10.138.47.69 local-address 10.138.47.70
+[ok][2019-02-11 12:03:10]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 group EBGP-With-LAN_VRF neighbor 10.138.47.69 peer-as 15404
+[ok][2019-02-11 12:03:10]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT2-VRF protocols bgp 13802 debug level debug
+[ok][2019-02-11 12:03:11]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-BGP match protocol bgp
+[ok][2019-02-11 12:03:11]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-BGP action accept
+[ok][2019-02-11 12:03:11]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-BGP action set-origin igp
+[ok][2019-02-11 12:03:12]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-DIRECT match protocol direct
+[ok][2019-02-11 12:03:12]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-DIRECT action accept
+[ok][2019-02-11 12:03:12]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-DIRECT action set-origin igp
+[ok][2019-02-11 12:03:13]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-STATIC match protocol static
+[ok][2019-02-11 12:03:13]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-STATIC action accept
+[ok][2019-02-11 12:03:13]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-STATIC action set-origin igp
+[ok][2019-02-11 12:03:13]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+[ok][2019-02-11 12:03:14]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF instance-type vrf
+[ok][2019-02-11 12:03:14]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF global-vrf-id 1501
+[ok][2019-02-11 12:03:14]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF networks [ THAMES-MPLS2 ]
+[ok][2019-02-11 12:03:14]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF mpls-vpn-core-instance THAMES-Control-VR
+[ok][2019-02-11 12:03:14]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF interfaces [ tvi-0/1501.0 ]
+[ok][2019-02-11 12:03:15]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF route-distinguisher 1501L:1501
+[ok][2019-02-11 12:03:15]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF vrf-import-target target:1501L:1501
+[ok][2019-02-11 12:03:15]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF vrf-export-target target:1501L:15012
+[ok][2019-02-11 12:03:15]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 router-id 193.138.11.2 local-as as-number 15404
+[ok][2019-02-11 12:03:16]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 route-flap free-max-time 180
+[ok][2019-02-11 12:03:16]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 route-flap reuse-max-time 60
+[ok][2019-02-11 12:03:16]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 route-flap reuse-size 256
+[ok][2019-02-11 12:03:16]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 route-flap reuse-array-size 1024
+[ok][2019-02-11 12:03:17]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 graceful-restart maximum-restart-time 120
+[ok][2019-02-11 12:03:17]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 graceful-restart recovery-time 120 
+[ok][2019-02-11 12:03:17]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 graceful-restart select-defer-time  120
+[ok][2019-02-11 12:03:18]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 graceful-restart stalepath-time 120
+[ok][2019-02-11 12:03:18]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 graceful-restart dynamic-peer-restart-time 0
+[ok][2019-02-11 12:03:18]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 permit 
+[ok][2019-02-11 12:03:19]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 address-family ipv4 unicast address-mask 10.138.47.68/30
+[ok][2019-02-11 12:03:19]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le ge 30
+[ok][2019-02-11 12:03:19]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le le 32
+[ok][2019-02-11 12:03:20]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT match ip nlri prefix-list PTVI-INT
+[ok][2019-02-11 12:03:20]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT action reject
+[ok][2019-02-11 12:03:21]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP match community "(^|,)44:11($|,)"
+[ok][2019-02-11 12:03:21]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP action reject
+[ok][2019-02-11 12:03:21]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM match community "(^|,)44:10($|,)"
+[ok][2019-02-11 12:03:22]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action accept
+[ok][2019-02-11 12:03:22]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community 100:10
+[ok][2019-02-11 12:03:23]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community-action set-specific
+[ok][2019-02-11 12:03:23]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 4DENY-REST action reject
+[ok][2019-02-11 12:03:24]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP match community "(^|,)44:11($|,)"
+[ok][2019-02-11 12:03:24]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP action reject
+[ok][2019-02-11 12:03:24]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 2ALLOW-REST action accept
+[ok][2019-02-11 12:03:25]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES match community "(^|,)100:10($|,)"
+[ok][2019-02-11 12:03:25]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES action reject
+[ok][2019-02-11 12:03:26]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action accept
+[ok][2019-02-11 12:03:26]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community 44:20
+[ok][2019-02-11 12:03:27]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community-action set-specific
+[ok][2019-02-11 12:03:27]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 ibgp-preference 200
+[ok][2019-02-11 12:03:27]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 ebgp-preference 20
+[ok][2019-02-11 12:03:28]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF type external
+[ok][2019-02-11 12:03:28]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF export  EXPORT-PAIR-TVI-LOOP-PREV
+[ok][2019-02-11 12:03:28]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF neighbor 10.138.47.70 local-address 10.138.47.69
+[ok][2019-02-11 12:03:29]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF neighbor 10.138.47.70 peer-as 65506
+[ok][2019-02-11 12:03:29]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI type  external
+[ok][2019-02-11 12:03:29]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI import IMPORT-POLICY-NNI
+[ok][2019-02-11 12:03:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI export EXPORT-POLICY-NNI
+[ok][2019-02-11 12:03:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI neighbor 193.138.11.1 local-address 193.138.11.2
+[ok][2019-02-11 12:03:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI neighbor 193.138.11.1 peer-as 8220
+[ok][2019-02-11 12:03:31]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN2-VRF protocols bgp 13801 debug level debug
+[ok][2019-02-11 12:03:31]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+[ok][2019-02-11 12:03:31]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+[ok][2019-02-11 12:03:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+[ok][2019-02-11 12:03:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF instance-type vrf
+[ok][2019-02-11 12:03:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF global-vrf-id 15022
+[ok][2019-02-11 12:03:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF mpls-vpn-core-instance THAMES-Control-VR
+[ok][2019-02-11 12:03:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF interfaces [ tvi-0/3402.0 ]
+[ok][2019-02-11 12:03:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF route-distinguisher 1502L:15022
+[ok][2019-02-11 12:03:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF vrf-export-target target:1502L:15022
+[ok][2019-02-11 12:03:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 router-id 10.138.47.74 local-as  as-number 65506
+[ok][2019-02-11 12:03:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 route-flap free-max-time 180
+[ok][2019-02-11 12:03:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 route-flap reuse-max-time 60
+[ok][2019-02-11 12:03:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 route-flap reuse-size 256
+[ok][2019-02-11 12:03:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 route-flap reuse-array-size 1024
+[ok][2019-02-11 12:03:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 graceful-restart maximum-restart-time 120
+[ok][2019-02-11 12:03:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 graceful-restart recovery-time  120
+[ok][2019-02-11 12:03:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 graceful-restart select-defer-time 120
+[ok][2019-02-11 12:03:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 graceful-restart stalepath-time  120
+[ok][2019-02-11 12:03:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 graceful-restart dynamic-peer-restart-time 0
+[ok][2019-02-11 12:03:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 permit
+[ok][2019-02-11 12:03:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 address-family ipv4 unicast address-mask 193.138.11.8/30
+[ok][2019-02-11 12:03:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le ge 30
+[ok][2019-02-11 12:03:38]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le le 32
+[ok][2019-02-11 12:03:38]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT match ip nlri prefix-list NNI1-INT
+[ok][2019-02-11 12:03:39]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT action reject
+[ok][2019-02-11 12:03:39]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES match community "(^|,)44:20($|,)"
+[ok][2019-02-11 12:03:39]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES action reject
+[ok][2019-02-11 12:03:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action accept
+[ok][2019-02-11 12:03:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community 44:11
+[ok][2019-02-11 12:03:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community-action set-specific
+[ok][2019-02-11 12:03:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 ibgp-preference 200
+[ok][2019-02-11 12:03:42]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 ebgp-preference 20
+[ok][2019-02-11 12:03:42]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 group EBGP-With-LAN_VRF type external
+[ok][2019-02-11 12:03:42]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 group EBGP-With-LAN_VRF import  IMPORT-POLICY-FROM-LAN-VRF
+[ok][2019-02-11 12:03:42]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 group EBGP-With-LAN_VRF neighbor 10.138.47.73 local-address 10.138.47.74
+[ok][2019-02-11 12:03:43]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 group EBGP-With-LAN_VRF neighbor 10.138.47.73 peer-as 15404
+[ok][2019-02-11 12:03:43]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-EXPORT3-VRF protocols bgp 13802 debug level debug
+[ok][2019-02-11 12:03:44]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-BGP match protocol bgp
+[ok][2019-02-11 12:03:44]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-BGP action accept
+[ok][2019-02-11 12:03:44]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-BGP action set-origin igp
+[ok][2019-02-11 12:03:45]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-DIRECT match protocol direct
+[ok][2019-02-11 12:03:45]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-DIRECT action accept
+[ok][2019-02-11 12:03:45]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-DIRECT action set-origin igp
+[ok][2019-02-11 12:03:46]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-STATIC match protocol static
+[ok][2019-02-11 12:03:46]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-STATIC action accept
+[ok][2019-02-11 12:03:47]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF policy-options redistribution-policy REDIS-TO-BGP term  ACCEPT-STATIC action set-origin igp
+[ok][2019-02-11 12:03:47]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+[ok][2019-02-11 12:03:47]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF instance-type vrf
+[ok][2019-02-11 12:03:47]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF global-vrf-id 1502
+[ok][2019-02-11 12:03:48]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF networks [ THAMES-MPLS3 ]
+[ok][2019-02-11 12:03:48]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF mpls-vpn-core-instance THAMES-Control-VR
+[ok][2019-02-11 12:03:48]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF interfaces [ tvi-0/1502.0 ]
+[ok][2019-02-11 12:03:48]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF route-distinguisher 1502L:1502
+[ok][2019-02-11 12:03:48]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF vrf-import-target target:1502L:1502
+[ok][2019-02-11 12:03:49]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF vrf-export-target target:1502L:15022
+[ok][2019-02-11 12:03:49]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 router-id 193.138.11.2 local-as as-number 15404
+[ok][2019-02-11 12:03:49]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 route-flap free-max-time 180
+[ok][2019-02-11 12:03:49]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 route-flap reuse-max-time 60
+[ok][2019-02-11 12:03:50]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 route-flap reuse-size 256
+[ok][2019-02-11 12:03:50]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 route-flap reuse-array-size 1024
+[ok][2019-02-11 12:03:50]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 graceful-restart maximum-restart-time 120
+[ok][2019-02-11 12:03:51]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 graceful-restart recovery-time 120 
+[ok][2019-02-11 12:03:51]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 graceful-restart select-defer-time  120
+[ok][2019-02-11 12:03:51]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 graceful-restart stalepath-time 120
+[ok][2019-02-11 12:03:51]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 graceful-restart dynamic-peer-restart-time 0
+[ok][2019-02-11 12:03:52]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 permit 
+[ok][2019-02-11 12:03:52]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 address-family ipv4 unicast address-mask 10.138.47.72/30
+[ok][2019-02-11 12:03:53]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le ge 30
+[ok][2019-02-11 12:03:53]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le le 32
+[ok][2019-02-11 12:03:53]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT match ip nlri prefix-list PTVI-INT
+[ok][2019-02-11 12:03:54]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT action reject
+[ok][2019-02-11 12:03:54]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP match community "(^|,)44:11($|,)"
+[ok][2019-02-11 12:03:55]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP action reject
+[ok][2019-02-11 12:03:55]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM match community "(^|,)44:10($|,)"
+[ok][2019-02-11 12:03:55]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action accept
+[ok][2019-02-11 12:03:56]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community 100:10
+[ok][2019-02-11 12:03:56]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community-action set-specific
+[ok][2019-02-11 12:03:57]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-POLICY-NNI term 4DENY-REST action reject
+[ok][2019-02-11 12:03:57]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP match community "(^|,)44:11($|,)"
+[ok][2019-02-11 12:03:57]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP action reject
+[ok][2019-02-11 12:03:58]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 2ALLOW-REST action accept
+[ok][2019-02-11 12:03:58]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES match community "(^|,)100:10($|,)"
+[ok][2019-02-11 12:03:59]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES action reject
+[ok][2019-02-11 12:03:59]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action accept
+[ok][2019-02-11 12:04:00]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community 44:20
+[ok][2019-02-11 12:04:00]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community-action set-specific
+[ok][2019-02-11 12:04:00]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 ibgp-preference 200
+[ok][2019-02-11 12:04:01]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 ebgp-preference 20
+[ok][2019-02-11 12:04:01]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF type external
+[ok][2019-02-11 12:04:01]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF export  EXPORT-PAIR-TVI-LOOP-PREV
+[ok][2019-02-11 12:04:01]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF neighbor 10.138.47.74 local-address 10.138.47.73
+[ok][2019-02-11 12:04:02]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 group EBGP-WITH-EXPORT_VRF neighbor 10.138.47.74 peer-as 65506
+[ok][2019-02-11 12:04:02]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI type  external
+[ok][2019-02-11 12:04:03]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI import IMPORT-POLICY-NNI
+[ok][2019-02-11 12:04:03]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI export EXPORT-POLICY-NNI
+[ok][2019-02-11 12:04:03]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI neighbor 193.138.11.1 local-address 193.138.11.2
+[ok][2019-02-11 12:04:04]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 group EBGP-With-SAR-TypeA-NNI neighbor 193.138.11.1 peer-as 8220
+[ok][2019-02-11 12:04:04]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices device NV-GW01-N5-LON config routing-instances THAMES-LAN3-VRF protocols bgp 13801 debug level debug
+[ok][2019-02-11 12:04:04]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+2019-02-11 16:00:20,817 - VD1 - INFO - commit
+Commit complete.
+[ok][2019-02-11 12:04:22]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+2019-02-11 16:00:20,818 - VD1 - INFO - NV-GW01-N5-LON : Commit success.
+2019-02-11 16:00:20,819 - VD1 - INFO - 
+********************
+RESULT:
+ORG DEPLOYMENT : PASS
+NV-GW01-N5-LON: Commit success.
+
+********************
+
+2019-02-11 16:00:20,819 - VD1 - INFO - LOG FILE PATH : /home/sathish123/PycharmProjects/NV_LATEST_COPY/csit/LOGS/2019_02_11_15_56_51_780424/MAIN.log

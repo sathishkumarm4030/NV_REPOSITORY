@@ -1,0 +1,461 @@
+2019-02-07 16:00:46,590 - VD1 - INFO - ORG NAME:JAN232
+2019-02-07 16:00:46,649 - VD1 - DEBUG - {
+  "versanms.sdwan-org-workflow": {
+    "orgName": "JAN232",
+    "globalId": "232",
+    "parentOrg": "Colt",
+    "ikeAuthType": "psk",
+    "sharedControlPlane": false,
+    "controllers": ["NV-WC01-N2-BLR", "NV-WC02-N4-MUM", "NV-WC02-N2-BLR"],
+    "vrfs": [{ "name": "LAN1-VRF", "id": "2440", "enableVPN": "true", "tooltip": "" },{ "name": "LAN2-VRF", "id": "2441", "enableVPN": "true", "tooltip": "" },{ "name": "LAN3-VRF", "id": "2442", "enableVPN": "true", "tooltip": "" },{ "name": "LAN4-VRF", "id": "2443", "enableVPN": "true", "tooltip": "" }],
+    "supportedRoles": []
+  }
+}
+2019-02-07 16:00:46,649 - VD1 - INFO - PASS
+2019-02-07 16:00:46,904 - VD1 - INFO - set devices device NV-GW01-N2-BLR config interfaces tvi-0/464 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/464 mode ipsec
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/464 type p2mp-vxlan
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/464 unit 0 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/464 description "VxLAN JAN232 Management"
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/464 unit 0 family
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/464 unit 0 family inet
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/464 unit 0 family inet address 30.232.2.1/32
+
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/465 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/465 mode ipsec
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/465 type p2mp-esp
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/465 unit 0 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/465 description "ESP JAN232 Management"
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/465 unit 0 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/465 unit 0 family
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/465 unit 0 family inet
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/465 unit 0 family inet address 40.232.2.1/32
+
+
+
+
+set devices device NV-GW01-N2-BLR config interfaces ptvi464 karunparent-interface tvi-0/465.0 remote-address 10.232.0.23
+
+
+
+
+set devices device NV-GW01-N2-BLR config interfaces ptvi465 karunparent-interface tvi-0/465.0 remote-address 10.232.0.24
+
+set devices device NV-GW01-N2-BLR config interfaces ptvi464 parent-interface tvi-0/465.0 remote-address 10.232.64.23
+set devices device NV-GW01-N2-BLR config interfaces ptvi465 parent-interface tvi-0/465.0 remote-address 10.232.64.24
+
+
+
+
+
+
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 2440 vlan-id 2440
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 2440 enable true
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 2440 family
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 2440 family inet
+set devices device NV-GW01-N2-BLR config interfaces vni-0/0 unit 2440 family inet address 193.232.1.2/30
+
+
+
+
+
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/2440 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/2440 mode ipsec
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/2440 type paired
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/2440 paired-interface tvi-0/4340
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/2440 unit 0 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/2440 unit 0 family
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/2440 unit 0 family inet
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/2440 unit 0 family inet address 10.63.47.65/30
+
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/4340 mode ipsec
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/4340 type paired
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/4340 paired-interface tvi-0/2440
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/4340 unit 0 enable true
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/4340 unit 0 family
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/4340 unit 0 family inet
+set devices device NV-GW01-N2-BLR config interfaces tvi-0/4340 unit 0 family inet address 10.63.47.66/30
+
+set devices device NV-GW01-N2-BLR config networks JAN232-MPLS1 interfaces [ vni-0/0.2440 ]
+
+
+
+
+
+
+set devices device NV-GW01-N2-BLR config orgs org JAN232 available-routing-instances [ INT-TRANSP-VR MPLS-TRANSP-VR JAN232-Control-VR JAN232-EXPORT1-VRF JAN232-LAN1-VRF ]
+set devices device NV-GW01-N2-BLR config orgs org JAN232 traffic-identification using [ ptvi464 ptvi465 tvi-0/464.0 tvi-0/465.0 tvi-0/2440.0 tvi-0/4340.0 ]
+set devices device NV-GW01-N2-BLR config orgs org JAN232 owned-routing-instances [ INT-TRANSP-VR MPLS-TRANSP-VR JAN232-Control-VR JAN232-EXPORT1-VRF JAN232-LAN1-VRF ]
+set devices device NV-GW01-N2-BLR config orgs org JAN232 traffic-identification using-networks [ JAN232-MPLS1 ]
+
+set devices device NV-GW01-N2-BLR config orgs org JAN232 available-provider-orgs [ JAN232 ]
+set devices device NV-GW01-N2-BLR config orgs org JAN232 available-service-node-groups [ default-sng ]
+set devices device NV-GW01-N2-BLR config orgs org JAN232 sd-wan site
+set devices device NV-GW01-N2-BLR config orgs org JAN232 sd-wan site global-tenant-id 232
+set devices device NV-GW01-N2-BLR config orgs org JAN232 sd-wan site site-name NV-GW01-N2-BLR
+set devices device NV-GW01-N2-BLR config orgs org JAN232 sd-wan site management-routing-instance JAN232-Control-VR
+set devices device NV-GW01-N2-BLR config orgs org JAN232 sd-wan site wan-interfaces vni-0/1.454 sla-monitoring fc_be interval 1
+set devices device NV-GW01-N2-BLR config orgs org JAN232 sd-wan site wan-interfaces vni-0/1.454 sla-monitoring fc_be logging-interval 5
+set devices device NV-GW01-N2-BLR config orgs org JAN232 sd-wan site wan-interfaces vni-0/1.454 encryption optional
+set devices device NV-GW01-N2-BLR config orgs org JAN232 sd-wan site wan-interfaces vni-0/1.464 sla-monitoring fc_be interval 1
+set devices device NV-GW01-N2-BLR config orgs org JAN232 sd-wan site wan-interfaces vni-0/1.464 sla-monitoring fc_be logging-interval 5
+set devices device NV-GW01-N2-BLR config orgs org JAN232 sd-wan controllers NV-WC01-N2-BLR management-addresses IKE ip-address 10.232.0.23
+set devices device NV-GW01-N2-BLR config orgs org JAN232 sd-wan controllers NV-WC01-N2-BLR management-addresses IKE routing-instance JAN232-Control-VR
+set devices device NV-GW01-N2-BLR config orgs org JAN232 sd-wan controllers NV-WC01-N2-BLR management-addresses secure ip-address 10.232.64.23
+set devices device NV-GW01-N2-BLR config orgs org JAN232 sd-wan controllers NV-WC01-N2-BLR management-addresses secure routing-instance JAN232-Control-VR
+set devices device NV-GW01-N2-BLR config orgs org JAN232 sd-wan controllers NV-WC02-N2-BLR management-addresses IKE ip-address 10.232.0.24
+set devices device NV-GW01-N2-BLR config orgs org JAN232 sd-wan controllers NV-WC02-N2-BLR management-addresses IKE routing-instance JAN232-Control-VR
+set devices device NV-GW01-N2-BLR config orgs org JAN232 sd-wan controllers NV-WC02-N2-BLR management-addresses secure ip-address 10.232.64.24
+set devices device NV-GW01-N2-BLR config orgs org JAN232 sd-wan controllers NV-WC02-N2-BLR management-addresses secure routing-instance JAN232-Control-VR
+
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 security access-policies Policy1 rules R1 set action allow
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 security access-policies Policy1 rules R1 set lef profile Default-Logging-Profile
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 security access-policies Policy1 rules R1 set lef event end
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 security access-policies Policy1 rules R1 set lef options send-pcap-data enable false
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 objects zones trust
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 objects zones untrust
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 objects zones host
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 traffic-monitoring logging-control Default-Logging-Control profile Default-Logging-Profile
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 traffic-monitoring logging-control Default-Logging-Control options
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 traffic-monitoring logging-control Default-Logging-Control options stats
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 traffic-monitoring logging-control Default-Logging-Control options stats all
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 traffic-monitoring policies Analytics-policy rules rule1 set lef profile Default-Logging-Profile
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 lef collectors LEF-Collector-log_collector1 destination-address 10.91.116.71
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 lef collectors LEF-Collector-log_collector1 destination-port 5140
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 lef collectors LEF-Collector-log_collector1 routing-instance JAN232-Control-VR
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 lef collectors LEF-Collector-log_collector1 transport tcp
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 lef collectors LEF-Collector-log_collector1 template Default-LEF-Template
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 lef collectors LEF-Collector-log_collector2 destination-address 10.91.116.72
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 lef collectors LEF-Collector-log_collector2 destination-port 5140
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 lef collectors LEF-Collector-log_collector2 routing-instance JAN232-Control-VR
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 lef collectors LEF-Collector-log_collector2 transport tcp
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 lef collectors LEF-Collector-log_collector2 template Default-LEF-Template
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 lef collector-groups Default-Collector-Group collectors [ LEF-Collector-log_collector1 LEF-Collector-log_collector2 ]
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 lef templates Default-LEF-Template type ipfix
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 lef profiles Default-Logging-Profile collector-group Default-Collector-Group
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 lef default-profile Default-Logging-Profile
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 vpn-type branch-sdwan
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 local-auth-info
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 local-auth-info auth-type psk
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 local-auth-info id-type email
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 local-auth-info key NV-GW01-N2-BLR
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 local-auth-info id-string NV-GW01-N2-BLR@JAN232.com
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 local
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 local address 30.232.2.1
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 routing-instance JAN232-Control-VR
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 tunnel-routing-instance JAN232-Control-VR
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 tunnel-initiate automatic
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 ipsec fragmentation pre-fragmentation
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 ipsec transform esp-aes128-sha1
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 ipsec mode tunnel
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 ipsec pfs-group mod-none
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 ipsec anti-replay enable
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 ipsec life duration 25000
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 ike version v2
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 ike group mod19
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 ike transform aes128-sha1
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 ike lifetime 27000
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 ike dpd-timeout 10
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 peer-auth-info
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 peer-auth-info auth-type psk
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 peer-auth-info id-type email
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 peer-auth-info key NV-GW01-N2-BLR
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 peer-auth-info id-string NV-WC01-N2-BLR@JAN232.com
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 peer
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 peer address 10.232.0.23
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 tunnel-interface ptvi464
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 vpn-type branch-sdwan
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 local-auth-info
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 local-auth-info auth-type psk
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 local-auth-info id-type email
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 local-auth-info key NV-GW01-N2-BLR
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 local-auth-info id-string NV-GW01-N2-BLR@JAN232.com
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 local
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 local address 30.232.2.1
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 routing-instance JAN232-Control-VR
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 tunnel-routing-instance JAN232-Control-VR
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 tunnel-initiate automatic
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 ipsec fragmentation pre-fragmentation
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 ipsec transform esp-aes128-sha1
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 ipsec mode tunnel
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 ipsec pfs-group mod-none
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 ipsec anti-replay enable
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 ipsec life duration 25000
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 ike version v2
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 ike group mod19
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 ike transform aes128-sha1
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 ike lifetime 27000
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 ike dpd-timeout 10
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 peer-auth-info
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 peer-auth-info auth-type psk
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 peer-auth-info id-type email
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 peer-auth-info key NV-GW01-N2-BLR
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 peer-auth-info id-string NV-WC02-N2-BLR@JAN232.com
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 peer
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 peer address 10.232.0.24
+set devices device NV-GW01-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 tunnel-interface ptvi465
+
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR instance-type virtual-router
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR mpls-vpn-core
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR interfaces [ ptvi464 ptvi465 tvi-0/464.0 tvi-0/465.0 ]
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR routing-options mpls-vpn-local-router-address 40.232.2.1
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR routing-options static route 0.0.0.0/0 40.232.2.1 tvi-0/465.0 preference 1
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR routing-options static route 0.0.0.0/0 40.232.2.1 tvi-0/465.0 tag 0
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 hold-time 90
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 peer-as 65505
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 route-flap free-max-time 180
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 route-flap reuse-max-time 60
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 route-flap reuse-size 256
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 route-flap reuse-array-size 1024
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 graceful-restart enable
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 graceful-restart recovery-time 120
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 graceful-restart select-defer-time 120
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 graceful-restart stalepath-time 120
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 graceful-restart dynamic-peer-restart-time 0
+
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 router-id 40.232.2.1
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 ibgp-preference 200
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 ebgp-preference 20
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 local-as as-number 65505
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC type internal
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC family inet unicast
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC family inet versa-private
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC family inet-vpn unicast
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC bfd-liveness-detection
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC bfd-liveness-detection minimum-receive-interval 1000
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC bfd-liveness-detection multiplier 3
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC bfd-liveness-detection transmit-interval minimum-interval 1000
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC neighbor 10.232.64.23
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC neighbor 10.232.64.23 peer-as 65505
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC neighbor 10.232.64.24
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC neighbor 10.232.64.24 peer-as 65505
+set devices device NV-GW01-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 debug level debug
+2019-02-07 16:00:47,113 - VD1 - INFO - set devices device NV-GW02-N2-BLR config interfaces tvi-0/464 enable true
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/464 mode ipsec
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/464 type p2mp-vxlan
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/464 unit 0 enable true
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/464 description "VxLAN JAN232 Management"
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/464 unit 0 family
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/464 unit 0 family inet
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/464 unit 0 family inet address 30.232.2.2/32
+
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/465 enable true
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/465 mode ipsec
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/465 type p2mp-esp
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/465 unit 0 enable true
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/465 description "ESP JAN232 Management"
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/465 unit 0 enable true
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/465 unit 0 family
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/465 unit 0 family inet
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/465 unit 0 family inet address 40.232.2.2/32
+
+
+
+
+set devices device NV-GW02-N2-BLR config interfaces ptvi464 karunparent-interface tvi-0/465.0 remote-address 10.232.0.23
+
+
+
+
+set devices device NV-GW02-N2-BLR config interfaces ptvi465 karunparent-interface tvi-0/465.0 remote-address 10.232.0.24
+
+set devices device NV-GW02-N2-BLR config interfaces ptvi464 parent-interface tvi-0/465.0 remote-address 10.232.64.23
+set devices device NV-GW02-N2-BLR config interfaces ptvi465 parent-interface tvi-0/465.0 remote-address 10.232.64.24
+
+
+
+
+
+
+set devices device NV-GW02-N2-BLR config interfaces vni-0/0 unit 3340 vlan-id 3340
+set devices device NV-GW02-N2-BLR config interfaces vni-0/0 unit 3340 enable true
+set devices device NV-GW02-N2-BLR config interfaces vni-0/0 unit 3340 family
+set devices device NV-GW02-N2-BLR config interfaces vni-0/0 unit 3340 family inet
+set devices device NV-GW02-N2-BLR config interfaces vni-0/0 unit 3340 family inet address 193.232.2.2/30
+
+
+
+
+
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/2440 enable true
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/2440 mode ipsec
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/2440 type paired
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/2440 paired-interface tvi-0/4340
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/2440 unit 0 enable true
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/2440 unit 0 family
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/2440 unit 0 family inet
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/2440 unit 0 family inet address 10.63.47.65/30
+
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/4340 mode ipsec
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/4340 type paired
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/4340 paired-interface tvi-0/2440
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/4340 unit 0 enable true
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/4340 unit 0 family
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/4340 unit 0 family inet
+set devices device NV-GW02-N2-BLR config interfaces tvi-0/4340 unit 0 family inet address 10.63.47.66/30
+
+set devices device NV-GW02-N2-BLR config networks JAN232-MPLS1 interfaces [ vni-0/0.3340 ]
+
+
+
+
+
+
+set devices device NV-GW02-N2-BLR config orgs org JAN232 available-routing-instances [ INT-TRANSP-VR MPLS-TRANSP-VR JAN232-Control-VR JAN232-EXPORT1-VRF JAN232-LAN1-VRF ]
+set devices device NV-GW02-N2-BLR config orgs org JAN232 traffic-identification using [ ptvi464 ptvi465 tvi-0/464.0 tvi-0/465.0 tvi-0/2440.0 tvi-0/4340.0 ]
+set devices device NV-GW02-N2-BLR config orgs org JAN232 owned-routing-instances [ INT-TRANSP-VR MPLS-TRANSP-VR JAN232-Control-VR JAN232-EXPORT1-VRF JAN232-LAN1-VRF ]
+set devices device NV-GW02-N2-BLR config orgs org JAN232 traffic-identification using-networks [ JAN232-MPLS1 ]
+
+set devices device NV-GW02-N2-BLR config orgs org JAN232 available-provider-orgs [ JAN232 ]
+set devices device NV-GW02-N2-BLR config orgs org JAN232 available-service-node-groups [ default-sng ]
+set devices device NV-GW02-N2-BLR config orgs org JAN232 sd-wan site
+set devices device NV-GW02-N2-BLR config orgs org JAN232 sd-wan site global-tenant-id 232
+set devices device NV-GW02-N2-BLR config orgs org JAN232 sd-wan site site-name NV-GW02-N2-BLR
+set devices device NV-GW02-N2-BLR config orgs org JAN232 sd-wan site management-routing-instance JAN232-Control-VR
+set devices device NV-GW02-N2-BLR config orgs org JAN232 sd-wan site wan-interfaces vni-0/1.455 sla-monitoring fc_be interval 1
+set devices device NV-GW02-N2-BLR config orgs org JAN232 sd-wan site wan-interfaces vni-0/1.455 sla-monitoring fc_be logging-interval 5
+set devices device NV-GW02-N2-BLR config orgs org JAN232 sd-wan site wan-interfaces vni-0/1.455 encryption optional
+set devices device NV-GW02-N2-BLR config orgs org JAN232 sd-wan site wan-interfaces vni-0/1.465 sla-monitoring fc_be interval 1
+set devices device NV-GW02-N2-BLR config orgs org JAN232 sd-wan site wan-interfaces vni-0/1.465 sla-monitoring fc_be logging-interval 5
+set devices device NV-GW02-N2-BLR config orgs org JAN232 sd-wan controllers NV-WC01-N2-BLR management-addresses IKE ip-address 10.232.0.23
+set devices device NV-GW02-N2-BLR config orgs org JAN232 sd-wan controllers NV-WC01-N2-BLR management-addresses IKE routing-instance JAN232-Control-VR
+set devices device NV-GW02-N2-BLR config orgs org JAN232 sd-wan controllers NV-WC01-N2-BLR management-addresses secure ip-address 10.232.64.23
+set devices device NV-GW02-N2-BLR config orgs org JAN232 sd-wan controllers NV-WC01-N2-BLR management-addresses secure routing-instance JAN232-Control-VR
+set devices device NV-GW02-N2-BLR config orgs org JAN232 sd-wan controllers NV-WC02-N2-BLR management-addresses IKE ip-address 10.232.0.24
+set devices device NV-GW02-N2-BLR config orgs org JAN232 sd-wan controllers NV-WC02-N2-BLR management-addresses IKE routing-instance JAN232-Control-VR
+set devices device NV-GW02-N2-BLR config orgs org JAN232 sd-wan controllers NV-WC02-N2-BLR management-addresses secure ip-address 10.232.64.24
+set devices device NV-GW02-N2-BLR config orgs org JAN232 sd-wan controllers NV-WC02-N2-BLR management-addresses secure routing-instance JAN232-Control-VR
+
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 security access-policies Policy1 rules R1 set action allow
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 security access-policies Policy1 rules R1 set lef profile Default-Logging-Profile
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 security access-policies Policy1 rules R1 set lef event end
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 security access-policies Policy1 rules R1 set lef options send-pcap-data enable false
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 objects zones trust
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 objects zones untrust
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 objects zones host
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 traffic-monitoring logging-control Default-Logging-Control profile Default-Logging-Profile
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 traffic-monitoring logging-control Default-Logging-Control options
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 traffic-monitoring logging-control Default-Logging-Control options stats
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 traffic-monitoring logging-control Default-Logging-Control options stats all
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 traffic-monitoring policies Analytics-policy rules rule1 set lef profile Default-Logging-Profile
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 lef collectors LEF-Collector-log_collector1 destination-address 10.91.116.71
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 lef collectors LEF-Collector-log_collector1 destination-port 5140
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 lef collectors LEF-Collector-log_collector1 routing-instance JAN232-Control-VR
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 lef collectors LEF-Collector-log_collector1 transport tcp
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 lef collectors LEF-Collector-log_collector1 template Default-LEF-Template
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 lef collectors LEF-Collector-log_collector2 destination-address 10.91.116.72
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 lef collectors LEF-Collector-log_collector2 destination-port 5140
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 lef collectors LEF-Collector-log_collector2 routing-instance JAN232-Control-VR
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 lef collectors LEF-Collector-log_collector2 transport tcp
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 lef collectors LEF-Collector-log_collector2 template Default-LEF-Template
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 lef collector-groups Default-Collector-Group collectors [ LEF-Collector-log_collector1 LEF-Collector-log_collector2 ]
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 lef templates Default-LEF-Template type ipfix
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 lef profiles Default-Logging-Profile collector-group Default-Collector-Group
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 lef default-profile Default-Logging-Profile
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 vpn-type branch-sdwan
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 local-auth-info
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 local-auth-info auth-type psk
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 local-auth-info id-type email
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 local-auth-info key NV-GW02-N2-BLR
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 local-auth-info id-string NV-GW01-N2-BLR@JAN232.com
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 local
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 local address 30.232.2.2
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 routing-instance JAN232-Control-VR
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 tunnel-routing-instance JAN232-Control-VR
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 tunnel-initiate automatic
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 ipsec fragmentation pre-fragmentation
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 ipsec transform esp-aes128-sha1
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 ipsec mode tunnel
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 ipsec pfs-group mod-none
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 ipsec anti-replay enable
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 ipsec life duration 25000
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 ike version v2
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 ike group mod19
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 ike transform aes128-sha1
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 ike lifetime 27000
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 ike dpd-timeout 10
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 peer-auth-info
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 peer-auth-info auth-type psk
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 peer-auth-info id-type email
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 peer-auth-info key NV-GW02-N2-BLR
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 peer-auth-info id-string NV-WC01-N2-BLR@JAN232.com
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 peer
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 peer address 10.232.0.23
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL1 tunnel-interface ptvi464
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 vpn-type branch-sdwan
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 local-auth-info
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 local-auth-info auth-type psk
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 local-auth-info id-type email
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 local-auth-info key NV-GW02-N2-BLR
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 local-auth-info id-string NV-GW01-N2-BLR@JAN232.com
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 local
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 local address 30.232.2.2
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 routing-instance JAN232-Control-VR
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 tunnel-routing-instance JAN232-Control-VR
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 tunnel-initiate automatic
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 ipsec fragmentation pre-fragmentation
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 ipsec transform esp-aes128-sha1
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 ipsec mode tunnel
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 ipsec pfs-group mod-none
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 ipsec anti-replay enable
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 ipsec life duration 25000
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 ike version v2
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 ike group mod19
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 ike transform aes128-sha1
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 ike lifetime 27000
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 ike dpd-timeout 10
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 peer-auth-info
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 peer-auth-info auth-type psk
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 peer-auth-info id-type email
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 peer-auth-info key NV-GW02-N2-BLR
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 peer-auth-info id-string NV-WC02-N2-BLR@JAN232.com
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 peer
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 peer address 10.232.0.24
+set devices device NV-GW02-N2-BLR config orgs org-services JAN232 ipsec vpn-profile GW-CTRL2 tunnel-interface ptvi465
+
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR instance-type virtual-router
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR mpls-vpn-core
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR interfaces [ ptvi464 ptvi465 tvi-0/464.0 tvi-0/465.0 ]
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR routing-options mpls-vpn-local-router-address 40.232.2.2
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR routing-options static route 0.0.0.0/0 40.232.2.2 tvi-0/465.0 preference 1
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR routing-options static route 0.0.0.0/0 40.232.2.2 tvi-0/465.0 tag 0
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 hold-time 90
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 peer-as 65505
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 route-flap free-max-time 180
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 route-flap reuse-max-time 60
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 route-flap reuse-size 256
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 route-flap reuse-array-size 1024
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 graceful-restart enable
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 graceful-restart maximum-restart-time 120
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 graceful-restart recovery-time 120
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 graceful-restart select-defer-time 120
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 graceful-restart stalepath-time 120
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 graceful-restart dynamic-peer-restart-time 0
+
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 router-id 40.232.2.2
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 ibgp-preference 200
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 ebgp-preference 20
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 local-as as-number 65505
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC type internal
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC family inet unicast
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC family inet versa-private
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC family inet-vpn unicast
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC bfd-liveness-detection
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC bfd-liveness-detection minimum-receive-interval 1000
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC bfd-liveness-detection multiplier 3
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC bfd-liveness-detection transmit-interval minimum-interval 1000
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC neighbor 10.232.64.23
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC neighbor 10.232.64.23 peer-as 65505
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC neighbor 10.232.64.24
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 group GW-WC neighbor 10.232.64.24 peer-as 65505
+set devices device NV-GW02-N2-BLR config routing-instances JAN232-Control-VR protocols bgp 232 debug level debug
+2019-02-07 16:00:47,113 - VD1 - INFO - 
+********************
+RESULT:
+ORG DEPLOYMENT : PASS
+NV-GW01-N2-BLR: PASS
+NV-GW02-N2-BLR: PASS
+
+********************
+
