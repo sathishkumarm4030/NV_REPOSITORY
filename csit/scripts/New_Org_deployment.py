@@ -48,7 +48,7 @@ def Do_New_Org_Deployment():
     org_id = raw_input("Enter ORG ID :")
     no_of_vrfs = raw_input("NUMBER OF VRFS :")
     # org_name = "JAN232"
-    # org_id = "232"
+    # org_id = "123"
     # no_of_vrfs = "4"
 
     VD1 = VersaLib('VD1', topofile="Devices.csv")

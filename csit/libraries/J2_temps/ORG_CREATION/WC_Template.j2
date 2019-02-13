@@ -33,11 +33,11 @@ set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ips
 {% endif %}
 
 {% if RR_SERVER|length %}
-{% set SERVER_WC_HOSTNAME = RRSDICT[RR_SERVER]['ESP_IP'] %}
+{% set SERVER_WC_HOSTNAME = RRSDICT[RR_SERVER]['DEVICE_NAME'] %}
 {% set REMOTE_WAN_CONTROLLER_AUTH_KEY = RRSDICT[RR_SERVER]['AUTH_KEY'] %}
 {% set REMOTE_WAN_CONTROLLER_AUTH_STRING = RRSDICT[RR_SERVER]['AUTH_STRING'] %}
 
-{% set LOCAL_WC_HOSTNAME = ESP_IP %}
+{% set LOCAL_WC_HOSTNAME = DEVICE_NAME %}
 {% set WAN_CONTROLLER_AUTH_STRING = AUTH_STRING %}
 {% set WAN_CONTROLLER_AUTH_KEY = AUTH_KEY %}
 set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group Controllers export EXPORT-Controllers

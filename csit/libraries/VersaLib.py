@@ -948,7 +948,7 @@ class VersaLib:
                 else:
                     for k, v in RR_Clients.iteritems():
                         if node_dev in RR_Clients[k]:
-                            if not k in RR_SERVER:
+                            if k in RR_SERVER:
                                 node_device_data["RR_SERVER"] = k
             if node_type == "GW":
                 node_device_data["WC_list"] = ctlr_dict[node_device_data['NODE']]
@@ -1066,7 +1066,7 @@ class VersaLib:
             if org_data.has_key('RR_SERVER') :
                 if org_data['RR_SERVER'] != "":
                     if self.ndb.has_key(org_data['RR_SERVER']):
-                        org_data['RRSDICT'] = self.ndb[org_data['RR_SERVER']]
+                        org_data['RRSDICT'][org_data['RR_SERVER']] = self.ndb[org_data['RR_SERVER']]
             org_data["GWDICT"] = {}
             print org_data['NODE']
             print nodes
