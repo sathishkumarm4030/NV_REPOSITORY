@@ -994,7 +994,7 @@ class VersaLib:
         self.WC_list = WC_list
         # self.GW_list = self.org_data['GATEWAYS'].replace('"', "").split(", ")
         self.main_logger.debug(org_body)
-        return "PASS"
+        # return "PASS"
         result = self.post_operation(org_url, headers3, org_body)
         self.main_logger.info(result)
         if "error" in result:
