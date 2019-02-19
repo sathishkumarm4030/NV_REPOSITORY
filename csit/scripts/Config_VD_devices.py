@@ -46,7 +46,7 @@ def DO_config_in_VD_For_CPEs():
     # print VD1.get_data_dict()
     VD1.vdnc = VD1.login()
     # VD1.vdnc = "1234"
-    VD1.config_devices_template(VD1.vdnc, fileDir + "/Topology/PROD_CPEs.csv", fileDir + "/libraries/J2_temps/PROD_CONFIG/devices_device_config.j2")
+    VD1.config_devices_template(VD1.vdnc, fileDir + "/Topology/PROD_CPEs.csv", fileDir + "/libraries/J2_temps/PROD_CONFIG/devices_device_config.j2", config_for="ckt_pri")
     VD1.close(VD1.vdnc)
 
 

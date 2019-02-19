@@ -607,8 +607,8 @@ class VersaLib:
         self.main_logger.info(nc_handler.send_command_expect('commit and-quit', expect_string='>', strip_prompt=False, strip_command=False))
 
     def device_config_commands_wo_split(self, nc_handler, cmds):
-        # nc_handler.config_mode(config_command='config private')
-        # nc_handler.check_config_mode()
+        nc_handler.config_mode(config_command='config private')
+        nc_handler.check_config_mode()
         return nc_handler.send_config_set(config_commands=cmds, strip_prompt=False, strip_command=False, \
                                           max_loops=5000, delay_factor=0.0001, exit_config_mode=False)
 
@@ -822,7 +822,7 @@ class VersaLib:
         data1 = json.dumps(data)
         self.put_operation(self.vni_interface_url, headers2, data1)
 
-    def config_devices_template(self, nc, device_file, command_template_file):
+    def config_devices_template(self, nc, device_file, command_template_file, config_for=""):
         start_time = datetime.now()
         main_logger = self.setup_logger('Versa-director', 'Config_devices_template')
         # print device_file
@@ -837,20 +837,21 @@ class VersaLib:
         for idx, row in csv_data_read.iterrows():
             res_check = ""
             dev_dict = row.to_dict()
-            if isinstance(dev_dict['SITE_TYPE'], float):
-                if math.isnan(dev_dict['SITE_TYPE']):
-                    res_check += "Site type is empty"
-                    result_dict[dev_dict['NAME']] = res_check
-                    continue
-            elif dev_dict['SITE_TYPE'] == 'mpls':
-                if dev_dict['DUAL_CPE'] == 'Y':
-                    dev_dict['SITE_TYPE'] = 'dual_mpls'
-                else:
-                    res_check += "Single MPLS site. No changes commited"
-                    result_dict[dev_dict['NAME']] = res_check
-                    continue
-            # print Solution_type[dev_dict['SITE_TYPE']]
-            device_cmds =  template.render(dev_dict, **Solution_type[dev_dict['SITE_TYPE']])
+            if config_for == "ckt_pri":
+                if isinstance(dev_dict['SITE_TYPE'], float):
+                    if math.isnan(dev_dict['SITE_TYPE']):
+                        res_check += "Site type is empty"
+                        result_dict[dev_dict['NAME']] = res_check
+                        continue
+                elif dev_dict['SITE_TYPE'] == 'mpls':
+                    if dev_dict['DUAL_CPE'] == 'Y':
+                        dev_dict['SITE_TYPE'] = 'dual_mpls'
+                    else:
+                        res_check += "Single MPLS site. No changes commited"
+                        result_dict[dev_dict['NAME']] = res_check
+                        continue
+                # print Solution_type[dev_dict['SITE_TYPE']]
+                device_cmds =  template.render(dev_dict, **Solution_type[dev_dict['SITE_TYPE']])
             main_logger.info(device_cmds)
             result = self.device_config_commands_wo_split(nc, device_cmds)
             main_logger.info(result)
