@@ -863,6 +863,9 @@ class VersaLib:
                                                    expect_string='%', \
                                                    strip_prompt=False, strip_command=False, max_loops=5000)
             main_logger.info(commit_result)
+            ex_result = nc.send_command_expect("exit no-confirm", expect_string=">", strip_prompt=False,
+                                                            strip_command=False, max_loops=5000)
+            main_logger.info(ex_result)
             if "No modifications to commit." in commit_result:
                 res_check += "No modifications to commit."
             elif "Commit complete." in commit_result:
