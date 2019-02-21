@@ -20,27 +20,27 @@ from csit.libraries.VersaLib import VersaLib
 
 def get_vd_details():
     global cpe_list
-    # ip = raw_input("Enter Versa Director IP address:\n")
-    # print "Versa director IP:" + ip
-    # ldap_user = raw_input("Enter LDAP Username for making SSH connection to VD:\n")
-    # print "Versa director Username:" + ldap_user
-    # ldap_passwd = getpass.getpass("Enter LDAP Password:\n")
-    # user = raw_input("Enter Username for making REST actions to Versa Director :\n")
-    # print "Versa director Username:" + user
-    # passwd = getpass.getpass("Enter REST Password:\n")
-    # cpe_user = raw_input("Enter Versa CPE Username:\n")
-    # print "Versa CPE Username:" + cpe_user
-    # cpe_passwd = getpass.getpass("Enter Versa CPE Password:\n")
+    ip = raw_input("Enter Versa Director IP address:\n")
+    print "Versa director IP:" + ip
+    ldap_user = raw_input("Enter LDAP Username for making SSH connection to VD:\n")
+    print "Versa director Username:" + ldap_user
+    ldap_passwd = getpass.getpass("Enter LDAP Password:\n")
+    user = raw_input("Enter Username for making REST actions to Versa Director :\n")
+    print "Versa director Username:" + user
+    passwd = getpass.getpass("Enter REST Password:\n")
+    cpe_user = raw_input("Enter Versa CPE Username:\n")
+    print "Versa CPE Username:" + cpe_user
+    cpe_passwd = getpass.getpass("Enter Versa CPE Password:\n")
     # node_user = raw_input("Enter Versa NODE devices Username:\n")
     # print "Versa NODE devices Username:" + node_user
     # node_passwd = getpass.getpass("Enter Versa NODE Password:\n")
-    ip = '10.91.116.35'
-    ldap_user = 'admin'
-    ldap_passwd = 'versa123'
-    user = 'Sathish'
-    passwd = 'Jan*1234'
-    cpe_user = 'admin'
-    cpe_passwd = 'versa123'
+    # ip = '10.91.116.35'
+    # ldap_user = 'admin'
+    # ldap_passwd = 'versa123'
+    # user = 'Sathish'
+    # passwd = 'Jan*1234'
+    # cpe_user = 'admin'
+    # cpe_passwd = 'versa123'
     # node_user = 'admin'
     # node_passwd = 'versa123'
     return {'mgmt_ip' : ip, 'username' : ldap_user,\
