@@ -25,17 +25,26 @@ def get_vd_details():
     ldap_user = raw_input("Enter LDAP Username for making SSH connection to VD:\n")
     print "Versa director Username:" + ldap_user
     ldap_passwd = getpass.getpass("Enter LDAP Password:\n")
+    user = raw_input("Enter Username for making REST actions to Versa Director :\n")
+    print "Versa director Username:" + user
+    passwd = getpass.getpass("Enter REST Password:\n")
+    cpe_user = raw_input("Enter Versa CPE Username:\n")
+    print "Versa CPE Username:" + cpe_user
+    cpe_passwd = getpass.getpass("Enter Versa CPE Password:\n")
+    # node_user = raw_input("Enter Versa NODE devices Username:\n")
+    # print "Versa NODE devices Username:" + node_user
+    # node_passwd = getpass.getpass("Enter Versa NODE Password:\n")
     # ip = '10.91.116.35'
-    # ldap_user = 'admin'
-    # ldap_passwd = 'versa123'
-    # user = 'Sathish'
-    # passwd = 'Jan*1234'
-    # cpe_user = 'admin'
-    # cpe_passwd = 'versa123'
+    ldap_user = 'admin'
+    ldap_passwd = 'versa123'
+    user = 'Sathish'
+    passwd = 'Jan*1234'
+    cpe_user = 'admin'
+    cpe_passwd = 'versa123'
     # node_user = 'admin'
     # node_passwd = 'versa123'
     return {'mgmt_ip' : ip, 'username' : ldap_user,\
-            'password' : ldap_passwd}
+            'password' : ldap_passwd, 'GUIusername' : user, 'GUIpassword' : passwd}
 
 
 
@@ -43,10 +52,10 @@ def DO_config_in_VD_For_CPEs():
     vd_dict = get_vd_details()
     vd_dict['device_type'] = 'versa_director'
     VD1 = VersaLib('Versa_director', **vd_dict)
-    # print VD1.get_data_dict()
+    csv_file = raw_input("Enter Production templates csv file name:\n")
     VD1.vdnc = VD1.login()
     # VD1.vdnc = "1234"
-    VD1.config_devices_template(VD1.vdnc, fileDir + "/Topology/PROD_CPEs.csv", fileDir + "/libraries/J2_temps/PROD_CONFIG/devices_device_config.j2")
+    VD1.config_function(nc=VD1.vdnc, csv_file=csv_file, template_file="tacacs_ps_config.j2", config_for="tacacs", type="ps")
     VD1.close(VD1.vdnc)
 
 

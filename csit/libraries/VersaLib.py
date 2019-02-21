@@ -53,6 +53,7 @@ else:
 
 curr_file_dir = os.path.dirname(os.path.dirname(os.path.realpath('__file__')))
 
+
 #print fileDir
 
 logfile_dir = os.path.dirname(os.path.dirname(os.path.realpath('__file__'))) + "/LOGS/"+ currtime + "/"
@@ -148,6 +149,7 @@ class VersaLib:
                     self.vddata_dict[i] = k
                 self.vdhead = 'https://' + self.vddata_dict['mgmt_ip'] + ':9182'
         self.main_logger = self.setup_logger(device_name, 'MAIN', level=logging.DEBUG)
+        self.curr_file_dir = os.path.dirname(os.path.dirname(os.path.realpath('__file__')))
         logger.info("intialized", also_console=True)
 
     def setup_logger(self, name, filename, level=logging.DEBUG):
@@ -607,8 +609,8 @@ class VersaLib:
         self.main_logger.info(nc_handler.send_command_expect('commit and-quit', expect_string='>', strip_prompt=False, strip_command=False))
 
     def device_config_commands_wo_split(self, nc_handler, cmds):
-        nc_handler.config_mode(config_command='config private')
-        nc_handler.check_config_mode()
+        # nc_handler.config_mode(config_command='config private')
+        # nc_handler.check_config_mode()
         return nc_handler.send_config_set(config_commands=cmds, strip_prompt=False, strip_command=False, \
                                           max_loops=5000, delay_factor=0.0001, exit_config_mode=False)
 
@@ -822,7 +824,49 @@ class VersaLib:
         data1 = json.dumps(data)
         self.put_operation(self.vni_interface_url, headers2, data1)
 
-    def config_devices_template(self, nc, device_file, command_template_file, config_for=""):
+    def request_ping(self, net_connect, cpe):
+        net_connect.send_command_expect("cli", strip_prompt=False, strip_command=False, expect_string=">")
+        cmd = "request devices device " + cpe + " ping"
+        self.main_logger.info("CMD>> : " + cmd)
+        output = net_connect.send_command_expect(cmd, strip_prompt=False, strip_command=False, expect_string=">")
+        # net_connect.send_command_expect("quit", strip_prompt=False, strip_command=False)
+        self.main_logger.info(output)
+        return str(", 0% packet loss," in output)
+
+    def request_connect(self, net_connect, cpe):
+        cmd = "request devices device " + cpe + " connect"
+        self.main_logger.info("CMD>> : " + cmd)
+        output = net_connect.send_command_expect(cmd, strip_prompt=False, strip_command=False)
+        self.main_logger.info(output)
+        return str(" Connected to" in output)
+
+    def request_check_sync(self, net_connect, cpe):
+        cmd = "request devices device " + cpe + " check-sync"
+        self.main_logger.info("CMD>> : " + cmd)
+        output = net_connect.send_command_expect(cmd, strip_prompt=False, strip_command=False)
+        self.main_logger.info(output)
+        return str("result in-sync" in output)
+
+    def request_sync_from_cpe(self, net_connect, cpe):
+        cmd = "request devices device " + cpe + " sync-from"
+        self.main_logger.info("CMD>> : " + cmd)
+        output = net_connect.send_command_expect(cmd, strip_prompt=False, strip_command=False)
+        self.main_logger.info(output)
+        return str(" result true" in output)
+
+    def check_device_status(self, nc, device_name):
+        if self.request_ping(nc, device_name) == "True":
+            if self.request_connect(nc, device_name) == "True":
+                if self.request_sync_from_cpe(nc, device_name):
+                    return "PASS"
+                else:
+                    return "VD --> CPE req sync failed"
+            else:
+                return "VD --> CPE Request connect failed."
+        else:
+            return "VD --> CPE Request ping failed."
+
+    def config_devices_template(self, nc, device_file, command_template_file):
         start_time = datetime.now()
         main_logger = self.setup_logger('Versa-director', 'Config_devices_template')
         # print device_file
@@ -834,6 +878,60 @@ class VersaLib:
         template = curr_env.get_template(curr_file_name)
         csv_data_read = pd.read_csv(device_file)
         result_dict = {}
+        for idx, row in csv_data_read.iterrows():
+            res_check = ""
+            dev_dict = row.to_dict()
+            if isinstance(dev_dict['SITE_TYPE'], float):
+                if math.isnan(dev_dict['SITE_TYPE']):
+                    res_check += "Site type is empty"
+                    result_dict[dev_dict['NAME']] = res_check
+                    continue
+            elif dev_dict['SITE_TYPE'] == 'mpls':
+                if dev_dict['DUAL_CPE'] == 'Y':
+                    dev_dict['SITE_TYPE'] = 'dual_mpls'
+                else:
+                    res_check += "Single MPLS site. No changes commited"
+                    result_dict[dev_dict['NAME']] = res_check
+                    continue
+            # print Solution_type[dev_dict['SITE_TYPE']]
+            device_cmds =  template.render(dev_dict, **Solution_type[dev_dict['SITE_TYPE']])
+            main_logger.info(device_cmds)
+            result = self.device_config_commands_wo_split(nc, device_cmds)
+            main_logger.info(result)
+            if "syntax error:" in result:
+                res_check += "syntax error found."
+            elif "Error: element not found" in result:
+                res_check += "element not found error."
+            # else:
+            commit_result = nc.send_command_expect("commit", \
+                                                   expect_string='%', \
+                                                   strip_prompt=False, strip_command=False, max_loops=5000)
+            main_logger.info(commit_result)
+            if "No modifications to commit." in commit_result:
+                res_check += "No modifications to commit."
+            elif "Commit complete." in commit_result:
+                res_check += "Commit success."
+            else:
+                res_check += "commit failed.Check log"
+            result_dict[dev_dict['NAME']] = res_check
+            # main_logger.info(result_dict)
+            main_logger.info("CONFIG_RESULT:")
+            for k, v in result_dict.iteritems():
+                main_logger.info([k , v])
+        write_result_from_dict(result_dict)
+        main_logger.info("Time elapsed: {}\n".format(datetime.now() - start_time))
+        main_logger.info("LOGS Stored in : " + logfile_dir)
+        return
+
+    def config_function(self, nc, config_for, csv_file, template_file, type=""):
+        start_time = datetime.now()
+        # self.main_logger = self.setup_logger('Versa-director', 'Config_devices_template')
+        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/PROD_CONFIG/")
+        curr_env = Environment(loader=curr_file_loader)
+        template = curr_env.get_template(template_file)
+        csv_data_read = pd.read_csv(curr_file_dir + "/Topology/" + csv_file )
+        result_dict = {}
+        device_cmds = ""
         for idx, row in csv_data_read.iterrows():
             res_check = ""
             dev_dict = row.to_dict()
@@ -852,9 +950,22 @@ class VersaLib:
                         continue
                 # print Solution_type[dev_dict['SITE_TYPE']]
                 device_cmds =  template.render(dev_dict, **Solution_type[dev_dict['SITE_TYPE']])
-            main_logger.info(device_cmds)
+            elif config_for == "tacacs":
+                if type == "devices":
+                    check_state_result = self.check_device_status(nc, dev_dict['NAME'])
+                    if check_state_result != "PASS":
+                        res_check += check_state_result
+                        result_dict[dev_dict['NAME']] = res_check
+                        self.main_logger.info("CONFIG_RESULT:")
+                        for k, v in result_dict.iteritems():
+                            self.main_logger.info([k, v])
+                        continue
+                elif type == "ps":
+                    pass
+                device_cmds = template.render(dev_dict)
+            self.main_logger.info(device_cmds)
             result = self.device_config_commands_wo_split(nc, device_cmds)
-            main_logger.info(result)
+            self.main_logger.info(result)
             if "syntax error:" in result:
                 res_check += "syntax error found."
             elif "Error: element not found" in result:
@@ -863,10 +974,10 @@ class VersaLib:
             commit_result = nc.send_command_expect("commit", \
                                                    expect_string='%', \
                                                    strip_prompt=False, strip_command=False, max_loops=5000)
-            main_logger.info(commit_result)
+            self.main_logger.info(commit_result)
             ex_result = nc.send_command_expect("exit no-confirm", expect_string=">", strip_prompt=False,
                                                             strip_command=False, max_loops=5000)
-            main_logger.info(ex_result)
+            self.main_logger.info(ex_result)
             if "No modifications to commit." in commit_result:
                 res_check += "No modifications to commit."
             elif "Commit complete." in commit_result:
@@ -875,13 +986,73 @@ class VersaLib:
                 res_check += "commit failed.Check log"
             result_dict[dev_dict['NAME']] = res_check
             # main_logger.info(result_dict)
-            main_logger.info("CONFIG_RESULT:")
+            self.main_logger.info("CONFIG_RESULT:")
             for k, v in result_dict.iteritems():
-                main_logger.info([k , v])
+                self.main_logger.info([k , v])
         write_result_from_dict(result_dict)
-        main_logger.info("Time elapsed: {}\n".format(datetime.now() - start_time))
-        main_logger.info("LOGS Stored in : " + logfile_dir)
+        self.main_logger.info("Time elapsed: {}\n".format(datetime.now() - start_time))
+        self.main_logger.info("LOGS Stored in : " + logfile_dir)
         return
+
+    def get_device_list_from_vd_using_rest(self, oper_type='patch_upgrade', dev_type="", ping_status_check="no"):
+        global batch, devices_list
+        data1 = self.get_operation(appliance_url, headers3)
+        count, day, batch = 1, 1, 1
+        # print data1
+        devices_list = []
+        for i in data1['versanms.ApplianceStatusResult']['appliances']:
+            device_list = []
+            if dev_type != "":
+                if i['type'] == dev_type:
+                    pass
+                else:
+                    continue
+            if ping_status_check == "yes":
+                if i['ping-status'] != 'REACHABLE':
+                    continue
+            # if i['ownerOrg'] != 'Colt':
+            # if i['ping-status'] == 'REACHABLE':
+            if oper_type == 'file_transfer':
+                if count % 5 == 0:
+                    batch += 1
+            else:
+                if count % 9 == 0:
+                    batch += 1
+            device_list.append(i['name'])
+            device_list.append(i['ipAddress'])
+            device_list.append(day)
+            device_list.append(batch)
+            # device_list.append(i['ownerOrg'])
+            device_list.append(i['type'])
+            if 'softwareVersion' in i:
+                device_list.append(i['softwareVersion'])
+            else:
+                device_list.append("Nil info")
+            device_list.append(i['ping-status'])
+            device_list.append(i['sync-status'])
+            # try:
+            #     if i['Hardware']!="":
+            #         device_list.append(i['Hardware']['serialNo'])
+            #         device_list.append(i['Hardware']['model'])
+            #         device_list.append(i['Hardware']['packageName'])
+            # except KeyError as ke:
+            #     print i['name']
+            #     print "Hardware Info NIL"
+            # print count, day, batch
+            count += 1
+            devices_list.append(device_list)
+        # print devices_list
+        return devices_list
+
+    def build_csv(self, device_list):
+        with open(curr_file_dir + "/Topology/" + self.cpe_list_file_name, 'w') as file_writer1:
+            data_header = ['NAME', 'ip', 'day', 'batch', 'type', 'softwareVersion', 'ping-status',
+                           'sync-status']
+            writer = csv.writer(file_writer1)
+            writer.writerow(data_header)
+            for item in device_list:
+                writer.writerow(item)
+
 
     def get_PS_templates(self):
         data = self.get_operation(get_template_url , headers3)
@@ -998,7 +1169,7 @@ class VersaLib:
         self.WC_list = WC_list
         # self.GW_list = self.org_data['GATEWAYS'].replace('"', "").split(", ")
         self.main_logger.debug(org_body)
-        # return "PASS"
+        return "PASS"
         result = self.post_operation(org_url, headers3, org_body)
         self.main_logger.info(result)
         if "error" in result:
@@ -1028,8 +1199,8 @@ class VersaLib:
 
     def Config_Node_Devices(self, device_name, node_type, nodes, action="set", **kwargs):
         # main_logger = self.setup_logger('Versa-director', 'Create_org')
-        nc = self.login()
-        # nc = "xyz"
+        # nc = self.login()
+        nc = "xyz"
         org_name = self.org_data['ORG_NAME']
         # curr_file_dir = os.path.dirname(node_template)
         # curr_file_name = os.path.basename(node_template)

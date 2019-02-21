@@ -48,7 +48,7 @@ def DO_config_in_VD_For_CPEs():
     # VD1.vdnc = "1234"
     fileDir
     raw_input()
-    VD1.config_devices_template(VD1.vdnc, fileDir + "/Topology/Prod_Templates_List_23_12_2018.csv", fileDir + "/libraries/J2_temps/PROD_CONFIG/ps_template_config.j2", config_for="ckt_pri")
+    VD1.config_devices_template(VD1.vdnc, fileDir + "/Topology/Prod_Templates_List_23_12_2018.csv", fileDir + "/libraries/J2_temps/PROD_CONFIG/ps_template_config.j2")
     VD1.close(VD1.vdnc)
 
 
