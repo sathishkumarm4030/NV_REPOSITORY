@@ -1169,7 +1169,7 @@ class VersaLib:
         self.WC_list = WC_list
         # self.GW_list = self.org_data['GATEWAYS'].replace('"', "").split(", ")
         self.main_logger.debug(org_body)
-        return "PASS"
+        # return "PASS"
         result = self.post_operation(org_url, headers3, org_body)
         self.main_logger.info(result)
         if "error" in result:
@@ -1297,10 +1297,10 @@ class VersaLib:
                 org_data['PAIRED_TVI_INTERFACE_SET'] += "tvi-0/" + str(ORG_ID * 10 + 2020  + i-1) + ".0 "
                 org_data['MPLS_NW_SET'] += org_data['ORG_NAME'] + "-MPLS" + str(i) + " "
         device_cmds =  template.render(org_data)
-        template_source = curr_env.loader.get_source(curr_env, node_type+"_Template.j2")[0]
-        parsed_content = curr_env.parse(template_source)
-        variables = meta.find_undeclared_variables(parsed_content)
-        print variables
+        # template_source = curr_env.loader.get_source(curr_env, node_type+"_Template.j2")[0]
+        # parsed_content = curr_env.parse(template_source)
+        # variables = meta.find_undeclared_variables(parsed_content)
+        # print variables
         if action == "delete":
             device_cmds = re.sub("^set ", "delete ", device_cmds, flags=re.M)
         self.main_logger.info(device_cmds)
