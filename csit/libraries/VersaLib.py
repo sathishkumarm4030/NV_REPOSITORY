@@ -1199,8 +1199,8 @@ class VersaLib:
 
     def Config_Node_Devices(self, device_name, node_type, nodes, action="set", **kwargs):
         # main_logger = self.setup_logger('Versa-director', 'Create_org')
-        # nc = self.login()
-        nc = "xyz"
+        nc = self.login()
+        #nc = "xyz"
         org_name = self.org_data['ORG_NAME']
         # curr_file_dir = os.path.dirname(node_template)
         # curr_file_name = os.path.basename(node_template)
