@@ -39,6 +39,14 @@ headers4 = {'Content-Type': 'application/json'}
 
 controllers_list = ['NV-WC01-N2-BLR', 'NV-WC01-N4-MUM', 'NV-WC01-N5-LON', 'NV-WC01-UCPE', 'NV-WC02-N4-MUM', 'NV-WC02-N5-LON', 'SAMPLE-CONTROLLER']
 
+
+staging_servers_dict = {
+    "BLR" : ["NV-WC01-N2-BLR", "NV-WC02-N2-BLR"],
+    "MUM" : ["NV-WC01-N4-MUM", "NV-WC02-N4-MUM"],
+    #"LON" : ["NV-WC01-N5-LON", "NV-WC02-N5-LON"]
+}
+
+
 ctlr_dict = {
     "BLR" : ["NV-WC01-N2-BLR", "NV-WC02-N2-BLR"],
     "MUM" : ["NV-WC01-N4-MUM", "NV-WC02-N4-MUM"],
@@ -57,8 +65,8 @@ RR_Clients = {
 
 
 gw_dict = {
-    "BLR" : ["NV-GW01-N2-BLR", "NV-GW02-N2-BLR"],
-    "MUM": ["NV-GW02-N4-MUM"],
+    "BLR": ["NV-GW01-N2-BLR", "NV-GW02-N2-BLR"],
+    "MUM": ["NV-GW01-N4-MUM", "NV-GW02-N4-MUM"],
     # "MUM" : ["NV-GW01-N4-MUM", "NV-GW02-N4-MUM"],
     # "LON" : ["NV-GW01-N5-LON", "NV-GW02-N5-LON"]
     #"LON" : ["NV-GW01-N5-LON"]
@@ -72,11 +80,88 @@ LCC_dict = {
     "LON" : "44"
 }
 
+SOLUTIONS_list = ['SINGLE-CPE-HYBRID', 'SINGLE-CPE-INTERNET-ONLY', 'SINGLE-CPE-MPLS-ONLY', 'SINGLE-CPE-DUAL-INT']
 
 #PAIRED_TVI_SUBNET = "10.63.47.64/30"
 
 
 routing_instances = ['LAN1-VRF', 'LAN2-VRF', 'LAN3-VRF', 'LAN4-VRF', 'LAN5-VRF', 'LAN6-VRF', 'LAN7-VRF', 'LAN8-VRF', 'LAN9-VRF', 'LAN10-VRF']
+
+
+
+STAGING_SERVERS = {
+    "NV-WC01-N2-BLR": {
+        "MPLS": {},
+        "INT": {
+            "ORG": "Colt",
+            "PROFILE": "STAGING-INT",
+            "ID": "NV-WC01-N2-BLR@colt.net",
+            "TYPE": "email",
+            "KEY": "NV-WC01-N2-BLR",
+            "IP": "111.93.152.123"
+        }
+    },
+    "NV-WC02-N2-BLR": {
+        "MPLS": {
+            "ORG": "Colt",
+            "PROFILE": "STAGING-MPLS",
+            "ID": "NV-WC02-N2-BLR@colt.net",
+            "TYPE": "email",
+            "KEY": "NV-WC02-N2-BLR",
+            "IP": "10.63.151.90"
+        },
+        "INT": {
+            "ORG": "Colt",
+            "PROFILE": "STAGING-INT",
+            "ID": "NV-WC02-N2-BLR@colt.net",
+            "TYPE": "email",
+            "KEY": "NV-WC02-N2-BLR",
+            "IP": "10.63.130.90"
+        }
+    },
+    "NV-WC01-N4-MUM": {
+        "MPLS": {
+            "ORG": "Colt",
+            "PROFILE": "MPLS-WAN-NV-WC01-N4-MUM-StagingIpsec",
+            "ID": "NV-WC01-N4-MUM@colt.net",
+            "TYPE": "email",
+            "KEY": "NV-WC01-N4-MUM",
+            "IP": "10.83.153.225"
+        },
+        "INT": {
+            "ORG": "Colt",
+            "PROFILE": "INT-WAN-NV-WC01-N4-MUM-StagingIpsec",
+            "ID": "NV-WC01-N4-MUM@colt.net",
+            "TYPE": "email",
+            "KEY": "NV-WC01-N4-MUM",
+            "IP": "10.83.132.49"
+
+        }
+    },
+    "NV-WC02-N4-MUM": {
+        "MPLS": {
+            "ORG": "Colt",
+            "PROFILE": "MPLS-WAN-NV-WC02-N4-MUM-StagingIpsec",
+            "ID": "NV-WC02-N4-MUM@colt.net",
+            "TYPE": "email",
+            "KEY": "NV-WC02-N4-MUM",
+            "IP": "10.83.153.229"
+        },
+        "INT": {
+            "ORG": "Colt",
+            "PROFILE": "INT-WAN-NV-WC02-N4-MUM-StagingIpsec",
+            "ID": "NV-WC02-N4-MUM@colt.net",
+            "TYPE": "email",
+            "KEY": "NV-WC02-N4-MUM",
+            "IP": "10.83.132.53"
+
+        }
+    }
+
+}
+
+Vnf_ipaddress = ['10.91.116.67/32', '10.91.116.68/32']
+MGMT_NW_SBNT = "10.91.140.0/22"
 
 Solution_type = {
     'dual_mpls' : {

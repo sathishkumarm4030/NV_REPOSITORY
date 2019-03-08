@@ -104,8 +104,11 @@ class VersaLib:
     def __init__(self, device_name, **kwargs):
         self.ctlr_dict =  ctlr_dict
         self.ctlr_list =  ctlr_list
+        self.staging_servers_dict = staging_servers_dict
+        self.LCC_dict = LCC_dict
         self.gw_dict =  gw_dict
         self.gw_list =  gw_list
+        self.SOLUTIONS_list = SOLUTIONS_list
         self.ndb = {}
         if kwargs is not None:
             for k, v in kwargs.iteritems(): exec("self."+ k+'=v')
@@ -124,8 +127,9 @@ class VersaLib:
             if 'start_vlan' in self.__dict__:
                 self.start_vlan = int(self.start_vlan)
                 self.set_network_items(self.Start_lan_ip_subnet)
-                self.set_peer_network_items(self.peer_Start_lan_ip_subnet)
-            if 'ORG_ID' in self.__dict__:
+                if 'peer_Start_lan_ip_subnet' in self.__dict__:
+                    self.set_peer_network_items(self.peer_Start_lan_ip_subnet)
+            if 'ORG_ID' in self.__dict__ :
                 self.ORG_ID = int(self.ORG_ID)
                 self.vxlan_tvi_interface = self.ORG_ID * 2
                 self.esp_tvi_interface = self.ORG_ID * 2 + 1
@@ -150,7 +154,7 @@ class VersaLib:
                 self.vdhead = 'https://' + self.vddata_dict['mgmt_ip'] + ':9182'
         self.main_logger = self.setup_logger(device_name, 'MAIN', level=logging.DEBUG)
         self.curr_file_dir = os.path.dirname(os.path.dirname(os.path.realpath('__file__')))
-        logger.info("intialized", also_console=True)
+        # logger.info("intialized", also_console=True)
 
     def setup_logger(self, name, filename, level=logging.DEBUG):
         # name = self.Device_name
@@ -169,6 +173,60 @@ class VersaLib:
         logger = logging.getLogger(name)
         self.logfile = log_file
         return logger
+
+
+    def create_cpe_data(self):
+        for k, v in self.__dict__.iteritems():
+            if isinstance(v, str):
+                if "temporgname" in v:
+                    v = v.replace("temporgname", str(self.ORG_NAME))
+                if "temporgid" in v:
+                    v = v.replace("temporgid", str(self.ORG_ID))
+                if "tempdevicename" in v:
+                    v = v.replace("tempdevicename", str(self.Device_name))
+                if re.search("^{", v):
+                    v = try_literal_eval(v)
+                exec ("self." + k + '=v')
+        self.PS_TEMPLATE_NAME = self.ORG_NAME + "-" + self.NODE + "-PS-" #JAN23-MUM-PS-HS-LIB
+        if "HYBRID" in self.Solution_type:
+            self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "H"
+            if self.INT_INTF_IP_ALLOC == "DHCP":
+                self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "D"
+            elif self.INT_INTF_IP_ALLOC == "STATIC":
+                self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "S"
+            if self.LIB == "YES":
+                self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "-LIB"
+
+        if "INT" in self.Solution_type:
+            self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "I"
+            if self.INT_INTF_IP_ALLOC == "DHCP":
+                self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "D"
+            elif self.INT_INTF_IP_ALLOC == "STATIC":
+                self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "S"
+            if self.LIB == "YES":
+                self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "-LIB"
+        if "MPLS" in self.Solution_type:
+            self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "M"
+        self.DG_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "-DG"
+        self.AUTH_KEY = self.Device_name
+        self.AUTH_STRING = self.Device_name + "@colt.net"
+        self.LCC = self.LCC_dict[self.NODE]
+        self.WC1_NAME = ctlr_dict[self.NODE][0]
+        self.WC2_NAME = ctlr_dict[self.NODE][1]
+        self.GW1_NAME = gw_dict[self.NODE][0]
+        self.GW2_NAME = gw_dict[self.NODE][1]
+        self.WC1_ESP_IP = self.ndb[self.WC1_NAME]['ESP_IP']
+        self.WC2_ESP_IP = self.ndb[self.WC2_NAME]['ESP_IP']
+        self.WC1_local_ike_key = self.AUTH_KEY
+        self.WC2_local_ike_key = self.AUTH_KEY
+        self.WC1_local_ike_id = self.AUTH_STRING
+        self.WC2_local_ike_id = self.AUTH_STRING
+        self.MGMT_NW_SBNT = MGMT_NW_SBNT
+        self.Vnf_ipaddress1 = Vnf_ipaddress[0]
+        self.Vnf_ipaddress2 = Vnf_ipaddress[1]
+        self.NO_OF_VRFS = int(self.NO_OF_VRFS)
+        return
+
 
     def get_data_dict(self):
         return self.__dict__
@@ -621,6 +679,11 @@ class VersaLib:
             print nc_handler.send_command_expect(cmd, expect_string=expect_string, strip_prompt=False, strip_command=False)
 
     def cpe_onboard_call(self):
+        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/")
+        curr_env = Environment(loader=curr_file_loader)
+        self.Staging_command = curr_env.get_template("staging_cpe.j2")
+        self.Staging_command_template = self.Staging_command.render(self.__dict__)
+        self.main_logger.info(self.Staging_command_template)
         cpe_shell_login = self.shell_login()
         # print cpe_shell_login.send_command_expect('sudo bash', expect_string='password', strip_prompt=False, strip_command=False)
         # print cpe_shell_login.send_command_expect('versa123', expect_string='#')
@@ -646,6 +709,43 @@ class VersaLib:
         time.sleep(20)
 
 #    def create_PS_and_DG(self, Post_staging_template, Device_group_template, PS_main_template_modify):
+
+    def create_and_deploy_poststaging_template(self):
+        # self.main_logger = self.setup_logger('Versa-director', 'Onboarding')
+        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
+        curr_env = Environment(loader=curr_file_loader)
+        ps_template = curr_env.get_template("Post_staging_template.j2")
+        self.ps_template_body = ps_template.render(self.__dict__)
+        print self.ps_template_body
+        PS_main_template = curr_env.get_template("PS_main_template_modify.j2")
+        PS_main_template_modify = PS_main_template.render(self.__dict__)
+        self.main_logger.info(self.post_operation(template_url, headers3, self.ps_template_body))
+        time.sleep(5)
+        assoc_template_url = sfw_template_assc_url + self.PS_TEMPLATE_NAME + "/associations"
+        assc_body = '[{"organization":"'+ self.ORG_NAME + '","serviceTemplate":"COMMON-SFW-TEMPLATE'+ str(self.NO_OF_VRFS) + '"}]'
+        print assc_body
+        self.main_logger.info(self.post_operation(assoc_template_url, headers3, assc_body))
+        time.sleep(5)
+        self.main_logger.info(self.post_operation(template_url + "/deploy/" + self.PS_TEMPLATE_NAME + "?verifyDiff=true", headers3,
+                           self.ps_template_body))
+        time.sleep(5)
+        self.main_logger.info(self.get_operation(template_url + "/" + self.PS_TEMPLATE_NAME, headers3))
+        self.main_logger.info(self.get_operation(assoc_template_url, headers3))
+        time.sleep(5)
+        result = self.Modify_main_template(PS_main_template_modify)
+        self.main_logger.info(result)
+        time.sleep(5)
+
+    def create_and_deploy_device_group(self):
+        # self.main_logger = self.setup_logger('Versa-director', 'Onboarding')
+        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
+        curr_env = Environment(loader=curr_file_loader)
+        DG_template = curr_env.get_template("Device_group_template.j2")
+        self.DG_template_body = DG_template.render(self.__dict__)
+        print self.DG_template_body
+        self.main_logger.info(self.post_operation(device_grp_url, headers3, self.DG_template_body))
+        time.sleep(5)
+
     def create_PS_and_DG(self):
         # self.main_logger = self.setup_logger('Versa-director', 'Onboarding')
         curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
@@ -713,16 +813,14 @@ class VersaLib:
     def pre_onboard_work(self):
         # self.main_logger = self.setup_logger('Versa-director', 'Onboarding')
         #(self, Device_template, Staging_server_config_template, Staging_cpe_config_template):
-        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
+        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/")
         curr_env = Environment(loader=curr_file_loader)
         self.DEVICE_template = curr_env.get_template("Device_template.j2")
         self.Staging_config = curr_env.get_template("Staging_server_config.j2")
         self.Staging_command = curr_env.get_template("staging_cpe.j2")
-
         self.DEVICE_template_body = self.DEVICE_template.render(self.__dict__)
         self.Staging_config_template = self.Staging_config.render(self.__dict__)
         self.Staging_command_template = self.Staging_command.render(self.__dict__)
-
         self.main_logger.info(self.Staging_command_template)
         self.main_logger.info(self.DEVICE_template_body)
         self.main_logger.info(self.post_operation(device_template_url, headers3, self.DEVICE_template_body))
@@ -1092,10 +1190,13 @@ class VersaLib:
             self.Create_Node_Data(gw, "GW", org_name, org_id)
         return self.gw_list
 
-    def Create_Node_Data(self, node_dev, node_type, org_name, org_id):
-        csv_data_read = pd.read_csv(curr_file_dir + "/Topology/" + node_type + ".csv")
+    def Create_Node_Data(self, node_dev, node_type, org_name="", org_id="", wan=""):
+        csv_data_read = pd.read_csv(curr_file_dir + "/libraries/NODEDB/" + node_type + ".csv")
         csv_data_read = csv_data_read.loc[csv_data_read['DEVICE_NAME'] == node_dev]
-        csv_data_read = csv_data_read.loc[csv_data_read['ORG_NAME'] == "temporgname"]
+        if node_type == "WC|GW":
+            csv_data_read = csv_data_read.loc[csv_data_read['ORG_NAME'] == "temporgname"]
+        if node_type == "SS":
+            csv_data_read = csv_data_read.loc[csv_data_read['WAN'] == wan]
         for idx, row in csv_data_read.iterrows():
             res_check = ""
             node_device_data = row.to_dict()
@@ -1127,8 +1228,27 @@ class VersaLib:
                                 node_device_data["RR_SERVER"] = k
             if node_type == "GW":
                 node_device_data["WC_list"] = ctlr_dict[node_device_data['NODE']]
-            node_device_data["LCC"] = LCC_dict[node_device_data['NODE']]
-            self.ndb[node_dev] = node_device_data
+            if "node" in self.__dict__:
+                node_device_data["LCC"] = LCC_dict[self.node]
+            else:
+                node_device_data["LCC"] = LCC_dict[node_device_data['NODE']]
+            if node_type == "SS":
+                self.ndb[node_type] = {}
+                self.ndb[node_type][node_dev] = node_device_data
+                self.STAGING_SERVER = node_dev
+                self.STAGING_ORG = node_device_data['ORG_NAME']
+                self.STAGING_PROFILE_NAME = node_device_data['PROFILE']
+                self.STAGING_CTRLR_IP = node_device_data['IP']
+                self.Staging_remote_id = node_device_data['ID']
+                self.Staging_remote_key = node_device_data['KEY']
+                self.STAGING_ID = self.ORG_NAME + "-" + self.Device_name + "@colt.net"
+                self.STAGING_id_type = "email"
+                self.STAGING_KEY = self.Device_name
+                self.STAGING_INTF = self.__dict__[wan + "_WAN_INTF"][-1]
+                self.STAGING_Local_ip_with_mask =  self.__dict__[wan + "_WAN_INTF_IP"] + "/" + self.__dict__[wan + "_WAN_INTF_IP_MASK"]
+                self.STAGING_nexthop = self.__dict__[wan + "_WAN_INTF_NEXTHOP"]
+            else:
+                self.ndb[node_dev] = node_device_data
         return
 
 
