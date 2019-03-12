@@ -26,27 +26,6 @@
 				"linkPriority": "",
 				"transportDomains": ["MPLS-TD"]
 			}]
-		}, {
-			"interfaceName": "{{ INT_WAN_INTF }}",
-			"pppoe": false,
-			"unitInfo": [{
-				"subUnit": 0,
-				"vlanId": 0,
-				"networkName": "INT-WAN",
-				{%- if int_intf_ip_allocation and int_intf_ip_allocation == 'DHCP' %}
-				"ipv4Static": false,
-				"ipv4Dhcp": true,
-				{% else -%}
-				"ipv4Static": true,
-				"ipv4Dhcp": false,
-				{% endif -%}
-				"ipv6Static": false,
-				"ipv6Dhcp": false,
-				"allowSSH": false,
-				"monitor": {},
-				"linkPriority": "",
-				"transportDomains": ["INTERNET-TD"]
-			}]
 		}],
 		"deviceType": "full-mesh",
 		"redundantPair": {
@@ -85,25 +64,6 @@
 		"diaConfig": {
 			"loadBalance": false
 		},
-		"splitTunnels": [
-        {% for VRF in range(NO_OF_VRFS) -%}
-        {%- set lan_number = VRF + 1 -%}
-        {%- set unit_number = VRF -%}
-		{
-			"vrfName": "LAN{{ lan_number }}-VRF",
-			"wanNetworkName": "INT-WAN",
-			{% if lib and lib == 'YES' -%}
-			"dia": true,
-			{%- else -%}
-			"dia": false,
-			{%- endif %}
-			"gateway": false
-		}
-        {% if not loop.last %}
-        ,
-        {%- endif -%}
-        {% endfor %}
-		],
 		"inBoundNats": []
 	}
 }

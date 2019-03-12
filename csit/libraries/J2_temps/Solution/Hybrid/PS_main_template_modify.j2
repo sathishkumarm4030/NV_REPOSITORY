@@ -3,7 +3,7 @@ set devices template {{ PS_TEMPLATE_NAME }} config interfaces vni {{ MPLS_WAN_IN
 set devices template {{ PS_TEMPLATE_NAME }} config interfaces vni {{ MPLS_WAN_INTF }} bandwidth downlink "5000"
 set devices template {{ PS_TEMPLATE_NAME }} config interfaces vni {{ INT_WAN_INTF }} description "INT-WAN"
 
-set devices template {{ PS_TEMPLATE_NAME }} config system vnf-manager ip-addresses [ {{ Vnf_ipaddress1 }} {{ Vnf_ipaddress2 }} ]
+set devices template {{ PS_TEMPLATE_NAME }} config system vnf-manager ip-addresses [ {{ VNF_IPADDRESS1 }} {{ VNF_IPADDRESS2 }} ]
 set devices template {{ PS_TEMPLATE_NAME }} config system service-options qos-frame-overhead auto-adjust true
 set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} hold-time 90
 set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} graceful-restart enable

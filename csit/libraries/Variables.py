@@ -160,7 +160,7 @@ STAGING_SERVERS = {
 
 }
 
-Vnf_ipaddress = ['10.91.116.67/32', '10.91.116.68/32']
+VNF_IPADDRESS = ['10.91.116.67/32', '10.91.116.68/32']
 MGMT_NW_SBNT = "10.91.140.0/22"
 
 Solution_type = {

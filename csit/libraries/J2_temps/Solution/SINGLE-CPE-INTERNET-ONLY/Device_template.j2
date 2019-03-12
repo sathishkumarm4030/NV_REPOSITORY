@@ -23,11 +23,12 @@
 							"value": "{{ INT_WAN_INTF_IP }}/30",
 							"isAutogeneratable": false
 						},
-						{% for i in range(START_VLAN, START_VLAN+11) %}
+						{% for i in range(1,  NO_OF_VRFS+1) %}
 						    {% set lan_number = loop.index %}
 						    {% set unit_number = loop.index - 1 %}
-						{ "name": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN{{ lan_number }}_Unit-{{ unit_number }}__unit}", "value": "{{ i }}", "isAutogeneratable": false},
-						{ "name": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN{{ lan_number }}_Unit-{{ unit_number }}__vlanId}", "value": "{{ i }}", "isAutogeneratable": false },
+						    {% set vlaue = lan[i]['vlan'] %}
+						{ "name": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN{{ lan_number }}_Unit-{{ unit_number }}__unit}", "value": "{{ vlaue }}", "isAutogeneratable": false},
+						{ "name": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN{{ lan_number }}_Unit-{{ unit_number }}__vlanId}", "value": "{{ vlaue }}", "isAutogeneratable": false },
 						{% endfor %}
 						{
 							"name": "{$v_{{ ORG_NAME }}-Control-VR_16_Router_ID__vrRouteId}",
@@ -99,14 +100,6 @@
 							"isAutogeneratable": true,
 							"isOverwritten": false
 						}, {
-							"name": "{$v_{{ MPLS_WAN_NAME }}-Transport-VR_IPv4__vrHopAddress}",
-							"value": "{{ MPLS_WAN_INTF_NEXTHOP }}",
-							"isAutogeneratable": false
-						}, {
-							"name": "{$v_{{ MPLS_WAN_NAME }}_IPv4__staticaddress}",
-							"value": "{{ MPLS_WAN_INTF_IP }}/30",
-							"isAutogeneratable": false
-						}, {
 							"name": "{$v_tvi-0-{{ esp_tvi_interface }}_-_Unit_0_Static_address__tunnelStaticAddress}",
 							"value": "{{ ESP_IP }}/32",
 							"isAutogeneratable": true,
@@ -120,7 +113,7 @@
 					"overlay": false,
 					"type": "IPV4_MASK"
 				},
-                {% for i in range(START_VLAN, START_VLAN+11) %}
+                {% for i in range(1, NO_OF_VRFS+ 1) %}
                 {% set lan_number = loop.index %}
                 {% set unit_number = loop.index - 1 %}
 				{"variable": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN{{ lan_number }}_Unit-{{ unit_number }}__vlanId}", "group": "Vlan Info", "overlay": false, "type": "INTEGER"},
@@ -138,63 +131,26 @@
 					"variable": "{$v_{{ ORG_NAME }}_{{ WC2_NAME }}_Local_auth_email_key__IKELKey}",
 					"group": "IPSEC",
 					"overlay": false
-				}, {
-					"variable": "{$v_LAN10_IPv4__staticaddress}",
-					"group": "Interfaces",
-					"overlay": false,
-					"type": "IPV4_MASK"
-				}, {
-					"variable": "{$v_LAN9_IPv4__staticaddress}",
-					"group": "Interfaces",
-					"overlay": false,
-					"type": "IPV4_MASK"
-				}, {
-					"variable": "{$v_LAN5_IPv4__staticaddress}",
-					"group": "Interfaces",
-					"overlay": false,
-					"type": "IPV4_MASK"
-				}, {
-					"variable": "{$v_LAN1_IPv4__staticaddress}",
-					"group": "Interfaces",
-					"overlay": false,
-					"type": "IPV4_MASK"
-				}, {
-					"variable": "{$v_LAN7_IPv4__staticaddress}",
-					"group": "Interfaces",
-					"overlay": false,
-					"type": "IPV4_MASK"
-				}, {
+				},
+			{% for VRF in range(NO_OF_VRFS) -%}
+            {%- set lan_number = VRF + 1 -%}
+            {%- set unit_number = VRF -%}
+				{
+					"variable": "{$v_LAN{{ lan_number }}_IPv4__staticaddress}", "group": "Interfaces", "overlay": false, "type": "IPV4_MASK"
+				},
+            {% endfor %}
+				 {
 					"variable": "{$v_{{ ORG_NAME }}_{{ WC2_NAME }}_Local_auth_email_identifier__IKELIdentifier}",
 					"group": "IPSEC",
 					"overlay": false
-				}, {
-					"variable": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN10_Unit-9__unit}",
-					"group": "Vlan Info",
-					"overlay": false,
-					"type": "INTEGER"
 				}, {
 					"variable": "{$v_Site_Id__siteSiteID}",
 					"group": "SDWAN",
 					"overlay": false
 				}, {
-					"variable": "{$v_LAN6_IPv4__staticaddress}",
-					"group": "Interfaces",
-					"overlay": false,
-					"type": "IPV4_MASK"
-				}, {
 					"variable": "{$v_{{ ORG_NAME }}_{{ WC1_NAME }}_Local_auth_email_identifier__IKELIdentifier}",
 					"group": "IPSEC",
 					"overlay": false
-				}, {
-					"variable": "{$v_LAN2_IPv4__staticaddress}",
-					"group": "Interfaces",
-					"overlay": false,
-					"type": "IPV4_MASK"
-				}, {
-					"variable": "{$v_LAN4_IPv4__staticaddress}",
-					"group": "Interfaces",
-					"overlay": false,
-					"type": "IPV4_MASK"
 				}, {
 					"variable": "{$v_{{ ORG_NAME }}_Site_Name__sitesSiteName}",
 					"group": "SDWAN",
@@ -207,11 +163,6 @@
 					"variable": "{$v_identification__IdName}",
 					"group": "SDWAN",
 					"overlay": false
-				}, {
-					"variable": "{$v_LAN3_IPv4__staticaddress}",
-					"group": "Interfaces",
-					"overlay": false,
-					"type": "IPV4_MASK"
 				}, {
 					"variable": "{$v_{{ INT_WAN_NAME }}-Transport-VR_IPv4__vrHopAddress}",
 					"group": "Virtual Routers",
@@ -231,11 +182,6 @@
 					"group": "SDWAN",
 					"overlay": false
 				}, {
-					"variable": "{$v_LAN8_IPv4__staticaddress}",
-					"group": "Interfaces",
-					"overlay": false,
-					"type": "IPV4_MASK"
-				}, {
 					"variable": "{$v_location__IdLocation}",
 					"group": "SDWAN",
 					"overlay": false
@@ -244,16 +190,6 @@
 					"group": "Virtual Routers",
 					"overlay": true,
 					"type": "IPV4"
-				}, {
-					"variable": "{$v_{{ MPLS_WAN_NAME }}-Transport-VR_IPv4__vrHopAddress}",
-					"group": "Virtual Routers",
-					"overlay": false,
-					"type": "IPV4_IPV6"
-				}, {
-					"variable": "{$v_{{ MPLS_WAN_NAME }}_IPv4__staticaddress}",
-					"group": "Interfaces",
-					"overlay": false,
-					"type": "IPV4_MASK"
 				}, {
 					"variable": "{$v_tvi-0-{{ esp_tvi_interface }}_-_Unit_0_Static_address__tunnelStaticAddress}",
 					"group": "Interfaces",

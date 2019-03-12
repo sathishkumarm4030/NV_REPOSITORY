@@ -45,7 +45,8 @@ def Do_Cpe_onboarding():
     # print "CPE NAME:" + cpe_name
     cpe1 = VersaLib(cpe_name, topofile="Devices.csv")
     main_logger = cpe1.main_logger
-    main_logger.debug("CPE NAME:" + cpe1.Device_name)
+    main_logger.debug("CPE NAME:" + cpe_name)
+    cpe1.Create_Node_Data(cpe1.SATGING_SERVER, "SS", wan=cpe1.SATGING_WAN)
     WC_list = cpe1.Create_Controller_List(cpe1.ORG_NAME, cpe1.ORG_ID, cpe1.NO_OF_VRFS, cpe1.NODE)
     GW_list = cpe1.Create_Gateway_List(cpe1.ORG_NAME, cpe1.ORG_ID, cpe1.NO_OF_VRFS, cpe1.NODE)
     cpe1.create_cpe_data()

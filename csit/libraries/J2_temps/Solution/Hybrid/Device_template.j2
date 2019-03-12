@@ -23,7 +23,7 @@
 							"value": "{{ INT_WAN_INTF_IP }}/30",
 							"isAutogeneratable": false
 						},
-						{% for i in range(start_vlan, start_vlan+11) %}
+						{% for i in range(START_VLAN, START_VLAN+11) %}
 						    {% set lan_number = loop.index %}
 						    {% set unit_number = loop.index - 1 %}
 						{ "name": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN{{ lan_number }}_Unit-{{ unit_number }}__unit}", "value": "{{ i }}", "isAutogeneratable": false},
@@ -120,7 +120,7 @@
 					"overlay": false,
 					"type": "IPV4_MASK"
 				},
-                {% for i in range(start_vlan, start_vlan+11) %}
+                {% for i in range(START_VLAN, START_VLAN+11) %}
                 {% set lan_number = loop.index %}
                 {% set unit_number = loop.index - 1 %}
 				{"variable": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN{{ lan_number }}_Unit-{{ unit_number }}__vlanId}", "group": "Vlan Info", "overlay": false, "type": "INTEGER"},

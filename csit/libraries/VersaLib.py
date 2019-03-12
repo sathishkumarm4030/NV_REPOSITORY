@@ -124,9 +124,9 @@ class VersaLib:
                 exec("self."+ k+'=v')
             # print self.__dict__
             self.vlans = []
-            if 'start_vlan' in self.__dict__:
-                self.start_vlan = int(self.start_vlan)
-                self.set_network_items(self.Start_lan_ip_subnet)
+            if 'START_VLAN' in self.__dict__:
+                self.START_VLAN = int(self.START_VLAN)
+                self.set_network_items(self.START_LAN_IP_SUBNET)
                 if 'peer_Start_lan_ip_subnet' in self.__dict__:
                     self.set_peer_network_items(self.peer_Start_lan_ip_subnet)
             if 'ORG_ID' in self.__dict__ :
@@ -222,21 +222,28 @@ class VersaLib:
         self.WC1_local_ike_id = self.AUTH_STRING
         self.WC2_local_ike_id = self.AUTH_STRING
         self.MGMT_NW_SBNT = MGMT_NW_SBNT
-        self.Vnf_ipaddress1 = Vnf_ipaddress[0]
-        self.Vnf_ipaddress2 = Vnf_ipaddress[1]
+        self.VNF_IPADDRESS1 = VNF_IPADDRESS[0]
+        self.VNF_IPADDRESS2 = VNF_IPADDRESS[1]
         self.NO_OF_VRFS = int(self.NO_OF_VRFS)
+        self.INTF_LAN_SET = ""
+        self.WAN_ST_LAN_SET = ""
+        self.LAN_ST_LAN_SET = ""
+        for i in range(1, self.NO_OF_VRFS + 1):
+            self.INTF_LAN_SET += "Intf-LAN" + str(i) + "-Zone " #Intf-LAN1-Zone
+            self.WAN_ST_LAN_SET += "W-ST-LAN" + str(i) + "-VRF-INT-WAN "  #W-ST-LAN1-VRF-INT-WAN
+            self.LAN_ST_LAN_SET += "L-ST-LAN" + str(i) + "-VRF-INT-WAN "  # L-ST-LAN1-VRF-INT-WAN
         return
 
 
     def get_data_dict(self):
         return self.__dict__
 
-    def set_vlan_items(self, start_vlan):
+    def set_vlan_items(self, START_VLAN):
         self.lan_vlan = []
         # self.data_dict['lan_vlan'] = []
         self.lan = {}
-        vlan_id_genr = (i for i in range(start_vlan, start_vlan+11))
-        for i in range(1, 11):
+        vlan_id_genr = (i for i in range(START_VLAN, START_VLAN+ int(self.NO_OF_VRFS) + 1))
+        for i in range(1, int(self.NO_OF_VRFS) + 1):
             self.lan[i] = {}
             lan_value = next(vlan_id_genr)
             self.lan_vlan.append(lan_value)
@@ -244,22 +251,22 @@ class VersaLib:
             self.lan[i]['vlan'] = lan_value
         return
 
-    # def set_vlan_items(self, start_vlan):
+    # def set_vlan_items(self, START_VLAN):
     #     self.data_dict['lan_vlan'] = []
-    #     vlan_id_genr = (i for i in range(start_vlan, start_vlan+11))
+    #     vlan_id_genr = (i for i in range(START_VLAN, START_VLAN+11))
     #     for i in range(1, 11):
     #         nw_addr = next(vlan_id_genr)
     #         self.data_dict['lan_vlan'].append(nw_addr)
     #     return
 
 
-    def set_network_items(self, start_lan_ip_subnet):
-        self.set_vlan_items(self.start_vlan)
+    def set_network_items(self, START_LAN_IP_SUBNET):
+        self.set_vlan_items(self.START_VLAN)
         # self.data_dict['lan_network'] = {}
         # self.data_dict['lan_first_host'] = {}
         # self.data_dict['lan_second_host'] = {}
         # self.data_dict['lan_netmask'] = {}
-        # network = CalcIPv4Network(unicode(start_lan_ip_subnet))
+        # network = CalcIPv4Network(unicode(START_LAN_IP_SUBNET))
         # network_address = (network + (i + 1) * network.size() for i in it.count())
         # nw_addr = network
         # for i in self.lan_vlan:
@@ -269,10 +276,10 @@ class VersaLib:
         #     self.data_dict['lan_second_host'][i] = str(n[2])
         #     self.data_dict['lan_netmask'][i] = str(n.netmask)
         #     nw_addr = next(network_address)
-        network = CalcIPv4Network(unicode(start_lan_ip_subnet))
+        network = CalcIPv4Network(unicode(START_LAN_IP_SUBNET))
         network_address = (network + (i + 1) * network.size() for i in it.count())
         nw_addr = network
-        for i in range(1, 11):
+        for i in range(1, int(self.NO_OF_VRFS) + 1):
             self.lan[i]['nw'] = nw_addr
             n = ipaddress.ip_network(nw_addr)
             self.lan[i]['first_host'] = str(n[1])
@@ -283,13 +290,13 @@ class VersaLib:
 
 
 
-    # def set_network_items(self, start_lan_ip_subnet):
-    #     self.set_vlan_items(self.start_vlan)
+    # def set_network_items(self, START_LAN_IP_SUBNET):
+    #     self.set_vlan_items(self.START_VLAN)
     #     self.lan_network = {}
     #     self.lan_first_host = {}
     #     self.lan_second_host = {}
     #     self.lan_netmask = {}
-    #     network = CalcIPv4Network(unicode(start_lan_ip_subnet))
+    #     network = CalcIPv4Network(unicode(START_LAN_IP_SUBNET))
     #     network_address = (network + (i + 1) * network.size() for i in it.count())
     #     nw_addr = network
     #     for i in range(1, 11):
@@ -302,12 +309,12 @@ class VersaLib:
     #     return
 
 
-    def set_peer_network_items(self, start_lan_ip_subnet):
+    def set_peer_network_items(self, START_LAN_IP_SUBNET):
         # self.data_dict['peer_lan_network'] = {}
         # self.data_dict['peer_lan_first_host'] = {}
         # self.data_dict['peer_lan_second_host'] = {}
         # self.data_dict['peer_lan_netmask'] = {}
-        # network = CalcIPv4Network(unicode(start_lan_ip_subnet))
+        # network = CalcIPv4Network(unicode(START_LAN_IP_SUBNET))
         # network_address = (network + (i + 1) * network.size() for i in it.count())
         # nw_addr = network
         # for i in self.lan_vlan:
@@ -317,7 +324,7 @@ class VersaLib:
         #     self.data_dict['peer_lan_second_host'][i] = str(n[2])
         #     self.data_dict['peer_lan_netmask'][i] = str(n.netmask)
         #     nw_addr = next(network_address)
-        network = CalcIPv4Network(unicode(start_lan_ip_subnet))
+        network = CalcIPv4Network(unicode(START_LAN_IP_SUBNET))
         network_address = (network + (i + 1) * network.size() for i in it.count())
         nw_addr = network
         for i in range(1, 11):
@@ -329,13 +336,13 @@ class VersaLib:
             nw_addr = next(network_address)
         return
 
-    # def set_peer_network_items(self, start_lan_ip_subnet):
-    #     self.set_vlan_items(self.start_vlan)
+    # def set_peer_network_items(self, START_LAN_IP_SUBNET):
+    #     self.set_vlan_items(self.START_VLAN)
     #     self.peer_lan_network = {}
     #     self.peer_lan_first_host = {}
     #     self.peer_lan_second_host = {}
     #     self.peer_lan_netmask = {}
-    #     network = CalcIPv4Network(unicode(start_lan_ip_subnet))
+    #     network = CalcIPv4Network(unicode(START_LAN_IP_SUBNET))
     #     network_address = (network + (i + 1) * network.size() for i in it.count())
     #     nw_addr = network
     #     for i in self.lan_vlan:
@@ -813,7 +820,7 @@ class VersaLib:
     def pre_onboard_work(self):
         # self.main_logger = self.setup_logger('Versa-director', 'Onboarding')
         #(self, Device_template, Staging_server_config_template, Staging_cpe_config_template):
-        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/")
+        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
         curr_env = Environment(loader=curr_file_loader)
         self.DEVICE_template = curr_env.get_template("Device_template.j2")
         self.Staging_config = curr_env.get_template("Staging_server_config.j2")
@@ -1228,8 +1235,8 @@ class VersaLib:
                                 node_device_data["RR_SERVER"] = k
             if node_type == "GW":
                 node_device_data["WC_list"] = ctlr_dict[node_device_data['NODE']]
-            if "node" in self.__dict__:
-                node_device_data["LCC"] = LCC_dict[self.node]
+            if "NODE" in self.__dict__:
+                node_device_data["LCC"] = LCC_dict[self.NODE]
             else:
                 node_device_data["LCC"] = LCC_dict[node_device_data['NODE']]
             if node_type == "SS":
@@ -1397,7 +1404,7 @@ class VersaLib:
                 org_data['NNI1_VLAN']	=	ORG_ID * 10 + 120
             elif org_data['GW_NUMBER'] == 2:
                 org_data['NNI1_VLAN'] = ORG_ID * 10 + 1020
-            self.start_vlan = int(org_data['NNI1_VLAN'])
+            self.START_VLAN = int(org_data['NNI1_VLAN'])
             org_data['NNI_LAN'] = self.set_network_items(org_data['NNI1_SUBNET'])
             org_data['PAIRED_TVI_LAN'] = self.set_network_items(org_data['PAIRED_TVI_SUBNET'])
 

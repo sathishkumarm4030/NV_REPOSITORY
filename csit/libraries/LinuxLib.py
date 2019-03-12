@@ -54,13 +54,13 @@ class LinuxLib:
         self.csv_dict = self.data.set_index('DUTs').T.to_dict()
         for k, v in self.csv_dict[self.device_name].iteritems(): exec("self."+ k+'=v')
         self.vlans = []
-        self.start_vlan = int(self.start_vlan)
-        # for vlan in range(self.start_vlan'], self.start_vlan']+10):
+        self.START_VLAN = int(self.START_VLAN)
+        # for vlan in range(self.START_VLAN'], self.START_VLAN']+10):
         #     print vlan
         self.data_dict = {}
         for i, k  in self.csv_dict[self.device_name].iteritems():
             self.data_dict[i] = k
-        self.set_network_items(self.Start_lan_ip_subnet)
+        self.set_network_items(self.START_LAN_IP_SUBNET)
         self.set_peer_network_items(self.peer_Start_lan_ip_subnet)
         if self.device_type == 'versa':
             self.ORG_ID = int(self.ORG_ID)
@@ -77,7 +77,7 @@ class LinuxLib:
             self.vdhead = 'https://' + self.vddata_dict['mgmt_ip'] + ':9182'
         # print self.data_dict
         self.data_dict['vlans'] = []
-        self.data_dict['start_vlan'] = int(self.data_dict['start_vlan'])
+        self.data_dict['START_VLAN'] = int(self.data_dict['START_VLAN'])
         if self.data_dict['device_type'] == 'versa':
             self.data_dict['ORG_ID'] = int(self.data_dict['ORG_ID'])
             self.data_dict['Site_id'] = int(self.data_dict['Site_id'])
@@ -90,11 +90,11 @@ class LinuxLib:
     def get_data_dict(self):
         return self.__dict__
 
-    def set_vlan_items(self, start_vlan):
+    def set_vlan_items(self, START_VLAN):
         self.lan_vlan = []
         self.data_dict['lan_vlan'] = []
         self.lan = {}
-        vlan_id_genr = (i for i in range(start_vlan, start_vlan + 11))
+        vlan_id_genr = (i for i in range(START_VLAN, START_VLAN + 11))
         for i in range(1, 11):
             self.lan[i] = {}
             lan_value = next(vlan_id_genr)
@@ -103,22 +103,22 @@ class LinuxLib:
             self.lan[i]['vlan'] = lan_value
         return
 
-    # def set_vlan_items(self, start_vlan):
+    # def set_vlan_items(self, START_VLAN):
     #     self.data_dict['lan_vlan'] = []
-    #     vlan_id_genr = (i for i in range(start_vlan, start_vlan+11))
+    #     vlan_id_genr = (i for i in range(START_VLAN, START_VLAN+11))
     #     for i in range(1, 11):
     #         nw_addr = next(vlan_id_genr)
     #         self.data_dict['lan_vlan'].append(nw_addr)
     #     return
 
 
-    def set_network_items(self, start_lan_ip_subnet):
-        self.set_vlan_items(self.start_vlan)
+    def set_network_items(self, START_LAN_IP_SUBNET):
+        self.set_vlan_items(self.START_VLAN)
         self.data_dict['lan_network'] = {}
         self.data_dict['lan_first_host'] = {}
         self.data_dict['lan_second_host'] = {}
         self.data_dict['lan_netmask'] = {}
-        network = CalcIPv4Network(unicode(start_lan_ip_subnet))
+        network = CalcIPv4Network(unicode(START_LAN_IP_SUBNET))
         network_address = (network + (i + 1) * network.size() for i in it.count())
         nw_addr = network
         for i in self.lan_vlan:
@@ -128,7 +128,7 @@ class LinuxLib:
             self.data_dict['lan_second_host'][i] = str(n[2])
             self.data_dict['lan_netmask'][i] = str(n.netmask)
             nw_addr = next(network_address)
-        network = CalcIPv4Network(unicode(start_lan_ip_subnet))
+        network = CalcIPv4Network(unicode(START_LAN_IP_SUBNET))
         network_address = (network + (i + 1) * network.size() for i in it.count())
         nw_addr = network
         for i in range(1, 11):
@@ -141,13 +141,13 @@ class LinuxLib:
         return
 
 
-    # def set_network_items(self, start_lan_ip_subnet):
-    #     self.set_vlan_items(self.start_vlan)
+    # def set_network_items(self, START_LAN_IP_SUBNET):
+    #     self.set_vlan_items(self.START_VLAN)
     #     self.lan_network = {}
     #     self.lan_first_host = {}
     #     self.lan_second_host = {}
     #     self.lan_netmask = {}
-    #     network = CalcIPv4Network(unicode(start_lan_ip_subnet))
+    #     network = CalcIPv4Network(unicode(START_LAN_IP_SUBNET))
     #     network_address = (network + (i + 1) * network.size() for i in it.count())
     #     nw_addr = network
     #     for i in range(1, 11):
@@ -160,13 +160,13 @@ class LinuxLib:
     #     return
 
 
-    def set_peer_network_items(self, start_lan_ip_subnet):
-        #self.set_vlan_items(self.start_vlan)
+    def set_peer_network_items(self, START_LAN_IP_SUBNET):
+        #self.set_vlan_items(self.START_VLAN)
         self.data_dict['peer_lan_network'] = {}
         self.data_dict['peer_lan_first_host'] = {}
         self.data_dict['peer_lan_second_host'] = {}
         self.data_dict['peer_lan_netmask'] = {}
-        network = CalcIPv4Network(unicode(start_lan_ip_subnet))
+        network = CalcIPv4Network(unicode(START_LAN_IP_SUBNET))
         network_address = (network + (i + 1) * network.size() for i in it.count())
         nw_addr = network
         for i in self.lan_vlan:
@@ -176,7 +176,7 @@ class LinuxLib:
             self.data_dict['peer_lan_second_host'][i] = str(n[2])
             self.data_dict['peer_lan_netmask'][i] = str(n.netmask)
             nw_addr = next(network_address)
-        network = CalcIPv4Network(unicode(start_lan_ip_subnet))
+        network = CalcIPv4Network(unicode(START_LAN_IP_SUBNET))
         network_address = (network + (i + 1) * network.size() for i in it.count())
         nw_addr = network
         for i in range(1, 11):
@@ -188,13 +188,13 @@ class LinuxLib:
             nw_addr = next(network_address)
         return
 
-    # def set_peer_network_items(self, start_lan_ip_subnet):
-    #     self.set_vlan_items(self.start_vlan)
+    # def set_peer_network_items(self, START_LAN_IP_SUBNET):
+    #     self.set_vlan_items(self.START_VLAN)
     #     self.peer_lan_network = {}
     #     self.peer_lan_first_host = {}
     #     self.peer_lan_second_host = {}
     #     self.peer_lan_netmask = {}
-    #     network = CalcIPv4Network(unicode(start_lan_ip_subnet))
+    #     network = CalcIPv4Network(unicode(START_LAN_IP_SUBNET))
     #     network_address = (network + (i + 1) * network.size() for i in it.count())
     #     nw_addr = network
     #     for i in self.lan_vlan:
