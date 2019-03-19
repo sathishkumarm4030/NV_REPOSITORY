@@ -114,10 +114,10 @@ class VersaLib:
             for k, v in kwargs.iteritems(): exec("self."+ k+'=v')
         if 'topofile' in self.__dict__:
             csv_data_read = pd.read_csv(curr_file_dir + "/Topology/" + self.topofile, dtype=object)
-            self.device_name = device_name
-            data = csv_data_read.loc[csv_data_read['DUTs'] == device_name]
-            csv_dict = data.set_index('DUTs').T.to_dict()
-            for k, v in csv_dict[self.device_name].iteritems():
+            self.Device_name = device_name
+            data = csv_data_read.loc[csv_data_read['Device_name'] == device_name]
+            csv_dict = data.set_index('Device_name').T.to_dict()
+            for k, v in csv_dict[self.Device_name].iteritems():
                 if isinstance(v, float):
                     if math.isnan(v):
                         continue
@@ -147,8 +147,9 @@ class VersaLib:
                 self.vddata_dict = self.__dict__
             else:
                 self.vddata = csv_data_read.loc[csv_data_read['device_type'] == 'versa_director']
-                self.vdcsv_dict = self.vddata.set_index('DUTs').T.to_dict()
+                self.vdcsv_dict = self.vddata.set_index('Device_name').T.to_dict()
                 self.vddata_dict = {}
+                self.vdcsv_dict['VD1']['Device_name'] = 'VD1'
                 for i, k  in self.vdcsv_dict['VD1'].iteritems():
                     self.vddata_dict[i] = k
                 self.vdhead = 'https://' + self.vddata_dict['mgmt_ip'] + ':9182'
@@ -187,27 +188,29 @@ class VersaLib:
                 if re.search("^{", v):
                     v = try_literal_eval(v)
                 exec ("self." + k + '=v')
-        self.PS_TEMPLATE_NAME = self.ORG_NAME + "-" + self.NODE + "-PS-" #JAN23-MUM-PS-HS-LIB
-        if "HYBRID" in self.Solution_type:
-            self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "H"
-            if self.INT_INTF_IP_ALLOC == "DHCP":
-                self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "D"
-            elif self.INT_INTF_IP_ALLOC == "STATIC":
-                self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "S"
-            if self.LIB == "YES":
-                self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "-LIB"
+        if 'PS_TEMPLATE_NAME' not in self.__dict__:
+            self.PS_TEMPLATE_NAME = self.ORG_NAME + "-" + self.NODE + "-PS-" #JAN23-MUM-PS-HS-LIB
+            if "HYBRID" in self.Solution_type:
+                self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "H"
+                if self.INT_INTF_IP_ALLOC == "DHCP":
+                    self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "D"
+                elif self.INT_INTF_IP_ALLOC == "STATIC":
+                    self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "S"
+                if self.LIB == "YES":
+                    self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "-LIB"
 
-        if "INT" in self.Solution_type:
-            self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "I"
-            if self.INT_INTF_IP_ALLOC == "DHCP":
-                self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "D"
-            elif self.INT_INTF_IP_ALLOC == "STATIC":
-                self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "S"
-            if self.LIB == "YES":
-                self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "-LIB"
-        if "MPLS" in self.Solution_type:
-            self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "M"
-        self.DG_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "-DG"
+            if "INT" in self.Solution_type:
+                self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "I"
+                if self.INT_INTF_IP_ALLOC == "DHCP":
+                    self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "D"
+                elif self.INT_INTF_IP_ALLOC == "STATIC":
+                    self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "S"
+                if self.LIB == "YES":
+                    self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "-LIB"
+            if "MPLS" in self.Solution_type:
+                self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "M"
+        if 'DG_TEMPLATE_NAME' not in self.__dict__:
+            self.DG_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "-DG"
         self.AUTH_KEY = self.Device_name
         self.AUTH_STRING = self.Device_name + "@colt.net"
         self.LCC = self.LCC_dict[self.NODE]
@@ -1252,7 +1255,7 @@ class VersaLib:
                 self.STAGING_id_type = "email"
                 self.STAGING_KEY = self.Device_name
                 self.STAGING_INTF = self.__dict__[wan + "_WAN_INTF"][-1]
-                self.STAGING_Local_ip_with_mask =  self.__dict__[wan + "_WAN_INTF_IP"] + "/" + self.__dict__[wan + "_WAN_INTF_IP_MASK"]
+                self.STAGING_Local_ip_with_mask =  self.__dict__[wan + "_WAN_INTF_IP"]
                 self.STAGING_nexthop = self.__dict__[wan + "_WAN_INTF_NEXTHOP"]
             else:
                 self.ndb[node_dev] = node_device_data

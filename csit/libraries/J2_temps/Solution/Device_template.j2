@@ -20,7 +20,7 @@
 					"variable-binding": {
 						"attrs": [{
 							"name": "{$v_{{ INT_WAN_NAME }}_IPv4__staticaddress}",
-							"value": "{{ INT_WAN_INTF_IP }}/30",
+							"value": "{{ INT_WAN_INTF_IP }}",
 							"isAutogeneratable": false
 						},
 						{% for i in range(START_VLAN, START_VLAN+11) %}
@@ -104,7 +104,7 @@
 							"isAutogeneratable": false
 						}, {
 							"name": "{$v_{{ MPLS_WAN_NAME }}_IPv4__staticaddress}",
-							"value": "{{ MPLS_WAN_INTF_IP }}/30",
+							"value": "{{ MPLS_WAN_INTF_IP }}",
 							"isAutogeneratable": false
 						}, {
 							"name": "{$v_tvi-0-{{ esp_tvi_interface }}_-_Unit_0_Static_address__tunnelStaticAddress}",

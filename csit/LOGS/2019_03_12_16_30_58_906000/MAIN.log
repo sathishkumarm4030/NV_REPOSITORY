@@ -1,0 +1,1015 @@
+2019-03-12 16:31:09,801 - CPE12-INT - DEBUG - CPE NAME:CPE12-INT
+2019-03-12 16:31:12,128 - CPE12-INT - INFO - <Response [200]>
+2019-03-12 16:31:12,128 - CPE12-INT - INFO - PASS
+2019-03-12 16:31:17,253 - CPE12-INT - INFO - <Response [200]>
+2019-03-12 16:31:17,253 - CPE12-INT - INFO - PASS
+2019-03-12 16:31:29,648 - CPE12-INT - INFO - <Response [200]>
+2019-03-12 16:31:29,648 - CPE12-INT - INFO - PASS
+2019-03-12 16:31:35,265 - CPE12-INT - INFO - {u'versanms.sdwan-template-workflow': {u'providerOrg': {u'nextGenFW': False, u'name': u'JAPAN', u'statefulFW': True}, u'snmp': {u'snmpV1': False, u'snmpV2': False, u'snmpV3': False}, u'minimumImageVersion': u'16.1R2-S2.2', u'wanInterfaces': [{u'unitInfo': [{u'ipv6Dhcp': False, u'monitor': {u'monitorNexthop': False}, u'allowSSH': False, u'ipv4Static': True, u'DIA': False, u'vlanId': 0, u'transportDomains': [u'INTERNET-TD'], u'ipv4Dhcp': False, u'ipv6rs': False, u'subUnit': 0, u'networkName': u'INT-WAN', u'ipv6Static': False}], u'interfaceName': u'vni-0/2', u'pppoe': False}], u'diaConfig': {u'loadBalance': False, u'dia': False}, u'templateName': u'JAPAN-BLR-PS-IS-LIB', u'isPrimary': True, u'isAnalyticsEnabled': True, u'lanInterfaces': [{u'unitInfo': [{u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN1-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN1_Unit-0__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'JAPAN', u'subUnit': u'{$v_vni-0-4_LAN1_Unit-0__unit}', u'networkName': u'LAN1', u'dhcpV4Relay': False}, {u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN2-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN2_Unit-1__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'JAPAN', u'subUnit': u'{$v_vni-0-4_LAN2_Unit-1__unit}', u'networkName': u'LAN2', u'dhcpV4Relay': False}, {u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN3-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN3_Unit-2__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'JAPAN', u'subUnit': u'{$v_vni-0-4_LAN3_Unit-2__unit}', u'networkName': u'LAN3', u'dhcpV4Relay': False}, {u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN4-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN4_Unit-3__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'JAPAN', u'subUnit': u'{$v_vni-0-4_LAN4_Unit-3__unit}', u'networkName': u'LAN4', u'dhcpV4Relay': False}, {u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN5-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN5_Unit-4__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'JAPAN', u'subUnit': u'{$v_vni-0-4_LAN5_Unit-4__unit}', u'networkName': u'LAN5', u'dhcpV4Relay': False}], u'interfaceName': u'vni-0/4'}], u'bandwidth': 1000, u'controllers': [u'NV-WC01-N2-BLR', u'NV-WC02-N2-BLR'], u'templateType': u'sdwan-post-staging', u'deviceType': u'full-mesh', u'redundantPair': {u'vrrp': True, u'enable': False, u'cloudCPE': False}, u'solutionTier': u'standard-sdwan-plus-ngfw', u'deviceFirmfactor': 6, u'analyticsCluster': u'LogCollectors', u'splitTunnels': [{u'wanNetworkName': u'INT-WAN', u'vrfName': u'LAN1-VRF', u'dia': True, u'gateway': False}, {u'wanNetworkName': u'INT-WAN', u'vrfName': u'LAN2-VRF', u'dia': True, u'gateway': False}, {u'wanNetworkName': u'INT-WAN', u'vrfName': u'LAN3-VRF', u'dia': True, u'gateway': False}, {u'wanNetworkName': u'INT-WAN', u'vrfName': u'LAN4-VRF', u'dia': True, u'gateway': False}, {u'wanNetworkName': u'INT-WAN', u'vrfName': u'LAN5-VRF', u'dia': True, u'gateway': False}]}}
+2019-03-12 16:31:35,397 - CPE12-INT - INFO - [{u'category': u'stateful-firewall', u'organization': u'JAPAN', u'serviceTemplate': u'COMMON-SFW-TEMPLATE5', u'id': 514, u'templateName': u'JAPAN-BLR-PS-IS-LIB'}]
+2019-03-12 16:31:50,430 - CPE12-INT - INFO - set devices template JAPAN-BLR-PS-IS-LIB config interfaces vni vni-0/2 description "INT-WAN"
+
+set devices template JAPAN-BLR-PS-IS-LIB config system vnf-manager ip-addresses [ 10.91.116.67/32 10.91.116.68/32 ]
+delete devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance INT-WAN-Transport-VR routing-options static route rti-static-route-list 0.0.0.0/0 "{$v_INT-WAN-Transport-VR_IPv4__vrHopAddress}" none icmp
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 hold-time 90
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart enable
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart maximum-restart-time 15
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart recovery-time 15
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart select-defer-time 15
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart stalepath-time 15
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart dynamic-peer-restart-time 0
+
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match family inet-vpn
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match community "(^|,)([0-9]*:11)($|,)"
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action filter accept
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community 8009:8009
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community-action set-specific
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action set-local-preference 80
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match family inet-vpn
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match community "(^|,)([0-9]*:12)($|,)"
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action filter accept
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community 8009:8009
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community-action set-specific
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action set-local-preference 60
+move devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 first
+move devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 first
+
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard match family inet-vpn
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard action filter accept
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard action community 91:10
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard action community-action set-specific
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard match family versa-private
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action filter accept
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community 91:10
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 group Controllers-Group family inet unicast
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 group Controllers-Group export TO_SDWAN
+
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_nc interval 10
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_nc logging-interval 30
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_nc send-to controller
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_be interval 10
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_be logging-interval 30
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_be send-to branches
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/2.0 management-traffic priority 0
+
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-INT-WAN-Zone ]
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP ]
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN set action allow
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ]
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services predefined-services-list [ ESP ICMP ]
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services services-list [ IPSEC IPSIPSecAH ]
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT set action allow
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match source zone zone-list [ Intf-INT-WAN-Zone ]
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match ether-type ARP
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN set action allow
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ]
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match ether-type ARP
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT set action allow
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN match source zone zone-list [ Intf-INT-WAN-Zone ]
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN match services services-list [ DHCP-67 DHCP-68 ]
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN set action allow
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ]
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT match services services-list [ DHCP-67 DHCP-68 ]
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT set action allow
+
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match source zone zone-list [ Intf-LAN1-Zone Intf-LAN2-Zone Intf-LAN3-Zone Intf-LAN4-Zone Intf-LAN5-Zone W-ST-LAN1-VRF-INT-WAN W-ST-LAN2-VRF-INT-WAN W-ST-LAN3-VRF-INT-WAN W-ST-LAN4-VRF-INT-WAN W-ST-LAN5-VRF-INT-WAN ]
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match destination zone zone-list [ Intf-INT-WAN-Zone L-ST-LAN1-VRF-INT-WAN L-ST-LAN2-VRF-INT-WAN L-ST-LAN3-VRF-INT-WAN L-ST-LAN4-VRF-INT-WAN L-ST-LAN5-VRF-INT-WAN ]
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT set action allow
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN match source zone zone-list [ Intf-INT-WAN-Zone L-ST-LAN1-VRF-INT-WAN L-ST-LAN2-VRF-INT-WAN L-ST-LAN3-VRF-INT-WAN L-ST-LAN4-VRF-INT-WAN L-ST-LAN5-VRF-INT-WAN ]
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN set action allow
+
+
+
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN match source zone zone-list [ Intf-INT-WAN-Zone ]
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN set action deny
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ]
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT set action deny
+
+delete devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN cgnat rules rule RFC_1918_NoTranslate
+delete devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN cgnat rules rule DIA-Rule-LAN5-VRF-INT-WAN from
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN cgnat rules rule DIA-Rule-LAN5-VRF-INT-WAN match source-zone [ W-ST-LAN5-VRF-INT-WAN ]
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN cgnat rules rule DIA-Rule-LAN5-VRF-INT-WAN match destination-zone [ Intf-INT-WAN-Zone ]
+
+
+delete device template JAPAN-BLR-PS-IS-LIB config org org-services JAPAN sd-wan policies sdwan-policy-group Default-Policy rules rule Default-Rule
+set devices template JAPAN-BLR-PS-IS-LIB config org org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names local [ INT-WAN ]
+set devices template JAPAN-BLR-PS-IS-LIB config org org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names remote [ INT-WAN INT-WAN1 INT-WAN2 ]
+set devices template JAPAN-BLR-PS-IS-LIB config org org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names local [ INT-WAN ]
+set devices template JAPAN-BLR-PS-IS-LIB config org org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names remote [ LTE-WAN ]
+set devices template JAPAN-BLR-PS-IS-LIB config org org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE connection-selection-method weighted-round-robin
+set devices template JAPAN-BLR-PS-IS-LIB config org org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE recompute-timer 40
+set devices template JAPAN-BLR-PS-IS-LIB config org org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE encryption optional
+set devices template JAPAN-BLR-PS-IS-LIB config org org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE symmetric-forwarding enable
+set devices template JAPAN-BLR-PS-IS-LIB config org org-services JAPAN sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE description DEFAULT-TRAFFIC-RULE
+set devices template JAPAN-BLR-PS-IS-LIB config org org-services JAPAN sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set action allow
+set devices template JAPAN-BLR-PS-IS-LIB config org org-services JAPAN sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set forwarding-profile DEFAULT-TRAFFIC-PROFILE
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN objects services service IPSEC protocol UDP
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN objects services service IPSEC destination-port 4790,4500,500
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN objects services service IPSecAH protocol AH
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN objects services service IPSIPSecAH protocol AH
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN objects services service DHCP-67 protocol UDP
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN objects services service DHCP-67 port 67
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN objects services service DHCP-68 protocol UDP
+set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN objects services service DHCP-68 port 68
+
+delete devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR routing-options static route
+delete devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN security access-policies access-policy-group Default-Policy
+
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN1-VRF vrf-import-target target:1370L:13702
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN2-VRF vrf-import-target target:1371L:13712
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN3-VRF vrf-import-target target:1372L:13722
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN4-VRF vrf-import-target target:1373L:13732
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN5-VRF vrf-import-target target:1374L:13742
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+set devices template JAPAN-BLR-PS-IS-LIB config snmp usm local user coltuser auth sha password Colt1234
+
+set devices template JAPAN-BLR-PS-IS-LIB config system time-zone Greenwich
+set devices template JAPAN-BLR-PS-IS-LIB config confdConfig cli banner "Access to this network/system is limited to users authorised by Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be audited"
+set devices template JAPAN-BLR-PS-IS-LIB config system users portal login shell role admin password yA:D#{}Vn9JE-?Qa
+set devices template JAPAN-BLR-PS-IS-LIB config system users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+2019-03-12 16:32:44,546 - CPE12-INT - INFO - configure
+Entering configuration mode private
+[ok][2019-03-12 11:01:50]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config interfaces vni vni-0/2 description "INT-WAN"
+[ok][2019-03-12 11:01:50]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config system vnf-manager ip-addresses [ 10.91.116.67/32 10.91.116.68/32 ]
+[ok][2019-03-12 11:01:51]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% delete devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance INT-WAN-Transport-VR routing-options static  route rti-static-route-list 0.0.0.0/0 "{$v_INT-WAN-Transport-VR_IPv4__vrHopAddress}"[1A[34C{$v_INT-WAN-Transport-VR_IPv4__vrHopAddress}  [1Dnone icmp
+Error: element not found
+[error][2019-03-12 11:01:51]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 hold-time 90
+[ok][2019-03-12 11:01:51]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart enable
+[ok][2019-03-12 11:01:52]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart maximum-restart-time 15
+[ok][2019-03-12 11:01:52]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart recovery-time 15
+[ok][2019-03-12 11:01:53]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart select-defer-time 15
+[ok][2019-03-12 11:01:53]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart stalepath-time 15
+[ok][2019-03-12 11:01:53]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart dynamic-peer-restart-time 0
+[ok][2019-03-12 11:01:54]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match family inet-vpn
+[ok][2019-03-12 11:01:54]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match community "(^|,)([0-9]*:11)($|,)"
+[ok][2019-03-12 11:01:55]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action filter accept
+[ok][2019-03-12 11:01:55]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community 8009:8009
+[ok][2019-03-12 11:01:55]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community-action set-specific
+[ok][2019-03-12 11:01:56]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action set-local-preference 80
+[ok][2019-03-12 11:01:56]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match family inet-vpn
+[ok][2019-03-12 11:01:57]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match community "(^|,)([0-9]*:12)($|,)"
+[ok][2019-03-12 11:01:57]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action filter accept
+[ok][2019-03-12 11:01:58]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community 8009:8009
+[ok][2019-03-12 11:01:58]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community-action set-specific
+[ok][2019-03-12 11:01:59]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action set-local-preference 60
+[ok][2019-03-12 11:01:59]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% move devices template JAPAN-BLR-PS-IS-LIB config  routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 first
+[ok][2019-03-12 11:02:00]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% move devices template JAPAN-BLR-PS-IS-LIB config  routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 first
+[ok][2019-03-12 11:02:00]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard match family inet-vpn
+[ok][2019-03-12 11:02:01]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard action filter accept
+[ok][2019-03-12 11:02:01]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard action community 91:10
+[ok][2019-03-12 11:02:02]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard action community-action set-specific
+[ok][2019-03-12 11:02:02]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard match family versa-private
+[ok][2019-03-12 11:02:02]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action filter accept
+[ok][2019-03-12 11:02:03]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community 91:10
+[ok][2019-03-12 11:02:03]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
+[ok][2019-03-12 11:02:04]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 group Controllers-Group family inet unicast
+[ok][2019-03-12 11:02:04]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 group Controllers-Group export TO_SDWAN
+[ok][2019-03-12 11:02:05]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_nc interval 10
+[ok][2019-03-12 11:02:05]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_nc logging-interval 30
+[ok][2019-03-12 11:02:05]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_nc send-to controller
+[ok][2019-03-12 11:02:06]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_be interval 10
+[ok][2019-03-12 11:02:06]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_be logging-interval 30
+[ok][2019-03-12 11:02:07]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_be send-to branches
+[ok][2019-03-12 11:02:07]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/2.0 management-traffic priority 0
+[ok][2019-03-12 11:02:08]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-INT-WAN-Zone ] 
+[ok][2019-03-12 11:02:08]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP ]
+[ok][2019-03-12 11:02:09]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
+[ok][2019-03-12 11:02:09]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN set action allow
+[ok][2019-03-12 11:02:10]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ]
+[ok][2019-03-12 11:02:10]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services predefined-services-list [ ESP ICMP ]
+[ok][2019-03-12 11:02:11]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services services-list [ IPSEC IPSIPSecAH  ]
+[ok][2019-03-12 11:02:11]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT set action allow
+[ok][2019-03-12 11:02:12]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match source zone zone-list [ Intf-INT-WAN-Zone ]
+[ok][2019-03-12 11:02:12]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match ether-type ARP
+[ok][2019-03-12 11:02:13]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN set action allow
+[ok][2019-03-12 11:02:13]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ]
+[ok][2019-03-12 11:02:14]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match ether-type ARP
+[ok][2019-03-12 11:02:14]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT set action allow
+[ok][2019-03-12 11:02:15]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN match source zone zone-list [ Intf-INT-WAN-Zone ]
+[ok][2019-03-12 11:02:15]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN match services services-list [ DHCP-67 DHCP-68 ]
+[ok][2019-03-12 11:02:16]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN set action allow
+[ok][2019-03-12 11:02:16]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ]
+[ok][2019-03-12 11:02:17]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT match services services-list [ DHCP-67 DHCP-68 ]
+[ok][2019-03-12 11:02:17]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT set action allow
+[ok][2019-03-12 11:02:18]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match source zone zone-list [ Intf-LAN1-Zone Intf-LAN2-Zone Intf-LAN3-Zone Intf-LAN4-Zone Intf-LAN5-Zone W-ST-LAN1-VRF-INT-WAN W-ST-LAN2-VRF-INT-WAN W-ST-LAN3-VRF-INT-WAN W-ST-LAN4-VRF-INT-WAN W-ST-LAN5-VRF-INT-WAN ]
+[ok][2019-03-12 11:02:18]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match destination zone zone-list [ Intf-INT-WAN-Zone L-ST-LAN1-VRF-INT-WAN L-ST-LAN2-VRF-INT-WAN L-ST-LAN3-VRF-INT-WAN L-ST-LAN4-VRF-INT-WAN L-ST-LAN5-VRF-INT-WAN ]
+[ok][2019-03-12 11:02:19]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT set action allow
+[ok][2019-03-12 11:02:20]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN match source zone zone-list [ Intf-INT-WAN-Zone L-ST-LAN1-VRF-INT-WAN L-ST-LAN2-VRF-INT-WAN L-ST-LAN3-VRF-INT-WAN L-ST-LAN4-VRF-INT-WAN L-ST-LAN5-VRF-INT-WAN ]
+[ok][2019-03-12 11:02:20]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN set action allow
+[ok][2019-03-12 11:02:21]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN match source zone zone-list [ Intf-INT-WAN-Zone ]
+[ok][2019-03-12 11:02:21]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN set action deny
+[ok][2019-03-12 11:02:21]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ]
+[ok][2019-03-12 11:02:22]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT set action deny
+[ok][2019-03-12 11:02:22]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% delete devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN cgnat rules rule RFC_1918_NoTranslate
+[ok][2019-03-12 11:02:23]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% delete devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN cgnat rules rule DIA-Rule-LAN5-VRF-INT-WAN from
+[ok][2019-03-12 11:02:23]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN cgnat rules rule DIA-Rule-LAN5-VRF-INT-WAN match source-zone [ W-ST-LAN5-VRF-INT-WAN ]
+[ok][2019-03-12 11:02:23]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN cgnat rules rule DIA-Rule-LAN5-VRF-INT-WAN match destination-zone [ Intf-INT-WAN-Zone ]
+[ok][2019-03-12 11:02:24]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% delete devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN sd-wan policies sdwan-policy-group Default-Policy rules rule Default-Rule
+[ok][2019-03-12 11:02:24]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names local [ INT-WAN ]
+[ok][2019-03-12 11:02:24]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names remote [ INT-WAN INT-WAN1 INT-WAN2 ]
+[ok][2019-03-12 11:02:25]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names local [ INT-WAN ]
+[ok][2019-03-12 11:02:26]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names remote [ LTE-WAN ]
+[ok][2019-03-12 11:02:26]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE connection-selection-method weighted-round-robin
+[ok][2019-03-12 11:02:26]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE recompute-timer 40
+[ok][2019-03-12 11:02:27]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE encryption optional
+[ok][2019-03-12 11:02:27]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE symmetric-forwarding enable
+[ok][2019-03-12 11:02:27]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE description DEFAULT-TRAFFIC-RULE
+[ok][2019-03-12 11:02:28]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set action allow
+[ok][2019-03-12 11:02:28]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set forwarding-profile DEFAULT-TRAFFIC-PROFILE
+[ok][2019-03-12 11:02:29]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN objects services service IPSEC protocol UDP
+[ok][2019-03-12 11:02:29]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN objects services service IPSEC destination-port 4790,4500,500
+[ok][2019-03-12 11:02:29]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN objects services service IPSecAH protocol AH
+[ok][2019-03-12 11:02:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN objects services service IPSIPSecAH protocol AH
+[ok][2019-03-12 11:02:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN objects services service DHCP-67 protocol UDP
+[ok][2019-03-12 11:02:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN objects services service DHCP-67 port 67
+[ok][2019-03-12 11:02:31]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN objects services service DHCP-68 protocol UDP
+[ok][2019-03-12 11:02:31]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN objects services service DHCP-68 port 68
+[ok][2019-03-12 11:02:31]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% delete devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance JAPAN-Control-VR routing-options static route
+[ok][2019-03-12 11:02:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% delete devices template JAPAN-BLR-PS-IS-LIB config orgs org-services JAPAN security access-policies access-policy-group Default-Policy
+[ok][2019-03-12 11:02:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN1-VRF vrf-import-target target:1370L:13702
+[ok][2019-03-12 11:02:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy  Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-03-12 11:02:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy  Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-03-12 11:02:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy  Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-03-12 11:02:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy  Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-03-12 11:02:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN2-VRF vrf-import-target target:1371L:13712
+[ok][2019-03-12 11:02:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy  Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-03-12 11:02:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy  Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-03-12 11:02:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy  Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-03-12 11:02:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy  Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-03-12 11:02:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN3-VRF vrf-import-target target:1372L:13722
+[ok][2019-03-12 11:02:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy  Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-03-12 11:02:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy  Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-03-12 11:02:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy  Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-03-12 11:02:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy  Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-03-12 11:02:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN4-VRF vrf-import-target target:1373L:13732
+[ok][2019-03-12 11:02:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy  Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-03-12 11:02:38]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy  Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-03-12 11:02:38]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy  Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-03-12 11:02:39]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy  Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-03-12 11:02:39]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN5-VRF vrf-import-target target:1374L:13742
+[ok][2019-03-12 11:02:39]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy  Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-03-12 11:02:39]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy  Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-03-12 11:02:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy  Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-03-12 11:02:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy  Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-03-12 11:02:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config snmp usm local user coltuser auth sha password Colt1234
+[ok][2019-03-12 11:02:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config system time-zone Greenwich
+[ok][2019-03-12 11:02:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config confdConfig cli banner "Access to this network/system is limited to users authorised by Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be audited"
+[ok][2019-03-12 11:02:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config system users portal login shell role admin password yA:D#{}Vn9JE-?Qa
+[ok][2019-03-12 11:02:42]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-IS-LIB config system users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+[ok][2019-03-12 11:02:42]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+2019-03-12 16:32:45,375 - CPE12-INT - INFO - commit
+Commit complete.
+[ok][2019-03-12 11:02:45]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+2019-03-12 16:32:45,469 - CPE12-INT - INFO - CPE12-INT : element not found error.Commit success.
+2019-03-12 16:32:50,638 - CPE12-INT - INFO - <Response [201]>
+2019-03-12 16:32:50,638 - CPE12-INT - INFO - {"createDate":"2019-03-12 11:02:50","modifyDate":"2019-03-12 11:02:50","lastUpdatedBy":"Sathish","name":"JAPAN-BLR-PS-IS-LIB-DG","organization":"JAPAN","oneTimePassword":false,"poststaging-template":"JAPAN-BLR-PS-IS-LIB","enable-2factor-auth":false,"enable-staging-url":false,"inventory-name":[]}
+2019-03-12 16:32:50,638 - CPE12-INT - INFO - FAIL : {"createDate":"2019-03-12 11:02:50","modifyDate":"2019-03-12 11:02:50","lastUpdatedBy":"Sathish","name":"JAPAN-BLR-PS-IS-LIB-DG","organization":"JAPAN","oneTimePassword":false,"poststaging-template":"JAPAN-BLR-PS-IS-LIB","enable-2factor-auth":false,"enable-staging-url":false,"inventory-name":[]}
+2019-03-12 16:32:55,698 - CPE12-INT - INFO - 
+sudo /opt/versa/scripts/staging.py -w 1 -c 10.63.151.90 -s 172.16.7.46/30 -g 172.16.7.45 -l JAPAN-CPE12-INT@colt.net -lk CPE12-INT  -r NV-WC02-N2-BLR@colt.net -rk NV-WC02-N2-BLR
+
+2019-03-12 16:32:55,700 - CPE12-INT - INFO - {
+	"versanms.sdwan-device-workflow": {
+		"deviceName": "CPE12-INT",
+		"siteId": "1629",
+		"orgName": "JAPAN",
+		"serialNumber": "AUTOINTOKSA1812012",
+		"deviceGroup": "JAPAN-BLR-PS-IS-LIB-DG",
+		"locationInfo": {
+			"state": "karnataka",
+			"country": "india",
+			"longitude": "77.594563",
+			"latitude": "12.971599",
+			"city": "bangalore"
+		},
+		"postStagingTemplateInfo": {
+			"templateName": "JAPAN-BLR-PS-IS-LIB",
+			"templateData": {
+				"device-template-variable": {
+					"template": "JAPAN-BLR-PS-IS-LIB",
+					"variable-binding": {
+						"attrs": [{
+							"name": "{$v_INT-WAN_IPv4__staticaddress}",
+							"value": "172.16.6.46/30",
+							"isAutogeneratable": false
+						},
+						
+						    
+						    
+						    
+						{ "name": "{$v_vni-0-4_LAN1_Unit-0__unit}", "value": "610", "isAutogeneratable": false},
+						{ "name": "{$v_vni-0-4_LAN1_Unit-0__vlanId}", "value": "610", "isAutogeneratable": false },
+						
+						    
+						    
+						    
+						{ "name": "{$v_vni-0-4_LAN2_Unit-1__unit}", "value": "611", "isAutogeneratable": false},
+						{ "name": "{$v_vni-0-4_LAN2_Unit-1__vlanId}", "value": "611", "isAutogeneratable": false },
+						
+						    
+						    
+						    
+						{ "name": "{$v_vni-0-4_LAN3_Unit-2__unit}", "value": "612", "isAutogeneratable": false},
+						{ "name": "{$v_vni-0-4_LAN3_Unit-2__vlanId}", "value": "612", "isAutogeneratable": false },
+						
+						    
+						    
+						    
+						{ "name": "{$v_vni-0-4_LAN4_Unit-3__unit}", "value": "613", "isAutogeneratable": false},
+						{ "name": "{$v_vni-0-4_LAN4_Unit-3__vlanId}", "value": "613", "isAutogeneratable": false },
+						
+						    
+						    
+						    
+						{ "name": "{$v_vni-0-4_LAN5_Unit-4__unit}", "value": "614", "isAutogeneratable": false},
+						{ "name": "{$v_vni-0-4_LAN5_Unit-4__vlanId}", "value": "614", "isAutogeneratable": false },
+						
+						{
+							"name": "{$v_JAPAN-Control-VR_16_Router_ID__vrRouteId}",
+							"value": "20.20.125.12",
+							"isAutogeneratable": true,
+							"isOverwritten": false
+						}, {
+							"name": "{$v_JAPAN_NV-WC01-N2-BLR_Local_auth_email_key__IKELKey}",
+							"value": "CPE12-INT",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_JAPAN_NV-WC02-N2-BLR_Local_auth_email_key__IKELKey}",
+							"value": "CPE12-INT",
+							"isAutogeneratable": true
+						},
+						
+						
+						
+						{ "name": "{$v_LAN1_IPv4__staticaddress}", "value": "192.169.111.1/24", "isAutogeneratable": false},
+						
+						
+						
+						{ "name": "{$v_LAN2_IPv4__staticaddress}", "value": "192.169.112.1/24", "isAutogeneratable": false},
+						
+						
+						
+						{ "name": "{$v_LAN3_IPv4__staticaddress}", "value": "192.169.113.1/24", "isAutogeneratable": false},
+						
+						
+						
+						{ "name": "{$v_LAN4_IPv4__staticaddress}", "value": "192.169.114.1/24", "isAutogeneratable": false},
+						
+						
+						
+						{ "name": "{$v_LAN5_IPv4__staticaddress}", "value": "192.169.115.1/24", "isAutogeneratable": false},
+						
+						{
+							"name": "{$v_JAPAN_NV-WC02-N2-BLR_Local_auth_email_identifier__IKELIdentifier}",
+							"value": "CPE12-INT@colt.net",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_Site_Id__siteSiteID}",
+							"value": "1629",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_JAPAN_NV-WC01-N2-BLR_Local_auth_email_identifier__IKELIdentifier}",
+							"value": "CPE12-INT@colt.net",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_JAPAN_Site_Name__sitesSiteName}",
+							"value": "CPE12-INT",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_latitude__IdLatitude}",
+							"value": "12.971599",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_identification__IdName}",
+							"value": "CPE12-INT",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_INT-WAN-Transport-VR_IPv4__vrHopAddress}",
+							"value": "172.16.6.45",
+							"isAutogeneratable": false
+						},	{
+						    "name": "{$v_tvi-0-250_-_Unit_0_Static_address__tunnelStaticAddress}",
+							"value": "10.10.125.12/32",
+							"isAutogeneratable": true,
+							"isOverwritten": false
+						}, {
+							"name": "{$v_Chassis_Id__sitesChassisId}",
+							"value": "AUTOINTOKSA1812012",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_longitude__Idlongitude}",
+							"value": "77.594563",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_location__IdLocation}",
+							"value": "bangalore,karnataka, india",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_JAPAN-Control-VR_125_Local_address__vrRouterAddress}",
+							"value": "20.20.125.12",
+							"isAutogeneratable": true,
+							"isOverwritten": false
+						}, {
+							"name": "{$v_tvi-0-251_-_Unit_0_Static_address__tunnelStaticAddress}",
+							"value": "20.20.125.12/32",
+							"isAutogeneratable": true,
+							"isOverwritten": false
+						}]
+					}
+				},
+				"variableMetadata": [{
+					"variable": "{$v_INT-WAN_IPv4__staticaddress}",
+					"group": "Interfaces",
+					"overlay": false,
+					"type": "IPV4_MASK"
+				},
+                
+                
+                
+				{"variable": "{$v_vni-0-4_LAN1_Unit-0__vlanId}", "group": "Vlan Info", "overlay": false, "type": "INTEGER"},
+                
+                
+                
+				{"variable": "{$v_vni-0-4_LAN2_Unit-1__vlanId}", "group": "Vlan Info", "overlay": false, "type": "INTEGER"},
+                
+                
+                
+				{"variable": "{$v_vni-0-4_LAN3_Unit-2__vlanId}", "group": "Vlan Info", "overlay": false, "type": "INTEGER"},
+                
+                
+                
+				{"variable": "{$v_vni-0-4_LAN4_Unit-3__vlanId}", "group": "Vlan Info", "overlay": false, "type": "INTEGER"},
+                
+                
+                
+				{"variable": "{$v_vni-0-4_LAN5_Unit-4__vlanId}", "group": "Vlan Info", "overlay": false, "type": "INTEGER"},
+                
+				{
+					"variable": "{$v_JAPAN-Control-VR_125_Router_ID__vrRouteId}",
+					"group": "Virtual Routers",
+					"overlay": true,
+					"type": "IPV4"
+				}, {
+					"variable": "{$v_JAPAN_NV-WC01-N2-BLR_Local_auth_email_key__IKELKey}",
+					"group": "IPSEC",
+					"overlay": false
+				}, {
+					"variable": "{$v_JAPAN_NV-WC02-N2-BLR_Local_auth_email_key__IKELKey}",
+					"group": "IPSEC",
+					"overlay": false
+				},
+			{
+					"variable": "{$v_LAN1_IPv4__staticaddress}", "group": "Interfaces", "overlay": false, "type": "IPV4_MASK"
+				},
+            {
+					"variable": "{$v_LAN2_IPv4__staticaddress}", "group": "Interfaces", "overlay": false, "type": "IPV4_MASK"
+				},
+            {
+					"variable": "{$v_LAN3_IPv4__staticaddress}", "group": "Interfaces", "overlay": false, "type": "IPV4_MASK"
+				},
+            {
+					"variable": "{$v_LAN4_IPv4__staticaddress}", "group": "Interfaces", "overlay": false, "type": "IPV4_MASK"
+				},
+            {
+					"variable": "{$v_LAN5_IPv4__staticaddress}", "group": "Interfaces", "overlay": false, "type": "IPV4_MASK"
+				},
+            
+				 {
+					"variable": "{$v_JAPAN_NV-WC02-N2-BLR_Local_auth_email_identifier__IKELIdentifier}",
+					"group": "IPSEC",
+					"overlay": false
+				}, {
+					"variable": "{$v_Site_Id__siteSiteID}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_JAPAN_NV-WC01-N2-BLR_Local_auth_email_identifier__IKELIdentifier}",
+					"group": "IPSEC",
+					"overlay": false
+				}, {
+					"variable": "{$v_JAPAN_Site_Name__sitesSiteName}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_latitude__IdLatitude}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_identification__IdName}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_INT-WAN-Transport-VR_IPv4__vrHopAddress}",
+					"group": "Virtual Routers",
+					"overlay": false,
+					"type": "IPV4_IPV6"
+				}, {
+					"variable": "{$v_tvi-0-250_-_Unit_0_Static_address__tunnelStaticAddress}",
+					"group": "Interfaces",
+					"overlay": true,
+					"type": "IPV4_IPV6_MASK"
+				}, {
+					"variable": "{$v_Chassis_Id__sitesChassisId}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_longitude__Idlongitude}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_location__IdLocation}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_JAPAN-Control-VR_125_Local_address__vrRouterAddress}",
+					"group": "Virtual Routers",
+					"overlay": true,
+					"type": "IPV4"
+				}, {
+					"variable": "{$v_tvi-0-251_-_Unit_0_Static_address__tunnelStaticAddress}",
+					"group": "Interfaces",
+					"overlay": true,
+					"type": "IPV4_IPV6_MASK"
+				}]
+			}
+		}
+	}
+}
+2019-03-12 16:32:56,234 - CPE12-INT - INFO - <Response [500]>
+2019-03-12 16:32:56,234 - CPE12-INT - INFO - {"error":{"http_status_code":500,"code":0,"message":"Device workflow [ CPE12-INT] already exists in network (either your org or another org),  Please choose another name.","more_info":"http://nms.versa.com/errors/null"}}
+2019-03-12 16:32:56,236 - CPE12-INT - INFO - FAIL : {"error":{"http_status_code":500,"code":0,"message":"Device workflow [ CPE12-INT] already exists in network (either your org or another org),  Please choose another name.","more_info":"http://nms.versa.com/errors/null"}}
+2019-03-12 16:33:06,523 - CPE12-INT - INFO - 15649
+2019-03-12 16:33:17,062 - CPE12-INT - INFO - Device deployed
+2019-03-12 16:33:18,148 - CPE12-INT - INFO - {u'versanms.sdwan-device-workflow': {u'postStagingTemplateInfo': {u'templateData': {u'device-template-variable': {u'variable-binding': {u'attrs': [{u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN1_Unit-0__vlanId}', u'value': 610}, {u'isAutogeneratable': False, u'name': u'{$v_INT-WAN_IPv4__staticaddress}', u'value': u'172.16.6.46/30'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_JAPAN-Control-VR_125_Local_address__vrRouterAddress}', u'value': u'20.20.125.12'}, {u'isAutogeneratable': False, u'name': u'{$v_LAN2_IPv4__staticaddress}', u'value': u'192.169.112.1/24'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_tvi-0-251_-_Unit_0_Static_address__tunnelStaticAddress}', u'value': u'20.20.125.12/32'}, {u'isAutogeneratable': True, u'name': u'{$v_JAPAN_NV-WC01-N2-BLR_Local_auth_email_identifier__IKELIdentifier}', u'value': u'CPE12-INT@colt.net'}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN5_Unit-4__unit}', u'value': 614}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN2_Unit-1__unit}', u'value': 611}, {u'isAutogeneratable': True, u'isOverwritten': False, u'name': u'{$v_JAPAN-Control-VR_125_Router_ID__vrRouteId}', u'value': u'10.125.70.93'}, {u'isAutogeneratable': False, u'name': u'{$v_LAN4_IPv4__staticaddress}', u'value': u'192.169.114.1/24'}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN2_Unit-1__vlanId}', u'value': 611}, {u'isAutogeneratable': False, u'name': u'{$v_LAN1_IPv4__staticaddress}', u'value': u'192.169.111.1/24'}, {u'isAutogeneratable': False, u'name': u'{$v_LAN5_IPv4__staticaddress}', u'value': u'192.169.115.1/24'}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN3_Unit-2__vlanId}', u'value': 612}, {u'isAutogeneratable': True, u'name': u'{$v_latitude__IdLatitude}', u'value': 12.971599}, {u'isAutogeneratable': True, u'name': u'{$v_identification__IdName}', u'value': u'CPE12-INT'}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN4_Unit-3__vlanId}', u'value': 613}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_tvi-0-250_-_Unit_0_Static_address__tunnelStaticAddress}', u'value': u'10.10.125.12/32'}, {u'isAutogeneratable': False, u'name': u'{$v_INT-WAN-Transport-VR_IPv4__vrHopAddress}', u'value': u'172.16.6.45'}, {u'isAutogeneratable': False, u'name': u'{$v_LAN3_IPv4__staticaddress}', u'value': u'192.169.113.1/24'}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN4_Unit-3__unit}', u'value': 613}, {u'isAutogeneratable': True, u'name': u'{$v_Chassis_Id__sitesChassisId}', u'value': u'AUTOINTOKSA1812012'}, {u'isAutogeneratable': True, u'name': u'{$v_JAPAN_Site_Name__sitesSiteName}', u'value': u'CPE12-INT'}, {u'isAutogeneratable': True, u'name': u'{$v_longitude__Idlongitude}', u'value': 77.594563}, {u'isAutogeneratable': True, u'name': u'{$v_JAPAN_NV-WC02-N2-BLR_Local_auth_email_identifier__IKELIdentifier}', u'value': u'CPE12-INT@colt.net'}, {u'isAutogeneratable': True, u'name': u'{$v_location__IdLocation}', u'value': u'bangalore,karnataka, india'}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN5_Unit-4__vlanId}', u'value': 614}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN1_Unit-0__unit}', u'value': 610}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN3_Unit-2__unit}', u'value': 612}, {u'isAutogeneratable': True, u'name': u'{$v_Site_Id__siteSiteID}', u'value': 1629}, {u'isAutogeneratable': True, u'name': u'{$v_JAPAN_NV-WC01-N2-BLR_Local_auth_email_key__IKELKey}', u'value': u'CPE12-INT'}, {u'isAutogeneratable': True, u'name': u'{$v_JAPAN_NV-WC02-N2-BLR_Local_auth_email_key__IKELKey}', u'value': u'CPE12-INT'}]}, u'template': u'JAPAN-BLR-PS-IS-LIB'}, u'variableMetadata': [{u'variable': u'{$v_vni-0-4_LAN1_Unit-0__vlanId}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_INT-WAN_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_JAPAN-Control-VR_125_Local_address__vrRouterAddress}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': True}, {u'variable': u'{$v_LAN2_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_tvi-0-251_-_Unit_0_Static_address__tunnelStaticAddress}', u'type': u'IPV4_IPV6_MASK', u'group': u'Interfaces', u'overlay': True}, {u'variable': u'{$v_JAPAN_NV-WC01-N2-BLR_Local_auth_email_identifier__IKELIdentifier}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_vni-0-4_LAN5_Unit-4__unit}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_vni-0-4_LAN2_Unit-1__unit}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_JAPAN-Control-VR_125_Router_ID__vrRouteId}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': True}, {u'variable': u'{$v_LAN4_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_vni-0-4_LAN2_Unit-1__vlanId}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_LAN1_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_LAN5_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_vni-0-4_LAN3_Unit-2__vlanId}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_latitude__IdLatitude}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_identification__IdName}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_vni-0-4_LAN4_Unit-3__vlanId}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_tvi-0-250_-_Unit_0_Static_address__tunnelStaticAddress}', u'type': u'IPV4_IPV6_MASK', u'group': u'Interfaces', u'overlay': True}, {u'variable': u'{$v_INT-WAN-Transport-VR_IPv4__vrHopAddress}', u'type': u'IPV4_IPV6', u'group': u'Virtual routers', u'overlay': False}, {u'variable': u'{$v_LAN3_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_vni-0-4_LAN4_Unit-3__unit}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_Chassis_Id__sitesChassisId}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_JAPAN_Site_Name__sitesSiteName}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_longitude__Idlongitude}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_JAPAN_NV-WC02-N2-BLR_Local_auth_email_identifier__IKELIdentifier}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_location__IdLocation}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_vni-0-4_LAN5_Unit-4__vlanId}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_vni-0-4_LAN1_Unit-0__unit}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_vni-0-4_LAN3_Unit-2__unit}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_Site_Id__siteSiteID}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_JAPAN_NV-WC01-N2-BLR_Local_auth_email_key__IKELKey}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_JAPAN_NV-WC02-N2-BLR_Local_auth_email_key__IKELKey}', u'group': u'IPSEC', u'overlay': False}]}, u'templateName': u'JAPAN-BLR-PS-IS-LIB'}, u'deviceName': u'CPE12-INT', u'deviceGroup': u'JAPAN-BLR-PS-IS-LIB-DG', u'orgName': u'JAPAN', u'serialNumber': u'AUTOINTOKSA1812012', u'locationInfo': {u'latitude': 12.971599, u'country': u'india', u'state': u'karnataka', u'longitude': 77.594563, u'city': u'bangalore'}, u'siteId': 1629, u'instanceInfo': u'', u'stagingTemplateInfo': u'', u'urlztpBasedInfo': {u'authType': u'psk', u'enableIpv4Dhcp': False, u'branchKey': u'BwyhgGtLn8J7cYvO', u'branchId': u'CPE12-INT@JAPAN.com', u'enableIpv6': False, u'enableIpv4': False, u'enableIpv6Dhcp': False}}}
+2019-03-12 16:33:33,174 - CPE12-INT - INFO - configure private
+Entering configuration mode private
+[ok][2019-03-12 11:03:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+2019-03-12 16:33:33,193 - CPE12-INT - INFO - True
+2019-03-12 16:33:34,009 - CPE12-INT - INFO - set devices device NV-WC02-N2-BLR config orgs org-services Colt ipsec vpn-profile STAGING-MPLS psk-auth-clients remote-client JAPAN-CPE12-INT@colt.net id-type email
+[ok][2019-03-12 11:03:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+2019-03-12 16:33:34,842 - CPE12-INT - INFO - set devices device NV-WC02-N2-BLR config orgs org-services Colt ipsec vpn-profile STAGING-MPLS psk-auth-clients remote-client JAPAN-CPE12-INT@colt.net key CPE12-INT
+[ok][2019-03-12 11:03:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+2019-03-12 16:33:40,289 - CPE12-INT - INFO - commit and-quit
+Commit complete.
+[ok][2019-03-12 11:03:40]
+Administrator@Versa-Dir-BLR-1> 
+2019-03-12 16:33:40,390 - CPE12-INT - INFO - sudo /opt/versa/scripts/staging.py -w 1 -c 10.63.151.90 -s 172.16.7.46/30 -g 172.16.7.45 -l JAPAN-CPE12-INT@colt.net -lk CPE12-INT  -r NV-WC02-N2-BLR@colt.net -rk NV-WC02-N2-BLR
+2019-03-12 16:43:28,615 - CPE12-INT - INFO - {'ownerOrg': u'JAPAN', 'name': u'CPE12-INT', 'ipAddress': u'20.20.125.12', 'ping_status': u'REACHABLE', 'controllers': [u'NV-WC02-N2-BLR'], 'softwareVersion': u'16.1-R2-S2.2 d1653f6 20180508', 'sync_status': u'IN_SYNC', 'type': u'branch', 'uuid': u'7188ea73-3783-45f9-b0b3-47dee948e508'}
