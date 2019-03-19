@@ -45,10 +45,13 @@ def Do_Cpe_onboarding():
     # print "CPE NAME:" + cpe_name
     cpe = VersaLib(cpe_name, topofile="Devices.csv")
     main_logger = cpe.main_logger
-    main_logger.debug("CPE NAME:" + cpe_name)
+    main_logger.info("CPE NAME:" + cpe_name)
+    time.sleep(1)
+    print "AVAILABLE SOLUTIONS:"
     for sol in cpe.SOLUTIONS_list:
         print "\t" + sol
     cpe.Solution_type = raw_input("Enter Solution :")
+    main_logger.info("SOLUTION SELECTED:" + cpe.Solution_type)
     cpe.Create_Node_Data(cpe.SATGING_SERVER, "SS", wan=cpe.SATGING_WAN)
     WC_list = cpe.Create_Controller_List(cpe.ORG_NAME, cpe.ORG_ID, cpe.NO_OF_VRFS, cpe.NODE)
     GW_list = cpe.Create_Gateway_List(cpe.ORG_NAME, cpe.ORG_ID, cpe.NO_OF_VRFS, cpe.NODE)
