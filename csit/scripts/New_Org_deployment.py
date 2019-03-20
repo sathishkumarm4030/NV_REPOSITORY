@@ -54,6 +54,7 @@ def Do_New_Org_Deployment():
     VD1 = VersaLib('VD1', topofile="Devices.csv")
     main_logger = VD1.main_logger
     main_logger.info("ORG NAME:" + org_name)
+    VD1.NO_OF_VRFS = no_of_vrfs
     run_result = ""
     print "AVAILBALE NODEs:" + str(VD1.ctlr_dict.keys())
     nodes = raw_input("Enter Node names. eg: MUM BLR\n")
