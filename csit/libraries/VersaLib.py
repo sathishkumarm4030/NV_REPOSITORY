@@ -847,6 +847,7 @@ class VersaLib:
             self.main_logger.info("Device deployed")
         else:
             self.main_logger.info("Device deployment failed")
+            self.main_logger.info("TASK RESULT : " + task_result)
             exit()
         get_device_data = self.get_operation(device_template_url + "/" + self.Device_name, headers3)
         self.main_logger.info(get_device_data)
