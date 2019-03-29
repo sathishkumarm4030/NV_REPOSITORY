@@ -408,7 +408,7 @@ class VersaLib:
         self.shell_nc = ConnectHandler(**device_dict)
         print self.shell_nc
         print self.shell_nc.send_command_expect('sudo bash', expect_string='password')
-        print self.shell_nc.send_command_expect('versa123', expect_string='\~|#')
+        print self.shell_nc.send_command_expect(self.password, expect_string='\~|#')
         print self.shell_nc.send_command_expect('exit', expect_string='\$|#')
         # ur = self.shell_nc.send_command_expect('ls -ltr')
         # print ur
@@ -696,10 +696,10 @@ class VersaLib:
         self.main_logger.info(self.Staging_command_template)
         cpe_shell_login = self.shell_login()
         # print cpe_shell_login.send_command_expect('sudo bash', expect_string='password', strip_prompt=False, strip_command=False)
-        # print cpe_shell_login.send_command_expect('versa123', expect_string='#')
+        # print cpe_shell_login.send_command_expect(self.password, expect_string='#')
         # print cpe_shell_login.send_command_expect('exit', expect_string='\$')
         print cpe_shell_login.send_command_expect('vsh allow-cli', expect_string='password:', strip_prompt=False, strip_command=False)
-        print cpe_shell_login.send_command_expect('versa123', expect_string='CLI now allowed', strip_prompt=False, strip_command=False)
+        print cpe_shell_login.send_command_expect(self.password, expect_string='CLI now allowed', strip_prompt=False, strip_command=False)
         print cpe_shell_login.send_command_expect('cli', expect_string='>', strip_prompt=False, strip_command=False)
         print cpe_shell_login.send_command_expect('request erase running-config', expect_string='yes', strip_prompt=False, strip_command=False)
         print cpe_shell_login.send_command_expect('yes', expect_string='\$|#', strip_prompt=False, strip_command=False)
@@ -859,7 +859,7 @@ class VersaLib:
     def VM_pre_op(self):
         self.VM_nc = self.shell_login()
         self.linux_device_config_commands(self.VM_nc, "sudo bash", expect_string=":")
-        self.linux_device_config_commands(self.VM_nc, "versa123", expect_string="#")
+        self.linux_device_config_commands(self.VM_nc, self.password, expect_string="#")
         self.linux_device_config_commands(self.VM_nc, "exit", expect_string="\$")
         self.linux_device_config_commands(self.VM_nc, "sudo ifconfig " + self.LAN_INTF + " up")
         for vlan in self.lan_vlan:
