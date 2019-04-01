@@ -5,6 +5,7 @@ import pandas as pd
 import time
 import getpass
 from datetime import datetime
+import pprint
 
 if __name__ == "__main__":
     fileDir = os.path.dirname(os.path.dirname(os.path.realpath('__file__')))
@@ -66,6 +67,16 @@ def Do_Cpe_onboarding():
     if cpe.DEV_TEMPALTE_CREATION == "YES":
         cpe.pre_onboard_work()
     cpe.cpe_onboard_call()
+    cpe_result = cpe.get_device_info()
+    if isinstance(cpe_result, dict):
+        main_logger.info("\n \t >>>>>>>>>>>> CPE ONBOARDING PASSED <<<<<<<<<<<<"
+                         "\n \t >>>>>>>>>>>>    CPE DETAILS        <<<<<<<<<<<<")
+        main_logger.info(pprint.pprint(cpe.get_device_info()))
+    else:
+        main_logger.info(">>>>>>>>>>>> CPE ONBOARDING FAILED <<<<<<<<<<<<")
+        main_logger.info(cpe_result)
+    main_logger.info("CPE ONBOARDINIG SCRIPT COMPLETED")
+    main_logger.info("Time elapsed: {}\n".format(datetime.now() - start_time))
     # cpe_name = raw_input("Enter CPE NAME:").upper()
     # # print "CPE NAME:" + cpe_name
     # cpe1 = VersaLib(cpe_name, topofile="Devices.csv")
@@ -105,10 +116,9 @@ def Do_Cpe_onboarding():
     # if DEV_TEMPALTE_CREATION == "YES":
     #     cpe.pre_onboard_work()
     # cpe.cpe_onboard_call()
-    main_logger.info(cpe.get_device_info())
+
 
 
 
 start_time = datetime.now()
 Do_Cpe_onboarding()
-print "Time elapsed: {}\n".format(datetime.now() - start_time)

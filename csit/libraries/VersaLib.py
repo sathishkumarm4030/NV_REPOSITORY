@@ -721,29 +721,54 @@ class VersaLib:
 #    def create_PS_and_DG(self, Post_staging_template, Device_group_template, PS_main_template_modify):
 
     def create_and_deploy_poststaging_template(self):
+        self.main_logger.info("\nSTEP : POST STAGING TEMPLATE CREATION AND DEPLOYMENT\n")
         # self.main_logger = self.setup_logger('Versa-director', 'Onboarding')
         curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
         curr_env = Environment(loader=curr_file_loader)
         ps_template = curr_env.get_template("Post_staging_template.j2")
         self.ps_template_body = ps_template.render(self.__dict__)
-        print self.ps_template_body
+        self.main_logger.info(self.ps_template_body)
         PS_main_template = curr_env.get_template("PS_main_template_modify.j2")
         PS_main_template_modify = PS_main_template.render(self.__dict__)
-        self.main_logger.info(self.post_operation(template_url, headers3, self.ps_template_body))
+        ps_creation_result = self.post_operation(template_url, headers3, self.ps_template_body)
+        self.main_logger.info("\n" + ps_creation_result)
+        if 'FAIL' in ps_creation_result:
+            self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE CREATION FAILED. <<<<<<<<<<<\n")
+            exit()
+        else:
+            self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<\n")
         time.sleep(5)
         assoc_template_url = sfw_template_assc_url + self.PS_TEMPLATE_NAME + "/associations"
         assc_body = '[{"organization":"'+ self.ORG_NAME + '","serviceTemplate":"COMMON-SFW-TEMPLATE'+ str(self.NO_OF_VRFS) + '"}]'
         print assc_body
-        self.main_logger.info(self.post_operation(assoc_template_url, headers3, assc_body))
+        fw_association = self.post_operation(assoc_template_url, headers3, assc_body)
+        self.main_logger.info("\n" + fw_association)
+        if 'FAIL' in fw_association:
+            self.main_logger.info("\n >>>>>>>>>> FW ASSOCIATION WITH POST STAGING TEMPLATE FAILED. <<<<<<<<<<<\n")
+            exit()
+        else:
+            self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<\n")
         time.sleep(5)
-        self.main_logger.info(self.post_operation(template_url + "/deploy/" + self.PS_TEMPLATE_NAME + "?verifyDiff=true", headers3,
-                           self.ps_template_body))
+        ps_deploy_result = self.post_operation(template_url + "/deploy/" + self.PS_TEMPLATE_NAME + "?verifyDiff=true", headers3,
+                            self.ps_template_body)
+        time.sleep(5)
+        self.main_logger.info("\n" + ps_deploy_result)
+        if 'FAIL' in ps_deploy_result:
+            self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE DEPLOY FAILED. <<<<<<<<<<<\n")
+            exit()
+        else:
+            self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE DEPLOY PASSED. <<<<<<<<<<<\n")
         time.sleep(5)
         self.main_logger.info(self.get_operation(template_url + "/" + self.PS_TEMPLATE_NAME, headers3))
         self.main_logger.info(self.get_operation(assoc_template_url, headers3))
         time.sleep(5)
-        result = self.Modify_main_template(PS_main_template_modify)
-        self.main_logger.info(result)
+        main_template_modify_result = self.Modify_main_template(PS_main_template_modify)
+        self.main_logger.info("\n" + main_template_modify_result)
+        if 'failed' in main_template_modify_result:
+            self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE DEPLOY FAILED. <<<<<<<<<<<\n")
+            # exit()
+        else:
+            self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE DEPLOY PASSED. <<<<<<<<<<<\n")
         time.sleep(5)
 
     def create_and_deploy_device_group(self):
@@ -753,7 +778,13 @@ class VersaLib:
         DG_template = curr_env.get_template("Device_group_template.j2")
         self.DG_template_body = DG_template.render(self.__dict__)
         print self.DG_template_body
-        self.main_logger.info(self.post_operation(device_grp_url, headers3, self.DG_template_body))
+        dg_template_creation_result = self.post_operation(device_grp_url, headers3, self.DG_template_body)
+        self.main_logger.info("\n" + dg_template_creation_result)
+        if 'FAIL' in dg_template_creation_result:
+            self.main_logger.info("\n >>>>>>>>>> DEVICE GROUP TEMPLATE CREATION FAILED. <<<<<<<<<<<\n")
+            exit()
+        else:
+            self.main_logger.info("\n >>>>>>>>>> DEVICE GROUP TEMPLATE CREATION PASSED. <<<<<<<<<<<\n")
         time.sleep(5)
 
     def create_PS_and_DG(self):
