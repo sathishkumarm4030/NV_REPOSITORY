@@ -689,6 +689,7 @@ class VersaLib:
             print nc_handler.send_command_expect(cmd, expect_string=expect_string, strip_prompt=False, strip_command=False)
 
     def cpe_onboard_call(self):
+        self.main_logger.info("\nSTEP : ONBOARD CALl\n")
         curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/")
         curr_env = Environment(loader=curr_file_loader)
         self.Staging_command = curr_env.get_template("staging_cpe.j2")
@@ -773,6 +774,7 @@ class VersaLib:
 
     def create_and_deploy_device_group(self):
         # self.main_logger = self.setup_logger('Versa-director', 'Onboarding')
+        self.main_logger.info("\nSTEP : DEVICE GROUP CREATION AND DEPLOYMENT\n")
         curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
         curr_env = Environment(loader=curr_file_loader)
         DG_template = curr_env.get_template("Device_group_template.j2")
@@ -852,6 +854,7 @@ class VersaLib:
 
 
     def pre_onboard_work(self):
+        self.main_logger.info("\nSTEP : PRE-ONBOARD WORK\n")
         # self.main_logger = self.setup_logger('Versa-director', 'Onboarding')
         #(self, Device_template, Staging_server_config_template, Staging_cpe_config_template):
         curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
