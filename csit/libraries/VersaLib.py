@@ -474,7 +474,7 @@ class VersaLib:
                                  verify=False)
         self.main_logger.info(response)
 
-        if response.status_code == 200:
+        if response.status_code == 200 or 201:
             return 'PASS'
         else:
             self.main_logger.info(response.content)
