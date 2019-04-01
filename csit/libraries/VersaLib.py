@@ -748,7 +748,7 @@ class VersaLib:
             self.main_logger.info("\n >>>>>>>>>> FW ASSOCIATION WITH POST STAGING TEMPLATE FAILED. <<<<<<<<<<<\n")
             exit()
         else:
-            self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<\n")
+            self.main_logger.info("\n >>>>>>>>>> FW ASSOCIATION WITH POST STAGING TEMPLATE PASSED. <<<<<<<<<<<\n")
         time.sleep(5)
         ps_deploy_result = self.post_operation(template_url + "/deploy/" + self.PS_TEMPLATE_NAME + "?verifyDiff=true", headers3,
                             self.ps_template_body)
@@ -766,10 +766,10 @@ class VersaLib:
         main_template_modify_result = self.Modify_main_template(PS_main_template_modify)
         self.main_logger.info("\n" + main_template_modify_result)
         if 'failed' in main_template_modify_result:
-            self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE DEPLOY FAILED. <<<<<<<<<<<\n")
+            self.main_logger.info("\n >>>>>>>>>> PS MAIN TEMPLATE MODIFY FAILED. <<<<<<<<<<<\n")
             # exit()
         else:
-            self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE DEPLOY PASSED. <<<<<<<<<<<\n")
+            self.main_logger.info("\n >>>>>>>>>> PS MAIN TEMPLATE MODIFY PASSED. <<<<<<<<<<<\n")
         time.sleep(5)
 
     def create_and_deploy_device_group(self):
