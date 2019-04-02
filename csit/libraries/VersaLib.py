@@ -474,8 +474,13 @@ class VersaLib:
                                  verify=False)
         self.main_logger.info(response)
 
-        if response.status_code == 200 or 201:
+        if response.status_code == 200:
             return 'PASS'
+        elif response.status_code == 201:
+            return 'PASS'
+        elif response.status_code == 500:
+            self.main_logger.info(response.content)
+            return 'FAIL : ' + str(response.content)
         else:
             self.main_logger.info(response.content)
             return 'FAIL : ' + str(response.content)
@@ -720,6 +725,21 @@ class VersaLib:
         time.sleep(20)
 
 #    def create_PS_and_DG(self, Post_staging_template, Device_group_template, PS_main_template_modify):
+
+    def check_org_for_controller(self, controller):
+        data1 = self.get_operation(org_url + "/" + self.ORG_NAME, headers3)
+        self.main_logger.info(data1)
+        if data1.has_key('versanms.sdwan-org-workflow'):
+            if controller not in data1['versanms.sdwan-org-workflow']['controllers']:
+                self.main_logger.info("*" * 50)
+                self.main_logger.info("Org is not available in node ---> " + self.NODE)
+                self.main_logger.info("*" * 50)
+                exit()
+        elif data1.has_key('error'):
+            self.main_logger.info("*" * 50)
+            self.main_logger.info("Org is not Created. pls check VD")
+            self.main_logger.info("*" * 50)
+            exit()
 
     def create_and_deploy_poststaging_template(self):
         self.main_logger.info("\nSTEP : POST STAGING TEMPLATE CREATION AND DEPLOYMENT\n")

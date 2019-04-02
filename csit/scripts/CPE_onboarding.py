@@ -60,6 +60,8 @@ def Do_Cpe_onboarding():
     GW_list = cpe.Create_Gateway_List(cpe.ORG_NAME, cpe.ORG_ID, cpe.NO_OF_VRFS, cpe.NODE)
     cpe.create_cpe_data()
     run_result = ""
+    for WC in WC_list:
+        cpe.check_org_for_controller(WC)
     if cpe.PST_CREATION == "YES":
         cpe.create_and_deploy_poststaging_template()
     if cpe.DG_CREATION == "YES":
