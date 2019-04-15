@@ -48,12 +48,12 @@ def Do_Cpe_onboarding():
     main_logger = cpe.main_logger
     main_logger.info("CPE NAME:" + cpe_name)
     time.sleep(1)
-    print "AVAILABLE SOLUTIONS:"
+    # print "AVAILABLE SOLUTIONS:"
     # for sol in cpe.SOLUTIONS_list:
     #     print "\t" + sol
-    for i in range(len(cpe.SOLUTIONS_list)):
-        print str(i + 1) + "." + cpe.SOLUTIONS_list[i]
-    cpe.Solution_type = cpe.SOLUTIONS_list[int(raw_input("Enter Solution number [eg: 1]:"))-1]
+    # for i in range(len(cpe.SOLUTIONS_list)):
+    #     print str(i + 1) + "." + cpe.SOLUTIONS_list[i]
+    # cpe.Solution_type = cpe.SOLUTIONS_list[int(raw_input("Enter Solution number [eg: 1]:"))-1]
     main_logger.info("SOLUTION SELECTED:" + cpe.Solution_type)
     cpe.Create_Node_Data(cpe.SATGING_SERVER, "SS", wan=cpe.SATGING_WAN)
     WC_list = cpe.Create_Controller_List(cpe.ORG_NAME, cpe.ORG_ID, cpe.NO_OF_VRFS, cpe.NODE)

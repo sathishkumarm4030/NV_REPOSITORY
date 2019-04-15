@@ -122,6 +122,17 @@ class VersaLib:
                     if math.isnan(v):
                         continue
                 exec("self."+ k+'=v')
+            for k, v in self.__dict__.iteritems():
+                if isinstance(v, str):
+                    if "temporgname" in v:
+                        v = v.replace("temporgname", str(self.ORG_NAME))
+                    if "temporgid" in v:
+                        v = v.replace("temporgid", str(self.ORG_ID))
+                    if "tempdevicename" in v:
+                        v = v.replace("tempdevicename", str(self.Device_name))
+                    if re.search("^{", v):
+                        v = try_literal_eval(v)
+                    exec ("self." + k + '=v')
             # print self.__dict__
             self.vlans = []
             if 'START_VLAN' in self.__dict__:
@@ -188,6 +199,13 @@ class VersaLib:
                 if re.search("^{", v):
                     v = try_literal_eval(v)
                 exec ("self." + k + '=v')
+        if "MPLS" in self.Solution_type:
+            self.FW_PROFILE = "GENERIC-SFW-TEMPLATE"
+        elif self.LIB == "YES":
+            self.FW_PROFILE = "COMMON-SFW-TEMPLATE"
+        else:
+            self.FW_PROFILE = "GENERIC-SFW-TEMPLATE"
+
         if 'PS_TEMPLATE_NAME' not in self.__dict__:
             self.PS_TEMPLATE_NAME = self.ORG_NAME + "-" + self.NODE + "-PS-" #JAN23-MUM-PS-HS-LIB
             if "HYBRID" in self.Solution_type:
@@ -240,6 +258,9 @@ class VersaLib:
 
     def get_data_dict(self):
         return self.__dict__
+
+    def set_variable(self, var, val):
+        self.var = val
 
     def set_vlan_items(self, START_VLAN):
         self.lan_vlan = []
@@ -760,7 +781,7 @@ class VersaLib:
             self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<\n")
         time.sleep(5)
         assoc_template_url = sfw_template_assc_url + self.PS_TEMPLATE_NAME + "/associations"
-        assc_body = '[{"organization":"'+ self.ORG_NAME + '","serviceTemplate":"COMMON-SFW-TEMPLATE'+ str(self.NO_OF_VRFS) + '"}]'
+        assc_body = '[{"organization":"'+ self.ORG_NAME + '","serviceTemplate":"' + self.FW_PROFILE + str(self.NO_OF_VRFS) + '"}]'
         print assc_body
         fw_association = self.post_operation(assoc_template_url, headers3, assc_body)
         self.main_logger.info("\n" + fw_association)
@@ -787,7 +808,7 @@ class VersaLib:
         self.main_logger.info("\n" + main_template_modify_result)
         if 'failed' in main_template_modify_result:
             self.main_logger.info("\n >>>>>>>>>> PS MAIN TEMPLATE MODIFY FAILED. <<<<<<<<<<<\n")
-            # exit()
+            exit()
         else:
             self.main_logger.info("\n >>>>>>>>>> PS MAIN TEMPLATE MODIFY PASSED. <<<<<<<<<<<\n")
         time.sleep(5)

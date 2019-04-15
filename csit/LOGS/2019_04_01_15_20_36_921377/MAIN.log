@@ -1,0 +1,190 @@
+2019-04-01 15:20:40,138 - CPE11-BLR - INFO - CPE NAME:CPE11-BLR
+2019-04-01 15:20:42,233 - CPE11-BLR - INFO - SOLUTION SELECTED:SINGLE-CPE-HYBRID
+2019-04-01 15:20:42,263 - CPE11-BLR - INFO - 
+STEP : POST STAGING TEMPLATE CREATION AND DEPLOYMENT
+
+2019-04-01 15:20:42,278 - CPE11-BLR - INFO - {
+	"versanms.sdwan-template-workflow": {
+		"templateName": "JAPAN-BLR-PS-HS-LIB",
+		"templateType": "sdwan-post-staging",
+		"controllers": ["NV-WC01-N2-BLR", "NV-WC02-N2-BLR"],
+		"providerOrg": {
+			"name": "JAPAN",
+			"statefulFW": true,
+			"nextGenFW": false
+		},
+		"analyticsCluster": "LogCollectors",
+		"deviceFirmfactor": "6",
+		"wanInterfaces": [{
+			"interfaceName": "vni-0/1",
+			"pppoe": false,
+			"unitInfo": [{
+				"subUnit": 0,
+				"vlanId": 0,
+				"networkName": "MPLS-WAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv6Static": false,
+				"ipv6Dhcp": false,
+				"allowSSH": false,
+				"monitor": {},
+				"linkPriority": "",
+				"transportDomains": ["MPLS-TD"]
+			}]
+		}, {
+			"interfaceName": "vni-0/2",
+			"pppoe": false,
+			"unitInfo": [{
+				"subUnit": 0,
+				"vlanId": 0,
+				"networkName": "INT-WAN","ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv6Static": false,
+				"ipv6Dhcp": false,
+				"allowSSH": false,
+				"monitor": {},
+				"linkPriority": "",
+				"transportDomains": ["INTERNET-TD"]
+			}]
+		}],
+		"deviceType": "full-mesh",
+		"redundantPair": {
+			"enable": false
+		},
+		"lanInterfaces": [{
+			"interfaceName": "vni-0/4",
+			"unitInfo": [
+			{
+				"subUnit": "{$v_vni-0-4_LAN1_Unit-0__unit}",
+				"vlanId": "{$v_vni-0-4_LAN1_Unit-0__vlanId}",
+				"networkName": "LAN1",
+				"subOrganization": "JAPAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN1-VRF",
+				"zoneName": ""
+			}
+            
+                    ,{
+				"subUnit": "{$v_vni-0-4_LAN2_Unit-1__unit}",
+				"vlanId": "{$v_vni-0-4_LAN2_Unit-1__vlanId}",
+				"networkName": "LAN2",
+				"subOrganization": "JAPAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN2-VRF",
+				"zoneName": ""
+			}
+            
+                    ,{
+				"subUnit": "{$v_vni-0-4_LAN3_Unit-2__unit}",
+				"vlanId": "{$v_vni-0-4_LAN3_Unit-2__vlanId}",
+				"networkName": "LAN3",
+				"subOrganization": "JAPAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN3-VRF",
+				"zoneName": ""
+			}
+            
+                    ,{
+				"subUnit": "{$v_vni-0-4_LAN4_Unit-3__unit}",
+				"vlanId": "{$v_vni-0-4_LAN4_Unit-3__vlanId}",
+				"networkName": "LAN4",
+				"subOrganization": "JAPAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN4-VRF",
+				"zoneName": ""
+			}
+            
+                    ,{
+				"subUnit": "{$v_vni-0-4_LAN5_Unit-4__unit}",
+				"vlanId": "{$v_vni-0-4_LAN5_Unit-4__vlanId}",
+				"networkName": "LAN5",
+				"subOrganization": "JAPAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN5-VRF",
+				"zoneName": ""
+			}
+            
+        ]
+		}],
+		"solutionTier": "standard-sdwan-plus-ngfw",
+		"bandwidth": 1000,
+		"customParams": [],
+		"minimumImageVersion": "16.1R2-S2.2",
+		"isAnalyticsEnabled": true,
+		"isPrimary": true,
+		"diaConfig": {
+			"loadBalance": false
+		},
+		"splitTunnels": [
+        {
+			"vrfName": "LAN1-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}
+        
+        ,{
+			"vrfName": "LAN2-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}
+        
+        ,{
+			"vrfName": "LAN3-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}
+        
+        ,{
+			"vrfName": "LAN4-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}
+        
+        ,{
+			"vrfName": "LAN5-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}
+        
+		],
+		"inBoundNats": []
+	}
+}
+
+2019-04-01 15:20:42,536 - CPE11-BLR - INFO - <Response [500]>
+2019-04-01 15:20:42,537 - CPE11-BLR - INFO - {"error":{"http_status_code":500,"code":0,"message":"Template workflow [ JAPAN-BLR-PS-HS-LIB] already exists. Please choose another name.","more_info":"http://nms.versa.com/errors/null"}}
+2019-04-01 15:20:42,537 - CPE11-BLR - INFO - 
+ >>>>>>>>>> POST STAGING TEMPLATE CREATION FAILED. <<<<<<<<<<<
+
+2019-04-01 15:20:42,537 - CPE11-BLR - INFO - FAIL : {"error":{"http_status_code":500,"code":0,"message":"Template workflow [ JAPAN-BLR-PS-HS-LIB] already exists. Please choose another name.","more_info":"http://nms.versa.com/errors/null"}}
+2019-04-01 15:20:47,599 - CPE11-BLR - INFO - <Response [500]>
+2019-04-01 15:20:47,600 - CPE11-BLR - INFO - {"timestamp":1554117872357,"status":500,"error":"Internal Server Error","exception":"org.springframework.orm.jpa.JpaSystemException","message":"Error while committing the transaction; nested exception is javax.persistence.RollbackException: Error while committing the transaction","path":"/nextgen/template/JAPAN-BLR-PS-HS-LIB/associations"}
+2019-04-01 15:20:47,600 - CPE11-BLR - INFO - 
+ >>>>>>>>>> FW ASSOCIATION WITH POST STAGING TEMPLATE FAILED. <<<<<<<<<<<
+
+2019-04-01 15:20:47,600 - CPE11-BLR - INFO - FAIL : {"error":{"http_status_code":500,"code":0,"message":"Template workflow [ JAPAN-BLR-PS-HS-LIB] already exists. Please choose another name.","more_info":"http://nms.versa.com/errors/null"}}
+2019-04-01 15:20:52,821 - CPE11-BLR - INFO - <Response [500]>
+2019-04-01 15:20:52,821 - CPE11-BLR - INFO - {"error":{"http_status_code":500,"code":0,"message":"Entity not found.","more_info":"http://nms.versa.com/errors/null"}}
+2019-04-01 15:20:52,822 - CPE11-BLR - INFO - FAIL : {"error":{"http_status_code":500,"code":0,"message":"Entity not found.","more_info":"http://nms.versa.com/errors/null"}}
+2019-04-01 15:20:58,333 - CPE11-BLR - INFO - {u'versanms.sdwan-template-workflow': {u'providerOrg': {u'nextGenFW': False, u'name': u'JAPAN', u'statefulFW': True}, u'snmp': {u'snmpV1': False, u'snmpV2': False, u'snmpV3': False}, u'minimumImageVersion': u'16.1R2-S2.2', u'wanInterfaces': [{u'unitInfo': [{u'ipv6Dhcp': False, u'monitor': {u'monitorNexthop': False}, u'allowSSH': False, u'ipv4Static': True, u'DIA': False, u'vlanId': 0, u'transportDomains': [u'MPLS-TD'], u'ipv4Dhcp': False, u'ipv6rs': False, u'subUnit': 0, u'networkName': u'MPLS-WAN', u'ipv6Static': False}], u'interfaceName': u'vni-0/1', u'pppoe': False}, {u'unitInfo': [{u'ipv6Dhcp': False, u'monitor': {u'monitorNexthop': False}, u'allowSSH': False, u'ipv4Static': True, u'DIA': False, u'vlanId': 0, u'transportDomains': [u'INTERNET-TD'], u'ipv4Dhcp': False, u'ipv6rs': False, u'subUnit': 0, u'networkName': u'INT-WAN', u'ipv6Static': False}], u'interfaceName': u'vni-0/2', u'pppoe': False}], u'diaConfig': {u'loadBalance': False, u'dia': False}, u'templateName': u'JAPAN-BLR-PS-HS-LIB', u'isPrimary': True, u'isAnalyticsEnabled': True, u'lanInterfaces': [{u'unitInfo': [{u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN1-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN1_Unit-0__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'JAPAN', u'subUnit': u'{$v_vni-0-4_LAN1_Unit-0__unit}', u'networkName': u'LAN1', u'dhcpV4Relay': False}, {u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN2-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN2_Unit-1__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'JAPAN', u'subUnit': u'{$v_vni-0-4_LAN2_Unit-1__unit}', u'networkName': u'LAN2', u'dhcpV4Relay': False}, {u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN3-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN3_Unit-2__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'JAPAN', u'subUnit': u'{$v_vni-0-4_LAN3_Unit-2__unit}', u'networkName': u'LAN3', u'dhcpV4Relay': False}, {u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN4-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN4_Unit-3__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'JAPAN', u'subUnit': u'{$v_vni-0-4_LAN4_Unit-3__unit}', u'networkName': u'LAN4', u'dhcpV4Relay': False}, {u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN5-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN5_Unit-4__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'JAPAN', u'subUnit': u'{$v_vni-0-4_LAN5_Unit-4__unit}', u'networkName': u'LAN5', u'dhcpV4Relay': False}], u'interfaceName': u'vni-0/4'}], u'bandwidth': 1000, u'controllers': [u'NV-WC01-N2-BLR', u'NV-WC02-N2-BLR'], u'templateType': u'sdwan-post-staging', u'deviceType': u'full-mesh', u'redundantPair': {u'vrrp': True, u'enable': False, u'cloudCPE': False}, u'solutionTier': u'standard-sdwan-plus-ngfw', u'deviceFirmfactor': 6, u'analyticsCluster': u'LogCollectors', u'splitTunnels': [{u'wanNetworkName': u'INT-WAN', u'vrfName': u'LAN1-VRF', u'dia': True, u'gateway': False}, {u'wanNetworkName': u'INT-WAN', u'vrfName': u'LAN2-VRF', u'dia': True, u'gateway': False}, {u'wanNetworkName': u'INT-WAN', u'vrfName': u'LAN3-VRF', u'dia': True, u'gateway': False}, {u'wanNetworkName': u'INT-WAN', u'vrfName': u'LAN4-VRF', u'dia': True, u'gateway': False}, {u'wanNetworkName': u'INT-WAN', u'vrfName': u'LAN5-VRF', u'dia': True, u'gateway': False}]}}
+2019-04-01 15:20:58,404 - CPE11-BLR - INFO - [{u'category': u'stateful-firewall', u'organization': u'JAPAN', u'serviceTemplate': u'COMMON-SFW-TEMPLATE5', u'id': 570, u'templateName': u'JAPAN-BLR-PS-HS-LIB'}]

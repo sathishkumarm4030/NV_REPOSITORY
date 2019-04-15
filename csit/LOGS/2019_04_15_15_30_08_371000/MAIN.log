@@ -1,0 +1,137 @@
+2019-04-15 15:30:11,157 - CPE12-BLR-MPLS - INFO - CPE NAME:CPE12-BLR-MPLS
+2019-04-15 15:30:14,532 - CPE12-BLR-MPLS - INFO - SOLUTION SELECTED:SINGLE-CPE-MPLS-ONLY
+2019-04-15 15:30:15,650 - CPE12-BLR-MPLS - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 125, u'orgName': u'JAPAN', u'controllers': [u'NV-WC01-N2-BLR', u'NV-WC02-N2-BLR', u'NV-WC02-N4-MUM'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 1370}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 1371}, {u'name': u'LAN3-VRF', u'enableVPN': True, u'id': 1372}, {u'name': u'LAN4-VRF', u'enableVPN': True, u'id': 1373}, {u'name': u'LAN5-VRF', u'enableVPN': True, u'id': 1374}, {u'name': u'LAN6-VRF', u'enableVPN': True, u'id': 1375}, {u'name': u'LAN7-VRF', u'enableVPN': True, u'id': 1376}, {u'name': u'LAN8-VRF', u'enableVPN': True, u'id': 1377}, {u'name': u'LAN9-VRF', u'enableVPN': True, u'id': 1378}, {u'name': u'LAN10-VRF', u'enableVPN': True, u'id': 1379}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-04-15 15:30:16,029 - CPE12-BLR-MPLS - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 125, u'orgName': u'JAPAN', u'controllers': [u'NV-WC01-N2-BLR', u'NV-WC02-N2-BLR', u'NV-WC02-N4-MUM'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 1370}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 1371}, {u'name': u'LAN3-VRF', u'enableVPN': True, u'id': 1372}, {u'name': u'LAN4-VRF', u'enableVPN': True, u'id': 1373}, {u'name': u'LAN5-VRF', u'enableVPN': True, u'id': 1374}, {u'name': u'LAN6-VRF', u'enableVPN': True, u'id': 1375}, {u'name': u'LAN7-VRF', u'enableVPN': True, u'id': 1376}, {u'name': u'LAN8-VRF', u'enableVPN': True, u'id': 1377}, {u'name': u'LAN9-VRF', u'enableVPN': True, u'id': 1378}, {u'name': u'LAN10-VRF', u'enableVPN': True, u'id': 1379}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-04-15 15:30:16,368 - CPE12-BLR-MPLS - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 125, u'orgName': u'JAPAN', u'controllers': [u'NV-WC01-N2-BLR', u'NV-WC02-N2-BLR', u'NV-WC02-N4-MUM'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 1370}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 1371}, {u'name': u'LAN3-VRF', u'enableVPN': True, u'id': 1372}, {u'name': u'LAN4-VRF', u'enableVPN': True, u'id': 1373}, {u'name': u'LAN5-VRF', u'enableVPN': True, u'id': 1374}, {u'name': u'LAN6-VRF', u'enableVPN': True, u'id': 1375}, {u'name': u'LAN7-VRF', u'enableVPN': True, u'id': 1376}, {u'name': u'LAN8-VRF', u'enableVPN': True, u'id': 1377}, {u'name': u'LAN9-VRF', u'enableVPN': True, u'id': 1378}, {u'name': u'LAN10-VRF', u'enableVPN': True, u'id': 1379}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-04-15 15:30:16,368 - CPE12-BLR-MPLS - INFO - 
+STEP : POST STAGING TEMPLATE CREATION AND DEPLOYMENT
+
+2019-04-15 15:30:16,394 - CPE12-BLR-MPLS - INFO - {
+	"versanms.sdwan-template-workflow": {
+		"templateName": "JAPAN-BLR-PS-M",
+		"templateType": "sdwan-post-staging",
+		"controllers": ["NV-WC01-N2-BLR", "NV-WC02-N2-BLR"],
+		"providerOrg": {
+			"name": "JAPAN",
+			"statefulFW": true,
+			"nextGenFW": false
+		},
+		"analyticsCluster": "LogCollectors",
+		"deviceFirmfactor": "6",
+		"wanInterfaces": [{
+			"interfaceName": "vni-0/1",
+			"pppoe": false,
+			"unitInfo": [{
+				"subUnit": 0,
+				"vlanId": 0,
+				"networkName": "MPLS-WAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv6Static": false,
+				"ipv6Dhcp": false,
+				"allowSSH": false,
+				"monitor": {},
+				"linkPriority": "",
+				"transportDomains": ["MPLS-TD"]
+			}]
+		}],
+		"deviceType": "full-mesh",
+		"redundantPair": {
+			"enable": false
+		},
+		"lanInterfaces": [{
+			"interfaceName": "vni-0/4",
+			"unitInfo": [
+			{
+				"subUnit": "{$v_vni-0-4_LAN1_Unit-0__unit}",
+				"vlanId": "{$v_vni-0-4_LAN1_Unit-0__vlanId}",
+				"networkName": "LAN1",
+				"subOrganization": "JAPAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN1-VRF",
+				"zoneName": ""
+			}
+            
+                    ,{
+				"subUnit": "{$v_vni-0-4_LAN2_Unit-1__unit}",
+				"vlanId": "{$v_vni-0-4_LAN2_Unit-1__vlanId}",
+				"networkName": "LAN2",
+				"subOrganization": "JAPAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN2-VRF",
+				"zoneName": ""
+			}
+            
+                    ,{
+				"subUnit": "{$v_vni-0-4_LAN3_Unit-2__unit}",
+				"vlanId": "{$v_vni-0-4_LAN3_Unit-2__vlanId}",
+				"networkName": "LAN3",
+				"subOrganization": "JAPAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN3-VRF",
+				"zoneName": ""
+			}
+            
+                    ,{
+				"subUnit": "{$v_vni-0-4_LAN4_Unit-3__unit}",
+				"vlanId": "{$v_vni-0-4_LAN4_Unit-3__vlanId}",
+				"networkName": "LAN4",
+				"subOrganization": "JAPAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN4-VRF",
+				"zoneName": ""
+			}
+            
+                    ,{
+				"subUnit": "{$v_vni-0-4_LAN5_Unit-4__unit}",
+				"vlanId": "{$v_vni-0-4_LAN5_Unit-4__vlanId}",
+				"networkName": "LAN5",
+				"subOrganization": "JAPAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN5-VRF",
+				"zoneName": ""
+			}
+            
+        ]
+		}],
+		"solutionTier": "standard-sdwan-plus-ngfw",
+		"bandwidth": 1000,
+		"customParams": [],
+		"minimumImageVersion": "16.1R2-S2.2",
+		"isAnalyticsEnabled": true,
+		"isPrimary": true,
+		"diaConfig": {
+			"loadBalance": false
+		},
+		"inBoundNats": []
+	}
+}
+
+2019-04-15 15:30:17,940 - CPE12-BLR-MPLS - INFO - <Response [200]>
+2019-04-15 15:30:17,941 - CPE12-BLR-MPLS - INFO - 
+PASS
+2019-04-15 15:30:17,941 - CPE12-BLR-MPLS - INFO - 
+ >>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<
+
+2019-04-15 15:30:23,101 - CPE12-BLR-MPLS - INFO - <Response [500]>
+2019-04-15 15:30:23,102 - CPE12-BLR-MPLS - INFO - {"timestamp":1555322423078,"status":500,"error":"Internal Server Error","exception":"org.springframework.orm.jpa.JpaSystemException","message":"Error while committing the transaction; nested exception is javax.persistence.RollbackException: Error while committing the transaction","path":"/nextgen/template/JAPAN-BLR-PS-M/associations"}
+2019-04-15 15:30:23,102 - CPE12-BLR-MPLS - INFO - 
+FAIL : {"timestamp":1555322423078,"status":500,"error":"Internal Server Error","exception":"org.springframework.orm.jpa.JpaSystemException","message":"Error while committing the transaction; nested exception is javax.persistence.RollbackException: Error while committing the transaction","path":"/nextgen/template/JAPAN-BLR-PS-M/associations"}
+2019-04-15 15:30:23,102 - CPE12-BLR-MPLS - INFO - 
+ >>>>>>>>>> FW ASSOCIATION WITH POST STAGING TEMPLATE FAILED. <<<<<<<<<<<
+

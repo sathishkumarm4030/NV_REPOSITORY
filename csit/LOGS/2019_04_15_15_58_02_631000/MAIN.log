@@ -1,0 +1,894 @@
+2019-04-15 15:58:04,821 - CPE12-BLR-MPLS - INFO - CPE NAME:CPE12-BLR-MPLS
+2019-04-15 15:58:07,960 - CPE12-BLR-MPLS - INFO - SOLUTION SELECTED:SINGLE-CPE-MPLS-ONLY
+2019-04-15 15:58:09,145 - CPE12-BLR-MPLS - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 125, u'orgName': u'JAPAN', u'controllers': [u'NV-WC01-N2-BLR', u'NV-WC02-N2-BLR', u'NV-WC02-N4-MUM'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 1370}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 1371}, {u'name': u'LAN3-VRF', u'enableVPN': True, u'id': 1372}, {u'name': u'LAN4-VRF', u'enableVPN': True, u'id': 1373}, {u'name': u'LAN5-VRF', u'enableVPN': True, u'id': 1374}, {u'name': u'LAN6-VRF', u'enableVPN': True, u'id': 1375}, {u'name': u'LAN7-VRF', u'enableVPN': True, u'id': 1376}, {u'name': u'LAN8-VRF', u'enableVPN': True, u'id': 1377}, {u'name': u'LAN9-VRF', u'enableVPN': True, u'id': 1378}, {u'name': u'LAN10-VRF', u'enableVPN': True, u'id': 1379}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-04-15 15:58:09,418 - CPE12-BLR-MPLS - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 125, u'orgName': u'JAPAN', u'controllers': [u'NV-WC01-N2-BLR', u'NV-WC02-N2-BLR', u'NV-WC02-N4-MUM'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 1370}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 1371}, {u'name': u'LAN3-VRF', u'enableVPN': True, u'id': 1372}, {u'name': u'LAN4-VRF', u'enableVPN': True, u'id': 1373}, {u'name': u'LAN5-VRF', u'enableVPN': True, u'id': 1374}, {u'name': u'LAN6-VRF', u'enableVPN': True, u'id': 1375}, {u'name': u'LAN7-VRF', u'enableVPN': True, u'id': 1376}, {u'name': u'LAN8-VRF', u'enableVPN': True, u'id': 1377}, {u'name': u'LAN9-VRF', u'enableVPN': True, u'id': 1378}, {u'name': u'LAN10-VRF', u'enableVPN': True, u'id': 1379}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-04-15 15:58:09,703 - CPE12-BLR-MPLS - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 125, u'orgName': u'JAPAN', u'controllers': [u'NV-WC01-N2-BLR', u'NV-WC02-N2-BLR', u'NV-WC02-N4-MUM'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 1370}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 1371}, {u'name': u'LAN3-VRF', u'enableVPN': True, u'id': 1372}, {u'name': u'LAN4-VRF', u'enableVPN': True, u'id': 1373}, {u'name': u'LAN5-VRF', u'enableVPN': True, u'id': 1374}, {u'name': u'LAN6-VRF', u'enableVPN': True, u'id': 1375}, {u'name': u'LAN7-VRF', u'enableVPN': True, u'id': 1376}, {u'name': u'LAN8-VRF', u'enableVPN': True, u'id': 1377}, {u'name': u'LAN9-VRF', u'enableVPN': True, u'id': 1378}, {u'name': u'LAN10-VRF', u'enableVPN': True, u'id': 1379}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-04-15 15:58:09,703 - CPE12-BLR-MPLS - INFO - 
+STEP : POST STAGING TEMPLATE CREATION AND DEPLOYMENT
+
+2019-04-15 15:58:09,710 - CPE12-BLR-MPLS - INFO - {
+	"versanms.sdwan-template-workflow": {
+		"templateName": "JAPAN-BLR-PS-M",
+		"templateType": "sdwan-post-staging",
+		"controllers": ["NV-WC01-N2-BLR", "NV-WC02-N2-BLR"],
+		"providerOrg": {
+			"name": "JAPAN",
+			"statefulFW": true,
+			"nextGenFW": false
+		},
+		"analyticsCluster": "LogCollectors",
+		"deviceFirmfactor": "6",
+		"wanInterfaces": [{
+			"interfaceName": "vni-0/1",
+			"pppoe": false,
+			"unitInfo": [{
+				"subUnit": 0,
+				"vlanId": 0,
+				"networkName": "MPLS-WAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv6Static": false,
+				"ipv6Dhcp": false,
+				"allowSSH": false,
+				"monitor": {},
+				"linkPriority": "",
+				"transportDomains": ["MPLS-TD"]
+			}]
+		}],
+		"deviceType": "full-mesh",
+		"redundantPair": {
+			"enable": false
+		},
+		"lanInterfaces": [{
+			"interfaceName": "vni-0/4",
+			"unitInfo": [
+			{
+				"subUnit": "{$v_vni-0-4_LAN1_Unit-0__unit}",
+				"vlanId": "{$v_vni-0-4_LAN1_Unit-0__vlanId}",
+				"networkName": "LAN1",
+				"subOrganization": "JAPAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN1-VRF",
+				"zoneName": ""
+			}
+            
+                    ,{
+				"subUnit": "{$v_vni-0-4_LAN2_Unit-1__unit}",
+				"vlanId": "{$v_vni-0-4_LAN2_Unit-1__vlanId}",
+				"networkName": "LAN2",
+				"subOrganization": "JAPAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN2-VRF",
+				"zoneName": ""
+			}
+            
+                    ,{
+				"subUnit": "{$v_vni-0-4_LAN3_Unit-2__unit}",
+				"vlanId": "{$v_vni-0-4_LAN3_Unit-2__vlanId}",
+				"networkName": "LAN3",
+				"subOrganization": "JAPAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN3-VRF",
+				"zoneName": ""
+			}
+            
+                    ,{
+				"subUnit": "{$v_vni-0-4_LAN4_Unit-3__unit}",
+				"vlanId": "{$v_vni-0-4_LAN4_Unit-3__vlanId}",
+				"networkName": "LAN4",
+				"subOrganization": "JAPAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN4-VRF",
+				"zoneName": ""
+			}
+            
+                    ,{
+				"subUnit": "{$v_vni-0-4_LAN5_Unit-4__unit}",
+				"vlanId": "{$v_vni-0-4_LAN5_Unit-4__vlanId}",
+				"networkName": "LAN5",
+				"subOrganization": "JAPAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN5-VRF",
+				"zoneName": ""
+			}
+            
+        ]
+		}],
+		"solutionTier": "standard-sdwan-plus-ngfw",
+		"bandwidth": 1000,
+		"customParams": [],
+		"minimumImageVersion": "16.1R2-S2.2",
+		"isAnalyticsEnabled": true,
+		"isPrimary": true,
+		"diaConfig": {
+			"loadBalance": false
+		},
+		"inBoundNats": []
+	}
+}
+
+2019-04-15 15:58:11,135 - CPE12-BLR-MPLS - INFO - <Response [200]>
+2019-04-15 15:58:11,135 - CPE12-BLR-MPLS - INFO - 
+PASS
+2019-04-15 15:58:11,135 - CPE12-BLR-MPLS - INFO - 
+ >>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<
+
+2019-04-15 15:58:16,240 - CPE12-BLR-MPLS - INFO - <Response [200]>
+2019-04-15 15:58:16,240 - CPE12-BLR-MPLS - INFO - 
+PASS
+2019-04-15 15:58:16,240 - CPE12-BLR-MPLS - INFO - 
+ >>>>>>>>>> FW ASSOCIATION WITH POST STAGING TEMPLATE PASSED. <<<<<<<<<<<
+
+2019-04-15 15:58:28,250 - CPE12-BLR-MPLS - INFO - <Response [200]>
+2019-04-15 15:58:33,252 - CPE12-BLR-MPLS - INFO - 
+PASS
+2019-04-15 15:58:33,252 - CPE12-BLR-MPLS - INFO - 
+ >>>>>>>>>> POST STAGING TEMPLATE DEPLOY PASSED. <<<<<<<<<<<
+
+2019-04-15 15:58:38,773 - CPE12-BLR-MPLS - INFO - {u'versanms.sdwan-template-workflow': {u'providerOrg': {u'nextGenFW': False, u'name': u'JAPAN', u'statefulFW': True}, u'snmp': {u'snmpV1': False, u'snmpV2': False, u'snmpV3': False}, u'minimumImageVersion': u'16.1R2-S2.2', u'wanInterfaces': [{u'unitInfo': [{u'ipv6Dhcp': False, u'monitor': {u'monitorNexthop': False}, u'allowSSH': False, u'ipv4Static': True, u'DIA': False, u'vlanId': 0, u'transportDomains': [u'MPLS-TD'], u'ipv4Dhcp': False, u'ipv6rs': False, u'subUnit': 0, u'networkName': u'MPLS-WAN', u'ipv6Static': False}], u'interfaceName': u'vni-0/1', u'pppoe': False}], u'diaConfig': {u'loadBalance': False, u'dia': False}, u'templateName': u'JAPAN-BLR-PS-M', u'isPrimary': True, u'isAnalyticsEnabled': True, u'lanInterfaces': [{u'unitInfo': [{u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN1-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN1_Unit-0__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'JAPAN', u'subUnit': u'{$v_vni-0-4_LAN1_Unit-0__unit}', u'networkName': u'LAN1', u'dhcpV4Relay': False}, {u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN2-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN2_Unit-1__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'JAPAN', u'subUnit': u'{$v_vni-0-4_LAN2_Unit-1__unit}', u'networkName': u'LAN2', u'dhcpV4Relay': False}, {u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN3-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN3_Unit-2__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'JAPAN', u'subUnit': u'{$v_vni-0-4_LAN3_Unit-2__unit}', u'networkName': u'LAN3', u'dhcpV4Relay': False}, {u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN4-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN4_Unit-3__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'JAPAN', u'subUnit': u'{$v_vni-0-4_LAN4_Unit-3__unit}', u'networkName': u'LAN4', u'dhcpV4Relay': False}, {u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN5-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN5_Unit-4__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'JAPAN', u'subUnit': u'{$v_vni-0-4_LAN5_Unit-4__unit}', u'networkName': u'LAN5', u'dhcpV4Relay': False}], u'interfaceName': u'vni-0/4'}], u'bandwidth': 1000, u'controllers': [u'NV-WC01-N2-BLR', u'NV-WC02-N2-BLR'], u'templateType': u'sdwan-post-staging', u'deviceType': u'full-mesh', u'redundantPair': {u'vrrp': True, u'enable': False, u'cloudCPE': False}, u'solutionTier': u'standard-sdwan-plus-ngfw', u'deviceFirmfactor': 6, u'analyticsCluster': u'LogCollectors'}}
+2019-04-15 15:58:38,907 - CPE12-BLR-MPLS - INFO - [{u'category': u'stateful-firewall', u'organization': u'JAPAN', u'serviceTemplate': u'GENERIC-SFW-TEMPLATE5', u'id': 634, u'templateName': u'JAPAN-BLR-PS-M'}]
+2019-04-15 15:58:59,302 - CPE12-BLR-MPLS - INFO - set devices template JAPAN-BLR-PS-M config interfaces vni vni-0/1 description "MPLS-WAN"
+set devices template JAPAN-BLR-PS-M config interfaces vni vni-0/1 bandwidth uplink "5000"
+set devices template JAPAN-BLR-PS-M config interfaces vni vni-0/1 bandwidth downlink "5000"
+
+set devices template JAPAN-BLR-PS-M config system vnf-manager ip-addresses [ 10.91.116.67/32 10.91.116.68/32 ]
+set devices template JAPAN-BLR-PS-M config system service-options qos-frame-overhead auto-adjust true
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 hold-time 90
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart enable
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart maximum-restart-time 15
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart recovery-time 15
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart select-defer-time 15
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart stalepath-time 15
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart dynamic-peer-restart-time 0
+
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match family inet-vpn
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match community "(^|,)([0-9]*:11)($|,)"
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action filter accept
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community 8009:8009
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community-action set-specific
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action set-local-preference 80
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match family inet-vpn
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match community "(^|,)([0-9]*:12)($|,)"
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action filter accept
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community 8009:8009
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community-action set-specific
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action set-local-preference 60
+move devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 first
+move devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 first
+
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard match family inet-vpn
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard action filter accept
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard action community 91:10
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard action community-action set-specific
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard match family versa-private
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action filter accept
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community 91:10
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 group Controllers-Group family inet unicast
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 group Controllers-Group export TO_SDWAN
+set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc interval 10
+set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc logging-interval 30
+set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc send-to controller
+set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef interval 10
+set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef logging-interval 30
+set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef send-to branches
+set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be interval 10
+set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be logging-interval 30
+set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be send-to branches
+set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 interval 10
+set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 logging-interval 30
+set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 send-to branches
+set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 interval 10
+set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 logging-interval 30
+set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 send-to branches
+set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 interval 10
+set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 logging-interval 30
+set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 send-to branches
+set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 management-traffic priority 0
+
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP ]
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN set action allow
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services predefined-services-list [ ESP ICMP ]
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services services-list [ IPSEC IPSIPSecAH ]
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT set action allow
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match source zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match ether-type ARP
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN set action allow
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match ether-type ARP
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT set action allow
+
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN match source zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN set action deny
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT set action deny
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service app-qos-policies app-qos-policy-group Default-Policy
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business1 forwarding-class fc13
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business1 loss-priority high
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business1 dscp-rw-enable yes
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business1 dot1p-rw-enable no
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business2 forwarding-class fc14
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business2 loss-priority high
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business2 dscp-rw-enable yes
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business2 dot1p-rw-enable no
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business3 forwarding-class fc15
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business3 loss-priority high
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business3 dscp-rw-enable yes
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business3 dot1p-rw-enable no
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Internet-Default forwarding-class fc_be
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Internet-Default loss-priority high
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Internet-Default dscp-rw-enable no
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Internet-Default dot1p-rw-enable no
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Premium forwarding-class fc_ef
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Premium loss-priority low
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Premium dscp-rw-enable yes
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Premium dot1p-rw-enable no
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Routing-Management forwarding-class fc_nc
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Routing-Management loss-priority low
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Routing-Management dscp-rw-enable yes
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Routing-Management dot1p-rw-enable no
+
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN objects services service IPSEC protocol UDP
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN objects services service IPSEC destination-port 4790,4500,500
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN objects services service IPSecAH protocol AH
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN objects services service IPSIPSecAH protocol AH
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN objects services service DHCP-67 protocol UDP
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN objects services service DHCP-67 port 67
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN objects services service DHCP-68 protocol UDP
+set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN objects services service DHCP-68 port 68
+
+delete devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR routing-options static route
+delete devices template JAPAN-BLR-PS-M config orgs org-services JAPAN security access-policies access-policy-group Default-Policy
+
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN1-VRF vrf-import-target target:1370L:13702
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN2-VRF vrf-import-target target:1371L:13712
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN3-VRF vrf-import-target target:1372L:13722
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN4-VRF vrf-import-target target:1373L:13732
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN5-VRF vrf-import-target target:1374L:13742
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+set devices template JAPAN-BLR-PS-M config snmp usm local user coltuser auth sha password Colt1234
+
+set devices template JAPAN-BLR-PS-M config system time-zone Greenwich
+set devices template JAPAN-BLR-PS-M config confdConfig cli banner "Access to this network/system is limited to users authorised by Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be audited"
+set devices template JAPAN-BLR-PS-M config system users portal login shell role admin password yA:D#{}Vn9JE-?Qa
+set devices template JAPAN-BLR-PS-M config system users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+2019-04-15 15:59:57,569 - CPE12-BLR-MPLS - INFO - configure
+Entering configuration mode private
+Current configuration users:
+admin tcp (maapi from 127.0.0.1) on since 2019-04-15 10:24:49 private mode
+Administrator ssh (cli from 10.91.192.233) on since 2019-04-15 10:03:43 private mode
+admin tcp (maapi from 127.0.0.1) on since 2019-04-15 09:54:30 private mode
+[ok][2019-04-15 10:28:59]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config interfaces vni vni-0/1 description "MPLS-WAN"
+[ok][2019-04-15 10:28:59]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config interfaces vni vni-0/1 bandwidth uplink "5000"
+[ok][2019-04-15 10:29:00]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config interfaces vni vni-0/1 bandwidth downlink "5000"
+[ok][2019-04-15 10:29:00]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config system  vnf-manager ip-addresses [ 10.91.116.67/32 10.91.116.68/32 ]
+[ok][2019-04-15 10:29:00]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config system  service-options qos-frame-overhead auto-adjust true
+[ok][2019-04-15 10:29:01]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 hold-time 90 
+[ok][2019-04-15 10:29:01]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart enable
+[ok][2019-04-15 10:29:01]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart maximum-restart-time 15
+[ok][2019-04-15 10:29:02]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart recovery-time 15
+[ok][2019-04-15 10:29:02]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart select-defer-time 15
+[ok][2019-04-15 10:29:02]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart stalepath-time 15
+[ok][2019-04-15 10:29:02]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart dynamic-peer-restart-time 0
+[ok][2019-04-15 10:29:03]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match family inet-vpn
+[ok][2019-04-15 10:29:03]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match community "(^|,)([0-9]*:11)($|,)"
+[ok][2019-04-15 10:29:04]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action filter accept
+[ok][2019-04-15 10:29:04]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community 8009:8009
+[ok][2019-04-15 10:29:05]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community-action set-specific
+[ok][2019-04-15 10:29:05]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action set-local-preference 80
+[ok][2019-04-15 10:29:06]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match family inet-vpn
+[ok][2019-04-15 10:29:06]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match community "(^|,)([0-9]*:12)($|,)"
+[ok][2019-04-15 10:29:06]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action filter accept
+[ok][2019-04-15 10:29:07]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community 8009:8009
+[ok][2019-04-15 10:29:07]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community-action set-specific
+[ok][2019-04-15 10:29:08]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action set-local-preference 60
+[ok][2019-04-15 10:29:08]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% move devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 first
+[ok][2019-04-15 10:29:09]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% move devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 first
+[ok][2019-04-15 10:29:09]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard match family inet-vpn
+[ok][2019-04-15 10:29:10]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard action filter accept
+[ok][2019-04-15 10:29:10]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard action community 91:10
+[ok][2019-04-15 10:29:11]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard action community-action set-specific
+[ok][2019-04-15 10:29:11]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard match family versa-private
+[ok][2019-04-15 10:29:12]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action filter accept
+[ok][2019-04-15 10:29:12]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community 91:10
+[ok][2019-04-15 10:29:13]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
+[ok][2019-04-15 10:29:13]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 group Controllers-Group family inet unicast
+[ok][2019-04-15 10:29:14]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 group Controllers-Group export TO_SDWAN
+[ok][2019-04-15 10:29:14]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc interval 10
+[ok][2019-04-15 10:29:14]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc logging-interval 30
+[ok][2019-04-15 10:29:15]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc send-to controller
+[ok][2019-04-15 10:29:15]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef interval 10
+[ok][2019-04-15 10:29:16]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef logging-interval 30
+[ok][2019-04-15 10:29:16]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef send-to branches
+[ok][2019-04-15 10:29:17]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be interval 10
+[ok][2019-04-15 10:29:18]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be logging-interval 30
+[ok][2019-04-15 10:29:18]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be send-to branches
+[ok][2019-04-15 10:29:19]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 interval 10
+[ok][2019-04-15 10:29:19]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 logging-interval 30
+[ok][2019-04-15 10:29:20]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 send-to  branches
+[ok][2019-04-15 10:29:21]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 interval 10
+[ok][2019-04-15 10:29:21]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 logging-interval 30
+[ok][2019-04-15 10:29:22]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 send-to  branches
+[ok][2019-04-15 10:29:22]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 interval 10
+[ok][2019-04-15 10:29:23]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 logging-interval 30
+[ok][2019-04-15 10:29:23]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 send-to  branches
+[ok][2019-04-15 10:29:24]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 management-traffic priority 0
+[ok][2019-04-15 10:29:24]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy IPSEC_IN match source zone zone-list [ Intf-MPLS-WAN-Zone ]
+[ok][2019-04-15 10:29:25]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP ]
+[ok][2019-04-15 10:29:25]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
+[ok][2019-04-15 10:29:26]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy IPSEC_IN set action allow
+[ok][2019-04-15 10:29:26]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy IPSEC_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone  ]
+[ok][2019-04-15 10:29:27]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy IPSEC_OUT match services predefined-services-list [ ESP ICMP ]
+[ok][2019-04-15 10:29:27]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy IPSEC_OUT match services services-list [ IPSEC IPSIPSecAH ]
+[ok][2019-04-15 10:29:28]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy IPSEC_OUT set action allow
+[ok][2019-04-15 10:29:29]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy ARP_IN match source zone zone-list [ Intf-MPLS-WAN-Zone ]
+[ok][2019-04-15 10:29:29]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy ARP_IN match ether-type ARP
+[ok][2019-04-15 10:29:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy ARP_IN set action allow
+[ok][2019-04-15 10:29:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy ARP_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ] 
+[ok][2019-04-15 10:29:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy ARP_OUT match ether-type ARP
+[ok][2019-04-15 10:29:31]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy ARP_OUT set action allow
+[ok][2019-04-15 10:29:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy WAN_IN match source zone zone-list [ Intf-MPLS-WAN-Zone ]
+[ok][2019-04-15 10:29:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy WAN_IN set action deny
+[ok][2019-04-15 10:29:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy WAN_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ] 
+[ok][2019-04-15 10:29:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy WAN_OUT set action deny
+[ok][2019-04-15 10:29:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service app-qos-policies app-qos-policy-group Default-Policy
+[ok][2019-04-15 10:29:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business1 forwarding-class fc13
+[ok][2019-04-15 10:29:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business1 loss-priority high
+[ok][2019-04-15 10:29:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business1 dscp-rw-enable yes
+[ok][2019-04-15 10:29:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business1 dot1p-rw-enable no
+[ok][2019-04-15 10:29:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business2 forwarding-class fc14
+[ok][2019-04-15 10:29:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business2 loss-priority high
+[ok][2019-04-15 10:29:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business2 dscp-rw-enable yes
+[ok][2019-04-15 10:29:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business2 dot1p-rw-enable no
+[ok][2019-04-15 10:29:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business3 forwarding-class fc15
+[ok][2019-04-15 10:29:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business3 loss-priority high
+[ok][2019-04-15 10:29:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business3 dscp-rw-enable yes
+[ok][2019-04-15 10:29:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business3 dot1p-rw-enable no
+[ok][2019-04-15 10:29:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Internet-Default forwarding-class fc_be
+[ok][2019-04-15 10:29:38]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Internet-Default loss-priority high
+[ok][2019-04-15 10:29:38]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Internet-Default dscp-rw-enable no
+[ok][2019-04-15 10:29:38]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Internet-Default dot1p-rw-enable no
+[ok][2019-04-15 10:29:39]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Premium forwarding-class fc_ef
+[ok][2019-04-15 10:29:39]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Premium loss-priority low
+[ok][2019-04-15 10:29:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Premium dscp-rw-enable yes
+[ok][2019-04-15 10:29:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Premium dot1p-rw-enable no
+[ok][2019-04-15 10:29:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Routing-Management forwarding-class fc_nc
+[ok][2019-04-15 10:29:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Routing-Management loss-priority low
+[ok][2019-04-15 10:29:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Routing-Management dscp-rw-enable yes
+[ok][2019-04-15 10:29:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN class-of-service qos-profiles qos-profile Routing-Management dot1p-rw-enable no
+[ok][2019-04-15 10:29:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN objects services service IPSEC protocol UDP
+[ok][2019-04-15 10:29:42]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN objects services service IPSEC destination-port 4790,4500,500
+[ok][2019-04-15 10:29:42]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN objects services service IPSecAH protocol AH
+[ok][2019-04-15 10:29:42]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN objects services service IPSIPSecAH protocol AH
+[ok][2019-04-15 10:29:43]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN objects services service DHCP-67 protocol UDP
+[ok][2019-04-15 10:29:43]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN objects services service DHCP-67 port 67
+[ok][2019-04-15 10:29:43]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN objects services service DHCP-68 protocol UDP
+[ok][2019-04-15 10:29:44]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config orgs org-services JAPAN objects services service DHCP-68 port 68
+[ok][2019-04-15 10:29:44]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% delete devices template JAPAN-BLR-PS-M config routing-instances routing-instance JAPAN-Control-VR routing-options static route
+[ok][2019-04-15 10:29:44]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% delete devices template JAPAN-BLR-PS-M config orgs org-services JAPAN security access-policies access-policy-group Default-Policy 
+[ok][2019-04-15 10:29:45]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN1-VRF vrf-import-target target:1370L:13702
+[ok][2019-04-15 10:29:45]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-04-15 10:29:46]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-04-15 10:29:46]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-04-15 10:29:46]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-04-15 10:29:47]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN2-VRF vrf-import-target target:1371L:13712
+[ok][2019-04-15 10:29:47]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-04-15 10:29:47]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-04-15 10:29:47]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-04-15 10:29:48]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-04-15 10:29:48]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN3-VRF vrf-import-target target:1372L:13722
+[ok][2019-04-15 10:29:48]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-04-15 10:29:49]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-04-15 10:29:49]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-04-15 10:29:49]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-04-15 10:29:49]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN4-VRF vrf-import-target target:1373L:13732
+[ok][2019-04-15 10:29:50]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-04-15 10:29:50]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-04-15 10:29:50]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-04-15 10:29:51]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-04-15 10:29:51]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN5-VRF vrf-import-target target:1374L:13742
+[ok][2019-04-15 10:29:51]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-04-15 10:29:52]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-04-15 10:29:52]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-04-15 10:29:52]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-04-15 10:29:53]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config snmp usm local user coltuser auth sha password Colt1234
+[ok][2019-04-15 10:29:53]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config system  time-zone Greenwich
+[ok][2019-04-15 10:29:53]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config confdConfig cli banner "Access to this network/system is limited to users authorised by Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be audited"
+[ok][2019-04-15 10:29:54]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config system  users portal login shell role admin password yA:D#{}Vn9JE-?Qa
+[ok][2019-04-15 10:29:54]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template JAPAN-BLR-PS-M config system  users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+[ok][2019-04-15 10:29:55]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+2019-04-15 16:01:57,845 - CPE12-BLR-MPLS - INFO - commit
+Aborted: the configuration database is locked
+[error][2019-04-15 10:31:57]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+2019-04-15 16:01:57,960 - CPE12-BLR-MPLS - INFO - 
+CPE12-BLR-MPLS : Commit failed.
+2019-04-15 16:01:57,960 - CPE12-BLR-MPLS - INFO - 
+ >>>>>>>>>> PS MAIN TEMPLATE MODIFY FAILED. <<<<<<<<<<<
+
+2019-04-15 16:02:02,960 - CPE12-BLR-MPLS - INFO - 
+STEP : DEVICE GROUP CREATION AND DEPLOYMENT
+

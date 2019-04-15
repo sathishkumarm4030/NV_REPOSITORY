@@ -1,0 +1,1411 @@
+2019-04-02 15:03:34,556 - CPE1234 - INFO - CPE NAME:CPE1234
+2019-04-02 15:03:37,651 - CPE1234 - INFO - SOLUTION SELECTED:SINGLE-CPE-HYBRID
+2019-04-02 15:03:37,694 - CPE1234 - INFO - 
+STEP : POST STAGING TEMPLATE CREATION AND DEPLOYMENT
+
+2019-04-02 15:03:37,703 - CPE1234 - INFO - {
+	"versanms.sdwan-template-workflow": {
+		"templateName": "SAMPLE100-PS",
+		"templateType": "sdwan-post-staging",
+		"controllers": ["NV-WC01-N2-BLR", "NV-WC02-N2-BLR"],
+		"providerOrg": {
+			"name": "JAPAN",
+			"statefulFW": true,
+			"nextGenFW": false
+		},
+		"analyticsCluster": "LogCollectors",
+		"deviceFirmfactor": "6",
+		"wanInterfaces": [{
+			"interfaceName": "vni-0/1",
+			"pppoe": false,
+			"unitInfo": [{
+				"subUnit": 0,
+				"vlanId": 0,
+				"networkName": "MPLS-WAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv6Static": false,
+				"ipv6Dhcp": false,
+				"allowSSH": false,
+				"monitor": {},
+				"linkPriority": "",
+				"transportDomains": ["MPLS-TD"]
+			}]
+		}, {
+			"interfaceName": "vni-0/2",
+			"pppoe": false,
+			"unitInfo": [{
+				"subUnit": 0,
+				"vlanId": 0,
+				"networkName": "INT-WAN","ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv6Static": false,
+				"ipv6Dhcp": false,
+				"allowSSH": false,
+				"monitor": {},
+				"linkPriority": "",
+				"transportDomains": ["INTERNET-TD"]
+			}]
+		}],
+		"deviceType": "full-mesh",
+		"redundantPair": {
+			"enable": false
+		},
+		"lanInterfaces": [{
+			"interfaceName": "vni-0/4",
+			"unitInfo": [
+			{
+				"subUnit": "{$v_vni-0-4_LAN1_Unit-0__unit}",
+				"vlanId": "{$v_vni-0-4_LAN1_Unit-0__vlanId}",
+				"networkName": "LAN1",
+				"subOrganization": "JAPAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN1-VRF",
+				"zoneName": ""
+			}
+            
+                    ,{
+				"subUnit": "{$v_vni-0-4_LAN2_Unit-1__unit}",
+				"vlanId": "{$v_vni-0-4_LAN2_Unit-1__vlanId}",
+				"networkName": "LAN2",
+				"subOrganization": "JAPAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN2-VRF",
+				"zoneName": ""
+			}
+            
+                    ,{
+				"subUnit": "{$v_vni-0-4_LAN3_Unit-2__unit}",
+				"vlanId": "{$v_vni-0-4_LAN3_Unit-2__vlanId}",
+				"networkName": "LAN3",
+				"subOrganization": "JAPAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN3-VRF",
+				"zoneName": ""
+			}
+            
+                    ,{
+				"subUnit": "{$v_vni-0-4_LAN4_Unit-3__unit}",
+				"vlanId": "{$v_vni-0-4_LAN4_Unit-3__vlanId}",
+				"networkName": "LAN4",
+				"subOrganization": "JAPAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN4-VRF",
+				"zoneName": ""
+			}
+            
+                    ,{
+				"subUnit": "{$v_vni-0-4_LAN5_Unit-4__unit}",
+				"vlanId": "{$v_vni-0-4_LAN5_Unit-4__vlanId}",
+				"networkName": "LAN5",
+				"subOrganization": "JAPAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN5-VRF",
+				"zoneName": ""
+			}
+            
+        ]
+		}],
+		"solutionTier": "standard-sdwan-plus-ngfw",
+		"bandwidth": 1000,
+		"customParams": [],
+		"minimumImageVersion": "16.1R2-S2.2",
+		"isAnalyticsEnabled": true,
+		"isPrimary": true,
+		"diaConfig": {
+			"loadBalance": false
+		},
+		"splitTunnels": [
+        {
+			"vrfName": "LAN1-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}
+        
+        ,{
+			"vrfName": "LAN2-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}
+        
+        ,{
+			"vrfName": "LAN3-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}
+        
+        ,{
+			"vrfName": "LAN4-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}
+        
+        ,{
+			"vrfName": "LAN5-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}
+        
+		],
+		"inBoundNats": []
+	}
+}
+
+2019-04-02 15:03:40,186 - CPE1234 - INFO - <Response [200]>
+2019-04-02 15:03:40,186 - CPE1234 - INFO - 
+PASS
+2019-04-02 15:03:40,186 - CPE1234 - INFO - 
+ >>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<
+
+2019-04-02 15:03:45,451 - CPE1234 - INFO - <Response [200]>
+2019-04-02 15:03:45,451 - CPE1234 - INFO - 
+PASS
+2019-04-02 15:03:45,451 - CPE1234 - INFO - 
+ >>>>>>>>>> FW ASSOCIATION WITH POST STAGING TEMPLATE PASSED. <<<<<<<<<<<
+
+2019-04-02 15:03:58,046 - CPE1234 - INFO - <Response [200]>
+2019-04-02 15:04:03,055 - CPE1234 - INFO - 
+PASS
+2019-04-02 15:04:03,055 - CPE1234 - INFO - 
+ >>>>>>>>>> POST STAGING TEMPLATE DEPLOY PASSED. <<<<<<<<<<<
+
+2019-04-02 15:04:08,700 - CPE1234 - INFO - {u'versanms.sdwan-template-workflow': {u'providerOrg': {u'nextGenFW': False, u'name': u'JAPAN', u'statefulFW': True}, u'snmp': {u'snmpV1': False, u'snmpV2': False, u'snmpV3': False}, u'minimumImageVersion': u'16.1R2-S2.2', u'wanInterfaces': [{u'unitInfo': [{u'ipv6Dhcp': False, u'monitor': {u'monitorNexthop': False}, u'allowSSH': False, u'ipv4Static': True, u'DIA': False, u'vlanId': 0, u'transportDomains': [u'MPLS-TD'], u'ipv4Dhcp': False, u'ipv6rs': False, u'subUnit': 0, u'networkName': u'MPLS-WAN', u'ipv6Static': False}], u'interfaceName': u'vni-0/1', u'pppoe': False}, {u'unitInfo': [{u'ipv6Dhcp': False, u'monitor': {u'monitorNexthop': False}, u'allowSSH': False, u'ipv4Static': True, u'DIA': False, u'vlanId': 0, u'transportDomains': [u'INTERNET-TD'], u'ipv4Dhcp': False, u'ipv6rs': False, u'subUnit': 0, u'networkName': u'INT-WAN', u'ipv6Static': False}], u'interfaceName': u'vni-0/2', u'pppoe': False}], u'diaConfig': {u'loadBalance': False, u'dia': False}, u'templateName': u'SAMPLE100-PS', u'isPrimary': True, u'isAnalyticsEnabled': True, u'lanInterfaces': [{u'unitInfo': [{u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN1-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN1_Unit-0__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'JAPAN', u'subUnit': u'{$v_vni-0-4_LAN1_Unit-0__unit}', u'networkName': u'LAN1', u'dhcpV4Relay': False}, {u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN2-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN2_Unit-1__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'JAPAN', u'subUnit': u'{$v_vni-0-4_LAN2_Unit-1__unit}', u'networkName': u'LAN2', u'dhcpV4Relay': False}, {u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN3-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN3_Unit-2__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'JAPAN', u'subUnit': u'{$v_vni-0-4_LAN3_Unit-2__unit}', u'networkName': u'LAN3', u'dhcpV4Relay': False}, {u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN4-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN4_Unit-3__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'JAPAN', u'subUnit': u'{$v_vni-0-4_LAN4_Unit-3__unit}', u'networkName': u'LAN4', u'dhcpV4Relay': False}, {u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN5-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN5_Unit-4__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'JAPAN', u'subUnit': u'{$v_vni-0-4_LAN5_Unit-4__unit}', u'networkName': u'LAN5', u'dhcpV4Relay': False}], u'interfaceName': u'vni-0/4'}], u'bandwidth': 1000, u'controllers': [u'NV-WC01-N2-BLR', u'NV-WC02-N2-BLR'], u'templateType': u'sdwan-post-staging', u'deviceType': u'full-mesh', u'redundantPair': {u'vrrp': True, u'enable': False, u'cloudCPE': False}, u'solutionTier': u'standard-sdwan-plus-ngfw', u'deviceFirmfactor': 6, u'analyticsCluster': u'LogCollectors', u'splitTunnels': [{u'wanNetworkName': u'INT-WAN', u'vrfName': u'LAN1-VRF', u'dia': True, u'gateway': False}, {u'wanNetworkName': u'INT-WAN', u'vrfName': u'LAN2-VRF', u'dia': True, u'gateway': False}, {u'wanNetworkName': u'INT-WAN', u'vrfName': u'LAN3-VRF', u'dia': True, u'gateway': False}, {u'wanNetworkName': u'INT-WAN', u'vrfName': u'LAN4-VRF', u'dia': True, u'gateway': False}, {u'wanNetworkName': u'INT-WAN', u'vrfName': u'LAN5-VRF', u'dia': True, u'gateway': False}]}}
+2019-04-02 15:04:08,855 - CPE1234 - INFO - [{u'category': u'stateful-firewall', u'organization': u'JAPAN', u'serviceTemplate': u'COMMON-SFW-TEMPLATE5', u'id': 590, u'templateName': u'SAMPLE100-PS'}]
+2019-04-02 15:04:29,186 - CPE1234 - INFO - set devices template SAMPLE100-PS config interfaces vni vni-0/1 description "MPLS-WAN"
+set devices template SAMPLE100-PS config interfaces vni vni-0/1 bandwidth uplink "5000"
+set devices template SAMPLE100-PS config interfaces vni vni-0/1 bandwidth downlink "5000"
+set devices template SAMPLE100-PS config interfaces vni vni-0/2 description "INT-WAN"
+
+set devices template SAMPLE100-PS config system vnf-manager ip-addresses [ 10.91.116.67/32 10.91.116.68/32 ]
+set devices template SAMPLE100-PS config system service-options qos-frame-overhead auto-adjust true
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 hold-time 90
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart enable
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart maximum-restart-time 15
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart recovery-time 15
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart select-defer-time 15
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart stalepath-time 15
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart dynamic-peer-restart-time 0
+
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match family inet-vpn
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match community "(^|,)([0-9]*:11)($|,)"
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action filter accept
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community 8009:8009
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community-action set-specific
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action set-local-preference 80
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match family inet-vpn
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match community "(^|,)([0-9]*:12)($|,)"
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action filter accept
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community 8009:8009
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community-action set-specific
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action set-local-preference 60
+move devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 first
+move devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 first
+
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard match family inet-vpn
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard action filter accept
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard action community 91:10
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard action community-action set-specific
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard match family versa-private
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action filter accept
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community 91:10
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
+set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 group Controllers-Group export TO_SDWAN
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc interval 10
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc logging-interval 30
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc send-to controller
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef interval 10
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef logging-interval 30
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef send-to branches
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be interval 10
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be logging-interval 30
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be send-to branches
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 interval 10
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 logging-interval 30
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 send-to branches
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 interval 10
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 logging-interval 30
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 send-to branches
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 interval 10
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 logging-interval 30
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 send-to branches
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/1.0 management-traffic priority 0
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_nc interval 10
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_nc logging-interval 30
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_nc send-to controller
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_be interval 10
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_be logging-interval 30
+set devices template SAMPLE100-PS config orgs org JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_be send-to branches
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP ]
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN set action allow
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match destination zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services predefined-services-list [ ESP ICMP ]
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services services-list [ IPSEC IPSIPSecAH ]
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT set action allow
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match source zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match ether-type ARP
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN set action allow
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match destination zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match ether-type ARP
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT set action allow
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN match source zone zone-list [ Intf-INT-WAN-Zone ]
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN match services services-list [ DHCP-67 DHCP-68 ]
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN set action allow
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ]
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT match services services-list [ DHCP-67 DHCP-68 ]
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT set action allow
+
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match source zone zone-list [ Intf-LAN1-Zone Intf-LAN2-Zone Intf-LAN3-Zone Intf-LAN4-Zone Intf-LAN5-Zone W-ST-LAN1-VRF-INT-WAN W-ST-LAN2-VRF-INT-WAN W-ST-LAN3-VRF-INT-WAN W-ST-LAN4-VRF-INT-WAN W-ST-LAN5-VRF-INT-WAN ]
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match destination zone zone-list [ Intf-INT-WAN-Zone L-ST-LAN1-VRF-INT-WAN L-ST-LAN2-VRF-INT-WAN L-ST-LAN3-VRF-INT-WAN L-ST-LAN4-VRF-INT-WAN L-ST-LAN5-VRF-INT-WAN ]
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT set action allow
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN match source zone zone-list [ Intf-INT-WAN-Zone L-ST-LAN1-VRF-INT-WAN L-ST-LAN2-VRF-INT-WAN L-ST-LAN3-VRF-INT-WAN L-ST-LAN4-VRF-INT-WAN L-ST-LAN5-VRF-INT-WAN ]
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN set action allow
+
+
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN match source zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN set action deny
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT match destination zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT set action deny
+
+delete devices template SAMPLE100-PS config orgs org-services JAPAN cgnat rules rule RFC_1918_NoTranslate
+delete devices template SAMPLE100-PS config orgs org-services JAPAN cgnat rules rule DIA-Rule-LAN5-VRF-INT-WAN from
+set devices template SAMPLE100-PS config orgs org-services JAPAN cgnat rules rule DIA-Rule-LAN5-VRF-INT-WAN match source-zone [ W-ST-LAN5-VRF-INT-WAN ]
+set devices template SAMPLE100-PS config orgs org-services JAPAN cgnat rules rule DIA-Rule-LAN5-VRF-INT-WAN match destination-zone [ Intf-INT-WAN-Zone ]
+
+
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service app-qos-policies app-qos-policy-group Default-Policy
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business1 forwarding-class fc13
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business1 loss-priority high
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business1 dscp-rw-enable yes
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business1 dot1p-rw-enable no
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business2 forwarding-class fc14
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business2 loss-priority high
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business2 dscp-rw-enable yes
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business2 dot1p-rw-enable no
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business3 forwarding-class fc15
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business3 loss-priority high
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business3 dscp-rw-enable yes
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business3 dot1p-rw-enable no
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Internet-Default forwarding-class fc_be
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Internet-Default loss-priority high
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Internet-Default dscp-rw-enable no
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Internet-Default dot1p-rw-enable no
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Premium forwarding-class fc_ef
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Premium loss-priority low
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Premium dscp-rw-enable yes
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Premium dot1p-rw-enable no
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Routing-Management forwarding-class fc_nc
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Routing-Management loss-priority low
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Routing-Management dscp-rw-enable yes
+set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Routing-Management dot1p-rw-enable no
+
+set devices template SAMPLE100-PS config orgs org-services JAPAN objects services service IPSEC protocol UDP
+set devices template SAMPLE100-PS config orgs org-services JAPAN objects services service IPSEC destination-port 4790,4500,500
+set devices template SAMPLE100-PS config orgs org-services JAPAN objects services service IPSecAH protocol AH
+set devices template SAMPLE100-PS config orgs org-services JAPAN objects services service IPSIPSecAH protocol AH
+set devices template SAMPLE100-PS config orgs org-services JAPAN objects services service DHCP-67 protocol UDP
+set devices template SAMPLE100-PS config orgs org-services JAPAN objects services service DHCP-67 port 67
+set devices template SAMPLE100-PS config orgs org-services JAPAN objects services service DHCP-68 protocol UDP
+set devices template SAMPLE100-PS config orgs org-services JAPAN objects services service DHCP-68 port 68
+delete devices template SAMPLE100-PS config orgs org-services JAPAN security access-policies access-policy-group Default-Policy
+
+delete device template SAMPLE100-PS config org org-services JAPAN sd-wan policies sdwan-policy-group Default-Policy rules rule Default-Rule
+set devices template SAMPLE100-PS config org org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names local [ MPLS-WAN INT-WAN ]
+set devices template SAMPLE100-PS config org org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names remote [ MPLS-WAN MPLS-WAN1 MPLS-WAN2 INT-WAN INT-WAN1 INT-WAN2 ]
+set devices template SAMPLE100-PS config org org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names local [ INT-WAN ]
+set devices template SAMPLE100-PS config org org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names remote [ LTE-WAN ]
+set devices template SAMPLE100-PS config org org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE connection-selection-method weighted-round-robin
+set devices template SAMPLE100-PS config org org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE recompute-timer 40
+set devices template SAMPLE100-PS config org org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE encryption optional
+set devices template SAMPLE100-PS config org org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE symmetric-forwarding enable
+set devices template SAMPLE100-PS config org org-services JAPAN sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE description DEFAULT-TRAFFIC-RULE
+set devices template SAMPLE100-PS config org org-services JAPAN sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set action allow
+set devices template SAMPLE100-PS config org org-services JAPAN sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set forwarding-profile DEFAULT-TRAFFIC-PROFILE
+
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN1-VRF vrf-import-target target:1370L:13702
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN2-VRF vrf-import-target target:1371L:13712
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN3-VRF vrf-import-target target:1372L:13722
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN4-VRF vrf-import-target target:1373L:13732
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN5-VRF vrf-import-target target:1374L:13742
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template SAMPLE100-PS config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+set devices template SAMPLE100-PS config snmp usm local user coltuser auth sha password Colt1234
+
+set devices template SAMPLE100-PS config system time-zone Greenwich
+set devices template SAMPLE100-PS config confdConfig cli banner "Access to this network/system is limited to users authorised by Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be audited"
+set devices template SAMPLE100-PS config system users portal login shell role admin password yA:D#{}Vn9JE-?Qa
+set devices template SAMPLE100-PS config system users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+2019-04-02 15:05:40,803 - CPE1234 - INFO - configure
+Entering configuration mode private
+[ok][2019-04-02 09:34:29]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config interfaces vni vni-0/1 description "MPLS-WAN"
+[ok][2019-04-02 09:34:29]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config interfaces vni vni-0/1 bandwidth uplink "5000"
+[ok][2019-04-02 09:34:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config interfaces vni vni-0/1 bandwidth downlink "5000"
+[ok][2019-04-02 09:34:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config interfaces vni vni-0/2 description "INT-WAN"
+[ok][2019-04-02 09:34:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config system vnf-manager ip-addresses [ 10.91.116.67/32 10.91.116.68/32 ]
+[ok][2019-04-02 09:34:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config system service-options qos-frame-overhead auto-adjust true
+[ok][2019-04-02 09:34:31]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 hold-time 90
+[ok][2019-04-02 09:34:31]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart enable
+[ok][2019-04-02 09:34:31]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart maximum-restart-time 15
+[ok][2019-04-02 09:34:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart recovery-time 15
+[ok][2019-04-02 09:34:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart select-defer-time 15
+[ok][2019-04-02 09:34:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart stalepath-time 15
+[ok][2019-04-02 09:34:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 graceful-restart dynamic-peer-restart-time 0
+[ok][2019-04-02 09:34:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match family inet-vpn
+[ok][2019-04-02 09:34:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match community "(^|,)([0-9]*:11)($|,)" 
+[ok][2019-04-02 09:34:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action filter accept
+[ok][2019-04-02 09:34:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community 8009:8009
+[ok][2019-04-02 09:34:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community-action set-specific
+[ok][2019-04-02 09:34:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action set-local-preference 80
+[ok][2019-04-02 09:34:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match family inet-vpn
+[ok][2019-04-02 09:34:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match community "(^|,)([0-9]*:12)($|,)" 
+[ok][2019-04-02 09:34:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action filter accept
+[ok][2019-04-02 09:34:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community 8009:8009
+[ok][2019-04-02 09:34:38]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community-action set-specific
+[ok][2019-04-02 09:34:38]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action set-local-preference 60
+[ok][2019-04-02 09:34:39]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% move devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 first
+[ok][2019-04-02 09:34:39]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% move devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 first
+[ok][2019-04-02 09:34:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard match family inet-vpn
+[ok][2019-04-02 09:34:40]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard action filter accept
+[ok][2019-04-02 09:34:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard action community 91:10
+[ok][2019-04-02 09:34:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term Wildcard action community-action set-specific
+[ok][2019-04-02 09:34:42]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard match family versa-private
+[ok][2019-04-02 09:34:42]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action filter accept
+[ok][2019-04-02 09:34:43]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community 91:10
+[ok][2019-04-02 09:34:43]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
+[ok][2019-04-02 09:34:44]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance JAPAN-Control-VR protocols bgp bgp 125 group Controllers-Group export TO_SDWAN
+[ok][2019-04-02 09:34:44]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc interval  10
+[ok][2019-04-02 09:34:45]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc logging-interval 30
+[ok][2019-04-02 09:34:45]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc send-to  controller
+[ok][2019-04-02 09:34:46]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef interval  10
+[ok][2019-04-02 09:34:46]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef logging-interval 30
+[ok][2019-04-02 09:34:46]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef send-to  branches
+[ok][2019-04-02 09:34:47]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be interval  10
+[ok][2019-04-02 09:34:47]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be logging-interval 30
+[ok][2019-04-02 09:34:48]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be send-to  branches
+[ok][2019-04-02 09:34:48]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 interval  10
+[ok][2019-04-02 09:34:49]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 logging-interval 30
+[ok][2019-04-02 09:34:49]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 send-to branches
+[ok][2019-04-02 09:34:50]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 interval  10
+[ok][2019-04-02 09:34:50]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 logging-interval 30
+[ok][2019-04-02 09:34:50]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 send-to branches
+[ok][2019-04-02 09:34:51]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 interval  10
+[ok][2019-04-02 09:34:51]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 logging-interval 30
+[ok][2019-04-02 09:34:52]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 send-to branches
+[ok][2019-04-02 09:34:52]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/1.0 management-traffic priority 0
+[ok][2019-04-02 09:34:52]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_nc interval  10
+[ok][2019-04-02 09:34:53]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_nc logging-interval 30
+[ok][2019-04-02 09:34:53]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_nc send-to  controller
+[ok][2019-04-02 09:34:54]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_be interval  10
+[ok][2019-04-02 09:34:54]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_be logging-interval 30
+[ok][2019-04-02 09:34:55]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org  JAPAN sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_be send-to  branches
+[ok][2019-04-02 09:34:55]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+[ok][2019-04-02 09:34:56]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP ]
+[ok][2019-04-02 09:34:56]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
+[ok][2019-04-02 09:34:57]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN set action allow
+[ok][2019-04-02 09:34:57]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match destination zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+[ok][2019-04-02 09:34:57]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services predefined-services-list [ ESP ICMP ]
+[ok][2019-04-02 09:34:58]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services services-list [ IPSEC IPSIPSecAH ]
+[ok][2019-04-02 09:34:58]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT set action allow
+[ok][2019-04-02 09:34:59]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match source zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+[ok][2019-04-02 09:34:59]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match ether-type ARP
+[ok][2019-04-02 09:35:00]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN set action allow
+[ok][2019-04-02 09:35:00]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match destination zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+[ok][2019-04-02 09:35:01]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match ether-type ARP
+[ok][2019-04-02 09:35:01]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT set action allow
+[ok][2019-04-02 09:35:02]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN match source zone zone-list [ Intf-INT-WAN-Zone ]
+[ok][2019-04-02 09:35:02]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN match services services-list [ DHCP-67 DHCP-68 ]
+[ok][2019-04-02 09:35:03]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN set action allow
+[ok][2019-04-02 09:35:03]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ]
+[ok][2019-04-02 09:35:04]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT match services services-list [ DHCP-67 DHCP-68 ]
+[ok][2019-04-02 09:35:04]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT set action allow
+[ok][2019-04-02 09:35:05]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match source zone zone-list [ Intf-LAN1-Zone Intf-LAN2-Zone Intf-LAN3-Zone Intf-LAN4-Zone Intf-LAN5-Zone W-ST-LAN1-VRF-INT-WAN W-ST-LAN2-VRF-INT-WAN W-ST-LAN3-VRF-INT-WAN W-ST-LAN4-VRF-INT-WAN W-ST-LAN5-VRF-INT-WAN ]
+[ok][2019-04-02 09:35:06]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match destination zone zone-list [ Intf-INT-WAN-Zone L-ST-LAN1-VRF-INT-WAN L-ST-LAN2-VRF-INT-WAN L-ST-LAN3-VRF-INT-WAN L-ST-LAN4-VRF-INT-WAN L-ST-LAN5-VRF-INT-WAN ]
+[ok][2019-04-02 09:35:06]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT set action allow
+[ok][2019-04-02 09:35:07]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN match source zone zone-list [ Intf-INT-WAN-Zone L-ST-LAN1-VRF-INT-WAN L-ST-LAN2-VRF-INT-WAN L-ST-LAN3-VRF-INT-WAN L-ST-LAN4-VRF-INT-WAN L-ST-LAN5-VRF-INT-WAN ]
+[ok][2019-04-02 09:35:08]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN set action allow
+[ok][2019-04-02 09:35:08]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN match source zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+[ok][2019-04-02 09:35:09]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN set action deny
+[ok][2019-04-02 09:35:09]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT match destination zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+[ok][2019-04-02 09:35:10]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT set action deny
+[ok][2019-04-02 09:35:10]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% delete devices template SAMPLE100-PS config orgs  org-services JAPAN cgnat rules rule RFC_1918_NoTranslate
+[ok][2019-04-02 09:35:10]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% delete devices template SAMPLE100-PS config orgs  org-services JAPAN cgnat rules rule DIA-Rule-LAN5-VRF-INT-WAN from
+[ok][2019-04-02 09:35:11]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN cgnat rules rule DIA-Rule-LAN5-VRF-INT-WAN match source-zone [ W-ST-LAN5-VRF-INT-WAN ]
+[ok][2019-04-02 09:35:11]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN cgnat rules rule DIA-Rule-LAN5-VRF-INT-WAN match destination-zone [ Intf-INT-WAN-Zone ]
+[ok][2019-04-02 09:35:11]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service app-qos-policies app-qos-policy-group Default-Policy
+[ok][2019-04-02 09:35:12]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business1 forwarding-class fc13
+[ok][2019-04-02 09:35:12]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business1 loss-priority high
+[ok][2019-04-02 09:35:12]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business1 dscp-rw-enable yes
+[ok][2019-04-02 09:35:13]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business1 dot1p-rw-enable no
+[ok][2019-04-02 09:35:13]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business2 forwarding-class fc14
+[ok][2019-04-02 09:35:13]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business2 loss-priority high
+[ok][2019-04-02 09:35:13]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business2 dscp-rw-enable yes
+[ok][2019-04-02 09:35:13]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business2 dot1p-rw-enable no
+[ok][2019-04-02 09:35:14]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business3 forwarding-class fc15
+[ok][2019-04-02 09:35:14]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business3 loss-priority high
+[ok][2019-04-02 09:35:14]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business3 dscp-rw-enable yes
+[ok][2019-04-02 09:35:14]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Business3 dot1p-rw-enable no
+[ok][2019-04-02 09:35:15]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Internet-Default forwarding-class fc_be
+[ok][2019-04-02 09:35:15]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Internet-Default loss-priority high
+[ok][2019-04-02 09:35:15]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Internet-Default dscp-rw-enable no
+[ok][2019-04-02 09:35:16]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Internet-Default dot1p-rw-enable no
+[ok][2019-04-02 09:35:16]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Premium forwarding-class fc_ef
+[ok][2019-04-02 09:35:16]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Premium loss-priority  low
+[ok][2019-04-02 09:35:16]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Premium dscp-rw-enable  yes
+[ok][2019-04-02 09:35:17]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Premium dot1p-rw-enable no
+[ok][2019-04-02 09:35:17]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Routing-Management forwarding-class fc_nc
+[ok][2019-04-02 09:35:18]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Routing-Management loss-priority low
+[ok][2019-04-02 09:35:18]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Routing-Management dscp-rw-enable yes
+[ok][2019-04-02 09:35:18]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN class-of-service qos-profiles qos-profile Routing-Management dot1p-rw-enable no
+[ok][2019-04-02 09:35:19]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN objects services service IPSEC protocol UDP
+[ok][2019-04-02 09:35:19]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN objects services service IPSEC destination-port 4790,4500,500
+[ok][2019-04-02 09:35:19]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN objects services service IPSecAH protocol AH
+[ok][2019-04-02 09:35:20]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN objects services service IPSIPSecAH protocol AH
+[ok][2019-04-02 09:35:20]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN objects services service DHCP-67 protocol UDP
+[ok][2019-04-02 09:35:20]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN objects services service DHCP-67 port 67
+[ok][2019-04-02 09:35:20]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN objects services service DHCP-68 protocol UDP
+[ok][2019-04-02 09:35:21]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN objects services service DHCP-68 port 68
+[ok][2019-04-02 09:35:21]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% delete devices template SAMPLE100-PS config orgs  org-services JAPAN security access-policies access-policy-group Default-Policy
+[ok][2019-04-02 09:35:21]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% delete devices template SAMPLE100-PS config orgs  org-services JAPAN sd-wan policies sdwan-policy-group Default-Policy rules rule  Default-Rule
+[ok][2019-04-02 09:35:22]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names local [ MPLS-WAN INT-WAN ]
+[ok][2019-04-02 09:35:22]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names remote [ MPLS-WAN MPLS-WAN1 MPLS-WAN2 INT-WAN INT-WAN1 INT-WAN2 ]
+[ok][2019-04-02 09:35:23]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names local [ INT-WAN ]
+[ok][2019-04-02 09:35:23]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names remote [ LTE-WAN ]
+[ok][2019-04-02 09:35:24]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE connection-selection-method weighted-round-robin
+[ok][2019-04-02 09:35:24]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE recompute-timer 40
+[ok][2019-04-02 09:35:24]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE encryption optional
+[ok][2019-04-02 09:35:25]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE symmetric-forwarding enable
+[ok][2019-04-02 09:35:25]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE description DEFAULT-TRAFFIC-RULE
+[ok][2019-04-02 09:35:25]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set action allow
+[ok][2019-04-02 09:35:26]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config orgs org-services JAPAN sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set forwarding-profile DEFAULT-TRAFFIC-PROFILE
+[ok][2019-04-02 09:35:26]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN1-VRF vrf-import-target target:1370L:13702
+[ok][2019-04-02 09:35:27]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-04-02 09:35:27]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-04-02 09:35:27]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-04-02 09:35:28]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-04-02 09:35:28]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN2-VRF vrf-import-target target:1371L:13712
+[ok][2019-04-02 09:35:28]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-04-02 09:35:29]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-04-02 09:35:29]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-04-02 09:35:29]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-04-02 09:35:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN3-VRF vrf-import-target target:1372L:13722
+[ok][2019-04-02 09:35:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-04-02 09:35:30]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-04-02 09:35:31]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-04-02 09:35:31]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN3-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-04-02 09:35:31]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN4-VRF vrf-import-target target:1373L:13732
+[ok][2019-04-02 09:35:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-04-02 09:35:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-04-02 09:35:32]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-04-02 09:35:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN4-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-04-02 09:35:33]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN5-VRF vrf-import-target target:1374L:13742
+[ok][2019-04-02 09:35:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-04-02 09:35:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-04-02 09:35:34]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-04-02 09:35:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config routing-instances routing-instance LAN5-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-04-02 09:35:35]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config snmp usm  local user coltuser auth sha password Colt1234
+[ok][2019-04-02 09:35:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config system time-zone Greenwich
+[ok][2019-04-02 09:35:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config confdConfig cli banner "Access to this network/system is limited to users authorised by  Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network  will be audited"
+[ok][2019-04-02 09:35:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config system users portal login shell role admin password yA:D#{}Vn9JE-?Qa
+[ok][2019-04-02 09:35:36]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% set devices template SAMPLE100-PS config system users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+[ok][2019-04-02 09:35:37]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+2019-04-02 15:05:41,638 - CPE1234 - INFO - commit
+Commit complete.
+[ok][2019-04-02 09:35:41]
+
+[edit]
+Administrator@Versa-Dir-BLR-1% 
+2019-04-02 15:05:41,723 - CPE1234 - INFO - 
+CPE1234 : Commit success.
+2019-04-02 15:05:41,723 - CPE1234 - INFO - 
+ >>>>>>>>>> PS MAIN TEMPLATE MODIFY PASSED. <<<<<<<<<<<
+
+2019-04-02 15:05:46,737 - CPE1234 - INFO - 
+STEP : DEVICE GROUP CREATION AND DEPLOYMENT
+
+2019-04-02 15:05:46,921 - CPE1234 - INFO - <Response [201]>
+2019-04-02 15:05:46,921 - CPE1234 - INFO - 
+PASS
+2019-04-02 15:05:46,921 - CPE1234 - INFO - 
+ >>>>>>>>>> DEVICE GROUP TEMPLATE CREATION PASSED. <<<<<<<<<<<
+
+2019-04-02 15:05:51,930 - CPE1234 - INFO - 
+STEP : PRE-ONBOARD WORK
+
+2019-04-02 15:05:51,983 - CPE1234 - INFO - 
+sudo /opt/versa/scripts/staging.py -w 1 -c 10.63.151.90 -s 172.16.7.42/30 -g 172.16.7.41 -l JAPAN-CPE1234@colt.net -lk CPE1234  -r NV-WC02-N2-BLR@colt.net -rk NV-WC02-N2-BLR
+
+2019-04-02 15:05:51,983 - CPE1234 - INFO - {
+	"versanms.sdwan-device-workflow": {
+		"deviceName": "CPE1234",
+		"siteId": "1628",
+		"orgName": "JAPAN",
+		"serialNumber": "CPE1234MPLSKSA1811011",
+		"deviceGroup": "SAMPLE100-DG",
+		"locationInfo": {
+			"state": "karnataka",
+			"country": "india",
+			"longitude": "77.594563",
+			"latitude": "12.971599",
+			"city": "bangalore"
+		},
+		"postStagingTemplateInfo": {
+			"templateName": "SAMPLE100-PS",
+			"templateData": {
+				"device-template-variable": {
+					"template": "SAMPLE100-PS",
+					"variable-binding": {
+						"attrs": [{
+							"name": "{$v_INT-WAN_IPv4__staticaddress}",
+							"value": "172.16.6.42/30",
+							"isAutogeneratable": false
+						},
+						
+						    
+						    
+						    
+						{ "name": "{$v_vni-0-4_LAN1_Unit-0__unit}", "value": "600", "isAutogeneratable": false},
+						{ "name": "{$v_vni-0-4_LAN1_Unit-0__vlanId}", "value": "600", "isAutogeneratable": false },
+						
+						    
+						    
+						    
+						{ "name": "{$v_vni-0-4_LAN2_Unit-1__unit}", "value": "601", "isAutogeneratable": false},
+						{ "name": "{$v_vni-0-4_LAN2_Unit-1__vlanId}", "value": "601", "isAutogeneratable": false },
+						
+						    
+						    
+						    
+						{ "name": "{$v_vni-0-4_LAN3_Unit-2__unit}", "value": "602", "isAutogeneratable": false},
+						{ "name": "{$v_vni-0-4_LAN3_Unit-2__vlanId}", "value": "602", "isAutogeneratable": false },
+						
+						    
+						    
+						    
+						{ "name": "{$v_vni-0-4_LAN4_Unit-3__unit}", "value": "603", "isAutogeneratable": false},
+						{ "name": "{$v_vni-0-4_LAN4_Unit-3__vlanId}", "value": "603", "isAutogeneratable": false },
+						
+						    
+						    
+						    
+						{ "name": "{$v_vni-0-4_LAN5_Unit-4__unit}", "value": "604", "isAutogeneratable": false},
+						{ "name": "{$v_vni-0-4_LAN5_Unit-4__vlanId}", "value": "604", "isAutogeneratable": false },
+						
+						{
+							"name": "{$v_JAPAN-Control-VR_16_Router_ID__vrRouteId}",
+							"value": "20.20.125.11",
+							"isAutogeneratable": true,
+							"isOverwritten": false
+						}, {
+							"name": "{$v_JAPAN_NV-WC01-N2-BLR_Local_auth_email_key__IKELKey}",
+							"value": "CPE1234",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_JAPAN_NV-WC02-N2-BLR_Local_auth_email_key__IKELKey}",
+							"value": "CPE1234",
+							"isAutogeneratable": true
+						},
+						
+						
+						
+						{ "name": "{$v_LAN1_IPv4__staticaddress}", "value": "192.169.101.1/24", "isAutogeneratable": false},
+						
+						
+						
+						{ "name": "{$v_LAN2_IPv4__staticaddress}", "value": "192.169.102.1/24", "isAutogeneratable": false},
+						
+						
+						
+						{ "name": "{$v_LAN3_IPv4__staticaddress}", "value": "192.169.103.1/24", "isAutogeneratable": false},
+						
+						
+						
+						{ "name": "{$v_LAN4_IPv4__staticaddress}", "value": "192.169.104.1/24", "isAutogeneratable": false},
+						
+						
+						
+						{ "name": "{$v_LAN5_IPv4__staticaddress}", "value": "192.169.105.1/24", "isAutogeneratable": false},
+						
+						{
+							"name": "{$v_JAPAN_NV-WC02-N2-BLR_Local_auth_email_identifier__IKELIdentifier}",
+							"value": "CPE1234@colt.net",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_Site_Id__siteSiteID}",
+							"value": "1628",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_JAPAN_NV-WC01-N2-BLR_Local_auth_email_identifier__IKELIdentifier}",
+							"value": "CPE1234@colt.net",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_JAPAN_Site_Name__sitesSiteName}",
+							"value": "CPE1234",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_latitude__IdLatitude}",
+							"value": "12.971599",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_identification__IdName}",
+							"value": "CPE1234",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_INT-WAN-Transport-VR_IPv4__vrHopAddress}",
+							"value": "172.16.6.41",
+							"isAutogeneratable": false
+						},	{
+						    "name": "{$v_tvi-0-250_-_Unit_0_Static_address__tunnelStaticAddress}",
+							"value": "10.10.125.11/32",
+							"isAutogeneratable": true,
+							"isOverwritten": false
+						}, {
+							"name": "{$v_Chassis_Id__sitesChassisId}",
+							"value": "CPE1234MPLSKSA1811011",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_longitude__Idlongitude}",
+							"value": "77.594563",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_location__IdLocation}",
+							"value": "bangalore,karnataka, india",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_JAPAN-Control-VR_125_Local_address__vrRouterAddress}",
+							"value": "20.20.125.11",
+							"isAutogeneratable": true,
+							"isOverwritten": false
+						}, {
+							"name": "{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}",
+							"value": "172.16.7.41",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_MPLS-WAN_IPv4__staticaddress}",
+							"value": "172.16.7.42/30",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_tvi-0-251_-_Unit_0_Static_address__tunnelStaticAddress}",
+							"value": "20.20.125.11/32",
+							"isAutogeneratable": true,
+							"isOverwritten": false
+						}]
+					}
+				},
+				"variableMetadata": [{
+					"variable": "{$v_INT-WAN_IPv4__staticaddress}",
+					"group": "Interfaces",
+					"overlay": false,
+					"type": "IPV4_MASK"
+				},
+                
+                
+                
+				{"variable": "{$v_vni-0-4_LAN1_Unit-0__vlanId}", "group": "Vlan Info", "overlay": false, "type": "INTEGER"},
+                
+                
+                
+				{"variable": "{$v_vni-0-4_LAN2_Unit-1__vlanId}", "group": "Vlan Info", "overlay": false, "type": "INTEGER"},
+                
+                
+                
+				{"variable": "{$v_vni-0-4_LAN3_Unit-2__vlanId}", "group": "Vlan Info", "overlay": false, "type": "INTEGER"},
+                
+                
+                
+				{"variable": "{$v_vni-0-4_LAN4_Unit-3__vlanId}", "group": "Vlan Info", "overlay": false, "type": "INTEGER"},
+                
+                
+                
+				{"variable": "{$v_vni-0-4_LAN5_Unit-4__vlanId}", "group": "Vlan Info", "overlay": false, "type": "INTEGER"},
+                
+				{
+					"variable": "{$v_JAPAN-Control-VR_125_Router_ID__vrRouteId}",
+					"group": "Virtual Routers",
+					"overlay": true,
+					"type": "IPV4"
+				}, {
+					"variable": "{$v_JAPAN_NV-WC01-N2-BLR_Local_auth_email_key__IKELKey}",
+					"group": "IPSEC",
+					"overlay": false
+				}, {
+					"variable": "{$v_JAPAN_NV-WC02-N2-BLR_Local_auth_email_key__IKELKey}",
+					"group": "IPSEC",
+					"overlay": false
+				},
+			{
+					"variable": "{$v_LAN1_IPv4__staticaddress}", "group": "Interfaces", "overlay": false, "type": "IPV4_MASK"
+				},
+            {
+					"variable": "{$v_LAN2_IPv4__staticaddress}", "group": "Interfaces", "overlay": false, "type": "IPV4_MASK"
+				},
+            {
+					"variable": "{$v_LAN3_IPv4__staticaddress}", "group": "Interfaces", "overlay": false, "type": "IPV4_MASK"
+				},
+            {
+					"variable": "{$v_LAN4_IPv4__staticaddress}", "group": "Interfaces", "overlay": false, "type": "IPV4_MASK"
+				},
+            {
+					"variable": "{$v_LAN5_IPv4__staticaddress}", "group": "Interfaces", "overlay": false, "type": "IPV4_MASK"
+				},
+            
+				 {
+					"variable": "{$v_JAPAN_NV-WC02-N2-BLR_Local_auth_email_identifier__IKELIdentifier}",
+					"group": "IPSEC",
+					"overlay": false
+				}, {
+					"variable": "{$v_Site_Id__siteSiteID}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_JAPAN_NV-WC01-N2-BLR_Local_auth_email_identifier__IKELIdentifier}",
+					"group": "IPSEC",
+					"overlay": false
+				}, {
+					"variable": "{$v_JAPAN_Site_Name__sitesSiteName}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_latitude__IdLatitude}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_identification__IdName}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_INT-WAN-Transport-VR_IPv4__vrHopAddress}",
+					"group": "Virtual Routers",
+					"overlay": false,
+					"type": "IPV4_IPV6"
+				}, {
+					"variable": "{$v_tvi-0-250_-_Unit_0_Static_address__tunnelStaticAddress}",
+					"group": "Interfaces",
+					"overlay": true,
+					"type": "IPV4_IPV6_MASK"
+				}, {
+					"variable": "{$v_Chassis_Id__sitesChassisId}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_longitude__Idlongitude}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_location__IdLocation}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_JAPAN-Control-VR_125_Local_address__vrRouterAddress}",
+					"group": "Virtual Routers",
+					"overlay": true,
+					"type": "IPV4"
+				}, {
+					"variable": "{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}",
+					"group": "Virtual Routers",
+					"overlay": false,
+					"type": "IPV4_IPV6"
+				}, {
+					"variable": "{$v_tvi-0-251_-_Unit_0_Static_address__tunnelStaticAddress}",
+					"group": "Interfaces",
+					"overlay": true,
+					"type": "IPV4_IPV6_MASK"
+				}]
+			}
+		}
+	}
+}
+2019-04-02 15:05:52,951 - CPE1234 - INFO - <Response [500]>
+2019-04-02 15:05:52,951 - CPE1234 - INFO - {"error":{"http_status_code":500,"code":0,"message":"Global Device Id 1628 is already in use.","more_info":"http://nms.versa.com/errors/null"}}
+2019-04-02 15:05:52,951 - CPE1234 - INFO - FAIL : {"error":{"http_status_code":500,"code":0,"message":"Global Device Id 1628 is already in use.","more_info":"http://nms.versa.com/errors/null"}}
+2019-04-02 15:06:03,211 - CPE1234 - INFO - 15939

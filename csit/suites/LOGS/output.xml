@@ -1,0 +1,1387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20190412 16:00:57.991" generator="Robot 3.0.4 (Python 2.7.13 on win32)">
+<suite source="C:\Softwares_mine\stefano\NV_REPOSITORY\csit\suites\SINGLE_CPE_HYBRID_SOLUTION_TEST.robot" id="s1" name="SINGLE CPE HYBRID SOLUTION TEST">
+<kw type="setup" name="STARTUP">
+<doc>Make connecection to Versa devices</doc>
+<kw name="Cross Login" library="CPE1">
+<msg timestamp="20190412 16:01:44.552" level="INFO">&lt;netmiko.versa.versa_ssh.VersaSSH object at 0x000000000DC7B2B0&gt;
+versa: Administrator@Versa-Dir-1b&gt;
+ssh admin@20.20.125.11
+admin@20.20.125.11's password: 
+
+             .---.,
+            (      ``.
+       _     \        )    __      ________ _____   _____
+      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\
+       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \
+        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \
+         \    |   /           \  /  | |____| | \ \ ____) / ____ \
+          \   |  /             \/   |______|_|  \_\_____/_/    \_\
+           \  | /
+            \_|/                     ___ _    _____  ___   ___  _ ___
+                                    | __| |  | __\ \/ | \ / / \| | __|
+                                    | _|| |__| _| &gt;  &lt; \ V /| .` | _|
+                                    |_| |____|___/_/\_\ \_/ |_|\_|_|
+
+
+Versa FlexVNF software
+Release     :	16.1R2 (S2.2)
+Release date:	20180505
+Package ID  :	5cd1c58	
+
+Last login: Fri Apr 12 07:07:41 2019 from 10.91.192.251
+admin@CPE11-BLR:~$ 
+doing redispatch</msg>
+<status status="PASS" endtime="20190412 16:01:44.552" starttime="20190412 16:01:09.917"></status>
+</kw>
+<kw name="Cross Login" library="CPE2">
+<msg timestamp="20190412 16:02:18.667" level="INFO">&lt;netmiko.versa.versa_ssh.VersaSSH object at 0x000000000DB94A20&gt;
+versa: Administrator@Versa-Dir-1b&gt;
+ssh admin@20.20.125.12
+admin@20.20.125.12's password: 
+
+             .---.,
+            (      ``.
+       _     \        )    __      ________ _____   _____
+      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\
+       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \
+        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \
+         \    |   /           \  /  | |____| | \ \ ____) / ____ \
+          \   |  /             \/   |______|_|  \_\_____/_/    \_\
+           \  | /
+            \_|/                     ___ _    _____  ___   ___  _ ___
+                                    | __| |  | __\ \/ | \ / / \| | __|
+                                    | _|| |__| _| &gt;  &lt; \ V /| .` | _|
+                                    |_| |____|___/_/\_\ \_/ |_|\_|_|
+
+
+Versa FlexVNF software
+Release     :	16.1R2 (S2.2)
+Release date:	20180508
+Package ID  :	d1653f6	
+
+Last login: Wed Apr 10 12:33:15 2019 from 10.91.116.68
+admin@CPE12-BLR:~$ 
+doing redispatch</msg>
+<status status="PASS" endtime="20190412 16:02:18.667" starttime="20190412 16:01:44.552"></status>
+</kw>
+<kw name="Get Device Info" library="CPE1">
+<assign>
+<var>${CPE1_dev_info_on_vd}</var>
+</assign>
+<msg timestamp="20190412 16:02:20.565" level="INFO">&lt;Response [200]&gt;</msg>
+<msg timestamp="20190412 16:02:20.565" level="INFO">C:\Python27\lib\site-packages\urllib3\connectionpool.py:857: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190412 16:02:20.565" level="INFO">${CPE1_dev_info_on_vd} = {'ownerOrg': u'JAPAN', 'name': u'CPE11-BLR', 'ipAddress': u'20.20.125.11', 'packageName': u'versa-flexvnf-20180505-164725-5cd1c58-16.1R2S2.2-wsm', 'ping_status': u'REACHABLE', 'controllers': [u'NV-WC0...</msg>
+<status status="PASS" endtime="20190412 16:02:20.565" starttime="20190412 16:02:18.667"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${CPE1_dev_info_on_vd}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:20.569" starttime="20190412 16:02:20.565"></status>
+</kw>
+<kw name="Get Data Dict" library="CPE1">
+<assign>
+<var>${CPE1}</var>
+</assign>
+<msg timestamp="20190412 16:02:20.585" level="INFO">${CPE1} = {'username': 'admin', 'main_logger': &lt;logging.Logger object at 0x000000000DBA5BE0&gt;, 'ctlr_dict': {'MUM': ['NV-WC01-N4-MUM', 'NV-WC02-N4-MUM'], 'BLR': ['NV-WC01-N2-BLR', 'NV-WC02-N2-BLR']}, 'gw_list': ...</msg>
+<status status="PASS" endtime="20190412 16:02:20.589" starttime="20190412 16:02:20.569"></status>
+</kw>
+<kw name="Get Data Dict" library="CPE2">
+<assign>
+<var>${CPE2}</var>
+</assign>
+<msg timestamp="20190412 16:02:20.607" level="INFO">${CPE2} = {'username': 'admin', 'main_logger': &lt;logging.Logger object at 0x000000000DBEA9E8&gt;, 'ctlr_dict': {'MUM': ['NV-WC01-N4-MUM', 'NV-WC02-N4-MUM'], 'BLR': ['NV-WC01-N2-BLR', 'NV-WC02-N2-BLR']}, 'gw_list': ...</msg>
+<status status="PASS" endtime="20190412 16:02:20.607" starttime="20190412 16:02:20.589"></status>
+</kw>
+<kw name="Create Controller List" library="CPE1">
+<arguments>
+<arg>${CPE1['ORG_NAME']}</arg>
+<arg>${CPE1['ORG_ID']}</arg>
+<arg>${CPE1['NO_OF_VRFS']}</arg>
+<arg>${CPE1['NODE']}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:20.637" starttime="20190412 16:02:20.608"></status>
+</kw>
+<kw name="Create Gateway List" library="CPE1">
+<arguments>
+<arg>${CPE1['ORG_NAME']}</arg>
+<arg>${CPE1['ORG_ID']}</arg>
+<arg>${CPE1['NO_OF_VRFS']}</arg>
+<arg>${CPE1['NODE']}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:20.657" starttime="20190412 16:02:20.641"></status>
+</kw>
+<kw name="Create Cpe Data" library="CPE1">
+<status status="PASS" endtime="20190412 16:02:20.661" starttime="20190412 16:02:20.657"></status>
+</kw>
+<kw name="Create Controller List" library="CPE2">
+<arguments>
+<arg>${CPE2['ORG_NAME']}</arg>
+<arg>${CPE2['ORG_ID']}</arg>
+<arg>${CPE2['NO_OF_VRFS']}</arg>
+<arg>${CPE2['NODE']}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:20.678" starttime="20190412 16:02:20.661"></status>
+</kw>
+<kw name="Create Gateway List" library="CPE2">
+<arguments>
+<arg>${CPE2['ORG_NAME']}</arg>
+<arg>${CPE2['ORG_ID']}</arg>
+<arg>${CPE2['NO_OF_VRFS']}</arg>
+<arg>${CPE2['NODE']}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:20.690" starttime="20190412 16:02:20.678"></status>
+</kw>
+<kw name="Create Cpe Data" library="CPE2">
+<status status="PASS" endtime="20190412 16:02:20.690" starttime="20190412 16:02:20.690"></status>
+</kw>
+<kw name="Get Data Dict" library="CPE1">
+<assign>
+<var>${CPE1}</var>
+</assign>
+<msg timestamp="20190412 16:02:20.705" level="INFO">${CPE1} = {'username': 'admin', 'main_logger': &lt;logging.Logger object at 0x000000000DBA5BE0&gt;, 'ctlr_dict': {'MUM': ['NV-WC01-N4-MUM', 'NV-WC02-N4-MUM'], 'BLR': ['NV-WC01-N2-BLR', 'NV-WC02-N2-BLR']}, 'WC2_NAME':...</msg>
+<status status="PASS" endtime="20190412 16:02:20.706" starttime="20190412 16:02:20.690"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${CPE1}</arg>
+</arguments>
+<msg timestamp="20190412 16:02:20.726" level="INFO">${CPE1} = {'username': 'admin', 'main_logger': &lt;logging.Logger object at 0x000000000DBA5BE0&gt;, 'ctlr_dict': {'MUM': ['NV-WC01-N4-MUM', 'NV-WC02-N4-MUM'], 'BLR': ['NV-WC01-N2-BLR', 'NV-WC02-N2-BLR']}, 'WC2_NAME':...</msg>
+<status status="PASS" endtime="20190412 16:02:20.726" starttime="20190412 16:02:20.706"></status>
+</kw>
+<kw name="Get Data Dict" library="CPE2">
+<assign>
+<var>${CPE2}</var>
+</assign>
+<msg timestamp="20190412 16:02:20.742" level="INFO">${CPE2} = {'username': 'admin', 'main_logger': &lt;logging.Logger object at 0x000000000DBEA9E8&gt;, 'ctlr_dict': {'MUM': ['NV-WC01-N4-MUM', 'NV-WC02-N4-MUM'], 'BLR': ['NV-WC01-N2-BLR', 'NV-WC02-N2-BLR']}, 'WC2_NAME':...</msg>
+<status status="PASS" endtime="20190412 16:02:20.742" starttime="20190412 16:02:20.730"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${CPE2}</arg>
+</arguments>
+<msg timestamp="20190412 16:02:20.770" level="INFO">${CPE2} = {'username': 'admin', 'main_logger': &lt;logging.Logger object at 0x000000000DBEA9E8&gt;, 'ctlr_dict': {'MUM': ['NV-WC01-N4-MUM', 'NV-WC02-N4-MUM'], 'BLR': ['NV-WC01-N2-BLR', 'NV-WC02-N2-BLR']}, 'WC2_NAME':...</msg>
+<status status="PASS" endtime="20190412 16:02:20.770" starttime="20190412 16:02:20.742"></status>
+</kw>
+<kw name="Log Variables" library="BuiltIn">
+<doc>Logs all variables in the current scope with given log level.</doc>
+<msg timestamp="20190412 16:02:20.770" level="INFO">${/} = \</msg>
+<msg timestamp="20190412 16:02:20.774" level="INFO">${:} = ;</msg>
+<msg timestamp="20190412 16:02:20.774" level="INFO">${\n} = 
+</msg>
+<msg timestamp="20190412 16:02:20.774" level="INFO">${appliance_url} = /vnms/appliance/appliance?offset=0&amp;limit=1000</msg>
+<msg timestamp="20190412 16:02:20.774" level="INFO">${bgp_nbr_template} = C:\Softwares_mine\stefano\NV_REPOSITORY\csit\suites\Utils/TEXTFSM/versa_bgp_neighbor_org_template</msg>
+<msg timestamp="20190412 16:02:20.774" level="INFO">${cmd1} = show interfaces brief | tab | nomore</msg>
+<msg timestamp="20190412 16:02:20.774" level="INFO">${cmd2} = show bgp neighbor brief | nomore</msg>
+<msg timestamp="20190412 16:02:20.774" level="INFO">${cmd3} = show route | nomore</msg>
+<msg timestamp="20190412 16:02:20.774" level="INFO">${cmd4} = show configuration | display set | nomore</msg>
+<msg timestamp="20190412 16:02:20.774" level="INFO">@{controllers_list} = [ NV-WC01-N2-BLR | NV-WC01-N4-MUM | NV-WC01-N5-LON | NV-WC01-UCPE | NV-WC02-N4-MUM | NV-WC02-N5-LON | SAMPLE-CONTROLLER ]</msg>
+<msg timestamp="20190412 16:02:20.786" level="INFO">&amp;{CPE1} = { username=admin | main_logger=&lt;logging.Logger object at 0x000000000DBA5BE0&gt; | ctlr_dict={'MUM': ['NV-WC01-N4-MUM', 'NV-WC02-N4-MUM'], 'BLR': ['NV-WC01-N2-BLR', 'NV-WC02-N2-BLR']} | WC2_NAME=NV-WC02-N2-BLR | MGMT_NW_SBNT=10.91.140.0/22 | gw_list=['NV-GW01-N2-BLR', 'NV-GW02-N2-BLR'] | GW1_NAME=NV-GW01-N2-BLR | WC2_local_ike_id=CPE11-BLR@colt.net | INTF_LAN_SET=Intf-LAN1-Zone Intf-LAN2-Zone Intf-LAN3-Zone Intf-LAN4-Zone Intf-LAN5-Zone  | vxlan_tvi_interface=250 | WC1_NAME=NV-WC01-N2-BLR | ORG_ID=125 | esp_tvi_interface=251 | PS_TEMPLATE_NAME=JAPAN-BLR-PS-HS-LIB | Device_name=CPE11-BLR | vddata=  Device_name Solution_type Site_id Serial_Number MIN_SW_VERSION  \
+2         VD1           NaN     NaN           NaN            NaN   
+
+        mgmt_ip username  password     device_type GUIusername  \
+2  10.91.116.36    admin  versa123  versa_director   Automated   
+
+           ...          NODE SATGING_SERVER SATGING_WAN SATGING_WAN_DHCP  \
+2          ...           NaN            NaN         NaN              NaN   
+
+  ORG_NAME ORG_ID NO_OF_VRFS PST_CREATION DG_CREATION DEV_TEMPALTE_CREATION  
+2      NaN    NaN        NaN          NaN         NaN                   NaN  
+
+[1 rows x 38 columns] | SOLUTIONS_list=['SINGLE-CPE-HYBRID', 'SINGLE-CPE-INTERNET-ONLY', 'SINGLE-CPE-MPLS-ONLY'] | START_LAN_IP_SUBNET=192.169.101.0/24 | device_type=branch | PST_CREATION=YES | ptvi_intf_wc2=ptvi251 | ptvi_intf_wc1=ptvi250 | lan_vlan=[600, 601, 602, 603, 604] | WC1_local_ike_key=CPE11-BLR | gw_dict={'MUM': ['NV-GW01-N4-MUM', 'NV-GW02-N4-MUM'], 'BLR': ['NV-GW01-N2-BLR', 'NV-GW02-N2-BLR']} | NO_OF_VRFS=5 | vdcsv_dict={'VD1': {'NODE': nan, 'GUIpassword': 'Auto@123', 'LIB': nan, 'ORG_ID': nan, 'PS_TEMPLATE_NAME': nan, 'Device_name': 'VD1', 'START_LAN_IP_SUBNET': nan, 'device_type': 'versa_director', 'PST_CREATION': nan, 'INT_INTF_IP_ALLOC': nan, 'SATGING_WAN': nan, 'DG_CREATION': nan, 'mgmt_ip': '10.91.116.36', 'MPLS_WAN_INTF_NEXTHOP': nan, 'MPLS_WAN_INTF_IP': nan, 'Site_id': nan, 'MPLS_WAN_INTF': nan, 'START_VLAN': nan, 'MPLS_WAN_NAME': nan, 'Serial_Number': nan, 'SATGING_SERVER': nan, 'username': 'admin', 'NO_OF_VRFS': nan, 'ESP_IP': nan, 'DEV_TEMPALTE_CREATION': nan, 'INT_WAN_INTF': nan, 'INT_WAN_INTF_IP': nan, 'INT_WAN_NAME': nan, 'password': 'versa123', 'SATGING_WAN_DHCP': nan, 'ORG_NAME': nan, 'Solution_type': nan, 'GUIusername': 'Automated', 'VXLAN_IP': nan, 'LAN_INTF': nan, 'INT_WAN_INTF_NEXTHOP': nan, 'DG_TEMPLATE_NAME': nan, 'MIN_SW_VERSION': nan}} | SATGING_WAN=MPLS | DG_CREATION=YES | vlans=[] | INT_WAN_INTF=vni-0/2 | LIB=YES | topofile=Devices.csv | MPLS_WAN_INTF_NEXTHOP=172.16.7.41 | MPLS_WAN_INTF_IP=172.16.7.42/30 | Site_id=1628 | LAN_ST_LAN_SET=L-ST-LAN1-VRF-INT-WAN L-ST-LAN2-VRF-INT-WAN L-ST-LAN3-VRF-INT-WAN L-ST-LAN4-VRF-INT-WAN L-ST-LAN5-VRF-INT-WAN  | WC2_local_ike_key=CPE11-BLR | MPLS_WAN_INTF=vni-0/1 | START_VLAN=600 | LAN_INTF=vni-0/4 | cnc=&lt;netmiko.versa.versa_ssh.VersaSSH object at 0x000000000DC7B2B0&gt; | MPLS_WAN_NAME=MPLS-WAN | staging_servers_dict={'MUM': ['NV-WC01-N4-MUM', 'NV-WC02-N4-MUM'], 'BLR': ['NV-WC01-N2-BLR', 'NV-WC02-N2-BLR']} | SATGING_SERVER=NV-WC02-N2-BLR | NODE=BLR | logfile=C:\Softwares_mine\stefano\NV_REPOSITORY\csit/LOGS/2019_04_12_16_01_09_840000/MAIN.log | lan={1: {'second_host': '192.169.101.2', 'vlan': 600, 'netmask': '255.255.255.0', 'first_host': '192.169.101.1', 'nw': CalcIPv4Network(u'192.169.101.0/24')}, 2: {'second_host': '192.169.102.2', 'vlan': 601, 'netmask': '255.255.255.0', 'first_host': '192.169.102.1', 'nw': CalcIPv4Network(u'192.169.102.0/24')}, 3: {'second_host': '192.169.103.2', 'vlan': 602, 'netmask': '255.255.255.0', 'first_host': '192.169.103.1', 'nw': CalcIPv4Network(u'192.169.103.0/24')}, 4: {'second_host': '192.169.104.2', 'vlan': 603, 'netmask': '255.255.255.0', 'first_host': '192.169.104.1', 'nw': CalcIPv4Network(u'192.169.104.0/24')}, 5: {'second_host': '192.169.105.2', 'vlan': 604, 'netmask': '255.255.255.0', 'first_host': '192.169.105.1', 'nw': CalcIPv4Network(u'192.169.105.0/24')}} | LCC_dict={'MUM': '1091', 'LON': '44', 'BLR': '91'} | ESP_IP=20.20.125.11 | DEV_TEMPALTE_CREATION=YES | INT_INTF_IP_ALLOC=STATIC | AUTH_STRING=CPE11-BLR@colt.net | curr_file_dir=C:\Softwares_mine\stefano\NV_REPOSITORY\csit | nc=&lt;netmiko.versa.versa_ssh.VersaSSH object at 0x000000000DC7B2B0&gt; | INT_WAN_INTF_IP=172.16.6.42/30 | INT_WAN_NAME=INT-WAN | Serial_Number=CPE11MPLSKSA1811011 | dev_present=true | password=versa123 | SATGING_WAN_DHCP=NO | GW2_NAME=NV-GW02-N2-BLR | Solution_type=SINGLE-CPE-HYBRID | ORG_NAME=JAPAN | dev_dict={'ownerOrg': u'JAPAN', 'name': u'CPE11-BLR', 'ipAddress': u'20.20.125.11', 'packageName': u'versa-flexvnf-20180505-164725-5cd1c58-16.1R2S2.2-wsm', 'ping_status': u'REACHABLE', 'controllers': [u'NV-WC01-N2-BLR', u'NV-WC02-N2-BLR'], 'softwareVersion': u'16.1-R2-S2.2 5cd1c58 20180505', 'sync_status': u'IN_SYNC', 'model': u'FWA-2320', 'type': u'branch', 'serialNo': u'CPE11MPLSKSA1811011', 'uuid': u'93b072b1-c6c6-42aa-970f-c5c3dcf44243'} | vdhead=https://10.91.116.36:9182 | WAN_ST_LAN_SET=W-ST-LAN1-VRF-INT-WAN W-ST-LAN2-VRF-INT-WAN W-ST-LAN3-VRF-INT-WAN W-ST-LAN4-VRF-INT-WAN W-ST-LAN5-VRF-INT-WAN  | mgmt_ip=10.91.240.11 | VNF_IPADDRESS2=10.91.116.68/32 | start_vrf_id=1370 | ndb={'NV-GW01-N2-BLR': {'NODE': 'BLR', 'ORG_NAME': 'JAPAN', 'AUTH_KEY': 'NV-GW01-N2-BLR', 'ESP_IP': '40.125.2.1', 'NNI1_GATEWAY_ADDRESS': '193.125.1.1', 'ORG_ID': '125', 'INTERNET_INTERFACE': 'vni-0/1.454', 'MPLS_INTERFACE': 'vni-0/1.464', 'DEVICE_NAME': 'NV-GW01-N2-BLR', 'VXLAN_IP': '30.125.2.1', 'PAIRED_TVI_SUBNET': '10.125.47.64/30', 'WC_list': ['NV-WC01-N2-BLR', 'NV-WC02-N2-BLR'], 'LCC': '91', 'DEVICE_TYPE': 'GW', 'GW_NUMBER': 1L, 'LOG_COLLECTOR1_ADDRESS': '10.91.116.71', 'NNI1_SUBNET': '193.125.1.0/30', 'LOG_COLLECTOR2_ADDRESS': '10.91.116.72', 'NNI1_INTERFACE_ADDRESS': '193.125.1.2', 'AUTH_STRING': 'NV-GW01-N2-BLR@JAPAN.com'}, 'NV-WC02-N2-BLR': {'NODE': 'BLR', 'ORG_NAME': 'JAPAN', 'AUTH_KEY': 'NV-WC02-N2-BLR', 'ESP_IP': '10.125.64.24', 'MANAGEMENT_NW_SUBNET': '10.91.140.0/22', 'AUTH_STRING': 'NV-WC02-N2-BLR@JAPAN.com', 'ORG_ID': '125', 'VNF_GWS': ['NV-GW01-N2-BLR', 'NV-GW02-N2-BLR'], 'DEVICE_NAME': 'NV-WC02-N2-BLR', 'VXLAN_IP': '10.125.0.24', 'RR_SERVER': 'NV-WC02-N4-MUM', 'LCC': '91', 'DEVICE_TYPE': 'WC'}, 'NV-WC02-N4-MUM': {'NODE': 'MUM', 'ORG_NAME': 'JAPAN', 'AUTH_KEY': 'NV-WC02-N4-MUM', 'ESP_IP': '10.125.64.6', 'MANAGEMENT_NW_SUBNET': '10.91.140.0/22', 'AUTH_STRING': 'NV-WC02-N4-MUM@JAPAN.com', 'ORG_ID': '125', 'VNF_GWS': ['NV-GW01-N4-MUM', 'NV-GW02-N4-MUM'], 'DEVICE_NAME': 'NV-WC02-N4-MUM', 'VXLAN_IP': '10.125.0.6', 'LCC': '91', 'DEVICE_TYPE': 'WC', 'RR_CLIENTS': ['NV-WC02-N2-BLR', 'NV-WC02-N5-LON']}, 'NV-WC01-N2-BLR': {'NODE': 'BLR', 'ORG_NAME': 'JAPAN', 'AUTH_KEY': 'NV-WC01-N2-BLR', 'ESP_IP': '10.125.64.23', 'MANAGEMENT_NW_SUBNET': '10.91.140.0/22', 'AUTH_STRING': 'NV-WC01-N2-BLR@JAPAN.com', 'ORG_ID': '125', 'VNF_GWS': ['NV-GW01-N2-BLR', 'NV-GW02-N2-BLR'], 'DEVICE_NAME': 'NV-WC01-N2-BLR', 'VXLAN_IP': '10.125.0.23', 'LCC': '91', 'DEVICE_TYPE': 'WC', 'RR_CLIENTS': ['NV-WC01-N4-MUM', 'NV-WC01-N5-LON']}, 'NV-GW02-N2-BLR': {'NODE': 'BLR', 'ORG_NAME': 'JAPAN', 'AUTH_KEY': 'NV-GW02-N2-BLR', 'ESP_IP': '40.125.2.2', 'NNI1_GATEWAY_ADDRESS': '193.125.2.1', 'ORG_ID': '125', 'INTERNET_INTERFACE': 'vni-0/1.455', 'MPLS_INTERFACE': 'vni-0/1.465', 'DEVICE_NAME': 'NV-GW02-N2-BLR', 'VXLAN_IP': '30.125.2.2', 'PAIRED_TVI_SUBNET': '10.125.47.64/30', 'WC_list': ['NV-WC01-N2-BLR', 'NV-WC02-N2-BLR'], 'LCC': '91', 'DEVICE_TYPE': 'GW', 'GW_NUMBER': 2L, 'LOG_COLLECTOR1_ADDRESS': '10.91.116.71', 'NNI1_SUBNET': '193.125.2.0/30', 'LOG_COLLECTOR2_ADDRESS': '10.91.116.72', 'NNI1_INTERFACE_ADDRESS': '193.125.2.2', 'AUTH_STRING': 'NV-GW02-N2-BLR@JAPAN.com'}} | WC2_ESP_IP=10.125.64.24 | VXLAN_IP=10.10.125.11 | ctlr_list=['NV-WC01-N2-BLR', 'NV-WC02-N4-MUM', 'NV-WC02-N2-BLR'] | LCC=91 | INT_WAN_INTF_NEXTHOP=172.16.6.41 | DG_TEMPLATE_NAME=JAPAN-BLR-PS-HS-LIB-DG | VNF_IPADDRESS1=10.91.116.67/32 | AUTH_KEY=CPE11-BLR | WC1_ESP_IP=10.125.64.23 | WC1_local_ike_id=CPE11-BLR@colt.net | MIN_SW_VERSION=16.1R2-S2.2 | vddata_dict={'username': 'admin', 'GUIpassword': 'Auto@123', 'LIB': nan, 'ORG_ID': nan, 'PS_TEMPLATE_NAME': nan, 'Device_name': 'VD1', 'START_LAN_IP_SUBNET': nan, 'device_type': 'versa_director', 'PST_CREATION': nan, 'SATGING_WAN': nan, 'DG_CREATION': nan, 'INT_WAN_INTF': nan, 'mgmt_ip': '10.91.116.36', 'MPLS_WAN_INTF_NEXTHOP': nan, 'MPLS_WAN_INTF_IP': nan, 'Site_id': nan, 'MPLS_WAN_INTF': nan, 'START_VLAN': nan, 'MPLS_WAN_NAME': nan, 'Serial_Number': nan, 'SATGING_SERVER': nan, 'NODE': nan, 'NO_OF_VRFS': nan, 'ESP_IP': nan, 'DEV_TEMPALTE_CREATION': nan, 'INT_INTF_IP_ALLOC': nan, 'INT_WAN_INTF_IP': nan, 'INT_WAN_NAME': nan, 'password': 'versa123', 'SATGING_WAN_DHCP': nan, 'ORG_NAME': nan, 'Solution_type': nan, 'GUIusername': 'Automated', 'VXLAN_IP': nan, 'LAN_INTF': nan, 'INT_WAN_INTF_NEXTHOP': nan, 'DG_TEMPLATE_NAME': nan, 'MIN_SW_VERSION': nan} }</msg>
+<msg timestamp="20190412 16:02:20.786" level="INFO">&amp;{CPE1_dev_info_on_vd} = { ownerOrg=JAPAN | name=CPE11-BLR | ipAddress=20.20.125.11 | packageName=versa-flexvnf-20180505-164725-5cd1c58-16.1R2S2.2-wsm | ping_status=REACHABLE | controllers=[u'NV-WC01-N2-BLR', u'NV-WC02-N2-BLR'] | softwareVersion=16.1-R2-S2.2 5cd1c58 20180505 | sync_status=IN_SYNC | model=FWA-2320 | type=branch | serialNo=CPE11MPLSKSA1811011 | uuid=93b072b1-c6c6-42aa-970f-c5c3dcf44243 }</msg>
+<msg timestamp="20190412 16:02:20.801" level="INFO">&amp;{CPE2} = { username=admin | main_logger=&lt;logging.Logger object at 0x000000000DBEA9E8&gt; | ctlr_dict={'MUM': ['NV-WC01-N4-MUM', 'NV-WC02-N4-MUM'], 'BLR': ['NV-WC01-N2-BLR', 'NV-WC02-N2-BLR']} | WC2_NAME=NV-WC02-N2-BLR | gw_list=['NV-GW01-N2-BLR', 'NV-GW02-N2-BLR'] | GW1_NAME=NV-GW01-N2-BLR | WC2_local_ike_id=CPE12-BLR@colt.net | INTF_LAN_SET=Intf-LAN1-Zone Intf-LAN2-Zone Intf-LAN3-Zone Intf-LAN4-Zone Intf-LAN5-Zone  | vxlan_tvi_interface=250 | WC1_NAME=NV-WC01-N2-BLR | ORG_ID=125 | esp_tvi_interface=251 | PS_TEMPLATE_NAME=JAPAN-BLR-PS-M | Device_name=CPE12-BLR | vddata=  Device_name Solution_type Site_id Serial_Number MIN_SW_VERSION  \
+2         VD1           NaN     NaN           NaN            NaN   
+
+        mgmt_ip username  password     device_type GUIusername  \
+2  10.91.116.36    admin  versa123  versa_director   Automated   
+
+           ...          NODE SATGING_SERVER SATGING_WAN SATGING_WAN_DHCP  \
+2          ...           NaN            NaN         NaN              NaN   
+
+  ORG_NAME ORG_ID NO_OF_VRFS PST_CREATION DG_CREATION DEV_TEMPALTE_CREATION  
+2      NaN    NaN        NaN          NaN         NaN                   NaN  
+
+[1 rows x 38 columns] | SOLUTIONS_list=['SINGLE-CPE-HYBRID', 'SINGLE-CPE-INTERNET-ONLY', 'SINGLE-CPE-MPLS-ONLY'] | START_LAN_IP_SUBNET=192.169.111.0/24 | device_type=branch | PST_CREATION=YES | ptvi_intf_wc2=ptvi251 | ptvi_intf_wc1=ptvi250 | lan_vlan=[610, 611, 612, 613, 614] | WC2_local_ike_key=CPE12-BLR | gw_dict={'MUM': ['NV-GW01-N4-MUM', 'NV-GW02-N4-MUM'], 'BLR': ['NV-GW01-N2-BLR', 'NV-GW02-N2-BLR']} | NO_OF_VRFS=5 | vdcsv_dict={'VD1': {'NODE': nan, 'GUIpassword': 'Auto@123', 'LIB': nan, 'ORG_ID': nan, 'PS_TEMPLATE_NAME': nan, 'Device_name': 'VD1', 'START_LAN_IP_SUBNET': nan, 'device_type': 'versa_director', 'PST_CREATION': nan, 'INT_INTF_IP_ALLOC': nan, 'SATGING_WAN': nan, 'DG_CREATION': nan, 'mgmt_ip': '10.91.116.36', 'MPLS_WAN_INTF_NEXTHOP': nan, 'MPLS_WAN_INTF_IP': nan, 'Site_id': nan, 'MPLS_WAN_INTF': nan, 'START_VLAN': nan, 'MPLS_WAN_NAME': nan, 'Serial_Number': nan, 'SATGING_SERVER': nan, 'username': 'admin', 'NO_OF_VRFS': nan, 'ESP_IP': nan, 'DEV_TEMPALTE_CREATION': nan, 'INT_WAN_INTF': nan, 'INT_WAN_INTF_IP': nan, 'INT_WAN_NAME': nan, 'password': 'versa123', 'SATGING_WAN_DHCP': nan, 'ORG_NAME': nan, 'Solution_type': nan, 'GUIusername': 'Automated', 'VXLAN_IP': nan, 'LAN_INTF': nan, 'INT_WAN_INTF_NEXTHOP': nan, 'DG_TEMPLATE_NAME': nan, 'MIN_SW_VERSION': nan}} | SATGING_WAN=MPLS | DG_CREATION=YES | vlans=[] | INT_WAN_INTF=vni-0/2 | LIB=YES | topofile=Devices.csv | MPLS_WAN_INTF_NEXTHOP=172.16.7.45 | MPLS_WAN_INTF_IP=172.16.7.46/30 | Site_id=1629 | LAN_ST_LAN_SET=L-ST-LAN1-VRF-INT-WAN L-ST-LAN2-VRF-INT-WAN L-ST-LAN3-VRF-INT-WAN L-ST-LAN4-VRF-INT-WAN L-ST-LAN5-VRF-INT-WAN  | MGMT_NW_SBNT=10.91.140.0/22 | MPLS_WAN_INTF=vni-0/1 | START_VLAN=610 | LAN_INTF=vni-0/4 | cnc=&lt;netmiko.versa.versa_ssh.VersaSSH object at 0x000000000DB94A20&gt; | MPLS_WAN_NAME=MPLS-WAN | staging_servers_dict={'MUM': ['NV-WC01-N4-MUM', 'NV-WC02-N4-MUM'], 'BLR': ['NV-WC01-N2-BLR', 'NV-WC02-N2-BLR']} | SATGING_SERVER=NV-WC02-N2-BLR | NODE=BLR | logfile=C:\Softwares_mine\stefano\NV_REPOSITORY\csit/LOGS/2019_04_12_16_01_09_840000/MAIN.log | lan={1: {'second_host': '192.169.111.2', 'vlan': 610, 'netmask': '255.255.255.0', 'first_host': '192.169.111.1', 'nw': CalcIPv4Network(u'192.169.111.0/24')}, 2: {'second_host': '192.169.112.2', 'vlan': 611, 'netmask': '255.255.255.0', 'first_host': '192.169.112.1', 'nw': CalcIPv4Network(u'192.169.112.0/24')}, 3: {'second_host': '192.169.113.2', 'vlan': 612, 'netmask': '255.255.255.0', 'first_host': '192.169.113.1', 'nw': CalcIPv4Network(u'192.169.113.0/24')}, 4: {'second_host': '192.169.114.2', 'vlan': 613, 'netmask': '255.255.255.0', 'first_host': '192.169.114.1', 'nw': CalcIPv4Network(u'192.169.114.0/24')}, 5: {'second_host': '192.169.115.2', 'vlan': 614, 'netmask': '255.255.255.0', 'first_host': '192.169.115.1', 'nw': CalcIPv4Network(u'192.169.115.0/24')}} | LCC_dict={'MUM': '1091', 'LON': '44', 'BLR': '91'} | ESP_IP=20.20.125.12 | DEV_TEMPALTE_CREATION=YES | INT_INTF_IP_ALLOC=STATIC | AUTH_STRING=CPE12-BLR@colt.net | curr_file_dir=C:\Softwares_mine\stefano\NV_REPOSITORY\csit | nc=&lt;netmiko.versa.versa_ssh.VersaSSH object at 0x000000000DB94A20&gt; | INT_WAN_INTF_IP=172.16.6.46/30 | INT_WAN_NAME=INT-WAN | Serial_Number=CPE12INTERNETKSA1812012 | WC1_local_ike_key=CPE12-BLR | password=versa123 | SATGING_WAN_DHCP=NO | GW2_NAME=NV-GW02-N2-BLR | Solution_type=SINGLE-CPE-MPLS-ONLY | ORG_NAME=JAPAN | vdhead=https://10.91.116.36:9182 | WAN_ST_LAN_SET=W-ST-LAN1-VRF-INT-WAN W-ST-LAN2-VRF-INT-WAN W-ST-LAN3-VRF-INT-WAN W-ST-LAN4-VRF-INT-WAN W-ST-LAN5-VRF-INT-WAN  | mgmt_ip=10.91.240.12 | VNF_IPADDRESS2=10.91.116.68/32 | start_vrf_id=1370 | ndb={'NV-GW01-N2-BLR': {'NODE': 'BLR', 'ORG_NAME': 'JAPAN', 'AUTH_KEY': 'NV-GW01-N2-BLR', 'ESP_IP': '40.125.2.1', 'NNI1_GATEWAY_ADDRESS': '193.125.1.1', 'ORG_ID': '125', 'INTERNET_INTERFACE': 'vni-0/1.454', 'MPLS_INTERFACE': 'vni-0/1.464', 'DEVICE_NAME': 'NV-GW01-N2-BLR', 'VXLAN_IP': '30.125.2.1', 'PAIRED_TVI_SUBNET': '10.125.47.64/30', 'WC_list': ['NV-WC01-N2-BLR', 'NV-WC02-N2-BLR'], 'LCC': '91', 'DEVICE_TYPE': 'GW', 'GW_NUMBER': 1L, 'LOG_COLLECTOR1_ADDRESS': '10.91.116.71', 'NNI1_SUBNET': '193.125.1.0/30', 'LOG_COLLECTOR2_ADDRESS': '10.91.116.72', 'NNI1_INTERFACE_ADDRESS': '193.125.1.2', 'AUTH_STRING': 'NV-GW01-N2-BLR@JAPAN.com'}, 'NV-WC02-N2-BLR': {'NODE': 'BLR', 'ORG_NAME': 'JAPAN', 'AUTH_KEY': 'NV-WC02-N2-BLR', 'ESP_IP': '10.125.64.24', 'MANAGEMENT_NW_SUBNET': '10.91.140.0/22', 'AUTH_STRING': 'NV-WC02-N2-BLR@JAPAN.com', 'ORG_ID': '125', 'VNF_GWS': ['NV-GW01-N2-BLR', 'NV-GW02-N2-BLR'], 'DEVICE_NAME': 'NV-WC02-N2-BLR', 'VXLAN_IP': '10.125.0.24', 'RR_SERVER': 'NV-WC02-N4-MUM', 'LCC': '91', 'DEVICE_TYPE': 'WC'}, 'NV-WC02-N4-MUM': {'NODE': 'MUM', 'ORG_NAME': 'JAPAN', 'AUTH_KEY': 'NV-WC02-N4-MUM', 'ESP_IP': '10.125.64.6', 'MANAGEMENT_NW_SUBNET': '10.91.140.0/22', 'AUTH_STRING': 'NV-WC02-N4-MUM@JAPAN.com', 'ORG_ID': '125', 'VNF_GWS': ['NV-GW01-N4-MUM', 'NV-GW02-N4-MUM'], 'DEVICE_NAME': 'NV-WC02-N4-MUM', 'VXLAN_IP': '10.125.0.6', 'LCC': '91', 'DEVICE_TYPE': 'WC', 'RR_CLIENTS': ['NV-WC02-N2-BLR', 'NV-WC02-N5-LON']}, 'NV-WC01-N2-BLR': {'NODE': 'BLR', 'ORG_NAME': 'JAPAN', 'AUTH_KEY': 'NV-WC01-N2-BLR', 'ESP_IP': '10.125.64.23', 'MANAGEMENT_NW_SUBNET': '10.91.140.0/22', 'AUTH_STRING': 'NV-WC01-N2-BLR@JAPAN.com', 'ORG_ID': '125', 'VNF_GWS': ['NV-GW01-N2-BLR', 'NV-GW02-N2-BLR'], 'DEVICE_NAME': 'NV-WC01-N2-BLR', 'VXLAN_IP': '10.125.0.23', 'LCC': '91', 'DEVICE_TYPE': 'WC', 'RR_CLIENTS': ['NV-WC01-N4-MUM', 'NV-WC01-N5-LON']}, 'NV-GW02-N2-BLR': {'NODE': 'BLR', 'ORG_NAME': 'JAPAN', 'AUTH_KEY': 'NV-GW02-N2-BLR', 'ESP_IP': '40.125.2.2', 'NNI1_GATEWAY_ADDRESS': '193.125.2.1', 'ORG_ID': '125', 'INTERNET_INTERFACE': 'vni-0/1.455', 'MPLS_INTERFACE': 'vni-0/1.465', 'DEVICE_NAME': 'NV-GW02-N2-BLR', 'VXLAN_IP': '30.125.2.2', 'PAIRED_TVI_SUBNET': '10.125.47.64/30', 'WC_list': ['NV-WC01-N2-BLR', 'NV-WC02-N2-BLR'], 'LCC': '91', 'DEVICE_TYPE': 'GW', 'GW_NUMBER': 2L, 'LOG_COLLECTOR1_ADDRESS': '10.91.116.71', 'NNI1_SUBNET': '193.125.2.0/30', 'LOG_COLLECTOR2_ADDRESS': '10.91.116.72', 'NNI1_INTERFACE_ADDRESS': '193.125.2.2', 'AUTH_STRING': 'NV-GW02-N2-BLR@JAPAN.com'}} | WC2_ESP_IP=10.125.64.24 | VXLAN_IP=10.10.125.12 | ctlr_list=['NV-WC01-N2-BLR', 'NV-WC02-N4-MUM', 'NV-WC02-N2-BLR'] | LCC=91 | INT_WAN_INTF_NEXTHOP=172.16.6.45 | DG_TEMPLATE_NAME=JAPAN-BLR-PS-M-DG | VNF_IPADDRESS1=10.91.116.67/32 | AUTH_KEY=CPE12-BLR | WC1_ESP_IP=10.125.64.23 | WC1_local_ike_id=CPE12-BLR@colt.net | MIN_SW_VERSION=16.1R2-S2.2 | vddata_dict={'username': 'admin', 'GUIpassword': 'Auto@123', 'LIB': nan, 'ORG_ID': nan, 'PS_TEMPLATE_NAME': nan, 'Device_name': 'VD1', 'START_LAN_IP_SUBNET': nan, 'device_type': 'versa_director', 'PST_CREATION': nan, 'SATGING_WAN': nan, 'DG_CREATION': nan, 'INT_WAN_INTF': nan, 'mgmt_ip': '10.91.116.36', 'MPLS_WAN_INTF_NEXTHOP': nan, 'MPLS_WAN_INTF_IP': nan, 'Site_id': nan, 'MPLS_WAN_INTF': nan, 'START_VLAN': nan, 'MPLS_WAN_NAME': nan, 'Serial_Number': nan, 'SATGING_SERVER': nan, 'NODE': nan, 'NO_OF_VRFS': nan, 'ESP_IP': nan, 'DEV_TEMPALTE_CREATION': nan, 'INT_INTF_IP_ALLOC': nan, 'INT_WAN_INTF_IP': nan, 'INT_WAN_NAME': nan, 'password': 'versa123', 'SATGING_WAN_DHCP': nan, 'ORG_NAME': nan, 'Solution_type': nan, 'GUIusername': 'Automated', 'VXLAN_IP': nan, 'LAN_INTF': nan, 'INT_WAN_INTF_NEXTHOP': nan, 'DG_TEMPLATE_NAME': nan, 'MIN_SW_VERSION': nan} }</msg>
+<msg timestamp="20190412 16:02:20.802" level="INFO">${cpe_list} = </msg>
+<msg timestamp="20190412 16:02:20.803" level="INFO">&amp;{ctlr_dict} = { MUM=['NV-WC01-N4-MUM', 'NV-WC02-N4-MUM'] | BLR=['NV-WC01-N2-BLR', 'NV-WC02-N2-BLR'] }</msg>
+<msg timestamp="20190412 16:02:20.803" level="INFO">@{ctlr_list} = [ NV-WC01-N2-BLR | NV-WC02-N4-MUM | NV-WC02-N2-BLR ]</msg>
+<msg timestamp="20190412 16:02:20.803" level="INFO">${DEBUG_FILE} = NONE</msg>
+<msg timestamp="20190412 16:02:20.803" level="INFO">${device_grp_url} = /nextgen/deviceGroup</msg>
+<msg timestamp="20190412 16:02:20.804" level="INFO">${device_tempalte_body} = {
+	"versanms.sdwan-device-workflow": {
+		"deviceName": "AUTO-CPE26",
+		"siteId": "2396",
+		"orgName": "IPC00012",
+		"serialNumber": "KSA1811006",
+		"deviceGroup": "AUTO-IPC00012-BLR-PS-HS-LIB-DG",
+		"locationInfo": {
+			"state": "karnataka",
+			"country": "india",
+			"longitude": "77.594563",
+			"latitude": "12.971599",
+			"city": "bangalore"
+		},
+		"postStagingTemplateInfo": {
+			"templateName": "AUTO-IPC00012-BLR-PS-HS-LIB",
+			"templateData": {
+				"device-template-variable": {
+					"template": "AUTO-IPC00012-BLR-PS-HS-LIB",
+					"variable-binding": {
+						"attrs": [{
+							"name": "{$v_INT-WAN_IPv4__staticaddress}",
+							"value": "172.16.3.98/30",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_vni-0-4_LAN6_Unit-5__vlanId}",
+							"value": "736",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_IPC00012-Control-VR_16_Router_ID__vrRouteId}",
+							"value": "20.20.16.26",
+							"isAutogeneratable": true,
+							"isOverwritten": false
+						}, {
+							"name": "{$v_IPC00012_NV-WC01-N2-BLR_Local_auth_email_key__IKELKey}",
+							"value": "1234",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_IPC00012_NV-WC02-N2-BLR_Local_auth_email_key__IKELKey}",
+							"value": "1234",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_LAN10_IPv4__staticaddress}",
+							"value": "192.169.240.1/24",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_vni-0-4_LAN8_Unit-7__vlanId}",
+							"value": "738",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_vni-0-4_LAN2_Unit-1__vlanId}",
+							"value": "732",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_LAN9_IPv4__staticaddress}",
+							"value": "192.169.239.1/24",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_LAN5_IPv4__staticaddress}",
+							"value": "192.169.235.1/24",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_LAN1_IPv4__staticaddress}",
+							"value": "192.169.231.1/24",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_vni-0-4_LAN4_Unit-3__vlanId}",
+							"value": "734",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_LAN7_IPv4__staticaddress}",
+							"value": "192.169.237.1/24",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_vni-0-4_LAN4_Unit-3__unit}",
+							"value": "734",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_IPC00012_NV-WC02-N2-BLR_Local_auth_email_identifier__IKELIdentifier}",
+							"value": "AUTO-CPE26@colt.net",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_vni-0-4_LAN10_Unit-9__unit}",
+							"value": "740",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_vni-0-4_LAN9_Unit-8__unit}",
+							"value": "739",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_vni-0-4_LAN1_Unit-0__unit}",
+							"value": "731",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_vni-0-4_LAN3_Unit-2__unit}",
+							"value": "733",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_Site_Id__siteSiteID}",
+							"value": "2396",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_vni-0-4_LAN6_Unit-5__unit}",
+							"value": "736",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_vni-0-4_LAN7_Unit-6__vlanId}",
+							"value": "737",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_LAN6_IPv4__staticaddress}",
+							"value": "192.169.236.1/24",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_IPC00012_NV-WC01-N2-BLR_Local_auth_email_identifier__IKELIdentifier}",
+							"value": "AUTO-CPE26@colt.net",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_vni-0-4_LAN1_Unit-0__vlanId}",
+							"value": "731",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_vni-0-4_LAN9_Unit-8__vlanId}",
+							"value": "739",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_LAN2_IPv4__staticaddress}",
+							"value": "192.169.232.1/24",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_vni-0-4_LAN10_Unit-9__vlanId}",
+							"value": "740",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_vni-0-4_LAN5_Unit-4__unit}",
+							"value": "735",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_vni-0-4_LAN2_Unit-1__unit}",
+							"value": "732",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_LAN4_IPv4__staticaddress}",
+							"value": "192.169.234.1/24",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_IPC00012_Site_Name__sitesSiteName}",
+							"value": "AUTO-CPE26",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_vni-0-4_LAN3_Unit-2__vlanId}",
+							"value": "733",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_latitude__IdLatitude}",
+							"value": "12.971599",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_identification__IdName}",
+							"value": "AUTO-CPE26",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_LAN3_IPv4__staticaddress}",
+							"value": "192.169.233.1/24",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_INT-WAN-Transport-VR_IPv4__vrHopAddress}",
+							"value": "172.16.3.97",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_vni-0-4_LAN7_Unit-6__unit}",
+							"value": "737",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_tvi-0-32_-_Unit_0_Static_address__tunnelStaticAddress}",
+							"value": "10.10.16.26/32",
+							"isAutogeneratable": true,
+							"isOverwritten": false
+						}, {
+							"name": "{$v_Chassis_Id__sitesChassisId}",
+							"value": "KSA1811006",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_longitude__Idlongitude}",
+							"value": "77.594563",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_LAN8_IPv4__staticaddress}",
+							"value": "192.169.238.1/24",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_location__IdLocation}",
+							"value": "bangalore,karnataka, india",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_vni-0-4_LAN5_Unit-4__vlanId}",
+							"value": "735",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_IPC00012-Control-VR_16_Local_address__vrRouterAddress}",
+							"value": "20.20.16.26",
+							"isAutogeneratable": true,
+							"isOverwritten": false
+						}, {
+							"name": "{$v_vni-0-4_LAN8_Unit-7__unit}",
+							"value": "738",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}",
+							"value": "172.16.3.93",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_MPLS-WAN_IPv4__staticaddress}",
+							"value": "172.16.3.94/30",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_tvi-0-33_-_Unit_0_Static_address__tunnelStaticAddress}",
+							"value": "20.20.16.26/32",
+							"isAutogeneratable": true,
+							"isOverwritten": false
+						}]
+					}
+				},
+				"variableMetadata": [{
+					"variable": "{$v_INT-WAN_IPv4__staticaddress}",
+					"group": "Interfaces",
+					"overlay": false,
+					"type": "IPV4_MASK"
+				}, {
+					"variable": "{$v_vni-0-4_LAN6_Unit-5__vlanId}",
+					"group": "Vlan Info",
+					"overlay": false,
+					"type": "INTEGER"
+				}, {
+					"variable": "{$v_IPC00012-Control-VR_16_Router_ID__vrRouteId}",
+					"group": "Virtual Routers",
+					"overlay": true,
+					"type": "IPV4"
+				}, {
+					"variable": "{$v_IPC00012_NV-WC01-N2-BLR_Local_auth_email_key__IKELKey}",
+					"group": "IPSEC",
+					"overlay": false
+				}, {
+					"variable": "{$v_IPC00012_NV-WC02-N2-BLR_Local_auth_email_key__IKELKey}",
+					"group": "IPSEC",
+					"overlay": false
+				}, {
+					"variable": "{$v_LAN10_IPv4__staticaddress}",
+					"group": "Interfaces",
+					"overlay": false,
+					"type": "IPV4_MASK"
+				}, {
+					"variable": "{$v_vni-0-4_LAN8_Unit-7__vlanId}",
+					"group": "Vlan Info",
+					"overlay": false,
+					"type": "INTEGER"
+				}, {
+					"variable": "{$v_vni-0-4_LAN2_Unit-1__vlanId}",
+					"group": "Vlan Info",
+					"overlay": false,
+					"type": "INTEGER"
+				}, {
+					"variable": "{$v_LAN9_IPv4__staticaddress}",
+					"group": "Interfaces",
+					"overlay": false,
+					"type": "IPV4_MASK"
+				}, {
+					"variable": "{$v_LAN5_IPv4__staticaddress}",
+					"group": "Interfaces",
+					"overlay": false,
+					"type": "IPV4_MASK"
+				}, {
+					"variable": "{$v_LAN1_IPv4__staticaddress}",
+					"group": "Interfaces",
+					"overlay": false,
+					"type": "IPV4_MASK"
+				}, {
+					"variable": "{$v_vni-0-4_LAN4_Unit-3__vlanId}",
+					"group": "Vlan Info",
+					"overlay": false,
+					"type": "INTEGER"
+				}, {
+					"variable": "{$v_LAN7_IPv4__staticaddress}",
+					"group": "Interfaces",
+					"overlay": false,
+					"type": "IPV4_MASK"
+				}, {
+					"variable": "{$v_vni-0-4_LAN4_Unit-3__unit}",
+					"group": "Vlan Info",
+					"overlay": false,
+					"type": "INTEGER"
+				}, {
+					"variable": "{$v_IPC00012_NV-WC02-N2-BLR_Local_auth_email_identifier__IKELIdentifier}",
+					"group": "IPSEC",
+					"overlay": false
+				}, {
+					"variable": "{$v_vni-0-4_LAN10_Unit-9__unit}",
+					"group": "Vlan Info",
+					"overlay": false,
+					"type": "INTEGER"
+				}, {
+					"variable": "{$v_vni-0-4_LAN9_Unit-8__unit}",
+					"group": "Vlan Info",
+					"overlay": false,
+					"type": "INTEGER"
+				}, {
+					"variable": "{$v_vni-0-4_LAN1_Unit-0__unit}",
+					"group": "Vlan Info",
+					"overlay": false,
+					"type": "INTEGER"
+				}, {
+					"variable": "{$v_vni-0-4_LAN3_Unit-2__unit}",
+					"group": "Vlan Info",
+					"overlay": false,
+					"type": "INTEGER"
+				}, {
+					"variable": "{$v_Site_Id__siteSiteID}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_vni-0-4_LAN6_Unit-5__unit}",
+					"group": "Vlan Info",
+					"overlay": false,
+					"type": "INTEGER"
+				}, {
+					"variable": "{$v_vni-0-4_LAN7_Unit-6__vlanId}",
+					"group": "Vlan Info",
+					"overlay": false,
+					"type": "INTEGER"
+				}, {
+					"variable": "{$v_LAN6_IPv4__staticaddress}",
+					"group": "Interfaces",
+					"overlay": false,
+					"type": "IPV4_MASK"
+				}, {
+					"variable": "{$v_IPC00012_NV-WC01-N2-BLR_Local_auth_email_identifier__IKELIdentifier}",
+					"group": "IPSEC",
+					"overlay": false
+				}, {
+					"variable": "{$v_vni-0-4_LAN1_Unit-0__vlanId}",
+					"group": "Vlan Info",
+					"overlay": false,
+					"type": "INTEGER"
+				}, {
+					"variable": "{$v_vni-0-4_LAN9_Unit-8__vlanId}",
+					"group": "Vlan Info",
+					"overlay": false,
+					"type": "INTEGER"
+				}, {
+					"variable": "{$v_LAN2_IPv4__staticaddress}",
+					"group": "Interfaces",
+					"overlay": false,
+					"type": "IPV4_MASK"
+				}, {
+					"variable": "{$v_vni-0-4_LAN10_Unit-9__vlanId}",
+					"group": "Vlan Info",
+					"overlay": false,
+					"type": "INTEGER"
+				}, {
+					"variable": "{$v_vni-0-4_LAN5_Unit-4__unit}",
+					"group": "Vlan Info",
+					"overlay": false,
+					"type": "INTEGER"
+				}, {
+					"variable": "{$v_vni-0-4_LAN2_Unit-1__unit}",
+					"group": "Vlan Info",
+					"overlay": false,
+					"type": "INTEGER"
+				}, {
+					"variable": "{$v_LAN4_IPv4__staticaddress}",
+					"group": "Interfaces",
+					"overlay": false,
+					"type": "IPV4_MASK"
+				}, {
+					"variable": "{$v_IPC00012_Site_Name__sitesSiteName}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_vni-0-4_LAN3_Unit-2__vlanId}",
+					"group": "Vlan Info",
+					"overlay": false,
+					"type": "INTEGER"
+				}, {
+					"variable": "{$v_latitude__IdLatitude}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_identification__IdName}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_LAN3_IPv4__staticaddress}",
+					"group": "Interfaces",
+					"overlay": false,
+					"type": "IPV4_MASK"
+				}, {
+					"variable": "{$v_INT-WAN-Transport-VR_IPv4__vrHopAddress}",
+					"group": "Virtual Routers",
+					"overlay": false,
+					"type": "IPV4_IPV6"
+				}, {
+					"variable": "{$v_vni-0-4_LAN7_Unit-6__unit}",
+					"group": "Vlan Info",
+					"overlay": false,
+					"type": "INTEGER"
+				}, {
+					"variable": "{$v_tvi-0-32_-_Unit_0_Static_address__tunnelStaticAddress}",
+					"group": "Interfaces",
+					"overlay": true,
+					"type": "IPV4_IPV6_MASK"
+				}, {
+					"variable": "{$v_Chassis_Id__sitesChassisId}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_longitude__Idlongitude}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_LAN8_IPv4__staticaddress}",
+					"group": "Interfaces",
+					"overlay": false,
+					"type": "IPV4_MASK"
+				}, {
+					"variable": "{$v_location__IdLocation}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_vni-0-4_LAN5_Unit-4__vlanId}",
+					"group": "Vlan Info",
+					"overlay": false,
+					"type": "INTEGER"
+				}, {
+					"variable": "{$v_IPC00012-Control-VR_16_Local_address__vrRouterAddress}",
+					"group": "Virtual Routers",
+					"overlay": true,
+					"type": "IPV4"
+				}, {
+					"variable": "{$v_vni-0-4_LAN8_Unit-7__unit}",
+					"group": "Vlan Info",
+					"overlay": false,
+					"type": "INTEGER"
+				}, {
+					"variable": "{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}",
+					"group": "Virtual Routers",
+					"overlay": false,
+					"type": "IPV4_IPV6"
+				}, {
+					"variable": "{$v_MPLS-WAN_IPv4__staticaddress}",
+					"group": "Interfaces",
+					"overlay": false,
+					"type": "IPV4_MASK"
+				}, {
+					"variable": "{$v_tvi-0-33_-_Unit_0_Static_address__tunnelStaticAddress}",
+					"group": "Interfaces",
+					"overlay": true,
+					"type": "IPV4_IPV6_MASK"
+				}]
+			}
+		}
+	}
+}</msg>
+<msg timestamp="20190412 16:02:20.805" level="INFO">${device_template_url} = /vnms/sdwan/workflow/devices/device</msg>
+<msg timestamp="20190412 16:02:20.805" level="INFO">&amp;{dg_dict} = { dg_name= }</msg>
+<msg timestamp="20190412 16:02:20.805" level="INFO">${DG_template_body} = {
+	"device-group": {
+		"name": "AUTO-IPC00012-BLR-PS-HS-LIB-DG",
+		"dg:organization": "IPC00012",
+		"dg:enable-2factor-auth": false,
+		"dg:enable-staging-url": false,
+		"dg:poststaging-template": "AUTO-IPC00012-BLR-PS-HS-LIB"
+	}
+}</msg>
+<msg timestamp="20190412 16:02:20.806" level="INFO">${est} = Established</msg>
+<msg timestamp="20190412 16:02:20.806" level="INFO">${EXECDIR} = C:\Softwares_mine\stefano\NV_REPOSITORY\csit\suites</msg>
+<msg timestamp="20190412 16:02:20.806" level="INFO">${False} = False</msg>
+<msg timestamp="20190412 16:02:20.806" level="INFO">${fileDir} = C:\Softwares_mine\stefano\NV_REPOSITORY\csit\suites</msg>
+<msg timestamp="20190412 16:02:20.806" level="INFO">${get_template_url} = /vnms/sdwan/workflow/templates?offset=0&amp;limit=10000</msg>
+<msg timestamp="20190412 16:02:20.806" level="INFO">${getpass} = &lt;module 'getpass' from 'C:\Python27\lib\getpass.pyc'&gt;</msg>
+<msg timestamp="20190412 16:02:20.807" level="INFO">&amp;{gw_dict} = { MUM=['NV-GW01-N4-MUM', 'NV-GW02-N4-MUM'] | BLR=['NV-GW01-N2-BLR', 'NV-GW02-N2-BLR'] }</msg>
+<msg timestamp="20190412 16:02:20.807" level="INFO">@{gw_list} = [ NV-GW01-N2-BLR | NV-GW02-N2-BLR ]</msg>
+<msg timestamp="20190412 16:02:20.807" level="INFO">&amp;{headers} = { Accept=application/vnd.yang.data+json }</msg>
+<msg timestamp="20190412 16:02:20.807" level="INFO">&amp;{headers2} = { Content-Type=application/vnd.yang.data+json | Accept=application/vnd.yang.data+json }</msg>
+<msg timestamp="20190412 16:02:20.807" level="INFO">&amp;{headers3} = { Content-Type=application/json | Accept=application/json }</msg>
+<msg timestamp="20190412 16:02:20.808" level="INFO">&amp;{headers4} = { Content-Type=application/json }</msg>
+<msg timestamp="20190412 16:02:20.808" level="INFO">${interface_template} = C:\Softwares_mine\stefano\NV_REPOSITORY\csit\suites\Utils/TEXTFSM/versa_interface_template</msg>
+<msg timestamp="20190412 16:02:20.808" level="INFO">${j2_templates_path} = C:\Softwares_mine\stefano\NV_REPOSITORY\csit\suites/../libraries/J2_temps</msg>
+<msg timestamp="20190412 16:02:20.808" level="INFO">&amp;{LCC_dict} = { MUM=1091 | LON=44 | BLR=91 }</msg>
+<msg timestamp="20190412 16:02:20.808" level="INFO">${LOG_FILE} = C:\Softwares_mine\stefano\NV_REPOSITORY\csit\suites\LOGS\oglevel=DEBUG.html</msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">${LOG_LEVEL} = INFO</msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">${Main_template_modication} = </msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">${MGMT_NW_SBNT} = 10.91.140.0/22</msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">&amp;{NODE_DB_form_vd} = { NV-WC02-N2-BLR={'resourceType': 'Baremetal', 'siteId': 23, 'baremetalController': {'controllerInterface': {'unitInfoList': {'ipv4address': '10.63.44.36/27', 'networkName': 'CONTROL', 'ipv6dhcp': 'false', 'ipv4dhcp': 'false', 'vlanId': 3002}, 'interfaceName': 'vni-0/0'}, 'wanInterfaces': [{'unitInfoList': {'ipv4address': '111.93.152.123/28', 'ipv6dhcp': 'false', 'transportDomainList': 'INTERNET-TD', 'vlanId': 0, 'ipv4dhcp': 'false', 'ipv4gateway': '111.93.152.113', 'networkName': 'INT-WAN'}, 'interfaceName': 'vni-0/1'}], 'serverIP': '10.91.116.251'}, 'controllerName': 'NV-WC01-N2-BLR', 'orgName': 'Colt', 'postStagingController': 'true', 'locationInfo': {'latitude': 40.267194, 'country': 'IN', 'longitude': -86.134902}, 'stagingController': 'true'} }</msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">&amp;{NODE_DEVICE_DB} = { MUM={'WC1': {'SITE_VXLAN_IP': '10.org_id.0.23', 'LCC': '91', 'HOST_NAME': 'NV-WC01-N4-MUM', 'MANAGEMENT_NW_SUBNET': '10.91.140.0/22', 'WAN_INTF': {'MPLS': '10.63.151.70', 'INTERNET': '111.93.152.123'}, 'SITE_ID': '23', 'SATGING_PROFILES': {'MPLS': 'MPLS-WAN-NV-WC01-N4-MUM-StagingIpsec', 'INTERNET': 'INT-WAN-NV-WC01-N4-MUM-StagingIpsec'}, 'SITE_ESP_IP': '10.org_id.64.23'}, 'WC2': {'SITE_VXLAN_IP': '30.org_id.0.23', 'RR_CLIENTS': ['BLR_WC1', 'LON_WC1'], 'SITE_ID': '23', 'SATGING_PROFILES': {'MPLS': 'MPLS-WAN-NV-WC02-N4-MUM-StagingIpsec', 'INTERNET': 'INT-WAN-NV-WC02-N4-MUM-StagingIpsec'}, 'SITE_ESP_IP': '40.org_id.64.23'}, 'GW1': {}, 'GW2': {}} | LON={'WC1': {'SITE_VXLAN_IP': '10.org_id.0.23', 'LCC': '91', 'HOST_NAME': 'NV-WC01-N5-LON', 'MANAGEMENT_NW_SUBNET': '10.91.140.0/22', 'WAN_INTF': {'MPLS': '10.63.151.70', 'INTERNET': '111.93.152.123'}, 'SITE_ID': '23', 'SATGING_PROFILES': {'MPLS': '', 'INTERNET': 'INT-WAN-NV-WC01-N5-LON-StagingIpsec'}, 'SITE_ESP_IP': '10.org_id.64.23'}, 'WC2': {'HOST_NAME': 'NV-WC02-N5-LON', 'SATGING_PROFILES': {'MPLS': 'MPLS-WAN-NV-WC02-N5-LON-StagingIpsec', 'INTERNET': ''}}, 'GW1': {}, 'GW2': {}} | BLR={'WC1': {'ESP_IP': '10.org_id.64.23', 'WAN_INTF': {'MPLS': '10.63.151.70', 'INTERNET': '111.93.152.123'}, 'SITE_ID': '23', 'SATGING_PROFILES': {'MPLS': '', 'INTERNET': 'STAGING-INT'}, 'VXLAN_IP': '10.org_id.0.23', 'HOST_NAME': 'NV-WC01-N2-BLR', 'RR_CLIENTS': ['MUM_WC1', 'LON_WC1']}, 'WC2': {'ESP_IP': '10.org_id.64.24', 'WAN_INTF': {'MPLS': '10.63.151.90', 'INTERNET': '10.63.130.90'}, 'SITE_ID': '24', 'SATGING_PROFILES': {'MPLS': 'STAGING-MPLS', 'INTERNET': 'STAGING-INT'}, 'VXLAN_IP': '10.org_id.0.24', 'HOST_NAME': 'NV-WC02-N2-BLR'}, 'MANAGEMENT_NW_SUBNET': '10.91.140.0/22', 'GW1': {'ESP_IP': '40.org_id.2.1', 'WAN_INTF': {'MPLS': '10.63.151.78', 'INTERNET': '10.63.130.78'}, 'SITE_ID': '103', 'SATGING_PROFILES': {'MPLS': 'STAGING-MPLS', 'INTERNET': 'STAGING-INT'}, 'VXLAN_IP': '30.org_id.2.1', 'HOST_NAME': 'NV-GW01-N2-BLR'}, 'LCC': '91', 'GW2': {'ESP_IP': '40.org_id.2.2', 'WAN_INTF': {'MPLS': '10.63.151.98', 'INTERNET': '10.63.130.98'}, 'SITE_ID': '124', 'SATGING_PROFILES': {'MPLS': 'STAGING-MPLS', 'INTERNET': 'STAGING-INT'}, 'VXLAN_IP': '30.org_id.2.2', 'HOST_NAME': 'NV-GW02-N2-BLR'}} }</msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">${None} = None</msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">${null} = None</msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">${org_url} = /vnms/sdwan/workflow/orgs/org</msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">${os} = &lt;module 'os' from 'C:\Python27\lib\os.pyc'&gt;</msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">${OUTPUT_DIR} = C:\Softwares_mine\stefano\NV_REPOSITORY\csit\suites\LOGS</msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">${OUTPUT_FILE} = C:\Softwares_mine\stefano\NV_REPOSITORY\csit\suites\LOGS\output.xml</msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">${package_url} = /api/operational/nms/packages/package?select=name;uri</msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">${pd} = &lt;module 'pandas' from 'C:\Python27\lib\site-packages\pandas\__init__.pyc'&gt;</msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">${PREV_TEST_MESSAGE} = </msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">${PREV_TEST_NAME} = </msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">${PREV_TEST_STATUS} = </msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">${ps_template_body} = {
+	"versanms.sdwan-template-workflow": {
+		"templateName": "AUTO-IPC00012-BLR-PS-HS-LIB",
+		"templateType": "sdwan-post-staging",
+		"controllers": ["NV-WC01-N2-BLR", "NV-WC02-N2-BLR"],
+		"providerOrg": {
+			"name": "IPC00012",
+			"statefulFW": true,
+			"nextGenFW": false
+		},
+		"analyticsCluster": "LogCollectors",
+		"deviceFirmfactor": "6",
+		"wanInterfaces": [{
+			"interfaceName": "vni-0/1",
+			"pppoe": false,
+			"unitInfo": [{
+				"subUnit": 0,
+				"vlanId": 0,
+				"networkName": "MPLS-WAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv6Static": false,
+				"ipv6Dhcp": false,
+				"allowSSH": false,
+				"monitor": {},
+				"linkPriority": "",
+				"transportDomains": ["MPLS-TD"]
+			}]
+		}, {
+			"interfaceName": "vni-0/2",
+			"pppoe": false,
+			"unitInfo": [{
+				"subUnit": 0,
+				"vlanId": 0,
+				"networkName": "INT-WAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv6Static": false,
+				"ipv6Dhcp": false,
+				"allowSSH": false,
+				"monitor": {},
+				"linkPriority": "",
+				"transportDomains": ["INTERNET-TD"]
+			}]
+		}],
+		"deviceType": "full-mesh",
+		"redundantPair": {
+			"enable": false
+		},
+		"lanInterfaces": [{
+			"interfaceName": "vni-0/4",
+			"unitInfo": [{
+				"subUnit": "{$v_vni-0-4_LAN1_Unit-0__unit}",
+				"vlanId": "{$v_vni-0-4_LAN1_Unit-0__vlanId}",
+				"networkName": "LAN1",
+				"subOrganization": "IPC00012",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN1-VRF",
+				"zoneName": ""
+			}, {
+				"subUnit": "{$v_vni-0-4_LAN2_Unit-1__unit}",
+				"vlanId": "{$v_vni-0-4_LAN2_Unit-1__vlanId}",
+				"networkName": "LAN2",
+				"subOrganization": "IPC00012",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv4DhcpServer": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN2-VRF",
+				"zoneName": ""
+			}, {
+				"subUnit": "{$v_vni-0-4_LAN3_Unit-2__unit}",
+				"vlanId": "{$v_vni-0-4_LAN3_Unit-2__vlanId}",
+				"networkName": "LAN3",
+				"subOrganization": "IPC00012",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv4DhcpServer": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN3-VRF",
+				"zoneName": ""
+			}, {
+				"subUnit": "{$v_vni-0-4_LAN4_Unit-3__unit}",
+				"vlanId": "{$v_vni-0-4_LAN4_Unit-3__vlanId}",
+				"networkName": "LAN4",
+				"subOrganization": "IPC00012",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv4DhcpServer": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN4-VRF",
+				"zoneName": ""
+			}, {
+				"subUnit": "{$v_vni-0-4_LAN5_Unit-4__unit}",
+				"vlanId": "{$v_vni-0-4_LAN5_Unit-4__vlanId}",
+				"networkName": "LAN5",
+				"subOrganization": "IPC00012",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv4DhcpServer": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN5-VRF",
+				"zoneName": ""
+			}, {
+				"subUnit": "{$v_vni-0-4_LAN6_Unit-5__unit}",
+				"vlanId": "{$v_vni-0-4_LAN6_Unit-5__vlanId}",
+				"networkName": "LAN6",
+				"subOrganization": "IPC00012",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv4DhcpServer": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN6-VRF",
+				"zoneName": ""
+			}, {
+				"subUnit": "{$v_vni-0-4_LAN7_Unit-6__unit}",
+				"vlanId": "{$v_vni-0-4_LAN7_Unit-6__vlanId}",
+				"networkName": "LAN7",
+				"subOrganization": "IPC00012",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv4DhcpServer": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN7-VRF",
+				"zoneName": ""
+			}, {
+				"subUnit": "{$v_vni-0-4_LAN8_Unit-7__unit}",
+				"vlanId": "{$v_vni-0-4_LAN8_Unit-7__vlanId}",
+				"networkName": "LAN8",
+				"subOrganization": "IPC00012",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv4DhcpServer": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN8-VRF",
+				"zoneName": ""
+			}, {
+				"subUnit": "{$v_vni-0-4_LAN9_Unit-8__unit}",
+				"vlanId": "{$v_vni-0-4_LAN9_Unit-8__vlanId}",
+				"networkName": "LAN9",
+				"subOrganization": "IPC00012",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv4DhcpServer": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN9-VRF",
+				"zoneName": ""
+			}, {
+				"subUnit": "{$v_vni-0-4_LAN10_Unit-9__unit}",
+				"vlanId": "{$v_vni-0-4_LAN10_Unit-9__vlanId}",
+				"networkName": "LAN10",
+				"subOrganization": "IPC00012",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv4DhcpServer": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN10-VRF",
+				"zoneName": ""
+			}]
+		}],
+		"solutionTier": "standard-sdwan-plus-ngfw",
+		"bandwidth": 1000,
+		"customParams": [],
+		"minimumImageVersion": "16.1R2-S2.2",
+		"isAnalyticsEnabled": true,
+		"isPrimary": true,
+		"diaConfig": {
+			"loadBalance": false
+		},
+		"splitTunnels": [{
+			"vrfName": "LAN1-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}, {
+			"vrfName": "LAN2-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}, {
+			"vrfName": "LAN3-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}, {
+			"vrfName": "LAN4-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}, {
+			"vrfName": "LAN5-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}, {
+			"vrfName": "LAN6-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}, {
+			"vrfName": "LAN7-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}, {
+			"vrfName": "LAN8-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}, {
+			"vrfName": "LAN9-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}, {
+			"vrfName": "LAN10-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}],
+		"inBoundNats": []
+	}
+}</msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">${PST} = Post_staging_template.j2</msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">${read_controllers_url} = /vnms/sdwan/workflow/controllers</msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">${REPORT_FILE} = C:\Softwares_mine\stefano\NV_REPOSITORY\csit\suites\LOGS\report.html</msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">${route_template} = C:\Softwares_mine\stefano\NV_REPOSITORY\csit\suites\Utils/TEXTFSM/versa_route_template</msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">@{routing_instances} = [ LAN1-VRF | LAN2-VRF | LAN3-VRF | LAN4-VRF | LAN5-VRF | LAN6-VRF | LAN7-VRF | LAN8-VRF | LAN9-VRF | LAN10-VRF ]</msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">&amp;{RR_Clients} = { NV-WC02-N4-MUM=['NV-WC02-N2-BLR', 'NV-WC02-N5-LON'] | NV-WC01-N2-BLR=['NV-WC01-N4-MUM', 'NV-WC01-N5-LON'] }</msg>
+<msg timestamp="20190412 16:02:20.809" level="INFO">@{RR_SERVER} = [ NV-WC01-N2-BLR | NV-WC02-N4-MUM ]</msg>
+<msg timestamp="20190412 16:02:20.813" level="INFO">${sfw_template_assc_url} = /nextgen/template/</msg>
+<msg timestamp="20190412 16:02:20.813" level="INFO">${show_config_template} = C:\Softwares_mine\stefano\NV_REPOSITORY\csit\suites\Utils/TEXTFSM/versa_show_config_template</msg>
+<msg timestamp="20190412 16:02:20.813" level="INFO">&amp;{Solution_type} = { hybrid={'local_ckt_pri_2_intfs': 'INT-WAN', 'remote_ckt_pri_1_intf': 'MPLS-WAN MPLS-WAN1 MPLS-WAN2 INT-WAN INT-WAN1 INT-WAN2', 'local_ckt_pri_1_intfs': 'MPLS-WAN INT-WAN', 'remote_ckt_pri_2_intf': 'LTE-WAN'} | dual_mpls={'remote_ckt_pri_1_intf': 'MPLS-WAN MPLS-WAN1 MPLS-WAN2', 'local_ckt_pri_1_intfs': 'MPLS-WAN1 MPLS-WAN2'} | dual-internet={'local_ckt_pri_2_intfs': 'INT-WAN1 INT-WAN2', 'remote_ckt_pri_1_intf': 'INT-WAN INT-WAN1 INT-WAN2', 'local_ckt_pri_1_intfs': 'INT-WAN1 INT-WAN2', 'remote_ckt_pri_2_intf': 'LTE-WAN'} | internet={'local_ckt_pri_2_intfs': 'INT-WAN INT-WAN1 INT-WAN2', 'remote_ckt_pri_1_intf': 'INT-WAN', 'local_ckt_pri_1_intfs': 'INT-WAN', 'remote_ckt_pri_2_intf': 'LTE-WAN'} }</msg>
+<msg timestamp="20190412 16:02:20.813" level="INFO">@{SOLUTIONS_list} = [ SINGLE-CPE-HYBRID | SINGLE-CPE-INTERNET-ONLY | SINGLE-CPE-MPLS-ONLY ]</msg>
+<msg timestamp="20190412 16:02:20.813" level="INFO">${SPACE} =  </msg>
+<msg timestamp="20190412 16:02:20.813" level="INFO">&amp;{STAGING_SERVERS} = { NV-WC02-N2-BLR={'INT': {'PROFILE': 'STAGING-INT', 'IP': '10.63.130.90', 'KEY': 'NV-WC02-N2-BLR', 'ORG': 'Colt', 'TYPE': 'email', 'ID': 'NV-WC02-N2-BLR@colt.net'}, 'MPLS': {'PROFILE': 'STAGING-MPLS', 'IP': '10.63.151.90', 'KEY': 'NV-WC02-N2-BLR', 'ORG': 'Colt', 'TYPE': 'email', 'ID': 'NV-WC02-N2-BLR@colt.net'}} | NV-WC02-N4-MUM={'INT': {'PROFILE': 'INT-WAN-NV-WC02-N4-MUM-StagingIpsec', 'IP': '10.83.132.53', 'KEY': 'NV-WC02-N4-MUM', 'ORG': 'Colt', 'TYPE': 'email', 'ID': 'NV-WC02-N4-MUM@colt.net'}, 'MPLS': {'PROFILE': 'MPLS-WAN-NV-WC02-N4-MUM-StagingIpsec', 'IP': '10.83.153.229', 'KEY': 'NV-WC02-N4-MUM', 'ORG': 'Colt', 'TYPE': 'email', 'ID': 'NV-WC02-N4-MUM@colt.net'}} | NV-WC01-N2-BLR={'INT': {'PROFILE': 'STAGING-INT', 'IP': '111.93.152.123', 'KEY': 'NV-WC01-N2-BLR', 'ORG': 'Colt', 'TYPE': 'email', 'ID': 'NV-WC01-N2-BLR@colt.net'}, 'MPLS': {}} | NV-WC01-N4-MUM={'INT': {'PROFILE': 'INT-WAN-NV-WC01-N4-MUM-StagingIpsec', 'IP': '10.83.132.49', 'KEY': 'NV-WC01-N4-MUM', 'ORG': 'Colt', 'TYPE': 'email', 'ID': 'NV-WC01-N4-MUM@colt.net'}, 'MPLS': {'PROFILE': 'MPLS-WAN-NV-WC01-N4-MUM-StagingIpsec', 'IP': '10.83.153.225', 'KEY': 'NV-WC01-N4-MUM', 'ORG': 'Colt', 'TYPE': 'email', 'ID': 'NV-WC01-N4-MUM@colt.net'}} }</msg>
+<msg timestamp="20190412 16:02:20.813" level="INFO">&amp;{staging_servers_dict} = { MUM=['NV-WC01-N4-MUM', 'NV-WC02-N4-MUM'] | BLR=['NV-WC01-N2-BLR', 'NV-WC02-N2-BLR'] }</msg>
+<msg timestamp="20190412 16:02:20.813" level="INFO">${SUITE_DOCUMENTATION} = A test suite with tests for SDWAN HYBRID Solution.
+Topology:-
+____________________________
+| VersaDirector |
+|___________________________|
+|
+|
+|
+_____________|_______________
+| WanCtrller1 |
+|____________________________|
+| |
+| |
+| |
+INTERNET/MPLS
+| |
+| |___
+______|__ ___|___
+| | | |
+LAN1--+ CPE1 | | CPE2 +--LAN1
+|________| |_______|
+
+
+Testplan Goals:-
+1. CHECK IF IP ADDRESS IS SET AND INTERFACE IS UP.</msg>
+<msg timestamp="20190412 16:02:20.813" level="INFO">&amp;{SUITE_METADATA} = { Version=1.0
+More Info For more information about Robot Framework see http://robotframework.org
+Author Sathishkumar murugesan
+Date 12 Dec 2017
+Executed At HOST
+Test Framework Robot Framework Python }</msg>
+<msg timestamp="20190412 16:02:20.813" level="INFO">${SUITE_NAME} = SINGLE CPE HYBRID SOLUTION TEST</msg>
+<msg timestamp="20190412 16:02:20.813" level="INFO">${SUITE_SOURCE} = C:\Softwares_mine\stefano\NV_REPOSITORY\csit\suites\SINGLE_CPE_HYBRID_SOLUTION_TEST.robot</msg>
+<msg timestamp="20190412 16:02:20.813" level="INFO">${task_url} = /vnms/tasks/task/</msg>
+<msg timestamp="20190412 16:02:20.817" level="INFO">${TEMPDIR} = c:\users\smurug~1\appdata\local\temp</msg>
+<msg timestamp="20190412 16:02:20.817" level="INFO">${template_url} = /vnms/sdwan/workflow/templates/template</msg>
+<msg timestamp="20190412 16:02:20.817" level="INFO">${Topo_file} = C:\Softwares_mine\stefano\NV_REPOSITORY\csit\suites/../Topology/Devices.csv</msg>
+<msg timestamp="20190412 16:02:20.817" level="INFO">${True} = True</msg>
+<msg timestamp="20190412 16:02:20.817" level="INFO">${upgrade_dev_url} = /api/config/nms/actions/packages/upgrade</msg>
+<msg timestamp="20190412 16:02:20.817" level="INFO">@{VNF_IPADDRESS} = [ 10.91.116.67/32 | 10.91.116.68/32 ]</msg>
+<status status="PASS" endtime="20190412 16:02:20.817" starttime="20190412 16:02:20.770"></status>
+</kw>
+<status status="PASS" endtime="20190412 16:02:20.817" starttime="20190412 16:01:09.917"></status>
+</kw>
+<test id="s1-t1" name="Testcase: SDWAN to SDWAN connectivity check both links">
+<kw name="Get Interface Status" library="CPE1">
+<arguments>
+<arg>intf_name=${CPE1['ptvi_intf_wc1']}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190412 16:02:21.826" level="INFO">${result} = show interfaces brief | tab | match ptvi250
+ptvi250      n/a                up    up     2       JAPAN-Control-VR       10.125.64.23/32   
+[ok][2019-04-12 10:32:17]
+admin@CPE11-BLR-cli&gt; </msg>
+<status status="PASS" endtime="20190412 16:02:21.826" starttime="20190412 16:02:20.821"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=up</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:21.830" starttime="20190412 16:02:21.826"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:21.830" starttime="20190412 16:02:21.830"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:21.834" starttime="20190412 16:02:21.830"></status>
+</kw>
+<status status="PASS" endtime="20190412 16:02:21.834" starttime="20190412 16:02:21.830"></status>
+</kw>
+<status status="PASS" endtime="20190412 16:02:21.834" starttime="20190412 16:02:21.826"></status>
+</kw>
+<kw name="Get Interface Status" library="CPE1">
+<arguments>
+<arg>intf_name=${CPE1['ptvi_intf_wc2']}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190412 16:02:22.842" level="INFO">${result} = show interfaces brief | tab | match ptvi251
+ptvi251      n/a                up    up     2       JAPAN-Control-VR       10.125.64.24/32   
+[ok][2019-04-12 10:32:18]
+admin@CPE11-BLR-cli&gt; </msg>
+<status status="PASS" endtime="20190412 16:02:22.842" starttime="20190412 16:02:21.834"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=up</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:22.850" starttime="20190412 16:02:22.846"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:22.854" starttime="20190412 16:02:22.850"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:22.862" starttime="20190412 16:02:22.862"></status>
+</kw>
+<status status="PASS" endtime="20190412 16:02:22.866" starttime="20190412 16:02:22.858"></status>
+</kw>
+<status status="PASS" endtime="20190412 16:02:22.870" starttime="20190412 16:02:22.842"></status>
+</kw>
+<kw name="Get Interface Status" library="CPE2">
+<arguments>
+<arg>intf_name=${CPE2['ptvi_intf_wc1']}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190412 16:02:24.284" level="INFO">${result} = show interfaces brief | tab | match ptvi250
+ptvi250      n/a                up    up     2       JAPAN-Control-VR       10.125.64.23/32   
+[ok][2019-04-12 10:31:55]
+admin@CPE12-BLR-cli&gt; </msg>
+<status status="PASS" endtime="20190412 16:02:24.284" starttime="20190412 16:02:22.874"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=up</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:24.296" starttime="20190412 16:02:24.292"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:24.308" starttime="20190412 16:02:24.304"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:24.320" starttime="20190412 16:02:24.316"></status>
+</kw>
+<status status="PASS" endtime="20190412 16:02:24.320" starttime="20190412 16:02:24.311"></status>
+</kw>
+<status status="PASS" endtime="20190412 16:02:24.320" starttime="20190412 16:02:24.288"></status>
+</kw>
+<kw name="Get Interface Status" library="CPE2">
+<arguments>
+<arg>intf_name=${CPE2['ptvi_intf_wc2']}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190412 16:02:25.334" level="INFO">${result} = show interfaces brief | tab | match ptvi251
+ptvi251      n/a                up    up     2       JAPAN-Control-VR       10.125.64.24/32   
+[ok][2019-04-12 10:31:56]
+admin@CPE12-BLR-cli&gt; </msg>
+<status status="PASS" endtime="20190412 16:02:25.334" starttime="20190412 16:02:24.324"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=up</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:25.354" starttime="20190412 16:02:25.346"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:25.362" starttime="20190412 16:02:25.358"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:25.370" starttime="20190412 16:02:25.370"></status>
+</kw>
+<status status="PASS" endtime="20190412 16:02:25.374" starttime="20190412 16:02:25.362"></status>
+</kw>
+<status status="PASS" endtime="20190412 16:02:25.378" starttime="20190412 16:02:25.338"></status>
+</kw>
+<kw name="Get Bgp Nbr Status" library="CPE1">
+<arguments>
+<arg>nbr_ip=${CPE1['WC1_ESP_IP']}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190412 16:02:26.788" level="INFO">${result} = show bgp neighbor org JAPAN brief JAPAN-Control-VR | match  10.125.64.23
+10.125.64.23    2d23h06m   Established     109           9      36470        179
+[ok][2019-04-12 10:32:22]
+admin@CPE11-BLR-cli...</msg>
+<status status="PASS" endtime="20190412 16:02:26.792" starttime="20190412 16:02:25.378"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=${est}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:26.800" starttime="20190412 16:02:26.796"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:26.810" starttime="20190412 16:02:26.804"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:26.814" starttime="20190412 16:02:26.812"></status>
+</kw>
+<status status="PASS" endtime="20190412 16:02:26.815" starttime="20190412 16:02:26.811"></status>
+</kw>
+<status status="PASS" endtime="20190412 16:02:26.817" starttime="20190412 16:02:26.792"></status>
+</kw>
+<kw name="Get Bgp Nbr Status" library="CPE1">
+<arguments>
+<arg>nbr_ip=${CPE1['WC2_ESP_IP']}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190412 16:02:28.221" level="INFO">${result} = show bgp neighbor org JAPAN brief JAPAN-Control-VR | match  10.125.64.24
+10.125.64.24    2d23h06m   Established     100           9      44530        179
+[ok][2019-04-12 10:32:23]
+admin@CPE11-BLR-cli...</msg>
+<status status="PASS" endtime="20190412 16:02:28.221" starttime="20190412 16:02:26.818"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=${est}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:28.230" starttime="20190412 16:02:28.226"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:28.230" starttime="20190412 16:02:28.230"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:28.234" starttime="20190412 16:02:28.234"></status>
+</kw>
+<status status="PASS" endtime="20190412 16:02:28.238" starttime="20190412 16:02:28.234"></status>
+</kw>
+<status status="PASS" endtime="20190412 16:02:28.238" starttime="20190412 16:02:28.221"></status>
+</kw>
+<status status="PASS" endtime="20190412 16:02:28.238" critical="yes" starttime="20190412 16:02:20.817"></status>
+</test>
+<kw type="teardown" name="CLEANUP">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"sasasa"</arg>
+</arguments>
+<status status="PASS" endtime="20190412 16:02:28.246" starttime="20190412 16:02:28.246"></status>
+</kw>
+<status status="PASS" endtime="20190412 16:02:28.250" starttime="20190412 16:02:28.242"></status>
+</kw>
+<doc>A test suite with tests for SDWAN HYBRID Solution.
+Topology:-
+____________________________
+| VersaDirector |
+|___________________________|
+|
+|
+|
+_____________|_______________
+| WanCtrller1 |
+|____________________________|
+| |
+| |
+| |
+INTERNET/MPLS
+| |
+| |___
+______|__ ___|___
+| | | |
+LAN1--+ CPE1 | | CPE2 +--LAN1
+|________| |_______|
+
+
+Testplan Goals:-
+1. CHECK IF IP ADDRESS IS SET AND INTERFACE IS UP.</doc>
+<metadata>
+<item name="Version">1.0
+More Info For more information about Robot Framework see http://robotframework.org
+Author Sathishkumar murugesan
+Date 12 Dec 2017
+Executed At HOST
+Test Framework Robot Framework Python</item>
+</metadata>
+<status status="PASS" endtime="20190412 16:02:28.250" starttime="20190412 16:00:58.091"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="SINGLE CPE HYBRID SOLUTION TEST" pass="1">SINGLE CPE HYBRID SOLUTION TEST</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
