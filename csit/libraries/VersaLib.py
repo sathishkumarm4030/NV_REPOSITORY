@@ -259,8 +259,8 @@ class VersaLib:
     def get_data_dict(self):
         return self.__dict__
 
-    def set_variable(self, var, val):
-        self.var = val
+    # def set_variable(self, var, val):
+    #     self.var = val
 
     def set_vlan_items(self, START_VLAN):
         self.lan_vlan = []
@@ -715,8 +715,8 @@ class VersaLib:
             print nc_handler.send_command_expect(cmd, expect_string=expect_string, strip_prompt=False, strip_command=False)
 
     def cpe_onboard_call(self):
-        self.main_logger.info("\nSTEP : ONBOARD CALl\n")
-        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/")
+        self.main_logger.info("\nSTEP : ONBOARD CALL\n")
+        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
         curr_env = Environment(loader=curr_file_loader)
         self.Staging_command = curr_env.get_template("staging_cpe.j2")
         self.Staging_command_template = self.Staging_command.render(self.__dict__)
@@ -984,6 +984,11 @@ class VersaLib:
 
     def get_bgp_nbr_status(self, nbr_ip):
         cmd = "show bgp neighbor org " + self.ORG_NAME + " brief " + self.ORG_NAME+"-Control-VR | match " + nbr_ip
+        output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
+        return output
+
+    def check_lan_route(self, lan):
+        cmd = "show route routing-instance LAN"+ lan + "-VRF | nomore"
         output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
         return output
 
@@ -1282,7 +1287,10 @@ class VersaLib:
         if node_type == "WC|GW":
             csv_data_read = csv_data_read.loc[csv_data_read['ORG_NAME'] == "temporgname"]
         if node_type == "SS":
-            csv_data_read = csv_data_read.loc[csv_data_read['WAN'] == wan]
+            if self.Solution_type == "SINGLE-CPE-DUAL-INTERNET":
+                csv_data_read = csv_data_read.loc[csv_data_read['WAN'] == "INT"]
+            else:
+                csv_data_read = csv_data_read.loc[csv_data_read['WAN'] == wan]
         for idx, row in csv_data_read.iterrows():
             res_check = ""
             node_device_data = row.to_dict()
@@ -1330,8 +1338,12 @@ class VersaLib:
                 self.STAGING_ID = self.ORG_NAME + "-" + self.Device_name + "@colt.net"
                 self.STAGING_id_type = "email"
                 self.STAGING_KEY = self.Device_name
-                self.STAGING_INTF = self.__dict__[wan + "_WAN_INTF"][-1]
-                self.STAGING_Local_ip_with_mask =  self.__dict__[wan + "_WAN_INTF_IP"]
+                if self.Solution_type == "SINGLE-CPE-DUAL-INTERNET":
+                    self.STAGING_INTF = self.__dict__[wan + "_WAN_INTF"][-1]
+                    self.STAGING_Local_ip_with_mask =  self.__dict__[wan + "_WAN_INTF_IP"]
+                else:
+                    self.STAGING_INTF = self.__dict__[wan + "_WAN_INTF"][-1]
+                    self.STAGING_Local_ip_with_mask =  self.__dict__[wan + "_WAN_INTF_IP"]
                 self.STAGING_nexthop = self.__dict__[wan + "_WAN_INTF_NEXTHOP"]
             else:
                 self.ndb[node_dev] = node_device_data

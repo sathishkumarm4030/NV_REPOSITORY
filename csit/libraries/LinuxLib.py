@@ -36,6 +36,7 @@ else:
     fileDir = os.path.dirname(os.path.realpath('__file__'))
 
 logger.info(fileDir, also_console=True)
+curr_file_dir = os.path.dirname(os.path.dirname(os.path.realpath('__file__')))
 
 file_loader = FileSystemLoader(fileDir + '/csit/libraries/J2_temps')
 if __name__ == "__main__":
@@ -48,43 +49,24 @@ class LinuxLib:
 
     def __init__(self, device_name, topofile):
         logger.info('intializing', also_console=True)
-        csv_data_read = pd.read_csv(topofile, dtype=object)
+        csv_data_read = pd.read_csv(curr_file_dir + "/Topology/" + topofile, dtype=object)
         self.device_name = device_name
         self.data = csv_data_read.loc[csv_data_read['DUTs'] == device_name]
         self.csv_dict = self.data.set_index('DUTs').T.to_dict()
         for k, v in self.csv_dict[self.device_name].iteritems(): exec("self."+ k+'=v')
         self.vlans = []
         self.START_VLAN = int(self.START_VLAN)
+        self.NO_OF_VRFS = int(self.NO_OF_VRFS)
         # for vlan in range(self.START_VLAN'], self.START_VLAN']+10):
         #     print vlan
         self.data_dict = {}
         for i, k  in self.csv_dict[self.device_name].iteritems():
             self.data_dict[i] = k
         self.set_network_items(self.START_LAN_IP_SUBNET)
-        self.set_peer_network_items(self.peer_Start_lan_ip_subnet)
-        if self.device_type == 'versa':
-            self.ORG_ID = int(self.ORG_ID)
-            self.Site_id = int(self.Site_id)
-            self.LCC = int(self.LCC)
-            self.vxlan_tvi_interface = self.ORG_ID * 2
-            self.esp_tvi_interface = self.ORG_ID * 2 +1
-            self.start_vrf_id = self.ORG_ID * 10 + 120
-            self.vddata = csv_data_read.loc[csv_data_read['DUTs'] == 'VD1']
-            self.vdcsv_dict = self.vddata.set_index('DUTs').T.to_dict()
-            self.vddata_dict = {}
-            for i, k  in self.vdcsv_dict['VD1'].iteritems():
-                self.vddata_dict[i] = k
-            self.vdhead = 'https://' + self.vddata_dict['mgmt_ip'] + ':9182'
+        # self.set_peer_network_items(self.peer_Start_lan_ip_subnet)
         # print self.data_dict
         self.data_dict['vlans'] = []
         self.data_dict['START_VLAN'] = int(self.data_dict['START_VLAN'])
-        if self.data_dict['device_type'] == 'versa':
-            self.data_dict['ORG_ID'] = int(self.data_dict['ORG_ID'])
-            self.data_dict['Site_id'] = int(self.data_dict['Site_id'])
-            self.data_dict['LCC'] = int(self.data_dict['LCC'])
-            self.data_dict['vxlan_tvi_interface'] = self.data_dict['ORG_ID'] * 2
-            self.data_dict['esp_tvi_interface'] = self.data_dict['ORG_ID'] * 2 +1
-            self.data_dict['start_vrf_id'] = self.data_dict['ORG_ID'] * 10 + 120
         logger.info("intialized", also_console=True)
 
     def get_data_dict(self):
@@ -249,7 +231,7 @@ class LinuxLib:
         self.shell_nc = ConnectHandler(**device_dict)
         print self.shell_nc
         print self.shell_nc.send_command_expect('sudo bash', expect_string='password')
-        print self.shell_nc.send_command_expect('versa123', expect_string='#')
+        print self.shell_nc.send_command_expect(self.password, expect_string='#')
         print self.shell_nc.send_command_expect('exit', expect_string='\$')
         # ur = self.shell_nc.send_command_expect('ls -ltr')
         # print ur
@@ -557,18 +539,16 @@ class LinuxLib:
         self.linux_device_config_commands(self.VM_nc, "exit", expect_string="\$")
         self.linux_device_config_commands(self.VM_nc, "sudo ifconfig " + self.LAN_INTF + " up")
         intf = str(self.LAN_INTF)
-        for i in range(1, 11):
+        for i in range(1, self.NO_OF_VRFS+1):
             ip = str(self.lan[i]['second_host'])
             gw = str(self.lan[i]['first_host'])
             nmask = str(self.lan[i]['netmask'])
-            destination_nw = str(self.lan[i]['peer_nw'])
             vlan = str(self.lan[i]['vlan'])
             self.linux_device_config_commands(self.VM_nc, "sudo vconfig add " + intf + " " + vlan)
             self.linux_device_config_commands(self.VM_nc, "sudo ifconfig " + intf + "." + vlan + " up")
             self.linux_device_config_commands(self.VM_nc,
                                               "sudo ifconfig " + intf + "." + vlan + " " + ip + " netmask " + nmask)
-            self.linux_device_config_commands(self.VM_nc,
-                                              "sudo ip route add " + destination_nw + " via " + gw + " dev " + intf + "." + vlan)
+
 
     def shell_ping(self, dest_ip, count=5, **kwargs):
         cmd = "sudo ping " + str(dest_ip) + " -c " + str(count)
@@ -609,20 +589,37 @@ class LinuxLib:
 
 def main():
     print datetime.now()
-    VM1 = LinuxLib('VM1_MUM', fileDir + "/Topology/Devices.csv")
-    VM2 = LinuxLib('VM2_MUM', fileDir + "/Topology/Devices.csv")
+    VM1 = LinuxLib('CPE11_LAN_HOST1', "VM_Devices.csv")
+    VM2 = LinuxLib('CPE12_LAN_HOST1', "VM_Devices.csv")
     #VM1_data = VM1.get_data_dict()
     #print VM1_data
-    VM1.VM_nc = VM1.shell_login()
-    VM2.VM_nc = VM2.shell_login()
-    VM2.send_commands_and_expect("pkill iperf3 &")
+    # VM1.VM_nc = VM1.shell_login()
+    # VM2.VM_nc = VM2.shell_login()
+    # VM2.send_commands_and_expect("pkill iperf3 &")
     VM1.VM_pre_op()
     VM2.VM_pre_op()
-    print VM1.shell_ping(VM2.lan[1]['first_host'])
-    print VM1.shell_ping(VM2.lan[1]['second_host'])
-    print VM2.shell_ping(VM1.lan[1]['first_host'])
-    print VM2.shell_ping(VM1.lan[1]['second_host'])
-    # print VM1.shell_ping(VM2[])
+    VM1.intf = str(VM1.LAN_INTF)
+    VM2.intf = str(VM2.LAN_INTF)
+    for i in range(1, VM1.NO_OF_VRFS+1):
+        ip = str(VM1.lan[i]['second_host'])
+        gw = str(VM1.lan[i]['first_host'])
+        nmask = str(VM1.lan[i]['netmask'])
+        vlan = str(VM1.lan[i]['vlan'])
+        destination_nw = str(VM2.lan[i]['nw'])
+        VM1.send_commands_and_expect("sudo ip route add " + destination_nw + " via " + gw + " dev " + VM1.intf + "." + vlan)
+    for i in range(1, VM2.NO_OF_VRFS+1):
+        ip = str(VM2.lan[i]['second_host'])
+        gw = str(VM2.lan[i]['first_host'])
+        nmask = str(VM2.lan[i]['netmask'])
+        vlan = str(VM2.lan[i]['vlan'])
+        destination_nw = str(VM1.lan[i]['nw'])
+        VM2.send_commands_and_expect("sudo ip route add " + destination_nw + " via " + gw + " dev " + VM2.intf + "." + vlan)
+    for i in range(1, VM2.NO_OF_VRFS + 1):
+        print VM1.shell_ping(VM2.lan[i]['first_host'])
+        print VM1.shell_ping(VM2.lan[i]['second_host'])
+        print VM2.shell_ping(VM1.lan[i]['first_host'])
+        print VM2.shell_ping(VM1.lan[i]['second_host'])
+        # print VM1.shell_ping(VM2[])
     print datetime.now()
 
 
