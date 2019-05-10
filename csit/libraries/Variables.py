@@ -10,12 +10,12 @@ else:
     fileDir = os.path.dirname(os.path.realpath('__file__'))
 
 # print fileDir
+curr_file_dir = os.path.dirname(os.path.dirname(os.path.realpath('__file__')))
 
-
-interface_template = os.path.join(fileDir, 'Utils/TEXTFSM/versa_interface_template')
-bgp_nbr_template = os.path.join(fileDir, 'Utils/TEXTFSM/versa_bgp_neighbor_org_template')
-route_template = os.path.join(fileDir, 'Utils/TEXTFSM/versa_route_template')
-show_config_template = os.path.join(fileDir, 'Utils/TEXTFSM/versa_show_config_template')
+interface_template = os.path.join(curr_file_dir, 'libraries/TEXTFSM/versa_interface_template')
+bgp_nbr_template = os.path.join(curr_file_dir, 'libraries/TEXTFSM/versa_bgp_neighbor_org_template')
+route_template = os.path.join(curr_file_dir, 'libraries/TEXTFSM/versa_route_template')
+show_config_template = os.path.join(curr_file_dir, 'libraries/TEXTFSM/versa_show_config_template')
 
 
 

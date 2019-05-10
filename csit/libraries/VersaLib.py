@@ -34,6 +34,7 @@ import logging
 import logging.handlers
 import errno
 import csv
+import textfsm
 currtime = str(datetime.now())
 currtime = currtime.replace(" ", "_").replace(":", "_").replace("-", "_").replace(".", "_")
 from ast import literal_eval
@@ -711,8 +712,8 @@ class VersaLib:
 
     def linux_device_config_commands(self, nc_handler, cmds, expect_string="\$"):
         for cmd in cmds.split("\n"):
-            print cmd
-            print nc_handler.send_command_expect(cmd, expect_string=expect_string, strip_prompt=False, strip_command=False)
+            # print cmd
+            self.main_logger.info(nc_handler.send_command_expect(cmd, expect_string=expect_string, strip_prompt=False, strip_command=False))
 
     def cpe_onboard_call(self):
         self.main_logger.info("\nSTEP : ONBOARD CALL\n")
@@ -987,9 +988,23 @@ class VersaLib:
         output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
         return output
 
+    def parse_send_command(self, output, parse_template):
+        time.sleep(1)
+        template = open(parse_template)
+        re_table = textfsm.TextFSM(template)
+        fsm_results = re_table.ParseText(output.encode("utf-8"))
+        fsm_result_str = ""
+        fsm_result_str += "     ".join(re_table.header) + "\n"
+        for row in fsm_results:
+            fsm_result_str += " ".join(row) + "\n"
+        # print fsm_result_str
+        return fsm_result_str
+
+
     def check_lan_route(self, lan):
         cmd = "show route routing-instance LAN"+ lan + "-VRF | nomore"
         output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
+        output = self.parse_send_command(output, route_template)
         return output
 
 
