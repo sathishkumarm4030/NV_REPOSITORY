@@ -441,8 +441,8 @@ class LinuxLib:
 
     def linux_device_config_commands(self, nc_handler, cmds, expect_string="\$"):
         for cmd in cmds.split("\n"):
-            print cmd
-            print nc_handler.send_command_expect(cmd, expect_string=expect_string, strip_prompt=False,
+            # print cmd
+            nc_handler.send_command_expect(cmd, expect_string=expect_string, strip_prompt=False,
                                                  strip_command=False)
 
     def cpe_onboard_call(self):
@@ -578,10 +578,10 @@ class LinuxLib:
 
     def send_commands_and_expect(self, cmds, expect_string="\$"):
         for cmd in cmds.split("\n"):
-            print cmd
+            # print cmd
             output = self.shell_nc.send_command_expect(cmd, expect_string=expect_string, strip_prompt=False,
                                                        strip_command=False)
-        logger.info(output, also_console=True)
+        #logger.info(output, also_console=True)
         return output
 
 
