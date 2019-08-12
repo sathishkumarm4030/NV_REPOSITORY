@@ -73,7 +73,7 @@ set devices device {{ DEVICE_NAME }} config networks {{ ORG_NAME }}-MPLS{{ lan_n
 
 set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} available-routing-instances [ INT-TRANSP-VR MPLS-TRANSP-VR {{ ORG_NAME }}-Control-VR {{ EXPORT_VRFS_SET }}{{ LAN_VRFS_SET }}]
 set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} traffic-identification using [ {{ PTVI_INTERFACE1 }} {{ PTVI_INTERFACE2 }} {{ VXLAN_TVI_INTERFACE }}.0 {{ ESP_TVI_INTERFACE }}.0 {{ PAIRED_TVI_INTERFACE_SET }}]
-set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} owned-routing-instances [ INT-TRANSP-VR MPLS-TRANSP-VR {{ ORG_NAME }}-Control-VR {{ EXPORT_VRFS_SET }}{{ LAN_VRFS_SET }} ]
+set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} owned-routing-instances [ {{ ORG_NAME }}-Control-VR {{ EXPORT_VRFS_SET }}{{ LAN_VRFS_SET }} ]
 set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} traffic-identification using-networks [ {{ MPLS_NW_SET }}]
 
 set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} available-provider-orgs [ {{ ORG_NAME }} ]
@@ -210,6 +210,7 @@ set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Con
 {%- set NNI1_VLAN = NNI_LAN[lan_number]['vlan'] %}
 {%- set NNI_SUBNET = NNI_LAN[lan_number]['nw'] %}
 {%- set NNI_INTERFACE_ADDRESS = NNI_LAN[lan_number]['second_host'] %}
+{%- set NNI_GATEWAY_ADDRESS = NNI_LAN[lan_number]['first_host'] %}
 {%- set PAIRED_TVI_INTERFACE1 = "tvi-0/" + (ORG_ID * 10 + 120 + VRF)|string %}
 {%- set PAIRED_TVI_INTERFACE2 = "tvi-0/" + (ORG_ID * 10 + 2020 + VRF)|string %}
 {%- set PAIRED_TVI_INTERFACE1_address = PAIRED_TVI_LAN[lan_number]['first_host'] %}
@@ -317,8 +318,8 @@ set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN
 set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 group EBGP-With-SAR-TypeA-NNI type external
 set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 group EBGP-With-SAR-TypeA-NNI import IMPORT-POLICY-NNI
 set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 group EBGP-With-SAR-TypeA-NNI export EXPORT-POLICY-NNI
-set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 group EBGP-With-SAR-TypeA-NNI neighbor {{ NNI1_GATEWAY_ADDRESS }} local-address {{ NNI1_INTERFACE_ADDRESS }}
-set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 group EBGP-With-SAR-TypeA-NNI neighbor {{ NNI1_GATEWAY_ADDRESS }} peer-as 8220
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 group EBGP-With-SAR-TypeA-NNI neighbor {{ NNI_GATEWAY_ADDRESS }} local-address {{ NNI_INTERFACE_ADDRESS }}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 group EBGP-With-SAR-TypeA-NNI neighbor {{ NNI_GATEWAY_ADDRESS }} peer-as 8220
 set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 debug level debug
 
 {% endfor %}

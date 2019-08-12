@@ -27,11 +27,11 @@ def get_vd_details():
     # user = raw_input("Enter VD GUI username:\n")
     # print "Versa director GUI Username:" + user
     # passwd = getpass.getpass("Enter VD GUI password::\n")
-    ip = '10.91.116.35'
-    ldap_user = 'admin'
-    ldap_passwd = 'versa123'
-    user = 'Sathish'
-    passwd = 'Jan*1234'
+    ip = '10.91.127.194'
+    ldap_user = 'Automated'
+    ldap_passwd = 'Auto@12345'
+    user = 'Automated@System'
+    passwd = 'Auto@12345'
     cpe_user = 'admin'
     cpe_passwd = 'versa123'
     node_user = 'admin'

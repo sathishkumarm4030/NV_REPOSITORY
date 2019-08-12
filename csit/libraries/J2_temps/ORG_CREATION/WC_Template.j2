@@ -13,7 +13,7 @@ set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Con
 set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-Controllers term 2ACCEPT-L-CPE-ROUTES match family inet-vpn
 set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-Controllers term 2ACCEPT-L-CPE-ROUTES match community "(^|,){{ LCC }}:10($|,)"
 set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-Controllers term 2ACCEPT-L-CPE-ROUTES action accept
-delete devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}--Control-VR routing-options static route 0.0.0.0/0 0.0.0.0 none
+delete devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR routing-options static route 0.0.0.0/0 0.0.0.0 none
 set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR routing-options static route 0.0.0.0/0 0.0.0.0 {{ ESP_TVI_INTERFACE }}.0
 delete devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile {{ ORG_NAME }}-PostStaging psk-auth-clients
 set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile {{ ORG_NAME }}-PostStaging psk-auth-clients

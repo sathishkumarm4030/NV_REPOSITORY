@@ -284,7 +284,7 @@ set routing-instances {{ ORG_NAME }}-LAN1-VRF protocols bgp {{ ORG_ID }}01 routi
 set routing-instances {{ ORG_NAME }}-LAN1-VRF protocols bgp {{ ORG_ID }}01 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action accept
 set routing-instances {{ ORG_NAME }}-LAN1-VRF protocols bgp {{ ORG_ID }}01 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community {{ LCC }}:20
 set routing-instances {{ ORG_NAME }}-LAN1-VRF protocols bgp {{ ORG_ID }}01 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community-action set-specific
-set routing-instances {{ ORG_NAME }}-LAN1-VRF protocols bgp {{ ORG_ID }}01 router-id {{ NNI1_INTERFACE_ADDRESS }}
+set routing-instances {{ ORG_NAME }}-LAN1-VRF protocols bgp {{ ORG_ID }}01 router-id {{ NNI_INTERFACE_ADDRESS }}
 set routing-instances {{ ORG_NAME }}-LAN1-VRF protocols bgp {{ ORG_ID }}01 ibgp-preference 200
 set routing-instances {{ ORG_NAME }}-LAN1-VRF protocols bgp {{ ORG_ID }}01 ebgp-preference 20
 set routing-instances {{ ORG_NAME }}-LAN1-VRF protocols bgp {{ ORG_ID }}01 local-as as-number 15404

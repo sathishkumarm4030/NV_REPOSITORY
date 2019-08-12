@@ -100,8 +100,13 @@ set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME
 {%- set LAN_NO = NO_OF_VRFS -%}
 delete devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} cgnat rules rule RFC_1918_NoTranslate
 delete devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} cgnat rules rule DIA-Rule-LAN{{ LAN_NO }}-VRF-INT-WAN from
+{% if MIN_SW_VERSION < '16.1R2-S2.8' -%}
 set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} cgnat rules rule DIA-Rule-LAN{{ LAN_NO }}-VRF-INT-WAN match source-zone [ W-ST-LAN{{ LAN_NO }}-VRF-INT-WAN ]
 set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} cgnat rules rule DIA-Rule-LAN{{ LAN_NO }}-VRF-INT-WAN match destination-zone [ Intf-INT-WAN-Zone ]
+{% else %}
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} cgnat rules rule DIA-Rule-LAN{{ LAN_NO }}-VRF-INT-WAN from source-zone [ W-ST-LAN{{ LAN_NO }}-VRF-INT-WAN ]
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} cgnat rules rule DIA-Rule-LAN{{ LAN_NO }}-VRF-INT-WAN from destination-zone [ Intf-INT-WAN-Zone ]
+{% endif %}
 {% endif %}
 
 set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service app-qos-policies app-qos-policy-group Default-Policy

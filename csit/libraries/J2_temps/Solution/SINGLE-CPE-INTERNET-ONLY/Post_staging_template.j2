@@ -8,7 +8,7 @@
 			"statefulFW": true,
 			"nextGenFW": false
 		},
-		"analyticsCluster": "LogCollectors",
+		"analyticsCluster": "{{ log_collector }}",
 		"deviceFirmfactor": "6",
 		"wanInterfaces": [{
 			"interfaceName": "{{ INT_WAN_INTF }}",
@@ -63,7 +63,7 @@
 		"solutionTier": "standard-sdwan-plus-ngfw",
 		"bandwidth": 1000,
 		"customParams": [],
-		"minimumImageVersion": "16.1R2-S2.2",
+		"minimumImageVersion": "{{ MIN_SW_VERSION }}",
 		"isAnalyticsEnabled": true,
 		"isPrimary": true,
 		"diaConfig": {

@@ -726,7 +726,7 @@ class VersaLib:
         # print cpe_shell_login.send_command_expect('sudo bash', expect_string='password', strip_prompt=False, strip_command=False)
         # print cpe_shell_login.send_command_expect(self.password, expect_string='#')
         # print cpe_shell_login.send_command_expect('exit', expect_string='\$')
-        print cpe_shell_login.send_command_expect('vsh allow-cli', expect_string='password:', strip_prompt=False, strip_command=False)
+        print cpe_shell_login.send_command_expect('vsh allow-cli', expect_string='password', strip_prompt=False, strip_command=False)
         print cpe_shell_login.send_command_expect(self.password, expect_string='CLI now allowed', strip_prompt=False, strip_command=False)
         print cpe_shell_login.send_command_expect('cli', expect_string='>', strip_prompt=False, strip_command=False)
         print cpe_shell_login.send_command_expect('request erase running-config', expect_string='yes', strip_prompt=False, strip_command=False)
@@ -766,6 +766,7 @@ class VersaLib:
     def create_and_deploy_poststaging_template(self):
         self.main_logger.info("\nSTEP : POST STAGING TEMPLATE CREATION AND DEPLOYMENT\n")
         # self.main_logger = self.setup_logger('Versa-director', 'Onboarding')
+        self.log_collector = log_collector
         curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
         curr_env = Environment(loader=curr_file_loader)
         ps_template = curr_env.get_template("Post_staging_template.j2")
@@ -1364,8 +1365,25 @@ class VersaLib:
                 self.ndb[node_dev] = node_device_data
         return
 
-
-
+    def create_fowarding_profile(self, profilename, preferwan):
+        self.main_logger.info("\nCREATE FWD PROFILE\n")
+        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/FWD_PROFILE/" + self.Solution_type)
+        fwd_profile_url_mod = fwd_profile_url.replace("temporgname" , self.ORG_NAME)
+        fwd_profile_url_mod = fwd_profile_url_mod.replace("tempdevicename", self.Device_name)
+        self.FW_PROFILE_NAME = profilename
+        curr_env = Environment(loader=curr_file_loader)
+        FWP_template = curr_env.get_template("PREFER_" + preferwan + ".j2")
+        self.fw_profile_template_body = FWP_template.render(self.__dict__)
+        print self.fw_profile_template_body
+        fwd_profile_creation_result = self.post_operation(fwd_profile_url_mod, headers2, self.fw_profile_template_body)
+        self.main_logger.info("\n" + fwd_profile_creation_result)
+        if 'FAIL' in fwd_profile_creation_result:
+            self.main_logger.info("\n >>>>>>>>>> FORWARDING PROFILE CREATION FAILED. <<<<<<<<<<<\n")
+            return "FAIL"
+        else:
+            self.main_logger.info("\n >>>>>>>>>> FORWARDING PROFILE CREATION PASSED. <<<<<<<<<<<\n")
+            return "PASS"
+        time.sleep(5)
 
     def Create_Org(self, org_name, org_id, WC_list, no_of_vrfs):
         # main_logger = self.setup_logger('Versa-director', 'Create_org')
@@ -1403,6 +1421,9 @@ class VersaLib:
         # self.GW_list = self.org_data['GATEWAYS'].replace('"', "").split(", ")
         self.main_logger.debug(org_body)
         # return "PASS"
+        print org_url
+        print headers3
+        print org_body
         result = self.post_operation(org_url, headers3, org_body)
         self.main_logger.info(result)
         if "error" in result:
@@ -1441,7 +1462,7 @@ class VersaLib:
         curr_env = Environment(loader=curr_file_loader)
         template = curr_env.get_template(node_type+"_Template.j2")
 
-        csv_data_read = pd.read_csv(curr_file_dir + "/Topology/" + node_type + ".csv")
+        csv_data_read = pd.read_csv(curr_file_dir + "/libraries/NODEDB/" + node_type + ".csv")
         csv_data_read = csv_data_read.loc[csv_data_read['DEVICE_NAME'] == device_name]
         csv_data_read = csv_data_read.loc[csv_data_read['ORG_NAME'] == "temporgname"]
         res_check = ""

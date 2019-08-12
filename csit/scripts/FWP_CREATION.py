@@ -28,11 +28,11 @@ def get_vd_details():
     # user = raw_input("Enter VD GUI username:\n")
     # print "Versa director GUI Username:" + user
     # passwd = getpass.getpass("Enter VD GUI password::\n")
-    ip = '10.91.127.194'
+    ip = '10.91.116.35'
     ldap_user = 'admin'
     ldap_passwd = 'versa123'
-    user = 'Automated'
-    passwd = 'Auto@12345'
+    user = 'Sathish'
+    passwd = 'Jan*1234'
     cpe_user = 'admin'
     cpe_passwd = 'versa123'
     node_user = 'admin'
@@ -59,26 +59,29 @@ def Do_Cpe_onboarding():
     WC_list = cpe.Create_Controller_List(cpe.ORG_NAME, cpe.ORG_ID, cpe.NO_OF_VRFS, cpe.NODE)
     GW_list = cpe.Create_Gateway_List(cpe.ORG_NAME, cpe.ORG_ID, cpe.NO_OF_VRFS, cpe.NODE)
     cpe.create_cpe_data()
+    cpe.create_fowarding_profile("PREFER_MPLS", "MPLS")
+    cpe.create_fowarding_profile("PREFER_INT", "INT")
+
     run_result = ""
-    for WC in WC_list:
-        cpe.check_org_for_controller(WC)
-    if cpe.PST_CREATION == "YES":
-        cpe.create_and_deploy_poststaging_template()
-    if cpe.DG_CREATION == "YES":
-        cpe.create_and_deploy_device_group()
-    if cpe.DEV_TEMPALTE_CREATION == "YES":
-        cpe.pre_onboard_work()
-    cpe.cpe_onboard_call()
+    # for WC in WC_list:
+    #     cpe.check_org_for_controller(WC)
+    # if cpe.PST_CREATION == "YES":
+    #     cpe.create_and_deploy_poststaging_template()
+    # if cpe.DG_CREATION == "YES":
+    #     cpe.create_and_deploy_device_group()
+    # if cpe.DEV_TEMPALTE_CREATION == "YES":
+    #     cpe.pre_onboard_work()
+    # cpe.cpe_onboard_call()
     cpe_result = cpe.get_device_info()
-    if isinstance(cpe_result, dict):
-        main_logger.info("\n \t >>>>>>>>>>>> CPE ONBOARDING PASSED <<<<<<<<<<<<"
-                         "\n \t >>>>>>>>>>>>    CPE DETAILS        <<<<<<<<<<<<")
-        main_logger.info(pprint.pprint(cpe.get_device_info()))
-    else:
-        main_logger.info(">>>>>>>>>>>> CPE ONBOARDING FAILED <<<<<<<<<<<<")
-        main_logger.info(cpe_result)
-    main_logger.info("CPE ONBOARDINIG SCRIPT COMPLETED")
-    main_logger.info("Time elapsed: {}\n".format(datetime.now() - start_time))
+    # if isinstance(cpe_result, dict):
+    #     main_logger.info("\n \t >>>>>>>>>>>> CPE ONBOARDING PASSED <<<<<<<<<<<<"
+    #                      "\n \t >>>>>>>>>>>>    CPE DETAILS        <<<<<<<<<<<<")
+    #     main_logger.info(pprint.pprint(cpe.get_device_info()))
+    # else:
+    #     main_logger.info(">>>>>>>>>>>> CPE ONBOARDING FAILED <<<<<<<<<<<<")
+    #     main_logger.info(cpe_result)
+    # main_logger.info("CPE ONBOARDINIG SCRIPT COMPLETED")
+    # main_logger.info("Time elapsed: {}\n".format(datetime.now() - start_time))
     # cpe_name = raw_input("Enter CPE NAME:").upper()
     # # print "CPE NAME:" + cpe_name
     # cpe1 = VersaLib(cpe_name, topofile="Devices.csv")

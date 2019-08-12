@@ -30,55 +30,195 @@ template_url = "/vnms/sdwan/workflow/templates/template"
 upgrade_dev_url = "/api/config/nms/actions/packages/upgrade"
 appliance_url = '/vnms/appliance/appliance?offset=0&limit=1000'
 package_url = '/api/operational/nms/packages/package?select=name;uri'
+fwd_profile_url = '/api/config/devices/device/tempdevicename/config/orgs/org-services/temporgname/sd-wan/forwarding-profiles'
+
 org_url = '/vnms/sdwan/workflow/orgs/org'
 headers = {'Accept': 'application/vnd.yang.data+json'}
 headers2 = {'Accept': 'application/vnd.yang.data+json', 'Content-Type': 'application/vnd.yang.data+json'}
 headers3 = {'Accept': 'application/json', 'Content-Type': 'application/json'}
 headers4 = {'Content-Type': 'application/json'}
 
+#POD1
+# log_collector = "LogCollectors"
+# controllers_list = ['NV-WC01-N2-BLR', 'NV-WC01-N4-MUM', 'NV-WC01-N5-LON', 'NV-WC01-UCPE', 'NV-WC02-N4-MUM', 'NV-WC02-N5-LON', 'SAMPLE-CONTROLLER']
+#
+# staging_servers_dict = {
+#     "BLR" : ["NV-WC01-N2-BLR", "NV-WC02-N2-BLR"],
+#     "MUM" : ["NV-WC01-N4-MUM", "NV-WC02-N4-MUM"],
+#     #"LON" : ["NV-WC01-N5-LON", "NV-WC02-N5-LON"]
+# }
+#
+#
+# ctlr_dict = {
+#     "BLR" : ["NV-WC01-N2-BLR", "NV-WC02-N2-BLR"],
+#     "MUM" : ["NV-WC01-N4-MUM", "NV-WC02-N4-MUM"],
+#     #"LON" : ["NV-WC01-N5-LON", "NV-WC02-N5-LON"]
+# }
+#
+# ctlr_list = ["NV-WC01-N2-BLR", "NV-WC02-N4-MUM"]
+#
+# RR_SERVER = ["NV-WC01-N2-BLR", "NV-WC02-N4-MUM"]
+#
+# RR_Clients = {
+#     "NV-WC01-N2-BLR" : ["NV-WC01-N4-MUM", "NV-WC01-N5-LON"],
+#     "NV-WC02-N4-MUM" : ["NV-WC02-N2-BLR", "NV-WC02-N5-LON"]
+# }
+#
+#
+#
+# gw_dict = {
+#     "BLR": ["NV-GW01-N2-BLR", "NV-GW02-N2-BLR"],
+#     "MUM": ["NV-GW01-N4-MUM", "NV-GW02-N4-MUM"],
+#     # "MUM" : ["NV-GW01-N4-MUM", "NV-GW02-N4-MUM"],
+#     # "LON" : ["NV-GW01-N5-LON", "NV-GW02-N5-LON"]
+#     #"LON" : ["NV-GW01-N5-LON"]
+# }
+#
+# gw_list = []
+#
+# LCC_dict = {
+#     "BLR" : "91",
+#     "MUM" : "1091",
+#     "LON" : "44"
+# }
 
-controllers_list = ['NV-WC01-N2-BLR', 'NV-WC01-N4-MUM', 'NV-WC01-N5-LON', 'NV-WC01-UCPE', 'NV-WC02-N4-MUM', 'NV-WC02-N5-LON', 'SAMPLE-CONTROLLER']
+# VNF_IPADDRESS = ['10.91.116.67/32', '10.91.116.68/32']
+# MGMT_NW_SBNT = "10.91.140.0/22"
 
+
+
+##########################################################
+#POD2 2 NODES HKG SIN
+
+log_collector = "LogCollectors-GGN"
+controllers_list = ['NV-WC01-N1-HKG', 'NV-WC01-N6-SIN', 'NV-WC02-N1-HKG', 'NV-WC02-N6-SIN']
 
 staging_servers_dict = {
-    "BLR" : ["NV-WC01-N2-BLR", "NV-WC02-N2-BLR"],
-    "MUM" : ["NV-WC01-N4-MUM", "NV-WC02-N4-MUM"],
-    #"LON" : ["NV-WC01-N5-LON", "NV-WC02-N5-LON"]
+    "HKG" : ["NV-WC01-N1-HKG", "NV-WC02-N1-HKG"],
+    "SIN" : ["NV-WC01-N6-SIN", "NV-WC02-N6-SIN"]
 }
 
 
 ctlr_dict = {
-    "BLR" : ["NV-WC01-N2-BLR", "NV-WC02-N2-BLR"],
-    "MUM" : ["NV-WC01-N4-MUM", "NV-WC02-N4-MUM"],
-    #"LON" : ["NV-WC01-N5-LON", "NV-WC02-N5-LON"]
+    "HKG" : ["NV-WC01-N1-HKG", "NV-WC02-N1-HKG"],
+    "SIN" : ["NV-WC01-N6-SIN", "NV-WC02-N6-SIN"]
 }
 
-ctlr_list = ["NV-WC01-N2-BLR", "NV-WC02-N4-MUM"]
+ctlr_list = ["NV-WC01-N1-HKG", "NV-WC02-N6-SIN"]
 
-RR_SERVER = ["NV-WC01-N2-BLR", "NV-WC02-N4-MUM"]
+RR_SERVER = ["NV-WC01-N1-HKG", "NV-WC02-N6-SIN"]
 
 RR_Clients = {
-    "NV-WC01-N2-BLR" : ["NV-WC01-N4-MUM", "NV-WC01-N5-LON"],
-    "NV-WC02-N4-MUM" : ["NV-WC02-N2-BLR", "NV-WC02-N5-LON"]
+    "NV-WC01-N1-HKG" : ["NV-WC01-N6-SIN"],
+    "NV-WC02-N6-SIN" : ["NV-WC02-N1-HKG"]
 }
 
 
 
 gw_dict = {
-    "BLR": ["NV-GW01-N2-BLR", "NV-GW02-N2-BLR"],
-    "MUM": ["NV-GW01-N4-MUM", "NV-GW02-N4-MUM"],
-    # "MUM" : ["NV-GW01-N4-MUM", "NV-GW02-N4-MUM"],
-    # "LON" : ["NV-GW01-N5-LON", "NV-GW02-N5-LON"]
-    #"LON" : ["NV-GW01-N5-LON"]
+    "HKG": ["NV-GW01-N1-HKG", "NV-GW02-N1-HKG"],
+    "SIN" : ["NV-GW01-N6-SIN", "NV-GW02-N6-SIN"]
 }
 
 gw_list = []
 
 LCC_dict = {
-    "BLR" : "91",
-    "MUM" : "1091",
-    "LON" : "44"
+    "HKG" : "852",
+    "SIN" : "65"
 }
+
+VNF_IPADDRESS = ['10.92.116.67/32', '10.92.116.68/32']
+MGMT_NW_SBNT = "10.91.140.0/22"
+
+##########################################################
+#POD2 2 NODES GGN SIN
+#
+# log_collector = "VAN-Cluster"
+# controllers_list = ['NV-WC01-N3-GGN', 'NV-WC01-N6-SIN', 'NV-WC02-N3-GGN', 'NV-WC02-N6-SIN']
+#
+# staging_servers_dict = {
+#     "GGN" : ["NV-WC01-N3-GGN", "NV-WC02-N3-GGN"],
+#     "SIN" : ["NV-WC01-N6-SIN", "NV-WC02-N6-SIN"]
+# }
+#
+#
+# ctlr_dict = {
+#     "GGN" : ["NV-WC01-N3-GGN", "NV-WC02-N3-GGN"],
+#     "SIN" : ["NV-WC01-N6-SIN", "NV-WC02-N6-SIN"]
+# }
+#
+# ctlr_list = ["NV-WC01-N3-GGN", "NV-WC02-N6-SIN"]
+#
+# RR_SERVER = ["NV-WC01-N3-GGN", "NV-WC02-N6-SIN"]
+#
+# RR_Clients = {
+#     "NV-WC01-N3-GGN" : ["NV-WC01-N6-SIN"],
+#     "NV-WC02-N6-SIN" : ["NV-WC02-N3-GGN"]
+# }
+#
+#
+#
+# gw_dict = {
+#     "GGN": ["NV-GW01-N3-GGN", "NV-GW02-N3-GGN"],
+#     "SIN" : ["NV-GW01-N6-SIN", "NV-GW02-N6-SIN"]
+# }
+#
+# gw_list = []
+#
+# LCC_dict = {
+#     "GGN" : "2091",
+#     "SIN" : "65"
+# }
+#
+# VNF_IPADDRESS = ['10.92.116.67/32', '10.92.116.68/32']
+# MGMT_NW_SBNT = "10.91.140.0/22"
+#############################################################################################
+# #POD2
+#
+# log_collector = "VAN-Cluster"
+# controllers_list = ['NV-WC01-N1-HKG', 'NV-WC01-N3-GGN', 'NV-WC01-N6-SIN', 'NV-WC02-N1-HKG', 'NV-WC02-N3-GGN', 'NV-WC02-N6-SIN']
+#
+# staging_servers_dict = {
+#     "HKG" : ["NV-WC01-N1-HKG", "NV-WC02-N1-HKG"],
+#     "GGN" : ["NV-WC01-N3-GGN", "NV-WC02-N3-GGN"],
+#     "SIN" : ["NV-WC01-N6-SIN", "NV-WC02-N6-SIN"]
+# }
+#
+#
+# ctlr_dict = {
+#     "HKG" : ["NV-WC01-N1-HKG", "NV-WC02-N1-HKG"],
+#     "GGN" : ["NV-WC01-N3-GGN", "NV-WC02-N3-GGN"],
+#     "SIN" : ["NV-WC01-N6-SIN", "NV-WC02-N6-SIN"]
+# }
+#
+# ctlr_list = ["NV-WC01-N3-GGN", "NV-WC02-N1-HKG"]
+#
+# RR_SERVER = ["NV-WC01-N3-GGN", "NV-WC02-N1-HKG"]
+#
+# RR_Clients = {
+#     "NV-WC01-N3-GGN" : ["NV-WC01-N1-HKG", "NV-WC01-N6-SIN"],
+#     "NV-WC02-N1-HKG" : ["NV-WC02-N3-GGN", "NV-WC02-N6-SIN"]
+# }
+#
+#
+#
+# gw_dict = {
+#     "HKG": ["NV-GW01-N1-HKG", "NV-GW02-N1-HKG"],
+#     "GGN": ["NV-GW01-N3-GGN", "NV-GW02-N3-GGN"],
+#     "SIN" : ["NV-GW01-N6-SIN", "NV-GW02-N6-SIN"]
+# }
+#
+# gw_list = []
+#
+# LCC_dict = {
+#     "HKG" : "852",
+#     "GGN" : "2091",
+#     "SIN" : "65"
+# }
+#
+# VNF_IPADDRESS = ['10.92.116.67/32', '10.92.116.68/32']
+# MGMT_NW_SBNT = "10.91.140.0/22"
+#############################################################
 
 SOLUTIONS_list = ['SINGLE-CPE-HYBRID', 'SINGLE-CPE-INTERNET-ONLY', 'SINGLE-CPE-MPLS-ONLY']
 
@@ -160,8 +300,7 @@ STAGING_SERVERS = {
 
 }
 
-VNF_IPADDRESS = ['10.91.116.67/32', '10.91.116.68/32']
-MGMT_NW_SBNT = "10.91.140.0/22"
+
 
 Solution_type = {
     'dual_mpls' : {
