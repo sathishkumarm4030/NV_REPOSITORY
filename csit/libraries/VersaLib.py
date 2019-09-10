@@ -1013,7 +1013,7 @@ class VersaLib:
                 self.main_logger.info("\n" + ps_creation_result)
                 if 'FAIL' in ps_creation_result:
                     self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE CREATION FAILED. <<<<<<<<<<<\n")
-                    # exit()
+                    exit()
                 else:
                     self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<\n")
                 time.sleep(5)
@@ -1065,7 +1065,7 @@ class VersaLib:
             self.main_logger.info("\n" + ps_creation_result)
             if 'FAIL' in ps_creation_result:
                 self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE CREATION FAILED. <<<<<<<<<<<\n")
-                # exit()
+                exit()
             else:
                 self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<\n")
             time.sleep(5)
