@@ -92,12 +92,12 @@
 							"isAutogeneratable": true,
 							"isOverwritten": false
 						}, {
-							"name": "{$v_{{ MPLS_WAN_NAME }}-Transport-VR_IPv4__vrHopAddress}",
-							"value": "{{ MPLS_WAN_INTF_NEXTHOP }}",
+							"name": "{$v_{{ WAN1_NAME }}-Transport-VR_IPv4__vrHopAddress}",
+							"value": "{{ WAN1_INTF_NEXTHOP }}",
 							"isAutogeneratable": false
 						}, {
-							"name": "{$v_{{ MPLS_WAN_NAME }}_IPv4__staticaddress}",
-							"value": "{{ MPLS_WAN_INTF_IP }}",
+							"name": "{$v_{{ WAN1_NAME }}_IPv4__staticaddress}",
+							"value": "{{ WAN1_INTF_IP }}",
 							"isAutogeneratable": false
 						}, {
 							"name": "{$v_tvi-0-{{ esp_tvi_interface }}_-_Unit_0_Static_address__tunnelStaticAddress}",
@@ -181,7 +181,7 @@
 					"overlay": true,
 					"type": "IPV4"
 				}, {
-					"variable": "{$v_{{ MPLS_WAN_NAME }}-Transport-VR_IPv4__vrHopAddress}",
+					"variable": "{$v_{{ WAN1_NAME }}-Transport-VR_IPv4__vrHopAddress}",
 					"group": "Virtual Routers",
 					"overlay": false,
 					"type": "IPV4_IPV6"

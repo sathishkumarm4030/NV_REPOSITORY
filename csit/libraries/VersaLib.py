@@ -110,6 +110,8 @@ class VersaLib:
         self.gw_dict =  gw_dict
         self.gw_list =  gw_list
         self.SOLUTIONS_list = SOLUTIONS_list
+        self.log_collector = log_collector
+        self.TRACK_MANAGEMENT_SUBNET = TRACK_MANAGEMENT_SUBNET
         self.ndb = {}
         if kwargs is not None:
             for k, v in kwargs.iteritems(): exec("self."+ k+'=v')
@@ -200,36 +202,244 @@ class VersaLib:
                 if re.search("^{", v):
                     v = try_literal_eval(v)
                 exec ("self." + k + '=v')
-        if "MPLS" in self.Solution_type:
+        # if "MPLS" in self.Solution_type:
+        #     self.FW_PROFILE = "GENERIC-SFW-TEMPLATE"
+        # elif self.WAN2_LIB == "YES" or self.WAN1_LIB == "YES":
+        #     self.FW_PROFILE = "COMMON-SFW-TEMPLATE"
+        # else:
+        #     self.FW_PROFILE = "GENERIC-SFW-TEMPLATE"
+
+        if "SINGLE-CPE-HYBRID" in self.Solution_type:
+            if "LIB1" in self.__dict__ and self.LIB1 == "YES":
+                self.FW_PROFILE = "COMMON-SFW-TEMPLATE"
+            else:
+                self.FW_PROFILE = "GENERIC-SFW-TEMPLATE"
+        if "SINGLE-CPE-INTERNET-ONLY" in self.Solution_type:
+            if self.LIB1 == "YES":
+                self.FW_PROFILE = "COMMON-SFW-TEMPLATE"
+            else:
+                self.FW_PROFILE = "GENERIC-SFW-TEMPLATE"
+
+        if "SINGLE-CPE-MPLS-ONLY" == self.Solution_type:
             self.FW_PROFILE = "GENERIC-SFW-TEMPLATE"
-        elif self.LIB == "YES":
-            self.FW_PROFILE = "COMMON-SFW-TEMPLATE"
-        else:
-            self.FW_PROFILE = "GENERIC-SFW-TEMPLATE"
+
+        if "SINGLE-CPE-DUAL-INTERNET" == self.Solution_type:
+            if ("LIB1" in self.__dict__ and self.LIB1 == "ACTIVE") or ("LIB2" in self.__dict__ and self.LIB2 == "ACTIVE"):
+                self.FW_PROFILE = "COMMON-SFW-TEMPLATE"
+            else:
+                self.FW_PROFILE = "GENERIC-SFW-TEMPLATE"
+
+            self.WAN1_NAME = WAN_INTERFACES[self.Solution_type]['WAN1']
+            self.WAN2_NAME = WAN_INTERFACES[self.Solution_type]['WAN2']
+            self.ST_Wan1 = self.WAN1_NAME
+            self.ST_Wan2 = self.WAN2_NAME
+            if self.LIB1 == "STANDBY" and self.LIB2 == "ACTIVE":
+                self.ST_Wan1 = self.WAN2_NAME
+                self.ST_Wan2 = self.WAN1_NAME
+
+        if "DUAL-CPE-DUAL-INTERNET" == self.Solution_type:
+            self.WAN1_NAME = WAN_INTERFACES[self.Solution_type]['WAN1']
+            self.WAN2_NAME = WAN_INTERFACES[self.Solution_type]['WAN2']
+            self.ST_Wan1 = self.WAN1_NAME
+            self.ST_Wan2 = self.WAN2_NAME
+            if self.LIB1 == "STANDBY" and self.LIB2 == "ACTIVE":
+                self.ST_Wan1 = self.WAN2_NAME
+                self.ST_Wan2 = self.WAN1_NAME
+            if self.LIB1 == "ACTIVE" and self.LIB2 == "ACTIVE":
+                self.LIB_LOADSHARING = "YES"
 
         if 'PS_TEMPLATE_NAME' not in self.__dict__:
             self.PS_TEMPLATE_NAME = self.ORG_NAME + "-" + self.NODE + "-PS-" #JAN23-MUM-PS-HS-LIB
-            if "HYBRID" in self.Solution_type:
+            if "SINGLE-CPE-HYBRID" in self.Solution_type:
                 self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "H"
-                if self.INT_INTF_IP_ALLOC == "DHCP":
+                if self.WAN2_IP_ALLOC == "DHCP":
                     self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "D"
-                elif self.INT_INTF_IP_ALLOC == "STATIC":
+                elif self.WAN2_IP_ALLOC == "STATIC":
                     self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "S"
-                if self.LIB == "YES":
+                if "LIB1" in self.__dict__ and self.LIB1 == "YES":
                     self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "-LIB"
 
-            if "INT" in self.Solution_type:
+            if "SINGLE-CPE-INTERNET-ONLY" in self.Solution_type:
                 self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "I"
-                if self.INT_INTF_IP_ALLOC == "DHCP":
+                if self.WAN1_IP_ALLOC == "DHCP":
                     self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "D"
-                elif self.INT_INTF_IP_ALLOC == "STATIC":
+                elif self.WAN1_IP_ALLOC == "STATIC":
                     self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "S"
-                if self.LIB == "YES":
+                if "LIB1" in self.__dict__ and self.LIB1 == "YES":
                     self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "-LIB"
-            if "MPLS" in self.Solution_type:
+
+            if "DUAL-CPE-DUAL-MPLS" == self.Solution_type:
+                if self.DUAL == "PRIMARY":
+                    post_staging_temp_name1 =  self.PS_TEMPLATE_NAME + "D"
+                    self.PS_TEMPLATE_NAME = post_staging_temp_name1 + "-MOP"
+                    self.SECONDARY_PS_TEMPLATE_NAME = post_staging_temp_name1 + "-MOS"
+                elif self.DUAL == "SECONDARY":
+                    self.SECONDARY_PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "D-MOS"
+
+            if "SINGLE-CPE-DUAL-INTERNET" == self.Solution_type:
+                post_staging_temp_name =  self.PS_TEMPLATE_NAME
+                if self.WAN1_IP_ALLOC == "DHCP" and self.WAN2_IP_ALLOC == "DHCP":
+                    if self.LIB1 == "ACTIVE" and self.LIB2 == "ACTIVE":
+                        post_staging_temp_name = post_staging_temp_name + "DID-LIB"
+                    elif self.LIB1 == "ACTIVE" and self.LIB2 == "STANDBY":
+                        post_staging_temp_name = post_staging_temp_name + "DID-LIB1"
+                    elif self.LIB1 == "STANDBY" and self.LIB2 == "ACTIVE":
+                        post_staging_temp_name = post_staging_temp_name + "DID-LIB2"
+                    else:
+                        post_staging_temp_name = post_staging_temp_name + "DID"
+                elif self.WAN1_IP_ALLOC == "DHCP" and self.WAN2_IP_ALLOC == "STATIC":
+                    if self.LIB1 == "ACTIVE" and self.LIB2 == "ACTIVE":
+                        post_staging_temp_name = post_staging_temp_name + "DIDS-LIB"
+                    elif self.LIB1 == "ACTIVE" and self.LIB2 == "STANDBY":
+                        post_staging_temp_name = post_staging_temp_name + "DIDS-LIB1"
+                    elif self.LIB1 == "STANDBY" and self.LIB2 == "ACTIVE":
+                        post_staging_temp_name = post_staging_temp_name + "DIDS-LIB2"
+                    else:
+                        post_staging_temp_name = post_staging_temp_name + "DIDS"
+                elif self.WAN1_IP_ALLOC == "STATIC" and self.WAN2_IP_ALLOC == "DHCP":
+                    if self.LIB1 == "ACTIVE" and self.LIB2 == "ACTIVE":
+                        post_staging_temp_name = post_staging_temp_name + "DISD-LIB"
+                    elif self.LIB1 == "ACTIVE" and self.LIB2 == "STANDBY":
+                        post_staging_temp_name = post_staging_temp_name + "DISD-LIB1"
+                    elif self.LIB1 == "STANDBY" and self.LIB2 == "ACTIVE":
+                        post_staging_temp_name = post_staging_temp_name + "DISD-LIB2"
+                    else:
+                        post_staging_temp_name = post_staging_temp_name + "DISD"
+                elif self.WAN1_IP_ALLOC == "STATIC" and self.WAN2_IP_ALLOC == "STATIC":
+                    if self.LIB1 == "ACTIVE" and self.LIB2 == "ACTIVE":
+                        post_staging_temp_name = post_staging_temp_name + "DIS-LIB"
+                    elif self.LIB1 == "ACTIVE" and self.LIB2 == "STANDBY":
+                        post_staging_temp_name = post_staging_temp_name + "DIS-LIB1"
+                    elif self.LIB1 == "STANDBY" and self.LIB2 == "ACTIVE":
+                        post_staging_temp_name = post_staging_temp_name + "DIS-LIB2"
+                    else:
+                        post_staging_temp_name = post_staging_temp_name + "DIS"
+                self.PS_TEMPLATE_NAME = post_staging_temp_name
+
+            if "DUAL-CPE-HYBRID" == self.Solution_type:
+                if self.DUAL == "PRIMARY":
+                    post_staging_temp_name1 =  self.PS_TEMPLATE_NAME + "D"
+                    self.PS_TEMPLATE_NAME = post_staging_temp_name1 + "-MPLS"
+                    self.SECONDARY_PS_TEMPLATE_NAME = post_staging_temp_name1 + "-INT"
+                elif self.DUAL == "SECONDARY":
+                    self.SECONDARY_PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "D-INT"
+
+            if "DUAL-CPE-DUAL-INTERNET" == self.Solution_type:
+                post_staging_temp_name =  self.PS_TEMPLATE_NAME
+                sec_post_staging_temp_name = self.PS_TEMPLATE_NAME
+                # self.WAN1_NAME = WAN_INTERFACES[self.Solution_type]['WAN1']
+                # self.WAN2_NAME = WAN_INTERFACES[self.Solution_type]['WAN2']
+                # self.ST_Wan1 = self.WAN1_NAME
+                # self.ST_Wan2 = self.WAN2_NAME
+                if self.WAN1_IP_ALLOC == "DHCP" and self.WAN2_IP_ALLOC == "DHCP":
+                    if self.LIB1 == "ACTIVE" and self.LIB2 == "ACTIVE":
+                        post_staging_temp_name = post_staging_temp_name + "D-IOD-LIB"
+                        secondary_post_staging_temp_name = sec_post_staging_temp_name + "D-IOD-LIB-LS"
+                        # self.LIB_LOADSHARING = "YES"
+                    elif self.LIB1 == "ACTIVE" and self.LIB2 == "STANDBY":
+                        post_staging_temp_name = post_staging_temp_name + "D-IOD-LIB1"
+                        secondary_post_staging_temp_name = sec_post_staging_temp_name + "D-IOD-LIB-S"
+
+                    elif self.LIB1 == "STANDBY" and self.LIB2 == "ACTIVE":
+                        post_staging_temp_name = post_staging_temp_name + "D-IOD-LIB2"
+                        secondary_post_staging_temp_name = sec_post_staging_temp_name + "D-IOD-LIB-A"
+                        # self.ST_Wan1 = self.WAN2_NAME
+                        # self.ST_Wan2 = self.WAN1_NAME
+                    else:
+                        post_staging_temp_name = post_staging_temp_name + "DID"
+                        secondary_post_staging_temp_name = sec_post_staging_temp_name + "DID-SEC"
+                elif self.WAN1_IP_ALLOC == "DHCP" and self.WAN2_IP_ALLOC == "STATIC":
+                    if self.LIB1 == "ACTIVE" and self.LIB2 == "ACTIVE":
+                        post_staging_temp_name = post_staging_temp_name + "D-IODS-LIB"
+                        secondary_post_staging_temp_name = sec_post_staging_temp_name + "D-IODS-LIB-LS"
+                        # self.LIB_LOADSHARING = "YES"
+                    elif self.LIB1 == "ACTIVE" and self.LIB2 == "STANDBY":
+                        post_staging_temp_name = post_staging_temp_name + "D-IODS-LIB1"
+                        secondary_post_staging_temp_name = sec_post_staging_temp_name + "D-IODS-LIB-S"
+                    elif self.LIB1 == "STANDBY" and self.LIB2 == "ACTIVE":
+                        post_staging_temp_name = post_staging_temp_name + "D-IODS-LIB2"
+                        secondary_post_staging_temp_name = sec_post_staging_temp_name + "D-IODS-LIB-A"
+                        # self.ST_Wan1 = self.WAN2_NAME
+                        # self.ST_Wan2 = self.WAN1_NAME
+                    else:
+                        post_staging_temp_name = post_staging_temp_name + "DIDS"
+                        secondary_post_staging_temp_name = sec_post_staging_temp_name + "DIDS-SEC"
+                elif self.WAN1_IP_ALLOC == "STATIC" and self.WAN2_IP_ALLOC == "DHCP":
+                    if self.LIB1 == "ACTIVE" and self.LIB2 == "ACTIVE":
+                        post_staging_temp_name = post_staging_temp_name + "D-IOSD-LIB"
+                        secondary_post_staging_temp_name = sec_post_staging_temp_name + "D-IOSD-LIB-LS"
+                        # self.LIB_LOADSHARING = "YES"
+                    elif self.LIB1 == "ACTIVE" and self.LIB2 == "STANDBY":
+                        post_staging_temp_name = post_staging_temp_name + "D-IOSD-LIB1"
+                        secondary_post_staging_temp_name = sec_post_staging_temp_name + "D-IOSD-LIB-A"
+                    elif self.LIB1 == "STANDBY" and self.LIB2 == "ACTIVE":
+                        post_staging_temp_name = post_staging_temp_name + "D-IOSD-LIB2"
+                        secondary_post_staging_temp_name = sec_post_staging_temp_name + "D-IOSD-LIB-S"
+                        # self.ST_Wan1 = self.WAN2_NAME
+                        # self.ST_Wan2 = self.WAN1_NAME
+                    else:
+                        post_staging_temp_name = post_staging_temp_name + "DISD"
+                        secondary_post_staging_temp_name = sec_post_staging_temp_name + "DISD-SEC"
+                elif self.WAN1_IP_ALLOC == "STATIC" and self.WAN2_IP_ALLOC == "STATIC":
+                    if self.LIB1 == "ACTIVE" and self.LIB2 == "ACTIVE":
+                        post_staging_temp_name = post_staging_temp_name + "D-IOS-LIB"
+                        secondary_post_staging_temp_name = sec_post_staging_temp_name + "D-IOS-LIB-LS"
+                        self.LIB_LOADSHARING = "YES"
+                    elif self.LIB1 == "ACTIVE" and self.LIB2 == "STANDBY":
+                        post_staging_temp_name = post_staging_temp_name + "D-IOS-LIB1"
+                        secondary_post_staging_temp_name = sec_post_staging_temp_name + "D-IOS-LIB-S"
+                    elif self.LIB1 == "STANDBY" and self.LIB2 == "ACTIVE":
+                        post_staging_temp_name = post_staging_temp_name + "D-IOS-LIB2"
+                        secondary_post_staging_temp_name = sec_post_staging_temp_name + "D-IOS-LIB-A"
+                        # self.ST_Wan1 = self.WAN2_NAME
+                        # self.ST_Wan2 = self.WAN1_NAME
+                    else:
+                        post_staging_temp_name = post_staging_temp_name + "DIS"
+                        secondary_post_staging_temp_name = sec_post_staging_temp_name + "DIS-SEC"
+                self.PS_TEMPLATE_NAME = post_staging_temp_name
+                self.SECONDARY_PS_TEMPLATE_NAME = secondary_post_staging_temp_name
+
+            if "SINGLE-CPE-MPLS-ONLY" == self.Solution_type:
                 self.PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "M"
+        else:
+            if "DUAL-CPE" in self.Solution_type:
+                # self.SECONDARY_PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "-SEC"
+                if "PRIMARY" == self.DUAL:
+                    if "SECONDARY_PS_TEMPLATE_NAME" not in self.__dict__:
+                        self.main_logger.error("\n\n------->SECONDARY_PS_TEMPLATE_NAME is mandatory field for DUAL PRIMARY CPE. please enter data in csv.\n------->Script exited")
+                        exit()
+                    # if "DUAL-CPE-DUAL-MPLS" == self.Solution_type:
+                    #     post_staging_temp_name1 = self.PS_TEMPLATE_NAME
+                    #     self.SECONDARY_PS_TEMPLATE_NAME = post_staging_temp_name1.replace("MOP", "MOS")
+                    #
+                    # if "DUAL-CPE-HYBRID" == self.Solution_type:
+                    #     post_staging_temp_name1 = self.PS_TEMPLATE_NAME
+                    #     self.SECONDARY_PS_TEMPLATE_NAME = post_staging_temp_name1.replace("MPLS", "INT")
+                elif "SECONDARY" == self.DUAL:
+                    self.SECONDARY_PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME
+                    # if "DUAL-CPE-DUAL-MPLS" == self.Solution_type:
+                    #     self.SECONDARY_PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME
+                    #
+                    # if "DUAL-CPE-HYBRID" == self.Solution_type:
+                    #     self.SECONDARY_PS_TEMPLATE_NAME = self.PS_TEMPLATE_NAME
+
+
         if 'DG_TEMPLATE_NAME' not in self.__dict__:
-            self.DG_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "-DG"
+            if "DUAL-CPE" in self.Solution_type:
+                if "PRIMARY" == self.DUAL:
+                    self.DG_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "-DG"
+                    #self.SECONDARY_DG_TEMPLATE_NAME = self.SECONDARY_PS_TEMPLATE_NAME + "-DG"
+                elif "SECONDARY" == self.DUAL:
+                    self.SECONDARY_DG_TEMPLATE_NAME = self.SECONDARY_PS_TEMPLATE_NAME + "-DG"
+            else:
+                self.DG_TEMPLATE_NAME = self.PS_TEMPLATE_NAME + "-DG"
+        else:
+            if "DUAL-CPE" == self.Solution_type:
+                if "PRIMARY" == self.DUAL:
+                    self.SECONDARY_DG_TEMPLATE_NAME = self.DG_TEMPLATE_NAME
+                elif "SECONDARY" == self.DUAL:
+                    self.SECONDARY_DG_TEMPLATE_NAME = self.DG_TEMPLATE_NAME
+
         self.AUTH_KEY = self.Device_name
         self.AUTH_STRING = self.Device_name + "@colt.net"
         self.LCC = self.LCC_dict[self.NODE]
@@ -250,6 +460,9 @@ class VersaLib:
         self.INTF_LAN_SET = ""
         self.WAN_ST_LAN_SET = ""
         self.LAN_ST_LAN_SET = ""
+        self.WAN1_NAME = WAN_INTERFACES[self.Solution_type]['WAN1']
+        if 'WAN2' in WAN_INTERFACES[self.Solution_type]:
+            self.WAN2_NAME = WAN_INTERFACES[self.Solution_type]['WAN2']
         for i in range(1, self.NO_OF_VRFS + 1):
             self.INTF_LAN_SET += "Intf-LAN" + str(i) + "-Zone " #Intf-LAN1-Zone
             self.WAN_ST_LAN_SET += "W-ST-LAN" + str(i) + "-VRF-INT-WAN "  #W-ST-LAN1-VRF-INT-WAN
@@ -309,7 +522,10 @@ class VersaLib:
             n = ipaddress.ip_network(nw_addr)
             self.lan[i]['first_host'] = str(n[1])
             self.lan[i]['second_host'] = str(n[2])
+            self.lan[i]['third_host'] = str(n[3])
             self.lan[i]['netmask'] = str(n.netmask)
+            self.lan[i]['prefixlen'] = str(n.prefixlen)
+            self.lan[i]['nw_with_prefixlen'] = str(n.with_prefixlen)
             nw_addr = next(network_address)
         return self.lan
 
@@ -747,6 +963,22 @@ class VersaLib:
         time.sleep(20)
 
 #    def create_PS_and_DG(self, Post_staging_template, Device_group_template, PS_main_template_modify):
+    def config_devices_vrrp_and_lib(self):
+        if "DUAL-CPE" in self.Solution_type:
+            self.main_logger.info("\nSTEP : CONFIG VRRP TRACK ROUTE & QOS RULE MATCH WAN in Secondary CPE\n")
+            curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
+            curr_env = Environment(loader=curr_file_loader)
+            if self.DUAL == "PRIMARY":
+                self.DEVICE_template_modify = curr_env.get_template("Primary_Device_template_modify.j2")
+                self.DEVICE_template_modify_config = self.DEVICE_template_modify.render(self.__dict__)
+            elif self.DUAL == "SECONDARY":
+                self.DEVICE_template_modify = curr_env.get_template("Secondary_Device_template_modify.j2")
+                self.DEVICE_template_modify_config = self.DEVICE_template_modify.render(self.__dict__)
+            self.vdnc = self.login(vd_login='yes')
+            self.device_config_commands(self.vdnc, self.DEVICE_template_modify_config)
+            self.close(self.vdnc)
+            self.main_logger.info("\n >>>>>>>>>> CONFIG VRRP TRACK ROUTE passed. <<<<<<<<<<<\n")
+
 
     def check_org_for_controller(self, controller):
         data1 = self.get_operation(org_url + "/" + self.ORG_NAME, headers3)
@@ -764,63 +996,128 @@ class VersaLib:
             exit()
 
     def create_and_deploy_poststaging_template(self):
-        self.main_logger.info("\nSTEP : POST STAGING TEMPLATE CREATION AND DEPLOYMENT\n")
-        # self.main_logger = self.setup_logger('Versa-director', 'Onboarding')
-        self.log_collector = log_collector
-        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
+        curr_file_loader = FileSystemLoader(
+            curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
         curr_env = Environment(loader=curr_file_loader)
-        ps_template = curr_env.get_template("Post_staging_template.j2")
-        self.ps_template_body = ps_template.render(self.__dict__)
-        self.main_logger.info(self.ps_template_body)
-        PS_main_template = curr_env.get_template("PS_main_template_modify.j2")
-        PS_main_template_modify = PS_main_template.render(self.__dict__)
-        ps_creation_result = self.post_operation(template_url, headers3, self.ps_template_body)
-        self.main_logger.info("\n" + ps_creation_result)
-        if 'FAIL' in ps_creation_result:
-            self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE CREATION FAILED. <<<<<<<<<<<\n")
-            exit()
+        if "DUAL-CPE" in self.Solution_type:
+            if self.DUAL == "PRIMARY":
+                self.main_logger.info("\nSTEP : POST STAGING TEMPLATE CREATION AND DEPLOYMENT\n")
+                # self.main_logger = self.setup_logger('Versa-director', 'Onboarding')
+                curr_file_loader = FileSystemLoader(
+                    curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
+                curr_env = Environment(loader=curr_file_loader)
+                ps_template = curr_env.get_template("Post_staging_template.j2")
+                self.ps_template_body = ps_template.render(self.__dict__)
+                self.main_logger.info(self.ps_template_body)
+                ps_creation_result = self.post_operation(template_url, headers3, self.ps_template_body)
+                self.main_logger.info("\n" + ps_creation_result)
+                if 'FAIL' in ps_creation_result:
+                    self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE CREATION FAILED. <<<<<<<<<<<\n")
+                    # exit()
+                else:
+                    self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<\n")
+                time.sleep(5)
+                Primary_PS_main_template = curr_env.get_template("Primary_PS_main_template_modify.j2")
+                #Secondary_PS_main_template = curr_env.get_template("Secondary_PS_main_template_modify.j2")
+                Primary_PS_main_template_modify = Primary_PS_main_template.render(self.__dict__)
+                #Secondary_PS_main_template_modify = Secondary_PS_main_template.render(self.__dict__)
+                ps_deploy_result = self.post_operation(
+                    template_url + "/deploy/" + self.PS_TEMPLATE_NAME + "?verifyDiff=true", headers3,
+                    self.ps_template_body)
+                time.sleep(5)
+                self.main_logger.info("\n" + ps_deploy_result)
+                if 'FAIL' in ps_deploy_result:
+                    self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE DEPLOY FAILED. <<<<<<<<<<<\n")
+                    exit()
+                else:
+                    self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE DEPLOY PASSED. <<<<<<<<<<<\n")
+                time.sleep(5)
+                self.main_logger.info(self.get_operation(template_url + "/" + self.PS_TEMPLATE_NAME, headers3))
+                time.sleep(5)
+                main_template_modify_result = self.Modify_main_template(Primary_PS_main_template_modify)
+                self.main_logger.info("\n" + main_template_modify_result)
+                if 'failed' in main_template_modify_result:
+                    self.main_logger.info("\n >>>>>>>>>> PS MAIN TEMPLATE MODIFY FAILED. <<<<<<<<<<<\n")
+                    exit()
+                else:
+                    self.main_logger.info("\n >>>>>>>>>> PS MAIN TEMPLATE MODIFY PASSED. <<<<<<<<<<<\n")
+                time.sleep(5)
+            if self.DUAL == "SECONDARY":
+                Secondary_PS_main_template = curr_env.get_template("Secondary_PS_main_template_modify.j2")
+                Secondary_PS_main_template_modify = Secondary_PS_main_template.render(self.__dict__)
+                main_template_modify_result = self.Modify_main_template(Secondary_PS_main_template_modify)
+                self.main_logger.info("\n" + main_template_modify_result)
+                if 'failed' in main_template_modify_result:
+                    self.main_logger.info("\n >>>>>>>>>> Secondary PS MAIN TEMPLATE MODIFY FAILED. <<<<<<<<<<<\n")
+                    exit()
+                else:
+                    self.main_logger.info("\n >>>>>>>>>> Secondary PS MAIN TEMPLATE MODIFY PASSED. <<<<<<<<<<<\n")
+                time.sleep(5)
         else:
-            self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<\n")
-        time.sleep(5)
-        assoc_template_url = sfw_template_assc_url + self.PS_TEMPLATE_NAME + "/associations"
-        assc_body = '[{"organization":"'+ self.ORG_NAME + '","serviceTemplate":"' + self.FW_PROFILE + str(self.NO_OF_VRFS) + '"}]'
-        print assc_body
-        fw_association = self.post_operation(assoc_template_url, headers3, assc_body)
-        self.main_logger.info("\n" + fw_association)
-        if 'FAIL' in fw_association:
-            self.main_logger.info("\n >>>>>>>>>> FW ASSOCIATION WITH POST STAGING TEMPLATE FAILED. <<<<<<<<<<<\n")
-            exit()
-        else:
-            self.main_logger.info("\n >>>>>>>>>> FW ASSOCIATION WITH POST STAGING TEMPLATE PASSED. <<<<<<<<<<<\n")
-        time.sleep(5)
-        ps_deploy_result = self.post_operation(template_url + "/deploy/" + self.PS_TEMPLATE_NAME + "?verifyDiff=true", headers3,
-                            self.ps_template_body)
-        time.sleep(5)
-        self.main_logger.info("\n" + ps_deploy_result)
-        if 'FAIL' in ps_deploy_result:
-            self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE DEPLOY FAILED. <<<<<<<<<<<\n")
-            exit()
-        else:
-            self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE DEPLOY PASSED. <<<<<<<<<<<\n")
-        time.sleep(5)
-        self.main_logger.info(self.get_operation(template_url + "/" + self.PS_TEMPLATE_NAME, headers3))
-        self.main_logger.info(self.get_operation(assoc_template_url, headers3))
-        time.sleep(5)
-        main_template_modify_result = self.Modify_main_template(PS_main_template_modify)
-        self.main_logger.info("\n" + main_template_modify_result)
-        if 'failed' in main_template_modify_result:
-            self.main_logger.info("\n >>>>>>>>>> PS MAIN TEMPLATE MODIFY FAILED. <<<<<<<<<<<\n")
-            exit()
-        else:
-            self.main_logger.info("\n >>>>>>>>>> PS MAIN TEMPLATE MODIFY PASSED. <<<<<<<<<<<\n")
-        time.sleep(5)
+            self.main_logger.info("\nSTEP : POST STAGING TEMPLATE CREATION AND DEPLOYMENT\n")
+            # self.main_logger = self.setup_logger('Versa-director', 'Onboarding')
+            curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
+            curr_env = Environment(loader=curr_file_loader)
+            ps_template = curr_env.get_template("Post_staging_template.j2")
+            self.ps_template_body = ps_template.render(self.__dict__)
+            self.main_logger.info(self.ps_template_body)
+            ps_creation_result = self.post_operation(template_url, headers3, self.ps_template_body)
+            self.main_logger.info("\n" + ps_creation_result)
+            if 'FAIL' in ps_creation_result:
+                self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE CREATION FAILED. <<<<<<<<<<<\n")
+                # exit()
+            else:
+                self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<\n")
+            time.sleep(5)
+            PS_main_template = curr_env.get_template("PS_main_template_modify.j2")
+            PS_main_template_modify = PS_main_template.render(self.__dict__)
+
+            assoc_template_url = sfw_template_assc_url + self.PS_TEMPLATE_NAME + "/associations"
+            assc_body = '[{"organization":"'+ self.ORG_NAME + '","serviceTemplate":"' + self.FW_PROFILE + str(self.NO_OF_VRFS) + '"}]'
+            print assc_body
+            fw_association = self.post_operation(assoc_template_url, headers3, assc_body)
+            self.main_logger.info("\n" + fw_association)
+            if 'FAIL' in fw_association:
+                self.main_logger.info("\n >>>>>>>>>> FW ASSOCIATION WITH POST STAGING TEMPLATE FAILED. <<<<<<<<<<<\n")
+                exit()
+            else:
+                self.main_logger.info("\n >>>>>>>>>> FW ASSOCIATION WITH POST STAGING TEMPLATE PASSED. <<<<<<<<<<<\n")
+            time.sleep(5)
+            ps_deploy_result = self.post_operation(template_url + "/deploy/" + self.PS_TEMPLATE_NAME + "?verifyDiff=true", headers3,
+                                self.ps_template_body)
+            time.sleep(5)
+            self.main_logger.info("\n" + ps_deploy_result)
+            if 'FAIL' in ps_deploy_result:
+                self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE DEPLOY FAILED. <<<<<<<<<<<\n")
+                exit()
+            else:
+                self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE DEPLOY PASSED. <<<<<<<<<<<\n")
+            time.sleep(5)
+            self.main_logger.info(self.get_operation(template_url + "/" + self.PS_TEMPLATE_NAME, headers3))
+            self.main_logger.info(self.get_operation(assoc_template_url, headers3))
+            time.sleep(5)
+            main_template_modify_result = self.Modify_main_template(PS_main_template_modify)
+            self.main_logger.info("\n" + main_template_modify_result)
+            if 'failed' in main_template_modify_result:
+                self.main_logger.info("\n >>>>>>>>>> PS MAIN TEMPLATE MODIFY FAILED. <<<<<<<<<<<\n")
+                exit()
+            else:
+                self.main_logger.info("\n >>>>>>>>>> PS MAIN TEMPLATE MODIFY PASSED. <<<<<<<<<<<\n")
+            time.sleep(5)
+
 
     def create_and_deploy_device_group(self):
         # self.main_logger = self.setup_logger('Versa-director', 'Onboarding')
         self.main_logger.info("\nSTEP : DEVICE GROUP CREATION AND DEPLOYMENT\n")
         curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
         curr_env = Environment(loader=curr_file_loader)
-        DG_template = curr_env.get_template("Device_group_template.j2")
+        if "DUAL-CPE" in self.Solution_type:
+            if self.DUAL == "PRIMARY":
+                DG_template = curr_env.get_template("Primary_Device_group_template.j2")
+            elif self.DUAL == "SECONDARY":
+                DG_template = curr_env.get_template("Secondary_Device_group_template.j2")
+        else:
+            DG_template = curr_env.get_template("Device_group_template.j2")
         self.DG_template_body = DG_template.render(self.__dict__)
         print self.DG_template_body
         dg_template_creation_result = self.post_operation(device_grp_url, headers3, self.DG_template_body)
@@ -902,7 +1199,13 @@ class VersaLib:
         #(self, Device_template, Staging_server_config_template, Staging_cpe_config_template):
         curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
         curr_env = Environment(loader=curr_file_loader)
-        self.DEVICE_template = curr_env.get_template("Device_template.j2")
+        if "DUAL-CPE" in self.Solution_type:
+            if self.DUAL == "PRIMARY":
+                self.DEVICE_template = curr_env.get_template("Primary_Device_template.j2")
+            elif self.DUAL == "SECONDARY":
+                self.DEVICE_template = curr_env.get_template("Secondary_Device_template.j2")
+        else:
+            self.DEVICE_template = curr_env.get_template("Device_template.j2")
         self.Staging_config = curr_env.get_template("Staging_server_config.j2")
         self.Staging_command = curr_env.get_template("staging_cpe.j2")
         self.DEVICE_template_body = self.DEVICE_template.render(self.__dict__)
@@ -1354,13 +1657,20 @@ class VersaLib:
                 self.STAGING_ID = self.ORG_NAME + "-" + self.Device_name + "@colt.net"
                 self.STAGING_id_type = "email"
                 self.STAGING_KEY = self.Device_name
-                if self.Solution_type == "SINGLE-CPE-DUAL-INTERNET":
-                    self.STAGING_INTF = self.__dict__[wan + "_WAN_INTF"][-1]
-                    self.STAGING_Local_ip_with_mask =  self.__dict__[wan + "_WAN_INTF_IP"]
-                else:
-                    self.STAGING_INTF = self.__dict__[wan + "_WAN_INTF"][-1]
-                    self.STAGING_Local_ip_with_mask =  self.__dict__[wan + "_WAN_INTF_IP"]
-                self.STAGING_nexthop = self.__dict__[wan + "_WAN_INTF_NEXTHOP"]
+                # if self.Solution_type == "SINGLE-CPE-DUAL-INTERNET":
+                #     # self.STAGING_INTF = self.__dict__[wan + "_WAN_INTF"][-1]
+                #     self.STAGING_Local_ip_with_mask =  self.__dict__[wan + "_WAN_INTF_IP"]
+                # else:
+                #     # self.STAGING_INTF = self.__dict__[wan + "_WAN_INTF"][-1]
+                # self.STAGING_Local_ip_with_mask =  self.__dict__["WAN" + self.STAGING_INTF + "_INTF_IP"]
+                # self.STAGING_nexthop = self.__dict__["WAN" + self.STAGING_INTF + "_INTF_NEXTHOP"]
+                self.STAGING_Local_ip_with_mask = self.__dict__[self.STAGING_INTF + "_INTF_IP"]
+                self.STAGING_nexthop = self.__dict__[self.STAGING_INTF + "_INTF_NEXTHOP"]
+                STAGINGWAN_INTF = self.__dict__[self.STAGING_INTF + "_INTF"]
+                self.STAGING_INTF = STAGINGWAN_INTF[-1]
+                self.WAN1_NAME = WAN_INTERFACES[self.Solution_type]['WAN1']
+                if "WAN2" in WAN_INTERFACES[self.Solution_type]:
+                    self.WAN2_NAME = WAN_INTERFACES[self.Solution_type]['WAN2']
             else:
                 self.ndb[node_dev] = node_device_data
         return

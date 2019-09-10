@@ -1,0 +1,1395 @@
+2019-08-13 11:56:17,756 - CPE11-HKG-HYBRID1-NEW - INFO - CPE NAME:CPE11-HKG-HYBRID1-NEW
+2019-08-13 11:56:18,756 - CPE11-HKG-HYBRID1-NEW - INFO - SOLUTION SELECTED:SINGLE-CPE-HYBRID
+2019-08-13 11:56:19,924 - CPE11-HKG-HYBRID1-NEW - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 90, u'orgName': u'IPC00190', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 1020}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 1021}, {u'name': u'LAN3-VRF', u'enableVPN': True, u'id': 1022}, {u'name': u'LAN4-VRF', u'enableVPN': True, u'id': 1023}, {u'name': u'LAN5-VRF', u'enableVPN': True, u'id': 1024}, {u'name': u'LAN6-VRF', u'enableVPN': True, u'id': 1025}, {u'name': u'LAN7-VRF', u'enableVPN': True, u'id': 1026}, {u'name': u'LAN8-VRF', u'enableVPN': True, u'id': 1027}, {u'name': u'LAN9-VRF', u'enableVPN': True, u'id': 1028}, {u'name': u'LAN10-VRF', u'enableVPN': True, u'id': 1029}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-08-13 11:56:20,253 - CPE11-HKG-HYBRID1-NEW - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 90, u'orgName': u'IPC00190', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 1020}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 1021}, {u'name': u'LAN3-VRF', u'enableVPN': True, u'id': 1022}, {u'name': u'LAN4-VRF', u'enableVPN': True, u'id': 1023}, {u'name': u'LAN5-VRF', u'enableVPN': True, u'id': 1024}, {u'name': u'LAN6-VRF', u'enableVPN': True, u'id': 1025}, {u'name': u'LAN7-VRF', u'enableVPN': True, u'id': 1026}, {u'name': u'LAN8-VRF', u'enableVPN': True, u'id': 1027}, {u'name': u'LAN9-VRF', u'enableVPN': True, u'id': 1028}, {u'name': u'LAN10-VRF', u'enableVPN': True, u'id': 1029}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-08-13 11:56:20,543 - CPE11-HKG-HYBRID1-NEW - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 90, u'orgName': u'IPC00190', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 1020}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 1021}, {u'name': u'LAN3-VRF', u'enableVPN': True, u'id': 1022}, {u'name': u'LAN4-VRF', u'enableVPN': True, u'id': 1023}, {u'name': u'LAN5-VRF', u'enableVPN': True, u'id': 1024}, {u'name': u'LAN6-VRF', u'enableVPN': True, u'id': 1025}, {u'name': u'LAN7-VRF', u'enableVPN': True, u'id': 1026}, {u'name': u'LAN8-VRF', u'enableVPN': True, u'id': 1027}, {u'name': u'LAN9-VRF', u'enableVPN': True, u'id': 1028}, {u'name': u'LAN10-VRF', u'enableVPN': True, u'id': 1029}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-08-13 11:56:20,546 - CPE11-HKG-HYBRID1-NEW - INFO - 
+STEP : POST STAGING TEMPLATE CREATION AND DEPLOYMENT
+
+2019-08-13 11:56:20,575 - CPE11-HKG-HYBRID1-NEW - INFO - {
+	"versanms.sdwan-template-workflow": {
+		"templateName": "CPE11HYD-NEW-PS",
+		"templateType": "sdwan-post-staging",
+		"controllers": ["NV-WC01-N1-HKG", "NV-WC02-N1-HKG"],
+		"providerOrg": {
+			"name": "IPC00190",
+			"statefulFW": true,
+			"nextGenFW": false
+		},
+		"analyticsCluster": "LogCollectors-GGN",
+		"deviceFirmfactor": "6",
+		"wanInterfaces": [{
+			"interfaceName": "vni-0/1",
+			"pppoe": false,
+			"unitInfo": [{
+				"subUnit": 0,
+				"vlanId": 0,
+				"networkName": "MPLS-WAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv6Static": false,
+				"ipv6Dhcp": false,
+				"allowSSH": false,
+				"monitor": {},
+				"linkPriority": "",
+				"transportDomains": ["MPLS-TD"]
+			}]
+		}, {
+			"interfaceName": "vni-0/2",
+			"pppoe": false,
+			"unitInfo": [{
+				"subUnit": 0,
+				"vlanId": 0,
+				"networkName": "INT-WAN","ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv6Static": false,
+				"ipv6Dhcp": false,
+				"allowSSH": false,
+				"monitor": {},
+				"linkPriority": "",
+				"transportDomains": ["INTERNET-TD"]
+			}]
+		}],
+		"deviceType": "full-mesh",
+		"redundantPair": {
+			"enable": false
+		},
+		"lanInterfaces": [{
+			"interfaceName": "vni-0/4",
+			"unitInfo": [
+			{
+				"subUnit": "{$v_vni-0-4_LAN1_Unit-0__unit}",
+				"vlanId": "{$v_vni-0-4_LAN1_Unit-0__vlanId}",
+				"networkName": "LAN1",
+				"subOrganization": "IPC00190",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN1-VRF",
+				"zoneName": ""
+			}
+            
+                    ,{
+				"subUnit": "{$v_vni-0-4_LAN2_Unit-1__unit}",
+				"vlanId": "{$v_vni-0-4_LAN2_Unit-1__vlanId}",
+				"networkName": "LAN2",
+				"subOrganization": "IPC00190",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN2-VRF",
+				"zoneName": ""
+			}
+            
+        ]
+		}],
+		"solutionTier": "standard-sdwan-plus-ngfw",
+		"bandwidth": 1000,
+		"customParams": [],
+		"minimumImageVersion": "16.1R2-S9",
+		"isAnalyticsEnabled": true,
+		"isPrimary": true,
+		"diaConfig": {
+			"loadBalance": false
+		},
+		"splitTunnels": [
+        {
+			"vrfName": "LAN1-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}
+        
+        ,{
+			"vrfName": "LAN2-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}
+        
+		],
+		"inBoundNats": []
+	}
+}
+
+2019-08-13 11:56:21,509 - CPE11-HKG-HYBRID1-NEW - INFO - <Response [200]>
+2019-08-13 11:56:21,509 - CPE11-HKG-HYBRID1-NEW - INFO - 
+PASS
+2019-08-13 11:56:21,509 - CPE11-HKG-HYBRID1-NEW - INFO - 
+ >>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<
+
+2019-08-13 11:56:26,687 - CPE11-HKG-HYBRID1-NEW - INFO - <Response [200]>
+2019-08-13 11:56:26,687 - CPE11-HKG-HYBRID1-NEW - INFO - 
+PASS
+2019-08-13 11:56:26,687 - CPE11-HKG-HYBRID1-NEW - INFO - 
+ >>>>>>>>>> FW ASSOCIATION WITH POST STAGING TEMPLATE PASSED. <<<<<<<<<<<
+
+2019-08-13 11:56:42,931 - CPE11-HKG-HYBRID1-NEW - INFO - <Response [200]>
+2019-08-13 11:56:47,933 - CPE11-HKG-HYBRID1-NEW - INFO - 
+PASS
+2019-08-13 11:56:47,933 - CPE11-HKG-HYBRID1-NEW - INFO - 
+ >>>>>>>>>> POST STAGING TEMPLATE DEPLOY PASSED. <<<<<<<<<<<
+
+2019-08-13 11:56:53,423 - CPE11-HKG-HYBRID1-NEW - INFO - {u'versanms.sdwan-template-workflow': {u'providerOrg': {u'nextGenFW': False, u'name': u'IPC00190', u'statefulFW': True}, u'snmp': {u'snmpV1': False, u'snmpV2': False, u'snmpV3': False}, u'minimumImageVersion': u'16.1R2-S9', u'wanInterfaces': [{u'unitInfo': [{u'ipv6Dhcp': False, u'monitor': {u'monitorNexthop': False}, u'allowSSH': False, u'ipv4Static': True, u'DIA': False, u'vlanId': 0, u'transportDomains': [u'MPLS-TD'], u'ipv4Dhcp': False, u'ipv6rs': False, u'subUnit': 0, u'networkName': u'MPLS-WAN', u'ipv6Static': False}], u'interfaceName': u'vni-0/1', u'pppoe': False}, {u'unitInfo': [{u'ipv6Dhcp': False, u'monitor': {u'monitorNexthop': False}, u'allowSSH': False, u'ipv4Static': True, u'DIA': False, u'vlanId': 0, u'transportDomains': [u'INTERNET-TD'], u'ipv4Dhcp': False, u'ipv6rs': False, u'subUnit': 0, u'networkName': u'INT-WAN', u'ipv6Static': False}], u'interfaceName': u'vni-0/2', u'pppoe': False}], u'diaConfig': {u'loadBalance': False, u'dia': False}, u'templateName': u'CPE11HYD-NEW-PS', u'isPrimary': True, u'isAnalyticsEnabled': True, u'lanInterfaces': [{u'unitInfo': [{u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN1-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN1_Unit-0__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'IPC00190', u'subUnit': u'{$v_vni-0-4_LAN1_Unit-0__unit}', u'networkName': u'LAN1', u'dhcpV4Relay': False}, {u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN2-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN2_Unit-1__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'IPC00190', u'subUnit': u'{$v_vni-0-4_LAN2_Unit-1__unit}', u'networkName': u'LAN2', u'dhcpV4Relay': False}], u'interfaceName': u'vni-0/4'}], u'bandwidth': 1000, u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC02-N1-HKG'], u'templateType': u'sdwan-post-staging', u'deviceType': u'full-mesh', u'redundantPair': {u'vrrp': True, u'enable': False, u'cloudCPE': False}, u'solutionTier': u'standard-sdwan-plus-ngfw', u'deviceFirmfactor': 6, u'analyticsCluster': u'LogCollectors-GGN', u'splitTunnels': [{u'wanNetworkName': u'INT-WAN', u'vrfName': u'LAN1-VRF', u'dia': True, u'gateway': False}, {u'wanNetworkName': u'INT-WAN', u'vrfName': u'LAN2-VRF', u'dia': True, u'gateway': False}]}}
+2019-08-13 11:56:53,622 - CPE11-HKG-HYBRID1-NEW - INFO - [{u'category': u'stateful-firewall', u'organization': u'IPC00190', u'serviceTemplate': u'COMMON-SFW-TEMPLATE2', u'id': 164, u'templateName': u'CPE11HYD-NEW-PS'}]
+2019-08-13 11:57:08,713 - CPE11-HKG-HYBRID1-NEW - INFO - set devices template CPE11HYD-NEW-PS config interfaces vni vni-0/1 description "MPLS-WAN"
+set devices template CPE11HYD-NEW-PS config interfaces vni vni-0/1 bandwidth uplink "5000"
+set devices template CPE11HYD-NEW-PS config interfaces vni vni-0/1 bandwidth downlink "5000"
+set devices template CPE11HYD-NEW-PS config interfaces vni vni-0/2 description "INT-WAN"
+
+set devices template CPE11HYD-NEW-PS config system vnf-manager ip-addresses [ 10.92.116.67/32 10.92.116.68/32 ]
+set devices template CPE11HYD-NEW-PS config system service-options qos-frame-overhead auto-adjust true
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 hold-time 90
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart enable
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart maximum-restart-time 15
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart recovery-time 15
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart select-defer-time 15
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart stalepath-time 15
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart dynamic-peer-restart-time 0
+
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match family inet-vpn
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match community "(^|,)([0-9]*:11)($|,)"
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action filter accept
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community 8009:8009
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community-action set-specific
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action set-local-preference 80
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match family inet-vpn
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match community "(^|,)([0-9]*:12)($|,)"
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action filter accept
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community 8009:8009
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community-action set-specific
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action set-local-preference 60
+move devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 first
+move devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 first
+
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard match family inet-vpn
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action filter accept
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action community 852:10
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action community-action set-specific
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard match family versa-private
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action filter accept
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community 852:10
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 group Controllers-Group export TO_SDWAN
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc interval 10
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc logging-interval 30
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc send-to controller
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef interval 10
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef logging-interval 30
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef send-to branches
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be interval 10
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be logging-interval 30
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be send-to branches
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 interval 10
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 logging-interval 30
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 send-to branches
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 interval 10
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 logging-interval 30
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 send-to branches
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 interval 10
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 logging-interval 30
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 send-to branches
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 management-traffic priority 0
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_nc interval 10
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_nc logging-interval 30
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_nc send-to controller
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_be interval 10
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_be logging-interval 30
+set devices template CPE11HYD-NEW-PS config orgs org IPC00190 sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_be send-to branches
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP ]
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN set action allow
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match destination zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services predefined-services-list [ ESP ICMP ]
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services services-list [ IPSEC IPSIPSecAH ]
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT set action allow
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match source zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match ether-type ARP
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN set action allow
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match destination zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match ether-type ARP
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT set action allow
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN match source zone zone-list [ Intf-INT-WAN-Zone ]
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN match services services-list [ DHCP-67 DHCP-68 ]
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN set action allow
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ]
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT match services services-list [ DHCP-67 DHCP-68 ]
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT set action allow
+
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match source zone zone-list [ Intf-LAN1-Zone Intf-LAN2-Zone W-ST-LAN1-VRF-INT-WAN W-ST-LAN2-VRF-INT-WAN ]
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match destination zone zone-list [ Intf-INT-WAN-Zone L-ST-LAN1-VRF-INT-WAN L-ST-LAN2-VRF-INT-WAN ]
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT set action allow
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN match source zone zone-list [ Intf-INT-WAN-Zone L-ST-LAN1-VRF-INT-WAN L-ST-LAN2-VRF-INT-WAN ]
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN set action allow
+
+
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN match source zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN set action deny
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT match destination zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT set action deny
+
+delete devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 cgnat rules rule RFC_1918_NoTranslate
+delete devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 cgnat rules rule DIA-Rule-LAN2-VRF-INT-WAN from
+
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 cgnat rules rule DIA-Rule-LAN2-VRF-INT-WAN from source-zone [ W-ST-LAN2-VRF-INT-WAN ]
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 cgnat rules rule DIA-Rule-LAN2-VRF-INT-WAN from destination-zone [ Intf-INT-WAN-Zone ]
+
+
+
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service app-qos-policies app-qos-policy-group Default-Policy
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 forwarding-class fc13
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 loss-priority high
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 dscp-rw-enable yes
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 dot1p-rw-enable no
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 forwarding-class fc14
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 loss-priority high
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 dscp-rw-enable yes
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 dot1p-rw-enable no
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 forwarding-class fc15
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 loss-priority high
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 dscp-rw-enable yes
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 dot1p-rw-enable no
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default forwarding-class fc_be
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default loss-priority high
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default dscp-rw-enable no
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default dot1p-rw-enable no
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium forwarding-class fc_ef
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium loss-priority low
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium dscp-rw-enable yes
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium dot1p-rw-enable no
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management forwarding-class fc_nc
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management loss-priority low
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management dscp-rw-enable yes
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management dot1p-rw-enable no
+
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 objects services service IPSEC protocol UDP
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 objects services service IPSEC destination-port 4790,4500,500
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 objects services service IPSecAH protocol AH
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 objects services service IPSIPSecAH protocol AH
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 objects services service DHCP-67 protocol UDP
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 objects services service DHCP-67 port 67
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 objects services service DHCP-68 protocol UDP
+set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 objects services service DHCP-68 port 68
+delete devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 security access-policies access-policy-group Default-Policy
+
+delete device template CPE11HYD-NEW-PS config org org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule Default-Rule
+set devices template CPE11HYD-NEW-PS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names local [ MPLS-WAN INT-WAN ]
+set devices template CPE11HYD-NEW-PS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names remote [ MPLS-WAN MPLS-WAN1 MPLS-WAN2 INT-WAN INT-WAN1 INT-WAN2 ]
+set devices template CPE11HYD-NEW-PS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names local [ INT-WAN ]
+set devices template CPE11HYD-NEW-PS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names remote [ LTE-WAN ]
+set devices template CPE11HYD-NEW-PS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE connection-selection-method weighted-round-robin
+set devices template CPE11HYD-NEW-PS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE recompute-timer 40
+set devices template CPE11HYD-NEW-PS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE encryption optional
+set devices template CPE11HYD-NEW-PS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE symmetric-forwarding enable
+set devices template CPE11HYD-NEW-PS config org org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE description DEFAULT-TRAFFIC-RULE
+set devices template CPE11HYD-NEW-PS config org org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set action allow
+set devices template CPE11HYD-NEW-PS config org org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set forwarding-profile DEFAULT-TRAFFIC-PROFILE
+
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance LAN1-VRF vrf-import-target target:1020L:10202
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance LAN2-VRF vrf-import-target target:1021L:10212
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template CPE11HYD-NEW-PS config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+set devices template CPE11HYD-NEW-PS config snmp usm local user coltuser auth sha password Colt1234
+
+set devices template CPE11HYD-NEW-PS config system time-zone Greenwich
+set devices template CPE11HYD-NEW-PS config confdConfig cli banner "Access to this network/system is limited to users authorised by Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be audited"
+set devices template CPE11HYD-NEW-PS config system users portal login shell role admin password yA:D#{}Vn9JE-?Qa
+set devices template CPE11HYD-NEW-PS config system users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+2019-08-13 11:58:16,375 - CPE11-HKG-HYBRID1-NEW - INFO - configure
+Entering configuration mode private
+[ok][2019-08-13 06:20:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config interfaces vni vni-0/1 description "MPLS-WAN"
+[ok][2019-08-13 06:20:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config interfaces vni vni-0/1 bandwidth uplink "5000"
+[ok][2019-08-13 06:20:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config interfaces vni vni-0/1 bandwidth downlink "5000"
+[ok][2019-08-13 06:20:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config interfaces vni vni-0/2 description "INT-WAN"
+[ok][2019-08-13 06:20:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config system vnf-manager ip-addresses [ 10.92.116.67/32 10.92.116.68/32 ]
+[ok][2019-08-13 06:20:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config system service-options qos-frame-overhead auto-adjust true
+[ok][2019-08-13 06:20:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 hold-time 90
+[ok][2019-08-13 06:20:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart enable
+[ok][2019-08-13 06:20:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart maximum-restart-time 15
+[ok][2019-08-13 06:20:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart recovery-time 15
+[ok][2019-08-13 06:20:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart select-defer-time 15
+[ok][2019-08-13 06:20:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart stalepath-time 15
+[ok][2019-08-13 06:20:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart dynamic-peer-restart-time 0
+[ok][2019-08-13 06:20:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match family inet-vpn
+[ok][2019-08-13 06:20:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match community "(^|,)([0-9]*:11)($|,)"
+[ok][2019-08-13 06:20:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action filter accept
+[ok][2019-08-13 06:20:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community 8009:8009
+[ok][2019-08-13 06:20:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community-action set-specific
+[ok][2019-08-13 06:20:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action set-local-preference 80
+[ok][2019-08-13 06:20:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match family inet-vpn
+[ok][2019-08-13 06:20:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match community "(^|,)([0-9]*:12)($|,)"
+[ok][2019-08-13 06:20:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action filter accept
+[ok][2019-08-13 06:20:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community 8009:8009
+[ok][2019-08-13 06:20:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community-action set-specific
+[ok][2019-08-13 06:20:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action set-local-preference 60
+[ok][2019-08-13 06:20:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% move devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 first
+[ok][2019-08-13 06:20:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% move devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 first
+[ok][2019-08-13 06:20:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard match family inet-vpn
+[ok][2019-08-13 06:20:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action filter accept
+[ok][2019-08-13 06:20:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action community 852:10
+[ok][2019-08-13 06:20:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action community-action set-specific
+[ok][2019-08-13 06:20:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard match family versa-private
+[ok][2019-08-13 06:20:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action filter accept
+[ok][2019-08-13 06:20:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community 852:10
+[ok][2019-08-13 06:20:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
+[ok][2019-08-13 06:20:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 group Controllers-Group export TO_SDWAN
+[ok][2019-08-13 06:20:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc interval 10
+[ok][2019-08-13 06:20:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc logging-interval 30
+[ok][2019-08-13 06:20:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc send-to controller
+[ok][2019-08-13 06:20:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef interval 10
+[ok][2019-08-13 06:20:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef logging-interval 30
+[ok][2019-08-13 06:20:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef send-to branches
+[ok][2019-08-13 06:20:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be interval 10
+[ok][2019-08-13 06:20:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be logging-interval 30
+[ok][2019-08-13 06:20:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be send-to branches
+[ok][2019-08-13 06:20:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 interval 10
+[ok][2019-08-13 06:20:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 logging-interval 30
+[ok][2019-08-13 06:20:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 send-to  branches
+[ok][2019-08-13 06:20:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 interval 10
+[ok][2019-08-13 06:20:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 logging-interval 30
+[ok][2019-08-13 06:20:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 send-to  branches
+[ok][2019-08-13 06:20:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 interval 10
+[ok][2019-08-13 06:20:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 logging-interval 30
+[ok][2019-08-13 06:20:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 send-to  branches
+[ok][2019-08-13 06:20:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/1.0 management-traffic priority 0
+[ok][2019-08-13 06:20:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_nc interval 10
+[ok][2019-08-13 06:20:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_nc logging-interval 30
+[ok][2019-08-13 06:20:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_nc send-to controller
+[ok][2019-08-13 06:20:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_be interval 10
+[ok][2019-08-13 06:20:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_be logging-interval 30
+[ok][2019-08-13 06:20:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org  IPC00190 sd-wan site wan-interfaces vni vni-0/2.0 sla-monitoring fc fc_be send-to branches
+[ok][2019-08-13 06:20:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy IPSEC_IN match source zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+[ok][2019-08-13 06:20:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP ]
+[ok][2019-08-13 06:20:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
+[ok][2019-08-13 06:20:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy IPSEC_IN set action allow
+[ok][2019-08-13 06:20:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy IPSEC_OUT match destination zone zone-list [ Intf-INT-WAN-Zone  Intf-MPLS-WAN-Zone ]
+[ok][2019-08-13 06:20:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy IPSEC_OUT match services predefined-services-list [ ESP ICMP ]
+[ok][2019-08-13 06:20:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy IPSEC_OUT match services services-list [ IPSEC IPSIPSecAH ]
+[ok][2019-08-13 06:20:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy IPSEC_OUT set action allow
+[ok][2019-08-13 06:20:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy ARP_IN match source zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+[ok][2019-08-13 06:20:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy ARP_IN match ether-type ARP
+[ok][2019-08-13 06:20:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy ARP_IN set action allow
+[ok][2019-08-13 06:20:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy ARP_OUT match destination zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+[ok][2019-08-13 06:20:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy ARP_OUT match ether-type ARP
+[ok][2019-08-13 06:20:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy ARP_OUT set action allow
+[ok][2019-08-13 06:20:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy DHCP_IN match source zone zone-list [ Intf-INT-WAN-Zone ]
+[ok][2019-08-13 06:20:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy DHCP_IN match services services-list [ DHCP-67 DHCP-68 ]
+[ok][2019-08-13 06:20:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy DHCP_IN set action allow
+[ok][2019-08-13 06:20:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy DHCP_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ] 
+[ok][2019-08-13 06:20:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy DHCP_OUT match services services-list [ DHCP-67 DHCP-68 ]
+[ok][2019-08-13 06:20:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy DHCP_OUT set action allow
+[ok][2019-08-13 06:20:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy INT_OUT match source zone zone-list [ Intf-LAN1-Zone Intf-LAN2-Zone W-ST-LAN1-VRF-INT-WAN W-ST-LAN2-VRF-INT-WAN ]
+[ok][2019-08-13 06:20:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy INT_OUT match destination zone zone-list [ Intf-INT-WAN-Zone L-ST-LAN1-VRF-INT-WAN L-ST-LAN2-VRF-INT-WAN ]
+[ok][2019-08-13 06:20:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy INT_OUT set action allow
+[ok][2019-08-13 06:20:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy INT_IN match source zone zone-list [ Intf-INT-WAN-Zone L-ST-LAN1-VRF-INT-WAN L-ST-LAN2-VRF-INT-WAN ]
+[ok][2019-08-13 06:20:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy INT_IN set action allow
+[ok][2019-08-13 06:20:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy WAN_IN match source zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+[ok][2019-08-13 06:20:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy WAN_IN set action deny
+[ok][2019-08-13 06:20:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy WAN_OUT match destination zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
+[ok][2019-08-13 06:20:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy  rules qos-policy WAN_OUT set action deny
+[ok][2019-08-13 06:20:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% delete devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 cgnat rules rule RFC_1918_NoTranslate
+[ok][2019-08-13 06:20:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% delete devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 cgnat rules rule DIA-Rule-LAN2-VRF-INT-WAN from
+[ok][2019-08-13 06:20:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 cgnat rules rule DIA-Rule-LAN2-VRF-INT-WAN from source-zone [  W-ST-LAN2-VRF-INT-WAN ]
+[ok][2019-08-13 06:20:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 cgnat rules rule DIA-Rule-LAN2-VRF-INT-WAN from destination-zone [ Intf-INT-WAN-Zone ]
+[ok][2019-08-13 06:20:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service app-qos-policies app-qos-policy-group Default-Policy
+[ok][2019-08-13 06:20:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 forwarding-class fc13
+[ok][2019-08-13 06:20:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 loss-priority high
+[ok][2019-08-13 06:20:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 dscp-rw-enable yes
+[ok][2019-08-13 06:20:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 dot1p-rw-enable no
+[ok][2019-08-13 06:20:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 forwarding-class fc14
+[ok][2019-08-13 06:20:57]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 loss-priority high
+[ok][2019-08-13 06:20:57]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 dscp-rw-enable yes
+[ok][2019-08-13 06:20:57]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 dot1p-rw-enable no
+[ok][2019-08-13 06:20:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 forwarding-class fc15
+[ok][2019-08-13 06:20:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 loss-priority high
+[ok][2019-08-13 06:20:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 dscp-rw-enable yes
+[ok][2019-08-13 06:20:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 dot1p-rw-enable no
+[ok][2019-08-13 06:20:59]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default forwarding-class fc_be
+[ok][2019-08-13 06:20:59]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default loss-priority high
+[ok][2019-08-13 06:20:59]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default dscp-rw-enable no
+[ok][2019-08-13 06:21:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default dot1p-rw-enable no
+[ok][2019-08-13 06:21:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium forwarding-class fc_ef
+[ok][2019-08-13 06:21:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium loss-priority low
+[ok][2019-08-13 06:21:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium dscp-rw-enable yes
+[ok][2019-08-13 06:21:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium dot1p-rw-enable no
+[ok][2019-08-13 06:21:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management forwarding-class fc_nc
+[ok][2019-08-13 06:21:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management loss-priority low
+[ok][2019-08-13 06:21:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management dscp-rw-enable yes
+[ok][2019-08-13 06:21:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management dot1p-rw-enable no
+[ok][2019-08-13 06:21:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 objects services service IPSEC protocol UDP
+[ok][2019-08-13 06:21:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 objects services service IPSEC destination-port 4790,4500,500
+[ok][2019-08-13 06:21:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 objects services service IPSecAH protocol AH
+[ok][2019-08-13 06:21:04]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 objects services service IPSIPSecAH protocol AH
+[ok][2019-08-13 06:21:04]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 objects services service DHCP-67 protocol UDP
+[ok][2019-08-13 06:21:04]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 objects services service DHCP-67 port 67
+[ok][2019-08-13 06:21:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 objects services service DHCP-68 protocol UDP
+[ok][2019-08-13 06:21:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 objects services service DHCP-68 port 68
+[ok][2019-08-13 06:21:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% delete devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 security access-policies access-policy-group Default-Policy 
+[ok][2019-08-13 06:21:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% delete devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule Default-Rule
+Error: element not found
+[error][2019-08-13 06:21:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names local [ MPLS-WAN INT-WAN ]
+[ok][2019-08-13 06:21:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names remote [ MPLS-WAN MPLS-WAN1  MPLS-WAN2 INT-WAN INT-WAN1 INT-WAN2 ]
+[ok][2019-08-13 06:21:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names local [ INT-WAN ]
+[ok][2019-08-13 06:21:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names remote [ LTE-WAN ]
+[ok][2019-08-13 06:21:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE connection-selection-method weighted-round-robin
+[ok][2019-08-13 06:21:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE recompute-timer 40
+[ok][2019-08-13 06:21:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE encryption optional
+[ok][2019-08-13 06:21:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE symmetric-forwarding enable
+[ok][2019-08-13 06:21:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE description DEFAULT-TRAFFIC-RULE
+[ok][2019-08-13 06:21:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set action allow
+[ok][2019-08-13 06:21:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config orgs org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set forwarding-profile DEFAULT-TRAFFIC-PROFILE
+[ok][2019-08-13 06:21:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance LAN1-VRF vrf-import-target target:1020L:10202
+[ok][2019-08-13 06:21:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-08-13 06:21:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-08-13 06:21:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-08-13 06:21:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-08-13 06:21:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance LAN2-VRF vrf-import-target target:1021L:10212
+[ok][2019-08-13 06:21:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-08-13 06:21:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-08-13 06:21:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-08-13 06:21:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config routing-instances routing-instance LAN2-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-08-13 06:21:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config snmp usm  local user coltuser auth sha password Colt1234
+[ok][2019-08-13 06:21:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config system time-zone Greenwich
+[ok][2019-08-13 06:21:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config confdConfig cli banner "Access to this network/system is limited to users authorised by Colt for its legitimate business purposes. Unauthorised access, use, installation  of files or modification of any data is prohibited. Use of this system/network  will be audited"
+[ok][2019-08-13 06:21:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config system users portal login shell role admin password yA:D#{}Vn9JE-?Qa
+[ok][2019-08-13 06:21:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template CPE11HYD-NEW-PS config system users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+[ok][2019-08-13 06:21:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-13 11:58:17,197 - CPE11-HKG-HYBRID1-NEW - INFO - commit
+Commit complete.
+[ok][2019-08-13 06:21:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-13 11:58:17,262 - CPE11-HKG-HYBRID1-NEW - INFO - 
+CPE11-HKG-HYBRID1-NEW : element not found error.Commit success.
+2019-08-13 11:58:17,263 - CPE11-HKG-HYBRID1-NEW - INFO - 
+ >>>>>>>>>> PS MAIN TEMPLATE MODIFY PASSED. <<<<<<<<<<<
+
+2019-08-13 11:58:22,270 - CPE11-HKG-HYBRID1-NEW - INFO - 
+STEP : DEVICE GROUP CREATION AND DEPLOYMENT
+
+2019-08-13 11:58:22,555 - CPE11-HKG-HYBRID1-NEW - INFO - <Response [201]>
+2019-08-13 11:58:22,555 - CPE11-HKG-HYBRID1-NEW - INFO - 
+PASS
+2019-08-13 11:58:22,555 - CPE11-HKG-HYBRID1-NEW - INFO - 
+ >>>>>>>>>> DEVICE GROUP TEMPLATE CREATION PASSED. <<<<<<<<<<<
+
+2019-08-13 11:58:27,556 - CPE11-HKG-HYBRID1-NEW - INFO - 
+STEP : PRE-ONBOARD WORK
+
+2019-08-13 11:58:27,615 - CPE11-HKG-HYBRID1-NEW - INFO - 
+sudo /opt/versa/scripts/staging.py -w 1 -c  -s 172.16.7.42/30 -g  -l  -lk   -r  -rk 
+
+2019-08-13 11:58:27,615 - CPE11-HKG-HYBRID1-NEW - INFO - {
+	"versanms.sdwan-device-workflow": {
+		"deviceName": "CPE11-HKG-HYBRID1-NEW",
+		"siteId": "2611",
+		"orgName": "IPC00190",
+		"serialNumber": "CPE11HYKSAB16",
+		"deviceGroup": "CPE11HYD-NEW-DG",
+		"locationInfo": {
+			"state": "karnataka",
+			"country": "india",
+			"longitude": "77.594563",
+			"latitude": "12.971599",
+			"city": "bangalore"
+		},
+		"postStagingTemplateInfo": {
+			"templateName": "CPE11HYD-NEW-PS",
+			"templateData": {
+				"device-template-variable": {
+					"template": "CPE11HYD-NEW-PS",
+					"variable-binding": {
+						"attrs": [{
+							"name": "{$v_INT-WAN_IPv4__staticaddress}",
+							"value": "172.16.6.42/30",
+							"isAutogeneratable": false
+						},
+						
+						    
+						    
+						    
+						{ "name": "{$v_vni-0-4_LAN1_Unit-0__unit}", "value": "600", "isAutogeneratable": false},
+						{ "name": "{$v_vni-0-4_LAN1_Unit-0__vlanId}", "value": "600", "isAutogeneratable": false },
+						
+						    
+						    
+						    
+						{ "name": "{$v_vni-0-4_LAN2_Unit-1__unit}", "value": "601", "isAutogeneratable": false},
+						{ "name": "{$v_vni-0-4_LAN2_Unit-1__vlanId}", "value": "601", "isAutogeneratable": false },
+						
+						{
+							"name": "{$v_IPC00190-Control-VR_16_Router_ID__vrRouteId}",
+							"value": "20.20.90.11",
+							"isAutogeneratable": true,
+							"isOverwritten": false
+						}, {
+							"name": "{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}",
+							"value": "CPE11-HKG-HYBRID1-NEW",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}",
+							"value": "CPE11-HKG-HYBRID1-NEW",
+							"isAutogeneratable": true
+						},
+						
+						
+						
+						{ "name": "{$v_LAN1_IPv4__staticaddress}", "value": "192.169.101.1/24", "isAutogeneratable": false},
+						
+						
+						
+						{ "name": "{$v_LAN2_IPv4__staticaddress}", "value": "192.169.102.1/24", "isAutogeneratable": false},
+						
+						{
+							"name": "{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+							"value": "CPE11-HKG-HYBRID1-NEW@colt.net",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_Site_Id__siteSiteID}",
+							"value": "2611",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+							"value": "CPE11-HKG-HYBRID1-NEW@colt.net",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_IPC00190_Site_Name__sitesSiteName}",
+							"value": "CPE11-HKG-HYBRID1-NEW",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_latitude__IdLatitude}",
+							"value": "12.971599",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_identification__IdName}",
+							"value": "CPE11-HKG-HYBRID1-NEW",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_INT-WAN-Transport-VR_IPv4__vrHopAddress}",
+							"value": "172.16.6.41",
+							"isAutogeneratable": false
+						},	{
+						    "name": "{$v_tvi-0-180_-_Unit_0_Static_address__tunnelStaticAddress}",
+							"value": "10.10.90.11/32",
+							"isAutogeneratable": true,
+							"isOverwritten": false
+						}, {
+							"name": "{$v_Chassis_Id__sitesChassisId}",
+							"value": "CPE11HYKSAB16",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_longitude__Idlongitude}",
+							"value": "77.594563",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_location__IdLocation}",
+							"value": "bangalore,karnataka, india",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_IPC00190-Control-VR_90_Local_address__vrRouterAddress}",
+							"value": "20.20.90.11",
+							"isAutogeneratable": true,
+							"isOverwritten": false
+						}, {
+							"name": "{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}",
+							"value": "172.16.7.41",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_MPLS-WAN_IPv4__staticaddress}",
+							"value": "172.16.7.42/30",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_tvi-0-181_-_Unit_0_Static_address__tunnelStaticAddress}",
+							"value": "20.20.90.11/32",
+							"isAutogeneratable": true,
+							"isOverwritten": false
+						}]
+					}
+				},
+				"variableMetadata": [{
+					"variable": "{$v_INT-WAN_IPv4__staticaddress}",
+					"group": "Interfaces",
+					"overlay": false,
+					"type": "IPV4_MASK"
+				},
+                
+                
+                
+				{"variable": "{$v_vni-0-4_LAN1_Unit-0__vlanId}", "group": "Vlan Info", "overlay": false, "type": "INTEGER"},
+                
+                
+                
+				{"variable": "{$v_vni-0-4_LAN2_Unit-1__vlanId}", "group": "Vlan Info", "overlay": false, "type": "INTEGER"},
+                
+				{
+					"variable": "{$v_IPC00190-Control-VR_90_Router_ID__vrRouteId}",
+					"group": "Virtual Routers",
+					"overlay": true,
+					"type": "IPV4"
+				}, {
+					"variable": "{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}",
+					"group": "IPSEC",
+					"overlay": false
+				}, {
+					"variable": "{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}",
+					"group": "IPSEC",
+					"overlay": false
+				},
+			{
+					"variable": "{$v_LAN1_IPv4__staticaddress}", "group": "Interfaces", "overlay": false, "type": "IPV4_MASK"
+				},
+            {
+					"variable": "{$v_LAN2_IPv4__staticaddress}", "group": "Interfaces", "overlay": false, "type": "IPV4_MASK"
+				},
+            
+				 {
+					"variable": "{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+					"group": "IPSEC",
+					"overlay": false
+				}, {
+					"variable": "{$v_Site_Id__siteSiteID}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+					"group": "IPSEC",
+					"overlay": false
+				}, {
+					"variable": "{$v_IPC00190_Site_Name__sitesSiteName}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_latitude__IdLatitude}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_identification__IdName}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_INT-WAN-Transport-VR_IPv4__vrHopAddress}",
+					"group": "Virtual Routers",
+					"overlay": false,
+					"type": "IPV4_IPV6"
+				}, {
+					"variable": "{$v_tvi-0-180_-_Unit_0_Static_address__tunnelStaticAddress}",
+					"group": "Interfaces",
+					"overlay": true,
+					"type": "IPV4_IPV6_MASK"
+				}, {
+					"variable": "{$v_Chassis_Id__sitesChassisId}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_longitude__Idlongitude}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_location__IdLocation}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_IPC00190-Control-VR_90_Local_address__vrRouterAddress}",
+					"group": "Virtual Routers",
+					"overlay": true,
+					"type": "IPV4"
+				}, {
+					"variable": "{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}",
+					"group": "Virtual Routers",
+					"overlay": false,
+					"type": "IPV4_IPV6"
+				}, {
+					"variable": "{$v_tvi-0-181_-_Unit_0_Static_address__tunnelStaticAddress}",
+					"group": "Interfaces",
+					"overlay": true,
+					"type": "IPV4_IPV6_MASK"
+				}]
+			}
+		}
+	}
+}
+2019-08-13 11:58:28,595 - CPE11-HKG-HYBRID1-NEW - INFO - <Response [200]>
+2019-08-13 11:58:28,595 - CPE11-HKG-HYBRID1-NEW - INFO - PASS
+2019-08-13 11:58:38,795 - CPE11-HKG-HYBRID1-NEW - INFO - 20999
+2019-08-13 11:58:44,134 - CPE11-HKG-HYBRID1-NEW - INFO - Device deployed
+2019-08-13 11:58:44,997 - CPE11-HKG-HYBRID1-NEW - INFO - {u'versanms.sdwan-device-workflow': {u'postStagingTemplateInfo': {u'templateData': {u'device-template-variable': {u'variable-binding': {u'attrs': [{u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_tvi-0-181_-_Unit_0_Static_address__tunnelStaticAddress}', u'value': u'20.20.90.11/32'}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN1_Unit-0__vlanId}', u'value': 600}, {u'isAutogeneratable': False, u'name': u'{$v_INT-WAN_IPv4__staticaddress}', u'value': u'172.16.6.42/30'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}', u'value': u'CPE11-HKG-HYBRID1-NEW'}, {u'isAutogeneratable': True, u'isOverwritten': False, u'name': u'{$v_IPC00190-Control-VR_90_Router_ID__vrRouteId}', u'value': u'10.90.74.51'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'value': u'CPE11-HKG-HYBRID1-NEW@colt.net'}, {u'isAutogeneratable': False, u'name': u'{$v_LAN2_IPv4__staticaddress}', u'value': u'192.169.102.1/24'}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN2_Unit-1__unit}', u'value': 601}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN2_Unit-1__vlanId}', u'value': 601}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_tvi-0-180_-_Unit_0_Static_address__tunnelStaticAddress}', u'value': u'10.10.90.11/32'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'value': u'CPE11-HKG-HYBRID1-NEW@colt.net'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00190_Site_Name__sitesSiteName}', u'value': u'CPE11-HKG-HYBRID1-NEW'}, {u'isAutogeneratable': False, u'name': u'{$v_LAN1_IPv4__staticaddress}', u'value': u'192.169.101.1/24'}, {u'isAutogeneratable': True, u'name': u'{$v_latitude__IdLatitude}', u'value': 12.971599}, {u'isAutogeneratable': True, u'name': u'{$v_identification__IdName}', u'value': u'CPE11-HKG-HYBRID1-NEW'}, {u'isAutogeneratable': False, u'name': u'{$v_INT-WAN-Transport-VR_IPv4__vrHopAddress}', u'value': u'172.16.6.41'}, {u'isAutogeneratable': True, u'name': u'{$v_Chassis_Id__sitesChassisId}', u'value': u'CPE11HYKSAB16'}, {u'isAutogeneratable': True, u'name': u'{$v_longitude__Idlongitude}', u'value': 77.594563}, {u'isAutogeneratable': True, u'name': u'{$v_location__IdLocation}', u'value': u'bangalore,karnataka, india'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_IPC00190-Control-VR_90_Local_address__vrRouterAddress}', u'value': u'20.20.90.11'}, {u'isAutogeneratable': False, u'name': u'{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}', u'value': u'172.16.7.41'}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN1_Unit-0__unit}', u'value': 600}, {u'isAutogeneratable': True, u'name': u'{$v_Site_Id__siteSiteID}', u'value': 2611}, {u'isAutogeneratable': False, u'name': u'{$v_MPLS-WAN_IPv4__staticaddress}', u'value': u'172.16.7.42/30'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}', u'value': u'CPE11-HKG-HYBRID1-NEW'}]}, u'template': u'CPE11HYD-NEW-PS'}, u'variableMetadata': [{u'variable': u'{$v_tvi-0-181_-_Unit_0_Static_address__tunnelStaticAddress}', u'type': u'IPV4_IPV6_MASK', u'group': u'Interfaces', u'overlay': True}, {u'variable': u'{$v_vni-0-4_LAN1_Unit-0__vlanId}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_INT-WAN_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_IPC00190-Control-VR_90_Router_ID__vrRouteId}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': True}, {u'variable': u'{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_LAN2_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_vni-0-4_LAN2_Unit-1__unit}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_vni-0-4_LAN2_Unit-1__vlanId}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_tvi-0-180_-_Unit_0_Static_address__tunnelStaticAddress}', u'type': u'IPV4_IPV6_MASK', u'group': u'Interfaces', u'overlay': True}, {u'variable': u'{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_IPC00190_Site_Name__sitesSiteName}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_LAN1_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_latitude__IdLatitude}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_identification__IdName}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_INT-WAN-Transport-VR_IPv4__vrHopAddress}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': False}, {u'variable': u'{$v_Chassis_Id__sitesChassisId}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_longitude__Idlongitude}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_location__IdLocation}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00190-Control-VR_90_Local_address__vrRouterAddress}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': True}, {u'variable': u'{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': False}, {u'variable': u'{$v_vni-0-4_LAN1_Unit-0__unit}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_Site_Id__siteSiteID}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_MPLS-WAN_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}', u'group': u'IPSEC', u'overlay': False}]}, u'templateName': u'CPE11HYD-NEW-PS'}, u'deviceName': u'CPE11-HKG-HYBRID1-NEW', u'workflowStatus': u'Deployed', u'deviceGroup': u'CPE11HYD-NEW-DG', u'orgName': u'IPC00190', u'serialNumber': u'CPE11HYKSAB16', u'locationInfo': {u'latitude': 12.971599, u'country': u'india', u'state': u'karnataka', u'longitude': 77.594563, u'city': u'bangalore'}, u'bandwidth': 0, u'lastUpdatedBy': u'Automated@System', u'siteId': 2611, u'instanceInfo': u'', u'stagingTemplateInfo': u'', u'lastModifiedTime': u'2019-08-13T06:21:37.101000+00:00', u'urlztpBasedInfo': {u'authType': u'psk', u'enableIpv4Dhcp': False, u'branchKey': u'OXRpyxOtbfynsPAr', u'branchId': u'CPE11-HKG-HYBRID1-NEW@IPC00190.com', u'enableIpv6': False, u'enableIpv4': False, u'enableIpv6Dhcp': False}}}
+2019-08-13 11:59:04,483 - CPE11-HKG-HYBRID1-NEW - INFO - configure private
+Entering configuration mode private
+[ok][2019-08-13 06:22:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-13 11:59:06,690 - CPE11-HKG-HYBRID1-NEW - INFO - True
+2019-08-13 11:59:07,092 - CPE11-HKG-HYBRID1-NEW - INFO - set devices device 
+Possible completions:
+  A string uniquely identifying the managed device  
+  CPE-34                                            
+  CPE-35                                            
+  CPE-46                                            
+  CPE-47                                            
+  CPE1-SIN-HYBRID                                   
+  CPE11-HKG-HYBRID1                                 
+  CPE12-SIN-INTONLY                                 
+  CPE15                                             
+  CPE16-SIN-MPLSONLY                                
+  CPE22HKG-HYBRID                                   
+  CPE23-SIN-HYBRID                                  
+  CPE25-HKG-HYBRID                                  
+  CPE26-SIN-DUALMPLSONLY-PRIM                       
+  CPE27-SIN-DUALMPLSONLY-SEC                        
+  CPE32-SIN-MPLSONLY                                
+  CPE4-SIN-HYBRID                                   
+  CPE48-HKG-DISD1-4G                                
+  CST-CUST1-DataStore                               
+  CUST1-DataStore                                   
+  Colt-DataStore                                    
+  IPC01941W-DataStore                               
+  IPC03146-DataStore                                
+  IPC04138-DataStore                                
+  IPC04139-DataStore                                
+  IPC04140-DataStore                                
+  IPC04151-DataStore                                
+  IPC04152-DataStore                                
+  IPC04475-DataStore                                
+  NGFW-ORG-DataStore                                
+  NV-FW01-N1-HKG                                    
+  NV-FW01-N3-GGN                                    
+  NV-FW01-N6-SIN                                    
+  NV-FW02-N1-HKG                                    
+  NV-FW02-N3-GGN                                    
+  NV-FW02-N3-GGN-ScratchPad                         
+  NV-FW02-N6-SIN                                    
+  NV-GW01-N1-HKG                                    
+  NV-GW01-N3-GGN                                    
+  NV-GW01-N6-SIN                                    
+  NV-GW02-N1-HKG                                    
+  NV-GW02-N3-GGN                                    
+  NV-GW02-N6-SIN                                    
+  NV-WC01-N1-HKG                                    
+  NV-WC01-N3-GGN                                    
+  NV-WC01-N6-SIN                                    
+  NV-WC02-N1-HKG                                    
+  NV-WC02-N3-GGN                                    
+  NV-WC02-N3-GGN-ScratchPad                         
+  NV-WC02-N6-SIN                                    
+  ProviderOrg-DataStore                             
+  TEST-COLT-NGF1-DataStore                          
+  TEST-COLT-NGF2-DataStore                          
+  TEST-COLT-NGFW-DataStore                          
+  TEST-CUST1-BLR-DataStore                          
+  TEST-CUST1-GGN-DataStore                          
+  TEST-DELETE-DataStore                             
+  TEST-MANISH-DataStore                             
+  TEST-MANISH1-DataStore                            
+  TEST-MANISH2-DataStore                            
+  TEST-ORG-DataStore                                
+  TEST-PRAVIN-BLR-DataStore                         
+  TEST-PRAVIN-MULTINODE-DataStore                   
+  TEST-SPIE-SR-66159-DataStore                      
+  TEST-URL-ORG-DataStore                            
+  TEST-VD-ISSUE-DataStore                           
+  TEST_ARUN-DataStore                               
+Automated@VDir-BLR-NEW-01% set devices device config orgs org-services  ipsec
+2019-08-13 11:59:07,496 - CPE11-HKG-HYBRID1-NEW - INFO - set devices device 
+Possible completions:
+  A string uniquely identifying the managed device  
+  CPE-34                                            
+  CPE-35                                            
+  CPE-46                                            
+  CPE-47                                            
+  CPE1-SIN-HYBRID                                   
+  CPE11-HKG-HYBRID1                                 
+  CPE12-SIN-INTONLY                                 
+  CPE15                                             
+  CPE16-SIN-MPLSONLY                                
+  CPE22HKG-HYBRID                                   
+  CPE23-SIN-HYBRID                                  
+  CPE25-HKG-HYBRID                                  
+  CPE26-SIN-DUALMPLSONLY-PRIM                       
+  CPE27-SIN-DUALMPLSONLY-SEC                        
+  CPE32-SIN-MPLSONLY                                
+  CPE4-SIN-HYBRID                                   
+  CPE48-HKG-DISD1-4G                                
+  CST-CUST1-DataStore                               
+  CUST1-DataStore                                   
+  Colt-DataStore                                    
+  IPC01941W-DataStore                               
+  IPC03146-DataStore                                
+  IPC04138-DataStore                                
+  IPC04139-DataStore                                
+  IPC04140-DataStore                                
+  IPC04151-DataStore                                
+  IPC04152-DataStore                                
+  IPC04475-DataStore                                
+  NGFW-ORG-DataStore                                
+  NV-FW01-N1-HKG                                    
+  NV-FW01-N3-GGN                                    
+  NV-FW01-N6-SIN                                    
+  NV-FW02-N1-HKG                                    
+  NV-FW02-N3-GGN                                    
+  NV-FW02-N3-GGN-ScratchPad                         
+  NV-FW02-N6-SIN                                    
+  NV-GW01-N1-HKG                                    
+  NV-GW01-N3-GGN                                    
+  NV-GW01-N6-SIN                                    
+  NV-GW02-N1-HKG                                    
+  NV-GW02-N3-GGN                                    
+  NV-GW02-N6-SIN                                    
+  NV-WC01-N1-HKG                                    
+  NV-WC01-N3-GGN                                    
+  NV-WC01-N6-SIN                                    
+  NV-WC02-N1-HKG                                    
+  NV-WC02-N3-GGN                                    
+  NV-WC02-N3-GGN-ScratchPad                         
+  NV-WC02-N6-SIN                                    
+  ProviderOrg-DataStore                             
+  TEST-COLT-NGF1-DataStore                          
+  TEST-COLT-NGF2-DataStore                          
+  TEST-COLT-NGFW-DataStore                          
+  TEST-CUST1-BLR-DataStore                          
+  TEST-CUST1-GGN-DataStore                          
+  TEST-DELETE-DataStore                             
+  TEST-MANISH-DataStore                             
+  TEST-MANISH1-DataStore                            
+  TEST-MANISH2-DataStore                            
+  TEST-ORG-DataStore                                
+  TEST-PRAVIN-BLR-DataStore                         
+  TEST-PRAVIN-MULTINODE-DataStore                   
+  TEST-SPIE-SR-66159-DataStore                      
+  TEST-URL-ORG-DataStore                            
+  TEST-VD-ISSUE-DataStore                           
+  TEST_ARUN-DataStore                               
+Automated@VDir-BLR-NEW-01% set devices device config orgs org-services  ipsec vpn-profile
+2019-08-13 11:59:07,898 - CPE11-HKG-HYBRID1-NEW - INFO - commit and-quit
+No modifications to commit.
+[ok][2019-08-13 06:22:08]
+Automated@VDir-BLR-NEW-01> 
+2019-08-13 11:59:07,931 - CPE11-HKG-HYBRID1-NEW - INFO - 
+STEP : ONBOARD CALL
+
+2019-08-13 11:59:07,943 - CPE11-HKG-HYBRID1-NEW - INFO - 
+sudo /opt/versa/scripts/staging.py -w 1 -c  -s 172.16.7.42/30 -g  -l  -lk   -r  -rk 
+

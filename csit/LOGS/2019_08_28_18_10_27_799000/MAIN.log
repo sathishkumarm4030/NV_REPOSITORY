@@ -1,0 +1,3071 @@
+2019-08-28 18:10:35,325 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - CPE NAME:CPE26-HKG-HYBRID-PRIM-IPC00190
+2019-08-28 18:10:36,326 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - SOLUTION SELECTED:DUAL-CPE-HYBRID
+2019-08-28 18:10:37,796 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 90, u'orgName': u'IPC00190', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 1020}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 1021}, {u'name': u'LAN3-VRF', u'enableVPN': True, u'id': 1022}, {u'name': u'LAN4-VRF', u'enableVPN': True, u'id': 1023}, {u'name': u'LAN5-VRF', u'enableVPN': True, u'id': 1024}, {u'name': u'LAN6-VRF', u'enableVPN': True, u'id': 1025}, {u'name': u'LAN7-VRF', u'enableVPN': True, u'id': 1026}, {u'name': u'LAN8-VRF', u'enableVPN': True, u'id': 1027}, {u'name': u'LAN9-VRF', u'enableVPN': True, u'id': 1028}, {u'name': u'LAN10-VRF', u'enableVPN': True, u'id': 1029}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-08-28 18:10:38,082 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 90, u'orgName': u'IPC00190', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 1020}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 1021}, {u'name': u'LAN3-VRF', u'enableVPN': True, u'id': 1022}, {u'name': u'LAN4-VRF', u'enableVPN': True, u'id': 1023}, {u'name': u'LAN5-VRF', u'enableVPN': True, u'id': 1024}, {u'name': u'LAN6-VRF', u'enableVPN': True, u'id': 1025}, {u'name': u'LAN7-VRF', u'enableVPN': True, u'id': 1026}, {u'name': u'LAN8-VRF', u'enableVPN': True, u'id': 1027}, {u'name': u'LAN9-VRF', u'enableVPN': True, u'id': 1028}, {u'name': u'LAN10-VRF', u'enableVPN': True, u'id': 1029}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-08-28 18:10:38,391 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 90, u'orgName': u'IPC00190', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 1020}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 1021}, {u'name': u'LAN3-VRF', u'enableVPN': True, u'id': 1022}, {u'name': u'LAN4-VRF', u'enableVPN': True, u'id': 1023}, {u'name': u'LAN5-VRF', u'enableVPN': True, u'id': 1024}, {u'name': u'LAN6-VRF', u'enableVPN': True, u'id': 1025}, {u'name': u'LAN7-VRF', u'enableVPN': True, u'id': 1026}, {u'name': u'LAN8-VRF', u'enableVPN': True, u'id': 1027}, {u'name': u'LAN9-VRF', u'enableVPN': True, u'id': 1028}, {u'name': u'LAN10-VRF', u'enableVPN': True, u'id': 1029}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-08-28 18:10:38,391 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+STEP : POST STAGING TEMPLATE CREATION AND DEPLOYMENT
+
+2019-08-28 18:10:38,410 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - {
+  "versanms.sdwan-template-workflow": {
+    "templateName": "IPC00190-HKG-PS-D-MPLS",
+    "templateType": "sdwan-post-staging",
+    "controllers": ["NV-WC01-N1-HKG", "NV-WC02-N1-HKG"],
+    "providerOrg": {
+      "name": "IPC00190",
+      "statefulFW": false,
+      "nextGenFW": false
+    },
+    "analyticsCluster": "LogCollectors-GGN",
+    "deviceFirmfactor": "6",
+    "wanInterfaces": [
+      {
+        "interfaceName": "vni-0/1",
+        "pppoe": false,
+        "unitInfo": [
+          {
+            "subUnit": 0,
+            "vlanId": 0,
+            "networkName": "MPLS-WAN",
+            "ipv4Static": true,
+            "ipv4Dhcp": false,
+            "ipv6Static": false,
+            "ipv6Dhcp": false,
+            "allowSSH": false,
+            "monitor": {},
+            "linkPriority": "",
+            "transportDomains": [
+              "MPLS-TD"
+            ]
+          }
+        ]
+      }
+    ],
+    "redundantWanInterfaces": [
+      {
+        "interfaceName": "vni-0/1",
+        "pppoe": false,
+        "unitInfo": [
+          {
+            "subUnit": 0,
+            "vlanId": 0,
+            "networkName": "INT-WAN",
+            "ipv4Static": true,
+            "ipv4Dhcp": false,
+            "ipv6Static": false,
+            "ipv6Dhcp": false,
+            "allowSSH": false,
+            "monitor": {},
+            "linkPriority": "",
+            "transportDomains": [
+              "INTERNET-TD"
+            ]
+          }
+        ]
+      }
+    ],
+    "crossConnectport": "vni-0/3",
+    "deviceType": "full-mesh",
+    "redundantPair": {
+      "enable": true,
+      "templateName": "IPC00190-HKG-PS-D-INT",
+      "vrrp": true,
+      "cloudCPE": false
+    },
+    "lanInterfaces": [
+      {
+		"interfaceName": "vni-0/4",
+		"unitInfo": [
+		{
+			"subUnit": "{$v_vni-0-4_LAN1_Unit-0__unit}",
+			"vlanId": "{$v_vni-0-4_LAN1_Unit-0__vlanId}",
+			"networkName": "LAN1",
+			"subOrganization": "IPC00190",
+			"ipv4Static": true,
+			"ipv4Dhcp": false,
+			"ip6Static": false,
+			"ipv6Dhcp": false,
+			"vrfName": "LAN1-VRF",
+			"zoneName": ""
+		}
+		
+	]
+	}
+    ],
+    "solutionTier": "standard-sdwan",
+    "bandwidth": 1000,
+    "customParams": [],
+    "minimumImageVersion": "16.1R2-S9",
+    "isAnalyticsEnabled": true,
+    "isPrimary": true,
+    "diaConfig": {
+      "loadBalance": false
+    },
+    
+    "inBoundNats": []
+  }
+}
+2019-08-28 18:10:39,161 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - <Response [200]>
+2019-08-28 18:10:39,161 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+PASS
+2019-08-28 18:10:39,161 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+ >>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<
+
+2019-08-28 18:11:03,259 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - <Response [200]>
+2019-08-28 18:11:08,259 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+PASS
+2019-08-28 18:11:08,259 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+ >>>>>>>>>> POST STAGING TEMPLATE DEPLOY PASSED. <<<<<<<<<<<
+
+2019-08-28 18:11:13,658 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - {u'versanms.sdwan-template-workflow': {u'providerOrg': {u'nextGenFW': False, u'name': u'IPC00190', u'statefulFW': False}, u'snmp': {u'snmpV1': False, u'snmpV2': False, u'snmpV3': False}, u'minimumImageVersion': u'16.1R2-S9', u'wanInterfaces': [{u'unitInfo': [{u'ipv6Dhcp': False, u'monitor': {u'monitorNexthop': False}, u'allowSSH': False, u'ipv4Static': True, u'DIA': False, u'vlanId': 0, u'transportDomains': [u'MPLS-TD'], u'ipv4Dhcp': False, u'ipv6rs': False, u'subUnit': 0, u'networkName': u'MPLS-WAN', u'ipv6Static': False}], u'interfaceName': u'vni-0/1', u'pppoe': False}], u'diaConfig': {u'loadBalance': False, u'dia': False}, u'templateName': u'IPC00190-HKG-PS-D-MPLS', u'isPrimary': True, u'isAnalyticsEnabled': True, u'lanInterfaces': [{u'unitInfo': [{u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN1-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN1_Unit-0__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'IPC00190', u'subUnit': u'{$v_vni-0-4_LAN1_Unit-0__unit}', u'networkName': u'LAN1', u'dhcpV4Relay': False}], u'interfaceName': u'vni-0/4'}], u'bandwidth': 1000, u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC02-N1-HKG'], u'templateType': u'sdwan-post-staging', u'crossConnectport': u'vni-0/3', u'deviceType': u'full-mesh', u'redundantPair': {u'vrrp': True, u'enable': True, u'templateName': u'IPC00190-HKG-PS-D-INT', u'cloudCPE': False}, u'redundantWanInterfaces': [{u'unitInfo': [{u'ipv6Dhcp': False, u'monitor': {u'monitorNexthop': False}, u'allowSSH': False, u'ipv4Static': True, u'DIA': False, u'vlanId': 0, u'transportDomains': [u'INTERNET-TD'], u'ipv4Dhcp': False, u'ipv6rs': False, u'subUnit': 0, u'networkName': u'INT-WAN', u'ipv6Static': False}], u'interfaceName': u'vni-0/1', u'pppoe': False}], u'solutionTier': u'standard-sdwan', u'deviceFirmfactor': 6, u'analyticsCluster': u'LogCollectors-GGN'}}
+2019-08-28 18:11:28,637 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config system vnf-manager ip-addresses [ 10.92.116.67/32 10.92.116.68/32 ]
+set devices template IPC00190-HKG-PS-D-MPLS config system service-options qos-frame-overhead auto-adjust true
+
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 hold-time 90
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart enable
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart maximum-restart-time 15
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart recovery-time 15
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart select-defer-time 15
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart stalepath-time 15
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart dynamic-peer-restart-time 0
+
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match family inet-vpn
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match community "(^|,)([0-9]*:11)($|,)"
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action filter accept
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community 8009:8009
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community-action set-specific
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action set-local-preference 80
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match family inet-vpn
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match community "(^|,)([0-9]*:12)($|,)"
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action filter accept
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community 8009:8009
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community-action set-specific
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action set-local-preference 60
+move devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 first
+move devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 first
+
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard match family inet-vpn
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action filter accept
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action community 852:10
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action community-action set-specific
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard match family versa-private
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action filter accept
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community 852:10
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
+
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 group Controllers-Group family inet unicast
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 group Controllers-Group export TO_SDWAN
+
+delete devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 cgnat rules rule RFC_1918_NoTranslate
+
+
+
+############################################################
+#Note: Please use the below config, in case of Wired solution. Internet CPE is on Wired
+############################################################
+
+delete device template IPC00190-HKG-PS-D-MPLS config org org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule Default-Rule
+set devices template IPC00190-HKG-PS-D-MPLS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names local [ MPLS-WAN INT-WAN ]
+set devices template IPC00190-HKG-PS-D-MPLS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names remote [ MPLS-WAN MPLS-WAN1 MPLS-WAN2 INT-WAN INT-WAN1 INT-WAN2 ]
+set devices template IPC00190-HKG-PS-D-MPLS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names local [ INT-WAN ]
+set devices template IPC00190-HKG-PS-D-MPLS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names remote [ LTE-WAN ]
+set devices template IPC00190-HKG-PS-D-MPLS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE connection-selection-method weighted-round-robin
+set devices template IPC00190-HKG-PS-D-MPLS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE recompute-timer 40
+set devices template IPC00190-HKG-PS-D-MPLS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE encryption optional
+set devices template IPC00190-HKG-PS-D-MPLS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE symmetric-forwarding enable
+set devices template IPC00190-HKG-PS-D-MPLS config org org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE description DEFAULT-TRAFFIC-RULE
+set devices template IPC00190-HKG-PS-D-MPLS config org org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set action allow
+set devices template IPC00190-HKG-PS-D-MPLS config org org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set forwarding-profile DEFAULT-TRAFFIC-PROFILE
+
+
+
+
+
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects zones zone Intf-LAN1-Zone description LAN1
+
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance LAN1-VRF vrf-import-target target:1020L:10202
+
+set devices template IPC00190-HKG-PS-D-MPLS config snmp usm local user coltuser auth sha password Colt1234
+
+set devices template IPC00190-HKG-PS-D-MPLS config system time-zone Greenwich
+set devices template IPC00190-HKG-PS-D-MPLS config confdConfig cli banner "Access to this network/system is limited to users authorised by Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be audited"
+set devices template IPC00190-HKG-PS-D-MPLS config system users portal login shell role admin password yA:D#{}Vn9JE-?Qa
+set devices template IPC00190-HKG-PS-D-MPLS config system users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+
+set devices template IPC00190-HKG-PS-D-MPLS config system external-aaa auth-order remote-then-local
+#set devices template IPC00190-HKG-PS-D-MPLS config system external-aaa tacacs-plus server 10.5.22.116 key C:ifiiape.
+#set devices template IPC00190-HKG-PS-D-MPLS config system external-aaa tacacs-plus server 10.5.22.117 key C:ifiiape.
+#set devices template IPC00190-HKG-PS-D-MPLS config system external-aaa tacacs-plus action [ accounting authentication ]
+
+#PART2:
+
+set devices template IPC00190-HKG-PS-D-MPLS config interfaces vni vni-0/1 description "MPLS-WAN"
+set devices template IPC00190-HKG-PS-D-MPLS config interfaces vni vni-0/1 bandwidth uplink "1000000"
+set devices template IPC00190-HKG-PS-D-MPLS config interfaces vni vni-0/1 bandwidth downlink "1000000"
+set devices template IPC00190-HKG-PS-D-MPLS config interfaces vni vni-0/3 description "INTERCONNECT-LINK"
+
+
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP ]
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN set action allow
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services predefined-services-list [ ESP ICMP ]
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services services-list [ IPSEC IPSIPSecAH ]
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT set action allow
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match source zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match ether-type ARP
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN set action allow
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match ether-type ARP
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT set action allow
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR match dscp [ 46 ]
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR set action allow
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR set qos-profile Premium
+
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 match dscp [ 26 48 ]
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 set action allow
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 set qos-profile Business1
+
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 match dscp [ 18 ]
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 set action allow
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 set qos-profile Business2
+
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 match dscp [ 10 ]
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 set action allow
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 set qos-profile Business3
+
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-BE match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-BE set action allow
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-BE set qos-profile Internet-Default
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match destination zone zone-list [ Intf-MPLS-WAN-Failover-Zone Intf-INT-WAN-Zone ]
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT set action allow
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone Intf-INT-WAN-Zone ]
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN set action allow
+
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN match source zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN set action deny
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT set action deny
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service app-qos-policies app-qos-policy-group Default-Policy
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 forwarding-class fc13
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 loss-priority high
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 dscp-rw-enable yes
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 dot1p-rw-enable no
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 forwarding-class fc14
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 loss-priority high
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 dscp-rw-enable yes
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 dot1p-rw-enable no
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 forwarding-class fc15
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 loss-priority high
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 dscp-rw-enable yes
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 dot1p-rw-enable no
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default  forwarding-class fc_be
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default  loss-priority high
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default  dscp-rw-enable no
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default  dot1p-rw-enable no
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium forwarding-class fc_ef
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium loss-priority low
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium dscp-rw-enable yes
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium dot1p-rw-enable no
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management forwarding-class fc_nc
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management loss-priority low
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management dscp-rw-enable yes
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management dot1p-rw-enable no
+
+
+
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service IPSEC protocol UDP
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service IPSEC port 4790,4500,500
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service IPSecAH protocol AH
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service IPSIPSecAH protocol AH
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service DHCP-67 protocol UDP
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service DHCP-67 port 67
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service DHCP-68 protocol UDP
+set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service DHCP-68 port 68
+
+delete devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR routing-options static route
+
+##########################################################################
+#Note : Apply below lines only when LIB required.
+
+
+##########################################################################
+2019-08-28 18:12:29,118 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - configure
+Entering configuration mode private
+[ok][2019-08-28 12:31:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config system vnf-manager ip-addresses [ 10.92.116.67/32 10.92.116.68/32 ]
+[ok][2019-08-28 12:31:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config system service-options qos-frame-overhead auto-adjust true
+[ok][2019-08-28 12:31:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 hold-time 90
+[ok][2019-08-28 12:31:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart enable
+[ok][2019-08-28 12:31:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart maximum-restart-time 15
+[ok][2019-08-28 12:31:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart recovery-time 15
+[ok][2019-08-28 12:31:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart select-defer-time 15
+[ok][2019-08-28 12:31:57]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart stalepath-time 15
+[ok][2019-08-28 12:31:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart dynamic-peer-restart-time 0
+[ok][2019-08-28 12:31:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match family inet-vpn
+[ok][2019-08-28 12:31:59]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match community "(^|,)([0-9]*:11)($|,)"
+[ok][2019-08-28 12:31:59]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action filter accept
+[ok][2019-08-28 12:32:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community 8009:8009
+[ok][2019-08-28 12:32:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community-action set-specific
+[ok][2019-08-28 12:32:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action set-local-preference 80
+[ok][2019-08-28 12:32:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match family inet-vpn
+[ok][2019-08-28 12:32:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match community "(^|,)([0-9]*:12)($|,)"
+[ok][2019-08-28 12:32:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action filter accept
+[ok][2019-08-28 12:32:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community 8009:8009
+[ok][2019-08-28 12:32:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community-action set-specific
+[ok][2019-08-28 12:32:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action set-local-preference 60
+[ok][2019-08-28 12:32:04]
+
+[edit]
+Automated@VDir-BLR-NEW-01% move devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 first
+[ok][2019-08-28 12:32:04]
+
+[edit]
+Automated@VDir-BLR-NEW-01% move devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 first
+[ok][2019-08-28 12:32:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard match family inet-vpn
+[ok][2019-08-28 12:32:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action filter accept
+[ok][2019-08-28 12:32:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action community 852:10
+[ok][2019-08-28 12:32:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action community-action set-specific
+[ok][2019-08-28 12:32:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard match family versa-private
+[ok][2019-08-28 12:32:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action filter accept
+[ok][2019-08-28 12:32:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community 852:10
+[ok][2019-08-28 12:32:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
+[ok][2019-08-28 12:32:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 group  Controllers-Group family inet unicast
+[ok][2019-08-28 12:32:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 group  Controllers-Group export TO_SDWAN
+[ok][2019-08-28 12:32:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% delete devices template IPC00190-HKG-PS-D-MPLS config  orgs org-services IPC00190 cgnat rules rule RFC_1918_NoTranslate
+[ok][2019-08-28 12:32:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% ############################################################
+[ok][2019-08-28 12:32:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% #Note: Please use the below config, in case of Wired  solution. Internet CPE is on Wired
+[ok][2019-08-28 12:32:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% ############################################################
+[ok][2019-08-28 12:32:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% delete devices template IPC00190-HKG-PS-D-MPLS config  orgs org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule Default-Rule
+Error: element not found
+[error][2019-08-28 12:32:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names local [ MPLS-WAN INT-WAN ]
+[ok][2019-08-28 12:32:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names remote [ MPLS-WAN MPLS-WAN1 MPLS-WAN2 INT-WAN INT-WAN1 INT-WAN2 ]
+[ok][2019-08-28 12:32:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names local [ INT-WAN ]
+[ok][2019-08-28 12:32:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names remote [ LTE-WAN ]
+[ok][2019-08-28 12:32:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE connection-selection-method weighted-round-robin
+[ok][2019-08-28 12:32:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE recompute-timer 40
+[ok][2019-08-28 12:32:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE encryption optional
+[ok][2019-08-28 12:32:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE symmetric-forwarding enable
+[ok][2019-08-28 12:32:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules  rule DEFAULT-TRAFFIC-RULE description DEFAULT-TRAFFIC-RULE
+[ok][2019-08-28 12:32:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules  rule DEFAULT-TRAFFIC-RULE set action allow
+[ok][2019-08-28 12:32:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules  rule DEFAULT-TRAFFIC-RULE set forwarding-profile DEFAULT-TRAFFIC-PROFILE
+[ok][2019-08-28 12:32:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects zones zone Intf-LAN1-Zone description LAN1
+[ok][2019-08-28 12:32:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance LAN1-VRF vrf-import-target target:1020L:10202
+[ok][2019-08-28 12:32:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config snmp usm local user coltuser auth sha password Colt1234
+[ok][2019-08-28 12:32:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config system time-zone Greenwich
+[ok][2019-08-28 12:32:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config confdConfig cli banner "Access to this network/system is limited to users authorised by Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be audited"
+[ok][2019-08-28 12:32:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config system users portal login shell role admin password yA:D#{}Vn9JE-?Qa
+[ok][2019-08-28 12:32:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config system users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+[ok][2019-08-28 12:32:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config system external-aaa auth-order remote-then-local
+[ok][2019-08-28 12:32:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% #set devices template IPC00190-HKG-PS-D-MPLS config system external-aaa tacacs-plus server 10.5.22.116 key C:ifiiape.
+[ok][2019-08-28 12:32:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% #set devices template IPC00190-HKG-PS-D-MPLS config system external-aaa tacacs-plus server 10.5.22.117 key C:ifiiape.
+[ok][2019-08-28 12:32:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% #set devices template IPC00190-HKG-PS-D-MPLS config system external-aaa tacacs-plus action [ accounting authentication ]
+[ok][2019-08-28 12:32:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% #PART2:
+[ok][2019-08-28 12:32:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config interfaces vni vni-0/1 description "MPLS-WAN"
+[ok][2019-08-28 12:32:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config interfaces vni vni-0/1 bandwidth uplink "1000000"
+[ok][2019-08-28 12:32:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config interfaces vni vni-0/1 bandwidth downlink "1000000"
+[ok][2019-08-28 12:32:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config interfaces vni vni-0/3 description "INTERCONNECT-LINK"
+[ok][2019-08-28 12:32:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-08-28 12:32:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-08-28 12:32:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-08-28 12:32:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-08-28 12:32:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-MPLS-WAN-Zone ]
+[ok][2019-08-28 12:32:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP ]
+[ok][2019-08-28 12:32:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
+[ok][2019-08-28 12:32:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN set action allow
+[ok][2019-08-28 12:32:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+[ok][2019-08-28 12:32:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services predefined-services-list [ ESP  ICMP ]
+[ok][2019-08-28 12:32:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services services-list [ IPSEC IPSIPSecAH ]
+[ok][2019-08-28 12:32:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT set action allow
+[ok][2019-08-28 12:32:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match source zone zone-list [ Intf-MPLS-WAN-Zone  ]
+[ok][2019-08-28 12:32:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match ether-type ARP
+[ok][2019-08-28 12:32:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN set action allow
+[ok][2019-08-28 12:32:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+[ok][2019-08-28 12:32:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match ether-type ARP
+[ok][2019-08-28 12:32:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT set action allow
+[ok][2019-08-28 12:32:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+[ok][2019-08-28 12:32:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR match dscp [ 46 ]
+[ok][2019-08-28 12:32:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR set action allow
+[ok][2019-08-28 12:32:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR set qos-profile Premium
+[ok][2019-08-28 12:32:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+[ok][2019-08-28 12:32:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 match dscp [ 26 48 ]
+[ok][2019-08-28 12:32:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 set action allow
+[ok][2019-08-28 12:32:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 set qos-profile Business1
+[ok][2019-08-28 12:32:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+[ok][2019-08-28 12:32:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 match dscp [ 18 ]
+[ok][2019-08-28 12:32:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 set action allow
+[ok][2019-08-28 12:32:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 set qos-profile Business2
+[ok][2019-08-28 12:32:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+[ok][2019-08-28 12:32:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 match dscp [ 10 ]
+[ok][2019-08-28 12:32:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 set action allow
+[ok][2019-08-28 12:32:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 set qos-profile Business3
+[ok][2019-08-28 12:32:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-BE match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+[ok][2019-08-28 12:32:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-BE set action allow
+[ok][2019-08-28 12:32:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-BE set qos-profile Internet-Default
+[ok][2019-08-28 12:32:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match destination zone zone-list [ Intf-MPLS-WAN-Failover-Zone Intf-INT-WAN-Zone ]
+[ok][2019-08-28 12:32:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT set action allow
+[ok][2019-08-28 12:32:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone Intf-INT-WAN-Zone ]
+[ok][2019-08-28 12:32:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN set action allow
+[ok][2019-08-28 12:32:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN match source zone zone-list [ Intf-MPLS-WAN-Zone  ]
+[ok][2019-08-28 12:32:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN set action deny
+[ok][2019-08-28 12:32:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+[ok][2019-08-28 12:32:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT set action deny
+[ok][2019-08-28 12:32:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service app-qos-policies app-qos-policy-group  Default-Policy
+[ok][2019-08-28 12:32:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 forwarding-class fc13
+[ok][2019-08-28 12:32:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 loss-priority high
+[ok][2019-08-28 12:32:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 dscp-rw-enable yes
+[ok][2019-08-28 12:32:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 dot1p-rw-enable no
+[ok][2019-08-28 12:32:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 forwarding-class fc14
+[ok][2019-08-28 12:32:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 loss-priority high
+[ok][2019-08-28 12:32:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 dscp-rw-enable yes
+[ok][2019-08-28 12:32:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 dot1p-rw-enable no
+[ok][2019-08-28 12:32:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 forwarding-class fc15
+[ok][2019-08-28 12:32:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 loss-priority high
+[ok][2019-08-28 12:32:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 dscp-rw-enable yes
+[ok][2019-08-28 12:32:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 dot1p-rw-enable no
+[ok][2019-08-28 12:32:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default 
+Possible completions:
+  description           dot1p-rw-enable          
+  dscp-rw-enable        exceed-forwarding-class  
+  exceed-loss-priority  forwarding-class         
+  loss-priority         peak-burst-size          
+  peak-kbps-rate        peak-pps-rate            
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default forwarding-class fc_be
+[ok][2019-08-28 12:32:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default 
+Possible completions:
+  description           dot1p-rw-enable          
+  dscp-rw-enable        exceed-forwarding-class  
+  exceed-loss-priority  forwarding-class         
+  loss-priority         peak-burst-size          
+  peak-kbps-rate        peak-pps-rate            
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default loss-priority high
+[ok][2019-08-28 12:32:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default 
+Possible completions:
+  description           dot1p-rw-enable          
+  dscp-rw-enable        exceed-forwarding-class  
+  exceed-loss-priority  forwarding-class         
+  loss-priority         peak-burst-size          
+  peak-kbps-rate        peak-pps-rate            
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default dscp-rw-enable no
+[ok][2019-08-28 12:32:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default 
+Possible completions:
+  description           dot1p-rw-enable          
+  dscp-rw-enable        exceed-forwarding-class  
+  exceed-loss-priority  forwarding-class         
+  loss-priority         peak-burst-size          
+  peak-kbps-rate        peak-pps-rate            
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default dot1p-rw-enable no
+[ok][2019-08-28 12:32:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium forwarding-class fc_ef
+[ok][2019-08-28 12:32:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium loss-priority low
+[ok][2019-08-28 12:32:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium dscp-rw-enable yes
+[ok][2019-08-28 12:32:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium dot1p-rw-enable no
+[ok][2019-08-28 12:32:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management forwarding-class fc_nc
+[ok][2019-08-28 12:32:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management loss-priority low
+[ok][2019-08-28 12:32:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management dscp-rw-enable yes
+[ok][2019-08-28 12:32:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management dot1p-rw-enable no
+[ok][2019-08-28 12:32:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service IPSEC protocol UDP
+[ok][2019-08-28 12:32:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service IPSEC port 4790,4500,500
+[ok][2019-08-28 12:32:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service IPSecAH protocol AH
+[ok][2019-08-28 12:32:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service IPSIPSecAH protocol AH
+[ok][2019-08-28 12:32:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service DHCP-67 protocol UDP
+[ok][2019-08-28 12:32:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service DHCP-67 port 67
+[ok][2019-08-28 12:32:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service DHCP-68 protocol UDP
+[ok][2019-08-28 12:32:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service DHCP-68 port 68
+[ok][2019-08-28 12:32:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% delete devices template IPC00190-HKG-PS-D-MPLS config  routing-instances routing-instance IPC00190-Control-VR routing-options static route
+[ok][2019-08-28 12:32:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% ##########################################################################
+[ok][2019-08-28 12:32:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% #Note : Apply below lines only when LIB required.
+[ok][2019-08-28 12:32:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% ##########################################################################
+[ok][2019-08-28 12:32:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:12:29,928 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - commit
+Commit complete.
+[ok][2019-08-28 12:32:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:12:30,029 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+CPE26-HKG-HYBRID-PRIM-IPC00190 : element not found error.Commit success.
+2019-08-28 18:12:30,029 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+ >>>>>>>>>> PS MAIN TEMPLATE MODIFY PASSED. <<<<<<<<<<<
+
+2019-08-28 18:12:44,970 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-INT config system vnf-manager ip-addresses [ 10.92.116.67/32 10.92.116.68/32 ]
+set devices template IPC00190-HKG-PS-D-INT config system service-options qos-frame-overhead auto-adjust true
+
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 hold-time 90
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart enable
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart maximum-restart-time 15
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart recovery-time 15
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart select-defer-time 15
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart stalepath-time 15
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart dynamic-peer-restart-time 0
+
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match family inet-vpn
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match community "(^|,)([0-9]*:11)($|,)"
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action filter accept
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community 8009:8009
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community-action set-specific
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action set-local-preference 80
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match family inet-vpn
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match community "(^|,)([0-9]*:12)($|,)"
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action filter accept
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community 8009:8009
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community-action set-specific
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action set-local-preference 60
+move devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 first
+move devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 first
+
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard match family inet-vpn
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action filter accept
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action community 852:10
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action community-action set-specific
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard match family versa-private
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action filter accept
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community 852:10
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
+
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 group Controllers-Group family inet unicast
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 group Controllers-Group export TO_SDWAN
+
+delete devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 cgnat rules rule RFC_1918_NoTranslate
+
+
+
+############################################################
+#Note: Please use the below config, in case of Wired solution. Internet CPE is on Wired
+############################################################
+
+delete device template IPC00190-HKG-PS-D-INT config org org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule Default-Rule
+set devices template IPC00190-HKG-PS-D-INT config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names local [ MPLS-WAN INT-WAN ]
+set devices template IPC00190-HKG-PS-D-INT config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names remote [ MPLS-WAN MPLS-WAN1 MPLS-WAN2 INT-WAN INT-WAN1 INT-WAN2 ]
+set devices template IPC00190-HKG-PS-D-INT config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names local [ INT-WAN ]
+set devices template IPC00190-HKG-PS-D-INT config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names remote [ LTE-WAN ]
+set devices template IPC00190-HKG-PS-D-INT config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE connection-selection-method weighted-round-robin
+set devices template IPC00190-HKG-PS-D-INT config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE recompute-timer 40
+set devices template IPC00190-HKG-PS-D-INT config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE encryption optional
+set devices template IPC00190-HKG-PS-D-INT config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE symmetric-forwarding enable
+set devices template IPC00190-HKG-PS-D-INT config org org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE description DEFAULT-TRAFFIC-RULE
+set devices template IPC00190-HKG-PS-D-INT config org org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set action allow
+set devices template IPC00190-HKG-PS-D-INT config org org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set forwarding-profile DEFAULT-TRAFFIC-PROFILE
+
+
+
+
+
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 objects zones zone Intf-LAN1-Zone description LAN1
+
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance LAN1-VRF vrf-import-target target:1020L:10202
+
+set devices template IPC00190-HKG-PS-D-INT config snmp usm local user coltuser auth sha password Colt1234
+
+set devices template IPC00190-HKG-PS-D-INT config system time-zone Greenwich
+set devices template IPC00190-HKG-PS-D-INT config confdConfig cli banner "Access to this network/system is limited to users authorised by Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be audited"
+set devices template IPC00190-HKG-PS-D-INT config system users portal login shell role admin password yA:D#{}Vn9JE-?Qa
+set devices template IPC00190-HKG-PS-D-INT config system users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+
+set devices template IPC00190-HKG-PS-D-INT config system external-aaa auth-order remote-then-local
+#set devices template IPC00190-HKG-PS-D-INT config system external-aaa tacacs-plus server 10.5.22.116 key C:ifiiape.
+#set devices template IPC00190-HKG-PS-D-INT config system external-aaa tacacs-plus server 10.5.22.117 key C:ifiiape.
+#set devices template IPC00190-HKG-PS-D-INT config system external-aaa tacacs-plus action [ accounting authentication ]
+
+#PART2
+set devices template IPC00190-HKG-PS-D-INT config interfaces vni vni-0/1 description "{$v_INT-WAN-desc}"
+set devices template IPC00190-HKG-PS-D-INT config interfaces vni vni-0/3 description "INTERCONNECT-LINK"
+
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-INT-WAN-Zone ]
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP ]
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN set action allow
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ]
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services predefined-services-list [ ESP ICMP ]
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services services-list [ IPSEC IPSIPSecAH ]
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT set action allow
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match source zone zone-list [ Intf-INT-WAN-Zone ]
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match ether-type ARP
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN set action allow
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ]
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match ether-type ARP
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT set action allow
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN match source zone zone-list [ Intf-INT-WAN-Zone ]
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN match services services-list [ DHCP-67 DHCP-68 ]
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN set action allow
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ]
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT match services services-list [ DHCP-67 DHCP-68 ]
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT set action allow
+
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match destination zone zone-list [ Intf-INT-WAN-Failover-Zone Intf-MPLS-WAN-Zone ]
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT set action allow
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN match source zone zone-list [ Intf-INT-WAN-Failover-Zone Intf-MPLS-WAN-Zone ]
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN set action allow
+
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN match source zone zone-list [ Intf-INT-WAN-Zone ]
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN set action deny
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ]
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT set action deny
+
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service app-qos-policies app-qos-policy-group Default-Policy
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 forwarding-class fc13
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 loss-priority high
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 dscp-rw-enable yes
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 dot1p-rw-enable no
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 forwarding-class fc14
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 loss-priority high
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 dscp-rw-enable yes
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 dot1p-rw-enable no
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 forwarding-class fc15
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 loss-priority high
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 dscp-rw-enable yes
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 dot1p-rw-enable no
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default  forwarding-class fc_be
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default  loss-priority high
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default  dscp-rw-enable no
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default  dot1p-rw-enable no
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium forwarding-class fc_ef
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium loss-priority low
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium dscp-rw-enable yes
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium dot1p-rw-enable no
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management forwarding-class fc_nc
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management loss-priority low
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management dscp-rw-enable yes
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management dot1p-rw-enable no
+
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 objects services service IPSEC protocol UDP
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 objects services service IPSEC port 4790,4500,500
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 objects services service IPSecAH protocol AH
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 objects services service IPSIPSecAH protocol AH
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 objects services service DHCP-67 protocol UDP
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 objects services service DHCP-67 port 67
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 objects services service DHCP-68 protocol UDP
+set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 objects services service DHCP-68 port 68
+
+delete devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR routing-options static route
+
+##########################################################################
+#Note : Apply below lines only when LIB required.
+
+##########################################################################
+
+
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+
+
+2019-08-28 18:13:37,410 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - configure
+Entering configuration mode private
+[ok][2019-08-28 12:33:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config system vnf-manager ip-addresses [ 10.92.116.67/32 10.92.116.68/32 ]
+[ok][2019-08-28 12:33:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config system service-options qos-frame-overhead auto-adjust true
+[ok][2019-08-28 12:33:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 hold-time 90
+[ok][2019-08-28 12:33:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart enable
+[ok][2019-08-28 12:33:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart maximum-restart-time 15
+[ok][2019-08-28 12:33:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart recovery-time 15
+[ok][2019-08-28 12:33:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart select-defer-time 15
+[ok][2019-08-28 12:33:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart stalepath-time 15
+[ok][2019-08-28 12:33:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart dynamic-peer-restart-time 0
+[ok][2019-08-28 12:33:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match family inet-vpn
+[ok][2019-08-28 12:33:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match community "(^|,)([0-9]*:11)($|,)"
+[ok][2019-08-28 12:33:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action filter accept
+[ok][2019-08-28 12:33:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community 8009:8009
+[ok][2019-08-28 12:33:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community-action set-specific
+[ok][2019-08-28 12:33:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action set-local-preference 80
+[ok][2019-08-28 12:33:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match family inet-vpn
+[ok][2019-08-28 12:33:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match community "(^|,)([0-9]*:12)($|,)"
+[ok][2019-08-28 12:33:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action filter accept
+[ok][2019-08-28 12:33:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community 8009:8009
+[ok][2019-08-28 12:33:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community-action set-specific
+[ok][2019-08-28 12:33:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action set-local-preference 60
+[ok][2019-08-28 12:33:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% move devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 first
+[ok][2019-08-28 12:33:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% move devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 first
+[ok][2019-08-28 12:33:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard match family inet-vpn
+[ok][2019-08-28 12:33:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action filter accept
+[ok][2019-08-28 12:33:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action community 852:10
+[ok][2019-08-28 12:33:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action community-action set-specific
+[ok][2019-08-28 12:33:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard match family versa-private
+[ok][2019-08-28 12:33:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action filter accept
+[ok][2019-08-28 12:33:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community 852:10
+[ok][2019-08-28 12:33:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
+[ok][2019-08-28 12:33:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 group Controllers-Group family inet unicast
+[ok][2019-08-28 12:33:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 group Controllers-Group export TO_SDWAN
+[ok][2019-08-28 12:33:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% delete devices template IPC00190-HKG-PS-D-INT config  orgs org-services IPC00190 cgnat rules rule RFC_1918_NoTranslate
+[ok][2019-08-28 12:33:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% ############################################################
+[ok][2019-08-28 12:33:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% #Note: Please use the below config, in case of Wired  solution. Internet CPE is on Wired
+[ok][2019-08-28 12:33:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% ############################################################
+[ok][2019-08-28 12:33:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% delete devices template IPC00190-HKG-PS-D-INT config  orgs org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule Default-Rule
+Error: element not found
+[error][2019-08-28 12:33:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config org s org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names local [ MPLS-WAN INT-WAN ]
+[ok][2019-08-28 12:33:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config org s org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names remote [ MPLS-WAN MPLS-WAN1 MPLS-WAN2 INT-WAN INT-WAN1 INT-WAN2 ]
+[ok][2019-08-28 12:33:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config org s org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names local [ INT-WAN ]
+[ok][2019-08-28 12:33:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config org s org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names remote [ LTE-WAN ]
+[ok][2019-08-28 12:33:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config org s org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE connection-selection-method weighted-round-robin
+[ok][2019-08-28 12:33:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config org s org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE recompute-timer 40
+[ok][2019-08-28 12:33:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config org s org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE encryption optional
+[ok][2019-08-28 12:33:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config org s org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE symmetric-forwarding enable
+[ok][2019-08-28 12:33:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config org s org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules  rule DEFAULT-TRAFFIC-RULE description DEFAULT-TRAFFIC-RULE
+[ok][2019-08-28 12:33:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config org s org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules  rule DEFAULT-TRAFFIC-RULE set action allow
+[ok][2019-08-28 12:33:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config org s org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules  rule DEFAULT-TRAFFIC-RULE set forwarding-profile DEFAULT-TRAFFIC-PROFILE
+[ok][2019-08-28 12:33:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 objects zones zone Intf-LAN1-Zone description LAN1
+[ok][2019-08-28 12:33:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance LAN1-VRF vrf-import-target target:1020L:10202
+[ok][2019-08-28 12:33:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config snmp usm local user coltuser auth sha password Colt1234
+[ok][2019-08-28 12:33:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config system time-zone Greenwich
+[ok][2019-08-28 12:33:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config confdConfig cli banner "Access to this network/system is limited to users authorised by Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be audited"
+[ok][2019-08-28 12:33:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config system users portal login shell role admin password yA:D#{}Vn9JE-?Qa
+[ok][2019-08-28 12:33:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config system users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+[ok][2019-08-28 12:33:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config system external-aaa auth-order remote-then-local
+[ok][2019-08-28 12:33:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% #set devices template IPC00190-HKG-PS-D-INT config system external-aaa tacacs-plus server 10.5.22.116 key C:ifiiape.
+[ok][2019-08-28 12:33:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% #set devices template IPC00190-HKG-PS-D-INT config system external-aaa tacacs-plus server 10.5.22.117 key C:ifiiape.
+[ok][2019-08-28 12:33:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% #set devices template IPC00190-HKG-PS-D-INT config system external-aaa tacacs-plus action [ accounting authentication ]
+[ok][2019-08-28 12:33:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% #PART2
+[ok][2019-08-28 12:33:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config interfaces vni vni-0/1 description "{$v_INT-WAN-desc}"
+[ok][2019-08-28 12:33:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config interfaces vni vni-0/3 description "INTERCONNECT-LINK"
+[ok][2019-08-28 12:33:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-INT-WAN-Zone  ]
+[ok][2019-08-28 12:33:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP ]
+[ok][2019-08-28 12:33:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
+[ok][2019-08-28 12:33:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN set action allow
+[ok][2019-08-28 12:33:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ]
+[ok][2019-08-28 12:33:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services predefined-services-list [ ESP ICMP ]
+[ok][2019-08-28 12:33:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services services-list [ IPSEC IPSIPSecAH  ]
+[ok][2019-08-28 12:33:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT set action allow
+[ok][2019-08-28 12:33:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match source zone zone-list [ Intf-INT-WAN-Zone ]
+[ok][2019-08-28 12:33:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match ether-type ARP
+[ok][2019-08-28 12:33:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN set action allow
+[ok][2019-08-28 12:33:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ]
+[ok][2019-08-28 12:33:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match ether-type ARP
+[ok][2019-08-28 12:33:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT set action allow
+[ok][2019-08-28 12:33:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN match source zone zone-list [ Intf-INT-WAN-Zone ] 
+[ok][2019-08-28 12:33:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN match services services-list [ DHCP-67 DHCP-68 ]
+[ok][2019-08-28 12:33:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN set action allow
+[ok][2019-08-28 12:33:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ]
+[ok][2019-08-28 12:33:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT match services services-list [ DHCP-67 DHCP-68 ] 
+[ok][2019-08-28 12:33:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT set action allow
+[ok][2019-08-28 12:33:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match destination zone zone-list [ Intf-INT-WAN-Failover-Zone Intf-MPLS-WAN-Zone ]
+[ok][2019-08-28 12:33:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT set action allow
+[ok][2019-08-28 12:33:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN match source zone zone-list [ Intf-INT-WAN-Failover-Zone Intf-MPLS-WAN-Zone ]
+[ok][2019-08-28 12:33:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN set action allow
+[ok][2019-08-28 12:33:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN match source zone zone-list [ Intf-INT-WAN-Zone ]
+[ok][2019-08-28 12:33:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN set action deny
+[ok][2019-08-28 12:33:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ]
+[ok][2019-08-28 12:33:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT set action deny
+[ok][2019-08-28 12:33:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service app-qos-policies app-qos-policy-group Default-Policy
+[ok][2019-08-28 12:33:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 forwarding-class fc13
+[ok][2019-08-28 12:33:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 loss-priority high
+[ok][2019-08-28 12:33:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 dscp-rw-enable yes
+[ok][2019-08-28 12:33:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 dot1p-rw-enable no
+[ok][2019-08-28 12:33:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 forwarding-class fc14
+[ok][2019-08-28 12:33:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 loss-priority high
+[ok][2019-08-28 12:33:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 dscp-rw-enable yes
+[ok][2019-08-28 12:33:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 dot1p-rw-enable no
+[ok][2019-08-28 12:33:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 forwarding-class fc15
+[ok][2019-08-28 12:33:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 loss-priority high
+[ok][2019-08-28 12:33:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 dscp-rw-enable yes
+[ok][2019-08-28 12:33:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 dot1p-rw-enable no
+[ok][2019-08-28 12:33:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default 
+Possible completions:
+  description           dot1p-rw-enable          
+  dscp-rw-enable        exceed-forwarding-class  
+  exceed-loss-priority  forwarding-class         
+  loss-priority         peak-burst-size          
+  peak-kbps-rate        peak-pps-rate            
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default forwarding-class fc_be
+[ok][2019-08-28 12:33:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default 
+Possible completions:
+  description           dot1p-rw-enable          
+  dscp-rw-enable        exceed-forwarding-class  
+  exceed-loss-priority  forwarding-class         
+  loss-priority         peak-burst-size          
+  peak-kbps-rate        peak-pps-rate            
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default loss-priority high
+[ok][2019-08-28 12:33:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default 
+Possible completions:
+  description           dot1p-rw-enable          
+  dscp-rw-enable        exceed-forwarding-class  
+  exceed-loss-priority  forwarding-class         
+  loss-priority         peak-burst-size          
+  peak-kbps-rate        peak-pps-rate            
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default dscp-rw-enable no
+[ok][2019-08-28 12:33:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default 
+Possible completions:
+  description           dot1p-rw-enable          
+  dscp-rw-enable        exceed-forwarding-class  
+  exceed-loss-priority  forwarding-class         
+  loss-priority         peak-burst-size          
+  peak-kbps-rate        peak-pps-rate            
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default dot1p-rw-enable no
+[ok][2019-08-28 12:33:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium forwarding-class fc_ef
+[ok][2019-08-28 12:33:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium loss-priority low
+[ok][2019-08-28 12:33:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium dscp-rw-enable yes
+[ok][2019-08-28 12:33:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium dot1p-rw-enable no
+[ok][2019-08-28 12:33:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management forwarding-class fc_nc
+[ok][2019-08-28 12:33:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management loss-priority low
+[ok][2019-08-28 12:33:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management dscp-rw-enable yes
+[ok][2019-08-28 12:33:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management dot1p-rw-enable no
+[ok][2019-08-28 12:33:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 objects services service IPSEC protocol UDP
+[ok][2019-08-28 12:33:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 objects services service IPSEC port 4790,4500,500
+[ok][2019-08-28 12:33:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 objects services service IPSecAH protocol AH
+[ok][2019-08-28 12:33:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 objects services service IPSIPSecAH protocol AH
+[ok][2019-08-28 12:33:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 objects services service DHCP-67 protocol UDP
+[ok][2019-08-28 12:33:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 objects services service DHCP-67 port 67
+[ok][2019-08-28 12:33:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 objects services service DHCP-68 protocol UDP
+[ok][2019-08-28 12:33:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config orgs org-services IPC00190 objects services service DHCP-68 port 68
+[ok][2019-08-28 12:33:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% delete devices template IPC00190-HKG-PS-D-INT config  routing-instances routing-instance IPC00190-Control-VR routing-options static route
+[ok][2019-08-28 12:33:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% ##########################################################################
+[ok][2019-08-28 12:33:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% #Note : Apply below lines only when LIB required.
+[ok][2019-08-28 12:33:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% ##########################################################################
+[ok][2019-08-28 12:33:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-08-28 12:33:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-08-28 12:33:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-08-28 12:33:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-INT config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-08-28 12:33:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:13:38,232 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - commit
+Commit complete.
+[ok][2019-08-28 12:33:59]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:13:38,298 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+CPE26-HKG-HYBRID-PRIM-IPC00190 : element not found error.Commit success.
+2019-08-28 18:13:38,298 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+ >>>>>>>>>> Secondary PS MAIN TEMPLATE MODIFY PASSED. <<<<<<<<<<<
+
+2019-08-28 18:13:43,299 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+STEP : DEVICE GROUP CREATION AND DEPLOYMENT
+
+2019-08-28 18:13:43,513 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - <Response [201]>
+2019-08-28 18:13:43,513 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+PASS
+2019-08-28 18:13:43,513 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+ >>>>>>>>>> DEVICE GROUP TEMPLATE CREATION PASSED. <<<<<<<<<<<
+
+2019-08-28 18:13:48,515 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+STEP : PRE-ONBOARD WORK
+
+2019-08-28 18:13:48,609 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+sudo /opt/versa/scripts/staging.py -w 1 -c 10.63.77.14 -s 172.16.7.102/30 -g 172.16.7.101 -l IPC00190-CPE26-HKG-HYBRID-PRIM-IPC00190@colt.net -lk CPE26-HKG-HYBRID-PRIM-IPC00190  -r NV-WC02-N6-SIN@colt.net -rk 1234
+
+2019-08-28 18:13:48,611 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - {
+  "versanms.sdwan-device-workflow": {
+	"deviceName": "CPE26-HKG-HYBRID-PRIM-IPC00190",
+	"siteId": "4926",
+	"orgName": "IPC00190",
+	"serialNumber": "CPE26KSB01",
+	"deviceGroup": "IPC00190-HKG-PS-D-MPLS-DG",
+    "locationInfo": {
+      "country": "singapore",
+      "longitude": "103.819836",
+      "latitude": "1.352083"
+    },
+    "postStagingTemplateInfo": {
+      "templateName": "IPC00190-HKG-PS-D-MPLS",
+      "templateData": {
+        "device-template-variable": {
+          "template": "IPC00190-HKG-PS-D-MPLS",
+          "variable-binding": {
+            "attrs": [
+              {
+                "name": "{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+                "value": "CPE26-HKG-HYBRID-PRIM-IPC00190@colt.net",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}",
+                "value": "CPE26-HKG-HYBRID-PRIM-IPC00190",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_IPC00190-Control-VR_90_Router_ID__vrRouteId}",
+                "value": "20.20.90.26",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_Paired_Site__locationID}",
+                "value": "4927",
+                "isAutogeneratable": false
+              },
+              {
+                "name": "{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}",
+                "value": "CPE26-HKG-HYBRID-PRIM-IPC00190",
+                "isAutogeneratable": true
+              },
+              {
+				"name": "{$v_MPLS-WAN_IPv4__staticaddress}",
+				"value": "172.16.7.102/30",
+				"isAutogeneratable": false
+              },
+              {
+                "name": "{$v_IPC00190_Site_Name__sitesSiteName}",
+                "value": "CPE26-HKG-HYBRID-PRIM-IPC00190",
+                "isAutogeneratable": true
+              },
+			  
+			  
+			  
+			  
+			  { "name": "{$v_LAN1_vrrp__vrrpVirtualAddress}", "value": "192.170.1.1", "isAutogeneratable": false},
+			  { "name": "{$v_LAN1_IPv4__staticaddress}", "value": "192.170.1.2/24", "isAutogeneratable": false},
+			  
+              {
+                "name": "{$v_tvi-0-181_-_Unit_0_Static_address__tunnelStaticAddress}",
+                "value": "20.20.90.26/32",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_latitude__IdLatitude}",
+                "value": 1.352083,
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}",
+                "value": "172.16.7.101",
+                "isAutogeneratable": false
+              },
+              {
+                "name": "{$v_identification__IdName}",
+                "value": "CPE26-HKG-HYBRID-PRIM-IPC00190",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_tvi-0-180_-_Unit_0_Static_address__tunnelStaticAddress}",
+                "value": "10.10.90.26/32",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+                "value": "CPE26-HKG-HYBRID-PRIM-IPC00190@colt.net",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_Chassis_Id__sitesChassisId}",
+                "value": "4926",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_longitude__Idlongitude}",
+                "value": 103.819836,
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_IPC00190-Control-VR_90_Local_address__vrRouterAddress}",
+                "value": "20.20.90.26",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_location__IdLocation}",
+                "value": "singapore",
+                "isAutogeneratable": true
+              },
+			
+				
+				
+				
+			{ "name": "{$v_vni-0-4_LAN1_Unit-0__unit}", "value": "750", "isAutogeneratable": false},
+			{ "name": "{$v_vni-0-4_LAN1_Unit-0__vlanId}", "value": "750", "isAutogeneratable": false },
+			
+              {
+                "name": "{$v_Site_Id__siteSiteID}",
+                "value": "4926",
+                "isAutogeneratable": true
+              }
+            ]
+          }
+        },
+        "variableMetadata": [
+          {
+            "variable": "{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_vni-0-4_LAN1_Unit-0__vlanId}",
+            "group": "Vlan Info",
+            "overlay": false,
+            "type": "INTEGER"
+          },
+          {
+            "variable": "{$v_IPC00190-Control-VR_90_Router_ID__vrRouteId}",
+            "group": "Virtual routers",
+            "overlay": true,
+            "type": "IPV4"
+          },
+          {
+            "variable": "{$v_Paired_Site__locationID}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_MPLS-WAN1_IPv4__staticaddress}",
+            "group": "Interfaces",
+            "overlay": false,
+            "type": "IPV4_MASK"
+          },
+          {
+            "variable": "{$v_IPC00190_Site_Name__sitesSiteName}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+		{ "variable": "{$v_LAN1_vrrp__vrrpVirtualAddress}", "group": "Others", "overlay": false, "type": "IPV4" },
+		{ "variable": "{$v_LAN1_IPv4__staticaddress}", "group": "Interfaces", "overlay": false, "type": "IPV4_MASK" },
+		
+          {
+            "variable": "{$v_tvi-0-181_-_Unit_0_Static_address__tunnelStaticAddress}",
+            "group": "Interfaces",
+            "overlay": true,
+            "type": "IPV4_IPV6_MASK"
+          },
+          {
+            "variable": "{$v_latitude__IdLatitude}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}",
+            "group": "Virtual Routers",
+            "overlay": false,
+            "type": "IPV4"
+          },
+          {
+            "variable": "{$v_identification__IdName}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_tvi-0-180_-_Unit_0_Static_address__tunnelStaticAddress}",
+            "group": "Interfaces",
+            "overlay": true,
+            "type": "IPV4_IPV6_MASK"
+          },
+          {
+            "variable": "{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_Chassis_Id__sitesChassisId}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_longitude__Idlongitude}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_IPC00190-Control-VR_90_Local_address__vrRouterAddress}",
+            "group": "Virtual routers",
+            "overlay": true,
+            "type": "IPV4"
+          },
+          {
+            "variable": "{$v_location__IdLocation}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+		 
+		 
+		 
+		 {"variable": "{$v_vni-0-4_LAN1_Unit-0__vlanId}", "group": "Vlan Info", "overlay": false, "type": "INTEGER"},
+		 
+          {
+            "variable": "{$v_Site_Id__siteSiteID}",
+            "group": "SDWAN",
+            "overlay": false
+          }
+        ]
+      }
+    }
+  }
+}
+2019-08-28 18:13:48,918 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - <Response [500]>
+2019-08-28 18:13:48,918 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - {"error":{"http_status_code":500,"code":0,"message":"User Access Denied.","more_info":"http://nms.versa.com/errors/null"}}
+2019-08-28 18:13:48,918 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - FAIL : {"error":{"http_status_code":500,"code":0,"message":"User Access Denied.","more_info":"http://nms.versa.com/errors/null"}}
+2019-08-28 18:13:59,101 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 21312
+2019-08-28 18:14:04,437 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - Device deployed
+2019-08-28 18:14:05,168 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - {u'versanms.sdwan-device-workflow': {u'postStagingTemplateInfo': {u'templateData': {u'device-template-variable': {u'variable-binding': {u'attrs': [{u'isAutogeneratable': False, u'name': u'{$v_LAN1_vrrp__vrrpVirtualAddress}', u'value': u'192.170.1.1'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_tvi-0-181_-_Unit_0_Static_address__tunnelStaticAddress}', u'value': u'20.20.90.26/32'}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN1_Unit-0__vlanId}', u'value': 750}, {u'isAutogeneratable': False, u'name': u'{$v_Paired_Site__locationID}', u'value': 4927}, {u'isAutogeneratable': True, u'name': u'{$v_Chassis_Id__sitesChassisId}', u'value': u'CPE26KSB01'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_IPC00190-Control-VR_90_Router_ID__vrRouteId}', u'value': u'20.20.90.26'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}', u'value': u'CPE26-HKG-HYBRID-PRIM-IPC00190'}, {u'isAutogeneratable': True, u'name': u'{$v_longitude__Idlongitude}', u'value': 103.819836}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'value': u'CPE26-HKG-HYBRID-PRIM-IPC00190@colt.net'}, {u'isAutogeneratable': True, u'name': u'{$v_location__IdLocation}', u'value': u'singapore'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_IPC00190-Control-VR_90_Local_address__vrRouterAddress}', u'value': u'20.20.90.26'}, {u'isAutogeneratable': False, u'name': u'{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}', u'value': u'172.16.7.101'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_tvi-0-180_-_Unit_0_Static_address__tunnelStaticAddress}', u'value': u'10.10.90.26/32'}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN1_Unit-0__unit}', u'value': 750}, {u'isAutogeneratable': True, u'name': u'{$v_Site_Id__siteSiteID}', u'value': 4926}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'value': u'CPE26-HKG-HYBRID-PRIM-IPC00190@colt.net'}, {u'isAutogeneratable': False, u'name': u'{$v_MPLS-WAN_IPv4__staticaddress}', u'value': u'172.16.7.102/30'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00190_Site_Name__sitesSiteName}', u'value': u'CPE26-HKG-HYBRID-PRIM-IPC00190'}, {u'isAutogeneratable': False, u'name': u'{$v_LAN1_IPv4__staticaddress}', u'value': u'192.170.1.2/24'}, {u'isAutogeneratable': True, u'name': u'{$v_latitude__IdLatitude}', u'value': 1.352083}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}', u'value': u'CPE26-HKG-HYBRID-PRIM-IPC00190'}, {u'isAutogeneratable': True, u'name': u'{$v_identification__IdName}', u'value': u'CPE26-HKG-HYBRID-PRIM-IPC00190'}]}, u'template': u'IPC00190-HKG-PS-D-MPLS'}, u'variableMetadata': [{u'variable': u'{$v_LAN1_vrrp__vrrpVirtualAddress}', u'type': u'IPV4', u'group': u'Others', u'overlay': False}, {u'variable': u'{$v_tvi-0-181_-_Unit_0_Static_address__tunnelStaticAddress}', u'type': u'IPV4_IPV6_MASK', u'group': u'Interfaces', u'overlay': True}, {u'variable': u'{$v_vni-0-4_LAN1_Unit-0__vlanId}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_Paired_Site__locationID}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_Chassis_Id__sitesChassisId}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00190-Control-VR_90_Router_ID__vrRouteId}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': True}, {u'variable': u'{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_longitude__Idlongitude}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_location__IdLocation}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00190-Control-VR_90_Local_address__vrRouterAddress}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': True}, {u'variable': u'{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': False}, {u'variable': u'{$v_tvi-0-180_-_Unit_0_Static_address__tunnelStaticAddress}', u'type': u'IPV4_IPV6_MASK', u'group': u'Interfaces', u'overlay': True}, {u'variable': u'{$v_vni-0-4_LAN1_Unit-0__unit}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_Site_Id__siteSiteID}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_MPLS-WAN_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_IPC00190_Site_Name__sitesSiteName}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_LAN1_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_latitude__IdLatitude}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_identification__IdName}', u'group': u'SDWAN', u'overlay': False}]}, u'templateName': u'IPC00190-HKG-PS-D-MPLS'}, u'deviceName': u'CPE26-HKG-HYBRID-PRIM-IPC00190', u'workflowStatus': u'Deployed', u'deviceGroup': u'IPC00190-HKG-PS-D-MPLS-DG', u'orgName': u'IPC00190', u'serialNumber': u'CPE26KSB01', u'locationInfo': {u'latitude': 1.352083, u'country': u'singapore', u'longitude': 103.819836}, u'bandwidth': 0, u'lastUpdatedBy': u'Automated', u'siteId': 4926, u'instanceInfo': u'', u'stagingTemplateInfo': u'', u'lastModifiedTime': u'2019-08-28T12:34:16.263000+00:00', u'urlztpBasedInfo': {u'authType': u'psk', u'enableIpv4Dhcp': False, u'branchKey': u'xegLYkogqjmOTfF4', u'branchId': u'CPE26-HKG-HYBRID-PRIM-IPC00190@IPC00190.com', u'enableIpv6': False, u'enableIpv4': False, u'enableIpv6Dhcp': False}}}
+2019-08-28 18:14:24,648 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - configure private
+Entering configuration mode private
+[ok][2019-08-28 12:34:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:26,849 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - True
+2019-08-28 18:14:27,677 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices device NV-WC02-N6-SIN config orgs org-services Colt ipsec vpn-profile MPLS-WAN-NV-WC02-N6-SIN-StagingIpsec psk-auth-clients remote-client IPC00190-CPE26-HKG-HYBRID-PRIM-IPC00190@colt.net id-type email
+[ok][2019-08-28 12:34:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:28,477 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices device NV-WC02-N6-SIN config orgs org-services Colt ipsec vpn-profile MPLS-WAN-NV-WC02-N6-SIN-StagingIpsec psk-auth-clients remote-client IPC00190-CPE26-HKG-HYBRID-PRIM-IPC00190@colt.net key CPE26-HKG-HYBRID-PRIM-IPC00190
+[ok][2019-08-28 12:34:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:28,880 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - commit and-quit
+No modifications to commit.
+[ok][2019-08-28 12:34:49]
+Automated@VDir-BLR-NEW-01> 
+2019-08-28 18:14:33,395 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - configure private
+Entering configuration mode private
+[ok][2019-08-28 12:34:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:35,599 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - True
+2019-08-28 18:14:36,407 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config system vnf-manager ip-addresses [ 10.92.116.67/32 10.92.116.68/32 ]
+[ok][2019-08-28 12:34:57]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:37,009 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config system service-options qos-frame-overhead auto-adjust true
+[ok][2019-08-28 12:34:57]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:37,411 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:38,026 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 hold-time 90
+[ok][2019-08-28 12:34:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:38,630 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart enable
+[ok][2019-08-28 12:34:59]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:39,431 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart maximum-restart-time 15
+[ok][2019-08-28 12:35:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:40,036 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart recovery-time 15
+[ok][2019-08-28 12:35:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:40,839 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart select-defer-time 15
+[ok][2019-08-28 12:35:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:41,443 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart stalepath-time 15
+[ok][2019-08-28 12:35:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:42,043 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart dynamic-peer-restart-time 0
+[ok][2019-08-28 12:35:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:42,446 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:43,246 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match family inet-vpn
+[ok][2019-08-28 12:35:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:44,250 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match community "(^|,)([0-9]*:11)($|,)"
+[ok][2019-08-28 12:35:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:45,052 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action filter accept
+[ok][2019-08-28 12:35:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:45,854 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community 8009:8009
+[ok][2019-08-28 12:35:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:46,657 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community-action set-specific
+[ok][2019-08-28 12:35:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:47,460 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action set-local-preference 80
+[ok][2019-08-28 12:35:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:48,062 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match family inet-vpn
+[ok][2019-08-28 12:35:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:49,063 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match community "(^|,)([0-9]*:12)($|,)"
+[ok][2019-08-28 12:35:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:49,865 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action filter accept
+[ok][2019-08-28 12:35:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:50,667 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community 8009:8009
+[ok][2019-08-28 12:35:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:51,269 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community-action set-specific
+[ok][2019-08-28 12:35:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:51,871 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action set-local-preference 60
+[ok][2019-08-28 12:35:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:52,674 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - move devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 first
+[ok][2019-08-28 12:35:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:53,680 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - move devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 first
+[ok][2019-08-28 12:35:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:54,081 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:54,884 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard match family inet-vpn
+[ok][2019-08-28 12:35:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:55,686 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action filter accept
+[ok][2019-08-28 12:35:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:56,487 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action community 852:10
+[ok][2019-08-28 12:35:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:57,305 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action community-action set-specific
+[ok][2019-08-28 12:35:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:57,907 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard match family versa-private
+[ok][2019-08-28 12:35:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:58,513 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action filter accept
+[ok][2019-08-28 12:35:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:59,122 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community 852:10
+[ok][2019-08-28 12:35:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:14:59,927 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
+[ok][2019-08-28 12:35:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:00,328 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:00,928 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 group  Controllers-Group family inet unicast
+[ok][2019-08-28 12:35:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:01,529 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 group  Controllers-Group export TO_SDWAN
+[ok][2019-08-28 12:35:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:01,930 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:02,532 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - delete devices template IPC00190-HKG-PS-D-MPLS config  orgs org-services IPC00190 cgnat rules rule RFC_1918_NoTranslate
+Error: element not found
+[error][2019-08-28 12:35:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:02,933 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:03,335 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:03,755 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:04,168 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - ############################################################
+[ok][2019-08-28 12:35:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:04,571 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - #Note: Please use the below config, in case of Wired  solution. Internet CPE is on Wired
+[ok][2019-08-28 12:35:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:04,971 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - ############################################################
+[ok][2019-08-28 12:35:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:05,372 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:05,976 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - delete devices template IPC00190-HKG-PS-D-MPLS config  orgs org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule Default-Rule
+Error: element not found
+[error][2019-08-28 12:35:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:06,778 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names local [ MPLS-WAN INT-WAN ]
+[ok][2019-08-28 12:35:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:07,780 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names remote [ MPLS-WAN MPLS-WAN1 MPLS-WAN2 INT-WAN INT-WAN1 INT-WAN2 ]
+[ok][2019-08-28 12:35:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:08,582 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names local [ INT-WAN ]
+[ok][2019-08-28 12:35:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:09,184 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names remote [ LTE-WAN ]
+[ok][2019-08-28 12:35:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:09,802 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE connection-selection-method weighted-round-robin
+[ok][2019-08-28 12:35:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:10,404 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE recompute-timer 40
+[ok][2019-08-28 12:35:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:11,005 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE encryption optional
+[ok][2019-08-28 12:35:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:11,605 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE symmetric-forwarding enable
+[ok][2019-08-28 12:35:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:12,207 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules  rule DEFAULT-TRAFFIC-RULE description DEFAULT-TRAFFIC-RULE
+[ok][2019-08-28 12:35:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:12,809 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules  rule DEFAULT-TRAFFIC-RULE set action allow
+[ok][2019-08-28 12:35:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:13,408 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules  rule DEFAULT-TRAFFIC-RULE set forwarding-profile DEFAULT-TRAFFIC-PROFILE
+[ok][2019-08-28 12:35:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:13,809 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:14,210 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:14,611 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:15,013 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:15,414 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:16,017 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects zones zone Intf-LAN1-Zone description LAN1
+[ok][2019-08-28 12:35:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:16,424 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:17,035 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance LAN1-VRF vrf-import-target target:1020L:10202
+[ok][2019-08-28 12:35:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:17,436 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:18,038 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config snmp usm local user coltuser auth sha password Colt1234
+[ok][2019-08-28 12:35:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:18,438 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:18,841 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config system time-zone Greenwich
+[ok][2019-08-28 12:35:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:19,440 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config confdConfig cli banner "Access to this network/system is limited to users authorised by Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be audited"
+[ok][2019-08-28 12:35:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:20,042 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config system users portal login shell role admin password yA:D#{}Vn9JE-?Qa
+[ok][2019-08-28 12:35:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:20,644 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config system users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+[ok][2019-08-28 12:35:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:21,046 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:21,647 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config system external-aaa auth-order remote-then-local
+[ok][2019-08-28 12:35:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:22,049 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - #set devices template IPC00190-HKG-PS-D-MPLS config system external-aaa tacacs-plus server 10.5.22.116 key C:ifiiape.
+[ok][2019-08-28 12:35:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:22,450 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - #set devices template IPC00190-HKG-PS-D-MPLS config system external-aaa tacacs-plus server 10.5.22.117 key C:ifiiape.
+[ok][2019-08-28 12:35:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:22,854 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - #set devices template IPC00190-HKG-PS-D-MPLS config system external-aaa tacacs-plus action [ accounting authentication ]
+[ok][2019-08-28 12:35:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:23,255 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:23,655 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - #PART2:
+[ok][2019-08-28 12:35:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:24,058 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:24,658 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config interfaces vni vni-0/1 description "MPLS-WAN"
+[ok][2019-08-28 12:35:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:25,259 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config interfaces vni vni-0/1 bandwidth uplink "1000000"
+[ok][2019-08-28 12:35:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:25,877 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config interfaces vni vni-0/1 bandwidth downlink "1000000"
+[ok][2019-08-28 12:35:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:26,480 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config interfaces vni vni-0/3 description "INTERCONNECT-LINK"
+[ok][2019-08-28 12:35:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:26,881 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:27,280 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:27,882 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-08-28 12:35:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:28,486 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-08-28 12:35:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:29,086 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-08-28 12:35:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:29,688 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-08-28 12:35:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:30,088 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:30,901 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-MPLS-WAN-Zone ]
+[ok][2019-08-28 12:35:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:31,703 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP ]
+[ok][2019-08-28 12:35:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:32,513 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
+[ok][2019-08-28 12:35:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:33,328 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN set action allow
+[ok][2019-08-28 12:35:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:34,131 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+[ok][2019-08-28 12:35:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:34,963 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services predefined-services-list [ ESP  ICMP ]
+[ok][2019-08-28 12:35:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:35,765 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services services-list [ IPSEC IPSIPSecAH ]
+[ok][2019-08-28 12:35:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:36,575 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT set action allow
+[ok][2019-08-28 12:35:57]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:37,375 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match source zone zone-list [ Intf-MPLS-WAN-Zone  ]
+[ok][2019-08-28 12:35:57]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:38,177 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match ether-type ARP
+[ok][2019-08-28 12:35:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:38,782 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN set action allow
+[ok][2019-08-28 12:35:59]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:39,584 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+[ok][2019-08-28 12:36:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:40,187 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match ether-type ARP
+[ok][2019-08-28 12:36:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:41,392 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT set action allow
+[ok][2019-08-28 12:36:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:42,197 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+[ok][2019-08-28 12:36:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:43,000 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR match dscp [ 46 ]
+[ok][2019-08-28 12:36:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:43,803 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR set action allow
+[ok][2019-08-28 12:36:04]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:44,405 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR set qos-profile Premium
+[ok][2019-08-28 12:36:04]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:44,806 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:45,608 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+[ok][2019-08-28 12:36:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:46,410 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 match dscp [ 26 48 ]
+[ok][2019-08-28 12:36:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:47,211 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 set action allow
+[ok][2019-08-28 12:36:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:48,026 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 set qos-profile Business1
+[ok][2019-08-28 12:36:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:48,428 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:49,230 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+[ok][2019-08-28 12:36:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:50,033 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 match dscp [ 18 ]
+[ok][2019-08-28 12:36:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:50,836 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 set action allow
+[ok][2019-08-28 12:36:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:51,437 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 set qos-profile Business2
+[ok][2019-08-28 12:36:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:51,842 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:52,642 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+[ok][2019-08-28 12:36:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:53,444 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 match dscp [ 10 ]
+[ok][2019-08-28 12:36:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:54,046 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 set action allow
+[ok][2019-08-28 12:36:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:54,848 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 set qos-profile Business3
+[ok][2019-08-28 12:36:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:55,249 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:56,052 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-BE match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+[ok][2019-08-28 12:36:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:56,852 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-BE set action allow
+[ok][2019-08-28 12:36:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:57,453 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-BE set qos-profile Internet-Default
+[ok][2019-08-28 12:36:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:58,255 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match destination zone zone-list [ Intf-MPLS-WAN-Failover-Zone Intf-INT-WAN-Zone ]
+[ok][2019-08-28 12:36:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:59,058 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT set action allow
+[ok][2019-08-28 12:36:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:15:59,858 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone Intf-INT-WAN-Zone ]
+[ok][2019-08-28 12:36:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:00,460 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN set action allow
+[ok][2019-08-28 12:36:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:00,862 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:01,665 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN match source zone zone-list [ Intf-MPLS-WAN-Zone  ]
+[ok][2019-08-28 12:36:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:02,496 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN set action deny
+[ok][2019-08-28 12:36:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:03,513 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+[ok][2019-08-28 12:36:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:04,315 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT set action deny
+[ok][2019-08-28 12:36:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:04,917 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service app-qos-policies app-qos-policy-group  Default-Policy
+[ok][2019-08-28 12:36:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:05,720 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 forwarding-class fc13
+[ok][2019-08-28 12:36:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:06,322 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 loss-priority high
+[ok][2019-08-28 12:36:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:06,924 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 dscp-rw-enable yes
+[ok][2019-08-28 12:36:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:07,526 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 dot1p-rw-enable no
+[ok][2019-08-28 12:36:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:08,128 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 forwarding-class fc14
+[ok][2019-08-28 12:36:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:08,756 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 loss-priority high
+[ok][2019-08-28 12:36:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:09,359 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 dscp-rw-enable yes
+[ok][2019-08-28 12:36:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:09,960 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 dot1p-rw-enable no
+[ok][2019-08-28 12:36:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:10,562 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 forwarding-class fc15
+[ok][2019-08-28 12:36:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:11,365 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 loss-priority high
+[ok][2019-08-28 12:36:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:12,167 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 dscp-rw-enable yes
+[ok][2019-08-28 12:36:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:12,769 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 dot1p-rw-enable no
+[ok][2019-08-28 12:36:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:13,371 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default 
+Possible completions:
+  description           dot1p-rw-enable          
+  dscp-rw-enable        exceed-forwarding-class  
+  exceed-loss-priority  forwarding-class         
+  loss-priority         peak-burst-size          
+  peak-kbps-rate        peak-pps-rate            
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default forwarding-class
+2019-08-28 18:16:13,973 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default 
+Possible completions:
+  description           dot1p-rw-enable          
+  dscp-rw-enable        exceed-forwarding-class  
+  exceed-loss-priority  forwarding-class         
+  loss-priority         peak-burst-size          
+  peak-kbps-rate        peak-pps-rate            
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default loss-priority high
+[ok][2019-08-28 12:36:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:14,575 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default 
+Possible completions:
+  description           dot1p-rw-enable          
+  dscp-rw-enable        exceed-forwarding-class  
+  exceed-loss-priority  forwarding-class         
+  loss-priority         peak-burst-size          
+  peak-kbps-rate        peak-pps-rate            
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default dscp-rw-enable no
+[ok][2019-08-28 12:36:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:15,176 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default 
+Possible completions:
+  description           dot1p-rw-enable          
+  dscp-rw-enable        exceed-forwarding-class  
+  exceed-loss-priority  forwarding-class         
+  loss-priority         peak-burst-size          
+  peak-kbps-rate        peak-pps-rate            
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default dot1p-rw-enable no
+[ok][2019-08-28 12:36:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:15,776 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium forwarding-class fc_ef
+[ok][2019-08-28 12:36:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:16,380 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium loss-priority low
+[ok][2019-08-28 12:36:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:17,181 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium dscp-rw-enable yes
+[ok][2019-08-28 12:36:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:17,782 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium dot1p-rw-enable no
+[ok][2019-08-28 12:36:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:18,384 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management forwarding-class fc_nc
+[ok][2019-08-28 12:36:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:18,986 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management loss-priority low
+[ok][2019-08-28 12:36:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:19,588 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management dscp-rw-enable yes
+[ok][2019-08-28 12:36:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:20,190 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management dot1p-rw-enable no
+[ok][2019-08-28 12:36:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:20,591 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:21,006 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:21,407 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:22,009 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service IPSEC protocol UDP
+[ok][2019-08-28 12:36:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:22,611 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service IPSEC port 4790,4500,500
+[ok][2019-08-28 12:36:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:23,213 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service IPSecAH protocol AH
+[ok][2019-08-28 12:36:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:23,815 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service IPSIPSecAH protocol AH
+[ok][2019-08-28 12:36:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:24,417 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service DHCP-67 protocol UDP
+[ok][2019-08-28 12:36:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:25,019 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service DHCP-67 port 67
+[ok][2019-08-28 12:36:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:25,622 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service DHCP-68 protocol UDP
+[ok][2019-08-28 12:36:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:26,223 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-D-MPLS config orgs org-services IPC00190 objects services service DHCP-68 port 68
+[ok][2019-08-28 12:36:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:26,624 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:27,226 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - delete devices template IPC00190-HKG-PS-D-MPLS config  routing-instances routing-instance IPC00190-Control-VR routing-options static route
+[ok][2019-08-28 12:36:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:27,625 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:28,026 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - ##########################################################################
+[ok][2019-08-28 12:36:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:28,428 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - #Note : Apply below lines only when LIB required.
+[ok][2019-08-28 12:36:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:28,831 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:29,232 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:29,634 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - ##########################################################################
+[ok][2019-08-28 12:36:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-28 18:16:30,036 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - commit and-quit
+No modifications to commit.
+[ok][2019-08-28 12:36:50]
+Automated@VDir-BLR-NEW-01> 
+2019-08-28 18:16:30,101 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+STEP : ONBOARD CALL
+
+2019-08-28 18:16:30,108 - CPE26-HKG-HYBRID-PRIM-IPC00190 - INFO - 
+sudo /opt/versa/scripts/staging.py -w 1 -c 10.63.77.14 -s 172.16.7.102/30 -g 172.16.7.101 -l IPC00190-CPE26-HKG-HYBRID-PRIM-IPC00190@colt.net -lk CPE26-HKG-HYBRID-PRIM-IPC00190  -r NV-WC02-N6-SIN@colt.net -rk 1234
+

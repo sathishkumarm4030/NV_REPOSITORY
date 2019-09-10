@@ -1,0 +1,307 @@
+2019-08-20 16:05:33,673 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - CPE NAME:CPE26-HKG-DUALMPLSONLY-PRIMAUTO
+2019-08-20 16:05:34,674 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - SOLUTION SELECTED:DUAL-CPE-DUAL-MPLS
+2019-08-20 16:05:35,812 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 72, u'orgName': u'IPC00172', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 840}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 841}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-08-20 16:05:36,055 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 72, u'orgName': u'IPC00172', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 840}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 841}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-08-20 16:05:36,305 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 72, u'orgName': u'IPC00172', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 840}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 841}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-08-20 16:05:36,305 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - 
+STEP : PRE-ONBOARD WORK
+
+2019-08-20 16:05:36,361 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - 
+sudo /opt/versa/scripts/staging.py -w 1 -c 10.63.77.14 -s 172.16.7.102/30 -g 172.16.7.101 -l IPC00172-CPE26-HKG-DUALMPLSONLY-PRIMAUTO@colt.net -lk CPE26-HKG-DUALMPLSONLY-PRIMAUTO  -r NV-WC02-N6-SIN@colt.net -rk 1234
+
+2019-08-20 16:05:36,362 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - {
+  "versanms.sdwan-device-workflow": {
+	"deviceName": "CPE26-HKG-DUALMPLSONLY-PRIMAUTO",
+	"siteId": "2426",
+	"orgName": "IPC00172",
+	"serialNumber": "CPE26KSAB2",
+	"deviceGroup": "IPC00172-HKG-PS-MOP-DG",
+    "locationInfo": {
+      "country": "singapore",
+      "longitude": "103.819836",
+      "latitude": "1.352083"
+    },
+    "postStagingTemplateInfo": {
+      "templateName": "IPC00172-HKG-PS-MOP",
+      "templateData": {
+        "device-template-variable": {
+          "template": "IPC00172-HKG-PS-MOP",
+          "variable-binding": {
+            "attrs": [
+              {
+                "name": "{$v_IPC00172_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+                "value": "CPE26-HKG-DUALMPLSONLY-PRIMAUTO@colt.net",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_IPC00172_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}",
+                "value": "CPE26-HKG-DUALMPLSONLY-PRIMAUTO",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_IPC00172-Control-VR_72_Router_ID__vrRouteId}",
+                "value": "20.20.72.26",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_Paired_Site__locationID}",
+                "value": "2427",
+                "isAutogeneratable": false
+              },
+              {
+                "name": "{$v_IPC00172_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}",
+                "value": "CPE26-HKG-DUALMPLSONLY-PRIMAUTO",
+                "isAutogeneratable": true
+              },
+              {
+				"name": "{$v_MPLS-WAN1_IPv4__staticaddress}",
+				"value": "172.16.7.102/30",
+				"isAutogeneratable": false
+              },
+              {
+                "name": "{$v_IPC00172_Site_Name__sitesSiteName}",
+                "value": "CPE26-HKG-DUALMPLSONLY-PRIMAUTO",
+                "isAutogeneratable": true
+              },
+			  
+			  
+			  
+			  
+			  { "name": "{$v_LAN1_vrrp__vrrpVirtualAddress}", "value": "192.169.101.1", "isAutogeneratable": false},
+			  { "name": "{$v_LAN1_IPv4__staticaddress}", "value": "192.169.101.2/24", "isAutogeneratable": false},
+			  
+              {
+                "name": "{$v_tvi-0-145_-_Unit_0_Static_address__tunnelStaticAddress}",
+                "value": "20.20.72.26/32",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_latitude__IdLatitude}",
+                "value": 1.352083,
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_MPLS-WAN1-Transport-VR_IPv4__vrHopAddress}",
+                "value": "172.16.7.101",
+                "isAutogeneratable": false
+              },
+              {
+                "name": "{$v_identification__IdName}",
+                "value": "CPE26-HKG-DUALMPLSONLY-PRIMAUTO",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_tvi-0-144_-_Unit_0_Static_address__tunnelStaticAddress}",
+                "value": "10.10.72.26/32",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_IPC00172_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+                "value": "CPE26-HKG-DUALMPLSONLY-PRIMAUTO@colt.net",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_Chassis_Id__sitesChassisId}",
+                "value": "2426",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_longitude__Idlongitude}",
+                "value": 103.819836,
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_IPC00172-Control-VR_72_Local_address__vrRouterAddress}",
+                "value": "20.20.72.26",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_location__IdLocation}",
+                "value": "singapore",
+                "isAutogeneratable": true
+              },
+			
+				
+				
+				
+			{ "name": "{$v_vni-0-4_LAN1_Unit-0__unit}", "value": "750", "isAutogeneratable": false},
+			{ "name": "{$v_vni-0-4_LAN1_Unit-0__vlanId}", "value": "750", "isAutogeneratable": false },
+			
+              {
+                "name": "{$v_Site_Id__siteSiteID}",
+                "value": "2426",
+                "isAutogeneratable": true
+              }
+            ]
+          }
+        },
+        "variableMetadata": [
+          {
+            "variable": "{$v_IPC00172_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_IPC00172_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_vni-0-4_LAN1_Unit-0__vlanId}",
+            "group": "Vlan Info",
+            "overlay": false,
+            "type": "INTEGER"
+          },
+          {
+            "variable": "{$v_IPC00172-Control-VR_72_Router_ID__vrRouteId}",
+            "group": "Virtual routers",
+            "overlay": true,
+            "type": "IPV4"
+          },
+          {
+            "variable": "{$v_Paired_Site__locationID}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_IPC00172_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_MPLS-WAN1_IPv4__staticaddress}",
+            "group": "Interfaces",
+            "overlay": false,
+            "type": "IPV4_MASK"
+          },
+          {
+            "variable": "{$v_IPC00172_Site_Name__sitesSiteName}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+		{ "variable": "{$v_LAN1_vrrp__vrrpVirtualAddress}", "group": "Others", "overlay": false, "type": "IPV4" },
+		{ "variable": "{$v_LAN1_IPv4__staticaddress}", "group": "Interfaces", "overlay": false, "type": "IPV4_MASK" },
+		
+          {
+            "variable": "{$v_tvi-0-145_-_Unit_0_Static_address__tunnelStaticAddress}",
+            "group": "Interfaces",
+            "overlay": true,
+            "type": "IPV4_IPV6_MASK"
+          },
+          {
+            "variable": "{$v_latitude__IdLatitude}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_MPLS-WAN1-Transport-VR_IPv4__vrHopAddress}",
+            "group": "Virtual Routers",
+            "overlay": false,
+            "type": "IPV4"
+          },
+          {
+            "variable": "{$v_identification__IdName}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_LAN1_vrrp__vrrpVirtualAddress}",
+            "group": "Others",
+            "overlay": false,
+            "type": "IPV4"
+          },
+          {
+            "variable": "{$v_tvi-0-144_-_Unit_0_Static_address__tunnelStaticAddress}",
+            "group": "Interfaces",
+            "overlay": true,
+            "type": "IPV4_IPV6_MASK"
+          },
+          {
+            "variable": "{$v_IPC00172_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_Chassis_Id__sitesChassisId}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_longitude__Idlongitude}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_IPC00172-Control-VR_72_Local_address__vrRouterAddress}",
+            "group": "Virtual routers",
+            "overlay": true,
+            "type": "IPV4"
+          },
+          {
+            "variable": "{$v_location__IdLocation}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+		 
+		 
+		 
+		 {"variable": "{$v_vni-0-4_LAN1_Unit-0__vlanId}", "group": "Vlan Info", "overlay": false, "type": "INTEGER"},
+		 
+          {
+            "variable": "{$v_Site_Id__siteSiteID}",
+            "group": "SDWAN",
+            "overlay": false
+          }
+        ]
+      }
+    }
+  }
+}
+2019-08-20 16:05:37,303 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - <Response [200]>
+2019-08-20 16:05:37,305 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - PASS
+2019-08-20 16:05:47,487 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - 21038
+2019-08-20 16:05:52,811 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - Device deployed
+2019-08-20 16:05:53,707 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - {u'versanms.sdwan-device-workflow': {u'postStagingTemplateInfo': {u'templateData': {u'device-template-variable': {u'variable-binding': {u'attrs': [{u'isAutogeneratable': False, u'name': u'{$v_LAN1_vrrp__vrrpVirtualAddress}', u'value': u'192.169.101.1'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_tvi-0-144_-_Unit_0_Static_address__tunnelStaticAddress}', u'value': u'10.10.72.26/32'}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN1_Unit-0__vlanId}', u'value': 750}, {u'isAutogeneratable': False, u'name': u'{$v_Paired_Site__locationID}', u'value': 2427}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_IPC00172-Control-VR_72_Router_ID__vrRouteId}', u'value': u'20.20.72.26'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00172_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}', u'value': u'CPE26-HKG-DUALMPLSONLY-PRIMAUTO'}, {u'isAutogeneratable': True, u'name': u'{$v_Chassis_Id__sitesChassisId}', u'value': u'CPE26KSAB2'}, {u'isAutogeneratable': True, u'name': u'{$v_longitude__Idlongitude}', u'value': 103.819836}, {u'isAutogeneratable': False, u'name': u'{$v_MPLS-WAN1_IPv4__staticaddress}', u'value': u'172.16.7.102/30'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_IPC00172-Control-VR_72_Local_address__vrRouterAddress}', u'value': u'20.20.72.26'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00172_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}', u'value': u'CPE26-HKG-DUALMPLSONLY-PRIMAUTO'}, {u'isAutogeneratable': True, u'name': u'{$v_location__IdLocation}', u'value': u'singapore'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00172_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'value': u'CPE26-HKG-DUALMPLSONLY-PRIMAUTO@colt.net'}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN1_Unit-0__unit}', u'value': 750}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00172_Site_Name__sitesSiteName}', u'value': u'CPE26-HKG-DUALMPLSONLY-PRIMAUTO'}, {u'isAutogeneratable': True, u'name': u'{$v_Site_Id__siteSiteID}', u'value': 2426}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_tvi-0-145_-_Unit_0_Static_address__tunnelStaticAddress}', u'value': u'20.20.72.26/32'}, {u'isAutogeneratable': False, u'name': u'{$v_LAN1_IPv4__staticaddress}', u'value': u'192.169.101.2/24'}, {u'isAutogeneratable': True, u'name': u'{$v_latitude__IdLatitude}', u'value': 1.352083}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00172_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'value': u'CPE26-HKG-DUALMPLSONLY-PRIMAUTO@colt.net'}, {u'isAutogeneratable': False, u'name': u'{$v_MPLS-WAN1-Transport-VR_IPv4__vrHopAddress}', u'value': u'172.16.7.101'}, {u'isAutogeneratable': True, u'name': u'{$v_identification__IdName}', u'value': u'CPE26-HKG-DUALMPLSONLY-PRIMAUTO'}]}, u'template': u'IPC00172-HKG-PS-MOP'}, u'variableMetadata': [{u'variable': u'{$v_LAN1_vrrp__vrrpVirtualAddress}', u'type': u'IPV4', u'group': u'Others', u'overlay': False}, {u'variable': u'{$v_tvi-0-144_-_Unit_0_Static_address__tunnelStaticAddress}', u'type': u'IPV4_IPV6_MASK', u'group': u'Interfaces', u'overlay': True}, {u'variable': u'{$v_vni-0-4_LAN1_Unit-0__vlanId}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_Paired_Site__locationID}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00172-Control-VR_72_Router_ID__vrRouteId}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': True}, {u'variable': u'{$v_IPC00172_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_Chassis_Id__sitesChassisId}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_longitude__Idlongitude}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_MPLS-WAN1_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_IPC00172-Control-VR_72_Local_address__vrRouterAddress}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': True}, {u'variable': u'{$v_IPC00172_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_location__IdLocation}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00172_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_vni-0-4_LAN1_Unit-0__unit}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_IPC00172_Site_Name__sitesSiteName}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_Site_Id__siteSiteID}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_tvi-0-145_-_Unit_0_Static_address__tunnelStaticAddress}', u'type': u'IPV4_IPV6_MASK', u'group': u'Interfaces', u'overlay': True}, {u'variable': u'{$v_LAN1_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_latitude__IdLatitude}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00172_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_MPLS-WAN1-Transport-VR_IPv4__vrHopAddress}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': False}, {u'variable': u'{$v_identification__IdName}', u'group': u'SDWAN', u'overlay': False}]}, u'templateName': u'IPC00172-HKG-PS-MOP'}, u'deviceName': u'CPE26-HKG-DUALMPLSONLY-PRIMAUTO', u'workflowStatus': u'Deployed', u'deviceGroup': u'IPC00172-HKG-PS-MOP-DG', u'orgName': u'IPC00172', u'serialNumber': u'CPE26KSAB2', u'locationInfo': {u'latitude': 1.352083, u'country': u'singapore', u'longitude': 103.819836}, u'bandwidth': 0, u'lastUpdatedBy': u'Automated', u'siteId': 2426, u'instanceInfo': u'', u'stagingTemplateInfo': u'', u'lastModifiedTime': u'2019-08-20T10:35:43.929000+00:00', u'urlztpBasedInfo': {u'authType': u'psk', u'enableIpv4Dhcp': False, u'branchKey': u'zyMKPcHRDd6CJKJx', u'branchId': u'CPE26-HKG-DUALMPLSONLY-PRIMAUTO@IPC00172.com', u'enableIpv6': False, u'enableIpv4': False, u'enableIpv6Dhcp': False}}}
+2019-08-20 16:06:13,240 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - configure private
+
+Entering configuration mode private
+
+[ok][2019-08-20 10:36:10]
+
+
+
+[edit]
+
+Automated@VDir-BLR-NEW-01% 
+2019-08-20 16:06:15,441 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - True
+2019-08-20 16:06:16,243 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - set devices device NV-WC02-N6-SIN config orgs org-services Colt ipsec vpn-profile MPLS-WAN-NV-WC02-N6-SIN-StagingIpsec psk-auth-clients remote-client IPC00172-CPE26-HKG-DUALMPLSONLY-PRIMAUTO@colt.net id-type email 
+[ok][2019-08-20 10:36:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-20 16:06:17,049 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - set devices device NV-WC02-N6-SIN config orgs org-services Colt ipsec vpn-profile MPLS-WAN-NV-WC02-N6-SIN-StagingIpsec psk-auth-clients remote-client IPC00172-CPE26-HKG-DUALMPLSONLY-PRIMAUTO@colt.net key CPE26-HKG-DUALMPLSONLY-PRIMAUTO
+[ok][2019-08-20 10:36:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-20 16:06:17,651 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - commit and-quit
+Commit complete.
+[ok][2019-08-20 10:36:17]
+Automated@VDir-BLR-NEW-01> 
+2019-08-20 16:06:17,720 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - 
+STEP : ONBOARD CALL
+
+2019-08-20 16:06:17,720 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - 
+sudo /opt/versa/scripts/staging.py -w 1 -c 10.63.77.14 -s 172.16.7.102/30 -g 172.16.7.101 -l IPC00172-CPE26-HKG-DUALMPLSONLY-PRIMAUTO@colt.net -lk CPE26-HKG-DUALMPLSONLY-PRIMAUTO  -r NV-WC02-N6-SIN@colt.net -rk 1234
+
+2019-08-20 16:15:29,632 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - 
+ 	 >>>>>>>>>>>> CPE ONBOARDING PASSED <<<<<<<<<<<<
+ 	 >>>>>>>>>>>>    CPE DETAILS        <<<<<<<<<<<<
+2019-08-20 16:15:30,243 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - None
+2019-08-20 16:15:30,243 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - CPE ONBOARDINIG SCRIPT COMPLETED
+2019-08-20 16:15:30,244 - CPE26-HKG-DUALMPLSONLY-PRIMAUTO - INFO - Time elapsed: 0:10:07.784000
+

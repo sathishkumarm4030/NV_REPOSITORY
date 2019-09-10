@@ -72,7 +72,7 @@ Testcase: Iperf3 Test VM1 To VM2
 *** Keywords ***
 STARTUP
     [Documentation]    Make connecection to Versa devices
-    #    CPE1.create_PS_and_DG    Post_staging_template.j2    Device_group_template.j2    PS_main_template_modify.j2
+    #    CPE1.create_PS_and_DG    Post_staging_template.j2    Device_group_template.j2    Primary_PS_main_template_modify.j2
     #    CPE1.pre_onboard_work    Device_template.j2    Staging_server_config.j2    staging_cpe.j2
     #    CPE1.cpe_onboard_call
     #    ${CPE1_dev_info_on_vd} =    CPE1.get_device_info

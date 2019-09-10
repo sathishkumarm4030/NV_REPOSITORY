@@ -1,0 +1,983 @@
+2019-07-01 12:23:58,145 - CPE11-HKGMPLS1 - INFO - CPE NAME:CPE11-HKGMPLS1
+2019-07-01 12:23:59,145 - CPE11-HKGMPLS1 - INFO - SOLUTION SELECTED:SINGLE-CPE-MPLS-ONLY
+2019-07-01 12:24:00,209 - CPE11-HKGMPLS1 - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 73, u'orgName': u'IPC00173', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 850}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 851}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-07-01 12:24:00,411 - CPE11-HKGMPLS1 - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 73, u'orgName': u'IPC00173', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 850}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 851}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-07-01 12:24:00,615 - CPE11-HKGMPLS1 - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 73, u'orgName': u'IPC00173', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 850}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 851}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-07-01 12:24:00,615 - CPE11-HKGMPLS1 - INFO - 
+STEP : POST STAGING TEMPLATE CREATION AND DEPLOYMENT
+
+2019-07-01 12:24:00,645 - CPE11-HKGMPLS1 - INFO - {
+	"versanms.sdwan-template-workflow": {
+		"templateName": "ABCqw_PS",
+		"templateType": "sdwan-post-staging",
+		"controllers": ["NV-WC01-N1-HKG", "NV-WC02-N1-HKG"],
+		"providerOrg": {
+			"name": "IPC00173",
+			"statefulFW": true,
+			"nextGenFW": false
+		},
+		"analyticsCluster": "VAN-Cluster",
+		"deviceFirmfactor": "6",
+		"wanInterfaces": [{
+			"interfaceName": "vni-0/1",
+			"pppoe": false,
+			"unitInfo": [{
+				"subUnit": 0,
+				"vlanId": 0,
+				"networkName": "MPLS-WAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv6Static": false,
+				"ipv6Dhcp": false,
+				"allowSSH": false,
+				"monitor": {},
+				"linkPriority": "",
+				"transportDomains": ["MPLS-TD"]
+			}]
+		}],
+		"deviceType": "full-mesh",
+		"redundantPair": {
+			"enable": false
+		},
+		"lanInterfaces": [{
+			"interfaceName": "vni-0/4",
+			"unitInfo": [
+			{
+				"subUnit": "{$v_vni-0-4_LAN1_Unit-0__unit}",
+				"vlanId": "{$v_vni-0-4_LAN1_Unit-0__vlanId}",
+				"networkName": "LAN1",
+				"subOrganization": "IPC00173",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN1-VRF",
+				"zoneName": ""
+			}
+            
+        ]
+		}],
+		"solutionTier": "standard-sdwan-plus-ngfw",
+		"bandwidth": 1000,
+		"customParams": [],
+		"minimumImageVersion": "16.1R2-S8",
+		"isAnalyticsEnabled": true,
+		"isPrimary": true,
+		"diaConfig": {
+			"loadBalance": false
+		},
+		"inBoundNats": []
+	}
+}
+
+2019-07-01 12:24:01,302 - CPE11-HKGMPLS1 - INFO - <Response [200]>
+2019-07-01 12:24:01,302 - CPE11-HKGMPLS1 - INFO - 
+PASS
+2019-07-01 12:24:01,302 - CPE11-HKGMPLS1 - INFO - 
+ >>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<
+
+2019-07-01 12:24:06,444 - CPE11-HKGMPLS1 - INFO - <Response [200]>
+2019-07-01 12:24:06,444 - CPE11-HKGMPLS1 - INFO - 
+PASS
+2019-07-01 12:24:06,444 - CPE11-HKGMPLS1 - INFO - 
+ >>>>>>>>>> FW ASSOCIATION WITH POST STAGING TEMPLATE PASSED. <<<<<<<<<<<
+
+2019-07-01 12:24:20,944 - CPE11-HKGMPLS1 - INFO - <Response [200]>
+2019-07-01 12:24:25,946 - CPE11-HKGMPLS1 - INFO - 
+PASS
+2019-07-01 12:24:25,946 - CPE11-HKGMPLS1 - INFO - 
+ >>>>>>>>>> POST STAGING TEMPLATE DEPLOY PASSED. <<<<<<<<<<<
+
+2019-07-01 12:24:31,259 - CPE11-HKGMPLS1 - INFO - {u'versanms.sdwan-template-workflow': {u'providerOrg': {u'nextGenFW': False, u'name': u'IPC00173', u'statefulFW': True}, u'snmp': {u'snmpV1': False, u'snmpV2': False, u'snmpV3': False}, u'minimumImageVersion': u'16.1R2-S8', u'wanInterfaces': [{u'unitInfo': [{u'ipv6Dhcp': False, u'monitor': {u'monitorNexthop': False}, u'allowSSH': False, u'ipv4Static': True, u'DIA': False, u'vlanId': 0, u'transportDomains': [u'MPLS-TD'], u'ipv4Dhcp': False, u'ipv6rs': False, u'subUnit': 0, u'networkName': u'MPLS-WAN', u'ipv6Static': False}], u'interfaceName': u'vni-0/1', u'pppoe': False}], u'diaConfig': {u'loadBalance': False, u'dia': False}, u'templateName': u'ABCqw_PS', u'isPrimary': True, u'isAnalyticsEnabled': True, u'lanInterfaces': [{u'unitInfo': [{u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN1-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN1_Unit-0__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'IPC00173', u'subUnit': u'{$v_vni-0-4_LAN1_Unit-0__unit}', u'networkName': u'LAN1', u'dhcpV4Relay': False}], u'interfaceName': u'vni-0/4'}], u'bandwidth': 1000, u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC02-N1-HKG'], u'templateType': u'sdwan-post-staging', u'deviceType': u'full-mesh', u'redundantPair': {u'vrrp': True, u'enable': False, u'cloudCPE': False}, u'solutionTier': u'standard-sdwan-plus-ngfw', u'deviceFirmfactor': 6, u'analyticsCluster': u'VAN-Cluster'}}
+2019-07-01 12:24:31,414 - CPE11-HKGMPLS1 - INFO - [{u'category': u'stateful-firewall', u'organization': u'IPC00173', u'serviceTemplate': u'GENERIC-SFW-TEMPLATE1', u'id': 146, u'templateName': u'ABCqw_PS'}]
+2019-07-01 12:24:46,510 - CPE11-HKGMPLS1 - INFO - set devices template ABCqw_PS config interfaces vni vni-0/1 description "MPLS-WAN"
+set devices template ABCqw_PS config interfaces vni vni-0/1 bandwidth uplink "5000"
+set devices template ABCqw_PS config interfaces vni vni-0/1 bandwidth downlink "5000"
+
+set devices template ABCqw_PS config system vnf-manager ip-addresses [ 10.92.116.67/32 10.92.116.68/32 ]
+set devices template ABCqw_PS config system service-options qos-frame-overhead auto-adjust true
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 hold-time 90
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 graceful-restart enable
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 graceful-restart maximum-restart-time 15
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 graceful-restart recovery-time 15
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 graceful-restart select-defer-time 15
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 graceful-restart stalepath-time 15
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 graceful-restart dynamic-peer-restart-time 0
+
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match family inet-vpn
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match community "(^|,)([0-9]*:11)($|,)"
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action filter accept
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community 8009:8009
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community-action set-specific
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action set-local-preference 80
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match family inet-vpn
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match community "(^|,)([0-9]*:12)($|,)"
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action filter accept
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community 8009:8009
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community-action set-specific
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action set-local-preference 60
+move devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 first
+move devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 first
+
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy TO_SDWAN term Wildcard match family inet-vpn
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy TO_SDWAN term Wildcard action filter accept
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy TO_SDWAN term Wildcard action community 852:10
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy TO_SDWAN term Wildcard action community-action set-specific
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard match family versa-private
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action filter accept
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community 852:10
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 group Controllers-Group family inet unicast
+set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 group Controllers-Group export TO_SDWAN
+set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc interval 10
+set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc logging-interval 30
+set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc send-to controller
+set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef interval 10
+set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef logging-interval 30
+set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef send-to branches
+set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be interval 10
+set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be logging-interval 30
+set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be send-to branches
+set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 interval 10
+set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 logging-interval 30
+set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 send-to branches
+set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 interval 10
+set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 logging-interval 30
+set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 send-to branches
+set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 interval 10
+set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 logging-interval 30
+set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 send-to branches
+set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 management-traffic priority 0
+
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP ]
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN set action allow
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services predefined-services-list [ ESP ICMP ]
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services services-list [ IPSEC IPSIPSecAH ]
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT set action allow
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match source zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match ether-type ARP
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN set action allow
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match ether-type ARP
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT set action allow
+
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN match source zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN set action deny
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT set action deny
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service app-qos-policies app-qos-policy-group Default-Policy
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business1 forwarding-class fc13
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business1 loss-priority high
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business1 dscp-rw-enable yes
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business1 dot1p-rw-enable no
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business2 forwarding-class fc14
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business2 loss-priority high
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business2 dscp-rw-enable yes
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business2 dot1p-rw-enable no
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business3 forwarding-class fc15
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business3 loss-priority high
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business3 dscp-rw-enable yes
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business3 dot1p-rw-enable no
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Internet-Default forwarding-class fc_be
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Internet-Default loss-priority high
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Internet-Default dscp-rw-enable no
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Internet-Default dot1p-rw-enable no
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Premium forwarding-class fc_ef
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Premium loss-priority low
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Premium dscp-rw-enable yes
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Premium dot1p-rw-enable no
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Routing-Management forwarding-class fc_nc
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Routing-Management loss-priority low
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Routing-Management dscp-rw-enable yes
+set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Routing-Management dot1p-rw-enable no
+
+set devices template ABCqw_PS config orgs org-services IPC00173 objects services service IPSEC protocol UDP
+set devices template ABCqw_PS config orgs org-services IPC00173 objects services service IPSEC destination-port 4790,4500,500
+set devices template ABCqw_PS config orgs org-services IPC00173 objects services service IPSecAH protocol AH
+set devices template ABCqw_PS config orgs org-services IPC00173 objects services service IPSIPSecAH protocol AH
+set devices template ABCqw_PS config orgs org-services IPC00173 objects services service DHCP-67 protocol UDP
+set devices template ABCqw_PS config orgs org-services IPC00173 objects services service DHCP-67 port 67
+set devices template ABCqw_PS config orgs org-services IPC00173 objects services service DHCP-68 protocol UDP
+set devices template ABCqw_PS config orgs org-services IPC00173 objects services service DHCP-68 port 68
+
+delete devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR routing-options static route
+delete devices template ABCqw_PS config orgs org-services IPC00173 security access-policies access-policy-group Default-Policy
+
+set devices template ABCqw_PS config routing-instances routing-instance LAN1-VRF vrf-import-target target:850L:8502
+set devices template ABCqw_PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template ABCqw_PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template ABCqw_PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template ABCqw_PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+set devices template ABCqw_PS config snmp usm local user coltuser auth sha password Colt1234
+
+set devices template ABCqw_PS config system time-zone Greenwich
+set devices template ABCqw_PS config confdConfig cli banner "Access to this network/system is limited to users authorised by Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be audited"
+set devices template ABCqw_PS config system users portal login shell role admin password yA:D#{}Vn9JE-?Qa
+set devices template ABCqw_PS config system users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+2019-07-01 12:25:34,733 - CPE11-HKGMPLS1 - INFO - configure
+Entering configuration mode private
+[ok][2019-07-01 06:14:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config interfaces vni vni-0/1 description "MPLS-WAN"
+[ok][2019-07-01 06:14:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config interfaces vni vni-0/1 bandwidth uplink "5000"
+[ok][2019-07-01 06:14:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config interfaces vni vni-0/1 bandwidth downlink "5000"
+[ok][2019-07-01 06:14:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config system vnf-manager ip-addresses [ 10.92.116.67/32 10.92.116.68/32 ]
+[ok][2019-07-01 06:14:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config system service-options qos-frame-overhead auto-adjust true
+[ok][2019-07-01 06:14:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 hold-time 90
+[ok][2019-07-01 06:14:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 graceful-restart enable
+[ok][2019-07-01 06:14:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 graceful-restart maximum-restart-time 15
+[ok][2019-07-01 06:14:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 graceful-restart recovery-time 15
+[ok][2019-07-01 06:14:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 graceful-restart select-defer-time 15
+[ok][2019-07-01 06:14:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 graceful-restart stalepath-time 15
+[ok][2019-07-01 06:14:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 graceful-restart dynamic-peer-restart-time 0
+[ok][2019-07-01 06:14:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy  Import-From-SDWAN-Policy term 1GW1 match family inet-vpn
+[ok][2019-07-01 06:14:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy  Import-From-SDWAN-Policy term 1GW1 match community "(^|,)([0-9]*:11)($|,)"
+[ok][2019-07-01 06:14:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy  Import-From-SDWAN-Policy term 1GW1 action filter accept
+[ok][2019-07-01 06:14:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy  Import-From-SDWAN-Policy term 1GW1 action community 8009:8009
+[ok][2019-07-01 06:14:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy  Import-From-SDWAN-Policy term 1GW1 action community-action set-specific
+[ok][2019-07-01 06:14:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy  Import-From-SDWAN-Policy term 1GW1 action set-local-preference 80
+[ok][2019-07-01 06:14:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy  Import-From-SDWAN-Policy term 2GW2 match family inet-vpn
+[ok][2019-07-01 06:14:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy  Import-From-SDWAN-Policy term 2GW2 match community "(^|,)([0-9]*:12)($|,)"
+[ok][2019-07-01 06:14:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy  Import-From-SDWAN-Policy term 2GW2 action filter accept
+[ok][2019-07-01 06:14:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy  Import-From-SDWAN-Policy term 2GW2 action community 8009:8009
+[ok][2019-07-01 06:14:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy  Import-From-SDWAN-Policy term 2GW2 action community-action set-specific
+[ok][2019-07-01 06:14:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy  Import-From-SDWAN-Policy term 2GW2 action set-local-preference 60
+[ok][2019-07-01 06:14:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% move devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy  Import-From-SDWAN-Policy term 2GW2 first
+[ok][2019-07-01 06:14:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% move devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy  Import-From-SDWAN-Policy term 1GW1 first
+[ok][2019-07-01 06:14:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy  TO_SDWAN term Wildcard match family inet-vpn
+[ok][2019-07-01 06:14:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy  TO_SDWAN term Wildcard action filter accept
+[ok][2019-07-01 06:14:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy  TO_SDWAN term Wildcard action community 852:10
+[ok][2019-07-01 06:14:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy  TO_SDWAN term Wildcard action community-action set-specific
+[ok][2019-07-01 06:14:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy  TO_SDWAN term VersaPvt-Wildcard match family versa-private
+[ok][2019-07-01 06:14:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy  TO_SDWAN term VersaPvt-Wildcard action filter accept
+[ok][2019-07-01 06:14:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy  TO_SDWAN term VersaPvt-Wildcard action community 852:10
+[ok][2019-07-01 06:14:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 routing-peer-policy  TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
+[ok][2019-07-01 06:14:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 group Controllers-Group family inet unicast
+[ok][2019-07-01 06:14:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR protocols bgp bgp 73 group Controllers-Group export TO_SDWAN
+[ok][2019-07-01 06:14:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc interval 10
+[ok][2019-07-01 06:14:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc logging-interval 30
+[ok][2019-07-01 06:14:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_nc send-to controller
+[ok][2019-07-01 06:14:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef interval 10
+[ok][2019-07-01 06:14:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef logging-interval 30
+[ok][2019-07-01 06:14:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_ef send-to branches
+[ok][2019-07-01 06:14:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be interval 10
+[ok][2019-07-01 06:14:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be logging-interval 30
+[ok][2019-07-01 06:14:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc_be send-to branches
+[ok][2019-07-01 06:14:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 interval 10
+[ok][2019-07-01 06:14:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 logging-interval 30
+[ok][2019-07-01 06:14:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc13 send-to branches
+[ok][2019-07-01 06:14:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 interval 10
+[ok][2019-07-01 06:14:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 logging-interval 30
+[ok][2019-07-01 06:14:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc14 send-to branches
+[ok][2019-07-01 06:14:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 interval 10
+[ok][2019-07-01 06:14:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 logging-interval 30
+[ok][2019-07-01 06:14:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 sla-monitoring fc fc15 send-to branches
+[ok][2019-07-01 06:14:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org IPC00173 sd-wan site wan-interfaces vni vni-0/1.0 management-traffic priority 0
+[ok][2019-07-01 06:14:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-MPLS-WAN-Zone ]
+[ok][2019-07-01 06:14:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP ]
+[ok][2019-07-01 06:14:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
+[ok][2019-07-01 06:14:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN set action allow
+[ok][2019-07-01 06:14:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+[ok][2019-07-01 06:14:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services predefined-services-list [ ESP ICMP ]
+[ok][2019-07-01 06:14:57]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services services-list [ IPSEC IPSIPSecAH ]
+[ok][2019-07-01 06:14:57]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT set action allow
+[ok][2019-07-01 06:14:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match source zone zone-list [ Intf-MPLS-WAN-Zone ]
+[ok][2019-07-01 06:14:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match ether-type ARP
+[ok][2019-07-01 06:14:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN set action allow
+[ok][2019-07-01 06:14:59]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+[ok][2019-07-01 06:14:59]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match ether-type ARP
+[ok][2019-07-01 06:15:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT set action allow
+[ok][2019-07-01 06:15:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN match source zone zone-list [ Intf-MPLS-WAN-Zone ]
+[ok][2019-07-01 06:15:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN set action deny
+[ok][2019-07-01 06:15:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+[ok][2019-07-01 06:15:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT set action deny
+[ok][2019-07-01 06:15:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service app-qos-policies app-qos-policy-group Default-Policy 
+[ok][2019-07-01 06:15:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business1 forwarding-class  fc13
+[ok][2019-07-01 06:15:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business1 loss-priority high
+[ok][2019-07-01 06:15:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business1 dscp-rw-enable yes
+[ok][2019-07-01 06:15:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business1 dot1p-rw-enable no
+[ok][2019-07-01 06:15:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business2 forwarding-class  fc14
+[ok][2019-07-01 06:15:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business2 loss-priority high
+[ok][2019-07-01 06:15:04]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business2 dscp-rw-enable yes
+[ok][2019-07-01 06:15:04]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business2 dot1p-rw-enable no
+[ok][2019-07-01 06:15:04]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business3 forwarding-class  fc15
+[ok][2019-07-01 06:15:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business3 loss-priority high
+[ok][2019-07-01 06:15:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business3 dscp-rw-enable yes
+[ok][2019-07-01 06:15:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Business3 dot1p-rw-enable no
+[ok][2019-07-01 06:15:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Internet-Default forwarding-class fc_be
+[ok][2019-07-01 06:15:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Internet-Default loss-priority high
+[ok][2019-07-01 06:15:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Internet-Default dscp-rw-enable no
+[ok][2019-07-01 06:15:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Internet-Default dot1p-rw-enable no
+[ok][2019-07-01 06:15:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Premium forwarding-class fc_ef
+[ok][2019-07-01 06:15:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Premium loss-priority low
+[ok][2019-07-01 06:15:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Premium dscp-rw-enable yes
+[ok][2019-07-01 06:15:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Premium dot1p-rw-enable no
+[ok][2019-07-01 06:15:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Routing-Management forwarding-class fc_nc
+[ok][2019-07-01 06:15:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Routing-Management loss-priority low
+[ok][2019-07-01 06:15:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Routing-Management dscp-rw-enable yes
+[ok][2019-07-01 06:15:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 class-of-service qos-profiles qos-profile Routing-Management dot1p-rw-enable no
+[ok][2019-07-01 06:15:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 objects services service IPSEC protocol UDP
+[ok][2019-07-01 06:15:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 objects services service IPSEC destination-port 4790,4500,500
+[ok][2019-07-01 06:15:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 objects services service IPSecAH protocol AH
+[ok][2019-07-01 06:15:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 objects services service IPSIPSecAH protocol AH
+[ok][2019-07-01 06:15:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 objects services service DHCP-67 protocol UDP
+[ok][2019-07-01 06:15:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 objects services service DHCP-67 port 67
+[ok][2019-07-01 06:15:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 objects services service DHCP-68 protocol UDP
+[ok][2019-07-01 06:15:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config orgs org-services IPC00173 objects services service DHCP-68 port 68
+[ok][2019-07-01 06:15:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% delete devices template ABCqw_PS config routing-instances routing-instance IPC00173-Control-VR routing-options static route
+[ok][2019-07-01 06:15:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% delete devices template ABCqw_PS config orgs org-services IPC00173 security access-policies access-policy-group Default-Policy
+[ok][2019-07-01 06:15:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance LAN1-VRF vrf-import-target target:850L:8502
+[ok][2019-07-01 06:15:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-07-01 06:15:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-07-01 06:15:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-07-01 06:15:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-07-01 06:15:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config snmp usm local user coltuser auth sha password Colt1234
+[ok][2019-07-01 06:15:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config system time-zone  Greenwich
+[ok][2019-07-01 06:15:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config confdConfig cli  banner "Access to this network/system is limited to users authorised by Colt for  its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be  audited"
+[ok][2019-07-01 06:15:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config system users portal login shell role admin password yA:D#{}Vn9JE-?Qa
+[ok][2019-07-01 06:15:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template ABCqw_PS config system users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+[ok][2019-07-01 06:15:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-07-01 12:25:35,562 - CPE11-HKGMPLS1 - INFO - commit
+Commit complete.
+[ok][2019-07-01 06:15:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-07-01 12:25:35,625 - CPE11-HKGMPLS1 - INFO - 
+CPE11-HKGMPLS1 : Commit success.
+2019-07-01 12:25:35,625 - CPE11-HKGMPLS1 - INFO - 
+ >>>>>>>>>> PS MAIN TEMPLATE MODIFY PASSED. <<<<<<<<<<<
+
+2019-07-01 12:25:40,625 - CPE11-HKGMPLS1 - INFO - 
+STEP : DEVICE GROUP CREATION AND DEPLOYMENT
+
+2019-07-01 12:25:40,828 - CPE11-HKGMPLS1 - INFO - <Response [201]>
+2019-07-01 12:25:40,828 - CPE11-HKGMPLS1 - INFO - 
+PASS
+2019-07-01 12:25:40,828 - CPE11-HKGMPLS1 - INFO - 
+ >>>>>>>>>> DEVICE GROUP TEMPLATE CREATION PASSED. <<<<<<<<<<<
+
+2019-07-01 12:25:45,828 - CPE11-HKGMPLS1 - INFO - 
+STEP : PRE-ONBOARD WORK
+
+2019-07-01 12:25:45,907 - CPE11-HKGMPLS1 - INFO - 
+sudo /opt/versa/scripts/staging.py -w 1 -c 10.83.152.225 -s 172.16.7.42/30 -g 172.16.7.41 -l IPC00173-CPE11-HKGMPLS1@colt.net -lk CPE11-HKGMPLS1  -r NV-WC02-N1-HKG@colt.net -rk 1234
+
+2019-07-01 12:25:45,907 - CPE11-HKGMPLS1 - INFO - {
+	"versanms.sdwan-device-workflow": {
+		"deviceName": "CPE11-HKGMPLS1",
+		"siteId": "2311",
+		"orgName": "IPC00173",
+		"serialNumber": "CPE11KSAC",
+		"deviceGroup": "ABC_DG",
+		"locationInfo": {
+			"state": "karnataka",
+			"country": "india",
+			"longitude": "77.594563",
+			"latitude": "12.971599",
+			"city": "bangalore"
+		},
+		"postStagingTemplateInfo": {
+			"templateName": "ABCqw_PS",
+			"templateData": {
+				"device-template-variable": {
+					"template": "ABCqw_PS",
+					"variable-binding": {
+						"attrs": [
+						
+						    
+						    
+						    
+						{ "name": "{$v_vni-0-4_LAN1_Unit-0__unit}", "value": "600", "isAutogeneratable": false},
+						{ "name": "{$v_vni-0-4_LAN1_Unit-0__vlanId}", "value": "600", "isAutogeneratable": false },
+						
+						{
+							"name": "{$v_IPC00173-Control-VR_16_Router_ID__vrRouteId}",
+							"value": "20.20.73.111",
+							"isAutogeneratable": true,
+							"isOverwritten": false
+						}, {
+							"name": "{$v_IPC00173_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}",
+							"value": "CPE11-HKGMPLS1",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_IPC00173_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}",
+							"value": "CPE11-HKGMPLS1",
+							"isAutogeneratable": true
+						},
+						
+						
+						
+						{ "name": "{$v_LAN1_IPv4__staticaddress}", "value": "192.169.101.1/24", "isAutogeneratable": false},
+						
+						{
+							"name": "{$v_IPC00173_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+							"value": "CPE11-HKGMPLS1@colt.net",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_Site_Id__siteSiteID}",
+							"value": "2311",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_IPC00173_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+							"value": "CPE11-HKGMPLS1@colt.net",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_IPC00173_Site_Name__sitesSiteName}",
+							"value": "CPE11-HKGMPLS1",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_latitude__IdLatitude}",
+							"value": "12.971599",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_identification__IdName}",
+							"value": "CPE11-HKGMPLS1",
+							"isAutogeneratable": true
+						}, {
+						    "name": "{$v_tvi-0-146_-_Unit_0_Static_address__tunnelStaticAddress}",
+							"value": "10.10.73.111/32",
+							"isAutogeneratable": true,
+							"isOverwritten": false
+						}, {
+							"name": "{$v_Chassis_Id__sitesChassisId}",
+							"value": "CPE11KSAC",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_longitude__Idlongitude}",
+							"value": "77.594563",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_location__IdLocation}",
+							"value": "bangalore,karnataka, india",
+							"isAutogeneratable": true
+						}, {
+							"name": "{$v_IPC00173-Control-VR_73_Local_address__vrRouterAddress}",
+							"value": "20.20.73.111",
+							"isAutogeneratable": true,
+							"isOverwritten": false
+						}, {
+							"name": "{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}",
+							"value": "172.16.7.41",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_MPLS-WAN_IPv4__staticaddress}",
+							"value": "172.16.7.42/30",
+							"isAutogeneratable": false
+						}, {
+							"name": "{$v_tvi-0-147_-_Unit_0_Static_address__tunnelStaticAddress}",
+							"value": "20.20.73.111/32",
+							"isAutogeneratable": true,
+							"isOverwritten": false
+						}]
+					}
+				},
+				"variableMetadata": [
+                
+                
+                
+				{"variable": "{$v_vni-0-4_LAN1_Unit-0__vlanId}", "group": "Vlan Info", "overlay": false, "type": "INTEGER"},
+                
+				{
+					"variable": "{$v_IPC00173-Control-VR_73_Router_ID__vrRouteId}",
+					"group": "Virtual Routers",
+					"overlay": true,
+					"type": "IPV4"
+				}, {
+					"variable": "{$v_IPC00173_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}",
+					"group": "IPSEC",
+					"overlay": false
+				}, {
+					"variable": "{$v_IPC00173_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}",
+					"group": "IPSEC",
+					"overlay": false
+				},
+			{
+					"variable": "{$v_LAN1_IPv4__staticaddress}", "group": "Interfaces", "overlay": false, "type": "IPV4_MASK"
+				},
+            
+				 {
+					"variable": "{$v_IPC00173_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+					"group": "IPSEC",
+					"overlay": false
+				}, {
+					"variable": "{$v_Site_Id__siteSiteID}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_IPC00173_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+					"group": "IPSEC",
+					"overlay": false
+				}, {
+					"variable": "{$v_IPC00173_Site_Name__sitesSiteName}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_latitude__IdLatitude}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_identification__IdName}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_tvi-0-146_-_Unit_0_Static_address__tunnelStaticAddress}",
+					"group": "Interfaces",
+					"overlay": true,
+					"type": "IPV4_IPV6_MASK"
+				}, {
+					"variable": "{$v_Chassis_Id__sitesChassisId}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_longitude__Idlongitude}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_location__IdLocation}",
+					"group": "SDWAN",
+					"overlay": false
+				}, {
+					"variable": "{$v_IPC00173-Control-VR_73_Local_address__vrRouterAddress}",
+					"group": "Virtual Routers",
+					"overlay": true,
+					"type": "IPV4"
+				}, {
+					"variable": "{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}",
+					"group": "Virtual Routers",
+					"overlay": false,
+					"type": "IPV4_IPV6"
+				}, {
+					"variable": "{$v_tvi-0-147_-_Unit_0_Static_address__tunnelStaticAddress}",
+					"group": "Interfaces",
+					"overlay": true,
+					"type": "IPV4_IPV6_MASK"
+				}]
+			}
+		}
+	}
+}
+2019-07-01 12:25:46,813 - CPE11-HKGMPLS1 - INFO - <Response [200]>
+2019-07-01 12:25:46,813 - CPE11-HKGMPLS1 - INFO - PASS
+2019-07-01 12:25:56,986 - CPE11-HKGMPLS1 - INFO - 20945
+2019-07-01 12:26:02,269 - CPE11-HKGMPLS1 - INFO - Device deployed
+2019-07-01 12:26:02,956 - CPE11-HKGMPLS1 - INFO - {u'versanms.sdwan-device-workflow': {u'postStagingTemplateInfo': {u'templateData': {u'device-template-variable': {u'variable-binding': {u'attrs': [{u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_tvi-0-147_-_Unit_0_Static_address__tunnelStaticAddress}', u'value': u'20.20.73.111/32'}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN1_Unit-0__vlanId}', u'value': 600}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00173_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}', u'value': u'CPE11-HKGMPLS1'}, {u'isAutogeneratable': True, u'name': u'{$v_Chassis_Id__sitesChassisId}', u'value': u'CPE11KSAC'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00173_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}', u'value': u'CPE11-HKGMPLS1'}, {u'isAutogeneratable': True, u'name': u'{$v_longitude__Idlongitude}', u'value': 77.594563}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00173_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'value': u'CPE11-HKGMPLS1@colt.net'}, {u'isAutogeneratable': True, u'isOverwritten': False, u'name': u'{$v_IPC00173-Control-VR_73_Router_ID__vrRouteId}', u'value': u'10.73.73.7'}, {u'isAutogeneratable': True, u'name': u'{$v_location__IdLocation}', u'value': u'bangalore,karnataka, india'}, {u'isAutogeneratable': False, u'name': u'{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}', u'value': u'172.16.7.41'}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN1_Unit-0__unit}', u'value': 600}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00173_Site_Name__sitesSiteName}', u'value': u'CPE11-HKGMPLS1'}, {u'isAutogeneratable': True, u'name': u'{$v_Site_Id__siteSiteID}', u'value': 2311}, {u'isAutogeneratable': False, u'name': u'{$v_MPLS-WAN_IPv4__staticaddress}', u'value': u'172.16.7.42/30'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_IPC00173-Control-VR_73_Local_address__vrRouterAddress}', u'value': u'20.20.73.111'}, {u'isAutogeneratable': False, u'name': u'{$v_LAN1_IPv4__staticaddress}', u'value': u'192.169.101.1/24'}, {u'isAutogeneratable': True, u'name': u'{$v_latitude__IdLatitude}', u'value': 12.971599}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00173_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'value': u'CPE11-HKGMPLS1@colt.net'}, {u'isAutogeneratable': True, u'name': u'{$v_identification__IdName}', u'value': u'CPE11-HKGMPLS1'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_tvi-0-146_-_Unit_0_Static_address__tunnelStaticAddress}', u'value': u'10.10.73.111/32'}]}, u'template': u'ABCqw_PS'}, u'variableMetadata': [{u'variable': u'{$v_tvi-0-147_-_Unit_0_Static_address__tunnelStaticAddress}', u'type': u'IPV4_IPV6_MASK', u'group': u'Interfaces', u'overlay': True}, {u'variable': u'{$v_vni-0-4_LAN1_Unit-0__vlanId}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_IPC00173_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_Chassis_Id__sitesChassisId}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00173_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_longitude__Idlongitude}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00173_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_IPC00173-Control-VR_73_Router_ID__vrRouteId}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': True}, {u'variable': u'{$v_location__IdLocation}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': False}, {u'variable': u'{$v_vni-0-4_LAN1_Unit-0__unit}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_IPC00173_Site_Name__sitesSiteName}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_Site_Id__siteSiteID}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_MPLS-WAN_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_IPC00173-Control-VR_73_Local_address__vrRouterAddress}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': True}, {u'variable': u'{$v_LAN1_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_latitude__IdLatitude}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00173_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_identification__IdName}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_tvi-0-146_-_Unit_0_Static_address__tunnelStaticAddress}', u'type': u'IPV4_IPV6_MASK', u'group': u'Interfaces', u'overlay': True}]}, u'templateName': u'ABCqw_PS'}, u'deviceName': u'CPE11-HKGMPLS1', u'workflowStatus': u'Deployed', u'deviceGroup': u'ABC_DG', u'orgName': u'IPC00173', u'serialNumber': u'CPE11KSAC', u'locationInfo': {u'latitude': 12.971599, u'country': u'india', u'state': u'karnataka', u'longitude': 77.594563, u'city': u'bangalore'}, u'lastUpdatedBy': u'Automated@System', u'siteId': 2311, u'instanceInfo': u'', u'stagingTemplateInfo': u'', u'lastModifiedTime': u'2019-07-01T06:15:36.054000+00:00', u'urlztpBasedInfo': {u'authType': u'psk', u'enableIpv4Dhcp': False, u'branchKey': u'pdUQrQEOg0MCtv9G', u'branchId': u'CPE11-HKGMPLS1@IPC00173.com', u'enableIpv6': False, u'enableIpv4': False, u'enableIpv6Dhcp': False}}}
+2019-07-01 12:26:22,582 - CPE11-HKGMPLS1 - INFO - configure private
+Entering configuration mode private
+[ok][2019-07-01 06:16:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-07-01 12:26:24,802 - CPE11-HKGMPLS1 - INFO - True
+2019-07-01 12:26:25,615 - CPE11-HKGMPLS1 - INFO - set devices device NV-WC02-N1-HKG config orgs org-services Colt ipsec vpn-profile MPLS-WAN-NV-WC02-N1-HKG-StagingIpsec psk-auth-clients remote-client IPC00173-CPE11-HKGMPLS1@colt.net id-type email
+[ok][2019-07-01 06:16:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-07-01 12:26:26,427 - CPE11-HKGMPLS1 - INFO - set devices device NV-WC02-N1-HKG config orgs org-services Colt ipsec vpn-profile MPLS-WAN-NV-WC02-N1-HKG-StagingIpsec psk-auth-clients remote-client IPC00173-CPE11-HKGMPLS1@colt.net key CPE11-HKGMPLS1
+[ok][2019-07-01 06:16:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-07-01 12:26:27,240 - CPE11-HKGMPLS1 - INFO - commit and-quit
+Commit complete.
+[ok][2019-07-01 06:16:09]
+Automated@VDir-BLR-NEW-01> 
+2019-07-01 12:26:27,334 - CPE11-HKGMPLS1 - INFO - 
+STEP : ONBOARD CALL
+
+2019-07-01 12:26:27,334 - CPE11-HKGMPLS1 - INFO - 
+sudo /opt/versa/scripts/staging.py -w 1 -c 10.83.152.225 -s 172.16.7.42/30 -g 172.16.7.41 -l IPC00173-CPE11-HKGMPLS1@colt.net -lk CPE11-HKGMPLS1  -r NV-WC02-N1-HKG@colt.net -rk 1234
+
+2019-07-01 12:34:14,650 - CPE11-HKGMPLS1 - INFO - 
+ 	 >>>>>>>>>>>> CPE ONBOARDING PASSED <<<<<<<<<<<<
+ 	 >>>>>>>>>>>>    CPE DETAILS        <<<<<<<<<<<<
+2019-07-01 12:34:15,220 - CPE11-HKGMPLS1 - INFO - None
+2019-07-01 12:34:15,220 - CPE11-HKGMPLS1 - INFO - CPE ONBOARDINIG SCRIPT COMPLETED
+2019-07-01 12:34:15,220 - CPE11-HKGMPLS1 - INFO - Time elapsed: 0:10:47.693000
+

@@ -1,0 +1,85 @@
+2019-06-07 16:12:20,585 - CPE12-SIN-MPLSONLY - INFO - CPE NAME:CPE12-SIN-MPLSONLY
+2019-06-07 16:12:21,589 - CPE12-SIN-MPLSONLY - INFO - SOLUTION SELECTED:SINGLE-CPE-MPLS-ONLY
+2019-06-07 16:12:22,710 - CPE12-SIN-MPLSONLY - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 71, u'orgName': u'IPC00171', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 830}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 831}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-06-07 16:12:23,035 - CPE12-SIN-MPLSONLY - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 71, u'orgName': u'IPC00171', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 830}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 831}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-06-07 16:12:23,250 - CPE12-SIN-MPLSONLY - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 71, u'orgName': u'IPC00171', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 830}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 831}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-06-07 16:12:23,250 - CPE12-SIN-MPLSONLY - INFO - 
+STEP : POST STAGING TEMPLATE CREATION AND DEPLOYMENT
+
+2019-06-07 16:12:23,266 - CPE12-SIN-MPLSONLY - INFO - {
+	"versanms.sdwan-template-workflow": {
+		"templateName": "IPC00171-SIN-PS-M",
+		"templateType": "sdwan-post-staging",
+		"controllers": ["NV-WC01-N6-SIN", "NV-WC02-N6-SIN"],
+		"providerOrg": {
+			"name": "IPC00171",
+			"statefulFW": true,
+			"nextGenFW": false
+		},
+		"analyticsCluster": "LogCollectors",
+		"deviceFirmfactor": "6",
+		"wanInterfaces": [{
+			"interfaceName": "vni-0/1",
+			"pppoe": false,
+			"unitInfo": [{
+				"subUnit": 0,
+				"vlanId": 0,
+				"networkName": "MPLS-WAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv6Static": false,
+				"ipv6Dhcp": false,
+				"allowSSH": false,
+				"monitor": {},
+				"linkPriority": "",
+				"transportDomains": ["MPLS-TD"]
+			}]
+		}],
+		"deviceType": "full-mesh",
+		"redundantPair": {
+			"enable": false
+		},
+		"lanInterfaces": [{
+			"interfaceName": "vni-0/4",
+			"unitInfo": [
+			{
+				"subUnit": "{$v_vni-0-4_LAN1_Unit-0__unit}",
+				"vlanId": "{$v_vni-0-4_LAN1_Unit-0__vlanId}",
+				"networkName": "LAN1",
+				"subOrganization": "IPC00171",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN1-VRF",
+				"zoneName": ""
+			}
+            
+        ]
+		}],
+		"solutionTier": "standard-sdwan-plus-ngfw",
+		"bandwidth": 1000,
+		"customParams": [],
+		"minimumImageVersion": "16.1R2-S2.2",
+		"isAnalyticsEnabled": true,
+		"isPrimary": true,
+		"diaConfig": {
+			"loadBalance": false
+		},
+		"inBoundNats": []
+	}
+}
+
+2019-06-07 16:12:30,579 - CPE12-SIN-MPLSONLY - INFO - <Response [200]>
+2019-06-07 16:12:30,579 - CPE12-SIN-MPLSONLY - INFO - 
+PASS
+2019-06-07 16:12:30,579 - CPE12-SIN-MPLSONLY - INFO - 
+ >>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<
+
+2019-06-07 16:12:35,700 - CPE12-SIN-MPLSONLY - INFO - <Response [500]>
+2019-06-07 16:12:35,700 - CPE12-SIN-MPLSONLY - INFO - {"timestamp":1559895311023,"status":500,"error":"Internal Server Error","exception":"org.springframework.orm.jpa.JpaSystemException","message":"Error while committing the transaction; nested exception is javax.persistence.RollbackException: Error while committing the transaction","path":"/nextgen/template/IPC00171-SIN-PS-M/associations"}
+2019-06-07 16:12:35,700 - CPE12-SIN-MPLSONLY - INFO - 
+FAIL : {"timestamp":1559895311023,"status":500,"error":"Internal Server Error","exception":"org.springframework.orm.jpa.JpaSystemException","message":"Error while committing the transaction; nested exception is javax.persistence.RollbackException: Error while committing the transaction","path":"/nextgen/template/IPC00171-SIN-PS-M/associations"}
+2019-06-07 16:12:35,700 - CPE12-SIN-MPLSONLY - INFO - 
+ >>>>>>>>>> FW ASSOCIATION WITH POST STAGING TEMPLATE FAILED. <<<<<<<<<<<
+

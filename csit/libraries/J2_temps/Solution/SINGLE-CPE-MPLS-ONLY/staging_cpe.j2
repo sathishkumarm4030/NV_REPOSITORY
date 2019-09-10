@@ -1,4 +1,4 @@
-{% if SATGING_WAN_DHCP == 'YES' %}
+{% if STAGING_WAN_DHCP == 'YES' %}
 sudo /opt/versa/scripts/staging.py -w {{ STAGING_INTF }} -c {{ STAGING_CTRLR_IP }} -d -l {{ STAGING_ID }} -lk {{ STAGING_KEY }}  -r {{ Staging_remote_id }} -rk {{ Staging_remote_key }}
 {% else %}
 sudo /opt/versa/scripts/staging.py -w {{ STAGING_INTF }} -c {{ STAGING_CTRLR_IP }} -s {{ STAGING_Local_ip_with_mask }} -g {{ STAGING_nexthop }} -l {{ STAGING_ID }} -lk {{ STAGING_KEY }}  -r {{ Staging_remote_id }} -rk {{ Staging_remote_key }}

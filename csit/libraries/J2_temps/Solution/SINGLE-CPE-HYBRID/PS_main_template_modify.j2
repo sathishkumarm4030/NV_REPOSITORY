@@ -1,7 +1,7 @@
-set devices template {{ PS_TEMPLATE_NAME }} config interfaces vni {{ MPLS_WAN_INTF }} description "MPLS-WAN"
-set devices template {{ PS_TEMPLATE_NAME }} config interfaces vni {{ MPLS_WAN_INTF }} bandwidth uplink "5000"
-set devices template {{ PS_TEMPLATE_NAME }} config interfaces vni {{ MPLS_WAN_INTF }} bandwidth downlink "5000"
-set devices template {{ PS_TEMPLATE_NAME }} config interfaces vni {{ INT_WAN_INTF }} description "INT-WAN"
+set devices template {{ PS_TEMPLATE_NAME }} config interfaces vni {{ WAN1_INTF }} description "MPLS-WAN"
+set devices template {{ PS_TEMPLATE_NAME }} config interfaces vni {{ WAN1_INTF }} bandwidth uplink "5000"
+set devices template {{ PS_TEMPLATE_NAME }} config interfaces vni {{ WAN1_INTF }} bandwidth downlink "5000"
+set devices template {{ PS_TEMPLATE_NAME }} config interfaces vni {{ WAN2_INTF }} description "INT-WAN"
 
 set devices template {{ PS_TEMPLATE_NAME }} config system vnf-manager ip-addresses [ {{ VNF_IPADDRESS1 }} {{ VNF_IPADDRESS2 }} ]
 set devices template {{ PS_TEMPLATE_NAME }} config system service-options qos-frame-overhead auto-adjust true
@@ -37,31 +37,31 @@ set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-ins
 set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community {{ LCC }}:10
 set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
 set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} group Controllers-Group export TO_SDWAN
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc_nc interval 10
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc_nc logging-interval 30
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc_nc send-to controller
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc_ef interval 10
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc_ef logging-interval 30
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc_ef send-to branches
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc_be interval 10
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc_be logging-interval 30
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc_be send-to branches
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc13 interval 10
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc13 logging-interval 30
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc13 send-to branches
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc14 interval 10
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc14 logging-interval 30
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc14 send-to branches
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc15 interval 10
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc15 logging-interval 30
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 sla-monitoring fc fc15 send-to branches
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ MPLS_WAN_INTF }}.0 management-traffic priority 0
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ INT_WAN_INTF }}.0 sla-monitoring fc fc_nc interval 10
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ INT_WAN_INTF }}.0 sla-monitoring fc fc_nc logging-interval 30
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ INT_WAN_INTF }}.0 sla-monitoring fc fc_nc send-to controller
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ INT_WAN_INTF }}.0 sla-monitoring fc fc_be interval 10
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ INT_WAN_INTF }}.0 sla-monitoring fc fc_be logging-interval 30
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ INT_WAN_INTF }}.0 sla-monitoring fc fc_be send-to branches
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc_nc interval 10
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc_nc logging-interval 30
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc_nc send-to controller
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc_ef interval 10
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc_ef logging-interval 30
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc_ef send-to branches
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc_be interval 10
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc_be logging-interval 30
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc_be send-to branches
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc13 interval 10
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc13 logging-interval 30
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc13 send-to branches
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc14 interval 10
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc14 logging-interval 30
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc14 send-to branches
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc15 interval 10
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc15 logging-interval 30
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc15 send-to branches
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 management-traffic priority 0
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN2_INTF }}.0 sla-monitoring fc fc_nc interval 10
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN2_INTF }}.0 sla-monitoring fc fc_nc logging-interval 30
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN2_INTF }}.0 sla-monitoring fc fc_nc send-to controller
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN2_INTF }}.0 sla-monitoring fc fc_be interval 10
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN2_INTF }}.0 sla-monitoring fc fc_be logging-interval 30
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN2_INTF }}.0 sla-monitoring fc fc_be send-to branches
 set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
 set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP ]
 set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
@@ -83,7 +83,7 @@ set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME
 set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT match services services-list [ DHCP-67 DHCP-68 ]
 set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT set action allow
 
-{% if LIB and LIB == 'YES' -%}
+{% if LIB1 is defined and LIB1 == 'YES' -%}
 set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match source zone zone-list [ {{ INTF_LAN_SET }}{{ WAN_ST_LAN_SET }}]
 set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match destination zone zone-list [ Intf-INT-WAN-Zone {{ LAN_ST_LAN_SET }}]
 set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT set action allow
@@ -96,7 +96,7 @@ set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME
 set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT match destination zone zone-list [ Intf-INT-WAN-Zone Intf-MPLS-WAN-Zone ]
 set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT set action deny
 
-{% if LIB and LIB == 'YES' -%}
+{% if LIB1 is defined and LIB1 == 'YES' -%}
 {%- set LAN_NO = NO_OF_VRFS -%}
 delete devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} cgnat rules rule RFC_1918_NoTranslate
 delete devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} cgnat rules rule DIA-Rule-LAN{{ LAN_NO }}-VRF-INT-WAN from
@@ -174,3 +174,5 @@ set devices template {{ PS_TEMPLATE_NAME }} config system time-zone Greenwich
 set devices template {{ PS_TEMPLATE_NAME }} config confdConfig cli banner "Access to this network/system is limited to users authorised by Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be audited"
 set devices template {{ PS_TEMPLATE_NAME }} config system users portal login shell role admin password yA:D#{}Vn9JE-?Qa
 set devices template {{ PS_TEMPLATE_NAME }} config system users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+
+

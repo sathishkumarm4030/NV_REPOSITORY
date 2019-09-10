@@ -42,20 +42,15 @@ def get_vd_details():
 
 
 def Do_Cpe_onboarding():
-    cpe_name = raw_input("Enter CPE NAME:").upper()
+    # cpe_name = raw_input("Enter CPE NAME:").upper()
     # print "CPE NAME:" + cpe_name
+    cpe_name = "CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET"
     cpe = VersaLib(cpe_name, topofile="Devices.csv")
     main_logger = cpe.main_logger
     main_logger.info("CPE NAME:" + cpe_name)
     time.sleep(1)
-    # print "AVAILABLE SOLUTIONS:"
-    # for sol in cpe.SOLUTIONS_list:
-    #     print "\t" + sol
-    # for i in range(len(cpe.SOLUTIONS_list)):
-    #     print str(i + 1) + "." + cpe.SOLUTIONS_list[i]
-    # cpe.Solution_type = cpe.SOLUTIONS_list[int(raw_input("Enter Solution number [eg: 1]:"))-1]
     main_logger.info("SOLUTION SELECTED:" + cpe.Solution_type)
-    cpe.Create_Node_Data(cpe.SATGING_SERVER, "SS", wan=cpe.SATGING_WAN)
+    cpe.Create_Node_Data(cpe.STAGING_SERVER, "SS", wan=cpe.STAGING_WAN)
     WC_list = cpe.Create_Controller_List(cpe.ORG_NAME, cpe.ORG_ID, cpe.NO_OF_VRFS, cpe.NODE)
     GW_list = cpe.Create_Gateway_List(cpe.ORG_NAME, cpe.ORG_ID, cpe.NO_OF_VRFS, cpe.NODE)
     cpe.create_cpe_data()
@@ -68,15 +63,18 @@ def Do_Cpe_onboarding():
         cpe.create_and_deploy_device_group()
     if cpe.DEV_TEMPALTE_CREATION == "YES":
         cpe.pre_onboard_work()
-    cpe.cpe_onboard_call()
-    cpe_result = cpe.get_device_info()
-    if isinstance(cpe_result, dict):
-        main_logger.info("\n \t >>>>>>>>>>>> CPE ONBOARDING PASSED <<<<<<<<<<<<"
-                         "\n \t >>>>>>>>>>>>    CPE DETAILS        <<<<<<<<<<<<")
-        main_logger.info(pprint.pprint(cpe.get_device_info()))
-    else:
-        main_logger.info(">>>>>>>>>>>> CPE ONBOARDING FAILED <<<<<<<<<<<<")
-        main_logger.info(cpe_result)
+    if cpe.DEV_ONBAORD == "YES":
+        cpe.cpe_onboard_call()
+        cpe_result = cpe.get_device_info()
+        if isinstance(cpe_result, dict):
+            main_logger.info("\n \t >>>>>>>>>>>> CPE ONBOARDING PASSED <<<<<<<<<<<<"
+                             "\n \t >>>>>>>>>>>>    CPE DETAILS        <<<<<<<<<<<<")
+            main_logger.info(pprint.pprint(cpe.get_device_info()))
+        else:
+            main_logger.info(">>>>>>>>>>>> CPE ONBOARDING FAILED <<<<<<<<<<<<")
+            main_logger.info(cpe_result)
+    if cpe.DEV_VRRP_LIB_CONFIG == "YES":
+        cpe.config_devices_vrrp_and_lib()
     main_logger.info("CPE ONBOARDINIG SCRIPT COMPLETED")
     main_logger.info("Time elapsed: {}\n".format(datetime.now() - start_time))
     # cpe_name = raw_input("Enter CPE NAME:").upper()
@@ -89,8 +87,8 @@ def Do_Cpe_onboarding():
     # print "AVAILBALE NODEs:" + str(cpe.ctlr_dict.keys())
     # cpe.NODE = (raw_input("Enter NODE NAME:")).upper()
     # print "AVAILBALE STAGING SERVERS:" + str(cpe.staging_servers_dict[cpe.NODE])
-    # cpe.SATGING_SERVER = raw_input("Enter staging server NAME:")
-    # cpe.SATGING_WAN = raw_input("Enter staging WAN (MPLS/INT):").upper()
+    # cpe.STAGING_SERVER = raw_input("Enter staging server NAME:")
+    # cpe.STAGING_WAN = raw_input("Enter staging WAN (MPLS/INT):").upper()
     # cpe.ORG_NAME = raw_input("Enter ORG NAME:").upper().replace("_", "-")
     # cpe.ORG_ID = raw_input("Enter ORG ID :")
     # cpe.NO_OF_VRFS = int(raw_input("NUMBER OF VRFS :"))
@@ -106,7 +104,7 @@ def Do_Cpe_onboarding():
     #     cpe.INT_INTF_IP_ALLOC = (raw_input("INTERNET intf address allocation ( ENTER DHCP/STATIC):")).upper()
     #     cpe.LIB = (raw_input("do you want LIB. ENTER YES/NO:")).upper()
     #
-    # cpe.Create_Node_Data(cpe.SATGING_SERVER, "SS", wan=cpe.SATGING_WAN)
+    # cpe.Create_Node_Data(cpe.STAGING_SERVER, "SS", wan=cpe.STAGING_WAN)
     # WC_list = cpe.Create_Controller_List(cpe.ORG_NAME, cpe.ORG_ID, cpe.NO_OF_VRFS, cpe.NODE)
     # GW_list = cpe.Create_Gateway_List(cpe.ORG_NAME, cpe.ORG_ID, cpe.NO_OF_VRFS, cpe.NODE)
     # cpe.create_cpe_data()

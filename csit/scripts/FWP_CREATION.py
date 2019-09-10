@@ -55,7 +55,7 @@ def Do_Cpe_onboarding():
     #     print str(i + 1) + "." + cpe.SOLUTIONS_list[i]
     # cpe.Solution_type = cpe.SOLUTIONS_list[int(raw_input("Enter Solution number [eg: 1]:"))-1]
     main_logger.info("SOLUTION SELECTED:" + cpe.Solution_type)
-    cpe.Create_Node_Data(cpe.SATGING_SERVER, "SS", wan=cpe.SATGING_WAN)
+    cpe.Create_Node_Data(cpe.STAGING_SERVER, "SS", wan=cpe.STAGING_WAN)
     WC_list = cpe.Create_Controller_List(cpe.ORG_NAME, cpe.ORG_ID, cpe.NO_OF_VRFS, cpe.NODE)
     GW_list = cpe.Create_Gateway_List(cpe.ORG_NAME, cpe.ORG_ID, cpe.NO_OF_VRFS, cpe.NODE)
     cpe.create_cpe_data()
@@ -92,8 +92,8 @@ def Do_Cpe_onboarding():
     # print "AVAILBALE NODEs:" + str(cpe.ctlr_dict.keys())
     # cpe.NODE = (raw_input("Enter NODE NAME:")).upper()
     # print "AVAILBALE STAGING SERVERS:" + str(cpe.staging_servers_dict[cpe.NODE])
-    # cpe.SATGING_SERVER = raw_input("Enter staging server NAME:")
-    # cpe.SATGING_WAN = raw_input("Enter staging WAN (MPLS/INT):").upper()
+    # cpe.STAGING_SERVER = raw_input("Enter staging server NAME:")
+    # cpe.STAGING_WAN = raw_input("Enter staging WAN (MPLS/INT):").upper()
     # cpe.ORG_NAME = raw_input("Enter ORG NAME:").upper().replace("_", "-")
     # cpe.ORG_ID = raw_input("Enter ORG ID :")
     # cpe.NO_OF_VRFS = int(raw_input("NUMBER OF VRFS :"))
@@ -109,7 +109,7 @@ def Do_Cpe_onboarding():
     #     cpe.INT_INTF_IP_ALLOC = (raw_input("INTERNET intf address allocation ( ENTER DHCP/STATIC):")).upper()
     #     cpe.LIB = (raw_input("do you want LIB. ENTER YES/NO:")).upper()
     #
-    # cpe.Create_Node_Data(cpe.SATGING_SERVER, "SS", wan=cpe.SATGING_WAN)
+    # cpe.Create_Node_Data(cpe.STAGING_SERVER, "SS", wan=cpe.STAGING_WAN)
     # WC_list = cpe.Create_Controller_List(cpe.ORG_NAME, cpe.ORG_ID, cpe.NO_OF_VRFS, cpe.NODE)
     # GW_list = cpe.Create_Gateway_List(cpe.ORG_NAME, cpe.ORG_ID, cpe.NO_OF_VRFS, cpe.NODE)
     # cpe.create_cpe_data()

@@ -1,4 +1,4 @@
-set devices template {{ PS_TEMPLATE_NAME }} config interfaces vni {{ INT_WAN_INTF }} description "INT-WAN"
+set devices template {{ PS_TEMPLATE_NAME }} config interfaces vni {{ WAN1_INTF }} description "INT-WAN"
 
 set devices template {{ PS_TEMPLATE_NAME }} config system vnf-manager ip-addresses [ {{ VNF_IPADDRESS1 }} {{ VNF_IPADDRESS2 }} ]
 delete devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance INT-WAN-Transport-VR routing-options static route rti-static-route-list 0.0.0.0/0 "{$v_INT-WAN-Transport-VR_IPv4__vrHopAddress}" none icmp
@@ -36,13 +36,13 @@ set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-ins
 set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} group Controllers-Group family inet unicast
 set devices template {{ PS_TEMPLATE_NAME }} config routing-instances routing-instance {{ ORG_NAME }}-Control-VR protocols bgp bgp {{ ORG_ID }} group Controllers-Group export TO_SDWAN
 
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ INT_WAN_INTF }}.0 sla-monitoring fc fc_nc interval 10
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ INT_WAN_INTF }}.0 sla-monitoring fc fc_nc logging-interval 30
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ INT_WAN_INTF }}.0 sla-monitoring fc fc_nc send-to controller
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ INT_WAN_INTF }}.0 sla-monitoring fc fc_be interval 10
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ INT_WAN_INTF }}.0 sla-monitoring fc fc_be logging-interval 30
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ INT_WAN_INTF }}.0 sla-monitoring fc fc_be send-to branches
-set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ INT_WAN_INTF }}.0 management-traffic priority 0
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc_nc interval 10
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc_nc logging-interval 30
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc_nc send-to controller
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc_be interval 10
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc_be logging-interval 30
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 sla-monitoring fc fc_be send-to branches
+set devices template {{ PS_TEMPLATE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces vni {{ WAN1_INTF }}.0 management-traffic priority 0
 
 set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-INT-WAN-Zone ]
 set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP ]
@@ -65,7 +65,7 @@ set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME
 set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT match services services-list [ DHCP-67 DHCP-68 ]
 set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT set action allow
 
-{% if LIB and LIB == 'YES' -%}
+{% if LIB1 is defined and LIB1 == 'YES' -%}
 set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match source zone zone-list [ {{ INTF_LAN_SET }}{{ WAN_ST_LAN_SET }}]
 set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match destination zone zone-list [ Intf-INT-WAN-Zone {{ LAN_ST_LAN_SET }}]
 set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT set action allow
@@ -79,7 +79,7 @@ set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME
 set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ]
 set devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT set action deny
 
-{% if LIB and LIB == 'YES' -%}
+{% if LIB1 is defined and LIB1 == 'YES' -%}
 {%- set LAN_NO = NO_OF_VRFS -%}
 delete devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} cgnat rules rule RFC_1918_NoTranslate
 delete devices template {{ PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} cgnat rules rule DIA-Rule-LAN{{ LAN_NO }}-VRF-INT-WAN from

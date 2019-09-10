@@ -11,7 +11,7 @@
 		"analyticsCluster": "{{ log_collector }}",
 		"deviceFirmfactor": "6",
 		"wanInterfaces": [{
-			"interfaceName": "{{ MPLS_WAN_INTF }}",
+			"interfaceName": "{{ WAN1_INTF }}",
 			"pppoe": false,
 			"unitInfo": [{
 				"subUnit": 0,
@@ -27,7 +27,7 @@
 				"transportDomains": ["MPLS-TD"]
 			}]
 		}, {
-			"interfaceName": "{{ INT_WAN_INTF }}",
+			"interfaceName": "{{ WAN2_INTF }}",
 			"pppoe": false,
 			"unitInfo": [{
 				"subUnit": 0,
@@ -85,7 +85,7 @@
 		"diaConfig": {
 			"loadBalance": false
 		},
-		{% if LIB and LIB == 'YES' -%}
+		{% if LIB1 is defined and LIB1 == 'YES' -%}
 		"splitTunnels": [
         {% for VRF in range(NO_OF_VRFS) -%}
         {%- set lan_number = VRF + 1 -%}

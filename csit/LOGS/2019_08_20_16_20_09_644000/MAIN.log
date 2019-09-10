@@ -1,0 +1,32 @@
+2019-08-20 16:20:12,463 - CPE27-HKG-DUALMPLSONLY-SEC-AUTO - INFO - CPE NAME:CPE27-HKG-DUALMPLSONLY-SEC-AUTO
+2019-08-20 16:20:13,463 - CPE27-HKG-DUALMPLSONLY-SEC-AUTO - INFO - SOLUTION SELECTED:DUAL-CPE-DUAL-MPLS
+2019-08-20 16:20:14,492 - CPE27-HKG-DUALMPLSONLY-SEC-AUTO - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 72, u'orgName': u'IPC00172', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 840}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 841}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-08-20 16:20:14,700 - CPE27-HKG-DUALMPLSONLY-SEC-AUTO - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 72, u'orgName': u'IPC00172', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 840}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 841}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-08-20 16:20:14,915 - CPE27-HKG-DUALMPLSONLY-SEC-AUTO - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 72, u'orgName': u'IPC00172', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 840}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 841}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-08-20 16:20:14,915 - CPE27-HKG-DUALMPLSONLY-SEC-AUTO - INFO - 
+STEP : DEVICE GROUP CREATION AND DEPLOYMENT
+
+2019-08-20 16:20:15,125 - CPE27-HKG-DUALMPLSONLY-SEC-AUTO - INFO - <Response [201]>
+2019-08-20 16:20:15,125 - CPE27-HKG-DUALMPLSONLY-SEC-AUTO - INFO - 
+PASS
+2019-08-20 16:20:15,125 - CPE27-HKG-DUALMPLSONLY-SEC-AUTO - INFO - 
+ >>>>>>>>>> DEVICE GROUP TEMPLATE CREATION PASSED. <<<<<<<<<<<
+
+2019-08-20 16:20:20,127 - CPE27-HKG-DUALMPLSONLY-SEC-AUTO - INFO - 
+STEP : PRE-ONBOARD WORK
+
+2019-08-20 16:20:20,148 - CPE27-HKG-DUALMPLSONLY-SEC-AUTO - INFO - 
+sudo /opt/versa/scripts/staging.py -w 2 -c 10.63.77.14 -s 172.16.7.106/30 -g 172.16.7.105 -l IPC00172-CPE27-HKG-DUALMPLSONLY-SEC-AUTO@colt.net -lk CPE27-HKG-DUALMPLSONLY-SEC-AUTO  -r NV-WC02-N6-SIN@colt.net -rk 1234
+
+2019-08-20 16:20:20,150 - CPE27-HKG-DUALMPLSONLY-SEC-AUTO - INFO - {
+	"device-group": {
+		"name": "IPC00172-HKG-PS-MOS-DG",
+		"dg:organization": "IPC00172",
+		"dg:enable-2factor-auth": false,
+		"dg:enable-staging-url": false,
+		"dg:poststaging-template": "IPC00172-HKG-PS-MOP"
+	}
+}
+2019-08-20 16:20:20,279 - CPE27-HKG-DUALMPLSONLY-SEC-AUTO - INFO - <Response [400]>
+2019-08-20 16:20:20,280 - CPE27-HKG-DUALMPLSONLY-SEC-AUTO - INFO - Invalid payload
+2019-08-20 16:20:20,280 - CPE27-HKG-DUALMPLSONLY-SEC-AUTO - INFO - FAIL : Invalid payload

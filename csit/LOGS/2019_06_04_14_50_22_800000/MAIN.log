@@ -1,0 +1,129 @@
+2019-06-04 14:50:24,953 - CPE25-GGN-HYBRID - INFO - CPE NAME:CPE25-GGN-HYBRID
+2019-06-04 14:50:25,967 - CPE25-GGN-HYBRID - INFO - SOLUTION SELECTED:SINGLE-CPE-HYBRID
+2019-06-04 14:50:27,134 - CPE25-GGN-HYBRID - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 42, u'orgName': u'IPC00142', u'controllers': [u'NV-WC01-N3-GGN', u'NV-WC01-N6-SIN', u'NV-WC02-N3-GGN', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 540}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 541}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-06-04 14:50:27,334 - CPE25-GGN-HYBRID - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 42, u'orgName': u'IPC00142', u'controllers': [u'NV-WC01-N3-GGN', u'NV-WC01-N6-SIN', u'NV-WC02-N3-GGN', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 540}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 541}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-06-04 14:50:27,552 - CPE25-GGN-HYBRID - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 42, u'orgName': u'IPC00142', u'controllers': [u'NV-WC01-N3-GGN', u'NV-WC01-N6-SIN', u'NV-WC02-N3-GGN', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 540}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 541}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-06-04 14:50:27,552 - CPE25-GGN-HYBRID - INFO - 
+STEP : POST STAGING TEMPLATE CREATION AND DEPLOYMENT
+
+2019-06-04 14:50:27,568 - CPE25-GGN-HYBRID - INFO - {
+	"versanms.sdwan-template-workflow": {
+		"templateName": "IPC00142-GGN-PS-HS-LIB",
+		"templateType": "sdwan-post-staging",
+		"controllers": ["NV-WC01-N3-GGN", "NV-WC02-N3-GGN"],
+		"providerOrg": {
+			"name": "IPC00142",
+			"statefulFW": true,
+			"nextGenFW": false
+		},
+		"analyticsCluster": "VAN-Cluster",
+		"deviceFirmfactor": "6",
+		"wanInterfaces": [{
+			"interfaceName": "vni-0/1",
+			"pppoe": false,
+			"unitInfo": [{
+				"subUnit": 0,
+				"vlanId": 0,
+				"networkName": "MPLS-WAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv6Static": false,
+				"ipv6Dhcp": false,
+				"allowSSH": false,
+				"monitor": {},
+				"linkPriority": "",
+				"transportDomains": ["MPLS-TD"]
+			}]
+		}, {
+			"interfaceName": "vni-0/2",
+			"pppoe": false,
+			"unitInfo": [{
+				"subUnit": 0,
+				"vlanId": 0,
+				"networkName": "INT-WAN","ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv6Static": false,
+				"ipv6Dhcp": false,
+				"allowSSH": false,
+				"monitor": {},
+				"linkPriority": "",
+				"transportDomains": ["INTERNET-TD"]
+			}]
+		}],
+		"deviceType": "full-mesh",
+		"redundantPair": {
+			"enable": false
+		},
+		"lanInterfaces": [{
+			"interfaceName": "vni-0/4",
+			"unitInfo": [
+			{
+				"subUnit": "{$v_vni-0-4_LAN1_Unit-0__unit}",
+				"vlanId": "{$v_vni-0-4_LAN1_Unit-0__vlanId}",
+				"networkName": "LAN1",
+				"subOrganization": "IPC00142",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN1-VRF",
+				"zoneName": ""
+			}
+            
+                    ,{
+				"subUnit": "{$v_vni-0-4_LAN2_Unit-1__unit}",
+				"vlanId": "{$v_vni-0-4_LAN2_Unit-1__vlanId}",
+				"networkName": "LAN2",
+				"subOrganization": "IPC00142",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN2-VRF",
+				"zoneName": ""
+			}
+            
+        ]
+		}],
+		"solutionTier": "standard-sdwan-plus-ngfw",
+		"bandwidth": 1000,
+		"customParams": [],
+		"minimumImageVersion": "16.1R2-S2.2",
+		"isAnalyticsEnabled": true,
+		"isPrimary": true,
+		"diaConfig": {
+			"loadBalance": false
+		},
+		"splitTunnels": [
+        {
+			"vrfName": "LAN1-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}
+        
+        ,{
+			"vrfName": "LAN2-VRF",
+			"wanNetworkName": "INT-WAN",
+			"dia": true,
+			"gateway": false
+		}
+        
+		],
+		"inBoundNats": []
+	}
+}
+
+2019-06-04 14:50:34,823 - CPE25-GGN-HYBRID - INFO - <Response [200]>
+2019-06-04 14:50:34,823 - CPE25-GGN-HYBRID - INFO - 
+PASS
+2019-06-04 14:50:34,823 - CPE25-GGN-HYBRID - INFO - 
+ >>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<
+
+2019-06-04 14:50:39,986 - CPE25-GGN-HYBRID - INFO - <Response [500]>
+2019-06-04 14:50:39,986 - CPE25-GGN-HYBRID - INFO - {"timestamp":1559632670319,"status":500,"error":"Internal Server Error","exception":"org.springframework.orm.jpa.JpaSystemException","message":"Error while committing the transaction; nested exception is javax.persistence.RollbackException: Error while committing the transaction","path":"/nextgen/template/IPC00142-GGN-PS-HS-LIB/associations"}
+2019-06-04 14:50:39,986 - CPE25-GGN-HYBRID - INFO - 
+FAIL : {"timestamp":1559632670319,"status":500,"error":"Internal Server Error","exception":"org.springframework.orm.jpa.JpaSystemException","message":"Error while committing the transaction; nested exception is javax.persistence.RollbackException: Error while committing the transaction","path":"/nextgen/template/IPC00142-GGN-PS-HS-LIB/associations"}
+2019-06-04 14:50:39,986 - CPE25-GGN-HYBRID - INFO - 
+ >>>>>>>>>> FW ASSOCIATION WITH POST STAGING TEMPLATE FAILED. <<<<<<<<<<<
+

@@ -1,0 +1,1067 @@
+2019-09-06 12:11:57,273 - CPE27-HKG2-DDI-SEC - INFO - CPE NAME:CPE27-HKG2-DDI-SEC
+2019-09-06 12:11:58,273 - CPE27-HKG2-DDI-SEC - INFO - SOLUTION SELECTED:DUAL-CPE-DUAL-INTERNET
+2019-09-06 12:11:59,414 - CPE27-HKG2-DDI-SEC - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 90, u'orgName': u'IPC00190', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 1020}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 1021}, {u'name': u'LAN3-VRF', u'enableVPN': True, u'id': 1022}, {u'name': u'LAN4-VRF', u'enableVPN': True, u'id': 1023}, {u'name': u'LAN5-VRF', u'enableVPN': True, u'id': 1024}, {u'name': u'LAN6-VRF', u'enableVPN': True, u'id': 1025}, {u'name': u'LAN7-VRF', u'enableVPN': True, u'id': 1026}, {u'name': u'LAN8-VRF', u'enableVPN': True, u'id': 1027}, {u'name': u'LAN9-VRF', u'enableVPN': True, u'id': 1028}, {u'name': u'LAN10-VRF', u'enableVPN': True, u'id': 1029}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-09-06 12:11:59,707 - CPE27-HKG2-DDI-SEC - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 90, u'orgName': u'IPC00190', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 1020}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 1021}, {u'name': u'LAN3-VRF', u'enableVPN': True, u'id': 1022}, {u'name': u'LAN4-VRF', u'enableVPN': True, u'id': 1023}, {u'name': u'LAN5-VRF', u'enableVPN': True, u'id': 1024}, {u'name': u'LAN6-VRF', u'enableVPN': True, u'id': 1025}, {u'name': u'LAN7-VRF', u'enableVPN': True, u'id': 1026}, {u'name': u'LAN8-VRF', u'enableVPN': True, u'id': 1027}, {u'name': u'LAN9-VRF', u'enableVPN': True, u'id': 1028}, {u'name': u'LAN10-VRF', u'enableVPN': True, u'id': 1029}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-09-06 12:11:59,986 - CPE27-HKG2-DDI-SEC - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 90, u'orgName': u'IPC00190', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 1020}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 1021}, {u'name': u'LAN3-VRF', u'enableVPN': True, u'id': 1022}, {u'name': u'LAN4-VRF', u'enableVPN': True, u'id': 1023}, {u'name': u'LAN5-VRF', u'enableVPN': True, u'id': 1024}, {u'name': u'LAN6-VRF', u'enableVPN': True, u'id': 1025}, {u'name': u'LAN7-VRF', u'enableVPN': True, u'id': 1026}, {u'name': u'LAN8-VRF', u'enableVPN': True, u'id': 1027}, {u'name': u'LAN9-VRF', u'enableVPN': True, u'id': 1028}, {u'name': u'LAN10-VRF', u'enableVPN': True, u'id': 1029}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-09-06 12:12:10,019 - CPE27-HKG2-DDI-SEC - INFO - set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config interfaces vni vni-0/3 description "INTERCONNECT-LINK"
+delete devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR routing-options static route
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config system vnf-manager ip-addresses [ 10.92.116.67/32 10.92.116.68/32 ]
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 hold-time 90
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart enable
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart maximum-restart-time 120
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart recovery-time 120
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart select-defer-time 120
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart stalepath-time 120
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart dynamic-peer-restart-time 0
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match family inet-vpn
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match community "(^|,)([0-9]*:11)($|,)"
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action filter accept
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community 8009:8009
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community-action set-specific
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action set-local-preference 80
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match family inet-vpn
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match community "(^|,)([0-9]*:12)($|,)"
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action filter accept
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community 8009:8009
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community-action set-specific
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action set-local-preference 60
+move devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 first
+move devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 first
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard match family inet-vpn
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action filter accept
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action community 852:10
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action community-action set-specific
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard match family versa-private
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action filter accept
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community 852:10
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 group Controllers-Group family inet unicast
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 group Controllers-Group export TO_SDWAN
+
+delete devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 cgnat rules rule RFC_1918_NoTranslate
+
+
+###########################################################
+#Note: Please use the below config, in case of Wired solution. Both CPEs on Wired
+###########################################################
+delete device template IPC00190-HKG-PS2-D-IOS-LIB-LS config org org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule Default-Rule
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names local [ INT-WAN1 INT-WAN2 ]
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names remote [ INT-WAN INT-WAN1 INT-WAN2 ]
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names local [ INT-WAN1 INT-WAN2 ]
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names remote [ LTE-WAN ]
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE connection-selection-method weighted-round-robin
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE recompute-timer 40
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE encryption optional
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config org org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE symmetric-forwarding enable
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config org org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE description DEFAULT-TRAFFIC-RULE
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config org org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set action allow
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config org org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set forwarding-profile DEFAULT-TRAFFIC-PROFILE
+
+
+Below Lines should be applied depending on the Number LAN VRFs available. Below is the example for 10VRFs.
+
+
+
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 objects zones zone Intf-LAN1-Zone description LAN1
+
+
+
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance LAN1-VRF vrf-import-target target:1020L:10202
+
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config snmp usm local user coltuser auth sha password Colt1234
+
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config system time-zone Greenwich
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config confdConfig cli banner "Access to this network/system is limited to users authorised by Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be audited"
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config system users portal login shell role admin password yA:D#{}Vn9JE-?Qa
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config system users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config system external-aaa auth-order remote-then-local
+#set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config system external-aaa tacacs-plus server 10.5.22.116 key C:ifiiape.
+#set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config system external-aaa tacacs-plus server 10.5.22.117 key C:ifiiape.
+#set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config system external-aaa tacacs-plus action [ accounting authentication ]
+
+
+#PART2:
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config interfaces vni vni vni-0/2 description "INT-WAN2"
+
+############################################
+#Note : This section only required if LIB is there.
+
+############################################
+
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-INT-WAN2-Zone Intf-INT-WAN1-Zone Intf-INT-WAN2-Failover-Zone ]
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP ]
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN set action allow
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match destination zone zone-list [ Intf-INT-WAN2-Zone Intf-INT-WAN1-Zone Intf-INT-WAN2-Failover-Zone ]
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services predefined-services-list [ ESP ICMP ]
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services services-list [ IPSEC IPSIPSecAH ]
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT set action allow
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match source zone zone-list [ Intf-INT-WAN2-Zone Intf-INT-WAN1-Zone Intf-INT-WAN2-Failover-Zone ]
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match ether-type ARP
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN set action allow
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match destination zone zone-list [ Intf-INT-WAN2-Zone Intf-INT-WAN1-Zone Intf-INT-WAN2-Failover-Zone ]
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match ether-type ARP
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT set action allow
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN match source zone zone-list [ Intf-INT-WAN2-Zone Intf-INT-WAN1-Zone Intf-INT-WAN2-Failover-Zone ]
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN match services services-list [ DHCP-67 DHCP-68 ]
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN set action allow
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT match destination zone zone-list [ Intf-INT-WAN2-Zone Intf-INT-WAN1-Zone Intf-INT-WAN2-Failover-Zone ]
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT match services services-list [ DHCP-67 DHCP-68 ]
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT set action allow
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match destination zone zone-list [ Intf-INT-WAN2-Failover-Zone Intf-INT-WAN1-Zone ]
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT set action allow
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN match source zone zone-list [ Intf-INT-WAN2-Failover-Zone Intf-INT-WAN1-Zone ]
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN set action allow
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN match source zone zone-list [ Intf-INT-WAN2-Zone Intf-INT-WAN1-Zone Intf-INT-WAN2-Failover-Zone ]
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN set action deny
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT match destination zone zone-list [ Intf-INT-WAN2-Zone Intf-INT-WAN1-Zone Intf-INT-WAN2-Failover-Zone ]
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT set action deny
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 objects services service IPSEC protocol UDP
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 objects services service IPSEC port 4790,4500,500
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 objects services service IPSecAH protocol AH
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 objects services service IPSIPSecAH protocol AH
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 objects services service DHCP-67 protocol UDP
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 objects services service DHCP-67 port 67
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 objects services service DHCP-68 protocol UDP
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 objects services service DHCP-68 port 68
+
+#Repeat following config for all LAN VRFs with corresponding <LAN_NO>. This is only required for LIB
+
+
+#Similarly below Lines should be applied depending on the Number LAN VRFs available. Below is the example for LAN1-VRF.
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 109
+
+2019-09-06 12:12:53,950 - CPE27-HKG2-DDI-SEC - INFO - configure
+Entering configuration mode private
+[ok][2019-09-06 05:22:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config interfaces vni vni-0/3 description "INTERCONNECT-LINK"
+[ok][2019-09-06 05:22:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% delete devices template IPC00190-HKG-PS2-D-IOS-LIB-LS  config routing-instances routing-instance IPC00190-Control-VR routing-options static route
+[ok][2019-09-06 05:22:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config system vnf-manager ip-addresses [ 10.92.116.67/32 10.92.116.68/32 ]
+[ok][2019-09-06 05:22:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  hold-time 90
+[ok][2019-09-06 05:22:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  graceful-restart enable
+[ok][2019-09-06 05:22:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  graceful-restart maximum-restart-time 120
+[ok][2019-09-06 05:22:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  graceful-restart recovery-time 120
+[ok][2019-09-06 05:22:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  graceful-restart select-defer-time 120
+[ok][2019-09-06 05:22:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  graceful-restart stalepath-time 120
+[ok][2019-09-06 05:22:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  graceful-restart dynamic-peer-restart-time 0
+[ok][2019-09-06 05:22:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match family inet-vpn
+[ok][2019-09-06 05:22:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match community "(^|,)([0-9]*:11)($|,)"
+[ok][2019-09-06 05:22:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action filter accept
+[ok][2019-09-06 05:22:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community 8009:8009
+[ok][2019-09-06 05:22:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community-action  set-specific
+[ok][2019-09-06 05:22:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action set-local-preference 80
+[ok][2019-09-06 05:22:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match family inet-vpn
+[ok][2019-09-06 05:22:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match community "(^|,)([0-9]*:12)($|,)"
+[ok][2019-09-06 05:22:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action filter accept
+[ok][2019-09-06 05:22:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community 8009:8009
+[ok][2019-09-06 05:22:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community-action  set-specific
+[ok][2019-09-06 05:22:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action set-local-preference 60
+[ok][2019-09-06 05:22:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% move devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 first
+[ok][2019-09-06 05:22:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% move devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 first
+[ok][2019-09-06 05:22:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  routing-peer-policy TO_SDWAN term Wildcard match family inet-vpn
+[ok][2019-09-06 05:22:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  routing-peer-policy TO_SDWAN term Wildcard action filter accept
+[ok][2019-09-06 05:22:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  routing-peer-policy TO_SDWAN term Wildcard action community 852:10
+[ok][2019-09-06 05:22:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  routing-peer-policy TO_SDWAN term Wildcard action community-action set-specific 
+[ok][2019-09-06 05:22:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  routing-peer-policy TO_SDWAN term VersaPvt-Wildcard match family versa-private
+[ok][2019-09-06 05:22:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action filter accept
+[ok][2019-09-06 05:22:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community 852:10
+[ok][2019-09-06 05:22:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
+[ok][2019-09-06 05:22:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  group Controllers-Group family inet unicast
+[ok][2019-09-06 05:22:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90  group Controllers-Group export TO_SDWAN
+[ok][2019-09-06 05:22:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% delete devices template IPC00190-HKG-PS2-D-IOS-LIB-LS  config orgs org-services IPC00190 cgnat rules rule RFC_1918_NoTranslate
+[ok][2019-09-06 05:22:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% ###########################################################
+[ok][2019-09-06 05:22:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% #Note: Please use the below config, in case of Wired  solution. Both CPEs on Wired
+[ok][2019-09-06 05:22:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% ###########################################################
+[ok][2019-09-06 05:22:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% delete devices template IPC00190-HKG-PS2-D-IOS-LIB-LS  config orgs org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule Default-Rule
+Error: element not found
+[error][2019-09-06 05:22:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names local [ INT-WAN1 INT-WAN2 ]
+[ok][2019-09-06 05:22:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names remote [ INT-WAN INT-WAN1 INT-WAN2 ]
+[ok][2019-09-06 05:22:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names local [ INT-WAN1 INT-WAN2 ]
+[ok][2019-09-06 05:22:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names remote [ LTE-WAN ]
+[ok][2019-09-06 05:22:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE connection-selection-method weighted-round-robin
+[ok][2019-09-06 05:22:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE recompute-timer 40
+[ok][2019-09-06 05:22:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE encryption optional
+[ok][2019-09-06 05:22:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE symmetric-forwarding enable
+[ok][2019-09-06 05:22:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE description DEFAULT-TRAFFIC-RULE
+[ok][2019-09-06 05:22:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set action allow
+[ok][2019-09-06 05:22:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set forwarding-profile DEFAULT-TRAFFIC-PROFILE 
+[ok][2019-09-06 05:22:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% Below Lines should be applied depending on the Number  LAN VRFs available. Below is the example for 10VRFs.
+---------------------------^
+syntax error: expecting 
+  activate        - Activate a statement
+  annotate        - Add a comment to a statement
+  clear           - 
+  commit          - Commit current set of changes
+  compare         - Show configuration differences
+  copy            - Copy a list entry
+  deactivate      - Deactivate a statement
+  delete          - Delete a data element
+  describe        - Display transparent command  information
+  edit            - Edit a sub-element
+  exit            - Exit from this level
+  help            - Provide help information
+  insert          - Insert a parameter
+  load            - Load configuration from an ASCII file
+  move            - Move a parameter
+  quit            - Exit from this level
+  rename          - Rename an identifier
+  request         - Make system-level requests
+  resolved        - Conflicts have been resolved
+  revert          - Copy configuration from running
+  rollback        - Roll back database to last committed version
+  run             - Run an operational-mode command
+  save            - Save configuration to an ASCII file
+  save-device-cfg - save device settings
+  set             - Set a parameter
+  shell           - Open a shell
+  show            - Show a parameter
+  status          - Display users currently editing the configuration
+  switch          - Change CLI style
+  tag             - Manipulate statement tags
+  top             - Exit to top level and optionally run command
+  up              - Exit one level of configuration
+  validate        - Validate current configuration
+[error][2019-09-06 05:22:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 objects zones zone Intf-LAN1-Zone description LAN1
+[ok][2019-09-06 05:22:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance LAN1-VRF vrf-import-target target:1020L:10202
+[ok][2019-09-06 05:22:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config snmp usm local user coltuser auth sha password Colt1234
+[ok][2019-09-06 05:22:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config system time-zone Greenwich
+[ok][2019-09-06 05:22:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config confdConfig cli banner "Access to this network/system is limited to users authorised by Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be audited"
+[ok][2019-09-06 05:22:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config system users portal login shell role admin password yA:D#{}Vn9JE-?Qa
+[ok][2019-09-06 05:22:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config system users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+[ok][2019-09-06 05:22:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config system external-aaa auth-order remote-then-local
+[ok][2019-09-06 05:22:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% #set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config system external-aaa tacacs-plus server 10.5.22.116 key C:ifiiape.
+[ok][2019-09-06 05:22:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% #set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config system external-aaa tacacs-plus server 10.5.22.117 key C:ifiiape.
+[ok][2019-09-06 05:22:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% #set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config system external-aaa tacacs-plus action [ accounting authentication ]
+[ok][2019-09-06 05:22:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% #PART2:
+[ok][2019-09-06 05:22:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config interfaces vni vni vni-0/2 description "INT-WAN2"
+--------------------------------------------------------------------------------------------------------^
+syntax error: element does not exist
+[error][2019-09-06 05:22:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% ############################################
+[ok][2019-09-06 05:22:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% #Note : This section only required if LIB is there.
+[ok][2019-09-06 05:22:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% ############################################
+[ok][2019-09-06 05:22:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-INT-WAN2-Zone Intf-INT-WAN1-Zone Intf-INT-WAN2-Failover-Zone ]
+[ok][2019-09-06 05:22:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services predefined-services-list  [ ESP ICMP ]
+[ok][2019-09-06 05:22:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
+[ok][2019-09-06 05:22:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN set action allow
+[ok][2019-09-06 05:22:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match destination zone zone-list [ Intf-INT-WAN2-Zone Intf-INT-WAN1-Zone Intf-INT-WAN2-Failover-Zone ]
+[ok][2019-09-06 05:22:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services predefined-services-list  [ ESP ICMP ]
+[ok][2019-09-06 05:22:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services services-list [ IPSEC IPSIPSecAH ]
+[ok][2019-09-06 05:22:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT set action allow
+[ok][2019-09-06 05:22:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match source zone zone-list [ Intf-INT-WAN2-Zone Intf-INT-WAN1-Zone Intf-INT-WAN2-Failover-Zone ]
+[ok][2019-09-06 05:22:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match ether-type ARP
+[ok][2019-09-06 05:22:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN set action allow
+[ok][2019-09-06 05:22:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match destination zone zone-list [ Intf-INT-WAN2-Zone Intf-INT-WAN1-Zone Intf-INT-WAN2-Failover-Zone ]
+[ok][2019-09-06 05:22:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match ether-type ARP
+[ok][2019-09-06 05:22:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT set action allow
+[ok][2019-09-06 05:22:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN match source zone zone-list [ Intf-INT-WAN2-Zone Intf-INT-WAN1-Zone Intf-INT-WAN2-Failover-Zone ]
+[ok][2019-09-06 05:22:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN match services services-list [ DHCP-67 DHCP-68 ]
+[ok][2019-09-06 05:22:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_IN set action allow
+[ok][2019-09-06 05:22:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT match destination zone zone-list [ Intf-INT-WAN2-Zone Intf-INT-WAN1-Zone Intf-INT-WAN2-Failover-Zone ]
+[ok][2019-09-06 05:22:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT match services services-list [ DHCP-67 DHCP-68 ]
+[ok][2019-09-06 05:22:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy DHCP_OUT set action allow
+[ok][2019-09-06 05:22:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match destination zone zone-list [ Intf-INT-WAN2-Failover-Zone Intf-INT-WAN1-Zone ]
+[ok][2019-09-06 05:22:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT set action allow
+[ok][2019-09-06 05:22:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN match source zone zone-list [ Intf-INT-WAN2-Failover-Zone Intf-INT-WAN1-Zone ]
+[ok][2019-09-06 05:22:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN set action allow
+[ok][2019-09-06 05:22:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN match source zone zone-list [ Intf-INT-WAN2-Zone Intf-INT-WAN1-Zone Intf-INT-WAN2-Failover-Zone ]
+[ok][2019-09-06 05:22:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN set action deny
+[ok][2019-09-06 05:22:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT match destination zone zone-list [ Intf-INT-WAN2-Zone Intf-INT-WAN1-Zone Intf-INT-WAN2-Failover-Zone ]
+[ok][2019-09-06 05:22:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT set action deny
+[ok][2019-09-06 05:22:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 objects services service IPSEC protocol UDP
+[ok][2019-09-06 05:22:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 objects services service IPSEC port 4790,4500,500
+[ok][2019-09-06 05:22:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 objects services service IPSecAH protocol AH
+[ok][2019-09-06 05:22:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 objects services service IPSIPSecAH protocol AH
+[ok][2019-09-06 05:22:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 objects services service DHCP-67 protocol UDP
+[ok][2019-09-06 05:22:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 objects services service DHCP-67 port 67
+[ok][2019-09-06 05:22:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 objects services service DHCP-68 protocol UDP
+[ok][2019-09-06 05:22:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config orgs org-services IPC00190 objects services service DHCP-68 port 68
+[ok][2019-09-06 05:22:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% #Repeat following config for all LAN VRFs with corresponding <LAN_NO>. This is only required for LIB
+[ok][2019-09-06 05:22:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% #Similarly below Lines should be applied depending on  the Number LAN VRFs available. Below is the example for LAN1-VRF.
+[ok][2019-09-06 05:22:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-09-06 05:22:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-09-06 05:22:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-09-06 05:22:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS2-D-IOS-LIB-LS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 109
+[ok][2019-09-06 05:22:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-06 12:12:54,762 - CPE27-HKG2-DDI-SEC - INFO - commit
+Commit complete.
+[ok][2019-09-06 05:22:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-06 12:12:54,825 - CPE27-HKG2-DDI-SEC - INFO - 
+CPE27-HKG2-DDI-SEC : syntax error found.Commit success.
+2019-09-06 12:12:54,825 - CPE27-HKG2-DDI-SEC - INFO - 
+ >>>>>>>>>> Secondary PS MAIN TEMPLATE MODIFY PASSED. <<<<<<<<<<<
+
+2019-09-06 12:12:59,826 - CPE27-HKG2-DDI-SEC - INFO - 
+STEP : DEVICE GROUP CREATION AND DEPLOYMENT
+
+2019-09-06 12:13:00,030 - CPE27-HKG2-DDI-SEC - INFO - <Response [201]>
+2019-09-06 12:13:00,030 - CPE27-HKG2-DDI-SEC - INFO - 
+PASS
+2019-09-06 12:13:00,032 - CPE27-HKG2-DDI-SEC - INFO - 
+ >>>>>>>>>> DEVICE GROUP TEMPLATE CREATION PASSED. <<<<<<<<<<<
+
+2019-09-06 12:13:05,032 - CPE27-HKG2-DDI-SEC - INFO - 
+STEP : PRE-ONBOARD WORK
+
+2019-09-06 12:13:05,089 - CPE27-HKG2-DDI-SEC - INFO - 
+sudo /opt/versa/scripts/staging.py -w 2 -c 10.83.130.49 -s 172.16.6.106/30 -g 172.16.6.105 -l IPC00190-CPE27-HKG2-DDI-SEC@colt.net -lk CPE27-HKG2-DDI-SEC  -r NV-WC01-N1-HKG@colt.net -rk 1234
+
+2019-09-06 12:13:05,089 - CPE27-HKG2-DDI-SEC - INFO - {
+  "versanms.sdwan-device-workflow": {
+	"deviceName": "CPE27-HKG2-DDI-SEC",
+	"siteId": "4237",
+	"orgName": "IPC00190",
+	"serialNumber": "CPE27CSDS02",
+	"deviceGroup": "IPC00190-HKG-PS2-D-IOS-LIB-LS-DG",
+    "locationInfo": {
+      "country": "singapore",
+      "longitude": "103.819836",
+      "latitude": "1.352083"
+    },
+    "postStagingTemplateInfo": {
+      "templateName": "IPC00190-HKG-PS2-D-IOS-LIB-LS",
+      "templateData": {
+        "device-template-variable": {
+          "template": "IPC00190-HKG-PS2-D-IOS-LIB-LS",
+          "variable-binding": {
+            "attrs": [
+              {
+                "name": "{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+                "value": "CPE27-HKG2-DDI-SEC@colt.net",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}",
+                "value": "CPE27-HKG2-DDI-SEC",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_IPC00190-Control-VR_90_Router_ID__vrRouteId}",
+                "value": "20.20.90.27",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_Paired_Site__locationID}",
+                "value": "4236",
+                "isAutogeneratable": false
+              },
+              {
+                "name": "{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}",
+                "value": "CPE27-HKG2-DDI-SEC",
+                "isAutogeneratable": true
+              },
+              {
+				"name": "{$v_INT-WAN2_IPv4__staticaddress}",
+				"value": "172.16.6.106/30",
+				"isAutogeneratable": false
+              },
+              {
+                "name": "{$v_IPC00190_Site_Name__sitesSiteName}",
+                "value": "CPE27-HKG2-DDI-SEC",
+                "isAutogeneratable": true
+              },
+			  
+			  
+			  
+			  
+			  { "name": "{$v_LAN1_vrrp__vrrpVirtualAddress}", "value": "192.170.1.1", "isAutogeneratable": false},
+			  { "name": "{$v_LAN1_IPv4__staticaddress}", "value": "192.170.1.3/24", "isAutogeneratable": false},
+			  
+              {
+                "name": "{$v_tvi-0-181_-_Unit_0_Static_address__tunnelStaticAddress}",
+                "value": "20.20.90.27/32",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_latitude__IdLatitude}",
+                "value": 1.352083,
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_INT-WAN2-Transport-VR_IPv4__vrHopAddress}",
+                "value": "172.16.6.105",
+                "isAutogeneratable": false
+              },
+              {
+                "name": "{$v_identification__IdName}",
+                "value": "CPE27-HKG2-DDI-SEC",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_tvi-0-180_-_Unit_0_Static_address__tunnelStaticAddress}",
+                "value": "10.10.90.27/32",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+                "value": "CPE27-HKG2-DDI-SEC@colt.net",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_Chassis_Id__sitesChassisId}",
+                "value": "4237",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_longitude__Idlongitude}",
+                "value": 103.819836,
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_IPC00190-Control-VR_90_Local_address__vrRouterAddress}",
+                "value": "20.20.90.27",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_location__IdLocation}",
+                "value": "singapore",
+                "isAutogeneratable": true
+              },
+			
+				
+				
+				
+			{ "name": "{$v_vni-0-4_LAN1_Unit-0__unit}", "value": "750", "isAutogeneratable": false},
+			{ "name": "{$v_vni-0-4_LAN1_Unit-0__vlanId}", "value": "750", "isAutogeneratable": false },
+			
+              {
+                "name": "{$v_Site_Id__siteSiteID}",
+                "value": "4237",
+                "isAutogeneratable": true
+              }
+            ]
+          }
+        },
+        "variableMetadata": [
+          {
+            "variable": "{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_IPC00190-Control-VR_90_Router_ID__vrRouteId}",
+            "group": "Virtual routers",
+            "overlay": true,
+            "type": "IPV4"
+          },
+          {
+            "variable": "{$v_Paired_Site__locationID}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_INT-WAN2_IPv4__staticaddress}",
+            "group": "Interfaces",
+            "overlay": false,
+            "type": "IPV4_MASK"
+          },
+          {
+            "variable": "{$v_IPC00190_Site_Name__sitesSiteName}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+		{ "variable": "{$v_LAN1_vrrp__vrrpVirtualAddress}", "group": "Others", "overlay": false, "type": "IPV4" },
+		{ "variable": "{$v_LAN1_IPv4__staticaddress}", "group": "Interfaces", "overlay": false, "type": "IPV4_MASK" },
+		
+          {
+            "variable": "{$v_tvi-0-181_-_Unit_0_Static_address__tunnelStaticAddress}",
+            "group": "Interfaces",
+            "overlay": true,
+            "type": "IPV4_IPV6_MASK"
+          },
+          {
+            "variable": "{$v_latitude__IdLatitude}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_INT-WAN2-Transport-VR_IPv4__vrHopAddress}",
+            "group": "Virtual Routers",
+            "overlay": false,
+            "type": "IPV4"
+          },
+          {
+            "variable": "{$v_identification__IdName}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_tvi-0-180_-_Unit_0_Static_address__tunnelStaticAddress}",
+            "group": "Interfaces",
+            "overlay": true,
+            "type": "IPV4_IPV6_MASK"
+          },
+          {
+            "variable": "{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_Chassis_Id__sitesChassisId}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_longitude__Idlongitude}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_IPC00190-Control-VR_90_Local_address__vrRouterAddress}",
+            "group": "Virtual routers",
+            "overlay": true,
+            "type": "IPV4"
+          },
+          {
+            "variable": "{$v_location__IdLocation}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+		 
+		 
+		 
+		 {"variable": "{$v_vni-0-4_LAN1_Unit-0__vlanId}", "group": "Vlan Info", "overlay": false, "type": "INTEGER"},
+		 
+          {
+            "variable": "{$v_Site_Id__siteSiteID}",
+            "group": "SDWAN",
+            "overlay": false
+          }
+        ]
+      }
+    }
+  }
+}
+2019-09-06 12:13:06,237 - CPE27-HKG2-DDI-SEC - INFO - <Response [200]>
+2019-09-06 12:13:06,239 - CPE27-HKG2-DDI-SEC - INFO - PASS
+2019-09-06 12:13:16,413 - CPE27-HKG2-DDI-SEC - INFO - 21481
+2019-09-06 12:13:21,726 - CPE27-HKG2-DDI-SEC - INFO - Device deployed
+2019-09-06 12:13:22,644 - CPE27-HKG2-DDI-SEC - INFO - {u'versanms.sdwan-device-workflow': {u'postStagingTemplateInfo': {u'templateData': {u'device-template-variable': {u'variable-binding': {u'attrs': [{u'isAutogeneratable': False, u'name': u'{$v_LAN1_vrrp__vrrpVirtualAddress}', u'value': u'192.170.1.1'}, {u'isAutogeneratable': False, u'name': u'{$v_INT-WAN2_IPv4__staticaddress}', u'value': u'172.16.6.106/30'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_tvi-0-181_-_Unit_0_Static_address__tunnelStaticAddress}', u'value': u'20.20.90.27/32'}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN1_Unit-0__vlanId}', u'value': 750}, {u'isAutogeneratable': False, u'name': u'{$v_Paired_Site__locationID}', u'value': 4236}, {u'isAutogeneratable': True, u'name': u'{$v_Chassis_Id__sitesChassisId}', u'value': u'CPE27CSDS02'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_IPC00190-Control-VR_90_Router_ID__vrRouteId}', u'value': u'20.20.90.27'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}', u'value': u'CPE27-HKG2-DDI-SEC'}, {u'isAutogeneratable': True, u'name': u'{$v_longitude__Idlongitude}', u'value': 103.819836}, {u'isAutogeneratable': False, u'name': u'{$v_INT-WAN2-Transport-VR_IPv4__vrHopAddress}', u'value': u'172.16.6.105'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'value': u'CPE27-HKG2-DDI-SEC@colt.net'}, {u'isAutogeneratable': True, u'name': u'{$v_location__IdLocation}', u'value': u'singapore'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_IPC00190-Control-VR_90_Local_address__vrRouterAddress}', u'value': u'20.20.90.27'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_tvi-0-180_-_Unit_0_Static_address__tunnelStaticAddress}', u'value': u'10.10.90.27/32'}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN1_Unit-0__unit}', u'value': 750}, {u'isAutogeneratable': True, u'name': u'{$v_Site_Id__siteSiteID}', u'value': 4237}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'value': u'CPE27-HKG2-DDI-SEC@colt.net'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00190_Site_Name__sitesSiteName}', u'value': u'CPE27-HKG2-DDI-SEC'}, {u'isAutogeneratable': False, u'name': u'{$v_LAN1_IPv4__staticaddress}', u'value': u'192.170.1.3/24'}, {u'isAutogeneratable': True, u'name': u'{$v_latitude__IdLatitude}', u'value': 1.352083}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}', u'value': u'CPE27-HKG2-DDI-SEC'}, {u'isAutogeneratable': True, u'name': u'{$v_identification__IdName}', u'value': u'CPE27-HKG2-DDI-SEC'}]}, u'template': u'IPC00190-HKG-PS2-D-IOS-LIB-LS'}, u'variableMetadata': [{u'variable': u'{$v_LAN1_vrrp__vrrpVirtualAddress}', u'type': u'IPV4', u'group': u'Others', u'overlay': False}, {u'variable': u'{$v_INT-WAN2_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_tvi-0-181_-_Unit_0_Static_address__tunnelStaticAddress}', u'type': u'IPV4_IPV6_MASK', u'group': u'Interfaces', u'overlay': True}, {u'variable': u'{$v_vni-0-4_LAN1_Unit-0__vlanId}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_Paired_Site__locationID}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_Chassis_Id__sitesChassisId}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00190-Control-VR_90_Router_ID__vrRouteId}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': True}, {u'variable': u'{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_longitude__Idlongitude}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_INT-WAN2-Transport-VR_IPv4__vrHopAddress}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': False}, {u'variable': u'{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_location__IdLocation}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00190-Control-VR_90_Local_address__vrRouterAddress}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': True}, {u'variable': u'{$v_tvi-0-180_-_Unit_0_Static_address__tunnelStaticAddress}', u'type': u'IPV4_IPV6_MASK', u'group': u'Interfaces', u'overlay': True}, {u'variable': u'{$v_vni-0-4_LAN1_Unit-0__unit}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_Site_Id__siteSiteID}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_IPC00190_Site_Name__sitesSiteName}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_LAN1_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_latitude__IdLatitude}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_identification__IdName}', u'group': u'SDWAN', u'overlay': False}]}, u'templateName': u'IPC00190-HKG-PS2-D-IOS-LIB-LS'}, u'deviceName': u'CPE27-HKG2-DDI-SEC', u'workflowStatus': u'Deployed', u'deviceGroup': u'IPC00190-HKG-PS2-D-IOS-LIB-LS-DG', u'orgName': u'IPC00190', u'serialNumber': u'CPE27CSDS02', u'locationInfo': {u'latitude': 1.352083, u'country': u'singapore', u'longitude': 103.819836}, u'bandwidth': 0, u'lastUpdatedBy': u'Automated', u'siteId': 4237, u'instanceInfo': u'', u'stagingTemplateInfo': u'', u'lastModifiedTime': u'2019-09-06T05:23:12.582000+00:00', u'urlztpBasedInfo': {u'authType': u'psk', u'enableIpv4Dhcp': False, u'branchKey': u'2FpUDgR9poX0k9lW', u'branchId': u'CPE27-HKG2-DDI-SEC@IPC00190.com', u'enableIpv6': False, u'enableIpv4': False, u'enableIpv6Dhcp': False}}}
+2019-09-06 12:13:42,098 - CPE27-HKG2-DDI-SEC - INFO - configure private
+Entering configuration mode private
+[ok][2019-09-06 05:23:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-06 12:13:44,299 - CPE27-HKG2-DDI-SEC - INFO - True
+2019-09-06 12:13:45,101 - CPE27-HKG2-DDI-SEC - INFO - set devices device NV-WC01-N1-HKG config orgs org-services Colt ipsec vpn-profile INT-WAN-NV-WC01-N1-HKG-StagingIpsec psk-auth-clients remote-client IPC00190-CPE27-HKG2-DDI-SEC@colt.net id-type email
+[ok][2019-09-06 05:23:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-06 12:13:45,903 - CPE27-HKG2-DDI-SEC - INFO - set devices device NV-WC01-N1-HKG config orgs org-services Colt ipsec vpn-profile INT-WAN-NV-WC01-N1-HKG-StagingIpsec psk-auth-clients remote-client IPC00190-CPE27-HKG2-DDI-SEC@colt.net key CPE27-HKG2-DDI-SEC
+[ok][2019-09-06 05:23:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-06 12:13:46,704 - CPE27-HKG2-DDI-SEC - INFO - commit and-quit
+Commit complete.
+[ok][2019-09-06 05:23:45]
+Automated@VDir-BLR-NEW-01> 
+2019-09-06 12:13:46,721 - CPE27-HKG2-DDI-SEC - INFO - 
+STEP : ONBOARD CALL
+
+2019-09-06 12:13:46,733 - CPE27-HKG2-DDI-SEC - INFO - 
+sudo /opt/versa/scripts/staging.py -w 2 -c 10.83.130.49 -s 172.16.6.106/30 -g 172.16.6.105 -l IPC00190-CPE27-HKG2-DDI-SEC@colt.net -lk CPE27-HKG2-DDI-SEC  -r NV-WC01-N1-HKG@colt.net -rk 1234
+
+2019-09-06 12:20:23,923 - CPE27-HKG2-DDI-SEC - INFO - 
+ 	 >>>>>>>>>>>> CPE ONBOARDING PASSED <<<<<<<<<<<<
+ 	 >>>>>>>>>>>>    CPE DETAILS        <<<<<<<<<<<<
+2019-09-06 12:20:24,565 - CPE27-HKG2-DDI-SEC - INFO - None
+2019-09-06 12:20:24,565 - CPE27-HKG2-DDI-SEC - INFO - 
+STEP : CONFIG VRRP TRACK ROUTE & QOS RULE MATCH WAN in Secondary CPE
+
+2019-09-06 12:20:38,983 - CPE27-HKG2-DDI-SEC - INFO - configure private
+Entering configuration mode private
+[ok][2019-09-06 05:30:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-06 12:20:43,187 - CPE27-HKG2-DDI-SEC - INFO - True
+2019-09-06 12:20:43,588 - CPE27-HKG2-DDI-SEC - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-06 12:20:44,591 - CPE27-HKG2-DDI-SEC - INFO - set devices device CPE27-HKG2-DDI-SEC config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules WAN_IN match source zone zone-list [ Intf-INT-WAN2-Zone Intf-INT-WAN2-Failover-Zone Intf-INT-WAN1-Zone ]
+[ok][2019-09-06 05:30:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-06 12:20:45,392 - CPE27-HKG2-DDI-SEC - INFO - set devices device CPE27-HKG2-DDI-SEC config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules WAN_IN set  action allow
+[ok][2019-09-06 05:30:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-06 12:20:46,394 - CPE27-HKG2-DDI-SEC - INFO - set devices device CPE27-HKG2-DDI-SEC config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules WAN_OUT match destination zone zone-list [ Intf-INT-WAN2-Zone Intf-INT-WAN2-Failover-Zone  Intf-INT-WAN1-Zone ]
+[ok][2019-09-06 05:30:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-06 12:20:47,196 - CPE27-HKG2-DDI-SEC - INFO - set devices device CPE27-HKG2-DDI-SEC config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules WAN_OUT set action allow
+[ok][2019-09-06 05:30:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-06 12:20:47,598 - CPE27-HKG2-DDI-SEC - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-06 12:20:48,000 - CPE27-HKG2-DDI-SEC - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-06 12:20:48,401 - CPE27-HKG2-DDI-SEC - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-06 12:20:48,803 - CPE27-HKG2-DDI-SEC - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-06 12:20:49,206 - CPE27-HKG2-DDI-SEC - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-06 12:20:49,607 - CPE27-HKG2-DDI-SEC - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-06 12:20:50,410 - CPE27-HKG2-DDI-SEC - INFO - set devices device CPE27-HKG2-DDI-SEC config interfaces vni-0/4 unit 750 family inet address 192.170.1.3/24 vrrp-group 1 track route  0.0.0.0/0 priority-cost 10
+[ok][2019-09-06 05:30:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-06 12:20:51,213 - CPE27-HKG2-DDI-SEC - INFO - set devices device CPE27-HKG2-DDI-SEC config interfaces vni-0/4 unit 750 family inet address 192.170.1.3/24 vrrp-group 1 track route  0.0.0.0/0 routing-instance LAN1-VRF
+[ok][2019-09-06 05:30:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-06 12:20:51,615 - CPE27-HKG2-DDI-SEC - INFO - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-06 12:20:52,818 - CPE27-HKG2-DDI-SEC - INFO - commit and-quit
+Commit complete.
+[ok][2019-09-06 05:30:49]
+Automated@VDir-BLR-NEW-01> 
+2019-09-06 12:20:52,934 - CPE27-HKG2-DDI-SEC - INFO - 
+ >>>>>>>>>> CONFIG VRRP TRACK ROUTE passed. <<<<<<<<<<<
+
+2019-09-06 12:20:52,934 - CPE27-HKG2-DDI-SEC - INFO - CPE ONBOARDINIG SCRIPT COMPLETED
+2019-09-06 12:20:52,936 - CPE27-HKG2-DDI-SEC - INFO - Time elapsed: 0:08:55.678000
+

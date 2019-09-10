@@ -19,8 +19,8 @@
 					"template": "{{ PS_TEMPLATE_NAME }}",
 					"variable-binding": {
 						"attrs": [{
-							"name": "{$v_{{ INT_WAN_NAME }}_IPv4__staticaddress}",
-							"value": "{{ INT_WAN_INTF_IP }}",
+							"name": "{$v_{{ WAN1_NAME }}_IPv4__staticaddress}",
+							"value": "{{ WAN1_INTF_IP }}",
 							"isAutogeneratable": false
 						},
 						{% for i in range(1,  NO_OF_VRFS+1) %}
@@ -74,8 +74,8 @@
 							"value": "{{ Device_name }}",
 							"isAutogeneratable": true
 						}, {
-							"name": "{$v_{{ INT_WAN_NAME }}-Transport-VR_IPv4__vrHopAddress}",
-							"value": "{{ INT_WAN_INTF_NEXTHOP }}",
+							"name": "{$v_{{ WAN1_NAME }}-Transport-VR_IPv4__vrHopAddress}",
+							"value": "{{ WAN1_INTF_NEXTHOP }}",
 							"isAutogeneratable": false
 						},	{
 						    "name": "{$v_tvi-0-{{ vxlan_tvi_interface }}_-_Unit_0_Static_address__tunnelStaticAddress}",
@@ -108,7 +108,7 @@
 					}
 				},
 				"variableMetadata": [{
-					"variable": "{$v_{{ INT_WAN_NAME }}_IPv4__staticaddress}",
+					"variable": "{$v_{{ WAN1_NAME }}_IPv4__staticaddress}",
 					"group": "Interfaces",
 					"overlay": false,
 					"type": "IPV4_MASK"
@@ -164,7 +164,7 @@
 					"group": "SDWAN",
 					"overlay": false
 				}, {
-					"variable": "{$v_{{ INT_WAN_NAME }}-Transport-VR_IPv4__vrHopAddress}",
+					"variable": "{$v_{{ WAN1_NAME }}-Transport-VR_IPv4__vrHopAddress}",
 					"group": "Virtual Routers",
 					"overlay": false,
 					"type": "IPV4_IPV6"

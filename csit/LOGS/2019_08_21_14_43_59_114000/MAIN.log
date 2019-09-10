@@ -1,0 +1,2010 @@
+2019-08-21 14:44:10,095 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - CPE NAME:CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190
+2019-08-21 14:44:11,095 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - SOLUTION SELECTED:DUAL-CPE-DUAL-MPLS
+2019-08-21 14:44:12,288 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 90, u'orgName': u'IPC00190', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 1020}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 1021}, {u'name': u'LAN3-VRF', u'enableVPN': True, u'id': 1022}, {u'name': u'LAN4-VRF', u'enableVPN': True, u'id': 1023}, {u'name': u'LAN5-VRF', u'enableVPN': True, u'id': 1024}, {u'name': u'LAN6-VRF', u'enableVPN': True, u'id': 1025}, {u'name': u'LAN7-VRF', u'enableVPN': True, u'id': 1026}, {u'name': u'LAN8-VRF', u'enableVPN': True, u'id': 1027}, {u'name': u'LAN9-VRF', u'enableVPN': True, u'id': 1028}, {u'name': u'LAN10-VRF', u'enableVPN': True, u'id': 1029}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-08-21 14:44:12,598 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 90, u'orgName': u'IPC00190', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 1020}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 1021}, {u'name': u'LAN3-VRF', u'enableVPN': True, u'id': 1022}, {u'name': u'LAN4-VRF', u'enableVPN': True, u'id': 1023}, {u'name': u'LAN5-VRF', u'enableVPN': True, u'id': 1024}, {u'name': u'LAN6-VRF', u'enableVPN': True, u'id': 1025}, {u'name': u'LAN7-VRF', u'enableVPN': True, u'id': 1026}, {u'name': u'LAN8-VRF', u'enableVPN': True, u'id': 1027}, {u'name': u'LAN9-VRF', u'enableVPN': True, u'id': 1028}, {u'name': u'LAN10-VRF', u'enableVPN': True, u'id': 1029}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-08-21 14:44:12,901 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 90, u'orgName': u'IPC00190', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'vrfs': [{u'name': u'LAN1-VRF', u'enableVPN': True, u'id': 1020}, {u'name': u'LAN2-VRF', u'enableVPN': True, u'id': 1021}, {u'name': u'LAN3-VRF', u'enableVPN': True, u'id': 1022}, {u'name': u'LAN4-VRF', u'enableVPN': True, u'id': 1023}, {u'name': u'LAN5-VRF', u'enableVPN': True, u'id': 1024}, {u'name': u'LAN6-VRF', u'enableVPN': True, u'id': 1025}, {u'name': u'LAN7-VRF', u'enableVPN': True, u'id': 1026}, {u'name': u'LAN8-VRF', u'enableVPN': True, u'id': 1027}, {u'name': u'LAN9-VRF', u'enableVPN': True, u'id': 1028}, {u'name': u'LAN10-VRF', u'enableVPN': True, u'id': 1029}], u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-08-21 14:44:12,903 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - 
+STEP : POST STAGING TEMPLATE CREATION AND DEPLOYMENT
+
+2019-08-21 14:44:12,927 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - {
+  "versanms.sdwan-template-workflow": {
+    "templateName": "IPC00190-HKG-PS-MOP",
+    "templateType": "sdwan-post-staging",
+    "deviceType": "full-mesh",
+    "controllers": ["NV-WC01-N1-HKG", "NV-WC02-N1-HKG"],
+    "providerOrg": {
+      "name": "IPC00190",
+      "statefulFW": false,
+      "nextGenFW": false
+    },
+    "analyticsCluster": "LogCollectors-GGN",
+    "deviceFirmfactor": 6,
+    "wanInterfaces": [
+      {
+        "interfaceName": "vni-0/1",
+        "pppoe": false,
+        "unitInfo": [
+          {
+            "subUnit": 0,
+            "vlanId": 0,
+            "networkName": "MPLS-WAN1",
+            "ipv4Dhcp": false,
+            "ipv4Static": true,
+            "ipv6Static": false,
+            "ipv6Dhcp": false,
+            "ipv6rs": false,
+            "DIA": false,
+            "transportDomains": ["MPLS-TD"],
+            "allowSSH": false,
+            "monitor": {
+              "monitorNexthop": false
+            }
+          }
+        ]
+      }
+    ],
+	"lanInterfaces": [{
+		"interfaceName": "vni-0/4",
+		"unitInfo": [
+		{
+			"subUnit": "{$v_vni-0-4_LAN1_Unit-0__unit}",
+			"vlanId": "{$v_vni-0-4_LAN1_Unit-0__vlanId}",
+			"networkName": "LAN1",
+			"subOrganization": "IPC00190",
+			"ipv4Static": true,
+			"ipv4Dhcp": false,
+			"ip6Static": false,
+			"ipv6Dhcp": false,
+			"vrfName": "LAN1-VRF",
+			"zoneName": ""
+		}
+		
+	]
+	}],
+    "solutionTier": "advanced-sdwan",
+    "bandwidth": 1000,
+    "isAnalyticsEnabled": true,
+    "isPrimary": true,
+    "diaConfig": {
+      "dia": false,
+      "loadBalance": false
+    },
+    "minimumImageVersion": "16.1R2-S9",
+    "redundantWanInterfaces": [
+      {
+        "interfaceName": "vni-0/1",
+        "pppoe": false,
+        "unitInfo": [
+          {
+            "subUnit": 0,
+            "vlanId": 0,
+            "networkName": "MPLS-WAN2",
+            "ipv4Dhcp": false,
+            "ipv4Static": true,
+            "ipv6Static": false,
+            "ipv6Dhcp": false,
+            "ipv6rs": false,
+            "DIA": false,
+            "transportDomains": [
+              "MPLS-TD"
+            ],
+            "allowSSH": false,
+            "monitor": {
+              "monitorNexthop": false
+            }
+          }
+        ]
+      }
+    ],
+    "crossConnectport": "vni-0/3",
+    "redundantPair": {
+      "cloudCPE": false,
+      "enable": true,
+      "templateName": "IPC00190-HKG-PS-MOS",
+      "vrrp": true
+    },
+    "snmp": {
+      "snmpV1": false,
+      "snmpV2": false,
+      "snmpV3": false
+    }
+  }
+}
+2019-08-21 14:44:13,660 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - <Response [200]>
+2019-08-21 14:44:13,661 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - 
+PASS
+2019-08-21 14:44:13,661 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - 
+ >>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<
+
+2019-08-21 14:44:36,365 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - <Response [200]>
+2019-08-21 14:44:41,368 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - 
+PASS
+2019-08-21 14:44:41,368 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - 
+ >>>>>>>>>> POST STAGING TEMPLATE DEPLOY PASSED. <<<<<<<<<<<
+
+2019-08-21 14:44:46,763 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - {u'versanms.sdwan-template-workflow': {u'providerOrg': {u'nextGenFW': False, u'name': u'IPC00190', u'statefulFW': False}, u'snmp': {u'snmpV1': False, u'snmpV2': False, u'snmpV3': False}, u'minimumImageVersion': u'16.1R2-S9', u'wanInterfaces': [{u'unitInfo': [{u'ipv6Dhcp': False, u'monitor': {u'monitorNexthop': False}, u'allowSSH': False, u'ipv4Static': True, u'DIA': False, u'vlanId': 0, u'transportDomains': [u'MPLS-TD'], u'ipv4Dhcp': False, u'ipv6rs': False, u'subUnit': 0, u'networkName': u'MPLS-WAN1', u'ipv6Static': False}], u'interfaceName': u'vni-0/1', u'pppoe': False}], u'diaConfig': {u'loadBalance': False, u'dia': False}, u'templateName': u'IPC00190-HKG-PS-MOP', u'isPrimary': True, u'isAnalyticsEnabled': True, u'lanInterfaces': [{u'unitInfo': [{u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN1-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-4_LAN1_Unit-0__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'IPC00190', u'subUnit': u'{$v_vni-0-4_LAN1_Unit-0__unit}', u'networkName': u'LAN1', u'dhcpV4Relay': False}], u'interfaceName': u'vni-0/4'}], u'bandwidth': 1000, u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC02-N1-HKG'], u'templateType': u'sdwan-post-staging', u'crossConnectport': u'vni-0/3', u'deviceType': u'full-mesh', u'redundantPair': {u'vrrp': True, u'enable': True, u'templateName': u'IPC00190-HKG-PS-MOS', u'cloudCPE': False}, u'redundantWanInterfaces': [{u'unitInfo': [{u'ipv6Dhcp': False, u'monitor': {u'monitorNexthop': False}, u'allowSSH': False, u'ipv4Static': True, u'DIA': False, u'vlanId': 0, u'transportDomains': [u'MPLS-TD'], u'ipv4Dhcp': False, u'ipv6rs': False, u'subUnit': 0, u'networkName': u'MPLS-WAN2', u'ipv6Static': False}], u'interfaceName': u'vni-0/1', u'pppoe': False}], u'solutionTier': u'advanced-sdwan', u'deviceFirmfactor': 6, u'analyticsCluster': u'LogCollectors-GGN'}}
+2019-08-21 14:45:01,753 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - set devices template IPC00190-HKG-PS-MOP config interfaces vni vni-0/1 description "MPLS-WAN"
+set devices template IPC00190-HKG-PS-MOP config interfaces vni vni-0/1 bandwidth uplink "1000000"
+set devices template IPC00190-HKG-PS-MOP config interfaces vni vni-0/1 bandwidth downlink "1000000"
+set devices template IPC00190-HKG-PS-MOP config interfaces vni vni-0/3 description "INTERCONNECT-LINK"
+
+set devices template IPC00190-HKG-PS-MOP config system vnf-manager ip-addresses [ 10.92.116.67/32 10.92.116.68/32 ]
+set devices template IPC00190-HKG-PS-MOP config system service-options qos-frame-overhead auto-adjust true
+set devices template IPC00190-HKG-PS-MOP config system service-options continuous-qos-evaluation true
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 hold-time 90
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart enable
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart maximum-restart-time 15
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart recovery-time 15
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart select-defer-time 15
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart stalepath-time 15
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart dynamic-peer-restart-time 0
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart multiplier 8
+
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match family inet-vpn
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match community "(^|,)([0-9]*:11)($|,)"
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action filter accept
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community 8009:8009
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community-action set-specific
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action set-local-preference 80
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match family inet-vpn
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match community "(^|,)([0-9]*:12)($|,)"
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action filter accept
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community 8009:8009
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community-action set-specific
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action set-local-preference 60
+move devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 first
+move devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 first
+
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard match family inet-vpn
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action filter accept
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action community 852:10
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action community-action set-specific
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard match family versa-private
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action filter accept
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community 852:10
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 group Controllers-Group family inet unicast
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 group Controllers-Group export TO_SDWANdelete devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 cgnat rules rule RFC_1918_NoTranslate
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 objects zones zone Intf-LAN1-Zone description LAN1
+
+
+delete devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR routing-options static route
+
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance LAN1-VRF vrf-import-target target:1020L:10202
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+set devices template IPC00190-HKG-PS-MOP config snmp usm local user coltuser auth sha password Colt1234
+
+set devices template IPC00190-HKG-PS-MOP config system time-zone Greenwich
+set devices template IPC00190-HKG-PS-MOP config confdConfig cli banner "Access to this network/system is limited to users authorised by Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be audited"
+set devices template IPC00190-HKG-PS-MOP config system users portal login shell role admin password yA:D#{}Vn9JE-?Qa
+set devices template IPC00190-HKG-PS-MOP config system users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+
+set devices template IPC00190-HKG-PS-MOP config system external-aaa auth-order remote-then-local
+set devices template IPC00190-HKG-PS-MOP config system external-aaa tacacs-plus server 10.5.22.116 key C:ifiiape.
+set devices template IPC00190-HKG-PS-MOP config system external-aaa tacacs-plus server 10.5.22.117 key C:ifiiape.
+set devices template IPC00190-HKG-PS-MOP config system external-aaa tacacs-plus action [ accounting authentication ]
+
+
+#PART2:
+delete devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance MPLS-WAN1-Transport-VR routing-options static route rti-static-route-list 0.0.0.0/0 "{$v_MPLS-WAN1-Transport-VR_IPv4__vrHopAddress}" none icmp
+
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-MPLS-WAN1-Zone ]
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP ]
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN set action allow
+
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match destination zone zone-list [ Intf-MPLS-WAN1-Zone ]
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services predefined-services-list [ ESP ICMP ]
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services services-list [ IPSEC IPSIPSecAH ]
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT set action allow
+
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match source zone zone-list [ Intf-MPLS-WAN1-Zone ]
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match ether-type ARP
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN set action allow
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match destination zone zone-list [ Intf-MPLS-WAN1-Zone ]
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match ether-type ARP
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT set action allow
+
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR set action allow
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR set qos-profile Premium
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR match source zone zone-list [ Intf-MPLS-WAN1-Failover-Zone ]
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR match dscp [ 46 ]
+
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 set action allow
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 set qos-profile Business1
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 match source zone zone-list [ Intf-MPLS-WAN1-Failover-Zone ]
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 match dscp [ 26 ]
+
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 set action allow
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 set qos-profile Business2
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 match source zone zone-list [ Intf-MPLS-WAN1-Failover-Zone ]
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 match dscp [ 18 ]
+
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 set action allow
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 set qos-profile Business3
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 match source zone zone-list [ Intf-MPLS-WAN1-Failover-Zone ]
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 match dscp [ 10 ]
+
+
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-BE set action allow
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-BE set qos-profile Internet-Default
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-BE match source zone zone-list [ Intf-MPLS-WAN1-Failover-Zone ]
+
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy FO_OUT match destination zone zone-list [ Intf-MPLS-WAN1-Failover-Zone Intf-MPLS-WAN2-Zone ]
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy FO_OUT set action allow
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy FO_IN match source zone zone-list [ Intf-MPLS-WAN1-Failover-Zone Intf-MPLS-WAN2-Zone ]
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy FO_IN set action allow
+
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN match source zone zone-list [ Intf-MPLS-WAN1-Zone ]
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN set action deny
+
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT match destination zone zone-list [ Intf-MPLS-WAN1-Zone ]
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT set action deny
+
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service app-qos-policies app-qos-policy-group Default-Policy
+
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 forwarding-class fc13
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 loss-priority high
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 dscp-rw-enable yes
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business1 dot1p-rw-enable no
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 forwarding-class fc14
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 loss-priority high
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 dscp-rw-enable yes
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business2 dot1p-rw-enable no
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 forwarding-class fc15
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 loss-priority high
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 dscp-rw-enable yes
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Business3 dot1p-rw-enable no
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default forwarding-class fc_be
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default loss-priority high
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default dscp-rw-enable no
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default dot1p-rw-enable no
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium forwarding-class fc_ef
+
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium loss-priority low
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium dscp-rw-enable yes
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Premium dot1p-rw-enable no
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management forwarding-class fc_nc
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management loss-priority low
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management dscp-rw-enable yes
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management dot1p-rw-enable no
+
+
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 objects services service IPSEC protocol UDP
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 objects services service IPSEC port 4790,4500,500
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 objects services service IPSecAH protocol AH
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 objects services service IPSIPSecAH protocol AH
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 objects services service DHCP-67 protocol UDP
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 objects services service DHCP-67 port 67
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 objects services service DHCP-68 protocol UDP
+set devices template IPC00190-HKG-PS-MOP config orgs org-services IPC00190 objects services service DHCP-68 port 68
+2019-08-21 14:45:59,160 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - configure
+Entering configuration mode private
+[ok][2019-08-21 09:15:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config interfaces vni vni-0/1 description "MPLS-WAN"
+[ok][2019-08-21 09:15:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config interfaces vni vni-0/1 bandwidth uplink "1000000"
+[ok][2019-08-21 09:15:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config interfaces vni vni-0/1 bandwidth downlink "1000000"
+[ok][2019-08-21 09:15:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config interfaces vni vni-0/3 description "INTERCONNECT-LINK"
+[ok][2019-08-21 09:15:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config system vnf-manager ip-addresses [ 10.92.116.67/32 10.92.116.68/32 ]
+[ok][2019-08-21 09:15:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config system service-options qos-frame-overhead auto-adjust true
+[ok][2019-08-21 09:15:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config system service-options continuous-qos-evaluation true
+[ok][2019-08-21 09:15:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 hold-time  90
+[ok][2019-08-21 09:15:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart enable
+[ok][2019-08-21 09:15:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart maximum-restart-time 15
+[ok][2019-08-21 09:15:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart recovery-time 15
+[ok][2019-08-21 09:15:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart select-defer-time 15
+[ok][2019-08-21 09:15:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart stalepath-time 15
+[ok][2019-08-21 09:15:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart dynamic-peer-restart-time 0
+[ok][2019-08-21 09:15:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 graceful-restart multiplier 8
+[ok][2019-08-21 09:15:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match family inet-vpn
+[ok][2019-08-21 09:15:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match community "(^|,)([0-9]*:11)($|,)"
+[ok][2019-08-21 09:15:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action filter accept
+[ok][2019-08-21 09:15:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community 8009:8009
+[ok][2019-08-21 09:15:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community-action set-specific
+[ok][2019-08-21 09:15:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action set-local-preference 80
+[ok][2019-08-21 09:15:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match family inet-vpn
+[ok][2019-08-21 09:15:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match community "(^|,)([0-9]*:12)($|,)"
+[ok][2019-08-21 09:15:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action filter accept
+[ok][2019-08-21 09:15:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community 8009:8009
+[ok][2019-08-21 09:15:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community-action set-specific
+[ok][2019-08-21 09:15:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action set-local-preference 60
+[ok][2019-08-21 09:15:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% move devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 first
+[ok][2019-08-21 09:15:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% move devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 first
+[ok][2019-08-21 09:15:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard match family inet-vpn
+[ok][2019-08-21 09:15:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action filter accept
+[ok][2019-08-21 09:15:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action community 852:10
+[ok][2019-08-21 09:15:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term Wildcard action community-action set-specific
+[ok][2019-08-21 09:15:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard match family versa-private
+[ok][2019-08-21 09:15:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action filter accept
+[ok][2019-08-21 09:15:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community 852:10
+[ok][2019-08-21 09:15:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
+[ok][2019-08-21 09:15:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 group Controllers-Group family inet unicast
+[ok][2019-08-21 09:15:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR protocols bgp bgp 90 group Controllers-Group export TO_SDWANdelete devices template IPC00190-HKG-PS-MOP config  orgs org-services IPC00190 cgnat rules rule RFC_1918_NoTranslate
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------^
+syntax error: element does not exist
+[error][2019-08-21 09:15:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 objects zones zone Intf-LAN1-Zone description LAN1
+[ok][2019-08-21 09:15:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% delete devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance IPC00190-Control-VR routing-options static route
+[ok][2019-08-21 09:15:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance LAN1-VRF vrf-import-target target:1020L:10202
+[ok][2019-08-21 09:15:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-08-21 09:15:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-08-21 09:15:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-08-21 09:15:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-08-21 09:15:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config snmp  usm local user coltuser auth sha password Colt1234
+[ok][2019-08-21 09:15:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config system time-zone Greenwich
+[ok][2019-08-21 09:15:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config confdConfig cli banner "Access to this network/system is limited to users authorised  by Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be audited"
+[ok][2019-08-21 09:15:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config system users portal login shell role admin password yA:D#{}Vn9JE-?Qa
+[ok][2019-08-21 09:15:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config system users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+[ok][2019-08-21 09:15:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config system external-aaa auth-order remote-then-local
+[ok][2019-08-21 09:15:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config system external-aaa tacacs-plus server 10.5.22.116 key C:ifiiape.
+[ok][2019-08-21 09:15:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config system external-aaa tacacs-plus server 10.5.22.117 key C:ifiiape.
+[ok][2019-08-21 09:15:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config system external-aaa tacacs-plus action [ accounting authentication ]
+[ok][2019-08-21 09:15:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% #PART2:
+[ok][2019-08-21 09:15:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% delete devices template IPC00190-HKG-PS-MOP config routing-instances routing-instance MPLS-WAN1-Transport-VR routing-options static route rti-static-route-list 0.0.0.0/0 "{$v_MPLS-WAN1-Transport-VR_IPv4__vrHopAddress}"[1A[32C{$v_MPLS-WAN1-Transport-VR_IPv4__vrHopAddress}  [1Dnone icmp
+Error: element not found
+[error][2019-08-21 09:15:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-MPLS-WAN1-Zone  ]
+[ok][2019-08-21 09:15:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP  ]
+[ok][2019-08-21 09:15:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
+[ok][2019-08-21 09:15:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN set action allow
+[ok][2019-08-21 09:15:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match destination zone zone-list [ Intf-MPLS-WAN1-Zone ]
+[ok][2019-08-21 09:15:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services predefined-services-list [ ESP ICMP ]
+[ok][2019-08-21 09:15:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services services-list [ IPSEC IPSIPSecAH ] 
+[ok][2019-08-21 09:15:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT set action allow
+[ok][2019-08-21 09:15:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match source zone zone-list [ Intf-MPLS-WAN1-Zone ]
+[ok][2019-08-21 09:15:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match ether-type ARP
+[ok][2019-08-21 09:15:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN set action allow
+[ok][2019-08-21 09:15:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match destination zone zone-list [ Intf-MPLS-WAN1-Zone ]
+[ok][2019-08-21 09:15:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match ether-type ARP
+[ok][2019-08-21 09:15:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT set action allow
+[ok][2019-08-21 09:15:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR set action allow
+[ok][2019-08-21 09:15:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR set qos-profile Premium
+[ok][2019-08-21 09:15:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR match source zone zone-list [ Intf-MPLS-WAN1-Failover-Zone ]
+[ok][2019-08-21 09:15:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR match dscp [ 46 ]
+[ok][2019-08-21 09:15:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 set action allow
+[ok][2019-08-21 09:15:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 set qos-profile Business1
+[ok][2019-08-21 09:15:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 match source zone zone-list [ Intf-MPLS-WAN1-Failover-Zone ]
+[ok][2019-08-21 09:15:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 match dscp [ 26 ]
+[ok][2019-08-21 09:15:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 set action allow
+[ok][2019-08-21 09:15:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 set qos-profile Business2
+[ok][2019-08-21 09:15:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 match source zone zone-list [ Intf-MPLS-WAN1-Failover-Zone ]
+[ok][2019-08-21 09:15:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 match dscp [ 18 ]
+[ok][2019-08-21 09:15:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 set action allow
+[ok][2019-08-21 09:15:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 set qos-profile Business3
+[ok][2019-08-21 09:15:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 match source zone zone-list [ Intf-MPLS-WAN1-Failover-Zone ]
+[ok][2019-08-21 09:15:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 match dscp [ 10 ]
+[ok][2019-08-21 09:15:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-BE set action allow
+[ok][2019-08-21 09:15:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-BE set qos-profile Internet-Default
+[ok][2019-08-21 09:15:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-BE match source zone zone-list [ Intf-MPLS-WAN1-Failover-Zone ]
+[ok][2019-08-21 09:15:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy FO_OUT match destination zone zone-list [ Intf-MPLS-WAN1-Failover-Zone Intf-MPLS-WAN2-Zone ]
+[ok][2019-08-21 09:15:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy FO_OUT set action allow
+[ok][2019-08-21 09:15:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy FO_IN match source zone zone-list [ Intf-MPLS-WAN1-Failover-Zone Intf-MPLS-WAN2-Zone ]
+[ok][2019-08-21 09:15:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy FO_IN set action allow
+[ok][2019-08-21 09:15:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN match source zone zone-list [ Intf-MPLS-WAN1-Zone ]
+[ok][2019-08-21 09:15:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN set action deny
+[ok][2019-08-21 09:15:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT match destination zone zone-list [ Intf-MPLS-WAN1-Zone ]
+[ok][2019-08-21 09:15:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT set action deny
+[ok][2019-08-21 09:15:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service app-qos-policies app-qos-policy-group Default-Policy
+[ok][2019-08-21 09:15:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Business1 forwarding-class fc13
+[ok][2019-08-21 09:15:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Business1 loss-priority high
+[ok][2019-08-21 09:15:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Business1 dscp-rw-enable yes
+[ok][2019-08-21 09:15:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Business1 dot1p-rw-enable no
+[ok][2019-08-21 09:15:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Business2 forwarding-class fc14
+[ok][2019-08-21 09:15:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Business2 loss-priority high
+[ok][2019-08-21 09:15:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Business2 dscp-rw-enable yes
+[ok][2019-08-21 09:15:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Business2 dot1p-rw-enable no
+[ok][2019-08-21 09:15:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Business3 forwarding-class fc15
+[ok][2019-08-21 09:15:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Business3 loss-priority high
+[ok][2019-08-21 09:15:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Business3 dscp-rw-enable yes
+[ok][2019-08-21 09:15:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Business3 dot1p-rw-enable no
+[ok][2019-08-21 09:15:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default  forwarding-class fc_be
+[ok][2019-08-21 09:15:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default  loss-priority high
+[ok][2019-08-21 09:15:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default  dscp-rw-enable no
+[ok][2019-08-21 09:15:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Internet-Default  dot1p-rw-enable no
+[ok][2019-08-21 09:15:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Premium forwarding-class fc_ef
+[ok][2019-08-21 09:15:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Premium loss-priority low
+[ok][2019-08-21 09:15:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Premium dscp-rw-enable yes
+[ok][2019-08-21 09:15:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Premium dot1p-rw-enable no
+[ok][2019-08-21 09:15:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management forwarding-class fc_nc
+[ok][2019-08-21 09:15:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management loss-priority low
+[ok][2019-08-21 09:15:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management dscp-rw-enable yes
+[ok][2019-08-21 09:15:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 class-of-service qos-profiles qos-profile Routing-Management dot1p-rw-enable no
+[ok][2019-08-21 09:15:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 objects services service IPSEC protocol UDP
+[ok][2019-08-21 09:15:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 objects services service IPSEC port 4790,4500,500
+[ok][2019-08-21 09:15:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 objects services service IPSecAH protocol AH
+[ok][2019-08-21 09:15:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 objects services service IPSIPSecAH protocol AH
+[ok][2019-08-21 09:15:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 objects services service DHCP-67 protocol UDP
+[ok][2019-08-21 09:15:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 objects services service DHCP-67 port 67
+[ok][2019-08-21 09:15:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 objects services service DHCP-68 protocol UDP
+[ok][2019-08-21 09:15:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00190-HKG-PS-MOP config orgs  org-services IPC00190 objects services service DHCP-68 port 68
+[ok][2019-08-21 09:15:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-21 14:45:59,989 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - commit
+Commit complete.
+[ok][2019-08-21 09:15:59]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-21 14:46:00,019 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - 
+CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 : syntax error found.Commit success.
+2019-08-21 14:46:00,019 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - 
+ >>>>>>>>>> PS MAIN TEMPLATE MODIFY PASSED. <<<<<<<<<<<
+
+2019-08-21 14:46:14,927 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - {
+	"device-group": {
+		"name": "IPC00190-HKG-PS-MOS-DG",
+		"dg:organization": "IPC00190",
+		"dg:enable-2factor-auth": false,
+		"dg:enable-staging-url": false,
+		"dg:poststaging-template": "IPC00190-HKG-PS-MOS"
+	}
+}
+
+2019-08-21 14:46:21,895 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - configure
+Entering configuration mode private
+[ok][2019-08-21 09:16:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% {
+---------------------------^
+syntax error: expecting 
+  activate        - Activate a statement
+  annotate        - Add a comment to a statement
+  clear           - 
+  commit          - Commit current set of changes
+  compare         - Show configuration differences
+  copy            - Copy a list entry
+  deactivate      - Deactivate a statement
+  delete          - Delete a data element
+  describe        - Display transparent command  information
+  edit            - Edit a sub-element
+  exit            - Exit from this level
+  help            - Provide help information
+  insert          - Insert a parameter
+  load            - Load configuration from an ASCII file
+  move            - Move a parameter
+  quit            - Exit from this level
+  rename          - Rename an identifier
+  request         - Make system-level requests
+  resolved        - Conflicts have been resolved
+  revert          - Copy configuration from running
+  rollback        - Roll back database to last committed version
+  run             - Run an operational-mode command
+  save            - Save configuration to an ASCII file
+  save-device-cfg - save device settings
+  set             - Set a parameter
+  shell           - Open a shell
+  show            - Show a parameter
+  status          - Display users currently editing the configuration
+  switch          - Change CLI style
+  tag             - Manipulate statement tags
+  top             - Exit to top level and optionally run command
+  up              - Exit one level of configuration
+  validate        - Validate current configuration
+[error][2019-08-21 09:16:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+Possible completions:
+  activate        - Activate a statement
+  annotate        - Add a comment to a statement
+  clear           - 
+  commit          - Commit current set of changes
+  compare         - Show configuration differences
+  copy            - Copy a list entry
+  deactivate      - Deactivate a statement
+  delete          - Delete a data element
+  describe        - Display transparent command information
+  edit            - Edit a sub-element
+  exit            - Exit from this level
+  help            - Provide help information
+  insert          - Insert a parameter
+  load            - Load configuration from an ASCII file
+  move            - Move a parameter
+  quit            - Exit from this level
+  rename          - Rename an identifier
+  request         - Make system-level requests
+  resolved        - Conflicts have been resolved
+  revert          - Copy configuration from running
+  rollback        - Roll back database to last committed version
+  run             - Run an operational-mode command
+  save            - Save configuration to an ASCII file
+  save-device-cfg - save device settings
+  set             - Set a parameter
+  shell           - Open a shell
+  show            - Show a parameter
+  status          - Display users currently editing the configuration
+  switch          - Change CLI style
+  tag             - Manipulate statement tags
+  top             - Exit to top level and optionally run command
+  up              - Exit one level of configuration
+  validate        - Validate current configuration
+Automated@VDir-BLR-NEW-01% "device-group": {
+---------------------------^
+syntax error: expecting 
+  activate        - Activate a statement
+  annotate        - Add a comment to a statement
+  clear           - 
+  commit          - Commit current set of changes
+  compare         - Show configuration differences
+  copy            - Copy a list entry
+  deactivate      - Deactivate a statement
+  delete          - Delete a data element
+  describe        - Display transparent command  information
+  edit            - Edit a sub-element
+  exit            - Exit from this level
+  help            - Provide help information
+  insert          - Insert a parameter
+  load            - Load configuration from an ASCII file
+  move            - Move a parameter
+  quit            - Exit from this level
+  rename          - Rename an identifier
+  request         - Make system-level requests
+  resolved        - Conflicts have been resolved
+  revert          - Copy configuration from running
+  rollback        - Roll back database to last committed version
+  run             - Run an operational-mode command
+  save            - Save configuration to an ASCII file
+  save-device-cfg - save device settings
+  set             - Set a parameter
+  shell           - Open a shell
+  show            - Show a parameter
+  status          - Display users currently editing the configuration
+  switch          - Change CLI style
+  tag             - Manipulate statement tags
+  top             - Exit to top level and optionally run command
+  up              - Exit one level of configuration
+  validate        - Validate current configuration
+[error][2019-08-21 09:16:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+Possible completions:
+  activate        - Activate a statement
+  annotate        - Add a comment to a statement
+  clear           - 
+  commit          - Commit current set of changes
+  compare         - Show configuration differences
+  copy            - Copy a list entry
+  deactivate      - Deactivate a statement
+  delete          - Delete a data element
+  describe        - Display transparent command information
+  edit            - Edit a sub-element
+  exit            - Exit from this level
+  help            - Provide help information
+  insert          - Insert a parameter
+  load            - Load configuration from an ASCII file
+  move            - Move a parameter
+  quit            - Exit from this level
+  rename          - Rename an identifier
+  request         - Make system-level requests
+  resolved        - Conflicts have been resolved
+  revert          - Copy configuration from running
+  rollback        - Roll back database to last committed version
+  run             - Run an operational-mode command
+  save            - Save configuration to an ASCII file
+  save-device-cfg - save device settings
+  set             - Set a parameter
+  shell           - Open a shell
+  show            - Show a parameter
+  status          - Display users currently editing the configuration
+  switch          - Change CLI style
+  tag             - Manipulate statement tags
+  top             - Exit to top level and optionally run command
+  up              - Exit one level of configuration
+  validate        - Validate current configuration
+Automated@VDir-BLR-NEW-01% 
+Possible completions:
+  activate        - Activate a statement
+  annotate        - Add a comment to a statement
+  clear           - 
+  commit          - Commit current set of changes
+  compare         - Show configuration differences
+  copy            - Copy a list entry
+  deactivate      - Deactivate a statement
+  delete          - Delete a data element
+  describe        - Display transparent command information
+  edit            - Edit a sub-element
+  exit            - Exit from this level
+  help            - Provide help information
+  insert          - Insert a parameter
+  load            - Load configuration from an ASCII file
+  move            - Move a parameter
+  quit            - Exit from this level
+  rename          - Rename an identifier
+  request         - Make system-level requests
+  resolved        - Conflicts have been resolved
+  revert          - Copy configuration from running
+  rollback        - Roll back database to last committed version
+  run             - Run an operational-mode command
+  save            - Save configuration to an ASCII file
+  save-device-cfg - save device settings
+  set             - Set a parameter
+  shell           - Open a shell
+  show            - Show a parameter
+  status          - Display users currently editing the configuration
+  switch          - Change CLI style
+  tag             - Manipulate statement tags
+  top             - Exit to top level and optionally run command
+  up              - Exit one level of configuration
+  validate        - Validate current configuration
+Automated@VDir-BLR-NEW-01% "name": "IPC00190-HKG-PS-MOS-DG",
+---------------------------^
+syntax error: expecting 
+  activate        - Activate a statement
+  annotate        - Add a comment to a statement
+  clear           - 
+  commit          - Commit current set of changes
+  compare         - Show configuration differences
+  copy            - Copy a list entry
+  deactivate      - Deactivate a statement
+  delete          - Delete a data element
+  describe        - Display transparent command  information
+  edit            - Edit a sub-element
+  exit            - Exit from this level
+  help            - Provide help information
+  insert          - Insert a parameter
+  load            - Load configuration from an ASCII file
+  move            - Move a parameter
+  quit            - Exit from this level
+  rename          - Rename an identifier
+  request         - Make system-level requests
+  resolved        - Conflicts have been resolved
+  revert          - Copy configuration from running
+  rollback        - Roll back database to last committed version
+  run             - Run an operational-mode command
+  save            - Save configuration to an ASCII file
+  save-device-cfg - save device settings
+  set             - Set a parameter
+  shell           - Open a shell
+  show            - Show a parameter
+  status          - Display users currently editing the configuration
+  switch          - Change CLI style
+  tag             - Manipulate statement tags
+  top             - Exit to top level and optionally run command
+  up              - Exit one level of configuration
+  validate        - Validate current configuration
+[error][2019-08-21 09:16:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+Possible completions:
+  activate        - Activate a statement
+  annotate        - Add a comment to a statement
+  clear           - 
+  commit          - Commit current set of changes
+  compare         - Show configuration differences
+  copy            - Copy a list entry
+  deactivate      - Deactivate a statement
+  delete          - Delete a data element
+  describe        - Display transparent command information
+  edit            - Edit a sub-element
+  exit            - Exit from this level
+  help            - Provide help information
+  insert          - Insert a parameter
+  load            - Load configuration from an ASCII file
+  move            - Move a parameter
+  quit            - Exit from this level
+  rename          - Rename an identifier
+  request         - Make system-level requests
+  resolved        - Conflicts have been resolved
+  revert          - Copy configuration from running
+  rollback        - Roll back database to last committed version
+  run             - Run an operational-mode command
+  save            - Save configuration to an ASCII file
+  save-device-cfg - save device settings
+  set             - Set a parameter
+  shell           - Open a shell
+  show            - Show a parameter
+  status          - Display users currently editing the configuration
+  switch          - Change CLI style
+  tag             - Manipulate statement tags
+  top             - Exit to top level and optionally run command
+  up              - Exit one level of configuration
+  validate        - Validate current configuration
+Automated@VDir-BLR-NEW-01% 
+Possible completions:
+  activate        - Activate a statement
+  annotate        - Add a comment to a statement
+  clear           - 
+  commit          - Commit current set of changes
+  compare         - Show configuration differences
+  copy            - Copy a list entry
+  deactivate      - Deactivate a statement
+  delete          - Delete a data element
+  describe        - Display transparent command information
+  edit            - Edit a sub-element
+  exit            - Exit from this level
+  help            - Provide help information
+  insert          - Insert a parameter
+  load            - Load configuration from an ASCII file
+  move            - Move a parameter
+  quit            - Exit from this level
+  rename          - Rename an identifier
+  request         - Make system-level requests
+  resolved        - Conflicts have been resolved
+  revert          - Copy configuration from running
+  rollback        - Roll back database to last committed version
+  run             - Run an operational-mode command
+  save            - Save configuration to an ASCII file
+  save-device-cfg - save device settings
+  set             - Set a parameter
+  shell           - Open a shell
+  show            - Show a parameter
+  status          - Display users currently editing the configuration
+  switch          - Change CLI style
+  tag             - Manipulate statement tags
+  top             - Exit to top level and optionally run command
+  up              - Exit one level of configuration
+  validate        - Validate current configuration
+Automated@VDir-BLR-NEW-01% "dg:organization": "IPC00190",
+---------------------------^
+syntax error: expecting 
+  activate        - Activate a statement
+  annotate        - Add a comment to a statement
+  clear           - 
+  commit          - Commit current set of changes
+  compare         - Show configuration differences
+  copy            - Copy a list entry
+  deactivate      - Deactivate a statement
+  delete          - Delete a data element
+  describe        - Display transparent command  information
+  edit            - Edit a sub-element
+  exit            - Exit from this level
+  help            - Provide help information
+  insert          - Insert a parameter
+  load            - Load configuration from an ASCII file
+  move            - Move a parameter
+  quit            - Exit from this level
+  rename          - Rename an identifier
+  request         - Make system-level requests
+  resolved        - Conflicts have been resolved
+  revert          - Copy configuration from running
+  rollback        - Roll back database to last committed version
+  run             - Run an operational-mode command
+  save            - Save configuration to an ASCII file
+  save-device-cfg - save device settings
+  set             - Set a parameter
+  shell           - Open a shell
+  show            - Show a parameter
+  status          - Display users currently editing the configuration
+  switch          - Change CLI style
+  tag             - Manipulate statement tags
+  top             - Exit to top level and optionally run command
+  up              - Exit one level of configuration
+  validate        - Validate current configuration
+[error][2019-08-21 09:16:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+Possible completions:
+  activate        - Activate a statement
+  annotate        - Add a comment to a statement
+  clear           - 
+  commit          - Commit current set of changes
+  compare         - Show configuration differences
+  copy            - Copy a list entry
+  deactivate      - Deactivate a statement
+  delete          - Delete a data element
+  describe        - Display transparent command information
+  edit            - Edit a sub-element
+  exit            - Exit from this level
+  help            - Provide help information
+  insert          - Insert a parameter
+  load            - Load configuration from an ASCII file
+  move            - Move a parameter
+  quit            - Exit from this level
+  rename          - Rename an identifier
+  request         - Make system-level requests
+  resolved        - Conflicts have been resolved
+  revert          - Copy configuration from running
+  rollback        - Roll back database to last committed version
+  run             - Run an operational-mode command
+  save            - Save configuration to an ASCII file
+  save-device-cfg - save device settings
+  set             - Set a parameter
+  shell           - Open a shell
+  show            - Show a parameter
+  status          - Display users currently editing the configuration
+  switch          - Change CLI style
+  tag             - Manipulate statement tags
+  top             - Exit to top level and optionally run command
+  up              - Exit one level of configuration
+  validate        - Validate current configuration
+Automated@VDir-BLR-NEW-01% 
+Possible completions:
+  activate        - Activate a statement
+  annotate        - Add a comment to a statement
+  clear           - 
+  commit          - Commit current set of changes
+  compare         - Show configuration differences
+  copy            - Copy a list entry
+  deactivate      - Deactivate a statement
+  delete          - Delete a data element
+  describe        - Display transparent command information
+  edit            - Edit a sub-element
+  exit            - Exit from this level
+  help            - Provide help information
+  insert          - Insert a parameter
+  load            - Load configuration from an ASCII file
+  move            - Move a parameter
+  quit            - Exit from this level
+  rename          - Rename an identifier
+  request         - Make system-level requests
+  resolved        - Conflicts have been resolved
+  revert          - Copy configuration from running
+  rollback        - Roll back database to last committed version
+  run             - Run an operational-mode command
+  save            - Save configuration to an ASCII file
+  save-device-cfg - save device settings
+  set             - Set a parameter
+  shell           - Open a shell
+  show            - Show a parameter
+  status          - Display users currently editing the configuration
+  switch          - Change CLI style
+  tag             - Manipulate statement tags
+  top             - Exit to top level and optionally run command
+  up              - Exit one level of configuration
+  validate        - Validate current configuration
+Automated@VDir-BLR-NEW-01% "dg:enable-2factor-auth": false,
+---------------------------^
+syntax error: expecting 
+  activate        - Activate a statement
+  annotate        - Add a comment to a statement
+  clear           - 
+  commit          - Commit current set of changes
+  compare         - Show configuration differences
+  copy            - Copy a list entry
+  deactivate      - Deactivate a statement
+  delete          - Delete a data element
+  describe        - Display transparent command  information
+  edit            - Edit a sub-element
+  exit            - Exit from this level
+  help            - Provide help information
+  insert          - Insert a parameter
+  load            - Load configuration from an ASCII file
+  move            - Move a parameter
+  quit            - Exit from this level
+  rename          - Rename an identifier
+  request         - Make system-level requests
+  resolved        - Conflicts have been resolved
+  revert          - Copy configuration from running
+  rollback        - Roll back database to last committed version
+  run             - Run an operational-mode command
+  save            - Save configuration to an ASCII file
+  save-device-cfg - save device settings
+  set             - Set a parameter
+  shell           - Open a shell
+  show            - Show a parameter
+  status          - Display users currently editing the configuration
+  switch          - Change CLI style
+  tag             - Manipulate statement tags
+  top             - Exit to top level and optionally run command
+  up              - Exit one level of configuration
+  validate        - Validate current configuration
+[error][2019-08-21 09:16:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+Possible completions:
+  activate        - Activate a statement
+  annotate        - Add a comment to a statement
+  clear           - 
+  commit          - Commit current set of changes
+  compare         - Show configuration differences
+  copy            - Copy a list entry
+  deactivate      - Deactivate a statement
+  delete          - Delete a data element
+  describe        - Display transparent command information
+  edit            - Edit a sub-element
+  exit            - Exit from this level
+  help            - Provide help information
+  insert          - Insert a parameter
+  load            - Load configuration from an ASCII file
+  move            - Move a parameter
+  quit            - Exit from this level
+  rename          - Rename an identifier
+  request         - Make system-level requests
+  resolved        - Conflicts have been resolved
+  revert          - Copy configuration from running
+  rollback        - Roll back database to last committed version
+  run             - Run an operational-mode command
+  save            - Save configuration to an ASCII file
+  save-device-cfg - save device settings
+  set             - Set a parameter
+  shell           - Open a shell
+  show            - Show a parameter
+  status          - Display users currently editing the configuration
+  switch          - Change CLI style
+  tag             - Manipulate statement tags
+  top             - Exit to top level and optionally run command
+  up              - Exit one level of configuration
+  validate        - Validate current configuration
+Automated@VDir-BLR-NEW-01% 
+Possible completions:
+  activate        - Activate a statement
+  annotate        - Add a comment to a statement
+  clear           - 
+  commit          - Commit current set of changes
+  compare         - Show configuration differences
+  copy            - Copy a list entry
+  deactivate      - Deactivate a statement
+  delete          - Delete a data element
+  describe        - Display transparent command information
+  edit            - Edit a sub-element
+  exit            - Exit from this level
+  help            - Provide help information
+  insert          - Insert a parameter
+  load            - Load configuration from an ASCII file
+  move            - Move a parameter
+  quit            - Exit from this level
+  rename          - Rename an identifier
+  request         - Make system-level requests
+  resolved        - Conflicts have been resolved
+  revert          - Copy configuration from running
+  rollback        - Roll back database to last committed version
+  run             - Run an operational-mode command
+  save            - Save configuration to an ASCII file
+  save-device-cfg - save device settings
+  set             - Set a parameter
+  shell           - Open a shell
+  show            - Show a parameter
+  status          - Display users currently editing the configuration
+  switch          - Change CLI style
+  tag             - Manipulate statement tags
+  top             - Exit to top level and optionally run command
+  up              - Exit one level of configuration
+  validate        - Validate current configuration
+Automated@VDir-BLR-NEW-01% "dg:enable-staging-url": false,
+---------------------------^
+syntax error: expecting 
+  activate        - Activate a statement
+  annotate        - Add a comment to a statement
+  clear           - 
+  commit          - Commit current set of changes
+  compare         - Show configuration differences
+  copy            - Copy a list entry
+  deactivate      - Deactivate a statement
+  delete          - Delete a data element
+  describe        - Display transparent command  information
+  edit            - Edit a sub-element
+  exit            - Exit from this level
+  help            - Provide help information
+  insert          - Insert a parameter
+  load            - Load configuration from an ASCII file
+  move            - Move a parameter
+  quit            - Exit from this level
+  rename          - Rename an identifier
+  request         - Make system-level requests
+  resolved        - Conflicts have been resolved
+  revert          - Copy configuration from running
+  rollback        - Roll back database to last committed version
+  run             - Run an operational-mode command
+  save            - Save configuration to an ASCII file
+  save-device-cfg - save device settings
+  set             - Set a parameter
+  shell           - Open a shell
+  show            - Show a parameter
+  status          - Display users currently editing the configuration
+  switch          - Change CLI style
+  tag             - Manipulate statement tags
+  top             - Exit to top level and optionally run command
+  up              - Exit one level of configuration
+  validate        - Validate current configuration
+[error][2019-08-21 09:16:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+Possible completions:
+  activate        - Activate a statement
+  annotate        - Add a comment to a statement
+  clear           - 
+  commit          - Commit current set of changes
+  compare         - Show configuration differences
+  copy            - Copy a list entry
+  deactivate      - Deactivate a statement
+  delete          - Delete a data element
+  describe        - Display transparent command information
+  edit            - Edit a sub-element
+  exit            - Exit from this level
+  help            - Provide help information
+  insert          - Insert a parameter
+  load            - Load configuration from an ASCII file
+  move            - Move a parameter
+  quit            - Exit from this level
+  rename          - Rename an identifier
+  request         - Make system-level requests
+  resolved        - Conflicts have been resolved
+  revert          - Copy configuration from running
+  rollback        - Roll back database to last committed version
+  run             - Run an operational-mode command
+  save            - Save configuration to an ASCII file
+  save-device-cfg - save device settings
+  set             - Set a parameter
+  shell           - Open a shell
+  show            - Show a parameter
+  status          - Display users currently editing the configuration
+  switch          - Change CLI style
+  tag             - Manipulate statement tags
+  top             - Exit to top level and optionally run command
+  up              - Exit one level of configuration
+  validate        - Validate current configuration
+Automated@VDir-BLR-NEW-01% 
+Possible completions:
+  activate        - Activate a statement
+  annotate        - Add a comment to a statement
+  clear           - 
+  commit          - Commit current set of changes
+  compare         - Show configuration differences
+  copy            - Copy a list entry
+  deactivate      - Deactivate a statement
+  delete          - Delete a data element
+  describe        - Display transparent command information
+  edit            - Edit a sub-element
+  exit            - Exit from this level
+  help            - Provide help information
+  insert          - Insert a parameter
+  load            - Load configuration from an ASCII file
+  move            - Move a parameter
+  quit            - Exit from this level
+  rename          - Rename an identifier
+  request         - Make system-level requests
+  resolved        - Conflicts have been resolved
+  revert          - Copy configuration from running
+  rollback        - Roll back database to last committed version
+  run             - Run an operational-mode command
+  save            - Save configuration to an ASCII file
+  save-device-cfg - save device settings
+  set             - Set a parameter
+  shell           - Open a shell
+  show            - Show a parameter
+  status          - Display users currently editing the configuration
+  switch          - Change CLI style
+  tag             - Manipulate statement tags
+  top             - Exit to top level and optionally run command
+  up              - Exit one level of configuration
+  validate        - Validate current configuration
+Automated@VDir-BLR-NEW-01% "dg:poststaging-template": "IPC00190-HKG-PS-MOS"
+---------------------------^
+syntax error: expecting 
+  activate        - Activate a statement
+  annotate        - Add a comment to a statement
+  clear           - 
+  commit          - Commit current set of changes
+  compare         - Show configuration differences
+  copy            - Copy a list entry
+  deactivate      - Deactivate a statement
+  delete          - Delete a data element
+  describe        - Display transparent command  information
+  edit            - Edit a sub-element
+  exit            - Exit from this level
+  help            - Provide help information
+  insert          - Insert a parameter
+  load            - Load configuration from an ASCII file
+  move            - Move a parameter
+  quit            - Exit from this level
+  rename          - Rename an identifier
+  request         - Make system-level requests
+  resolved        - Conflicts have been resolved
+  revert          - Copy configuration from running
+  rollback        - Roll back database to last committed version
+  run             - Run an operational-mode command
+  save            - Save configuration to an ASCII file
+  save-device-cfg - save device settings
+  set             - Set a parameter
+  shell           - Open a shell
+  show            - Show a parameter
+  status          - Display users currently editing the configuration
+  switch          - Change CLI style
+  tag             - Manipulate statement tags
+  top             - Exit to top level and optionally run command
+  up              - Exit one level of configuration
+  validate        - Validate current configuration
+[error][2019-08-21 09:16:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+Possible completions:
+  activate        - Activate a statement
+  annotate        - Add a comment to a statement
+  clear           - 
+  commit          - Commit current set of changes
+  compare         - Show configuration differences
+  copy            - Copy a list entry
+  deactivate      - Deactivate a statement
+  delete          - Delete a data element
+  describe        - Display transparent command information
+  edit            - Edit a sub-element
+  exit            - Exit from this level
+  help            - Provide help information
+  insert          - Insert a parameter
+  load            - Load configuration from an ASCII file
+  move            - Move a parameter
+  quit            - Exit from this level
+  rename          - Rename an identifier
+  request         - Make system-level requests
+  resolved        - Conflicts have been resolved
+  revert          - Copy configuration from running
+  rollback        - Roll back database to last committed version
+  run             - Run an operational-mode command
+  save            - Save configuration to an ASCII file
+  save-device-cfg - save device settings
+  set             - Set a parameter
+  shell           - Open a shell
+  show            - Show a parameter
+  status          - Display users currently editing the configuration
+  switch          - Change CLI style
+  tag             - Manipulate statement tags
+  top             - Exit to top level and optionally run command
+  up              - Exit one level of configuration
+  validate        - Validate current configuration
+Automated@VDir-BLR-NEW-01% }
+---------------------------^
+syntax error: expecting 
+  activate        - Activate a statement
+  annotate        - Add a comment to a statement
+  clear           - 
+  commit          - Commit current set of changes
+  compare         - Show configuration differences
+  copy            - Copy a list entry
+  deactivate      - Deactivate a statement
+  delete          - Delete a data element
+  describe        - Display transparent command  information
+  edit            - Edit a sub-element
+  exit            - Exit from this level
+  help            - Provide help information
+  insert          - Insert a parameter
+  load            - Load configuration from an ASCII file
+  move            - Move a parameter
+  quit            - Exit from this level
+  rename          - Rename an identifier
+  request         - Make system-level requests
+  resolved        - Conflicts have been resolved
+  revert          - Copy configuration from running
+  rollback        - Roll back database to last committed version
+  run             - Run an operational-mode command
+  save            - Save configuration to an ASCII file
+  save-device-cfg - save device settings
+  set             - Set a parameter
+  shell           - Open a shell
+  show            - Show a parameter
+  status          - Display users currently editing the configuration
+  switch          - Change CLI style
+  tag             - Manipulate statement tags
+  top             - Exit to top level and optionally run command
+  up              - Exit one level of configuration
+  validate        - Validate current configuration
+[error][2019-08-21 09:16:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% }
+---------------------------^
+syntax error: expecting 
+  activate        - Activate a statement
+  annotate        - Add a comment to a statement
+  clear           - 
+  commit          - Commit current set of changes
+  compare         - Show configuration differences
+  copy            - Copy a list entry
+  deactivate      - Deactivate a statement
+  delete          - Delete a data element
+  describe        - Display transparent command  information
+  edit            - Edit a sub-element
+  exit            - Exit from this level
+  help            - Provide help information
+  insert          - Insert a parameter
+  load            - Load configuration from an ASCII file
+  move            - Move a parameter
+  quit            - Exit from this level
+  rename          - Rename an identifier
+  request         - Make system-level requests
+  resolved        - Conflicts have been resolved
+  revert          - Copy configuration from running
+  rollback        - Roll back database to last committed version
+  run             - Run an operational-mode command
+  save            - Save configuration to an ASCII file
+  save-device-cfg - save device settings
+  set             - Set a parameter
+  shell           - Open a shell
+  show            - Show a parameter
+  status          - Display users currently editing the configuration
+  switch          - Change CLI style
+  tag             - Manipulate statement tags
+  top             - Exit to top level and optionally run command
+  up              - Exit one level of configuration
+  validate        - Validate current configuration
+[error][2019-08-21 09:16:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-21 14:46:22,301 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - commit
+No modifications to commit.
+[ok][2019-08-21 09:16:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-21 14:46:22,334 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - 
+CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 : syntax error found.No modifications to commit.
+2019-08-21 14:46:22,334 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - 
+ >>>>>>>>>> Secondary PS MAIN TEMPLATE MODIFY PASSED. <<<<<<<<<<<
+
+2019-08-21 14:46:27,335 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - 
+STEP : DEVICE GROUP CREATION AND DEPLOYMENT
+
+2019-08-21 14:46:27,513 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - <Response [201]>
+2019-08-21 14:46:27,515 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - 
+PASS
+2019-08-21 14:46:27,516 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - 
+ >>>>>>>>>> DEVICE GROUP TEMPLATE CREATION PASSED. <<<<<<<<<<<
+
+2019-08-21 14:46:32,516 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - 
+STEP : PRE-ONBOARD WORK
+
+2019-08-21 14:46:32,589 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - 
+sudo /opt/versa/scripts/staging.py -w 1 -c 10.63.77.14 -s 172.16.7.102/30 -g 172.16.7.101 -l IPC00190-CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190@colt.net -lk CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190  -r NV-WC02-N6-SIN@colt.net -rk 1234
+
+2019-08-21 14:46:32,589 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - {
+  "versanms.sdwan-device-workflow": {
+	"deviceName": "CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190",
+	"siteId": "2926",
+	"orgName": "IPC00190",
+	"serialNumber": "CPE26KSAB9",
+	"deviceGroup": "IPC00190-HKG-PS-MOP-DG",
+    "locationInfo": {
+      "country": "singapore",
+      "longitude": "103.819836",
+      "latitude": "1.352083"
+    },
+    "postStagingTemplateInfo": {
+      "templateName": "IPC00190-HKG-PS-MOP",
+      "templateData": {
+        "device-template-variable": {
+          "template": "IPC00190-HKG-PS-MOP",
+          "variable-binding": {
+            "attrs": [
+              {
+                "name": "{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+                "value": "CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190@colt.net",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}",
+                "value": "CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_IPC00190-Control-VR_90_Router_ID__vrRouteId}",
+                "value": "20.20.90.26",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_Paired_Site__locationID}",
+                "value": "2927",
+                "isAutogeneratable": false
+              },
+              {
+                "name": "{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}",
+                "value": "CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190",
+                "isAutogeneratable": true
+              },
+              {
+				"name": "{$v_MPLS-WAN1_IPv4__staticaddress}",
+				"value": "172.16.7.102/30",
+				"isAutogeneratable": false
+              },
+              {
+                "name": "{$v_IPC00190_Site_Name__sitesSiteName}",
+                "value": "CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190",
+                "isAutogeneratable": true
+              },
+			  
+			  
+			  
+			  
+			  { "name": "{$v_LAN1_vrrp__vrrpVirtualAddress}", "value": "192.170.1.1", "isAutogeneratable": false},
+			  { "name": "{$v_LAN1_IPv4__staticaddress}", "value": "192.170.1.2/24", "isAutogeneratable": false},
+			  
+              {
+                "name": "{$v_tvi-0-181_-_Unit_0_Static_address__tunnelStaticAddress}",
+                "value": "20.20.90.26/32",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_latitude__IdLatitude}",
+                "value": 1.352083,
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_MPLS-WAN1-Transport-VR_IPv4__vrHopAddress}",
+                "value": "172.16.7.101",
+                "isAutogeneratable": false
+              },
+              {
+                "name": "{$v_identification__IdName}",
+                "value": "CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_tvi-0-180_-_Unit_0_Static_address__tunnelStaticAddress}",
+                "value": "10.10.90.26/32",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+                "value": "CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190@colt.net",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_Chassis_Id__sitesChassisId}",
+                "value": "2926",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_longitude__Idlongitude}",
+                "value": 103.819836,
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_IPC00190-Control-VR_90_Local_address__vrRouterAddress}",
+                "value": "20.20.90.26",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_location__IdLocation}",
+                "value": "singapore",
+                "isAutogeneratable": true
+              },
+			
+				
+				
+				
+			{ "name": "{$v_vni-0-4_LAN1_Unit-0__unit}", "value": "750", "isAutogeneratable": false},
+			{ "name": "{$v_vni-0-4_LAN1_Unit-0__vlanId}", "value": "750", "isAutogeneratable": false },
+			
+              {
+                "name": "{$v_Site_Id__siteSiteID}",
+                "value": "2926",
+                "isAutogeneratable": true
+              }
+            ]
+          }
+        },
+        "variableMetadata": [
+          {
+            "variable": "{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_vni-0-4_LAN1_Unit-0__vlanId}",
+            "group": "Vlan Info",
+            "overlay": false,
+            "type": "INTEGER"
+          },
+          {
+            "variable": "{$v_IPC00190-Control-VR_90_Router_ID__vrRouteId}",
+            "group": "Virtual routers",
+            "overlay": true,
+            "type": "IPV4"
+          },
+          {
+            "variable": "{$v_Paired_Site__locationID}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_MPLS-WAN1_IPv4__staticaddress}",
+            "group": "Interfaces",
+            "overlay": false,
+            "type": "IPV4_MASK"
+          },
+          {
+            "variable": "{$v_IPC00190_Site_Name__sitesSiteName}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+		{ "variable": "{$v_LAN1_vrrp__vrrpVirtualAddress}", "group": "Others", "overlay": false, "type": "IPV4" },
+		{ "variable": "{$v_LAN1_IPv4__staticaddress}", "group": "Interfaces", "overlay": false, "type": "IPV4_MASK" },
+		
+          {
+            "variable": "{$v_tvi-0-181_-_Unit_0_Static_address__tunnelStaticAddress}",
+            "group": "Interfaces",
+            "overlay": true,
+            "type": "IPV4_IPV6_MASK"
+          },
+          {
+            "variable": "{$v_latitude__IdLatitude}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_MPLS-WAN1-Transport-VR_IPv4__vrHopAddress}",
+            "group": "Virtual Routers",
+            "overlay": false,
+            "type": "IPV4"
+          },
+          {
+            "variable": "{$v_identification__IdName}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_LAN1_vrrp__vrrpVirtualAddress}",
+            "group": "Others",
+            "overlay": false,
+            "type": "IPV4"
+          },
+          {
+            "variable": "{$v_tvi-0-180_-_Unit_0_Static_address__tunnelStaticAddress}",
+            "group": "Interfaces",
+            "overlay": true,
+            "type": "IPV4_IPV6_MASK"
+          },
+          {
+            "variable": "{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_Chassis_Id__sitesChassisId}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_longitude__Idlongitude}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_IPC00190-Control-VR_90_Local_address__vrRouterAddress}",
+            "group": "Virtual routers",
+            "overlay": true,
+            "type": "IPV4"
+          },
+          {
+            "variable": "{$v_location__IdLocation}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+		 
+		 
+		 
+		 {"variable": "{$v_vni-0-4_LAN1_Unit-0__vlanId}", "group": "Vlan Info", "overlay": false, "type": "INTEGER"},
+		 
+          {
+            "variable": "{$v_Site_Id__siteSiteID}",
+            "group": "SDWAN",
+            "overlay": false
+          }
+        ]
+      }
+    }
+  }
+}
+2019-08-21 14:46:33,555 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - <Response [200]>
+2019-08-21 14:46:33,555 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - PASS
+2019-08-21 14:46:43,732 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - 21064
+2019-08-21 14:46:49,092 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - Device deployed
+2019-08-21 14:46:49,822 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - {u'versanms.sdwan-device-workflow': {u'postStagingTemplateInfo': {u'templateData': {u'device-template-variable': {u'variable-binding': {u'attrs': [{u'isAutogeneratable': False, u'name': u'{$v_LAN1_vrrp__vrrpVirtualAddress}', u'value': u'192.170.1.1'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_tvi-0-181_-_Unit_0_Static_address__tunnelStaticAddress}', u'value': u'20.20.90.26/32'}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN1_Unit-0__vlanId}', u'value': 750}, {u'isAutogeneratable': False, u'name': u'{$v_Paired_Site__locationID}', u'value': 2927}, {u'isAutogeneratable': True, u'name': u'{$v_Chassis_Id__sitesChassisId}', u'value': u'CPE26KSAB9'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_IPC00190-Control-VR_90_Router_ID__vrRouteId}', u'value': u'20.20.90.26'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}', u'value': u'CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190'}, {u'isAutogeneratable': True, u'name': u'{$v_longitude__Idlongitude}', u'value': 103.819836}, {u'isAutogeneratable': False, u'name': u'{$v_MPLS-WAN1_IPv4__staticaddress}', u'value': u'172.16.7.102/30'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'value': u'CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190@colt.net'}, {u'isAutogeneratable': True, u'name': u'{$v_location__IdLocation}', u'value': u'singapore'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_IPC00190-Control-VR_90_Local_address__vrRouterAddress}', u'value': u'20.20.90.26'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_tvi-0-180_-_Unit_0_Static_address__tunnelStaticAddress}', u'value': u'10.10.90.26/32'}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-4_LAN1_Unit-0__unit}', u'value': 750}, {u'isAutogeneratable': True, u'name': u'{$v_Site_Id__siteSiteID}', u'value': 2926}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'value': u'CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190@colt.net'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00190_Site_Name__sitesSiteName}', u'value': u'CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190'}, {u'isAutogeneratable': False, u'name': u'{$v_LAN1_IPv4__staticaddress}', u'value': u'192.170.1.2/24'}, {u'isAutogeneratable': True, u'name': u'{$v_latitude__IdLatitude}', u'value': 1.352083}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}', u'value': u'CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190'}, {u'isAutogeneratable': False, u'name': u'{$v_MPLS-WAN1-Transport-VR_IPv4__vrHopAddress}', u'value': u'172.16.7.101'}, {u'isAutogeneratable': True, u'name': u'{$v_identification__IdName}', u'value': u'CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190'}]}, u'template': u'IPC00190-HKG-PS-MOP'}, u'variableMetadata': [{u'variable': u'{$v_LAN1_vrrp__vrrpVirtualAddress}', u'type': u'IPV4', u'group': u'Others', u'overlay': False}, {u'variable': u'{$v_tvi-0-181_-_Unit_0_Static_address__tunnelStaticAddress}', u'type': u'IPV4_IPV6_MASK', u'group': u'Interfaces', u'overlay': True}, {u'variable': u'{$v_vni-0-4_LAN1_Unit-0__vlanId}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_Paired_Site__locationID}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_Chassis_Id__sitesChassisId}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00190-Control-VR_90_Router_ID__vrRouteId}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': True}, {u'variable': u'{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_key__IKELKey}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_longitude__Idlongitude}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_MPLS-WAN1_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_location__IdLocation}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00190-Control-VR_90_Local_address__vrRouterAddress}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': True}, {u'variable': u'{$v_tvi-0-180_-_Unit_0_Static_address__tunnelStaticAddress}', u'type': u'IPV4_IPV6_MASK', u'group': u'Interfaces', u'overlay': True}, {u'variable': u'{$v_vni-0-4_LAN1_Unit-0__unit}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_Site_Id__siteSiteID}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00190_NV-WC01-N1-HKG_Local_auth_email_identifier__IKELIdentifier}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_IPC00190_Site_Name__sitesSiteName}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_LAN1_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_latitude__IdLatitude}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00190_NV-WC02-N1-HKG_Local_auth_email_key__IKELKey}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_MPLS-WAN1-Transport-VR_IPv4__vrHopAddress}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': False}, {u'variable': u'{$v_identification__IdName}', u'group': u'SDWAN', u'overlay': False}]}, u'templateName': u'IPC00190-HKG-PS-MOP'}, u'deviceName': u'CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190', u'workflowStatus': u'Deployed', u'deviceGroup': u'IPC00190-HKG-PS-MOP-DG', u'orgName': u'IPC00190', u'serialNumber': u'CPE26KSAB9', u'locationInfo': {u'latitude': 1.352083, u'country': u'singapore', u'longitude': 103.819836}, u'bandwidth': 0, u'lastUpdatedBy': u'Automated', u'siteId': 2926, u'instanceInfo': u'', u'stagingTemplateInfo': u'', u'lastModifiedTime': u'2019-08-21T09:16:38.927000+00:00', u'urlztpBasedInfo': {u'authType': u'psk', u'enableIpv4Dhcp': False, u'branchKey': u'QSZyiaiY3ZGbEUea', u'branchId': u'CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190@IPC00190.com', u'enableIpv6': False, u'enableIpv4': False, u'enableIpv6Dhcp': False}}}
+2019-08-21 14:47:09,257 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - configure private
+
+Entering configuration mode private
+
+[ok][2019-08-21 09:17:06]
+
+
+
+[edit]
+
+Automated@VDir-BLR-NEW-01% 
+2019-08-21 14:47:11,460 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - True
+2019-08-21 14:47:12,062 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - set devices device NV-WC02-N6-SIN config orgs org-services Colt ipsec vpn-profile MPLS-WAN-NV-WC02-N6-SIN-StagingIpsec psk-auth-clients remote-client IPC00190-CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190@colt.net id-type  email
+[ok][2019-08-21 09:17:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-21 14:47:12,864 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - set devices device NV-WC02-N6-SIN config orgs org-services Colt ipsec vpn-profile MPLS-WAN-NV-WC02-N6-SIN-StagingIpsec psk-auth-clients remote-client IPC00190-CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190@colt.net key CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190
+[ok][2019-08-21 09:17:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-08-21 14:47:13,266 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - commit and-quit
+No modifications to commit.
+[ok][2019-08-21 09:17:12]
+Automated@VDir-BLR-NEW-01> 
+2019-08-21 14:47:13,299 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - 
+STEP : ONBOARD CALL
+
+2019-08-21 14:47:13,311 - CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190 - INFO - 
+sudo /opt/versa/scripts/staging.py -w 1 -c 10.63.77.14 -s 172.16.7.102/30 -g 172.16.7.101 -l IPC00190-CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190@colt.net -lk CPE26-HKG-DUALMPLSONLY-PRIM-IPC00190  -r NV-WC02-N6-SIN@colt.net -rk 1234
+
