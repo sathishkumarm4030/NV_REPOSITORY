@@ -42,9 +42,9 @@ def get_vd_details():
 
 
 def Do_Cpe_onboarding():
-    # cpe_name = raw_input("Enter CPE NAME:").upper()
-    # print "CPE NAME:" + cpe_name
-    cpe_name = "CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET"
+    cpe_name = raw_input("Enter CPE NAME:").upper()
+    print "CPE NAME:" + cpe_name
+    # cpe_name = "CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET"
     cpe = VersaLib(cpe_name, topofile="Devices.csv")
     main_logger = cpe.main_logger
     main_logger.info("CPE NAME:" + cpe_name)
