@@ -19,34 +19,17 @@ sys.path.append(Par_Dir)
 
 from csit.libraries.VersaLib import VersaLib
 
-def get_vd_details():
-    # ip = raw_input("Enter Versa Director IP address:\n")
-    # print "Versa director IP:" + ip
-    # ldap_user = raw_input("Enter LDAP Username for making SSH connection to VD:\n")
-    # print "Versa director ldap Username:" + ldap_user
-    # ldap_passwd = getpass.getpass("Enter LDAP Password:\n")
-    # user = raw_input("Enter VD GUI username:\n")
-    # print "Versa director GUI Username:" + user
-    # passwd = getpass.getpass("Enter VD GUI password::\n")
-    ip = '10.91.127.194'
-    ldap_user = 'admin'
-    ldap_passwd = 'versa123'
-    user = 'Automated'
-    passwd = 'Auto@12345'
-    cpe_user = 'admin'
-    cpe_passwd = 'versa123'
-    node_user = 'admin'
-    node_passwd = 'versa123'
-    return {'mgmt_ip' : ip, 'username' : ldap_user,\
-            'password' : ldap_passwd, 'GUIusername' : user, 'GUIpassword' : passwd}
-
-
-def Do_Cpe_onboarding():
+def Do_Cpe_onboarding(**kwargs):
+    start_time = datetime.now()
     cpe_name = raw_input("Enter CPE NAME:").upper()
     print "CPE NAME:" + cpe_name
     # cpe_name = "CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET"
-    cpe = VersaLib(cpe_name, topofile="Devices.csv")
+    if kwargs is not None:
+        cpe = VersaLib(cpe_name, topofile="Devices.csv", **kwargs)
+    else:
+        cpe = VersaLib(cpe_name, topofile="Devices.csv")
     main_logger = cpe.main_logger
+    main_logger.info("LOG FILE PATH : " + cpe.logfile)
     main_logger.info("CPE NAME:" + cpe_name)
     time.sleep(1)
     main_logger.info("SOLUTION SELECTED:" + cpe.Solution_type)
@@ -77,48 +60,7 @@ def Do_Cpe_onboarding():
         cpe.config_devices_vrrp_and_lib()
     main_logger.info("CPE ONBOARDINIG SCRIPT COMPLETED")
     main_logger.info("Time elapsed: {}\n".format(datetime.now() - start_time))
-    # cpe_name = raw_input("Enter CPE NAME:").upper()
-    # # print "CPE NAME:" + cpe_name
-    # cpe1 = VersaLib(cpe_name, topofile="Devices.csv")
-    # main_logger = cpe.main_logger
-    # main_logger.debug("CPE NAME:" + cpe.Device_name)
-    # cpe.username = raw_input("Enter CPE username:")
-    # cpe.password = raw_input("Enter CPE password:")
-    # print "AVAILBALE NODEs:" + str(cpe.ctlr_dict.keys())
-    # cpe.NODE = (raw_input("Enter NODE NAME:")).upper()
-    # print "AVAILBALE STAGING SERVERS:" + str(cpe.staging_servers_dict[cpe.NODE])
-    # cpe.STAGING_SERVER = raw_input("Enter staging server NAME:")
-    # cpe.STAGING_WAN = raw_input("Enter staging WAN (MPLS/INT):").upper()
-    # cpe.ORG_NAME = raw_input("Enter ORG NAME:").upper().replace("_", "-")
-    # cpe.ORG_ID = raw_input("Enter ORG ID :")
-    # cpe.NO_OF_VRFS = int(raw_input("NUMBER OF VRFS :"))
-    # PST_CREATION = (raw_input("Want to do PS creation ENTER YES/NO:")).upper()
-    # DG_CREATION = (raw_input("Want to do DG creation ENTER YES/NO:")).upper()
-    # DEV_TEMPALTE_CREATION = (raw_input("Want to do Device template creation. ENTER YES/NO:")).upper()
-    # cpe.__init__(cpe_name, topofile="Devices.csv")
-    # print "AVAILABLE Solutions:"
-    # for sol in cpe.SOLUTIONS_list:
-    #     print "\t" + sol
-    # cpe.Solution_type = raw_input("Enter Solution :")
-    # if "MPLS" not in cpe.Solution_type:
-    #     cpe.INT_INTF_IP_ALLOC = (raw_input("INTERNET intf address allocation ( ENTER DHCP/STATIC):")).upper()
-    #     cpe.LIB = (raw_input("do you want LIB. ENTER YES/NO:")).upper()
-    #
-    # cpe.Create_Node_Data(cpe.STAGING_SERVER, "SS", wan=cpe.STAGING_WAN)
-    # WC_list = cpe.Create_Controller_List(cpe.ORG_NAME, cpe.ORG_ID, cpe.NO_OF_VRFS, cpe.NODE)
-    # GW_list = cpe.Create_Gateway_List(cpe.ORG_NAME, cpe.ORG_ID, cpe.NO_OF_VRFS, cpe.NODE)
-    # cpe.create_cpe_data()
-    # run_result = ""
-    # if PST_CREATION == "YES":
-    #     cpe.create_and_deploy_poststaging_template()
-    # if DG_CREATION == "YES":
-    #     cpe.create_and_deploy_device_group()
-    # if DEV_TEMPALTE_CREATION == "YES":
-    #     cpe.pre_onboard_work()
-    # cpe.cpe_onboard_call()
+    main_logger.info("LOG FILE PATH : " + cpe.logfile)
 
-
-
-
-start_time = datetime.now()
 Do_Cpe_onboarding()
+# Do_Cpe_onboarding(loglevel='DEBUG')

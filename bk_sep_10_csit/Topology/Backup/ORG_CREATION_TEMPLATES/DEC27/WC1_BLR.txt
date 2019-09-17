@@ -1,0 +1,227 @@
+CUSTOMER_ORG_NAME...................AADEC26
+CUSTOMER_ORG_ID.....................202
+MANAGEMENT_NW_SUBNET................10.91.140.0/22
+LCC.................................91
+ESP_TVI_INTERFACE...................tvi-0/405
+VNF_GATEWAY1_ESP_ADDRESS............40.202.2.1
+VNF_GATEWAY2_ESP_ADDRESS............40.202.2.2
+REMOTE_WC_ESP_IP....................10.202.64.5
+CLIENT_WAN_CONTROLLER_AUTH_STRING...NV-WC01-N4-MUM@AADEC26.com
+CLIENT_WAN_CONTROLLER_AUTH_KEY......1234
+WAN_CONTROLLER_AUTH_KEY.............1234
+WAN_CONTROLLER_AUTH_STRING..........NV-WC01-N2-BLR@AADEC26.com
+VNF_GATEWAY1_AUTH_STRING............NV-GW01-N2-BLR@AADEC26.com
+VNF_GATEWAY1_AUTH_KEY...............1234
+VNF_GATEWAY2_AUTH_STRING............NV-GW02-N2-BLR@AADEC26.com
+VNF_GATEWAY2_AUTH_KEY...............1234
+
+
+set routing-instances AADEC26-Control-VR protocols bgp 202 graceful-restart maximum-restart-time 15
+set routing-instances AADEC26-Control-VR protocols bgp 202 hold-time 90
+set routing-instances AADEC26-Control-VR protocols bgp 202 graceful-restart recovery-time 15
+set routing-instances AADEC26-Control-VR protocols bgp 202 graceful-restart select-defer-time 15
+set routing-instances AADEC26-Control-VR protocols bgp 202 graceful-restart stalepath-time 15
+set routing-instances AADEC26-Control-VR protocols bgp 202 graceful-restart dynamic-peer-restart-time 0
+set routing-instances AADEC26-Control-VR protocols bgp 202 prefix-list MGMT-VA-SB seq 10 permit
+set routing-instances AADEC26-Control-VR protocols bgp 202 prefix-list MGMT-VA-SB seq 10 address-family ipv4 unicast address-mask 10.91.140.0/22
+set routing-instances AADEC26-Control-VR protocols bgp 202 prefix-list MGMT-VA-SB seq 10 address-family ipv4 unicast ge_le ge 27
+set routing-instances AADEC26-Control-VR protocols bgp 202 prefix-list MGMT-VA-SB seq 10 address-family ipv4 unicast ge_le le 32
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-Controllers term 1REJECT-MGMT-ROUTES match community "(^|,)100:1($|,)"
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-Controllers term 1REJECT-MGMT-ROUTES action reject
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-Controllers term 2ACCEPT-L-CPE-ROUTES match family inet-vpn
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-Controllers term 2ACCEPT-L-CPE-ROUTES match community "(^|,)91:10($|,)"
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-Controllers term 2ACCEPT-L-CPE-ROUTES action accept
+set routing-instances AADEC26-Control-VR routing-options static route 0.0.0.0/0 0.0.0.0 tvi-0/405.0
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-Controllers term 2ACCEPT-MUM-ROUTES match family inet-vpn
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-Controllers term 2ACCEPT-MUM-ROUTES match community "(^|,)1091:10($|,)"
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-Controllers term 2ACCEPT-MUM-ROUTES action accept
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-Controllers term 3DENY-REST match family inet-vpn
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-Controllers term 3DENY-REST action reject
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-AADEC26-WC-TO-GW term 1ACCEPT-MGMT-VA-SB match ip nlri prefix-list MGMT-VA-SB
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-AADEC26-WC-TO-GW term 1ACCEPT-MGMT-VA-SB action accept
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-AADEC26-WC-TO-GW term 2REJECT-MGMT-ROUTES match community "(^|,)100:1($|,)"
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-AADEC26-WC-TO-GW term 2REJECT-MGMT-ROUTES action reject
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-AADEC26-WC-TO-GW term 3REJECT-L-PGW-ROUTES match community "(^|,)91:11($|,)"
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-AADEC26-WC-TO-GW term 3REJECT-L-PGW-ROUTES match family inet-vpn
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-AADEC26-WC-TO-GW term 3REJECT-L-PGW-ROUTES action reject
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-AADEC26-WC-TO-GW term 4REJECT-L-SGW-ROUTES match community "(^|,)91:12($|,)"
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-AADEC26-WC-TO-GW term 4REJECT-L-SGW-ROUTES match family inet-vpn
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-AADEC26-WC-TO-GW term 4REJECT-L-SGW-ROUTES action reject
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-AADEC26-WC-TO-GW term 5ACCEPT-L-CPE-ROUTES match family inet-vpn
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-AADEC26-WC-TO-GW term 5ACCEPT-L-CPE-ROUTES match community "(^|,)91:10($|,)"
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-AADEC26-WC-TO-GW term 5ACCEPT-L-CPE-ROUTES action accept
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-AADEC26-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES match community "(^|,)*:10($|,)"
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-AADEC26-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES action accept
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-AADEC26-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES action community 666:666
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-AADEC26-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES action community-action set-specific
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-AADEC26-WC-TO-GW term 7DENY-REST match family inet-vpn
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy EXPORT-AADEC26-WC-TO-GW term 7DENY-REST action reject
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy IMPORT-AADEC26-GW-TO-WC term 1REJECT-R-CPE-ROUTES match community "(^|,)666:666($|,)"
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy IMPORT-AADEC26-GW-TO-WC term 1REJECT-R-CPE-ROUTES action reject
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy IMPORT-AADEC26-GW-TO-WC term 2ACCEPT-REST match family inet-vpn
+set routing-instances AADEC26-Control-VR protocols bgp 202 routing-peer-policy IMPORT-AADEC26-GW-TO-WC term 2ACCEPT-REST action accept
+set routing-instances AADEC26-Control-VR protocols bgp 202 group VNF-GW import IMPORT-AADEC26-GW-TO-WC
+set routing-instances AADEC26-Control-VR protocols bgp 202 group VNF-GW export IMPORT-AADEC26-WC-TO-GW
+delete routing-instances AADEC26-Control-VR protocols bgp 202 group Branches allow
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Branches allow all
+set routing-instances AADEC26-Control-VR protocols bgp 202 group VNF-GW type internal
+set routing-instances AADEC26-Control-VR protocols bgp 202 group VNF-GW family inet unicast
+set routing-instances AADEC26-Control-VR protocols bgp 202 group VNF-GW family inet versa-private
+set routing-instances AADEC26-Control-VR protocols bgp 202 group VNF-GW family inet-vpn unicast
+set routing-instances AADEC26-Control-VR protocols bgp 202 group VNF-GW export EXPORT-AADEC26-WC-TO-GW
+set routing-instances AADEC26-Control-VR protocols bgp 202 group VNF-GW route-reflector-client
+set routing-instances AADEC26-Control-VR protocols bgp 202 group VNF-GW bfd-liveness-detection
+set routing-instances AADEC26-Control-VR protocols bgp 202 group VNF-GW bfd-liveness-detection minimum-receive-interval 1000
+set routing-instances AADEC26-Control-VR protocols bgp 202 group VNF-GW bfd-liveness-detection multiplier 3
+set routing-instances AADEC26-Control-VR protocols bgp 202 group VNF-GW bfd-liveness-detection transmit-interval minimum-interval 1000
+set routing-instances AADEC26-Control-VR protocols bgp 202 group VNF-GW neighbor 40.202.2.1
+set routing-instances AADEC26-Control-VR protocols bgp 202 group VNF-GW neighbor 40.202.2.1 peer-as 65505
+set routing-instances AADEC26-Control-VR protocols bgp 202 group VNF-GW neighbor 40.202.2.2
+set routing-instances AADEC26-Control-VR protocols bgp 202 group VNF-GW neighbor 40.202.2.2 peer-as 65505
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Controllers type internal
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Controllers family inet versa-private
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Controllers family inet-vpn unicast
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Controllers export EXPORT-Controllers
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Controllers route-reflector-client
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Controllers peer-as 65505
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Controllers neighbor 10.202.64.5
+delete orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging psk-auth-clients
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging psk-auth-clients
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging psk-auth-clients remote-client NV-WC01-N4-MUM@AADEC26.com id-type email
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging psk-auth-clients remote-client NV-WC01-N4-MUM@AADEC26.com key 1234
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging local-auth-info key 1234
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging local-auth-info id-string NV-WC01-N2-BLR@AADEC26.com
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging psk-auth-clients remote-client NV-GW01-N2-BLR@AADEC26.com id-type email
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging psk-auth-clients remote-client NV-GW01-N2-BLR@AADEC26.com key 1234
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging psk-auth-clients remote-client NV-GW02-N2-BLR@AADEC26.com id-type email
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging psk-auth-clients remote-client NV-GW02-N2-BLR@AADEC26.com key 1234
+
+
+
+
+
+Note: done after the config. after comparing with other ORGS
+delete routing-instances AADEC26-Control-VR routing-options static route 0.0.0.0/0 0.0.0.0 none
+
+
+
+ORG_NAME...................AADEC26
+ORG_ID.....................202
+MANAGEMENT_NW_SUBNET................10.91.140.0/22
+LCC.................................91
+ESP_TVI_INTERFACE...................tvi-0/405
+VNF_GATEWAY1_ESP_ADDRESS............40.202.2.1
+VNF_GATEWAY2_ESP_ADDRESS............40.202.2.2
+REMOTE_WC_ESP_IP....................10.202.64.5
+CLIENT_WAN_CONTROLLER_AUTH_STRING...NV-WC01-N4-MUM@AADEC26.com
+CLIENT_WAN_CONTROLLER_AUTH_KEY......1234
+WAN_CONTROLLER_AUTH_KEY.............1234
+WAN_CONTROLLER_AUTH_STRING..........NV-WC01-N2-BLR@AADEC26.com
+VNF_GATEWAY1_AUTH_STRING............NV-GW01-N2-BLR@AADEC26.com
+VNF_GATEWAY1_AUTH_KEY...............1234
+VNF_GATEWAY2_AUTH_STRING............NV-GW02-N2-BLR@AADEC26.com
+VNF_GATEWAY2_AUTH_KEY...............1234
+
+ORG_ID	202
+MANAGEMENT_NW_SUBNET	10.91.140.0/22
+LCC	91
+ESP_TVI_INTERFACE	tvi-0/405
+VNF_GATEWAY1_ESP_ADDRESS	40.202.2.1
+VNF_GATEWAY2_ESP_ADDRESS	40.202.2.2
+REMOTE_WC_ESP_IP	10.202.64.5
+CLIENT_WAN_CONTROLLER_AUTH_STRING	NV-WC01-N4-MUM@AADEC26.com
+CLIENT_WAN_CONTROLLER_AUTH_KEY	1234
+WAN_CONTROLLER_AUTH_KEY	1234
+WAN_CONTROLLER_AUTH_STRING	NV-WC01-N2-BLR@AADEC26.com
+VNF_GATEWAY1_AUTH_STRING	NV-GW01-N2-BLR@AADEC26.com
+VNF_GATEWAY1_AUTH_KEY	1234
+VNF_GATEWAY2_AUTH_STRING	NV-GW02-N2-BLR@AADEC26.com
+VNF_GATEWAY2_AUTH_KEY	1234
+
+
+
+
+
+
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> graceful-restart maximum-restart-time 15
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> hold-time 90
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> graceful-restart recovery-time 15
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> graceful-restart select-defer-time 15
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> graceful-restart stalepath-time 15
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> graceful-restart dynamic-peer-restart-time 0
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> prefix-list MGMT-VA-SB seq 10 permit
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> prefix-list MGMT-VA-SB seq 10 address-family ipv4 unicast address-mask <MANAGEMENT_NW_SUBNET>
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> prefix-list MGMT-VA-SB seq 10 address-family ipv4 unicast ge_le ge 27
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> prefix-list MGMT-VA-SB seq 10 address-family ipv4 unicast ge_le le 32
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-Controllers term 1REJECT-MGMT-ROUTES match community "(^|,)100:1($|,)"
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-Controllers term 1REJECT-MGMT-ROUTES action reject
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-Controllers term 2ACCEPT-L-CPE-ROUTES match family inet-vpn
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-Controllers term 2ACCEPT-L-CPE-ROUTES match community "(^|,)<LCC>:10($|,)"
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-Controllers term 2ACCEPT-L-CPE-ROUTES action accept
+delete routing-instances <CUSTOMER_ORG_NAME>--Control-VR routing-options static route 0.0.0.0/0 0.0.0.0 none
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR routing-options static route 0.0.0.0/0 0.0.0.0 <ESP_TVI_INTERFACE>.0
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-Controllers term 2ACCEPT-MUM-ROUTES match family inet-vpn
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-Controllers term 2ACCEPT-MUM-ROUTES match community "(^|,)1091:10($|,)"
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-Controllers term 2ACCEPT-MUM-ROUTES action accept
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-Controllers term 3DENY-REST match family inet-vpn
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-Controllers term 3DENY-REST action reject
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-<CUSTOMER_ORG_NAME>-WC-TO-GW term 1ACCEPT-MGMT-VA-SB match ip nlri prefix-list MGMT-VA-SB
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-<CUSTOMER_ORG_NAME>-WC-TO-GW term 1ACCEPT-MGMT-VA-SB action accept
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-<CUSTOMER_ORG_NAME>-WC-TO-GW term 2REJECT-MGMT-ROUTES match community "(^|,)100:1($|,)"
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-<CUSTOMER_ORG_NAME>-WC-TO-GW term 2REJECT-MGMT-ROUTES action reject
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-<CUSTOMER_ORG_NAME>-WC-TO-GW term 3REJECT-L-PGW-ROUTES match community "(^|,)<LCC>:11($|,)"
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-<CUSTOMER_ORG_NAME>-WC-TO-GW term 3REJECT-L-PGW-ROUTES match family inet-vpn
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-<CUSTOMER_ORG_NAME>-WC-TO-GW term 3REJECT-L-PGW-ROUTES action reject
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-<CUSTOMER_ORG_NAME>-WC-TO-GW term 4REJECT-L-SGW-ROUTES match community "(^|,)<LCC>:12($|,)"
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-<CUSTOMER_ORG_NAME>-WC-TO-GW term 4REJECT-L-SGW-ROUTES match family inet-vpn
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-<CUSTOMER_ORG_NAME>-WC-TO-GW term 4REJECT-L-SGW-ROUTES action reject
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-<CUSTOMER_ORG_NAME>-WC-TO-GW term 5ACCEPT-L-CPE-ROUTES match family inet-vpn
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-<CUSTOMER_ORG_NAME>-WC-TO-GW term 5ACCEPT-L-CPE-ROUTES match community "(^|,)<LCC>:10($|,)"
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-<CUSTOMER_ORG_NAME>-WC-TO-GW term 5ACCEPT-L-CPE-ROUTES action accept
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-<CUSTOMER_ORG_NAME>-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES match community "(^|,)*:10($|,)"
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-<CUSTOMER_ORG_NAME>-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES action accept
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-<CUSTOMER_ORG_NAME>-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES action community 666:666
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-<CUSTOMER_ORG_NAME>-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES action community-action set-specific
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-<CUSTOMER_ORG_NAME>-WC-TO-GW term 7DENY-REST match family inet-vpn
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy EXPORT-<CUSTOMER_ORG_NAME>-WC-TO-GW term 7DENY-REST action reject
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy IMPORT-<CUSTOMER_ORG_NAME>-GW-TO-WC term 1REJECT-R-CPE-ROUTES match community "(^|,)666:666($|,)"
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy IMPORT-<CUSTOMER_ORG_NAME>-GW-TO-WC term 1REJECT-R-CPE-ROUTES action reject
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy IMPORT-<CUSTOMER_ORG_NAME>-GW-TO-WC term 2ACCEPT-REST match family inet-vpn
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> routing-peer-policy IMPORT-<CUSTOMER_ORG_NAME>-GW-TO-WC term 2ACCEPT-REST action accept
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group VNF-GW import IMPORT-<CUSTOMER_ORG_NAME>-GW-TO-WC
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group VNF-GW export IMPORT-<CUSTOMER_ORG_NAME>-WC-TO-GW
+delete routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group Branches allow
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group Branches allow all
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group VNF-GW type internal
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group VNF-GW family inet unicast
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group VNF-GW family inet versa-private
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group VNF-GW family inet-vpn unicast
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group VNF-GW export EXPORT-<CUSTOMER_ORG_NAME>-WC-TO-GW
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group VNF-GW route-reflector-client
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group VNF-GW bfd-liveness-detection
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group VNF-GW bfd-liveness-detection minimum-receive-interval 1000
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group VNF-GW bfd-liveness-detection multiplier 3
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group VNF-GW bfd-liveness-detection transmit-interval minimum-interval 1000
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group VNF-GW neighbor <VNF_GATEWAY1_ESP_ADDRESS>
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group VNF-GW neighbor <VNF_GATEWAY1_ESP_ADDRESS> peer-as 65505
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group VNF-GW neighbor <VNF_GATEWAY2_ESP_ADDRESS>
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group VNF-GW neighbor <VNF_GATEWAY2_ESP_ADDRESS> peer-as 65505
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group Controllers type internal
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group Controllers family inet versa-private
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group Controllers family inet-vpn unicast
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group Controllers export EXPORT-Controllers
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group Controllers route-reflector-client
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group Controllers peer-as 65505
+set routing-instances <CUSTOMER_ORG_NAME>-Control-VR protocols bgp <CUSTOMER_ORG_ID> group Controllers neighbor <REMOTE_WC_ESP_IP>
+delete orgs org-services <CUSTOMER_ORG_NAME> ipsec vpn-profile <CUSTOMER_ORG_NAME>-PostStaging psk-auth-clients
+set orgs org-services <CUSTOMER_ORG_NAME> ipsec vpn-profile <CUSTOMER_ORG_NAME>-PostStaging psk-auth-clients
+set orgs org-services <CUSTOMER_ORG_NAME> ipsec vpn-profile <CUSTOMER_ORG_NAME>-PostStaging psk-auth-clients remote-client <CLIENT_WAN_CONTROLLER_AUTH_STRING> id-type email
+set orgs org-services <CUSTOMER_ORG_NAME> ipsec vpn-profile <CUSTOMER_ORG_NAME>-PostStaging psk-auth-clients remote-client <CLIENT_WAN_CONTROLLER_AUTH_STRING> key <CLIENT_WAN_CONTROLLER_AUTH_KEY>
+set orgs org-services <CUSTOMER_ORG_NAME> ipsec vpn-profile <CUSTOMER_ORG_NAME>-PostStaging local-auth-info key <WAN_CONTROLLER_AUTH_KEY>
+set orgs org-services <CUSTOMER_ORG_NAME> ipsec vpn-profile <CUSTOMER_ORG_NAME>-PostStaging local-auth-info id-string <WAN_CONTROLLER_AUTH_STRING>
+set orgs org-services <CUSTOMER_ORG_NAME> ipsec vpn-profile <CUSTOMER_ORG_NAME>-PostStaging psk-auth-clients remote-client <VNF_GATEWAY1_AUTH_STRING> id-type email
+set orgs org-services <CUSTOMER_ORG_NAME> ipsec vpn-profile <CUSTOMER_ORG_NAME>-PostStaging psk-auth-clients remote-client <VNF_GATEWAY1_AUTH_STRING> key <VNF_GATEWAY1_AUTH_KEY>
+set orgs org-services <CUSTOMER_ORG_NAME> ipsec vpn-profile <CUSTOMER_ORG_NAME>-PostStaging psk-auth-clients remote-client <VNF_GATEWAY2_AUTH_STRING> id-type email
+set orgs org-services <CUSTOMER_ORG_NAME> ipsec vpn-profile <CUSTOMER_ORG_NAME>-PostStaging psk-auth-clients remote-client <VNF_GATEWAY2_AUTH_STRING> key <VNF_GATEWAY2_AUTH_KEY>
+
+

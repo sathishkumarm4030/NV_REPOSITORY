@@ -1,0 +1,70 @@
+{
+	"versanms.sdwan-template-workflow": {
+		"templateName": "{{ PS_TEMPLATE_NAME }}",
+		"templateType": "sdwan-post-staging",
+		"controllers": ["{{ WC1_NAME }}", "{{ WC2_NAME }}"],
+		"providerOrg": {
+			"name": "{{ ORG_NAME }}",
+			"statefulFW": true,
+			"nextGenFW": false
+		},
+		"analyticsCluster": "LogCollectors",
+		"deviceFirmfactor": "6",
+		"wanInterfaces": [{
+			"interfaceName": "{{ MPLS_WAN_INTF }}",
+			"pppoe": false,
+			"unitInfo": [{
+				"subUnit": 0,
+				"vlanId": 0,
+				"networkName": "MPLS-WAN",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ipv6Static": false,
+				"ipv6Dhcp": false,
+				"allowSSH": false,
+				"monitor": {},
+				"linkPriority": "",
+				"transportDomains": ["MPLS-TD"]
+			}]
+		}],
+		"deviceType": "full-mesh",
+		"redundantPair": {
+			"enable": false
+		},
+		"lanInterfaces": [{
+			"interfaceName": "{{ LAN_INTF }}",
+			"unitInfo": [
+			{% for VRF in range(NO_OF_VRFS) -%}
+            {%- set lan_number = VRF + 1 -%}
+            {%- set unit_number = VRF -%}
+			{
+				"subUnit": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN{{ lan_number }}_Unit-{{ unit_number }}__unit}",
+				"vlanId": "{$v_{{ LAN_INTF|replace("/", "-") }}_LAN{{ lan_number }}_Unit-{{ unit_number }}__vlanId}",
+				"networkName": "LAN{{ lan_number }}",
+				"subOrganization": "{{ ORG_NAME }}",
+				"ipv4Static": true,
+				"ipv4Dhcp": false,
+				"ip6Static": false,
+				"ipv6Dhcp": false,
+				"vrfName": "LAN{{ lan_number }}-VRF",
+				"zoneName": ""
+			}
+            {% if not loop.last %}
+                    ,
+            {%- endif -%}
+            {% endfor %}
+        ]
+		}],
+		"solutionTier": "standard-sdwan-plus-ngfw",
+		"bandwidth": 1000,
+		"customParams": [],
+		"minimumImageVersion": "16.1R2-S2.2",
+		"isAnalyticsEnabled": true,
+		"isPrimary": true,
+		"diaConfig": {
+			"loadBalance": false
+		},
+		"inBoundNats": []
+	}
+}
+

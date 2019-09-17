@@ -38,6 +38,8 @@ import textfsm
 currtime = str(datetime.now())
 currtime = currtime.replace(" ", "_").replace(":", "_").replace("-", "_").replace(".", "_")
 from ast import literal_eval
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def try_literal_eval(s):
     try:
@@ -176,8 +178,12 @@ class VersaLib:
         formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
         formatter1 = logging.Formatter("%(message)s")
         console = logging.StreamHandler()
-        console.setLevel(logging.INFO)
-        console.setFormatter(formatter)
+        if "loglevel" in self.__dict__:
+            console.setLevel(logging.DEBUG)
+        else:
+            console.setLevel(logging.INFO)
+        #console.setFormatter(formatter)
+        #console.setFormatter(formatter)
         logging.getLogger('').addHandler(console)
         log_file = logfile_dir + filename + ".log"
         handler = logging.FileHandler(log_file)
@@ -630,9 +636,9 @@ class VersaLib:
         self.nc = ConnectHandler(**device_dict)
         if self.device_type != 'linux':
             self.nc.enable()
-        print self.nc
+        self.main_logger.debug(self.nc)
         time.sleep(5)
-        print "{}: {}".format(self.nc.device_type, self.nc.find_prompt())
+        self.main_logger.debug("{}: {}".format(self.nc.device_type, self.nc.find_prompt()))
         return self.nc
 
     def shell_login(self, **kwargs):
@@ -644,20 +650,20 @@ class VersaLib:
             'port': '22',
         }
         self.shell_nc = ConnectHandler(**device_dict)
-        print self.shell_nc
-        print self.shell_nc.send_command_expect('sudo bash', expect_string='password')
-        print self.shell_nc.send_command_expect(self.password, expect_string='\~|#')
-        print self.shell_nc.send_command_expect('exit', expect_string='\$|#')
+        self.main_logger.debug(self.shell_nc)
+        self.main_logger.debug(self.shell_nc.send_command_expect('sudo bash', expect_string='password'))
+        self.main_logger.debug(self.shell_nc.send_command_expect(self.password, expect_string='\~|#'))
+        self.main_logger.debug(self.shell_nc.send_command_expect('exit', expect_string='\$|#'))
         # ur = self.shell_nc.send_command_expect('ls -ltr')
         # print ur
         # time.sleep(5)
-        print "{}: {}".format(self.shell_nc.device_type, self.shell_nc.find_prompt())
+        self.main_logger.debug("{}: {}".format(self.shell_nc.device_type, self.shell_nc.find_prompt()))
         return self.shell_nc
 
 
     def close(self, nc):
         nc.disconnect()
-        print str(nc) + " connection closed"
+        self.main_logger.debug(str(nc) + " connection closed")
 
     def cross_login(self):
         self.cnc = self.login(vd_login='yes')
@@ -710,17 +716,17 @@ class VersaLib:
                                  headers=headers,
                                  json=json_data,
                                  verify=False)
-        self.main_logger.info(response)
+        self.main_logger.debug(response)
 
         if response.status_code == 200:
             return 'PASS'
         elif response.status_code == 201:
             return 'PASS'
         elif response.status_code == 500:
-            self.main_logger.info(response.content)
+            self.main_logger.error(response.content)
             return 'FAIL : ' + str(response.content)
         else:
-            self.main_logger.info(response.content)
+            self.main_logger.error(response.content)
             return 'FAIL : ' + str(response.content)
         # data = response.json()
         # print data
@@ -764,7 +770,7 @@ class VersaLib:
                                  json=json_data,
                                  verify=False)
 
-        print response.text
+        self.main_logger.debug(response.text)
         data = response.json()
         taskid = str(data['TaskResponse']['task-id'])
         return taskid
@@ -775,13 +781,13 @@ class VersaLib:
                                  headers=headers3,
                                  verify=False)
         data1 = response1.json()
-        print data1
+        self.main_logger.debug(data1)
         percent_completed = data1['versa-tasks.task']['versa-tasks.percentage-completion']
         task_result = data1['versa-tasks.task']['versa-tasks.task-status']
-        print percent_completed
+        self.main_logger.debug(percent_completed)
         # if task_result == 'FAILED':
         #     error_info = data1['versa-tasks.errormessages']['versa-tasks.errormessage']['versa-tasks.error-message']
-        print "Sleeping for 5 seconds"
+        self.main_logger.info("Sleeping for 5 seconds")
         time.sleep(5)
         # return data1['task']['task-status']
         return str(percent_completed)
@@ -791,7 +797,7 @@ class VersaLib:
                                  auth=(self.vddata_dict['GUIusername'], self.vddata_dict['GUIpassword']),
                                  headers=headers3,
                                  verify=False)
-        print response1.text
+        self.main_logger.debug(response1.text)
         data1 = response1.json()
         task_result = data1['versa-tasks.task']['versa-tasks.task-status']
         if task_result == 'FAILED':
@@ -801,11 +807,11 @@ class VersaLib:
             task_desc = data1['versa-tasks.task']['versa-tasks.task-description']
             try:
                 get_CPE_name = re.search('Upgrade Appliance: (\S+)', task_desc).group(1)
-                print get_CPE_name
+                self.main_logger.debug(get_CPE_name)
             except AttributeError as AE:
-                print AE
+                self.main_logger.debug(AE)
                 get_CPE_name = ""
-            print get_CPE_name
+            self.main_logger.debug(get_CPE_name)
             return str(task_result_cons)
         else:
             #return "PASSED : " + str(task_result)
@@ -816,7 +822,7 @@ class VersaLib:
                                  auth=(self.vddata_dict['GUIusername'], self.vddata_dict['GUIpassword']),
                                  headers=headers,
                                  verify=False)
-        print response
+        #print response
         return response.json()
 
     def delete_operation(self, url, headers):
@@ -857,10 +863,10 @@ class VersaLib:
         for i in data1['versanms.ApplianceStatusResult']['appliances']:
             if i['name'] == self.Device_name and i['ipAddress'] == self.ESP_IP:
                 # print i
-                if i['ping-status'] != 'REACHABLE':
-                    return "Device Ping failed"
-                if i['sync-status'] != 'IN_SYNC':
-                    return "Device not in Sync"
+                # if i['ping-status'] != 'REACHABLE':
+                #     return "Device Ping failed"
+                # if i['sync-status'] != 'IN_SYNC':
+                #     return "Device not in Sync"
                 self.dev_present = 'true'
                 self.dev_dict['name'] = i['name']
                 self.dev_dict['uuid'] = i['uuid']
@@ -889,8 +895,9 @@ class VersaLib:
                     # time.sleep(10)
                     # self.get_device_info()
         if self.dev_present == 'false':
-            print "sleeping 20 secs"
-            time.sleep(20)
+            self.main_logger.info("checking device info in VD.")
+            self.main_logger.info("sleeping 60 secs")
+            time.sleep(60)
             self.get_device_info()
         return self.dev_dict
 
@@ -913,11 +920,11 @@ class VersaLib:
         return template.render(self.__dict__)
 
     def device_config_commands(self, nc_handler, cmds):
-        self.main_logger.info(nc_handler.config_mode(config_command='config private'))
-        self.main_logger.info(nc_handler.check_config_mode())
+        self.main_logger.debug(nc_handler.config_mode(config_command='config private'))
+        self.main_logger.debug(nc_handler.check_config_mode())
         for cmd in cmds.split("\n"):
-            self.main_logger.info(nc_handler.send_command_expect(cmd, expect_string='%', strip_prompt=False, strip_command=False))
-        self.main_logger.info(nc_handler.send_command_expect('commit and-quit', expect_string='>', strip_prompt=False, strip_command=False))
+            self.main_logger.debug(nc_handler.send_command_expect(cmd, expect_string='%', strip_prompt=False, strip_command=False))
+        self.main_logger.debug(nc_handler.send_command_expect('commit and-quit', expect_string='>', strip_prompt=False, strip_command=False))
 
     def device_config_commands_wo_split(self, nc_handler, cmds):
         # nc_handler.config_mode(config_command='config private')
@@ -932,40 +939,40 @@ class VersaLib:
             self.main_logger.info(nc_handler.send_command_expect(cmd, expect_string=expect_string, strip_prompt=False, strip_command=False))
 
     def cpe_onboard_call(self):
-        self.main_logger.info("\nSTEP : ONBOARD CALL\n")
+        self.main_logger.info("\nSTEP :ONBOARD CALL")
         curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
         curr_env = Environment(loader=curr_file_loader)
         self.Staging_command = curr_env.get_template("staging_cpe.j2")
         self.Staging_command_template = self.Staging_command.render(self.__dict__)
-        self.main_logger.info(self.Staging_command_template)
+        self.main_logger.debug(self.Staging_command_template)
         cpe_shell_login = self.shell_login()
         # print cpe_shell_login.send_command_expect('sudo bash', expect_string='password', strip_prompt=False, strip_command=False)
         # print cpe_shell_login.send_command_expect(self.password, expect_string='#')
         # print cpe_shell_login.send_command_expect('exit', expect_string='\$')
-        print cpe_shell_login.send_command_expect('vsh allow-cli', expect_string='password', strip_prompt=False, strip_command=False)
-        print cpe_shell_login.send_command_expect(self.password, expect_string='CLI now allowed', strip_prompt=False, strip_command=False)
-        print cpe_shell_login.send_command_expect('cli', expect_string='>', strip_prompt=False, strip_command=False)
-        print cpe_shell_login.send_command_expect('request erase running-config', expect_string='yes', strip_prompt=False, strip_command=False)
-        print cpe_shell_login.send_command_expect('yes', expect_string='\$|#', strip_prompt=False, strip_command=False)
+        self.main_logger.debug(cpe_shell_login.send_command_expect('vsh allow-cli', expect_string='password', strip_prompt=False, strip_command=False))
+        self.main_logger.debug(cpe_shell_login.send_command_expect(self.password, expect_string='CLI now allowed', strip_prompt=False, strip_command=False))
+        self.main_logger.debug(cpe_shell_login.send_command_expect('cli', expect_string='>', strip_prompt=False, strip_command=False))
+        self.main_logger.debug(cpe_shell_login.send_command_expect('request erase running-config', expect_string='yes', strip_prompt=False, strip_command=False))
+        self.main_logger.debug(cpe_shell_login.send_command_expect('yes', expect_string='\$|#', strip_prompt=False, strip_command=False))
         op = cpe_shell_login.send_command_expect('vsh status', expect_string='\$|#', strip_prompt=False, strip_command=False)
         while "Stopped" in op or "Netconf traffic yet to be allowed" in op:
-            print "process not up. Please wait for it to come up"
+            self.main_logger.debug("process not up. Please wait for it to come up")
             op = cpe_shell_login.send_command_expect('vsh status', expect_string='\$|#', strip_prompt=False, strip_command=False)
-            print op
+            self.main_logger.debug(op)
             time.sleep(10)
-        print "After breaking while"
-        print cpe_shell_login.send_command_expect('vsh status', expect_string='\$|#')
-        print cpe_shell_login.send_command_expect('vsh show-serialnum', expect_string='\$|#')
-        print cpe_shell_login.send_command_expect('vsh set-serialnum ' + self.Serial_Number,
-                                                  expect_string='\$|#')
-        print cpe_shell_login.send_command_expect('vsh show-serialnum', expect_string='\$|#')
-        print cpe_shell_login.send_command_expect(self.Staging_command_template, expect_string='\$|#')
+        self.main_logger.debug("After breaking while")
+        self.main_logger.debug(cpe_shell_login.send_command_expect('vsh status', expect_string='\$|#'))
+        self.main_logger.debug(cpe_shell_login.send_command_expect('vsh show-serialnum', expect_string='\$|#'))
+        self.main_logger.debug(cpe_shell_login.send_command_expect('vsh set-serialnum ' + self.Serial_Number,
+                                                  expect_string='\$|#'))
+        self.main_logger.debug(cpe_shell_login.send_command_expect('vsh show-serialnum', expect_string='\$|#'))
+        self.main_logger.debug(cpe_shell_login.send_command_expect(self.Staging_command_template, expect_string='\$|#'))
         time.sleep(20)
 
 #    def create_PS_and_DG(self, Post_staging_template, Device_group_template, PS_main_template_modify):
     def config_devices_vrrp_and_lib(self):
         if "DUAL-CPE" in self.Solution_type:
-            self.main_logger.info("\nSTEP : CONFIG VRRP TRACK ROUTE & QOS RULE MATCH WAN in Secondary CPE\n")
+            self.main_logger.info("\n\nSTEP :CONFIG VRRP TRACK ROUTE & QOS RULE MATCH WAN in Secondary CPE\n")
             curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
             curr_env = Environment(loader=curr_file_loader)
             if self.DUAL == "PRIMARY":
@@ -977,23 +984,28 @@ class VersaLib:
             self.vdnc = self.login(vd_login='yes')
             self.device_config_commands(self.vdnc, self.DEVICE_template_modify_config)
             self.close(self.vdnc)
-            self.main_logger.info("\n >>>>>>>>>> CONFIG VRRP TRACK ROUTE passed. <<<<<<<<<<<\n")
+            self.main_logger.info(">>>>>>>>>> CONFIG VRRP TRACK ROUTE passed. <<<<<<<<<<<")
 
 
     def check_org_for_controller(self, controller):
         data1 = self.get_operation(org_url + "/" + self.ORG_NAME, headers3)
-        self.main_logger.info(data1)
+        self.main_logger.debug(data1)
+        self.main_logger.info("\nSTEP :CHECK ORG is available in Controller " + controller )
         if data1.has_key('versanms.sdwan-org-workflow'):
             if controller not in data1['versanms.sdwan-org-workflow']['controllers']:
-                self.main_logger.info("*" * 50)
-                self.main_logger.info("Org is not available in node ---> " + self.NODE)
-                self.main_logger.info("*" * 50)
+                self.main_logger.error("*" * 50)
+                self.main_logger.error("Org is not available in node ---> " + self.NODE)
+                self.main_logger.error("*" * 50)
                 exit()
+            else:
+                self.main_logger.info("PASS")
         elif data1.has_key('error'):
-            self.main_logger.info("*" * 50)
-            self.main_logger.info("Org is not Created. pls check VD")
-            self.main_logger.info("*" * 50)
+            self.main_logger.error("*" * 50)
+            self.main_logger.error("Org is not Created. pls check VD")
+            self.main_logger.error("*" * 50)
             exit()
+
+
 
     def create_and_deploy_poststaging_template(self):
         curr_file_loader = FileSystemLoader(
@@ -1001,21 +1013,21 @@ class VersaLib:
         curr_env = Environment(loader=curr_file_loader)
         if "DUAL-CPE" in self.Solution_type:
             if self.DUAL == "PRIMARY":
-                self.main_logger.info("\nSTEP : POST STAGING TEMPLATE CREATION AND DEPLOYMENT\n")
+                self.main_logger.info("\nSTEP :POST STAGING TEMPLATE CREATION AND DEPLOYMENT")
                 # self.main_logger = self.setup_logger('Versa-director', 'Onboarding')
                 curr_file_loader = FileSystemLoader(
                     curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
                 curr_env = Environment(loader=curr_file_loader)
                 ps_template = curr_env.get_template("Post_staging_template.j2")
                 self.ps_template_body = ps_template.render(self.__dict__)
-                self.main_logger.info(self.ps_template_body)
+                self.main_logger.debug(self.ps_template_body)
                 ps_creation_result = self.post_operation(template_url, headers3, self.ps_template_body)
-                self.main_logger.info("\n" + ps_creation_result)
+                self.main_logger.debug("\n" + ps_creation_result)
                 if 'FAIL' in ps_creation_result:
-                    self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE CREATION FAILED. <<<<<<<<<<<\n")
+                    self.main_logger.info(">>>>>>>>>> POST STAGING TEMPLATE CREATION FAILED. <<<<<<<<<<<")
                     exit()
                 else:
-                    self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<\n")
+                    self.main_logger.info(">>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<")
                 time.sleep(5)
                 Primary_PS_main_template = curr_env.get_template("Primary_PS_main_template_modify.j2")
                 #Secondary_PS_main_template = curr_env.get_template("Secondary_PS_main_template_modify.j2")
@@ -1025,90 +1037,90 @@ class VersaLib:
                     template_url + "/deploy/" + self.PS_TEMPLATE_NAME + "?verifyDiff=true", headers3,
                     self.ps_template_body)
                 time.sleep(5)
-                self.main_logger.info("\n" + ps_deploy_result)
+                self.main_logger.debug("\n" + ps_deploy_result)
                 if 'FAIL' in ps_deploy_result:
-                    self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE DEPLOY FAILED. <<<<<<<<<<<\n")
+                    self.main_logger.info(">>>>>>>>>> POST STAGING TEMPLATE DEPLOY FAILED. <<<<<<<<<<<")
                     exit()
                 else:
-                    self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE DEPLOY PASSED. <<<<<<<<<<<\n")
+                    self.main_logger.info(">>>>>>>>>> POST STAGING TEMPLATE DEPLOY PASSED. <<<<<<<<<<<")
                 time.sleep(5)
-                self.main_logger.info(self.get_operation(template_url + "/" + self.PS_TEMPLATE_NAME, headers3))
+                self.main_logger.debug(self.get_operation(template_url + "/" + self.PS_TEMPLATE_NAME, headers3))
                 time.sleep(5)
                 main_template_modify_result = self.Modify_main_template(Primary_PS_main_template_modify)
-                self.main_logger.info("\n" + main_template_modify_result)
+                self.main_logger.debug("\n" + main_template_modify_result)
                 if 'failed' in main_template_modify_result:
-                    self.main_logger.info("\n >>>>>>>>>> PS MAIN TEMPLATE MODIFY FAILED. <<<<<<<<<<<\n")
+                    self.main_logger.info(">>>>>>>>>> PS MAIN TEMPLATE MODIFY FAILED. <<<<<<<<<<<")
                     exit()
                 else:
-                    self.main_logger.info("\n >>>>>>>>>> PS MAIN TEMPLATE MODIFY PASSED. <<<<<<<<<<<\n")
+                    self.main_logger.info(">>>>>>>>>> PS MAIN TEMPLATE MODIFY PASSED. <<<<<<<<<<<")
                 time.sleep(5)
             if self.DUAL == "SECONDARY":
                 Secondary_PS_main_template = curr_env.get_template("Secondary_PS_main_template_modify.j2")
                 Secondary_PS_main_template_modify = Secondary_PS_main_template.render(self.__dict__)
                 main_template_modify_result = self.Modify_main_template(Secondary_PS_main_template_modify)
-                self.main_logger.info("\n" + main_template_modify_result)
+                self.main_logger.debug("\n" + main_template_modify_result)
                 if 'failed' in main_template_modify_result:
-                    self.main_logger.info("\n >>>>>>>>>> Secondary PS MAIN TEMPLATE MODIFY FAILED. <<<<<<<<<<<\n")
+                    self.main_logger.info(">>>>>>>>>> Secondary PS MAIN TEMPLATE MODIFY FAILED. <<<<<<<<<<<")
                     exit()
                 else:
-                    self.main_logger.info("\n >>>>>>>>>> Secondary PS MAIN TEMPLATE MODIFY PASSED. <<<<<<<<<<<\n")
+                    self.main_logger.info(">>>>>>>>>> Secondary PS MAIN TEMPLATE MODIFY PASSED. <<<<<<<<<<<")
                 time.sleep(5)
         else:
-            self.main_logger.info("\nSTEP : POST STAGING TEMPLATE CREATION AND DEPLOYMENT\n")
+            self.main_logger.info("\nSTEP :POST STAGING TEMPLATE CREATION AND DEPLOYMENT")
             # self.main_logger = self.setup_logger('Versa-director', 'Onboarding')
             curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
             curr_env = Environment(loader=curr_file_loader)
             ps_template = curr_env.get_template("Post_staging_template.j2")
             self.ps_template_body = ps_template.render(self.__dict__)
-            self.main_logger.info(self.ps_template_body)
+            self.main_logger.debug(self.ps_template_body)
             ps_creation_result = self.post_operation(template_url, headers3, self.ps_template_body)
-            self.main_logger.info("\n" + ps_creation_result)
+            self.main_logger.debug("\n" + ps_creation_result)
             if 'FAIL' in ps_creation_result:
-                self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE CREATION FAILED. <<<<<<<<<<<\n")
+                self.main_logger.info(">>>>>>>>>> POST STAGING TEMPLATE CREATION FAILED. <<<<<<<<<<<")
                 exit()
             else:
-                self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<\n")
+                self.main_logger.info(">>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<")
             time.sleep(5)
             PS_main_template = curr_env.get_template("PS_main_template_modify.j2")
             PS_main_template_modify = PS_main_template.render(self.__dict__)
 
             assoc_template_url = sfw_template_assc_url + self.PS_TEMPLATE_NAME + "/associations"
             assc_body = '[{"organization":"'+ self.ORG_NAME + '","serviceTemplate":"' + self.FW_PROFILE + str(self.NO_OF_VRFS) + '"}]'
-            print assc_body
+            self.main_logger.debug(assc_body)
             fw_association = self.post_operation(assoc_template_url, headers3, assc_body)
-            self.main_logger.info("\n" + fw_association)
+            self.main_logger.debug("\n" + fw_association)
             if 'FAIL' in fw_association:
-                self.main_logger.info("\n >>>>>>>>>> FW ASSOCIATION WITH POST STAGING TEMPLATE FAILED. <<<<<<<<<<<\n")
+                self.main_logger.info(">>>>>>>>>> FW PROFILE ASSOCIATION WITH POST STAGING TEMPLATE FAILED. <<<<<<<<<<<")
                 exit()
             else:
-                self.main_logger.info("\n >>>>>>>>>> FW ASSOCIATION WITH POST STAGING TEMPLATE PASSED. <<<<<<<<<<<\n")
+                self.main_logger.info(">>>>>>>>>> FW PROFILE ASSOCIATION WITH POST STAGING TEMPLATE PASSED. <<<<<<<<<<<")
             time.sleep(5)
             ps_deploy_result = self.post_operation(template_url + "/deploy/" + self.PS_TEMPLATE_NAME + "?verifyDiff=true", headers3,
                                 self.ps_template_body)
             time.sleep(5)
-            self.main_logger.info("\n" + ps_deploy_result)
+            self.main_logger.debug("\n" + ps_deploy_result)
             if 'FAIL' in ps_deploy_result:
-                self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE DEPLOY FAILED. <<<<<<<<<<<\n")
+                self.main_logger.info(">>>>>>>>>> POST STAGING TEMPLATE DEPLOY FAILED. <<<<<<<<<<<")
                 exit()
             else:
-                self.main_logger.info("\n >>>>>>>>>> POST STAGING TEMPLATE DEPLOY PASSED. <<<<<<<<<<<\n")
+                self.main_logger.info(">>>>>>>>>> POST STAGING TEMPLATE DEPLOY PASSED. <<<<<<<<<<<")
             time.sleep(5)
-            self.main_logger.info(self.get_operation(template_url + "/" + self.PS_TEMPLATE_NAME, headers3))
-            self.main_logger.info(self.get_operation(assoc_template_url, headers3))
+            self.main_logger.debug(self.get_operation(template_url + "/" + self.PS_TEMPLATE_NAME, headers3))
+            self.main_logger.debug(self.get_operation(assoc_template_url, headers3))
             time.sleep(5)
             main_template_modify_result = self.Modify_main_template(PS_main_template_modify)
-            self.main_logger.info("\n" + main_template_modify_result)
+            self.main_logger.debug("\n" + main_template_modify_result)
             if 'failed' in main_template_modify_result:
-                self.main_logger.info("\n >>>>>>>>>> PS MAIN TEMPLATE MODIFY FAILED. <<<<<<<<<<<\n")
+                self.main_logger.info(">>>>>>>>>> PS MAIN TEMPLATE MODIFY FAILED. <<<<<<<<<<<")
                 exit()
             else:
-                self.main_logger.info("\n >>>>>>>>>> PS MAIN TEMPLATE MODIFY PASSED. <<<<<<<<<<<\n")
+                self.main_logger.info(">>>>>>>>>> PS MAIN TEMPLATE MODIFY PASSED. <<<<<<<<<<<")
             time.sleep(5)
 
 
     def create_and_deploy_device_group(self):
         # self.main_logger = self.setup_logger('Versa-director', 'Onboarding')
-        self.main_logger.info("\nSTEP : DEVICE GROUP CREATION AND DEPLOYMENT\n")
+        self.main_logger.info("\nSTEP :DEVICE GROUP CREATION AND DEPLOYMENT")
         curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
         curr_env = Environment(loader=curr_file_loader)
         if "DUAL-CPE" in self.Solution_type:
@@ -1119,14 +1131,14 @@ class VersaLib:
         else:
             DG_template = curr_env.get_template("Device_group_template.j2")
         self.DG_template_body = DG_template.render(self.__dict__)
-        print self.DG_template_body
+        self.main_logger.debug(self.DG_template_body)
         dg_template_creation_result = self.post_operation(device_grp_url, headers3, self.DG_template_body)
-        self.main_logger.info("\n" + dg_template_creation_result)
+        self.main_logger.debug("\n" + dg_template_creation_result)
         if 'FAIL' in dg_template_creation_result:
-            self.main_logger.info("\n >>>>>>>>>> DEVICE GROUP TEMPLATE CREATION FAILED. <<<<<<<<<<<\n")
+            self.main_logger.error(" >>>>>>>>>> DEVICE GROUP TEMPLATE CREATION FAILED. <<<<<<<<<<<")
             exit()
         else:
-            self.main_logger.info("\n >>>>>>>>>> DEVICE GROUP TEMPLATE CREATION PASSED. <<<<<<<<<<<\n")
+            self.main_logger.info(">>>>>>>>>> DEVICE GROUP TEMPLATE CREATION PASSED. <<<<<<<<<<<")
         time.sleep(5)
 
     def create_PS_and_DG(self):
@@ -1165,14 +1177,14 @@ class VersaLib:
         res_check = ""
         # self.main_logger = self.setup_logger('Versa-director', 'Onboarding')
         self.ps_main_template_modify = PS_main_template_modify
-        print self.ps_main_template_modify
+        # print self.ps_main_template_modify
         self.vdnc = self.login(vd_login='yes')
         nc = self.vdnc
         device_cmds = self.ps_main_template_modify
         # self.main_logger.info(self.device_config_commands(self.vdnc, self.ps_main_template_modify))
-        self.main_logger.info(device_cmds)
+        self.main_logger.debug(device_cmds)
         result = self.device_config_commands_wo_split(nc, device_cmds)
-        self.main_logger.info(result)
+        self.main_logger.debug(result)
         if "syntax error:" in result:
             res_check += "syntax error found."
         elif "Error: element not found" in result:
@@ -1181,7 +1193,7 @@ class VersaLib:
         commit_result = nc.send_command_expect("commit", \
                                                expect_string='%', \
                                                strip_prompt=False, strip_command=False, max_loops=5000)
-        self.main_logger.info(commit_result)
+        self.main_logger.debug(commit_result)
         if "No modifications to commit." in commit_result:
             res_check += "No modifications to commit."
         elif "Commit complete." in commit_result:
@@ -1194,7 +1206,7 @@ class VersaLib:
 
 
     def pre_onboard_work(self):
-        self.main_logger.info("\nSTEP : PRE-ONBOARD WORK\n")
+        self.main_logger.info("\nSTEP :PRE-ONBOARD WORK")
         # self.main_logger = self.setup_logger('Versa-director', 'Onboarding')
         #(self, Device_template, Staging_server_config_template, Staging_cpe_config_template):
         curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/Solution/" + self.Solution_type)
@@ -1211,29 +1223,37 @@ class VersaLib:
         self.DEVICE_template_body = self.DEVICE_template.render(self.__dict__)
         self.Staging_config_template = self.Staging_config.render(self.__dict__)
         self.Staging_command_template = self.Staging_command.render(self.__dict__)
-        self.main_logger.info(self.Staging_command_template)
-        self.main_logger.info(self.DEVICE_template_body)
-        self.main_logger.info(self.post_operation(device_template_url, headers3, self.DEVICE_template_body))
+        self.main_logger.debug(self.Staging_command_template)
+        self.main_logger.debug(self.DEVICE_template_body)
+        device_tempalte_creation_result = self.post_operation(device_template_url, headers3, self.DEVICE_template_body)
+        self.main_logger.debug("\n" + device_tempalte_creation_result)
+        if 'FAIL' in device_tempalte_creation_result:
+            self.main_logger.error(" >>>>>>>>>> DEVICE TEMPLATE CREATION FAILED. <<<<<<<<<<<")
+            exit()
+        else:
+            self.main_logger.info(">>>>>>>>>> DEVICE TEMPLATE CREATION PASSED. <<<<<<<<<<<")
+        time.sleep(5)
         time.sleep(5)
         task_id = self.rest_operation_ret_task_id(device_template_url + "/deploy/" + self.Device_name,
                                                  headers3)
         time.sleep(5)
-        self.main_logger.info(task_id)
+        self.main_logger.debug(task_id)
         task_state = "0"
         while task_state != "100":
             task_state = self.check_task_status(task_id)
         task_result = self.get_task_result(task_id)
         if task_result == "PASS":
-            self.main_logger.info("Device deployed")
+            self.main_logger.info(">>>>>>>>>> Device deployed  <<<<<<<<<<<")
         else:
-            self.main_logger.info("Device deployment failed")
-            self.main_logger.info("TASK RESULT : " + task_result)
+            self.main_logger.error(">>>>>>>>>>Device deployment failed <<<<<<<<<<<")
+            self.main_logger.error("TASK RESULT : " + task_result)
             exit()
         get_device_data = self.get_operation(device_template_url + "/" + self.Device_name, headers3)
-        self.main_logger.info(get_device_data)
+        self.main_logger.debug(get_device_data)
         time.sleep(5)
         self.vdnc = self.login(vd_login='yes')
         self.device_config_commands(self.vdnc, self.Staging_config_template)
+        self.main_logger.info(">>>>>>>>>> Staging profile config done  <<<<<<<<<<<")
         self.close(self.vdnc)
         
     def VM_pre_op(self):
@@ -1688,10 +1708,10 @@ class VersaLib:
         fwd_profile_creation_result = self.post_operation(fwd_profile_url_mod, headers2, self.fw_profile_template_body)
         self.main_logger.info("\n" + fwd_profile_creation_result)
         if 'FAIL' in fwd_profile_creation_result:
-            self.main_logger.info("\n >>>>>>>>>> FORWARDING PROFILE CREATION FAILED. <<<<<<<<<<<\n")
+            self.main_logger.info(">>>>>>>>>> FORWARDING PROFILE CREATION FAILED. <<<<<<<<<<<")
             return "FAIL"
         else:
-            self.main_logger.info("\n >>>>>>>>>> FORWARDING PROFILE CREATION PASSED. <<<<<<<<<<<\n")
+            self.main_logger.info(">>>>>>>>>> FORWARDING PROFILE CREATION PASSED. <<<<<<<<<<<")
             return "PASS"
         time.sleep(5)
 
