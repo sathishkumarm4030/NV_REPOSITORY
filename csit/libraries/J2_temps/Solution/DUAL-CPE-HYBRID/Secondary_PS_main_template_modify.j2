@@ -85,7 +85,7 @@ set devices template {{ SECONDARY_PS_TEMPLATE_NAME }} config system external-aaa
 #set devices template {{ SECONDARY_PS_TEMPLATE_NAME }} config system external-aaa tacacs-plus action [ accounting authentication ]
 
 #PART2
-set devices template {{ SECONDARY_PS_TEMPLATE_NAME }} config interfaces vni {{ REDU_DEV_WAN_INTF }} description "INT-WAN"
+set devices template {{ SECONDARY_PS_TEMPLATE_NAME }} config interfaces vni {{ WAN2_INTF }} description "INT-WAN"
 set devices template {{ SECONDARY_PS_TEMPLATE_NAME }} config interfaces vni {{ CC_INTF }} description "INTERCONNECT-LINK"
 
 set devices template {{ SECONDARY_PS_TEMPLATE_NAME }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-INT-WAN-Zone ]
