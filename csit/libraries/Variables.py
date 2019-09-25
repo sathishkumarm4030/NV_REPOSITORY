@@ -94,16 +94,18 @@ headers4 = {'Content-Type': 'application/json'}
 
 log_collector = "LogCollectors-GGN"
 TRACK_MANAGEMENT_SUBNET = "10.91.113.58/32"
-controllers_list = ['NV-WC01-N1-HKG', 'NV-WC01-N6-SIN', 'NV-WC02-N1-HKG', 'NV-WC02-N6-SIN']
+controllers_list = ['NV-WC01-N1-HKG', 'NV-WC01-N6-SIN', 'NV-WC02-N1-HKG', 'NV-WC02-N6-SIN', "NV-WC01-N5-LON", "NV-WC02-N5-LON"]
 
 staging_servers_dict = {
     "HKG" : ["NV-WC01-N1-HKG", "NV-WC02-N1-HKG"],
+    "LON" : ["NV-WC01-N5-LON", "NV-WC02-N5-LON"],
     "SIN" : ["NV-WC01-N6-SIN", "NV-WC02-N6-SIN"]
 }
 
 
 ctlr_dict = {
     "HKG" : ["NV-WC01-N1-HKG", "NV-WC02-N1-HKG"],
+    "LON" : ["NV-WC01-N5-LON", "NV-WC02-N5-LON"],
     "SIN" : ["NV-WC01-N6-SIN", "NV-WC02-N6-SIN"]
 }
 
@@ -112,14 +114,15 @@ ctlr_list = ["NV-WC01-N1-HKG", "NV-WC02-N6-SIN"]
 RR_SERVER = ["NV-WC01-N1-HKG", "NV-WC02-N6-SIN"]
 
 RR_Clients = {
-    "NV-WC01-N1-HKG" : ["NV-WC01-N6-SIN"],
-    "NV-WC02-N6-SIN" : ["NV-WC02-N1-HKG"]
+    "NV-WC01-N1-HKG" : ["NV-WC01-N6-SIN", "NV-WC01-N5-LON"],
+    "NV-WC02-N6-SIN" : ["NV-WC02-N1-HKG", "NV-WC02-N5-LON"]
 }
 
 
 
 gw_dict = {
     "HKG": ["NV-GW01-N1-HKG", "NV-GW02-N1-HKG"],
+    "LON": ["NV-GW01-N5-LON", "NV-GW02-N5-LON"],
     "SIN" : ["NV-GW01-N6-SIN", "NV-GW02-N6-SIN"]
 }
 
@@ -127,6 +130,7 @@ gw_list = []
 
 LCC_dict = {
     "HKG" : "852",
+    "LON" : "44",
     "SIN" : "65"
 }
 
