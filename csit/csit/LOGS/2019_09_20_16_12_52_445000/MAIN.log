@@ -1,0 +1,1961 @@
+2019-09-20 16:12:54,509 - CPE-18-LON-DUAL-HYBRID-INT - INFO - LOG FILE PATH : C:\Softwares_mine\stefano\NV_REPOSITORY\csit/LOGS/2019_09_20_16_12_52_445000/MAIN.log
+2019-09-20 16:12:54,510 - CPE-18-LON-DUAL-HYBRID-INT - INFO - CPE NAME:CPE-18-LON-DUAL-HYBRID-INT
+2019-09-20 16:12:55,510 - CPE-18-LON-DUAL-HYBRID-INT - INFO - SOLUTION SELECTED:DUAL-CPE-HYBRID
+2019-09-20 16:12:56,634 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 16, u'orgName': u'IPC00012', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N5-LON', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N5-LON', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-09-20 16:12:56,641 - CPE-18-LON-DUAL-HYBRID-INT - INFO - 
+STEP :CHECK ORG is available in Controller NV-WC01-N1-HKG
+2019-09-20 16:12:56,641 - CPE-18-LON-DUAL-HYBRID-INT - INFO - PASS
+2019-09-20 16:12:56,890 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 16, u'orgName': u'IPC00012', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N5-LON', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N5-LON', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-09-20 16:12:56,890 - CPE-18-LON-DUAL-HYBRID-INT - INFO - 
+STEP :CHECK ORG is available in Controller NV-WC02-N6-SIN
+2019-09-20 16:12:56,891 - CPE-18-LON-DUAL-HYBRID-INT - INFO - PASS
+2019-09-20 16:12:57,128 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 16, u'orgName': u'IPC00012', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N5-LON', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N5-LON', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-09-20 16:12:57,128 - CPE-18-LON-DUAL-HYBRID-INT - INFO - 
+STEP :CHECK ORG is available in Controller NV-WC01-N5-LON
+2019-09-20 16:12:57,128 - CPE-18-LON-DUAL-HYBRID-INT - INFO - PASS
+2019-09-20 16:12:57,387 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 16, u'orgName': u'IPC00012', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N5-LON', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N5-LON', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-09-20 16:12:57,387 - CPE-18-LON-DUAL-HYBRID-INT - INFO - 
+STEP :CHECK ORG is available in Controller NV-WC02-N5-LON
+2019-09-20 16:12:57,388 - CPE-18-LON-DUAL-HYBRID-INT - INFO - PASS
+2019-09-20 16:12:57,388 - CPE-18-LON-DUAL-HYBRID-INT - INFO - 
+STEP :POST STAGING TEMPLATE CREATION AND DEPLOYMENT
+2019-09-20 16:12:57,437 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - {
+  "versanms.sdwan-template-workflow": {
+    "templateName": "IPC00012-LON-PS-D-MPLS",
+    "templateType": "sdwan-post-staging",
+    "controllers": ["NV-WC01-N5-LON", "NV-WC02-N5-LON"],
+    "providerOrg": {
+      "name": "IPC00012",
+      "statefulFW": false,
+      "nextGenFW": false
+    },
+    "analyticsCluster": "LogCollectors-GGN",
+    "deviceFirmfactor": "6",
+    "wanInterfaces": [
+      {
+        "interfaceName": "vni-0/0",
+        "pppoe": false,
+        "unitInfo": [
+          {
+            "subUnit": 0,
+            "vlanId": 0,
+            "networkName": "MPLS-WAN",
+            "ipv4Static": true,
+            "ipv4Dhcp": false,
+            "ipv6Static": false,
+            "ipv6Dhcp": false,
+            "allowSSH": false,
+            "monitor": {},
+            "linkPriority": "",
+            "transportDomains": [
+              "MPLS-TD"
+            ]
+          }
+        ]
+      }
+    ],
+    "redundantWanInterfaces": [
+      {
+        "interfaceName": "vni-0/0",
+        "pppoe": false,
+        "unitInfo": [
+          {
+            "subUnit": 0,
+            "vlanId": 0,
+            "networkName": "INT-WAN",
+            "ipv4Static": true,
+            "ipv4Dhcp": false,
+            "ipv6Static": false,
+            "ipv6Dhcp": false,
+            "allowSSH": false,
+            "monitor": {},
+            "linkPriority": "",
+            "transportDomains": [
+              "INTERNET-TD"
+            ]
+          }
+        ]
+      }
+    ],
+    "crossConnectport": "vni-0/1",
+    "deviceType": "full-mesh",
+    "redundantPair": {
+      "enable": true,
+      "templateName": "IPC00012-LON-PS-D-INT",
+      "vrrp": true,
+      "cloudCPE": false
+    },
+    "lanInterfaces": [
+      {
+		"interfaceName": "vni-0/2",
+		"unitInfo": [
+		{
+			"subUnit": "{$v_vni-0-2_LAN1_Unit-0__unit}",
+			"vlanId": "{$v_vni-0-2_LAN1_Unit-0__vlanId}",
+			"networkName": "LAN1",
+			"subOrganization": "IPC00012",
+			"ipv4Static": true,
+			"ipv4Dhcp": false,
+			"ip6Static": false,
+			"ipv6Dhcp": false,
+			"vrfName": "LAN1-VRF",
+			"zoneName": ""
+		}
+		
+	]
+	}
+    ],
+    "solutionTier": "standard-sdwan",
+    "bandwidth": 1000,
+    "customParams": [],
+    "minimumImageVersion": "16.1R2-S9",
+    "isAnalyticsEnabled": true,
+    "isPrimary": true,
+    "diaConfig": {
+      "loadBalance": false
+    },
+    "splitTunnels": [
+    {
+        "vrfName": "LAN1-VRF",
+        "wanNetworkName": "INT-WAN",
+        "dia": true,
+        "gateway": false
+    }
+    
+    ],
+    "inBoundNats": []
+  }
+}
+2019-09-20 16:12:58,246 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - <Response [200]>
+2019-09-20 16:12:58,246 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - 
+PASS
+2019-09-20 16:12:58,246 - CPE-18-LON-DUAL-HYBRID-INT - INFO - >>>>>>>>>> POST STAGING TEMPLATE CREATION PASSED. <<<<<<<<<<<
+2019-09-20 16:13:25,177 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - <Response [200]>
+2019-09-20 16:13:30,177 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - 
+PASS
+2019-09-20 16:13:30,177 - CPE-18-LON-DUAL-HYBRID-INT - INFO - >>>>>>>>>> POST STAGING TEMPLATE DEPLOY PASSED. <<<<<<<<<<<
+2019-09-20 16:13:35,599 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - {u'versanms.sdwan-template-workflow': {u'providerOrg': {u'nextGenFW': False, u'name': u'IPC00012', u'statefulFW': False}, u'snmp': {u'snmpV1': False, u'snmpV2': False, u'snmpV3': False}, u'minimumImageVersion': u'16.1R2-S9', u'wanInterfaces': [{u'unitInfo': [{u'ipv6Dhcp': False, u'monitor': {u'monitorNexthop': False}, u'allowSSH': False, u'ipv4Static': True, u'DIA': False, u'vlanId': 0, u'transportDomains': [u'MPLS-TD'], u'ipv4Dhcp': False, u'ipv6rs': False, u'subUnit': 0, u'networkName': u'MPLS-WAN', u'ipv6Static': False}], u'interfaceName': u'vni-0/0', u'pppoe': False}], u'diaConfig': {u'loadBalance': False, u'dia': False}, u'templateName': u'IPC00012-LON-PS-D-MPLS', u'isPrimary': True, u'isAnalyticsEnabled': True, u'lanInterfaces': [{u'unitInfo': [{u'ipv6Dhcp': False, u'ipv4DhcpServer': False, u'vrfName': u'LAN1-VRF', u'ipv6ra': False, u'ipv4Static': True, u'DIA': False, u'vlanId': u'{$v_vni-0-2_LAN1_Unit-0__vlanId}', u'ip6Static': False, u'ipv4Dhcp': False, u'subOrganization': u'IPC00012', u'subUnit': u'{$v_vni-0-2_LAN1_Unit-0__unit}', u'networkName': u'LAN1', u'dhcpV4Relay': False}], u'interfaceName': u'vni-0/2'}], u'bandwidth': 1000, u'controllers': [u'NV-WC01-N5-LON', u'NV-WC02-N5-LON'], u'templateType': u'sdwan-post-staging', u'crossConnectport': u'vni-0/1', u'deviceType': u'full-mesh', u'redundantPair': {u'vrrp': True, u'enable': True, u'templateName': u'IPC00012-LON-PS-D-INT', u'cloudCPE': False}, u'redundantWanInterfaces': [{u'unitInfo': [{u'ipv6Dhcp': False, u'monitor': {u'monitorNexthop': False}, u'allowSSH': False, u'ipv4Static': True, u'DIA': False, u'vlanId': 0, u'transportDomains': [u'INTERNET-TD'], u'ipv4Dhcp': False, u'ipv6rs': False, u'subUnit': 0, u'networkName': u'INT-WAN', u'ipv6Static': False}], u'interfaceName': u'vni-0/0', u'pppoe': False}], u'solutionTier': u'standard-sdwan', u'deviceFirmfactor': 6, u'analyticsCluster': u'LogCollectors-GGN', u'splitTunnels': [{u'wanNetworkName': u'INT-WAN', u'vrfName': u'LAN1-VRF', u'dia': True, u'gateway': False}]}}
+2019-09-20 16:13:45,388 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - <netmiko.versa.versa.VersaSSH object at 0x000000000D4354E0>
+2019-09-20 16:13:50,588 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2019-09-20 16:13:50,589 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - set devices template IPC00012-LON-PS-D-MPLS config system vnf-manager ip-addresses [ 10.92.116.67/32 10.92.116.68/32 ]
+set devices template IPC00012-LON-PS-D-MPLS config system service-options qos-frame-overhead auto-adjust true
+
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 hold-time 90
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 graceful-restart enable
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 graceful-restart maximum-restart-time 15
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 graceful-restart recovery-time 15
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 graceful-restart select-defer-time 15
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 graceful-restart stalepath-time 15
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 graceful-restart dynamic-peer-restart-time 0
+
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match family inet-vpn
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match community "(^|,)([0-9]*:11)($|,)"
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action filter accept
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community 8009:8009
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community-action set-specific
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action set-local-preference 80
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match family inet-vpn
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match community "(^|,)([0-9]*:12)($|,)"
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action filter accept
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community 8009:8009
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community-action set-specific
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action set-local-preference 60
+move devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 first
+move devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 first
+
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy TO_SDWAN term Wildcard match family inet-vpn
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy TO_SDWAN term Wildcard action filter accept
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy TO_SDWAN term Wildcard action community 44:10
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy TO_SDWAN term Wildcard action community-action set-specific
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard match family versa-private
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action filter accept
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community 44:10
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
+
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 group Controllers-Group family inet unicast
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 group Controllers-Group export TO_SDWAN
+
+delete devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 cgnat rules rule RFC_1918_NoTranslate
+
+
+
+############################################################
+#Note: Please use the below config, in case of Wired solution. Internet CPE is on Wired
+############################################################
+
+delete device template IPC00012-LON-PS-D-MPLS config org org-services IPC00012 sd-wan policies sdwan-policy-group Default-Policy rules rule Default-Rule
+set devices template IPC00012-LON-PS-D-MPLS config org org-services IPC00012 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names local [ MPLS-WAN INT-WAN ]
+set devices template IPC00012-LON-PS-D-MPLS config org org-services IPC00012 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names remote [ MPLS-WAN MPLS-WAN1 MPLS-WAN2 INT-WAN INT-WAN1 INT-WAN2 ]
+set devices template IPC00012-LON-PS-D-MPLS config org org-services IPC00012 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names local [ INT-WAN ]
+set devices template IPC00012-LON-PS-D-MPLS config org org-services IPC00012 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names remote [ LTE-WAN ]
+set devices template IPC00012-LON-PS-D-MPLS config org org-services IPC00012 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE connection-selection-method weighted-round-robin
+set devices template IPC00012-LON-PS-D-MPLS config org org-services IPC00012 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE recompute-timer 40
+set devices template IPC00012-LON-PS-D-MPLS config org org-services IPC00012 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE encryption optional
+set devices template IPC00012-LON-PS-D-MPLS config org org-services IPC00012 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE symmetric-forwarding enable
+set devices template IPC00012-LON-PS-D-MPLS config org org-services IPC00012 sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE description DEFAULT-TRAFFIC-RULE
+set devices template IPC00012-LON-PS-D-MPLS config org org-services IPC00012 sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set action allow
+set devices template IPC00012-LON-PS-D-MPLS config org org-services IPC00012 sd-wan policies sdwan-policy-group Default-Policy rules rule DEFAULT-TRAFFIC-RULE set forwarding-profile DEFAULT-TRAFFIC-PROFILE
+
+
+
+
+
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 objects zones zone Intf-LAN1-Zone description LAN1
+
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance LAN1-VRF vrf-import-target target:280L:2802
+
+set devices template IPC00012-LON-PS-D-MPLS config snmp usm local user coltuser auth sha password Colt1234
+
+set devices template IPC00012-LON-PS-D-MPLS config system time-zone Greenwich
+set devices template IPC00012-LON-PS-D-MPLS config confdConfig cli banner "Access to this network/system is limited to users authorised by Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be audited"
+set devices template IPC00012-LON-PS-D-MPLS config system users portal login shell role admin password yA:D#{}Vn9JE-?Qa
+set devices template IPC00012-LON-PS-D-MPLS config system users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+
+set devices template IPC00012-LON-PS-D-MPLS config system external-aaa auth-order remote-then-local
+#set devices template IPC00012-LON-PS-D-MPLS config system external-aaa tacacs-plus server 10.5.22.116 key C:ifiiape.
+#set devices template IPC00012-LON-PS-D-MPLS config system external-aaa tacacs-plus server 10.5.22.117 key C:ifiiape.
+#set devices template IPC00012-LON-PS-D-MPLS config system external-aaa tacacs-plus action [ accounting authentication ]
+
+#PART2:
+
+set devices template IPC00012-LON-PS-D-MPLS config interfaces vni vni-0/0 description "MPLS-WAN"
+set devices template IPC00012-LON-PS-D-MPLS config interfaces vni vni-0/0 bandwidth uplink "1000000"
+set devices template IPC00012-LON-PS-D-MPLS config interfaces vni vni-0/0 bandwidth downlink "1000000"
+set devices template IPC00012-LON-PS-D-MPLS config interfaces vni vni-0/1 description "INTERCONNECT-LINK"
+
+
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP ]
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN set action allow
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services predefined-services-list [ ESP ICMP ]
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services services-list [ IPSEC IPSIPSecAH ]
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT set action allow
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match source zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match ether-type ARP
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN set action allow
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match ether-type ARP
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT set action allow
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR match dscp [ 46 ]
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR set action allow
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR set qos-profile Premium
+
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 match dscp [ 26 48 ]
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 set action allow
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 set qos-profile Business1
+
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 match dscp [ 18 ]
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 set action allow
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 set qos-profile Business2
+
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 match dscp [ 10 ]
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 set action allow
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 set qos-profile Business3
+
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-BE match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-BE set action allow
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-BE set qos-profile Internet-Default
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match destination zone zone-list [ Intf-MPLS-WAN-Failover-Zone Intf-INT-WAN-Zone ]
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT set action allow
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone Intf-INT-WAN-Zone ]
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN set action allow
+
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN match source zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN set action deny
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT set action deny
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service app-qos-policies app-qos-policy-group Default-Policy
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business1 forwarding-class fc13
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business1 loss-priority high
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business1 dscp-rw-enable yes
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business1 dot1p-rw-enable no
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business2 forwarding-class fc14
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business2 loss-priority high
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business2 dscp-rw-enable yes
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business2 dot1p-rw-enable no
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business3 forwarding-class fc15
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business3 loss-priority high
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business3 dscp-rw-enable yes
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business3 dot1p-rw-enable no
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Internet-Default  forwarding-class fc_be
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Internet-Default  loss-priority high
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Internet-Default  dscp-rw-enable no
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Internet-Default  dot1p-rw-enable no
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Premium forwarding-class fc_ef
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Premium loss-priority low
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Premium dscp-rw-enable yes
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Premium dot1p-rw-enable no
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Routing-Management forwarding-class fc_nc
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Routing-Management loss-priority low
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Routing-Management dscp-rw-enable yes
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Routing-Management dot1p-rw-enable no
+
+
+
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 objects services service IPSEC protocol UDP
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 objects services service IPSEC port 4790,4500,500
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 objects services service IPSecAH protocol AH
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 objects services service IPSIPSecAH protocol AH
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 objects services service DHCP-67 protocol UDP
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 objects services service DHCP-67 port 67
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 objects services service DHCP-68 protocol UDP
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 objects services service DHCP-68 port 68
+
+delete devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR routing-options static route
+
+##########################################################################
+#Note : Apply below lines only when LIB required.
+
+delete devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 cgnat rules rule RFC_1918_NoTranslate
+delete devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 cgnat rules rule DIA-Rule-LAN1-VRF-INT-WAN from
+
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 cgnat rules rule DIA-Rule-LAN1-VRF-INT-WAN from source-zone [ W-ST-LAN1-VRF-INT-WAN ]
+set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 cgnat rules rule DIA-Rule-LAN1-VRF-INT-WAN from destination-zone [ Intf-INT-WAN-Zone ]
+
+
+##########################################################################
+2019-09-20 16:14:51,720 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - configure
+Entering configuration mode private
+[ok][2019-09-20 10:43:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config system vnf-manager ip-addresses [ 10.92.116.67/32 10.92.116.68/32 ]
+[ok][2019-09-20 10:43:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config system service-options qos-frame-overhead auto-adjust true
+[ok][2019-09-20 10:43:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 hold-time 90
+[ok][2019-09-20 10:43:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 graceful-restart enable
+[ok][2019-09-20 10:43:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 graceful-restart maximum-restart-time 15
+[ok][2019-09-20 10:43:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 graceful-restart recovery-time 15
+[ok][2019-09-20 10:43:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 graceful-restart select-defer-time 15
+[ok][2019-09-20 10:43:57]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 graceful-restart stalepath-time 15
+[ok][2019-09-20 10:43:57]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 graceful-restart dynamic-peer-restart-time 0
+[ok][2019-09-20 10:43:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match family inet-vpn
+[ok][2019-09-20 10:43:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 match community "(^|,)([0-9]*:11)($|,)"
+[ok][2019-09-20 10:43:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action filter accept
+[ok][2019-09-20 10:43:59]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community 8009:8009
+[ok][2019-09-20 10:44:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action community-action set-specific
+[ok][2019-09-20 10:44:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 action set-local-preference 80
+[ok][2019-09-20 10:44:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match family inet-vpn
+[ok][2019-09-20 10:44:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 match community "(^|,)([0-9]*:12)($|,)"
+[ok][2019-09-20 10:44:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action filter accept
+[ok][2019-09-20 10:44:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community 8009:8009
+[ok][2019-09-20 10:44:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action community-action set-specific
+[ok][2019-09-20 10:44:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 action set-local-preference 60
+[ok][2019-09-20 10:44:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% move devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 2GW2 first
+[ok][2019-09-20 10:44:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% move devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy Import-From-SDWAN-Policy term 1GW1 first
+[ok][2019-09-20 10:44:04]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy TO_SDWAN term Wildcard match family inet-vpn
+[ok][2019-09-20 10:44:04]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy TO_SDWAN term Wildcard action filter accept
+[ok][2019-09-20 10:44:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy TO_SDWAN term Wildcard action community 44:10
+[ok][2019-09-20 10:44:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy TO_SDWAN term Wildcard action community-action set-specific
+[ok][2019-09-20 10:44:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard match family versa-private
+[ok][2019-09-20 10:44:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action filter accept
+[ok][2019-09-20 10:44:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community 44:10
+[ok][2019-09-20 10:44:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 routing-peer-policy TO_SDWAN term VersaPvt-Wildcard action community-action set-specific
+[ok][2019-09-20 10:44:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 group  Controllers-Group family inet unicast
+[ok][2019-09-20 10:44:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance IPC00012-Control-VR protocols bgp bgp 16 group  Controllers-Group export TO_SDWAN
+[ok][2019-09-20 10:44:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% delete devices template IPC00012-LON-PS-D-MPLS config  orgs org-services IPC00012 cgnat rules rule RFC_1918_NoTranslate
+[ok][2019-09-20 10:44:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% ############################################################
+[ok][2019-09-20 10:44:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% #Note: Please use the below config, in case of Wired  solution. Internet CPE is on Wired
+[ok][2019-09-20 10:44:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% ############################################################
+[ok][2019-09-20 10:44:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% delete devices template IPC00012-LON-PS-D-MPLS config  orgs org-services IPC00012 sd-wan policies sdwan-policy-group Default-Policy rules rule Default-Rule
+Error: element not found
+[error][2019-09-20 10:44:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names local [ MPLS-WAN INT-WAN ]
+[ok][2019-09-20 10:44:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names remote [ MPLS-WAN MPLS-WAN1 MPLS-WAN2 INT-WAN INT-WAN1 INT-WAN2 ]
+[ok][2019-09-20 10:44:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names local [ INT-WAN ]
+[ok][2019-09-20 10:44:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names remote [ LTE-WAN ]
+[ok][2019-09-20 10:44:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE connection-selection-method weighted-round-robin
+[ok][2019-09-20 10:44:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE recompute-timer 40
+[ok][2019-09-20 10:44:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE encryption optional
+[ok][2019-09-20 10:44:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 sd-wan forwarding-profiles forwarding-profile DEFAULT-TRAFFIC-PROFILE symmetric-forwarding enable
+[ok][2019-09-20 10:44:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 sd-wan policies sdwan-policy-group Default-Policy rules  rule DEFAULT-TRAFFIC-RULE description DEFAULT-TRAFFIC-RULE
+[ok][2019-09-20 10:44:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 sd-wan policies sdwan-policy-group Default-Policy rules  rule DEFAULT-TRAFFIC-RULE set action allow
+[ok][2019-09-20 10:44:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 sd-wan policies sdwan-policy-group Default-Policy rules  rule DEFAULT-TRAFFIC-RULE set forwarding-profile DEFAULT-TRAFFIC-PROFILE
+[ok][2019-09-20 10:44:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 objects zones zone Intf-LAN1-Zone description LAN1
+[ok][2019-09-20 10:44:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance LAN1-VRF vrf-import-target target:280L:2802
+[ok][2019-09-20 10:44:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config snmp usm local user coltuser auth sha password Colt1234
+[ok][2019-09-20 10:44:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config system time-zone Greenwich
+[ok][2019-09-20 10:44:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config confdConfig cli banner "Access to this network/system is limited to users authorised by Colt for its legitimate business purposes. Unauthorised access, use, installation of files or modification of any data is prohibited. Use of this system/network will be audited"
+[ok][2019-09-20 10:44:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config system users portal login shell role admin password yA:D#{}Vn9JE-?Qa
+[ok][2019-09-20 10:44:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config system users portal ssh-public-key portal contents "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDo+WWU8BDyqZCYadUGElffuy1pkOo4nrg/yfOqV84G+ukVGf+SF48h+543zMxMmKTauHEqmSp+74IbSpN9buBom/BFpBTm3c66BErMmLNariqvfItG7CO9UBPqoXpUBAXnF/muohwe145jEyRRI4Lof2wK6F6qYjzTQHK+zp5IpV6D+VurfQ6fIQB2oUIj9c8OG3Zfyp33l9utdLCzR7Uo4OGt9GidMrO2mXSBWXb+L5o6MAiOB4EhKvVyG9O8+So7zHEcUI65bq3JWzLzM7w705ySVwitEeqCx2wS7v/2KNuHmI8kSQVOuXQ539V3PJThvlVPY7ABmrY5+4MZT+Fv novitas@colt.net"
+[ok][2019-09-20 10:44:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config system external-aaa auth-order remote-then-local
+[ok][2019-09-20 10:44:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% #set devices template IPC00012-LON-PS-D-MPLS config system external-aaa tacacs-plus server 10.5.22.116 key C:ifiiape.
+[ok][2019-09-20 10:44:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% #set devices template IPC00012-LON-PS-D-MPLS config system external-aaa tacacs-plus server 10.5.22.117 key C:ifiiape.
+[ok][2019-09-20 10:44:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% #set devices template IPC00012-LON-PS-D-MPLS config system external-aaa tacacs-plus action [ accounting authentication ]
+[ok][2019-09-20 10:44:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% #PART2:
+[ok][2019-09-20 10:44:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config interfaces vni vni-0/0 description "MPLS-WAN"
+[ok][2019-09-20 10:44:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config interfaces vni vni-0/0 bandwidth uplink "1000000"
+[ok][2019-09-20 10:44:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config interfaces vni vni-0/0 bandwidth downlink "1000000"
+[ok][2019-09-20 10:44:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config interfaces vni vni-0/1 description "INTERCONNECT-LINK"
+[ok][2019-09-20 10:44:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC match protocol static
+[ok][2019-09-20 10:44:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action filter accept
+[ok][2019-09-20 10:44:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-origin igp
+[ok][2019-09-20 10:44:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config routing-instances routing-instance LAN1-VRF policy-options redistribution-policy Default-Policy-To-BGP term T3-STATIC action set-local-preference 110
+[ok][2019-09-20 10:44:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match source zone zone-list [ Intf-MPLS-WAN-Zone ]
+[ok][2019-09-20 10:44:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services predefined-services-list [ ESP ICMP ]
+[ok][2019-09-20 10:44:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN match services services-list [ IPSEC IPSecAH ]
+[ok][2019-09-20 10:44:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_IN set action allow
+[ok][2019-09-20 10:44:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+[ok][2019-09-20 10:44:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services predefined-services-list [ ESP  ICMP ]
+[ok][2019-09-20 10:44:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT match services services-list [ IPSEC IPSIPSecAH ]
+[ok][2019-09-20 10:44:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy IPSEC_OUT set action allow
+[ok][2019-09-20 10:44:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match source zone zone-list [ Intf-MPLS-WAN-Zone  ]
+[ok][2019-09-20 10:44:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN match ether-type ARP
+[ok][2019-09-20 10:44:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_IN set action allow
+[ok][2019-09-20 10:44:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+[ok][2019-09-20 10:44:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT match ether-type ARP
+[ok][2019-09-20 10:44:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy ARP_OUT set action allow
+[ok][2019-09-20 10:44:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+[ok][2019-09-20 10:44:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR match dscp [ 46 ]
+[ok][2019-09-20 10:44:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR set action allow
+[ok][2019-09-20 10:44:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-PR set qos-profile Premium
+[ok][2019-09-20 10:44:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+[ok][2019-09-20 10:44:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 match dscp [ 26 48 ]
+[ok][2019-09-20 10:44:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 set action allow
+[ok][2019-09-20 10:44:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B1 set qos-profile Business1
+[ok][2019-09-20 10:44:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+[ok][2019-09-20 10:44:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 match dscp [ 18 ]
+[ok][2019-09-20 10:44:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 set action allow
+[ok][2019-09-20 10:44:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B2 set qos-profile Business2
+[ok][2019-09-20 10:44:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+[ok][2019-09-20 10:44:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 match dscp [ 10 ]
+[ok][2019-09-20 10:44:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 set action allow
+[ok][2019-09-20 10:44:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-B3 set qos-profile Business3
+[ok][2019-09-20 10:44:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-BE match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+[ok][2019-09-20 10:44:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-BE set action allow
+[ok][2019-09-20 10:44:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy SDWAN-FO-BE set qos-profile Internet-Default
+[ok][2019-09-20 10:44:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT match destination zone zone-list [ Intf-MPLS-WAN-Failover-Zone Intf-INT-WAN-Zone ]
+[ok][2019-09-20 10:44:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_OUT set action allow
+[ok][2019-09-20 10:44:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone Intf-INT-WAN-Zone ]
+[ok][2019-09-20 10:44:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy INT_IN set action allow
+[ok][2019-09-20 10:44:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN match source zone zone-list [ Intf-MPLS-WAN-Zone  ]
+[ok][2019-09-20 10:44:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_IN set action deny
+[ok][2019-09-20 10:44:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT match destination zone zone-list [ Intf-MPLS-WAN-Zone ]
+[ok][2019-09-20 10:44:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-policies qos-policy-group Default-Policy rules qos-policy WAN_OUT set action deny
+[ok][2019-09-20 10:44:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service app-qos-policies app-qos-policy-group  Default-Policy
+[ok][2019-09-20 10:44:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business1 forwarding-class fc13
+[ok][2019-09-20 10:44:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business1 loss-priority high
+[ok][2019-09-20 10:44:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business1 dscp-rw-enable yes
+[ok][2019-09-20 10:44:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business1 dot1p-rw-enable no
+[ok][2019-09-20 10:44:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business2 forwarding-class fc14
+[ok][2019-09-20 10:44:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business2 loss-priority high
+[ok][2019-09-20 10:44:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business2 dscp-rw-enable yes
+[ok][2019-09-20 10:44:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business2 dot1p-rw-enable no
+[ok][2019-09-20 10:44:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business3 forwarding-class fc15
+[ok][2019-09-20 10:44:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business3 loss-priority high
+[ok][2019-09-20 10:44:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business3 dscp-rw-enable yes
+[ok][2019-09-20 10:44:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Business3 dot1p-rw-enable no
+[ok][2019-09-20 10:44:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Internet-Default 
+Possible completions:
+  description           dot1p-rw-enable          
+  dscp-rw-enable        exceed-forwarding-class  
+  exceed-loss-priority  forwarding-class         
+  loss-priority         peak-burst-size          
+  peak-kbps-rate        peak-pps-rate            
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Internet-Default forwarding-class fc_be
+[ok][2019-09-20 10:44:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Internet-Default 
+Possible completions:
+  description           dot1p-rw-enable          
+  dscp-rw-enable        exceed-forwarding-class  
+  exceed-loss-priority  forwarding-class         
+  loss-priority         peak-burst-size          
+  peak-kbps-rate        peak-pps-rate            
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Internet-Default loss-priority high
+[ok][2019-09-20 10:44:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Internet-Default 
+Possible completions:
+  description           dot1p-rw-enable          
+  dscp-rw-enable        exceed-forwarding-class  
+  exceed-loss-priority  forwarding-class         
+  loss-priority         peak-burst-size          
+  peak-kbps-rate        peak-pps-rate            
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Internet-Default dscp-rw-enable no
+[ok][2019-09-20 10:44:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Internet-Default 
+Possible completions:
+  description           dot1p-rw-enable          
+  dscp-rw-enable        exceed-forwarding-class  
+  exceed-loss-priority  forwarding-class         
+  loss-priority         peak-burst-size          
+  peak-kbps-rate        peak-pps-rate            
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Internet-Default dot1p-rw-enable no
+[ok][2019-09-20 10:44:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Premium forwarding-class fc_ef
+[ok][2019-09-20 10:44:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Premium loss-priority low
+[ok][2019-09-20 10:44:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Premium dscp-rw-enable yes
+[ok][2019-09-20 10:44:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Premium dot1p-rw-enable no
+[ok][2019-09-20 10:44:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Routing-Management forwarding-class fc_nc
+[ok][2019-09-20 10:44:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Routing-Management loss-priority low
+[ok][2019-09-20 10:44:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Routing-Management dscp-rw-enable yes
+[ok][2019-09-20 10:44:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 class-of-service qos-profiles qos-profile Routing-Management dot1p-rw-enable no
+[ok][2019-09-20 10:44:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 objects services service IPSEC protocol UDP
+[ok][2019-09-20 10:44:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 objects services service IPSEC port 4790,4500,500
+[ok][2019-09-20 10:44:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 objects services service IPSecAH protocol AH
+[ok][2019-09-20 10:44:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 objects services service IPSIPSecAH protocol AH
+[ok][2019-09-20 10:44:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 objects services service DHCP-67 protocol UDP
+[ok][2019-09-20 10:44:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 objects services service DHCP-67 port 67
+[ok][2019-09-20 10:44:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 objects services service DHCP-68 protocol UDP
+[ok][2019-09-20 10:44:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 objects services service DHCP-68 port 68
+[ok][2019-09-20 10:44:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% delete devices template IPC00012-LON-PS-D-MPLS config  routing-instances routing-instance IPC00012-Control-VR routing-options static route
+[ok][2019-09-20 10:44:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% ##########################################################################
+[ok][2019-09-20 10:44:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% #Note : Apply below lines only when LIB required.
+[ok][2019-09-20 10:44:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% delete devices template IPC00012-LON-PS-D-MPLS config  orgs org-services IPC00012 cgnat rules rule RFC_1918_NoTranslate
+Error: element not found
+[error][2019-09-20 10:44:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% delete devices template IPC00012-LON-PS-D-MPLS config  orgs org-services IPC00012 cgnat rules rule DIA-Rule-LAN1-VRF-INT-WAN from
+[ok][2019-09-20 10:44:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 cgnat rules rule DIA-Rule-LAN1-VRF-INT-WAN from source-zone [ W-ST-LAN1-VRF-INT-WAN ]
+[ok][2019-09-20 10:44:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices template IPC00012-LON-PS-D-MPLS config orgs org-services IPC00012 cgnat rules rule DIA-Rule-LAN1-VRF-INT-WAN from destination-zone [ Intf-INT-WAN-Zone ]
+[ok][2019-09-20 10:44:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% ##########################################################################
+[ok][2019-09-20 10:44:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-20 16:15:42,394 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - commit
+Commit complete.
+[ok][2019-09-20 10:45:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-20 16:15:42,410 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - <netmiko.versa.versa.VersaSSH object at 0x000000000D4354E0> connection closed
+2019-09-20 16:15:42,410 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - 
+CPE-18-LON-DUAL-HYBRID-INT : element not found error.Commit success.
+2019-09-20 16:15:42,411 - CPE-18-LON-DUAL-HYBRID-INT - INFO - >>>>>>>>>> PS MAIN TEMPLATE MODIFY PASSED. <<<<<<<<<<<
+2019-09-20 16:15:47,411 - CPE-18-LON-DUAL-HYBRID-INT - INFO - 
+STEP :DEVICE GROUP CREATION AND DEPLOYMENT
+2019-09-20 16:15:47,437 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - {
+	"device-group": {
+		"name": "IPC00012-LON-PS-D-MPLS-DG",
+		"dg:organization": "IPC00012",
+		"dg:enable-2factor-auth": false,
+		"dg:enable-staging-url": false,
+		"dg:poststaging-template": "IPC00012-LON-PS-D-MPLS"
+	}
+}
+2019-09-20 16:15:58,239 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - <Response [201]>
+2019-09-20 16:15:58,240 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - 
+PASS
+2019-09-20 16:15:58,240 - CPE-18-LON-DUAL-HYBRID-INT - INFO - >>>>>>>>>> DEVICE GROUP TEMPLATE CREATION PASSED. <<<<<<<<<<<
+2019-09-20 16:16:03,240 - CPE-18-LON-DUAL-HYBRID-INT - INFO - 
+STEP :PRE-ONBOARD WORK
+2019-09-20 16:16:03,332 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - 
+sudo /opt/versa/scripts/staging.py -w 0 -c 10.83.44.10 -s 172.16.7.70/30 -g 172.16.7.71 -l IPC00012-CPE-18-LON-DUAL-HYBRID-INT@colt.net -lk CPE-18-LON-DUAL-HYBRID-INT  -r NV-WC01-N5-LON-staging@Colt.com -rk 1234
+
+2019-09-20 16:16:03,334 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - {
+  "versanms.sdwan-device-workflow": {
+	"deviceName": "CPE-18-LON-DUAL-HYBRID-INT",
+	"siteId": "2218",
+	"orgName": "IPC00012",
+	"serialNumber": "KSA2218",
+	"deviceGroup": "IPC00012-LON-PS-D-MPLS-DG",
+    "locationInfo": {
+      "country": "singapore",
+      "longitude": "103.819836",
+      "latitude": "1.352083"
+    },
+    "postStagingTemplateInfo": {
+      "templateName": "IPC00012-LON-PS-D-MPLS",
+      "templateData": {
+        "device-template-variable": {
+          "template": "IPC00012-LON-PS-D-MPLS",
+          "variable-binding": {
+            "attrs": [
+              {
+                "name": "{$v_IPC00012_NV-WC01-N5-LON_Local_auth_email_identifier__IKELIdentifier}",
+                "value": "CPE-18-LON-DUAL-HYBRID-INT@colt.net",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_IPC00012_NV-WC01-N5-LON_Local_auth_email_key__IKELKey}",
+                "value": "CPE-18-LON-DUAL-HYBRID-INT",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_IPC00012-Control-VR_16_Router_ID__vrRouteId}",
+                "value": "20.20.16.18",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_Paired_Site__locationID}",
+                "value": "2217",
+                "isAutogeneratable": false
+              },
+              {
+                "name": "{$v_IPC00012_NV-WC02-N5-LON_Local_auth_email_key__IKELKey}",
+                "value": "CPE-18-LON-DUAL-HYBRID-INT",
+                "isAutogeneratable": true
+              },
+              {
+				"name": "{$v_MPLS-WAN_IPv4__staticaddress}",
+				"value": "172.16.7.70/30",
+				"isAutogeneratable": false
+              },
+              {
+                "name": "{$v_IPC00012_Site_Name__sitesSiteName}",
+                "value": "CPE-18-LON-DUAL-HYBRID-INT",
+                "isAutogeneratable": true
+              },
+			  
+			  
+			  
+			  
+			  { "name": "{$v_LAN1_vrrp__vrrpVirtualAddress}", "value": "192.169.161.1", "isAutogeneratable": false},
+			  { "name": "{$v_LAN1_IPv4__staticaddress}", "value": "192.169.161.2/24", "isAutogeneratable": false},
+			  
+              {
+                "name": "{$v_tvi-0-33_-_Unit_0_Static_address__tunnelStaticAddress}",
+                "value": "20.20.16.18/32",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_latitude__IdLatitude}",
+                "value": 1.352083,
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}",
+                "value": "172.16.7.71",
+                "isAutogeneratable": false
+              },
+              {
+                "name": "{$v_identification__IdName}",
+                "value": "CPE-18-LON-DUAL-HYBRID-INT",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_tvi-0-32_-_Unit_0_Static_address__tunnelStaticAddress}",
+                "value": "10.10.16.18/32",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_IPC00012_NV-WC02-N5-LON_Local_auth_email_identifier__IKELIdentifier}",
+                "value": "CPE-18-LON-DUAL-HYBRID-INT@colt.net",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_Chassis_Id__sitesChassisId}",
+                "value": "2218",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_longitude__Idlongitude}",
+                "value": 103.819836,
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_IPC00012-Control-VR_16_Local_address__vrRouterAddress}",
+                "value": "20.20.16.18",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_location__IdLocation}",
+                "value": "singapore",
+                "isAutogeneratable": true
+              },
+			
+				
+				
+				
+			{ "name": "{$v_vni-0-2_LAN1_Unit-0__unit}", "value": "660", "isAutogeneratable": false},
+			{ "name": "{$v_vni-0-2_LAN1_Unit-0__vlanId}", "value": "660", "isAutogeneratable": false },
+			
+              {
+                "name": "{$v_Site_Id__siteSiteID}",
+                "value": "2218",
+                "isAutogeneratable": true
+              }
+            ]
+          }
+        },
+        "variableMetadata": [
+          {
+            "variable": "{$v_IPC00012_NV-WC01-N5-LON_Local_auth_email_identifier__IKELIdentifier}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_IPC00012_NV-WC01-N5-LON_Local_auth_email_key__IKELKey}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_IPC00012-Control-VR_16_Router_ID__vrRouteId}",
+            "group": "Virtual routers",
+            "overlay": true,
+            "type": "IPV4"
+          },
+          {
+            "variable": "{$v_Paired_Site__locationID}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_IPC00012_NV-WC02-N5-LON_Local_auth_email_key__IKELKey}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_MPLS-WAN_IPv4__staticaddress}",
+            "group": "Interfaces",
+            "overlay": false,
+            "type": "IPV4_MASK"
+          },
+          {
+            "variable": "{$v_IPC00012_Site_Name__sitesSiteName}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+		{ "variable": "{$v_LAN1_vrrp__vrrpVirtualAddress}", "group": "Others", "overlay": false, "type": "IPV4" },
+		{ "variable": "{$v_LAN1_IPv4__staticaddress}", "group": "Interfaces", "overlay": false, "type": "IPV4_MASK" },
+		
+          {
+            "variable": "{$v_tvi-0-33_-_Unit_0_Static_address__tunnelStaticAddress}",
+            "group": "Interfaces",
+            "overlay": true,
+            "type": "IPV4_IPV6_MASK"
+          },
+          {
+            "variable": "{$v_latitude__IdLatitude}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}",
+            "group": "Virtual Routers",
+            "overlay": false,
+            "type": "IPV4"
+          },
+          {
+            "variable": "{$v_identification__IdName}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_tvi-0-32_-_Unit_0_Static_address__tunnelStaticAddress}",
+            "group": "Interfaces",
+            "overlay": true,
+            "type": "IPV4_IPV6_MASK"
+          },
+          {
+            "variable": "{$v_IPC00012_NV-WC02-N5-LON_Local_auth_email_identifier__IKELIdentifier}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_Chassis_Id__sitesChassisId}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_longitude__Idlongitude}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_IPC00012-Control-VR_16_Local_address__vrRouterAddress}",
+            "group": "Virtual routers",
+            "overlay": true,
+            "type": "IPV4"
+          },
+          {
+            "variable": "{$v_location__IdLocation}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+		 
+		 
+		 
+		 {"variable": "{$v_vni-0-2_LAN1_Unit-0__vlanId}", "group": "Vlan Info", "overlay": false, "type": "INTEGER"},
+		 
+          {
+            "variable": "{$v_Site_Id__siteSiteID}",
+            "group": "SDWAN",
+            "overlay": false
+          }
+        ]
+      }
+    }
+  }
+}
+2019-09-20 16:17:35,407 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - <Response [200]>
+2019-09-20 16:17:35,407 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - 
+PASS
+2019-09-20 16:17:35,407 - CPE-18-LON-DUAL-HYBRID-INT - INFO - >>>>>>>>>> DEVICE TEMPLATE CREATION PASSED. <<<<<<<<<<<
+2019-09-20 16:17:45,621 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - {"TaskResponse":{"task-id":21743,"link":{"@rel":"GET","@href":"vnms/tasks/task/21743"}}}
+2019-09-20 16:17:50,621 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - 21743
+2019-09-20 16:17:50,842 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - {u'versa-tasks.task': {u'versa-tasks.user': u'Automated', u'versa-tasks.percentage-completion': 100, u'versa-tasks.progressmessages': {u'versa-tasks.progressmessage': [{u'versa-tasks.time': u'2019-09-20 10:47:46.4', u'versa-tasks.message': u'Creating device in hardware inventory [CPE-18-LON-DUAL-HYBRID-INT]'}, {u'versa-tasks.time': u'2019-09-20 10:47:46.417', u'versa-tasks.message': u'Add device [CPE-18-LON-DUAL-HYBRID-INT] to device group [IPC00012-LON-PS-D-MPLS-DG]'}, {u'versa-tasks.time': u'2019-09-20 10:47:46.423', u'versa-tasks.message': u'Adding device [CPE-18-LON-DUAL-HYBRID-INT] to template [ IPC00012-LON-PS-D-MPLS ]'}, {u'versa-tasks.time': u'2019-09-20 10:47:46.449', u'versa-tasks.message': u'Binding device variables to template [ IPC00012-LON-PS-D-MPLS ]'}, {u'versa-tasks.time': u'2019-09-20 10:47:46.622', u'versa-tasks.message': u'Adding post-staging configuration to controllers [NV-WC02-N5-LON, NV-WC01-N5-LON]'}, {u'versa-tasks.time': u'2019-09-20 10:47:47.277', u'versa-tasks.message': u'Successfully deployed device.'}]}, u'versa-tasks.object-name': u'Device Workflow', u'versa-tasks.task-status': u'COMPLETED', u'versa-tasks.task-description': u'Device workflow deployment: { CPE-18-LON-DUAL-HYBRID-INT }', u'versa-tasks.task-name': u'Deploy', u'versa-tasks.domain-name': u'PROVIDER', u'versa-tasks.id': 21743, u'versa-tasks.start-time': u'2019-09-20 10:47:45.594', u'versa-tasks.end-time': u'2019-09-20 10:47:47.277', u'versa-tasks.errormessages': u''}}
+2019-09-20 16:17:50,842 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - 100
+2019-09-20 16:17:50,842 - CPE-18-LON-DUAL-HYBRID-INT - INFO - Sleeping for 5 seconds
+2019-09-20 16:17:55,999 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - {"versa-tasks.task":{"versa-tasks.id":21743,"versa-tasks.task-name":"Deploy","versa-tasks.object-name":"Device Workflow","versa-tasks.domain-name":"PROVIDER","versa-tasks.user":"Automated","versa-tasks.task-description":"Device workflow deployment: { CPE-18-LON-DUAL-HYBRID-INT }","versa-tasks.task-status":"COMPLETED","versa-tasks.percentage-completion":100,"versa-tasks.progressmessages":{"versa-tasks.progressmessage":[{"versa-tasks.message":"Creating device in hardware inventory [CPE-18-LON-DUAL-HYBRID-INT]","versa-tasks.time":"2019-09-20 10:47:46.4"},{"versa-tasks.message":"Add device [CPE-18-LON-DUAL-HYBRID-INT] to device group [IPC00012-LON-PS-D-MPLS-DG]","versa-tasks.time":"2019-09-20 10:47:46.417"},{"versa-tasks.message":"Adding device [CPE-18-LON-DUAL-HYBRID-INT] to template [ IPC00012-LON-PS-D-MPLS ]","versa-tasks.time":"2019-09-20 10:47:46.423"},{"versa-tasks.message":"Binding device variables to template [ IPC00012-LON-PS-D-MPLS ]","versa-tasks.time":"2019-09-20 10:47:46.449"},{"versa-tasks.message":"Adding post-staging configuration to controllers [NV-WC02-N5-LON, NV-WC01-N5-LON]","versa-tasks.time":"2019-09-20 10:47:46.622"},{"versa-tasks.message":"Successfully deployed device.","versa-tasks.time":"2019-09-20 10:47:47.277"}]},"versa-tasks.errormessages":"","versa-tasks.start-time":"2019-09-20 10:47:45.594","versa-tasks.end-time":"2019-09-20 10:47:47.277"}}
+2019-09-20 16:17:55,999 - CPE-18-LON-DUAL-HYBRID-INT - INFO - >>>>>>>>>> Device deployed  <<<<<<<<<<<
+2019-09-20 16:17:56,802 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - {u'versanms.sdwan-device-workflow': {u'postStagingTemplateInfo': {u'templateData': {u'device-template-variable': {u'variable-binding': {u'attrs': [{u'isAutogeneratable': False, u'name': u'{$v_LAN1_vrrp__vrrpVirtualAddress}', u'value': u'192.169.161.1'}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-2_LAN1_Unit-0__unit}', u'value': 660}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00012_NV-WC01-N5-LON_Local_auth_email_identifier__IKELIdentifier}', u'value': u'CPE-18-LON-DUAL-HYBRID-INT@colt.net'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_tvi-0-32_-_Unit_0_Static_address__tunnelStaticAddress}', u'value': u'10.10.16.18/32'}, {u'isAutogeneratable': False, u'name': u'{$v_Paired_Site__locationID}', u'value': 2217}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-2_LAN1_Unit-0__vlanId}', u'value': 660}, {u'isAutogeneratable': True, u'name': u'{$v_Chassis_Id__sitesChassisId}', u'value': u'KSA2218'}, {u'isAutogeneratable': True, u'name': u'{$v_longitude__Idlongitude}', u'value': 103.819836}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_IPC00012-Control-VR_16_Router_ID__vrRouteId}', u'value': u'20.20.16.18'}, {u'isAutogeneratable': True, u'name': u'{$v_location__IdLocation}', u'value': u'singapore'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00012_NV-WC02-N5-LON_Local_auth_email_key__IKELKey}', u'value': u'CPE-18-LON-DUAL-HYBRID-INT'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_IPC00012-Control-VR_16_Local_address__vrRouterAddress}', u'value': u'20.20.16.18'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00012_NV-WC02-N5-LON_Local_auth_email_identifier__IKELIdentifier}', u'value': u'CPE-18-LON-DUAL-HYBRID-INT@colt.net'}, {u'isAutogeneratable': False, u'name': u'{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}', u'value': u'172.16.7.71'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00012_NV-WC01-N5-LON_Local_auth_email_key__IKELKey}', u'value': u'CPE-18-LON-DUAL-HYBRID-INT'}, {u'isAutogeneratable': True, u'name': u'{$v_Site_Id__siteSiteID}', u'value': 2218}, {u'isAutogeneratable': False, u'name': u'{$v_MPLS-WAN_IPv4__staticaddress}', u'value': u'172.16.7.70/30'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00012_Site_Name__sitesSiteName}', u'value': u'CPE-18-LON-DUAL-HYBRID-INT'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_tvi-0-33_-_Unit_0_Static_address__tunnelStaticAddress}', u'value': u'20.20.16.18/32'}, {u'isAutogeneratable': False, u'name': u'{$v_LAN1_IPv4__staticaddress}', u'value': u'192.169.161.2/24'}, {u'isAutogeneratable': True, u'name': u'{$v_latitude__IdLatitude}', u'value': 1.352083}, {u'isAutogeneratable': True, u'name': u'{$v_identification__IdName}', u'value': u'CPE-18-LON-DUAL-HYBRID-INT'}]}, u'template': u'IPC00012-LON-PS-D-MPLS'}, u'variableMetadata': [{u'variable': u'{$v_LAN1_vrrp__vrrpVirtualAddress}', u'type': u'IPV4', u'group': u'Others', u'overlay': False}, {u'variable': u'{$v_vni-0-2_LAN1_Unit-0__unit}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_IPC00012_NV-WC01-N5-LON_Local_auth_email_identifier__IKELIdentifier}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_tvi-0-32_-_Unit_0_Static_address__tunnelStaticAddress}', u'type': u'IPV4_IPV6_MASK', u'group': u'Interfaces', u'overlay': True}, {u'variable': u'{$v_Paired_Site__locationID}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_vni-0-2_LAN1_Unit-0__vlanId}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_Chassis_Id__sitesChassisId}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_longitude__Idlongitude}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00012-Control-VR_16_Router_ID__vrRouteId}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': True}, {u'variable': u'{$v_location__IdLocation}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00012_NV-WC02-N5-LON_Local_auth_email_key__IKELKey}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_IPC00012-Control-VR_16_Local_address__vrRouterAddress}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': True}, {u'variable': u'{$v_IPC00012_NV-WC02-N5-LON_Local_auth_email_identifier__IKELIdentifier}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': False}, {u'variable': u'{$v_IPC00012_NV-WC01-N5-LON_Local_auth_email_key__IKELKey}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_Site_Id__siteSiteID}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_MPLS-WAN_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_IPC00012_Site_Name__sitesSiteName}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_tvi-0-33_-_Unit_0_Static_address__tunnelStaticAddress}', u'type': u'IPV4_IPV6_MASK', u'group': u'Interfaces', u'overlay': True}, {u'variable': u'{$v_LAN1_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_latitude__IdLatitude}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_identification__IdName}', u'group': u'SDWAN', u'overlay': False}]}, u'templateName': u'IPC00012-LON-PS-D-MPLS'}, u'deviceName': u'CPE-18-LON-DUAL-HYBRID-INT', u'workflowStatus': u'Deployed', u'deviceGroup': u'IPC00012-LON-PS-D-MPLS-DG', u'orgName': u'IPC00012', u'serialNumber': u'KSA2218', u'locationInfo': {u'latitude': 1.352083, u'country': u'singapore', u'longitude': 103.819836}, u'bandwidth': 0, u'lastUpdatedBy': u'Automated', u'siteId': 2218, u'instanceInfo': u'', u'stagingTemplateInfo': u'', u'lastModifiedTime': u'2019-09-20T10:47:47.130000+00:00', u'urlztpBasedInfo': {u'authType': u'psk', u'enableIpv4Dhcp': False, u'branchKey': u'BbLsuYzKuKjuC6Ot', u'branchId': u'CPE-18-LON-DUAL-HYBRID-INT@IPC00012.com', u'enableIpv6': False, u'enableIpv4': False, u'enableIpv6Dhcp': False}}}
+2019-09-20 16:18:06,595 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - <netmiko.versa.versa.VersaSSH object at 0x000000000DD33CC0>
+2019-09-20 16:18:11,796 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2019-09-20 16:18:16,313 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - configure private
+Entering configuration mode private
+[ok][2019-09-20 10:48:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-20 16:18:18,515 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - True
+2019-09-20 16:18:19,516 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - set devices device NV-WC01-N5-LON config orgs org-services Colt ipsec vpn-profile MPLS-WAN-NV-WC01-N5-LON-StagingIpsec psk-auth-clients remote-client IPC00012-CPE-18-LON-DUAL-HYBRID-INT@colt.net id-type email
+[ok][2019-09-20 10:48:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-20 16:18:20,316 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - set devices device NV-WC01-N5-LON config orgs org-services Colt ipsec vpn-profile MPLS-WAN-NV-WC01-N5-LON-StagingIpsec psk-auth-clients remote-client IPC00012-CPE-18-LON-DUAL-HYBRID-INT@colt.net key CPE-18-LON-DUAL-HYBRID-INT
+[ok][2019-09-20 10:48:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-20 16:18:21,118 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - commit and-quit
+Commit complete.
+[ok][2019-09-20 10:48:20]
+Automated@VDir-BLR-NEW-01> 
+2019-09-20 16:18:21,118 - CPE-18-LON-DUAL-HYBRID-INT - INFO - >>>>>>>>>> Staging profile config done  <<<<<<<<<<<
+2019-09-20 16:18:21,148 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - <netmiko.versa.versa.VersaSSH object at 0x000000000DD33CC0> connection closed
+2019-09-20 16:18:21,148 - CPE-18-LON-DUAL-HYBRID-INT - INFO - 
+STEP :ONBOARD CALL
+2019-09-20 16:18:21,153 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - 
+sudo /opt/versa/scripts/staging.py -w 0 -c 10.83.44.10 -s 172.16.7.70/30 -g 172.16.7.71 -l IPC00012-CPE-18-LON-DUAL-HYBRID-INT@colt.net -lk CPE-18-LON-DUAL-HYBRID-INT  -r NV-WC01-N5-LON-staging@Colt.com -rk 1234
+
+2019-09-20 16:18:25,115 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - <netmiko.linux.linux_ssh.LinuxSSH object at 0x000000000DE0B978>
+2019-09-20 16:18:25,516 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - [sudo] password for admin: 
+2019-09-20 16:18:25,917 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - E-18: COLT] # 
+2019-09-20 16:18:26,318 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - exit
+2019-09-20 16:18:26,519 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - linux: [admin@CPE-18: COLT] #
+2019-09-20 16:18:26,918 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - vsh allow-cli
+admin@localhost's password: 
+2019-09-20 16:18:27,319 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - 
+
+CLI now allowed
+[admin@CPE-18: COLT] # 
+2019-09-20 16:18:27,720 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - cli
+
+
+             .---.,
+            (      ``.
+       _     \        )    __      ________ _____   _____
+      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\
+       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \
+        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \
+         \    |   /           \  /  | |____| | \ \ ____) / ____ \
+          \   |  /             \/   |______|_|  \_\_____/_/    \_\
+           \  | /
+            \_|/                   _  _ ___ _______      _____  ___ _  _____
+                                  | \| | __|_   _\ \    / / _ \| _ \ |/ / __|
+                                  | .` | _|  | |  \ \/\/ / (_) |   / ' <\__ \
+                                  |_|\_|___| |_|   \_/\_/ \___/|_|_\_|\_\___/
+
+
+
+admin connected from 10.91.192.222 using ssh on CPE-18
+[?7hadmin@CPE-18-cli> 
+2019-09-20 16:18:28,322 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - request erase running-config
+Will delete the running config and restart Versa
+Services. Are you sure? [no,yes] 
+2019-09-20 16:18:37,334 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - yes
+status  Erasing config and restarting services 
+[ok][2019-09-20 10:48:12]
+admin@CPE-18-cli> 
+System message at 2019-09-20 10:48:14...
+    Subsystem stopped: acctmgrd
+admin@CPE-18-cli> 
+System message at 2019-09-20 10:48:14...
+    Subsystem stopped: eventd
+admin@CPE-18-cli> 
+System message at 2019-09-20 10:48:14...
+    Subsystem stopped: infmgr
+admin@CPE-18-cli> 
+System message at 2019-09-20 10:48:14...
+    Subsystem stopped: versa-vmod
+admin@CPE-18-cli> 
+System message at 2019-09-20 10:48:14...
+    Subsystem stopped: rtd-mgmt-thread
+admin@CPE-18-cli> 
+System message at 2019-09-20 10:48:14...
+    Subsystem stopped: router-dcl
+admin@CPE-18-cli> 
+System message at 2019-09-20 10:48:14...
+    Subsystem stopped: snmp-config-hook
+admin@CPE-18-cli> 
+System message at 2019-09-20 10:48:14...
+    Subsystem stopped: snmp-config-transform
+admin@CPE-18-cli> [admin@CPE-18: COLT] # 
+2019-09-20 16:18:38,134 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - process not up. Please wait for it to come up
+2019-09-20 16:18:39,937 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - vsh status
+versa-service          is Stopped           
+versa-infmgr           is Stopped           
+versa-rfd              is Stopped           
+versa-vmod             is Stopped           
+versa-ip2user          is Stopped           
+versa-imgr             is Stopped           
+versa-acctmgrd         is Stopped           
+versa-fltrmgr          is Stopped           
+versa-vstated          is Stopped           
+versa-spack            is Stopped           
+versa-addrmgrd         is Stopped           
+versa-rt-cli-xfm       is Stopped           
+versa-rtd              is Stopped           
+versa-dhcpd            is Stopped           
+versa-eventd           is Stopped           
+versa-vrrpd            is Stopped           
+versa-dnsd             is Stopped           
+versa-ppmd             is Stopped           
+versa-snmp-xform       is Stopped           
+versa-certd            is Stopped           
+versa-ntpd             is Stopped           
+versa-dhclient6        is Stopped           
+versa-redis            is Stopped           
+versa-nodejs           is Stopped           
+versa-av-redis         is Stopped           
+versa-devmgr           is Stopped           
+versa-monit            is Stopped           
+versa-confd            is Running,          [*] process 1380
+versa-fail2ban         is Stopped           
+versa-auditd           is Stopped           
+[admin@CPE-18: COLT] # 
+2019-09-20 16:18:49,938 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - process not up. Please wait for it to come up
+2019-09-20 16:18:51,141 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - vsh status
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Netconf traffic yet to be allowed 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Stopped           
+versa-infmgr           is Stopped           
+versa-rfd              is Stopped           
+versa-vmod             is Stopped           
+versa-ip2user          is Stopped           
+versa-imgr             is Stopped           
+versa-acctmgrd         is Stopped           
+versa-fltrmgr          is Stopped           
+versa-vstated          is Stopped           
+versa-spack            is Stopped           
+versa-addrmgrd         is Stopped           
+versa-rt-cli-xfm       is Stopped           
+versa-rtd              is Stopped           
+versa-dhcpd            is Stopped           
+versa-eventd           is Stopped           
+versa-vrrpd            is Stopped           
+versa-dnsd             is Stopped           
+versa-ppmd             is Stopped           
+versa-snmp-xform       is Stopped           
+versa-certd            is Stopped           
+versa-ntpd             is Stopped           
+versa-dhclient6        is Stopped           
+versa-redis            is Stopped           
+versa-nodejs           is Stopped           
+versa-av-redis         is Stopped           
+versa-devmgr           is Stopped           
+versa-monit            is Stopped           
+versa-confd            is Running,          [*] process 25292
+versa-fail2ban         is Stopped           
+versa-auditd           is Stopped           
+[admin@CPE-18: COLT] # 
+2019-09-20 16:19:01,141 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - process not up. Please wait for it to come up
+2019-09-20 16:19:09,153 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - vsh status
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Netconf traffic yet to be allowed 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Running,          [*] process 25694
+versa-infmgr           is Running,          [-] process 25678
+versa-rfd              is Stopped           
+versa-vmod             is Stopped           
+versa-ip2user          is Stopped           
+versa-imgr             is Stopped           
+versa-acctmgrd         is Stopped           
+versa-fltrmgr          is Running,          [-] process 25707
+versa-vstated          is Running,          [-] process 25680
+versa-spack            is Stopped           
+versa-addrmgrd         is Stopped           
+versa-rt-cli-xfm       is Stopped           
+versa-rtd              is Stopped           
+versa-dhcpd            is Running,          [-] process 25687
+versa-eventd           is Stopped           
+versa-vrrpd            is Running,          [-] process 25701
+versa-dnsd             is Running,          [-] process 25703
+versa-ppmd             is Running,          [-] process 25947
+versa-snmp-xform       is Running,          [-] process 25964
+versa-certd            is Running,          [-] process 26008
+versa-ntpd             is Running,          [*] process 25670
+versa-dhclient6        is Running,          [-] process 25966
+versa-redis            is Running,          [-] process 25474
+versa-nodejs           is Running,          [-] process 25954
+versa-av-redis         is Running,          [-] process 25470
+versa-devmgr           is Running,          [-] process 26091
+versa-monit            is Running,          [*] process 26139
+versa-confd            is Running,          [*] process 25297
+versa-fail2ban         is Running,          [*] process 26141
+versa-auditd           is Stopped           
+[admin@CPE-18: COLT] # 
+2019-09-20 16:19:19,153 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - process not up. Please wait for it to come up
+2019-09-20 16:19:27,765 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - vsh status
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Netconf traffic yet to be allowed 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Running,          [*] process 25694
+versa-infmgr           is Running,          [-] process 25678
+versa-rfd              is Running,          [-] process 26000
+versa-vmod             is Running,          [-] process 25996
+versa-ip2user          is Running,          [-] process 26004
+versa-imgr             is Running,          [-] process 26010
+versa-acctmgrd         is Running,          [-] process 25991
+versa-fltrmgr          is Running,          [-] process 25707
+versa-vstated          is Running,          [-] process 25680
+versa-spack            is Running,          [-] process 26289
+versa-addrmgrd         is Running,          [-] process 26006
+versa-rt-cli-xfm       is Running,          [-] process 25952
+versa-rtd              is Running,          [-] process 25986
+versa-dhcpd            is Running,          [-] process 25687
+versa-eventd           is Running,          [-] process 25993
+versa-vrrpd            is Running,          [-] process 25701
+versa-dnsd             is Running,          [-] process 25703
+versa-ppmd             is Running,          [-] process 25947
+versa-snmp-xform       is Running,          [-] process 25964
+versa-certd            is Running,          [-] process 26008
+versa-ntpd             is Running,          [*] process 25670
+versa-dhclient6        is Running,          [-] process 25966
+versa-redis            is Running,          [-] process 25474
+versa-nodejs           is Running,          [-] process 25954
+versa-av-redis         is Running,          [-] process 25470
+versa-devmgr           is Running,          [-] process 26091
+versa-monit            is Running,          [*] process 26139
+versa-confd            is Running,          [*] process 25297
+versa-fail2ban         is Running,          [*] process 26263
+versa-auditd           is Running,          [*] process 26317
+[admin@CPE-18: COLT] # 
+2019-09-20 16:19:37,765 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - process not up. Please wait for it to come up
+2019-09-20 16:19:47,184 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - vsh status
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Netconf traffic yet to be allowed 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Running,          [*] process 25694
+versa-infmgr           is Running,          [-] process 25678
+versa-rfd              is Running,          [-] process 26000
+versa-vmod             is Running,          [-] process 25996
+versa-ip2user          is Running,          [-] process 26004
+versa-imgr             is Running,          [-] process 26010
+versa-acctmgrd         is Running,          [-] process 25991
+versa-fltrmgr          is Running,          [-] process 25707
+versa-vstated          is Running,          [-] process 25680
+versa-spack            is Running,          [-] process 26289
+versa-addrmgrd         is Running,          [-] process 26006
+versa-rt-cli-xfm       is Running,          [-] process 25952
+versa-rtd              is Running,          [-] process 25986
+versa-dhcpd            is Running,          [-] process 25687
+versa-eventd           is Running,          [-] process 25993
+versa-vrrpd            is Running,          [-] process 25701
+versa-dnsd             is Running,          [-] process 25703
+versa-ppmd             is Running,          [-] process 25947
+versa-snmp-xform       is Running,          [-] process 25964
+versa-certd            is Running,          [-] process 26008
+versa-ntpd             is Running,          [*] process 25670
+versa-dhclient6        is Running,          [-] process 25966
+versa-redis            is Running,          [-] process 25474
+versa-nodejs           is Running,          [-] process 25954
+versa-av-redis         is Running,          [-] process 25470
+versa-devmgr           is Running,          [-] process 26091
+versa-monit            is Running,          [*] process 26139
+versa-confd            is Running,          [*] process 25297
+versa-fail2ban         is Running,          [*] process 26263
+versa-auditd           is Running,          [*] process 26317
+[admin@CPE-18: COLT] # 
+2019-09-20 16:19:57,184 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - process not up. Please wait for it to come up
+2019-09-20 16:20:06,197 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - vsh status
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Netconf traffic yet to be allowed 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Running,          [*] process 25694
+versa-infmgr           is Running,          [-] process 25678
+versa-rfd              is Running,          [-] process 26000
+versa-vmod             is Running,          [-] process 25996
+versa-ip2user          is Running,          [-] process 26004
+versa-imgr             is Running,          [-] process 26010
+versa-acctmgrd         is Running,          [-] process 25991
+versa-fltrmgr          is Running,          [-] process 25707
+versa-vstated          is Running,          [-] process 25680
+versa-spack            is Running,          [-] process 26289
+versa-addrmgrd         is Running,          [-] process 26006
+versa-rt-cli-xfm       is Running,          [-] process 25952
+versa-rtd              is Running,          [-] process 25986
+versa-dhcpd            is Running,          [-] process 25687
+versa-eventd           is Running,          [-] process 25993
+versa-vrrpd            is Running,          [-] process 25701
+versa-dnsd             is Running,          [-] process 25703
+versa-ppmd             is Running,          [-] process 25947
+versa-snmp-xform       is Running,          [-] process 25964
+versa-certd            is Running,          [-] process 26008
+versa-ntpd             is Running,          [*] process 25670
+versa-dhclient6        is Running,          [-] process 25966
+versa-redis            is Running,          [-] process 25474
+versa-nodejs           is Running,          [-] process 25954
+versa-av-redis         is Running,          [-] process 25470
+versa-devmgr           is Running,          [-] process 26091
+versa-monit            is Running,          [*] process 26139
+versa-confd            is Running,          [*] process 25297
+versa-fail2ban         is Running,          [*] process 26263
+versa-auditd           is Running,          [*] process 26317
+[admin@CPE-18: COLT] # 
+2019-09-20 16:20:16,198 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - process not up. Please wait for it to come up
+2019-09-20 16:20:23,207 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - vsh status
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Netconf traffic yet to be allowed 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Running,          [*] process 25694
+versa-infmgr           is Running,          [-] process 25678
+versa-rfd              is Running,          [-] process 26000
+versa-vmod             is Running,          [-] process 25996
+versa-ip2user          is Running,          [-] process 26004
+versa-imgr             is Running,          [-] process 26010
+versa-acctmgrd         is Running,          [-] process 25991
+versa-fltrmgr          is Running,          [-] process 25707
+versa-vstated          is Running,          [-] process 25680
+versa-spack            is Running,          [-] process 26289
+versa-addrmgrd         is Running,          [-] process 26006
+versa-rt-cli-xfm       is Running,          [-] process 25952
+versa-rtd              is Running,          [-] process 25986
+versa-dhcpd            is Running,          [-] process 25687
+versa-eventd           is Running,          [-] process 25993
+versa-vrrpd            is Running,          [-] process 25701
+versa-dnsd             is Running,          [-] process 25703
+versa-ppmd             is Running,          [-] process 25947
+versa-snmp-xform       is Running,          [-] process 25964
+versa-certd            is Running,          [-] process 26008
+versa-ntpd             is Running,          [*] process 25670
+versa-dhclient6        is Running,          [-] process 25966
+versa-redis            is Running,          [-] process 25474
+versa-nodejs           is Running,          [-] process 25954
+versa-av-redis         is Running,          [-] process 25470
+versa-devmgr           is Running,          [-] process 26091
+versa-monit            is Running,          [*] process 26139
+versa-confd            is Running,          [*] process 25297
+versa-fail2ban         is Running,          [*] process 26263
+versa-auditd           is Running,          [*] process 26317
+[admin@CPE-18: COLT] # 
+2019-09-20 16:20:33,207 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - process not up. Please wait for it to come up
+2019-09-20 16:20:38,818 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - vsh status
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Netconf traffic yet to be allowed 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Running,          [*] process 25694
+versa-infmgr           is Running,          [-] process 25678
+versa-rfd              is Running,          [-] process 26000
+versa-vmod             is Running,          [-] process 25996
+versa-ip2user          is Running,          [-] process 26004
+versa-imgr             is Running,          [-] process 26010
+versa-acctmgrd         is Running,          [-] process 25991
+versa-fltrmgr          is Running,          [-] process 25707
+versa-vstated          is Running,          [-] process 25680
+versa-spack            is Running,          [-] process 26289
+versa-addrmgrd         is Running,          [-] process 26006
+versa-rt-cli-xfm       is Running,          [-] process 25952
+versa-rtd              is Running,          [-] process 25986
+versa-dhcpd            is Running,          [-] process 25687
+versa-eventd           is Running,          [-] process 25993
+versa-vrrpd            is Running,          [-] process 25701
+versa-dnsd             is Running,          [-] process 25703
+versa-ppmd             is Running,          [-] process 25947
+versa-snmp-xform       is Running,          [-] process 25964
+versa-certd            is Running,          [-] process 26008
+versa-ntpd             is Running,          [*] process 25670
+versa-dhclient6        is Running,          [-] process 25966
+versa-redis            is Running,          [-] process 25474
+versa-nodejs           is Running,          [-] process 25954
+versa-av-redis         is Running,          [-] process 25470
+versa-devmgr           is Running,          [-] process 26091
+versa-monit            is Running,          [*] process 26139
+versa-confd            is Running,          [*] process 25297
+versa-fail2ban         is Running,          [*] process 26263
+versa-auditd           is Running,          [*] process 26317
+[admin@CPE-18: COLT] # 
+2019-09-20 16:20:48,819 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - process not up. Please wait for it to come up
+2019-09-20 16:20:54,826 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - vsh status
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Netconf traffic yet to be allowed 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Running,          [*] process 25694
+versa-infmgr           is Running,          [-] process 25678
+versa-rfd              is Running,          [-] process 26000
+versa-vmod             is Running,          [-] process 25996
+versa-ip2user          is Running,          [-] process 26004
+versa-imgr             is Running,          [-] process 26010
+versa-acctmgrd         is Running,          [-] process 25991
+versa-fltrmgr          is Running,          [-] process 25707
+versa-vstated          is Running,          [-] process 25680
+versa-spack            is Running,          [-] process 26289
+versa-addrmgrd         is Running,          [-] process 26006
+versa-rt-cli-xfm       is Running,          [-] process 25952
+versa-rtd              is Running,          [-] process 25986
+versa-dhcpd            is Running,          [-] process 25687
+versa-eventd           is Running,          [-] process 25993
+versa-vrrpd            is Running,          [-] process 25701
+versa-dnsd             is Running,          [-] process 25703
+versa-ppmd             is Running,          [-] process 25947
+versa-snmp-xform       is Running,          [-] process 25964
+versa-certd            is Running,          [-] process 26008
+versa-ntpd             is Running,          [*] process 25670
+versa-dhclient6        is Running,          [-] process 25966
+versa-redis            is Running,          [-] process 27986
+versa-nodejs           is Running,          [-] process 25954
+versa-av-redis         is Running,          [-] process 25470
+versa-devmgr           is Running,          [-] process 26091
+versa-monit            is Running,          [*] process 26139
+versa-confd            is Running,          [*] process 25297
+versa-fail2ban         is Running,          [*] process 26263
+versa-auditd           is Running,          [*] process 26317
+[admin@CPE-18: COLT] # 
+2019-09-20 16:21:04,828 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - process not up. Please wait for it to come up
+2019-09-20 16:21:08,832 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - vsh status
+versa-service          is Running,          [*] process 25694
+versa-infmgr           is Running,          [-] process 25678
+versa-rfd              is Running,          [-] process 26000
+versa-vmod             is Running,          [-] process 25996
+versa-ip2user          is Running,          [-] process 26004
+versa-imgr             is Running,          [-] process 26010
+versa-acctmgrd         is Running,          [-] process 25991
+versa-fltrmgr          is Running,          [-] process 25707
+versa-vstated          is Running,          [-] process 25680
+versa-spack            is Running,          [-] process 26289
+versa-addrmgrd         is Running,          [-] process 26006
+versa-rt-cli-xfm       is Running,          [-] process 25952
+versa-rtd              is Running,          [-] process 25986
+versa-dhcpd            is Running,          [-] process 25687
+versa-eventd           is Running,          [-] process 25993
+versa-vrrpd            is Running,          [-] process 25701
+versa-dnsd             is Running,          [-] process 25703
+versa-ppmd             is Running,          [-] process 25947
+versa-snmp-xform       is Running,          [-] process 25964
+versa-certd            is Running,          [-] process 26008
+versa-ntpd             is Running,          [*] process 25670
+versa-dhclient6        is Running,          [-] process 25966
+versa-redis            is Running,          [-] process 27986
+versa-nodejs           is Running,          [-] process 25954
+versa-av-redis         is Running,          [-] process 25470
+versa-devmgr           is Running,          [-] process 26091
+versa-monit            is Running,          [*] process 26139
+versa-confd            is Running,          [*] process 25297
+versa-fail2ban         is Running,          [*] process 26263
+versa-auditd           is Running,          [*] process 26317
+[admin@CPE-18: COLT] # 
+2019-09-20 16:21:18,832 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - After breaking while
+2019-09-20 16:21:23,641 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - versa-service          is Running,          [*] process 25694
+versa-infmgr           is Running,          [-] process 25678
+versa-rfd              is Running,          [-] process 26000
+versa-vmod             is Running,          [-] process 25996
+versa-ip2user          is Running,          [-] process 26004
+versa-imgr             is Running,          [-] process 26010
+versa-acctmgrd         is Running,          [-] process 25991
+versa-fltrmgr          is Running,          [-] process 25707
+versa-vstated          is Running,          [-] process 25680
+versa-spack            is Running,          [-] process 26289
+versa-addrmgrd         is Running,          [-] process 26006
+versa-rt-cli-xfm       is Running,          [-] process 25952
+versa-rtd              is Running,          [-] process 25986
+versa-dhcpd            is Running,          [-] process 25687
+versa-eventd           is Running,          [-] process 25993
+versa-vrrpd            is Running,          [-] process 25701
+versa-dnsd             is Running,          [-] process 25703
+versa-ppmd             is Running,          [-] process 25947
+versa-snmp-xform       is Running,          [-] process 25964
+versa-certd            is Running,          [-] process 26008
+versa-ntpd             is Running,          [*] process 25670
+versa-dhclient6        is Running,          [-] process 25966
+versa-redis            is Running,          [-] process 27986
+versa-nodejs           is Running,          [-] process 25954
+versa-av-redis         is Running,          [-] process 25470
+versa-devmgr           is Running,          [-] process 26091
+versa-monit            is Running,          [*] process 26139
+versa-confd            is Running,          [*] process 25297
+versa-fail2ban         is Running,          [*] process 26263
+versa-auditd           is Running,          [*] process 26317
+2019-09-20 16:21:24,049 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - KSA2929964
+2019-09-20 16:21:24,450 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - KSA2218
+2019-09-20 16:21:24,851 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - KSA2218
+2019-09-20 16:21:25,250 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - -staging@Colt.com -rk 1234
+
+2019-09-20 16:21:46,003 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:21:46,003 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:22:46,739 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:22:46,739 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:23:47,499 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:23:47,500 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:24:48,390 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:24:48,390 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:25:49,141 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:25:49,141 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:26:49,891 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:26:49,891 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:27:50,798 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:27:50,798 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:28:51,532 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:28:51,532 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:29:52,260 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:29:52,260 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:30:53,128 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:30:53,128 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:31:53,940 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:31:53,940 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:32:54,743 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:32:54,743 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:33:55,924 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:33:55,924 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:34:56,798 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:34:56,799 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:35:57,654 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:35:57,654 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:36:58,473 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:36:58,473 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:37:59,318 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:37:59,319 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:39:00,121 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:39:00,121 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:40:00,921 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:40:00,921 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:41:01,861 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:41:01,861 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:42:02,809 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:42:02,809 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:43:03,549 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:43:03,549 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:44:04,351 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:44:04,351 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:45:05,332 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:45:05,332 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:46:06,171 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:46:06,171 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:47:07,036 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:47:07,038 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:48:07,882 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:48:07,884 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:49:08,654 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:49:08,654 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:50:09,549 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:50:09,549 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:51:10,308 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:51:10,309 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:52:11,062 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:52:11,063 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:53:11,855 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:53:11,855 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:54:12,529 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:54:12,529 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:55:13,265 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:55:13,265 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:56:14,128 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:56:14,128 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:57:14,983 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:57:14,984 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:58:15,602 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:58:15,602 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 16:59:16,368 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 16:59:16,368 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:00:17,168 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:00:17,168 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:01:17,914 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:01:17,914 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:02:18,711 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:02:18,711 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:03:19,430 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:03:19,431 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:04:20,154 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:04:20,154 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs

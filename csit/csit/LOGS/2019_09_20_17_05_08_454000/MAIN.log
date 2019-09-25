@@ -1,0 +1,899 @@
+2019-09-20 17:05:24,338 - CPE-18-LON-DUAL-HYBRID-INT - INFO - LOG FILE PATH : C:\Softwares_mine\stefano\NV_REPOSITORY\csit/LOGS/2019_09_20_17_05_08_454000/MAIN.log
+2019-09-20 17:05:24,338 - CPE-18-LON-DUAL-HYBRID-INT - INFO - CPE NAME:CPE-18-LON-DUAL-HYBRID-INT
+2019-09-20 17:05:25,338 - CPE-18-LON-DUAL-HYBRID-INT - INFO - SOLUTION SELECTED:DUAL-CPE-HYBRID
+2019-09-20 17:05:26,453 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 16, u'orgName': u'IPC00012', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N5-LON', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N5-LON', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-09-20 17:05:26,460 - CPE-18-LON-DUAL-HYBRID-INT - INFO - 
+STEP :CHECK ORG is available in Controller NV-WC01-N1-HKG
+2019-09-20 17:05:26,460 - CPE-18-LON-DUAL-HYBRID-INT - INFO - PASS
+2019-09-20 17:05:26,668 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 16, u'orgName': u'IPC00012', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N5-LON', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N5-LON', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-09-20 17:05:26,670 - CPE-18-LON-DUAL-HYBRID-INT - INFO - 
+STEP :CHECK ORG is available in Controller NV-WC02-N6-SIN
+2019-09-20 17:05:26,670 - CPE-18-LON-DUAL-HYBRID-INT - INFO - PASS
+2019-09-20 17:05:26,885 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 16, u'orgName': u'IPC00012', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N5-LON', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N5-LON', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-09-20 17:05:26,887 - CPE-18-LON-DUAL-HYBRID-INT - INFO - 
+STEP :CHECK ORG is available in Controller NV-WC01-N5-LON
+2019-09-20 17:05:26,887 - CPE-18-LON-DUAL-HYBRID-INT - INFO - PASS
+2019-09-20 17:05:27,105 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - {u'versanms.sdwan-org-workflow': {u'ikeAuthType': u'psk', u'globalId': 16, u'orgName': u'IPC00012', u'controllers': [u'NV-WC01-N1-HKG', u'NV-WC01-N5-LON', u'NV-WC01-N6-SIN', u'NV-WC02-N1-HKG', u'NV-WC02-N5-LON', u'NV-WC02-N6-SIN'], u'bandwidth': 10, u'parentOrg': u'Colt', u'solutionTier': u'base-sdwan', u'sharedControlPlane': False}}
+2019-09-20 17:05:27,107 - CPE-18-LON-DUAL-HYBRID-INT - INFO - 
+STEP :CHECK ORG is available in Controller NV-WC02-N5-LON
+2019-09-20 17:05:27,107 - CPE-18-LON-DUAL-HYBRID-INT - INFO - PASS
+2019-09-20 17:05:27,107 - CPE-18-LON-DUAL-HYBRID-INT - INFO - 
+STEP :PRE-ONBOARD WORK
+2019-09-20 17:05:27,173 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - 
+sudo /opt/versa/scripts/staging.py -w 0 -c 10.83.44.10 -s 172.16.7.170/30 -g 172.16.7.171 -l IPC00012-CPE-18-LON-DUAL-HYBRID-INT@colt.net -lk CPE-18-LON-DUAL-HYBRID-INT  -r NV-WC01-N5-LON-staging@Colt.com -rk 1234
+
+2019-09-20 17:05:27,174 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - {
+  "versanms.sdwan-device-workflow": {
+	"deviceName": "CPE-18-LON-DUAL-HYBRID-INT",
+	"siteId": "2218",
+	"orgName": "IPC00012",
+	"serialNumber": "KSA2218",
+	"deviceGroup": "IPC00012-LON-PS-D-MPLS-DG",
+    "locationInfo": {
+      "country": "singapore",
+      "longitude": "103.819836",
+      "latitude": "1.352083"
+    },
+    "postStagingTemplateInfo": {
+      "templateName": "IPC00012-LON-PS-D-MPLS",
+      "templateData": {
+        "device-template-variable": {
+          "template": "IPC00012-LON-PS-D-MPLS",
+          "variable-binding": {
+            "attrs": [
+              {
+                "name": "{$v_IPC00012_NV-WC01-N5-LON_Local_auth_email_identifier__IKELIdentifier}",
+                "value": "CPE-18-LON-DUAL-HYBRID-INT@colt.net",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_IPC00012_NV-WC01-N5-LON_Local_auth_email_key__IKELKey}",
+                "value": "CPE-18-LON-DUAL-HYBRID-INT",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_IPC00012-Control-VR_16_Router_ID__vrRouteId}",
+                "value": "20.20.16.18",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_Paired_Site__locationID}",
+                "value": "2217",
+                "isAutogeneratable": false
+              },
+              {
+                "name": "{$v_IPC00012_NV-WC02-N5-LON_Local_auth_email_key__IKELKey}",
+                "value": "CPE-18-LON-DUAL-HYBRID-INT",
+                "isAutogeneratable": true
+              },
+              {
+				"name": "{$v_MPLS-WAN_IPv4__staticaddress}",
+				"value": "172.16.7.170/30",
+				"isAutogeneratable": false
+              },
+              {
+                "name": "{$v_IPC00012_Site_Name__sitesSiteName}",
+                "value": "CPE-18-LON-DUAL-HYBRID-INT",
+                "isAutogeneratable": true
+              },
+			  
+			  
+			  
+			  
+			  { "name": "{$v_LAN1_vrrp__vrrpVirtualAddress}", "value": "192.169.161.1", "isAutogeneratable": false},
+			  { "name": "{$v_LAN1_IPv4__staticaddress}", "value": "192.169.161.2/24", "isAutogeneratable": false},
+			  
+              {
+                "name": "{$v_tvi-0-33_-_Unit_0_Static_address__tunnelStaticAddress}",
+                "value": "20.20.16.18/32",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_latitude__IdLatitude}",
+                "value": 1.352083,
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}",
+                "value": "172.16.7.171",
+                "isAutogeneratable": false
+              },
+              {
+                "name": "{$v_identification__IdName}",
+                "value": "CPE-18-LON-DUAL-HYBRID-INT",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_tvi-0-32_-_Unit_0_Static_address__tunnelStaticAddress}",
+                "value": "10.10.16.18/32",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_IPC00012_NV-WC02-N5-LON_Local_auth_email_identifier__IKELIdentifier}",
+                "value": "CPE-18-LON-DUAL-HYBRID-INT@colt.net",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_Chassis_Id__sitesChassisId}",
+                "value": "2218",
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_longitude__Idlongitude}",
+                "value": 103.819836,
+                "isAutogeneratable": true
+              },
+              {
+                "name": "{$v_IPC00012-Control-VR_16_Local_address__vrRouterAddress}",
+                "value": "20.20.16.18",
+                "isAutogeneratable": true,
+                "isOverwritten": true
+              },
+              {
+                "name": "{$v_location__IdLocation}",
+                "value": "singapore",
+                "isAutogeneratable": true
+              },
+			
+				
+				
+				
+			{ "name": "{$v_vni-0-2_LAN1_Unit-0__unit}", "value": "660", "isAutogeneratable": false},
+			{ "name": "{$v_vni-0-2_LAN1_Unit-0__vlanId}", "value": "660", "isAutogeneratable": false },
+			
+              {
+                "name": "{$v_Site_Id__siteSiteID}",
+                "value": "2218",
+                "isAutogeneratable": true
+              }
+            ]
+          }
+        },
+        "variableMetadata": [
+          {
+            "variable": "{$v_IPC00012_NV-WC01-N5-LON_Local_auth_email_identifier__IKELIdentifier}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_IPC00012_NV-WC01-N5-LON_Local_auth_email_key__IKELKey}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_IPC00012-Control-VR_16_Router_ID__vrRouteId}",
+            "group": "Virtual routers",
+            "overlay": true,
+            "type": "IPV4"
+          },
+          {
+            "variable": "{$v_Paired_Site__locationID}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_IPC00012_NV-WC02-N5-LON_Local_auth_email_key__IKELKey}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_MPLS-WAN_IPv4__staticaddress}",
+            "group": "Interfaces",
+            "overlay": false,
+            "type": "IPV4_MASK"
+          },
+          {
+            "variable": "{$v_IPC00012_Site_Name__sitesSiteName}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+		{ "variable": "{$v_LAN1_vrrp__vrrpVirtualAddress}", "group": "Others", "overlay": false, "type": "IPV4" },
+		{ "variable": "{$v_LAN1_IPv4__staticaddress}", "group": "Interfaces", "overlay": false, "type": "IPV4_MASK" },
+		
+          {
+            "variable": "{$v_tvi-0-33_-_Unit_0_Static_address__tunnelStaticAddress}",
+            "group": "Interfaces",
+            "overlay": true,
+            "type": "IPV4_IPV6_MASK"
+          },
+          {
+            "variable": "{$v_latitude__IdLatitude}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}",
+            "group": "Virtual Routers",
+            "overlay": false,
+            "type": "IPV4"
+          },
+          {
+            "variable": "{$v_identification__IdName}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_tvi-0-32_-_Unit_0_Static_address__tunnelStaticAddress}",
+            "group": "Interfaces",
+            "overlay": true,
+            "type": "IPV4_IPV6_MASK"
+          },
+          {
+            "variable": "{$v_IPC00012_NV-WC02-N5-LON_Local_auth_email_identifier__IKELIdentifier}",
+            "group": "IPSEC",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_Chassis_Id__sitesChassisId}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_longitude__Idlongitude}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+          {
+            "variable": "{$v_IPC00012-Control-VR_16_Local_address__vrRouterAddress}",
+            "group": "Virtual routers",
+            "overlay": true,
+            "type": "IPV4"
+          },
+          {
+            "variable": "{$v_location__IdLocation}",
+            "group": "SDWAN",
+            "overlay": false
+          },
+		 
+		 
+		 
+		 {"variable": "{$v_vni-0-2_LAN1_Unit-0__vlanId}", "group": "Vlan Info", "overlay": false, "type": "INTEGER"},
+		 
+          {
+            "variable": "{$v_Site_Id__siteSiteID}",
+            "group": "SDWAN",
+            "overlay": false
+          }
+        ]
+      }
+    }
+  }
+}
+2019-09-20 17:05:28,334 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - <Response [200]>
+2019-09-20 17:05:28,334 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - 
+PASS
+2019-09-20 17:05:28,334 - CPE-18-LON-DUAL-HYBRID-INT - INFO - >>>>>>>>>> DEVICE TEMPLATE CREATION PASSED. <<<<<<<<<<<
+2019-09-20 17:05:38,529 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - {"TaskResponse":{"task-id":21745,"link":{"@rel":"GET","@href":"vnms/tasks/task/21745"}}}
+2019-09-20 17:05:43,530 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - 21745
+2019-09-20 17:05:43,700 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - {u'versa-tasks.task': {u'versa-tasks.user': u'Automated', u'versa-tasks.percentage-completion': 100, u'versa-tasks.progressmessages': {u'versa-tasks.progressmessage': [{u'versa-tasks.time': u'2019-09-20 11:35:39.526', u'versa-tasks.message': u'Creating device in hardware inventory [CPE-18-LON-DUAL-HYBRID-INT]'}, {u'versa-tasks.time': u'2019-09-20 11:35:39.539', u'versa-tasks.message': u'Add device [CPE-18-LON-DUAL-HYBRID-INT] to device group [IPC00012-LON-PS-D-MPLS-DG]'}, {u'versa-tasks.time': u'2019-09-20 11:35:39.543', u'versa-tasks.message': u'Adding device [CPE-18-LON-DUAL-HYBRID-INT] to template [ IPC00012-LON-PS-D-MPLS ]'}, {u'versa-tasks.time': u'2019-09-20 11:35:39.569', u'versa-tasks.message': u'Binding device variables to template [ IPC00012-LON-PS-D-MPLS ]'}, {u'versa-tasks.time': u'2019-09-20 11:35:39.737', u'versa-tasks.message': u'Adding post-staging configuration to controllers [NV-WC02-N5-LON, NV-WC01-N5-LON]'}, {u'versa-tasks.time': u'2019-09-20 11:35:40.407', u'versa-tasks.message': u'Successfully deployed device.'}]}, u'versa-tasks.object-name': u'Device Workflow', u'versa-tasks.task-status': u'COMPLETED', u'versa-tasks.task-description': u'Device workflow deployment: { CPE-18-LON-DUAL-HYBRID-INT }', u'versa-tasks.task-name': u'Deploy', u'versa-tasks.domain-name': u'PROVIDER', u'versa-tasks.id': 21745, u'versa-tasks.start-time': u'2019-09-20 11:35:38.505', u'versa-tasks.end-time': u'2019-09-20 11:35:40.407', u'versa-tasks.errormessages': u''}}
+2019-09-20 17:05:43,700 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - 100
+2019-09-20 17:05:43,700 - CPE-18-LON-DUAL-HYBRID-INT - INFO - Sleeping for 5 seconds
+2019-09-20 17:05:48,891 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - {"versa-tasks.task":{"versa-tasks.id":21745,"versa-tasks.task-name":"Deploy","versa-tasks.object-name":"Device Workflow","versa-tasks.domain-name":"PROVIDER","versa-tasks.user":"Automated","versa-tasks.task-description":"Device workflow deployment: { CPE-18-LON-DUAL-HYBRID-INT }","versa-tasks.task-status":"COMPLETED","versa-tasks.percentage-completion":100,"versa-tasks.progressmessages":{"versa-tasks.progressmessage":[{"versa-tasks.message":"Creating device in hardware inventory [CPE-18-LON-DUAL-HYBRID-INT]","versa-tasks.time":"2019-09-20 11:35:39.526"},{"versa-tasks.message":"Add device [CPE-18-LON-DUAL-HYBRID-INT] to device group [IPC00012-LON-PS-D-MPLS-DG]","versa-tasks.time":"2019-09-20 11:35:39.539"},{"versa-tasks.message":"Adding device [CPE-18-LON-DUAL-HYBRID-INT] to template [ IPC00012-LON-PS-D-MPLS ]","versa-tasks.time":"2019-09-20 11:35:39.543"},{"versa-tasks.message":"Binding device variables to template [ IPC00012-LON-PS-D-MPLS ]","versa-tasks.time":"2019-09-20 11:35:39.569"},{"versa-tasks.message":"Adding post-staging configuration to controllers [NV-WC02-N5-LON, NV-WC01-N5-LON]","versa-tasks.time":"2019-09-20 11:35:39.737"},{"versa-tasks.message":"Successfully deployed device.","versa-tasks.time":"2019-09-20 11:35:40.407"}]},"versa-tasks.errormessages":"","versa-tasks.start-time":"2019-09-20 11:35:38.505","versa-tasks.end-time":"2019-09-20 11:35:40.407"}}
+2019-09-20 17:05:48,891 - CPE-18-LON-DUAL-HYBRID-INT - INFO - >>>>>>>>>> Device deployed  <<<<<<<<<<<
+2019-09-20 17:05:49,868 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - {u'versanms.sdwan-device-workflow': {u'postStagingTemplateInfo': {u'templateData': {u'device-template-variable': {u'variable-binding': {u'attrs': [{u'isAutogeneratable': False, u'name': u'{$v_LAN1_vrrp__vrrpVirtualAddress}', u'value': u'192.169.161.1'}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-2_LAN1_Unit-0__unit}', u'value': 660}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00012_NV-WC01-N5-LON_Local_auth_email_identifier__IKELIdentifier}', u'value': u'CPE-18-LON-DUAL-HYBRID-INT@colt.net'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_tvi-0-32_-_Unit_0_Static_address__tunnelStaticAddress}', u'value': u'10.10.16.18/32'}, {u'isAutogeneratable': False, u'name': u'{$v_Paired_Site__locationID}', u'value': 2217}, {u'isAutogeneratable': False, u'name': u'{$v_vni-0-2_LAN1_Unit-0__vlanId}', u'value': 660}, {u'isAutogeneratable': True, u'name': u'{$v_Chassis_Id__sitesChassisId}', u'value': u'KSA2218'}, {u'isAutogeneratable': True, u'name': u'{$v_longitude__Idlongitude}', u'value': 103.819836}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_IPC00012-Control-VR_16_Router_ID__vrRouteId}', u'value': u'20.20.16.18'}, {u'isAutogeneratable': True, u'name': u'{$v_location__IdLocation}', u'value': u'singapore'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00012_NV-WC02-N5-LON_Local_auth_email_key__IKELKey}', u'value': u'CPE-18-LON-DUAL-HYBRID-INT'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_IPC00012-Control-VR_16_Local_address__vrRouterAddress}', u'value': u'20.20.16.18'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00012_NV-WC02-N5-LON_Local_auth_email_identifier__IKELIdentifier}', u'value': u'CPE-18-LON-DUAL-HYBRID-INT@colt.net'}, {u'isAutogeneratable': False, u'name': u'{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}', u'value': u'172.16.7.171'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00012_NV-WC01-N5-LON_Local_auth_email_key__IKELKey}', u'value': u'CPE-18-LON-DUAL-HYBRID-INT'}, {u'isAutogeneratable': True, u'name': u'{$v_Site_Id__siteSiteID}', u'value': 2218}, {u'isAutogeneratable': False, u'name': u'{$v_MPLS-WAN_IPv4__staticaddress}', u'value': u'172.16.7.170/30'}, {u'isAutogeneratable': True, u'name': u'{$v_IPC00012_Site_Name__sitesSiteName}', u'value': u'CPE-18-LON-DUAL-HYBRID-INT'}, {u'isAutogeneratable': True, u'isOverwritten': True, u'name': u'{$v_tvi-0-33_-_Unit_0_Static_address__tunnelStaticAddress}', u'value': u'20.20.16.18/32'}, {u'isAutogeneratable': False, u'name': u'{$v_LAN1_IPv4__staticaddress}', u'value': u'192.169.161.2/24'}, {u'isAutogeneratable': True, u'name': u'{$v_latitude__IdLatitude}', u'value': 1.352083}, {u'isAutogeneratable': True, u'name': u'{$v_identification__IdName}', u'value': u'CPE-18-LON-DUAL-HYBRID-INT'}]}, u'template': u'IPC00012-LON-PS-D-MPLS'}, u'variableMetadata': [{u'variable': u'{$v_LAN1_vrrp__vrrpVirtualAddress}', u'type': u'IPV4', u'group': u'Others', u'overlay': False}, {u'variable': u'{$v_vni-0-2_LAN1_Unit-0__unit}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_IPC00012_NV-WC01-N5-LON_Local_auth_email_identifier__IKELIdentifier}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_tvi-0-32_-_Unit_0_Static_address__tunnelStaticAddress}', u'type': u'IPV4_IPV6_MASK', u'group': u'Interfaces', u'overlay': True}, {u'variable': u'{$v_Paired_Site__locationID}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_vni-0-2_LAN1_Unit-0__vlanId}', u'type': u'INTEGER', u'group': u'Vlan Info', u'overlay': False}, {u'variable': u'{$v_Chassis_Id__sitesChassisId}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_longitude__Idlongitude}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00012-Control-VR_16_Router_ID__vrRouteId}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': True}, {u'variable': u'{$v_location__IdLocation}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_IPC00012_NV-WC02-N5-LON_Local_auth_email_key__IKELKey}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_IPC00012-Control-VR_16_Local_address__vrRouterAddress}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': True}, {u'variable': u'{$v_IPC00012_NV-WC02-N5-LON_Local_auth_email_identifier__IKELIdentifier}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_MPLS-WAN-Transport-VR_IPv4__vrHopAddress}', u'type': u'IPV4', u'group': u'Virtual routers', u'overlay': False}, {u'variable': u'{$v_IPC00012_NV-WC01-N5-LON_Local_auth_email_key__IKELKey}', u'group': u'IPSEC', u'overlay': False}, {u'variable': u'{$v_Site_Id__siteSiteID}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_MPLS-WAN_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_IPC00012_Site_Name__sitesSiteName}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_tvi-0-33_-_Unit_0_Static_address__tunnelStaticAddress}', u'type': u'IPV4_IPV6_MASK', u'group': u'Interfaces', u'overlay': True}, {u'variable': u'{$v_LAN1_IPv4__staticaddress}', u'type': u'IPV4_MASK', u'group': u'Interfaces', u'overlay': False}, {u'variable': u'{$v_latitude__IdLatitude}', u'group': u'SDWAN', u'overlay': False}, {u'variable': u'{$v_identification__IdName}', u'group': u'SDWAN', u'overlay': False}]}, u'templateName': u'IPC00012-LON-PS-D-MPLS'}, u'deviceName': u'CPE-18-LON-DUAL-HYBRID-INT', u'workflowStatus': u'Deployed', u'deviceGroup': u'IPC00012-LON-PS-D-MPLS-DG', u'orgName': u'IPC00012', u'serialNumber': u'KSA2218', u'locationInfo': {u'latitude': 1.352083, u'country': u'singapore', u'longitude': 103.819836}, u'bandwidth': 0, u'lastUpdatedBy': u'Automated', u'siteId': 2218, u'instanceInfo': u'', u'stagingTemplateInfo': u'', u'lastModifiedTime': u'2019-09-20T11:35:40.234000+00:00', u'urlztpBasedInfo': {u'authType': u'psk', u'enableIpv4Dhcp': False, u'branchKey': u'kRTkO3bXN04R9Pao', u'branchId': u'CPE-18-LON-DUAL-HYBRID-INT@IPC00012.com', u'enableIpv6': False, u'enableIpv4': False, u'enableIpv6Dhcp': False}}}
+2019-09-20 17:05:59,618 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - <netmiko.versa.versa.VersaSSH object at 0x000000000CF9E940>
+2019-09-20 17:06:04,821 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2019-09-20 17:06:09,342 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - configure private
+Entering configuration mode private
+[ok][2019-09-20 11:36:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-20 17:06:11,542 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - True
+2019-09-20 17:06:12,548 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - set devices device NV-WC01-N5-LON config orgs org-services Colt ipsec vpn-profile MPLS-WAN-NV-WC01-N5-LON-StagingIpsec psk-auth-clients remote-client IPC00012-CPE-18-LON-DUAL-HYBRID-INT@colt.net id-type email
+[ok][2019-09-20 11:36:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-20 17:06:13,351 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - set devices device NV-WC01-N5-LON config orgs org-services Colt ipsec vpn-profile MPLS-WAN-NV-WC01-N5-LON-StagingIpsec psk-auth-clients remote-client IPC00012-CPE-18-LON-DUAL-HYBRID-INT@colt.net key CPE-18-LON-DUAL-HYBRID-INT
+[ok][2019-09-20 11:36:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2019-09-20 17:06:13,752 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - commit and-quit
+No modifications to commit.
+[ok][2019-09-20 11:36:13]
+Automated@VDir-BLR-NEW-01> 
+2019-09-20 17:06:13,752 - CPE-18-LON-DUAL-HYBRID-INT - INFO - >>>>>>>>>> Staging profile config done  <<<<<<<<<<<
+2019-09-20 17:06:13,818 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - <netmiko.versa.versa.VersaSSH object at 0x000000000CF9E940> connection closed
+2019-09-20 17:06:13,818 - CPE-18-LON-DUAL-HYBRID-INT - INFO - 
+STEP :ONBOARD CALL
+2019-09-20 17:06:13,828 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - 
+sudo /opt/versa/scripts/staging.py -w 0 -c 10.83.44.10 -s 172.16.7.170/30 -g 172.16.7.171 -l IPC00012-CPE-18-LON-DUAL-HYBRID-INT@colt.net -lk CPE-18-LON-DUAL-HYBRID-INT  -r NV-WC01-N5-LON-staging@Colt.com -rk 1234
+
+2019-09-20 17:06:17,828 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - <netmiko.linux.linux_ssh.LinuxSSH object at 0x000000000CF9E7B8>
+2019-09-20 17:06:18,230 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - [sudo] password for admin: 
+2019-09-20 17:06:18,632 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - E-18: COLT] # 
+2019-09-20 17:06:19,035 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - exit
+2019-09-20 17:06:19,236 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - linux: [admin@CPE-18: COLT] #
+2019-09-20 17:06:19,638 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - vsh allow-cli
+admin@localhost's password: 
+2019-09-20 17:06:20,040 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - 
+
+CLI now allowed
+[admin@CPE-18: COLT] # 
+2019-09-20 17:06:20,443 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - cli
+
+
+             .---.,
+            (      ``.
+       _     \        )    __      ________ _____   _____
+      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\
+       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \
+        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \
+         \    |   /           \  /  | |____| | \ \ ____) / ____ \
+          \   |  /             \/   |______|_|  \_\_____/_/    \_\
+           \  | /
+            \_|/                   _  _ ___ _______      _____  ___ _  _____
+                                  | \| | __|_   _\ \    / / _ \| _ \ |/ / __|
+                                  | .` | _|  | |  \ \/\/ / (_) |   / ' <\__ \
+                                  |_|\_|___| |_|   \_/\_/ \___/|_|_\_|\_\___/
+
+
+
+admin connected from 10.91.192.222 using ssh on CPE-18
+[?7hadmin@CPE-18-cli> 
+2019-09-20 17:06:21,046 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - request erase running-config
+Will delete the running config and restart Versa
+Services. Are you sure? [no,yes] 
+2019-09-20 17:06:30,661 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - yes
+status  Erasing config and restarting services 
+[ok][2019-09-20 11:36:04]
+admin@CPE-18-cli> 
+System message at 2019-09-20 11:36:06...
+    Subsystem stopped: acctmgrd
+admin@CPE-18-cli> 
+System message at 2019-09-20 11:36:06...
+    Subsystem stopped: eventd
+admin@CPE-18-cli> 
+System message at 2019-09-20 11:36:06...
+    Subsystem stopped: infmgr
+admin@CPE-18-cli> 
+System message at 2019-09-20 11:36:07...
+    Subsystem stopped: versa-vmod
+
+System message at 2019-09-20 11:36:07...
+    Subsystem stopped: rtd-mgmt-thread
+admin@CPE-18-cli> admin@CPE-18-cli> 
+System message at 2019-09-20 11:36:07...
+    Subsystem stopped: router-dcl
+admin@CPE-18-cli> 
+System message at 2019-09-20 11:36:07...
+    Subsystem stopped: snmp-config-hook
+admin@CPE-18-cli> 
+System message at 2019-09-20 11:36:07...
+    Subsystem stopped: snmp-config-transform
+admin@CPE-18-cli> [admin@CPE-18: COLT] # 
+2019-09-20 17:06:31,479 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - process not up. Please wait for it to come up
+2019-09-20 17:06:33,286 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - vsh status
+versa-service          is Stopped           
+versa-infmgr           is Stopped           
+versa-rfd              is Stopped           
+versa-vmod             is Stopped           
+versa-ip2user          is Stopped           
+versa-imgr             is Stopped           
+versa-acctmgrd         is Stopped           
+versa-fltrmgr          is Stopped           
+versa-vstated          is Stopped           
+versa-spack            is Stopped           
+versa-addrmgrd         is Stopped           
+versa-rt-cli-xfm       is Stopped           
+versa-rtd              is Stopped           
+versa-dhcpd            is Stopped           
+versa-eventd           is Stopped           
+versa-vrrpd            is Stopped           
+versa-dnsd             is Stopped           
+versa-ppmd             is Stopped           
+versa-snmp-xform       is Stopped           
+versa-certd            is Stopped           
+versa-ntpd             is Stopped           
+versa-dhclient6        is Stopped           
+versa-redis            is Stopped           
+versa-nodejs           is Stopped           
+versa-av-redis         is Stopped           
+versa-devmgr           is Stopped           
+versa-monit            is Stopped           
+versa-confd            is Running,          [*] process 25297
+versa-fail2ban         is Stopped           
+versa-auditd           is Stopped           
+[admin@CPE-18: COLT] # 
+2019-09-20 17:06:43,286 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - process not up. Please wait for it to come up
+2019-09-20 17:06:44,493 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - vsh status
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Netconf traffic yet to be allowed 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Stopped           
+versa-infmgr           is Stopped           
+versa-rfd              is Stopped           
+versa-vmod             is Stopped           
+versa-ip2user          is Stopped           
+versa-imgr             is Stopped           
+versa-acctmgrd         is Stopped           
+versa-fltrmgr          is Stopped           
+versa-vstated          is Stopped           
+versa-spack            is Stopped           
+versa-addrmgrd         is Stopped           
+versa-rt-cli-xfm       is Stopped           
+versa-rtd              is Stopped           
+versa-dhcpd            is Stopped           
+versa-eventd           is Stopped           
+versa-vrrpd            is Stopped           
+versa-dnsd             is Stopped           
+versa-ppmd             is Stopped           
+versa-snmp-xform       is Stopped           
+versa-certd            is Stopped           
+versa-ntpd             is Stopped           
+versa-dhclient6        is Stopped           
+versa-redis            is Stopped           
+versa-nodejs           is Stopped           
+versa-av-redis         is Stopped           
+versa-devmgr           is Stopped           
+versa-monit            is Stopped           
+versa-confd            is Running,          [*] process 31618
+versa-fail2ban         is Stopped           
+versa-auditd           is Stopped           
+[admin@CPE-18: COLT] # 
+2019-09-20 17:06:54,493 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - process not up. Please wait for it to come up
+2019-09-20 17:07:05,121 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - vsh status
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Netconf traffic yet to be allowed 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Running,          [*] process 32021
+versa-infmgr           is Running,          [-] process 32005
+versa-rfd              is Stopped           
+versa-vmod             is Stopped           
+versa-ip2user          is Stopped           
+versa-imgr             is Stopped           
+versa-acctmgrd         is Stopped           
+versa-fltrmgr          is Running,          [-] process 32034
+versa-vstated          is Running,          [-] process 32007
+versa-spack            is Stopped           
+versa-addrmgrd         is Running,          [-] process 32289
+versa-rt-cli-xfm       is Running,          [-] process 32234
+versa-rtd              is Running,          [-] process 32268
+versa-dhcpd            is Running,          [-] process 32014
+versa-eventd           is Running,          [-] process 32275
+versa-vrrpd            is Running,          [-] process 32028
+versa-dnsd             is Running,          [-] process 32030
+versa-ppmd             is Running,          [-] process 32226
+versa-snmp-xform       is Running,          [-] process 32246
+versa-certd            is Running,          [-] process 32291
+versa-ntpd             is Running,          [*] process 31997
+versa-dhclient6        is Running,          [-] process 32249
+versa-redis            is Running,          [-] process 31800
+versa-nodejs           is Running,          [-] process 32237
+versa-av-redis         is Running,          [-] process 31796
+versa-devmgr           is Running,          [-] process 32379
+versa-monit            is Running,          [*] process 32430
+versa-confd            is Running,          [*] process 31623
+versa-fail2ban         is Running,          [*] process 32574
+versa-auditd           is Running,          [*] process 32644
+[admin@CPE-18: COLT] # 
+2019-09-20 17:07:15,121 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - process not up. Please wait for it to come up
+2019-09-20 17:07:24,345 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - vsh status
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Netconf traffic yet to be allowed 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Running,          [*] process 32021
+versa-infmgr           is Running,          [-] process 32005
+versa-rfd              is Running,          [-] process 32282
+versa-vmod             is Running,          [-] process 32278
+versa-ip2user          is Running,          [-] process 32287
+versa-imgr             is Running,          [-] process 32293
+versa-acctmgrd         is Running,          [-] process 32273
+versa-fltrmgr          is Running,          [-] process 32034
+versa-vstated          is Running,          [-] process 32007
+versa-spack            is Running,          [-] process 32608
+versa-addrmgrd         is Running,          [-] process 32289
+versa-rt-cli-xfm       is Running,          [-] process 32234
+versa-rtd              is Running,          [-] process 32268
+versa-dhcpd            is Running,          [-] process 32014
+versa-eventd           is Running,          [-] process 32275
+versa-vrrpd            is Running,          [-] process 32028
+versa-dnsd             is Running,          [-] process 32030
+versa-ppmd             is Running,          [-] process 32226
+versa-snmp-xform       is Running,          [-] process 32246
+versa-certd            is Running,          [-] process 32291
+versa-ntpd             is Running,          [*] process 31997
+versa-dhclient6        is Running,          [-] process 32249
+versa-redis            is Running,          [-] process 31800
+versa-nodejs           is Running,          [-] process 32237
+versa-av-redis         is Running,          [-] process 31796
+versa-devmgr           is Running,          [-] process 32379
+versa-monit            is Running,          [*] process 32430
+versa-confd            is Running,          [*] process 31623
+versa-fail2ban         is Running,          [*] process 32574
+versa-auditd           is Running,          [*] process 32644
+[admin@CPE-18: COLT] # 
+2019-09-20 17:07:34,345 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - process not up. Please wait for it to come up
+2019-09-20 17:07:44,167 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - vsh status
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Netconf traffic yet to be allowed 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Running,          [*] process 32021
+versa-infmgr           is Running,          [-] process 32005
+versa-rfd              is Running,          [-] process 32282
+versa-vmod             is Running,          [-] process 32278
+versa-ip2user          is Running,          [-] process 32287
+versa-imgr             is Running,          [-] process 32293
+versa-acctmgrd         is Running,          [-] process 32273
+versa-fltrmgr          is Running,          [-] process 32034
+versa-vstated          is Running,          [-] process 32007
+versa-spack            is Running,          [-] process 32608
+versa-addrmgrd         is Running,          [-] process 32289
+versa-rt-cli-xfm       is Running,          [-] process 32234
+versa-rtd              is Running,          [-] process 32268
+versa-dhcpd            is Running,          [-] process 32014
+versa-eventd           is Running,          [-] process 32275
+versa-vrrpd            is Running,          [-] process 32028
+versa-dnsd             is Running,          [-] process 32030
+versa-ppmd             is Running,          [-] process 32226
+versa-snmp-xform       is Running,          [-] process 32246
+versa-certd            is Running,          [-] process 32291
+versa-ntpd             is Running,          [*] process 31997
+versa-dhclient6        is Running,          [-] process 32249
+versa-redis            is Running,          [-] process 31800
+versa-nodejs           is Running,          [-] process 32237
+versa-av-redis         is Running,          [-] process 31796
+versa-devmgr           is Running,          [-] process 32379
+versa-monit            is Running,          [*] process 32430
+versa-confd            is Running,          [*] process 31623
+versa-fail2ban         is Running,          [*] process 32574
+versa-auditd           is Running,          [*] process 32644
+[admin@CPE-18: COLT] # 
+2019-09-20 17:07:54,167 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - process not up. Please wait for it to come up
+2019-09-20 17:08:01,786 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - vsh status
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Netconf traffic yet to be allowed 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Running,          [*] process 32021
+versa-infmgr           is Running,          [-] process 32005
+versa-rfd              is Running,          [-] process 32282
+versa-vmod             is Running,          [-] process 32278
+versa-ip2user          is Running,          [-] process 32287
+versa-imgr             is Running,          [-] process 32293
+versa-acctmgrd         is Running,          [-] process 32273
+versa-fltrmgr          is Running,          [-] process 32034
+versa-vstated          is Running,          [-] process 32007
+versa-spack            is Running,          [-] process 32608
+versa-addrmgrd         is Running,          [-] process 32289
+versa-rt-cli-xfm       is Running,          [-] process 32234
+versa-rtd              is Running,          [-] process 32268
+versa-dhcpd            is Running,          [-] process 32014
+versa-eventd           is Running,          [-] process 32275
+versa-vrrpd            is Running,          [-] process 32028
+versa-dnsd             is Running,          [-] process 32030
+versa-ppmd             is Running,          [-] process 32226
+versa-snmp-xform       is Running,          [-] process 32246
+versa-certd            is Running,          [-] process 32291
+versa-ntpd             is Running,          [*] process 31997
+versa-dhclient6        is Running,          [-] process 32249
+versa-redis            is Running,          [-] process 31800
+versa-nodejs           is Running,          [-] process 32237
+versa-av-redis         is Running,          [-] process 31796
+versa-devmgr           is Running,          [-] process 32379
+versa-monit            is Running,          [*] process 32430
+versa-confd            is Running,          [-] process 764
+versa-fail2ban         is Running,          [*] process 32574
+versa-auditd           is Running,          [*] process 32644
+[admin@CPE-18: COLT] # 
+2019-09-20 17:08:11,786 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - process not up. Please wait for it to come up
+2019-09-20 17:08:18,401 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - vsh status
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Netconf traffic yet to be allowed 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Running,          [*] process 32021
+versa-infmgr           is Running,          [-] process 32005
+versa-rfd              is Running,          [-] process 32282
+versa-vmod             is Running,          [-] process 32278
+versa-ip2user          is Running,          [-] process 32287
+versa-imgr             is Running,          [-] process 32293
+versa-acctmgrd         is Running,          [-] process 32273
+versa-fltrmgr          is Running,          [-] process 32034
+versa-vstated          is Running,          [-] process 32007
+versa-spack            is Running,          [-] process 32608
+versa-addrmgrd         is Running,          [-] process 32289
+versa-rt-cli-xfm       is Running,          [-] process 32234
+versa-rtd              is Running,          [-] process 32268
+versa-dhcpd            is Running,          [-] process 32014
+versa-eventd           is Running,          [-] process 32275
+versa-vrrpd            is Running,          [-] process 32028
+versa-dnsd             is Running,          [-] process 32030
+versa-ppmd             is Running,          [-] process 32226
+versa-snmp-xform       is Running,          [-] process 32246
+versa-certd            is Running,          [-] process 32291
+versa-ntpd             is Running,          [*] process 31997
+versa-dhclient6        is Running,          [-] process 32249
+versa-redis            is Running,          [-] process 31800
+versa-nodejs           is Running,          [-] process 32237
+versa-av-redis         is Running,          [-] process 31796
+versa-devmgr           is Running,          [-] process 32379
+versa-monit            is Running,          [*] process 32430
+versa-confd            is Running,          [*] process 1281
+versa-fail2ban         is Running,          [*] process 32574
+versa-auditd           is Running,          [*] process 32644
+[admin@CPE-18: COLT] # 
+2019-09-20 17:08:28,403 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - process not up. Please wait for it to come up
+2019-09-20 17:08:34,819 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - vsh status
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Netconf traffic yet to be allowed 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Running,          [*] process 32021
+versa-infmgr           is Running,          [-] process 32005
+versa-rfd              is Running,          [-] process 32282
+versa-vmod             is Running,          [-] process 32278
+versa-ip2user          is Running,          [-] process 32287
+versa-imgr             is Running,          [-] process 32293
+versa-acctmgrd         is Running,          [-] process 32273
+versa-fltrmgr          is Running,          [-] process 32034
+versa-vstated          is Running,          [-] process 32007
+versa-spack            is Running,          [-] process 32608
+versa-addrmgrd         is Running,          [-] process 32289
+versa-rt-cli-xfm       is Running,          [-] process 32234
+versa-rtd              is Running,          [-] process 32268
+versa-dhcpd            is Running,          [-] process 32014
+versa-eventd           is Running,          [-] process 32275
+versa-vrrpd            is Running,          [-] process 32028
+versa-dnsd             is Running,          [-] process 32030
+versa-ppmd             is Running,          [-] process 32226
+versa-snmp-xform       is Running,          [-] process 32246
+versa-certd            is Running,          [-] process 32291
+versa-ntpd             is Running,          [*] process 31997
+versa-dhclient6        is Running,          [-] process 32249
+versa-redis            is Running,          [-] process 1693
+versa-nodejs           is Running,          [-] process 32237
+versa-av-redis         is Running,          [-] process 31796
+versa-devmgr           is Running,          [-] process 32379
+versa-monit            is Running,          [*] process 32430
+versa-confd            is Running,          [*] process 1530
+versa-fail2ban         is Running,          [*] process 32574
+versa-auditd           is Running,          [*] process 32644
+[admin@CPE-18: COLT] # 
+2019-09-20 17:08:44,821 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - process not up. Please wait for it to come up
+2019-09-20 17:08:50,839 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - vsh status
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Netconf traffic yet to be allowed 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Running,          [*] process 32021
+versa-infmgr           is Running,          [-] process 32005
+versa-rfd              is Running,          [-] process 32282
+versa-vmod             is Running,          [-] process 32278
+versa-ip2user          is Running,          [-] process 32287
+versa-imgr             is Running,          [-] process 32293
+versa-acctmgrd         is Running,          [-] process 32273
+versa-fltrmgr          is Running,          [-] process 32034
+versa-vstated          is Running,          [-] process 32007
+versa-spack            is Running,          [-] process 32608
+versa-addrmgrd         is Running,          [-] process 32289
+versa-rt-cli-xfm       is Running,          [-] process 32234
+versa-rtd              is Running,          [-] process 32268
+versa-dhcpd            is Running,          [-] process 32014
+versa-eventd           is Running,          [-] process 32275
+versa-vrrpd            is Running,          [-] process 32028
+versa-dnsd             is Running,          [-] process 32030
+versa-ppmd             is Running,          [-] process 32226
+versa-snmp-xform       is Running,          [-] process 32246
+versa-certd            is Running,          [-] process 32291
+versa-ntpd             is Running,          [*] process 31997
+versa-dhclient6        is Running,          [-] process 32249
+versa-redis            is Running,          [-] process 1693
+versa-nodejs           is Running,          [-] process 32237
+versa-av-redis         is Running,          [-] process 31796
+versa-devmgr           is Running,          [-] process 32379
+versa-monit            is Running,          [*] process 32430
+versa-confd            is Running,          [*] process 1829
+versa-fail2ban         is Running,          [*] process 32574
+versa-auditd           is Running,          [*] process 32644
+[admin@CPE-18: COLT] # 
+2019-09-20 17:09:00,839 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - process not up. Please wait for it to come up
+2019-09-20 17:09:05,049 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - vsh status
+versa-service          is Running,          [*] process 32021
+versa-infmgr           is Running,          [-] process 32005
+versa-rfd              is Running,          [-] process 32282
+versa-vmod             is Running,          [-] process 32278
+versa-ip2user          is Running,          [-] process 32287
+versa-imgr             is Running,          [-] process 32293
+versa-acctmgrd         is Running,          [-] process 32273
+versa-fltrmgr          is Running,          [-] process 32034
+versa-vstated          is Running,          [-] process 32007
+versa-spack            is Running,          [-] process 32608
+versa-addrmgrd         is Running,          [-] process 32289
+versa-rt-cli-xfm       is Running,          [-] process 32234
+versa-rtd              is Running,          [-] process 32268
+versa-dhcpd            is Running,          [-] process 32014
+versa-eventd           is Running,          [-] process 32275
+versa-vrrpd            is Running,          [-] process 32028
+versa-dnsd             is Running,          [-] process 32030
+versa-ppmd             is Running,          [-] process 32226
+versa-snmp-xform       is Running,          [-] process 32246
+versa-certd            is Running,          [-] process 32291
+versa-ntpd             is Running,          [*] process 31997
+versa-dhclient6        is Running,          [-] process 32249
+versa-redis            is Running,          [-] process 1693
+versa-nodejs           is Running,          [-] process 32237
+versa-av-redis         is Running,          [-] process 31796
+versa-devmgr           is Running,          [-] process 32379
+versa-monit            is Running,          [*] process 32430
+versa-confd            is Running,          [*] process 31623
+versa-fail2ban         is Running,          [*] process 32574
+versa-auditd           is Running,          [*] process 32644
+[admin@CPE-18: COLT] # 
+2019-09-20 17:09:15,052 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - After breaking while
+2019-09-20 17:09:21,065 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - versa-service          is Running,          [*] process 32021
+versa-infmgr           is Running,          [-] process 32005
+versa-rfd              is Running,          [-] process 32282
+versa-vmod             is Running,          [-] process 32278
+versa-ip2user          is Running,          [-] process 32287
+versa-imgr             is Running,          [-] process 32293
+versa-acctmgrd         is Running,          [-] process 32273
+versa-fltrmgr          is Running,          [-] process 32034
+versa-vstated          is Running,          [-] process 32007
+versa-spack            is Running,          [-] process 32608
+versa-addrmgrd         is Running,          [-] process 32289
+versa-rt-cli-xfm       is Running,          [-] process 32234
+versa-rtd              is Running,          [-] process 32268
+versa-dhcpd            is Running,          [-] process 32014
+versa-eventd           is Running,          [-] process 32275
+versa-vrrpd            is Running,          [-] process 32028
+versa-dnsd             is Running,          [-] process 32030
+versa-ppmd             is Running,          [-] process 32226
+versa-snmp-xform       is Running,          [-] process 32246
+versa-certd            is Running,          [-] process 32291
+versa-ntpd             is Running,          [*] process 31997
+versa-dhclient6        is Running,          [-] process 32249
+versa-redis            is Running,          [-] process 1693
+versa-nodejs           is Running,          [-] process 32237
+versa-av-redis         is Running,          [-] process 31796
+versa-devmgr           is Running,          [-] process 32379
+versa-monit            is Running,          [*] process 32430
+versa-confd            is Running,          [*] process 31623
+versa-fail2ban         is Running,          [*] process 32574
+versa-auditd           is Running,          [*] process 32644
+2019-09-20 17:09:21,467 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - KSA2218
+2019-09-20 17:09:22,071 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - KSA2218
+2019-09-20 17:09:22,473 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - KSA2218
+2019-09-20 17:09:22,875 - CPE-18-LON-DUAL-HYBRID-INT - DEBUG - -staging@Colt.com -rk 1234
+
+2019-09-20 17:09:43,644 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:09:43,644 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:10:44,381 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:10:44,381 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:11:45,140 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:11:45,140 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:12:45,865 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:12:45,865 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:13:46,618 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:13:46,618 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:14:47,357 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:14:47,357 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:15:48,128 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:15:48,130 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:16:48,960 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:16:48,960 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:17:49,653 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:17:49,653 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:18:50,388 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:18:50,388 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:19:51,148 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:19:51,148 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:20:51,917 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:20:51,917 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:21:52,519 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:21:52,519 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:22:53,267 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:22:53,267 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:23:54,015 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:23:54,015 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:24:54,753 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:24:54,753 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:25:55,536 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:25:55,538 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:26:56,265 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:26:56,266 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:27:56,996 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:27:56,996 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:28:57,671 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:28:57,671 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:29:58,382 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:29:58,382 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:30:59,197 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:30:59,197 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:31:59,992 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:31:59,993 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:33:00,776 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:33:00,776 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:34:01,529 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:34:01,529 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:35:02,250 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:35:02,250 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:36:03,032 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:36:03,032 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:37:03,806 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:37:03,808 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:38:04,572 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:38:04,572 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:39:05,528 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:39:05,528 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:40:06,308 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:40:06,308 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:41:07,036 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:41:07,036 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:42:07,802 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:42:07,803 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:43:08,546 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:43:08,546 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:44:09,312 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:44:09,312 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:45:10,066 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:45:10,066 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:46:10,832 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:46:10,832 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:47:11,585 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:47:11,585 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:48:12,328 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:48:12,328 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:49:13,088 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:49:13,088 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:50:13,865 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:50:13,865 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:51:14,740 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:51:14,740 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:52:15,532 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:52:15,532 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:53:16,319 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:53:16,321 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:54:17,075 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:54:17,075 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:55:17,937 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:55:17,937 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:56:18,783 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:56:18,783 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:57:19,562 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:57:19,562 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:58:20,305 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:58:20,305 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 17:59:21,085 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 17:59:21,085 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 18:00:21,826 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 18:00:21,826 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 18:01:22,569 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 18:01:22,569 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 18:02:23,451 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 18:02:23,451 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
+2019-09-20 18:03:24,236 - CPE-18-LON-DUAL-HYBRID-INT - INFO - checking device info in VD.
+2019-09-20 18:03:24,236 - CPE-18-LON-DUAL-HYBRID-INT - INFO - sleeping 60 secs
