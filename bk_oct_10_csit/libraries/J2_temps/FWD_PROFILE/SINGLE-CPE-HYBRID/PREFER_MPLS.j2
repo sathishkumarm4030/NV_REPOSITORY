@@ -1,0 +1,52 @@
+{
+  "forwarding-profile": {
+    "name": "{{ FW_PROFILE_NAME }}",
+    "encryption": "optional",
+    "connection-selection-method": "weighted-round-robin",
+    "recompute-timer": "300",
+    "sla-violation-action": "forward",
+    "load-balance": "per-flow",
+    "evaluate-continuously": "disable",
+    "turn-redirect": "disable",
+    "symmetric-forwarding": "enable",
+    "circuit-priorities": {
+      "priority": [
+        {
+          "value": "1",
+          "circuit-names": {
+            "local": [
+              "MPLS-WAN"
+            ]
+          }
+        },
+        {
+          "value": "2",
+          "circuit-names": {
+            "local": [
+              "INT-WAN"
+            ]
+          }
+        }
+      ]
+    },
+    "gradual-migration": "disable",
+    "replication": {
+      "mode": "disable"
+    },
+    "sla-dampening": {
+      "enable": false
+    },
+    "sla-smoothing": {
+      "enable": false
+    },
+    "fec": {
+      "sender": {
+        "mode": "disable"
+      },
+      "receiver": {
+        "recovery": "enable",
+        "preserve-order": "enable"
+      }
+    }
+  }
+}

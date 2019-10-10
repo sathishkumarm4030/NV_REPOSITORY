@@ -31,6 +31,7 @@ upgrade_dev_url = "/api/config/nms/actions/packages/upgrade"
 appliance_url = '/vnms/appliance/appliance?offset=0&limit=1000'
 package_url = '/api/operational/nms/packages/package?select=name;uri'
 fwd_profile_url = '/api/config/devices/device/tempdevicename/config/orgs/org-services/temporgname/sd-wan/forwarding-profiles'
+get_org_id = '/vnms/pac/vd?org-uuid'
 
 org_url = '/vnms/sdwan/workflow/orgs/org'
 headers = {'Accept': 'application/vnd.yang.data+json'}

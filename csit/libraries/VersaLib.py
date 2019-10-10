@@ -94,6 +94,8 @@ def write_result_from_dict(results):
             writer.writerow([k, v])
     print "Result stored in : " + logfile_dir + 'RESULT.csv'
 
+
+
 file_loader = FileSystemLoader(fileDir +'/csit/libraries/J2_temps/PROD_CONFIG')
 if __name__ == "__main__":
     file_loader = FileSystemLoader('./J2_temps')
@@ -172,6 +174,32 @@ class VersaLib:
         self.main_logger = self.setup_logger(device_name, 'MAIN', level=logging.DEBUG)
         self.curr_file_dir = os.path.dirname(os.path.dirname(os.path.realpath('__file__')))
         # logger.info("intialized", also_console=True)
+
+    def write_check_result_from_dict(self, results, org_name, file_name="RESULT.csv"):
+        self.file_name_with_path = logfile_dir + file_name
+        file_exists = os.path.isfile(self.file_name_with_path)
+        data_header = ['Device', 'ORG', 'Check_Result']
+        with open(self.file_name_with_path, 'ab+') as file_writer:
+            writer = csv.writer(file_writer)
+            if not file_exists:
+                writer.writerow(data_header)
+                self.main_logger.debug("Result stored in : " + self.file_name_with_path)
+            for k, v in results.items():
+                writer.writerow([k, org_name, v])
+
+    def write_result(self, results):
+        data_header = ['cpe', 'upgrade', 'interface', 'bgp_nbr_match', 'route_match', 'config_match']
+        with open(logfile_dir + 'RESULT.csv', 'w') as file_writer:
+            writer = csv.writer(file_writer)
+            writer.writerow(data_header)
+            for item in results:
+                writer.writerow(item)
+            for result1 in results:
+                self.main_logger.info("==" * 50)
+                for header, res in zip(data_header, result1):
+                    self.main_logger.info(header + ":" + res)
+                self.main_logger.info("==" * 50)
+
 
     def setup_logger(self, name, filename, level=logging.DEBUG):
         # name = self.Device_name
@@ -1378,17 +1406,20 @@ class VersaLib:
     def request_sync_from_cpe(self, net_connect, cpe):
         cmd = "request devices device " + cpe + " sync-from"
         self.main_logger.info("CMD>> : " + cmd)
-        output = net_connect.send_command_expect(cmd, strip_prompt=False, strip_command=False)
+        output = net_connect.send_command_expect(cmd, strip_prompt=False, strip_command=False, max_loops=5000)
         self.main_logger.info(output)
         return str(" result true" in output)
 
     def check_device_status(self, nc, device_name):
         if self.request_ping(nc, device_name) == "True":
             if self.request_connect(nc, device_name) == "True":
-                if self.request_sync_from_cpe(nc, device_name):
+                if self.request_check_sync(nc, device_name) == "True":
                     return "PASS"
                 else:
-                    return "VD --> CPE req sync failed"
+                    if self.request_sync_from_cpe(nc, device_name):
+                        return "PASS"
+                    else:
+                        return "VD --> CPE req sync failed"
             else:
                 return "VD --> CPE Request connect failed."
         else:
@@ -1522,6 +1553,140 @@ class VersaLib:
         self.main_logger.info("LOGS Stored in : " + logfile_dir)
         return
 
+
+    def check_functions(self, nc, csv_data_read, config_for, csv_file, template_file, type="", org_name="", **kwargs):
+        new_device_status_dict = {}
+        if "device_status_dict" in self.__dict__:
+            device_status_dict = self.device_status_dict
+        else:
+            device_status_dict = {}
+        for idx, row in csv_data_read.iterrows():
+            res_check = ""
+            dev_dict = row.to_dict()
+            # if dev_dict['ORG_NAME'] != org_name:
+            #     continue
+            if not device_status_dict.has_key(dev_dict['NAME']):
+                check_result = self.check_device_status(nc, dev_dict['NAME'])
+                if check_result == "PASS":
+                    new_device_status_dict[dev_dict['NAME']] = "Ping,connect,sync CHECK passed."
+                else:
+                    new_device_status_dict[dev_dict['NAME']] = check_result
+                    continue
+            if "WC" not in dev_dict['NAME']:
+                if device_status_dict.has_key(dev_dict['NAME']):
+                    status_dict = device_status_dict
+                else:
+                    status_dict = new_device_status_dict
+                # if status_dict[dev_dict['NAME']] == "Ping,connect,sync CHECK passed.":
+                shw_dev_bgp_nbr_br = "show devices device " + dev_dict['NAME'] + " live-status bgp neighbor brief " + dev_dict['ORG_NAME'] + "-Control-VR | tab"
+                self.main_logger.info("CMD>> : " + shw_dev_bgp_nbr_br)
+                output = nc.send_command_expect(shw_dev_bgp_nbr_br, strip_prompt=False, strip_command=False)
+                nbrs = re.findall("Established", output, re.M)
+                if len(nbrs) == 2:
+                    new_device_status_dict[dev_dict['NAME']] = "BGP nbr check passed.BGP established nbr  count:" + str(len(nbrs))
+                elif len(nbrs) < 2:
+                    new_device_status_dict[dev_dict['NAME']] = "BGP nbr check failed. BGP established nbr  count:" + str(len(nbrs))
+                self.main_logger.info(output)
+        return new_device_status_dict
+
+    def generic_config_function(self, nc, config_for, csv_file, template_file, type="", org_name="", **kwargs):
+        # global device_status_dict
+        if 'device_status_dict' not in self.__dict__:
+            self.device_status_dict = {}
+        start_time = datetime.now()
+        # self.main_logger = self.setup_logger('Versa-director', 'Config_devices_template')
+        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/PROD_CONFIG/")
+        curr_env = Environment(loader=curr_file_loader)
+        template = curr_env.get_template(template_file)
+        csv_data_read = pd.read_csv(curr_file_dir + "/DATA/" + csv_file )
+        if type != "ps":
+            csv_data_read = csv_data_read.loc[csv_data_read['ORG_NAME'] == org_name]
+        result_dict = {}
+        device_cmds = ""
+        if type == "ps":
+            for idx, row in csv_data_read.iterrows():
+                res_check = ""
+                dev_dict = row.to_dict()
+                if config_for == "ipsec_ike_transform":
+                    if dev_dict['ORG_NAME'] == org_name:
+                        device_cmds += template.render(dev_dict, IKE_TRANSFORM="aes256-sha256", IPSEC_TRANSFORM="esp-aes128-gcm")+"\n"
+                        # device_cmds += template.render(dev_dict, IKE_TRANSFORM="aes256-sha256", IPSEC_TRANSFORM="esp-aes256-sha256")+"\n"
+            self.main_logger.info(device_cmds)
+            result = self.device_config_commands_wo_split(nc, device_cmds)
+        elif type == "device_check":
+            self.device_status_dict1 = self.check_functions(nc, csv_data_read, config_for, csv_file, template_file, type, org_name)
+            self.device_status_dict.update(self.device_status_dict1)
+            for k, v in self.device_status_dict1.iteritems():
+                self.main_logger.info([k, org_name, v])
+            self.write_check_result_from_dict(self.device_status_dict1, org_name, "RESULT_" + csv_file)
+        elif type == "device":
+            # self.device_status_dict = self.check_functions(nc, csv_data_read, config_for, csv_file, template_file, type, org_name)
+            # for k, v in self.device_status_dict.iteritems():
+            #     self.main_logger.info([k, v])
+            # self.write_check_result_from_dict(self.device_status_dict)
+            # for idx, row in csv_data_read.iterrows():
+            #     res_check = ""
+            #     dev_dict = row.to_dict()
+            #     if dev_dict['ORG_NAME'] != org_name:
+            #         continue
+            #     if device_status_dict.has_key(dev_dict['NAME']):
+            #         continue
+            #     check_result = self.check_device_status(nc, dev_dict['NAME'])
+            #     if check_result == "PASS":
+            #         device_status_dict[dev_dict['NAME']] = "PASS"
+            #     else:
+            #         device_status_dict[dev_dict['NAME']] = check_result
+            #         continue
+            #     if "WC" not in dev_dict['NAME']:
+            #         if device_status_dict[dev_dict['NAME']] == "PASS":
+            #             shw_dev_bgp_nbr_br = "show devices device " + dev_dict['NAME'] + " live-status bgp neighbor brief " + dev_dict['ORG_NAME'] + "-Control-VR | tab"
+            #             self.main_logger.info("CMD>> : " + shw_dev_bgp_nbr_br)
+            #             output = nc.send_command_expect(shw_dev_bgp_nbr_br, strip_prompt=False, strip_command=False)
+            #             nbrs = re.findall("Established", output, re.M)
+            #             if len(nbrs) == 2:
+            #                 device_status_dict[dev_dict['NAME']] = "PASS. BGP established nbr  count:" + str(len(nbrs))
+            #             elif len(nbrs) < 2:
+            #                 device_status_dict[dev_dict['NAME']] = "FAIL. BGP established nbr  count:" + str(len(nbrs))
+            #             self.main_logger.info(output)
+
+            for idx, row in csv_data_read.iterrows():
+                res_check = ""
+                dev_dict = row.to_dict()
+                if config_for == "ipsec_ike_transform":
+                    if dev_dict['ORG_NAME'] == org_name:
+                        device_cmds += template.render(dev_dict, IKE_TRANSFORM="aes256-sha256", IPSEC_TRANSFORM="esp-aes128-gcm")+"\n"
+                        # device_cmds += template.render(dev_dict, IKE_TRANSFORM="aes256-sha256 ", IPSEC_TRANSFORM="esp-aes256-sha256")+"\n"
+            self.main_logger.info(device_cmds)
+            result = self.device_config_commands_wo_split(nc, device_cmds)
+            self.main_logger.info(result)
+            if "syntax error:" in result:
+                res_check += "syntax error found."
+            elif "Error: element not found" in result:
+                res_check += "element not found error."
+            # else:
+            commit_result = nc.send_command_expect("commit", \
+                                                   expect_string='%', \
+                                                   strip_prompt=False, strip_command=False, max_loops=5000)
+            self.main_logger.info(commit_result)
+            ex_result = nc.send_command_expect("exit no-confirm", expect_string=">", strip_prompt=False,
+                                                            strip_command=False, max_loops=5000)
+            self.main_logger.info(ex_result)
+            if "No modifications to commit." in commit_result:
+                res_check += "No modifications to commit."
+            elif "Commit complete." in commit_result:
+                res_check += "Commit success."
+            else:
+                res_check += "commit failed.Check log"
+            result_dict[dev_dict['ORG_NAME']] = res_check
+            # main_logger.info(result_dict)
+            self.main_logger.info("CONFIG_RESULT:")
+            for k, v in result_dict.iteritems():
+                self.main_logger.info([k , v])
+            write_result_from_dict(result_dict)
+            self.main_logger.info("Time elapsed: {}\n".format(datetime.now() - start_time))
+            self.main_logger.info("LOGS Stored in : " + logfile_dir)
+        return
+
     def get_device_list_from_vd_using_rest(self, oper_type='patch_upgrade', dev_type="", ping_status_check="no"):
         global batch, devices_list
         data1 = self.get_operation(appliance_url, headers3)
@@ -1573,7 +1738,7 @@ class VersaLib:
         return devices_list
 
     def build_csv(self, device_list):
-        with open(curr_file_dir + "/Topology/" + self.cpe_list_file_name, 'w') as file_writer1:
+        with open(curr_file_dir + "/Topology/" + self.cpe_list_file_name, 'wb') as file_writer1:
             data_header = ['NAME', 'ip', 'day', 'batch', 'type', 'softwareVersion', 'ping-status',
                            'sync-status']
             writer = csv.writer(file_writer1)
@@ -1914,6 +2079,9 @@ class VersaLib:
 def main():
     print datetime.now()
     cpe1 = VersaLib('VD1', topofile=fileDir + "/Topology/Devices.csv")
+    get_device_data = cpe1.get_operation(get_org_id, headers3)
+
+    # get_org_id
     # #
     # # cpe1.Create_Org(org_template=fileDir + "/libraries/J2_temps/org_creation_template.j2", org_data=fileDir + "/Topology/ORG_DATA.csv")
     # cpe1.Create_Org(org_template=fileDir + "/libraries/J2_temps/ORG_CREATION/org_creation_template.j2", org_data=fileDir + "/Topology/ORG_DATA.csv", org_name="JAN18")
