@@ -1,0 +1,1037 @@
+2019-10-11 14:59:55,585 - Versa_director - DEBUG - <netmiko.versa.versa.VersaSSH object at 0x000000000CF8EAC8>
+2019-10-11 15:00:00,786 - Versa_director - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2019-10-11 15:00:01,216 - Versa_director - INFO - CMD>> : request devices device CPE25-Performance-DUT ping
+2019-10-11 15:00:01,622 - Versa_director - INFO - request devices device CPE25-Performance-DUT ping
+result PING 20.20.90.25 (20.20.90.25) 56(84) bytes of data.
+64 bytes from 20.20.90.25: icmp_seq=1 ttl=61 time=11.5 ms
+
+--- 20.20.90.25 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 11.544/11.544/11.544/0.000 ms
+
+[ok][2019-10-11 09:30:01]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:01,622 - Versa_director - INFO - CMD>> : request devices device CPE25-Performance-DUT connect
+2019-10-11 15:00:02,456 - Versa_director - INFO - request devices device CPE25-Performance-DUT connect
+result true
+info (Automated) Connected to CPE25-Performance-DUT - 20.20.90.25:2022
+[ok][2019-10-11 09:30:02]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:02,456 - Versa_director - INFO - CMD>> : request devices device CPE25-Performance-DUT check-sync
+2019-10-11 15:00:03,058 - Versa_director - INFO - request devices device CPE25-Performance-DUT check-sync
+result in-sync
+[ok][2019-10-11 09:30:03]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:03,058 - Versa_director - INFO - CMD>> : show devices device CPE25-Performance-DUT live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:04,270 - Versa_director - INFO - show devices device CPE25-Performance-DUT live-status  bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     20.20.90.25  0      ipv4    0       65505   Established  5         90        1d03h41m     54612     46520        
+                     10.90.64.11  ipv4     20.20.90.25  0      ipv4    0       65505   Established  5         137       00:14:35     54753     46729        
+
+[ok][2019-10-11 09:30:04]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:04,709 - Versa_director - INFO - CMD>> : request devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 ping
+2019-10-11 15:00:05,111 - Versa_director - INFO - request devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 ping
+result PING 20.20.90.27 (20.20.90.27) 56(84) bytes of data.
+64 bytes from 20.20.90.27: icmp_seq=1 ttl=59 time=3.25 ms
+
+--- 20.20.90.27 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 3.250/3.250/3.250/0.000 ms
+
+[ok][2019-10-11 09:30:05]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:05,111 - Versa_director - INFO - CMD>> : request devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 connect
+2019-10-11 15:00:05,911 - Versa_director - INFO - request devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 connect
+result true
+info (Automated) Connected to CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 - 20.20.90.27:2022
+[ok][2019-10-11 09:30:05]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:05,911 - Versa_director - INFO - CMD>> : request devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 check-sync
+2019-10-11 15:00:06,714 - Versa_director - INFO - request devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 check-sync
+result in-sync
+[ok][2019-10-11 09:30:06]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:06,714 - Versa_director - INFO - CMD>> : show devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:08,132 - Versa_director - INFO - show devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     20.20.90.27  0      ipv4    0       65505   Established  6         73        03:44:46     85469     73433        
+                     10.90.64.17  ipv4     20.20.90.27  0      ipv4    0       65505   Established  6         161       00:14:51     85351     73440        
+
+[ok][2019-10-11 09:30:07]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:08,536 - Versa_director - INFO - CMD>> : request devices device CPE31-Performance-810 ping
+2019-10-11 15:00:09,138 - Versa_director - INFO - request devices device CPE31-Performance-810 ping
+result PING 20.20.90.31 (20.20.90.31) 56(84) bytes of data.
+64 bytes from 20.20.90.31: icmp_seq=1 ttl=61 time=5.08 ms
+
+--- 20.20.90.31 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 5.085/5.085/5.085/0.000 ms
+
+[ok][2019-10-11 09:30:08]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:09,140 - Versa_director - INFO - CMD>> : request devices device CPE31-Performance-810 connect
+2019-10-11 15:00:10,145 - Versa_director - INFO - request devices device CPE31-Performance-810 connect
+result true
+info (Automated) Connected to CPE31-Performance-810 - 20.20.90.31:2022
+[ok][2019-10-11 09:30:09]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:10,147 - Versa_director - INFO - CMD>> : request devices device CPE31-Performance-810 check-sync
+2019-10-11 15:00:10,970 - Versa_director - INFO - request devices device CPE31-Performance-810 check-sync
+result in-sync
+[ok][2019-10-11 09:30:10]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:10,970 - Versa_director - INFO - CMD>> : show devices device CPE31-Performance-810 live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:12,375 - Versa_director - INFO - show devices device CPE31-Performance-810 live-status  bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     20.20.90.31  0      ipv4    0       65505   Established  5         90        20:52:10     54305     46286        
+                     10.90.64.11  ipv4     20.20.90.31  0      ipv4    0       65505   Established  5         137       00:14:41     54634     46652        
+
+[ok][2019-10-11 09:30:12]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:12,778 - Versa_director - INFO - CMD>> : request devices device NV-GW01-N1-HKG ping
+2019-10-11 15:00:13,180 - Versa_director - INFO - request devices device NV-GW01-N1-HKG ping
+result PING 10.83.44.37 (10.83.44.37) 56(84) bytes of data.
+64 bytes from 10.83.44.37: icmp_seq=1 ttl=63 time=0.430 ms
+
+--- 10.83.44.37 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.430/0.430/0.430/0.000 ms
+
+[ok][2019-10-11 09:30:13]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:13,180 - Versa_director - INFO - CMD>> : request devices device NV-GW01-N1-HKG connect
+2019-10-11 15:00:13,789 - Versa_director - INFO - request devices device NV-GW01-N1-HKG connect
+result true
+info (Automated) Connected to NV-GW01-N1-HKG - 10.83.44.37:2022
+[ok][2019-10-11 09:30:13]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:13,789 - Versa_director - INFO - CMD>> : request devices device NV-GW01-N1-HKG check-sync
+2019-10-11 15:00:14,391 - Versa_director - INFO - request devices device NV-GW01-N1-HKG check-sync
+result in-sync
+[ok][2019-10-11 09:30:14]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:14,392 - Versa_director - INFO - CMD>> : show devices device NV-GW01-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:16,000 - Versa_director - INFO - show devices device NV-GW01-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     0.0.0.0  0      ipv4    0       65505   Established  38        27        08:51:00     122039    103428       
+                     10.90.64.11  ipv4     0.0.0.0  0      ipv4    0       65505   Established  38        69        00:15:50     123223    104225       
+
+[ok][2019-10-11 09:30:15]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:16,424 - Versa_director - INFO - CMD>> : request devices device NV-GW01-N6-SIN ping
+2019-10-11 15:00:16,825 - Versa_director - INFO - request devices device NV-GW01-N6-SIN ping
+result PING 10.83.46.135 (10.83.46.135) 56(84) bytes of data.
+64 bytes from 10.83.46.135: icmp_seq=1 ttl=63 time=0.442 ms
+
+--- 10.83.46.135 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.442/0.442/0.442/0.000 ms
+
+[ok][2019-10-11 09:30:16]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:16,825 - Versa_director - INFO - CMD>> : request devices device NV-GW01-N6-SIN connect
+2019-10-11 15:00:17,441 - Versa_director - INFO - request devices device NV-GW01-N6-SIN connect
+result true
+info (Automated) Connected to NV-GW01-N6-SIN - 10.83.46.135:2022
+[ok][2019-10-11 09:30:17]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:17,443 - Versa_director - INFO - CMD>> : request devices device NV-GW01-N6-SIN check-sync
+2019-10-11 15:00:18,045 - Versa_director - INFO - request devices device NV-GW01-N6-SIN check-sync
+result in-sync
+[ok][2019-10-11 09:30:18]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:18,046 - Versa_director - INFO - CMD>> : show devices device NV-GW01-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:19,466 - Versa_director - INFO - show devices device NV-GW01-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        23        3d21h33m     249364    218234       
+                     10.90.64.17  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        79        00:15:22     224508    209716       
+
+[ok][2019-10-11 09:30:19]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:19,881 - Versa_director - INFO - CMD>> : request devices device NV-GW02-N1-HKG ping
+2019-10-11 15:00:20,283 - Versa_director - INFO - request devices device NV-GW02-N1-HKG ping
+result PING 10.83.44.60 (10.83.44.60) 56(84) bytes of data.
+64 bytes from 10.83.44.60: icmp_seq=1 ttl=63 time=1.10 ms
+
+--- 10.83.44.60 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 1.100/1.100/1.100/0.000 ms
+
+[ok][2019-10-11 09:30:20]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:20,283 - Versa_director - INFO - CMD>> : request devices device NV-GW02-N1-HKG connect
+2019-10-11 15:00:20,885 - Versa_director - INFO - request devices device NV-GW02-N1-HKG connect
+result true
+info (Automated) Connected to NV-GW02-N1-HKG - 10.83.44.60:2022
+[ok][2019-10-11 09:30:20]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:20,887 - Versa_director - INFO - CMD>> : request devices device NV-GW02-N1-HKG check-sync
+2019-10-11 15:00:21,487 - Versa_director - INFO - request devices device NV-GW02-N1-HKG check-sync
+result in-sync
+[ok][2019-10-11 09:30:21]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:21,489 - Versa_director - INFO - CMD>> : show devices device NV-GW02-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:22,904 - Versa_director - INFO - show devices device NV-GW02-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        27        20:17:00     183117    162357       
+                     10.90.64.11  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        69        00:15:57     196731    174190       
+
+[ok][2019-10-11 09:30:22]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:23,305 - Versa_director - INFO - CMD>> : request devices device NV-GW02-N6-SIN ping
+2019-10-11 15:00:23,707 - Versa_director - INFO - request devices device NV-GW02-N6-SIN ping
+result PING 10.63.46.133 (10.63.46.133) 56(84) bytes of data.
+64 bytes from 10.63.46.133: icmp_seq=1 ttl=61 time=0.633 ms
+
+--- 10.63.46.133 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.633/0.633/0.633/0.000 ms
+
+[ok][2019-10-11 09:30:23]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:23,707 - Versa_director - INFO - CMD>> : request devices device NV-GW02-N6-SIN connect
+2019-10-11 15:00:24,311 - Versa_director - INFO - request devices device NV-GW02-N6-SIN connect
+result true
+info (Automated) Connected to NV-GW02-N6-SIN - 10.63.46.133:2022
+[ok][2019-10-11 09:30:24]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:24,312 - Versa_director - INFO - CMD>> : request devices device NV-GW02-N6-SIN check-sync
+2019-10-11 15:00:24,913 - Versa_director - INFO - request devices device NV-GW02-N6-SIN check-sync
+result in-sync
+[ok][2019-10-11 09:30:24]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:24,913 - Versa_director - INFO - CMD>> : show devices device NV-GW02-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:26,155 - Versa_director - INFO - show devices device NV-GW02-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        23        6d19h09m     241058    212041       
+                     10.90.64.17  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        79        00:15:27     215812    202744       
+
+[ok][2019-10-11 09:30:26]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:26,558 - Versa_director - INFO - CMD>> : request devices device NV-WC02-N1-HKG ping
+2019-10-11 15:00:26,959 - Versa_director - INFO - request devices device NV-WC02-N1-HKG ping
+result PING 10.83.44.62 (10.83.44.62) 56(84) bytes of data.
+64 bytes from 10.83.44.62: icmp_seq=1 ttl=63 time=0.516 ms
+
+--- 10.83.44.62 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.516/0.516/0.516/0.000 ms
+
+[ok][2019-10-11 09:30:26]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:26,960 - Versa_director - INFO - CMD>> : request devices device NV-WC02-N1-HKG connect
+2019-10-11 15:00:27,763 - Versa_director - INFO - request devices device NV-WC02-N1-HKG connect
+result true
+info (Automated) Connected to NV-WC02-N1-HKG - 10.83.44.62:2022
+[ok][2019-10-11 09:30:27]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:27,763 - Versa_director - INFO - CMD>> : request devices device NV-WC02-N1-HKG check-sync
+2019-10-11 15:00:28,365 - Versa_director - INFO - request devices device NV-WC02-N1-HKG check-sync
+result in-sync
+[ok][2019-10-11 09:30:28]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:28,779 - Versa_director - INFO - CMD>> : request devices device NV-WC02-N1-HKG ping
+2019-10-11 15:00:29,403 - Versa_director - INFO - request devices device NV-WC02-N1-HKG ping
+result PING 10.83.44.62 (10.83.44.62) 56(84) bytes of data.
+64 bytes from 10.83.44.62: icmp_seq=1 ttl=63 time=0.472 ms
+
+--- 10.83.44.62 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.472/0.472/0.472/0.000 ms
+
+[ok][2019-10-11 09:30:29]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:29,404 - Versa_director - INFO - CMD>> : request devices device NV-WC02-N1-HKG connect
+2019-10-11 15:00:30,006 - Versa_director - INFO - request devices device NV-WC02-N1-HKG connect
+result true
+info (Automated) Connected to NV-WC02-N1-HKG - 10.83.44.62:2022
+[ok][2019-10-11 09:30:29]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:30,006 - Versa_director - INFO - CMD>> : request devices device NV-WC02-N1-HKG check-sync
+2019-10-11 15:00:30,608 - Versa_director - INFO - request devices device NV-WC02-N1-HKG check-sync
+result in-sync
+[ok][2019-10-11 09:30:30]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:31,013 - Versa_director - INFO - CMD>> : request devices device NV-WC02-N6-SIN ping
+2019-10-11 15:00:31,415 - Versa_director - INFO - request devices device NV-WC02-N6-SIN ping
+result PING 10.63.46.132 (10.63.46.132) 56(84) bytes of data.
+64 bytes from 10.63.46.132: icmp_seq=1 ttl=61 time=0.607 ms
+
+--- 10.63.46.132 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.607/0.607/0.607/0.000 ms
+
+[ok][2019-10-11 09:30:31]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:31,415 - Versa_director - INFO - CMD>> : request devices device NV-WC02-N6-SIN connect
+2019-10-11 15:00:32,032 - Versa_director - INFO - request devices device NV-WC02-N6-SIN connect
+result true
+info (Automated) Connected to NV-WC02-N6-SIN - 10.63.46.132:2022
+[ok][2019-10-11 09:30:31]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:32,032 - Versa_director - INFO - CMD>> : request devices device NV-WC02-N6-SIN check-sync
+2019-10-11 15:00:32,650 - Versa_director - INFO - request devices device NV-WC02-N6-SIN check-sync
+result in-sync
+[ok][2019-10-11 09:30:32]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:32,651 - Versa_director - INFO - CMD>> : show devices device CPE25-Performance-DUT live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:33,855 - Versa_director - INFO - show devices device CPE25-Performance-DUT live-status  bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     20.20.90.25  0      ipv4    0       65505   Established  5         90        1d03h41m     54613     46521        
+                     10.90.64.11  ipv4     20.20.90.25  0      ipv4    0       65505   Established  5         137       00:15:04     54754     46731        
+
+[ok][2019-10-11 09:30:33]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:33,857 - Versa_director - INFO - CMD>> : show devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:35,073 - Versa_director - INFO - show devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     20.20.90.27  0      ipv4    0       65505   Established  6         73        03:45:13     85470     73434        
+                     10.90.64.17  ipv4     20.20.90.27  0      ipv4    0       65505   Established  6         161       00:15:18     85352     73441        
+
+[ok][2019-10-11 09:30:35]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:35,073 - Versa_director - INFO - CMD>> : show devices device CPE31-Performance-810 live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:36,278 - Versa_director - INFO - show devices device CPE31-Performance-810 live-status  bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     20.20.90.31  0      ipv4    0       65505   Established  5         90        20:52:34     54306     46286        
+                     10.90.64.11  ipv4     20.20.90.31  0      ipv4    0       65505   Established  5         137       00:15:05     54635     46653        
+
+[ok][2019-10-11 09:30:36]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:36,278 - Versa_director - INFO - CMD>> : show devices device NV-GW01-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:37,710 - Versa_director - INFO - show devices device NV-GW01-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     0.0.0.0  0      ipv4    0       65505   Established  38        27        08:51:22     122040    103429       
+                     10.90.64.11  ipv4     0.0.0.0  0      ipv4    0       65505   Established  38        69        00:16:12     123224    104226       
+
+[ok][2019-10-11 09:30:37]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:37,710 - Versa_director - INFO - CMD>> : show devices device NV-GW01-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:38,911 - Versa_director - INFO - show devices device NV-GW01-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        23        3d21h33m     249365    218235       
+                     10.90.64.17  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        79        00:15:41     224509    209717       
+
+[ok][2019-10-11 09:30:38]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:38,913 - Versa_director - INFO - CMD>> : show devices device NV-GW02-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:40,316 - Versa_director - INFO - show devices device NV-GW02-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        27        20:17:18     183117    162358       
+                     10.90.64.11  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        69        00:16:15     196731    174191       
+
+[ok][2019-10-11 09:30:40]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:40,318 - Versa_director - INFO - CMD>> : show devices device NV-GW02-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:41,546 - Versa_director - INFO - show devices device NV-GW02-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        23        6d19h09m     241059    212041       
+                     10.90.64.17  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        79        00:15:42     215812    202745       
+
+[ok][2019-10-11 09:30:41]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:41,549 - Versa_director - INFO - CMD>> : show devices device CPE25-Performance-DUT live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:42,753 - Versa_director - INFO - show devices device CPE25-Performance-DUT live-status  bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     20.20.90.25  0      ipv4    0       65505   Established  5         90        1d03h41m     54613     46521        
+                     10.90.64.11  ipv4     20.20.90.25  0      ipv4    0       65505   Established  5         137       00:15:13     54754     46731        
+
+[ok][2019-10-11 09:30:42]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:42,753 - Versa_director - INFO - CMD>> : show devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:44,164 - Versa_director - INFO - show devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     20.20.90.27  0      ipv4    0       65505   Established  6         73        03:45:22     85470     73434        
+                     10.90.64.17  ipv4     20.20.90.27  0      ipv4    0       65505   Established  6         161       00:15:27     85352     73442        
+
+[ok][2019-10-11 09:30:43]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:44,165 - Versa_director - INFO - CMD>> : show devices device CPE31-Performance-810 live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:45,571 - Versa_director - INFO - show devices device CPE31-Performance-810 live-status  bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     20.20.90.31  0      ipv4    0       65505   Established  5         90        20:52:43     54306     46287        
+                     10.90.64.11  ipv4     20.20.90.31  0      ipv4    0       65505   Established  5         137       00:15:14     54635     46654        
+
+[ok][2019-10-11 09:30:45]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:45,572 - Versa_director - INFO - CMD>> : show devices device NV-GW01-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:46,989 - Versa_director - INFO - show devices device NV-GW01-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     0.0.0.0  0      ipv4    0       65505   Established  38        27        08:51:31     122040    103429       
+                     10.90.64.11  ipv4     0.0.0.0  0      ipv4    0       65505   Established  38        69        00:16:21     123225    104226       
+
+[ok][2019-10-11 09:30:46]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:46,990 - Versa_director - INFO - CMD>> : show devices device NV-GW01-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:48,194 - Versa_director - INFO - show devices device NV-GW01-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        23        3d21h33m     249365    218235       
+                     10.90.64.17  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        79        00:15:50     224509    209717       
+
+[ok][2019-10-11 09:30:48]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:48,194 - Versa_director - INFO - CMD>> : show devices device NV-GW02-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:49,609 - Versa_director - INFO - show devices device NV-GW02-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        27        20:17:27     183118    162358       
+                     10.90.64.11  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        69        00:16:24     196732    174191       
+
+[ok][2019-10-11 09:30:49]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:49,609 - Versa_director - INFO - CMD>> : show devices device NV-GW02-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:50,845 - Versa_director - INFO - show devices device NV-GW02-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        23        6d19h09m     241059    212042       
+                     10.90.64.17  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        79        00:15:52     215813    202745       
+
+[ok][2019-10-11 09:30:50]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:50,848 - Versa_director - INFO - CMD>> : show devices device CPE25-Performance-DUT live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:52,052 - Versa_director - INFO - show devices device CPE25-Performance-DUT live-status  bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     20.20.90.25  0      ipv4    0       65505   Established  5         90        1d03h41m     54613     46522        
+                     10.90.64.11  ipv4     20.20.90.25  0      ipv4    0       65505   Established  5         137       00:15:22     54755     46731        
+
+[ok][2019-10-11 09:30:52]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:52,053 - Versa_director - INFO - CMD>> : show devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:53,480 - Versa_director - INFO - show devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     20.20.90.27  0      ipv4    0       65505   Established  6         73        03:45:31     85470     73435        
+                     10.90.64.17  ipv4     20.20.90.27  0      ipv4    0       65505   Established  6         161       00:15:37     85353     73442        
+
+[ok][2019-10-11 09:30:53]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:53,480 - Versa_director - INFO - CMD>> : show devices device CPE31-Performance-810 live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:54,684 - Versa_director - INFO - show devices device CPE31-Performance-810 live-status  bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     20.20.90.31  0      ipv4    0       65505   Established  5         90        20:52:52     54306     46287        
+                     10.90.64.11  ipv4     20.20.90.31  0      ipv4    0       65505   Established  5         137       00:15:23     54636     46654        
+
+[ok][2019-10-11 09:30:54]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:54,684 - Versa_director - INFO - CMD>> : show devices device NV-GW01-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:56,299 - Versa_director - INFO - show devices device NV-GW01-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     0.0.0.0  0      ipv4    0       65505   Established  38        27        08:51:40     122041    103430       
+                     10.90.64.11  ipv4     0.0.0.0  0      ipv4    0       65505   Established  38        69        00:16:30     123225    104226       
+
+[ok][2019-10-11 09:30:56]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:56,302 - Versa_director - INFO - CMD>> : show devices device NV-GW01-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:57,506 - Versa_director - INFO - show devices device NV-GW01-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        23        3d21h33m     249365    218236       
+                     10.90.64.17  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        79        00:16:00     224510    209717       
+
+[ok][2019-10-11 09:30:57]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:57,506 - Versa_director - INFO - CMD>> : show devices device NV-GW02-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:00:58,910 - Versa_director - INFO - show devices device NV-GW02-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        27        20:17:36     183118    162359       
+                     10.90.64.11  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        69        00:16:33     196732    174191       
+
+[ok][2019-10-11 09:30:58]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:00:58,910 - Versa_director - INFO - CMD>> : show devices device NV-GW02-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:00,127 - Versa_director - INFO - show devices device NV-GW02-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        23        6d19h09m     241059    212042       
+                     10.90.64.17  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        79        00:16:01     215813    202746       
+
+[ok][2019-10-11 09:31:00]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:00,130 - Versa_director - INFO - CMD>> : show devices device CPE25-Performance-DUT live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:01,335 - Versa_director - INFO - show devices device CPE25-Performance-DUT live-status  bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     20.20.90.25  0      ipv4    0       65505   Established  5         90        1d03h42m     54614     46522        
+                     10.90.64.11  ipv4     20.20.90.25  0      ipv4    0       65505   Established  5         137       00:15:32     54755     46732        
+
+[ok][2019-10-11 09:31:01]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:01,336 - Versa_director - INFO - CMD>> : show devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:02,779 - Versa_director - INFO - show devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     20.20.90.27  0      ipv4    0       65505   Established  6         73        03:45:40     85471     73435        
+                     10.90.64.17  ipv4     20.20.90.27  0      ipv4    0       65505   Established  6         161       00:15:46     85353     73442        
+
+[ok][2019-10-11 09:31:02]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:02,779 - Versa_director - INFO - CMD>> : show devices device CPE31-Performance-810 live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:04,184 - Versa_director - INFO - show devices device CPE31-Performance-810 live-status  bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     20.20.90.31  0      ipv4    0       65505   Established  5         90        20:53:01     54307     46287        
+                     10.90.64.11  ipv4     20.20.90.31  0      ipv4    0       65505   Established  5         137       00:15:33     54636     46654        
+
+[ok][2019-10-11 09:31:04]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:04,184 - Versa_director - INFO - CMD>> : show devices device NV-GW01-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:06,013 - Versa_director - INFO - show devices device NV-GW01-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     0.0.0.0  0      ipv4    0       65505   Established  38        27        08:51:50     122041    103430       
+                     10.90.64.11  ipv4     0.0.0.0  0      ipv4    0       65505   Established  38        69        00:16:40     123225    104227       
+
+[ok][2019-10-11 09:31:06]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:06,013 - Versa_director - INFO - CMD>> : show devices device NV-GW01-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:07,217 - Versa_director - INFO - show devices device NV-GW01-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        23        3d21h33m     249366    218236       
+                     10.90.64.17  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        79        00:16:10     224510    209718       
+
+[ok][2019-10-11 09:31:07]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:07,219 - Versa_director - INFO - CMD>> : show devices device NV-GW02-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:08,622 - Versa_director - INFO - show devices device NV-GW02-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        27        20:17:46     183118    162359       
+                     10.90.64.11  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        69        00:16:43     196733    174192       
+
+[ok][2019-10-11 09:31:08]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:08,624 - Versa_director - INFO - CMD>> : show devices device NV-GW02-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:10,028 - Versa_director - INFO - show devices device NV-GW02-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        23        6d19h10m     241060    212042       
+                     10.90.64.17  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        79        00:16:11     215813    202746       
+
+[ok][2019-10-11 09:31:09]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:10,029 - Versa_director - INFO - CMD>> : show devices device CPE25-Performance-DUT live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:11,259 - Versa_director - INFO - show devices device CPE25-Performance-DUT live-status  bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     20.20.90.25  0      ipv4    0       65505   Established  5         90        1d03h42m     54614     46523        
+                     10.90.64.11  ipv4     20.20.90.25  0      ipv4    0       65505   Established  5         137       00:15:42     54755     46732        
+
+[ok][2019-10-11 09:31:11]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:11,260 - Versa_director - INFO - CMD>> : show devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:12,667 - Versa_director - INFO - show devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     20.20.90.27  0      ipv4    0       65505   Established  6         73        03:45:50     85471     73435        
+                     10.90.64.17  ipv4     20.20.90.27  0      ipv4    0       65505   Established  6         161       00:15:56     85354     73443        
+
+[ok][2019-10-11 09:31:12]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:12,668 - Versa_director - INFO - CMD>> : show devices device CPE31-Performance-810 live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:14,079 - Versa_director - INFO - show devices device CPE31-Performance-810 live-status  bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     20.20.90.31  0      ipv4    0       65505   Established  5         90        20:53:11     54307     46288        
+                     10.90.64.11  ipv4     20.20.90.31  0      ipv4    0       65505   Established  5         137       00:15:43     54636     46655        
+
+[ok][2019-10-11 09:31:13]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:14,079 - Versa_director - INFO - CMD>> : show devices device NV-GW01-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:16,086 - Versa_director - INFO - show devices device NV-GW01-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     0.0.0.0  0      ipv4    0       65505   Established  38        27        08:52:00     122041    103430       
+                     10.90.64.11  ipv4     0.0.0.0  0      ipv4    0       65505   Established  38        69        00:16:50     123226    104227       
+
+[ok][2019-10-11 09:31:15]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:16,088 - Versa_director - INFO - CMD>> : show devices device NV-GW01-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:17,299 - Versa_director - INFO - show devices device NV-GW01-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        23        3d21h34m     249366    218237       
+                     10.90.64.17  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        79        00:16:20     224511    209718       
+
+[ok][2019-10-11 09:31:17]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:17,299 - Versa_director - INFO - CMD>> : show devices device NV-GW02-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:18,720 - Versa_director - INFO - show devices device NV-GW02-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        27        20:17:56     183119    162359       
+                     10.90.64.11  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        69        00:16:53     196733    174192       
+
+[ok][2019-10-11 09:31:18]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:18,720 - Versa_director - INFO - CMD>> : show devices device NV-GW02-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:20,134 - Versa_director - INFO - show devices device NV-GW02-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        23        6d19h10m     241060    212043       
+                     10.90.64.17  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        79        00:16:21     215814    202746       
+
+[ok][2019-10-11 09:31:20]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:20,140 - Versa_director - INFO - CMD>> : show devices device CPE25-Performance-DUT live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:21,345 - Versa_director - INFO - show devices device CPE25-Performance-DUT live-status  bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     20.20.90.25  0      ipv4    0       65505   Established  5         90        1d03h42m     54614     46523        
+                     10.90.64.11  ipv4     20.20.90.25  0      ipv4    0       65505   Established  5         137       00:15:52     54756     46732        
+
+[ok][2019-10-11 09:31:21]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:21,346 - Versa_director - INFO - CMD>> : show devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:22,573 - Versa_director - INFO - show devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     20.20.90.27  0      ipv4    0       65505   Established  6         73        03:46:00     85471     73436        
+                     10.90.64.17  ipv4     20.20.90.27  0      ipv4    0       65505   Established  6         161       00:16:06     85354     73443        
+
+[ok][2019-10-11 09:31:22]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:22,573 - Versa_director - INFO - CMD>> : show devices device CPE31-Performance-810 live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:23,992 - Versa_director - INFO - show devices device CPE31-Performance-810 live-status  bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     20.20.90.31  0      ipv4    0       65505   Established  5         90        20:53:21     54307     46288        
+                     10.90.64.11  ipv4     20.20.90.31  0      ipv4    0       65505   Established  5         137       00:15:53     54637     46655        
+
+[ok][2019-10-11 09:31:23]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:23,992 - Versa_director - INFO - CMD>> : show devices device NV-GW01-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:25,608 - Versa_director - INFO - show devices device NV-GW01-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     0.0.0.0  0      ipv4    0       65505   Established  38        27        08:52:10     122042    103431       
+                     10.90.64.11  ipv4     0.0.0.0  0      ipv4    0       65505   Established  38        69        00:17:00     123226    104228       
+
+[ok][2019-10-11 09:31:25]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:25,608 - Versa_director - INFO - CMD>> : show devices device NV-GW01-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:27,026 - Versa_director - INFO - show devices device NV-GW01-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        23        3d21h34m     249366    218237       
+                     10.90.64.17  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        79        00:16:29     224511    209718       
+
+[ok][2019-10-11 09:31:26]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:27,028 - Versa_director - INFO - CMD>> : show devices device NV-GW02-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:28,444 - Versa_director - INFO - show devices device NV-GW02-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        27        20:18:06     183119    162360       
+                     10.90.64.11  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        69        00:17:03     196733    174193       
+
+[ok][2019-10-11 09:31:28]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:28,444 - Versa_director - INFO - CMD>> : show devices device NV-GW02-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:29,648 - Versa_director - INFO - show devices device NV-GW02-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        23        6d19h10m     241060    212043       
+                     10.90.64.17  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        79        00:16:30     215814    202747       
+
+[ok][2019-10-11 09:31:29]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:29,651 - Versa_director - INFO - CMD>> : show devices device CPE25-Performance-DUT live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:31,058 - Versa_director - INFO - show devices device CPE25-Performance-DUT live-status  bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     20.20.90.25  0      ipv4    0       65505   Established  5         90        1d03h42m     54615     46523        
+                     10.90.64.11  ipv4     20.20.90.25  0      ipv4    0       65505   Established  5         137       00:16:01     54756     46733        
+
+[ok][2019-10-11 09:31:30]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:31,059 - Versa_director - INFO - CMD>> : show devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:32,487 - Versa_director - INFO - show devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     20.20.90.27  0      ipv4    0       65505   Established  6         73        03:46:10     85472     73436        
+                     10.90.64.17  ipv4     20.20.90.27  0      ipv4    0       65505   Established  6         161       00:16:16     85354     73443        
+
+[ok][2019-10-11 09:31:32]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:32,489 - Versa_director - INFO - CMD>> : show devices device CPE31-Performance-810 live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:33,694 - Versa_director - INFO - show devices device CPE31-Performance-810 live-status  bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     20.20.90.31  0      ipv4    0       65505   Established  5         90        20:53:31     54308     46289        
+                     10.90.64.11  ipv4     20.20.90.31  0      ipv4    0       65505   Established  5         137       00:16:02     54637     46656        
+
+[ok][2019-10-11 09:31:33]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:33,696 - Versa_director - INFO - CMD>> : show devices device NV-GW01-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:34,921 - Versa_director - INFO - show devices device NV-GW01-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     0.0.0.0  0      ipv4    0       65505   Established  38        27        08:52:19     122042    103431       
+                     10.90.64.11  ipv4     0.0.0.0  0      ipv4    0       65505   Established  38        69        00:17:09     123226    104228       
+
+[ok][2019-10-11 09:31:34]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:34,921 - Versa_director - INFO - CMD>> : show devices device NV-GW01-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:36,138 - Versa_director - INFO - show devices device NV-GW01-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        23        3d21h34m     249367    218237       
+                     10.90.64.17  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        79        00:16:38     224511    209719       
+
+[ok][2019-10-11 09:31:36]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:36,140 - Versa_director - INFO - CMD>> : show devices device NV-GW02-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:37,559 - Versa_director - INFO - show devices device NV-GW02-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        27        20:18:15     183120    162360       
+                     10.90.64.11  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        69        00:17:12     196733    174193       
+
+[ok][2019-10-11 09:31:37]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:37,562 - Versa_director - INFO - CMD>> : show devices device NV-GW02-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:38,966 - Versa_director - INFO - show devices device NV-GW02-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        23        6d19h10m     241061    212043       
+                     10.90.64.17  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        79        00:16:39     215815    202747       
+
+[ok][2019-10-11 09:31:38]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:38,967 - Versa_director - INFO - CMD>> : show devices device CPE25-Performance-DUT live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:40,173 - Versa_director - INFO - show devices device CPE25-Performance-DUT live-status  bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     20.20.90.25  0      ipv4    0       65505   Established  5         90        1d03h42m     54615     46524        
+                     10.90.64.11  ipv4     20.20.90.25  0      ipv4    0       65505   Established  5         137       00:16:11     54757     46733        
+
+[ok][2019-10-11 09:31:40]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:40,174 - Versa_director - INFO - CMD>> : show devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:41,413 - Versa_director - INFO - show devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     20.20.90.27  0      ipv4    0       65505   Established  6         73        03:46:19     85472     73436        
+                     10.90.64.17  ipv4     20.20.90.27  0      ipv4    0       65505   Established  6         161       00:16:25     85355     73444        
+
+[ok][2019-10-11 09:31:41]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:41,414 - Versa_director - INFO - CMD>> : show devices device CPE31-Performance-810 live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:42,618 - Versa_director - INFO - show devices device CPE31-Performance-810 live-status  bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     20.20.90.31  0      ipv4    0       65505   Established  5         90        20:53:40     54308     46289        
+                     10.90.64.11  ipv4     20.20.90.31  0      ipv4    0       65505   Established  5         137       00:16:11     54637     46656        
+
+[ok][2019-10-11 09:31:42]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:42,618 - Versa_director - INFO - CMD>> : show devices device NV-GW01-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:44,033 - Versa_director - INFO - show devices device NV-GW01-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     0.0.0.0  0      ipv4    0       65505   Established  38        27        08:52:28     122043    103432       
+                     10.90.64.11  ipv4     0.0.0.0  0      ipv4    0       65505   Established  38        69        00:17:18     123227    104228       
+
+[ok][2019-10-11 09:31:44]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:44,033 - Versa_director - INFO - CMD>> : show devices device NV-GW01-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:45,236 - Versa_director - INFO - show devices device NV-GW01-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        23        3d21h34m     249367    218238       
+                     10.90.64.17  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        79        00:16:48     224512    209719       
+
+[ok][2019-10-11 09:31:45]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:45,239 - Versa_director - INFO - CMD>> : show devices device NV-GW02-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:46,443 - Versa_director - INFO - show devices device NV-GW02-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        27        20:18:24     183120    162361       
+                     10.90.64.11  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        69        00:17:21     196734    174193       
+
+[ok][2019-10-11 09:31:46]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:46,444 - Versa_director - INFO - CMD>> : show devices device NV-GW02-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:47,671 - Versa_director - INFO - show devices device NV-GW02-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        23        6d19h10m     241061    212044       
+                     10.90.64.17  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        79        00:16:48     215815    202747       
+
+[ok][2019-10-11 09:31:47]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:47,674 - Versa_director - INFO - CMD>> : show devices device CPE25-Performance-DUT live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:48,878 - Versa_director - INFO - show devices device CPE25-Performance-DUT live-status  bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     20.20.90.25  0      ipv4    0       65505   Established  5         90        1d03h42m     54615     46524        
+                     10.90.64.11  ipv4     20.20.90.25  0      ipv4    0       65505   Established  5         137       00:16:19     54757     46733        
+
+[ok][2019-10-11 09:31:48]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:48,880 - Versa_director - INFO - CMD>> : show devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:50,109 - Versa_director - INFO - show devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     20.20.90.27  0      ipv4    0       65505   Established  6         73        03:46:28     85472     73437        
+                     10.90.64.17  ipv4     20.20.90.27  0      ipv4    0       65505   Established  6         161       00:16:33     85355     73444        
+
+[ok][2019-10-11 09:31:50]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:50,109 - Versa_director - INFO - CMD>> : show devices device CPE31-Performance-810 live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:51,515 - Versa_director - INFO - show devices device CPE31-Performance-810 live-status  bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     20.20.90.31  0      ipv4    0       65505   Established  5         90        20:53:49     54308     46289        
+                     10.90.64.11  ipv4     20.20.90.31  0      ipv4    0       65505   Established  5         137       00:16:20     54638     46656        
+
+[ok][2019-10-11 09:31:51]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:51,516 - Versa_director - INFO - CMD>> : show devices device NV-GW01-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:52,729 - Versa_director - INFO - show devices device NV-GW01-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     0.0.0.0  0      ipv4    0       65505   Established  38        27        08:52:37     122043    103432       
+                     10.90.64.11  ipv4     0.0.0.0  0      ipv4    0       65505   Established  38        69        00:17:27     123227    104229       
+
+[ok][2019-10-11 09:31:52]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:52,729 - Versa_director - INFO - CMD>> : show devices device NV-GW01-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:53,947 - Versa_director - INFO - show devices device NV-GW01-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        23        3d21h34m     249368    218238       
+                     10.90.64.17  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        79        00:16:56     224512    209720       
+
+[ok][2019-10-11 09:31:53]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:53,948 - Versa_director - INFO - CMD>> : show devices device NV-GW02-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:55,364 - Versa_director - INFO - show devices device NV-GW02-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        27        20:18:33     183120    162361       
+                     10.90.64.11  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        69        00:17:30     196734    174194       
+
+[ok][2019-10-11 09:31:55]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:55,364 - Versa_director - INFO - CMD>> : show devices device NV-GW02-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 15:01:56,582 - Versa_director - INFO - show devices device NV-GW02-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        23        6d19h10m     241062    212044       
+                     10.90.64.17  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        79        00:16:57     215815    202748       
+
+[ok][2019-10-11 09:31:56]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 15:01:56,585 - Versa_director - INFO - ['NV-GW01-N1-HKG', 'IPC00190', 'BGP nbr check passed.BGP established nbr  count:2']
+2019-10-11 15:01:56,585 - Versa_director - INFO - ['NV-GW01-N6-SIN', 'IPC00190', 'BGP nbr check passed.BGP established nbr  count:2']
+2019-10-11 15:01:56,585 - Versa_director - INFO - ['CPE25-Performance-DUT', 'IPC00190', 'BGP nbr check passed.BGP established nbr  count:2']
+2019-10-11 15:01:56,585 - Versa_director - INFO - ['NV-GW02-N6-SIN', 'IPC00190', 'BGP nbr check passed.BGP established nbr  count:2']
+2019-10-11 15:01:56,585 - Versa_director - INFO - ['CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18', 'IPC00190', 'BGP nbr check passed.BGP established nbr  count:2']
+2019-10-11 15:01:56,586 - Versa_director - INFO - ['NV-GW02-N1-HKG', 'IPC00190', 'BGP nbr check passed.BGP established nbr  count:2']
+2019-10-11 15:01:56,586 - Versa_director - INFO - ['CPE31-Performance-810', 'IPC00190', 'BGP nbr check passed.BGP established nbr  count:2']
+2019-10-11 15:01:56,589 - Versa_director - DEBUG - Result stored in : C:\Softwares_mine\stefano\NV_REPOSITORY\csit/LOGS/2019_10_11_14_59_50_899000/PRE_IPSEC_CHANGE_MODIFICATION_RESULT_WC2_DEVICES.csv
+2019-10-11 15:01:56,598 - Versa_director - INFO - set devices device CPE25-Performance-DUT config orgs org-services IPC00190 ipsec vpn-profile NV-WC02-N1-HKG-Profile ike transform aes256-sha256
+set devices device CPE25-Performance-DUT config orgs org-services IPC00190 ipsec vpn-profile NV-WC02-N1-HKG-Profile ipsec transform esp-aes256-sha256
+set devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 config orgs org-services IPC00190 ipsec vpn-profile NV-WC02-N6-SIN-Profile ike transform aes256-sha256
+set devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 config orgs org-services IPC00190 ipsec vpn-profile NV-WC02-N6-SIN-Profile ipsec transform esp-aes256-sha256
+set devices device CPE31-Performance-810 config orgs org-services IPC00190 ipsec vpn-profile NV-WC02-N1-HKG-Profile ike transform aes256-sha256
+set devices device CPE31-Performance-810 config orgs org-services IPC00190 ipsec vpn-profile NV-WC02-N1-HKG-Profile ipsec transform esp-aes256-sha256
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00190 ipsec vpn-profile GW-CTRL2 ike transform aes256-sha256
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00190 ipsec vpn-profile GW-CTRL2 ipsec transform esp-aes256-sha256
+set devices device NV-GW01-N6-SIN config orgs org-services IPC00190 ipsec vpn-profile GW-CTRL2 ike transform aes256-sha256
+set devices device NV-GW01-N6-SIN config orgs org-services IPC00190 ipsec vpn-profile GW-CTRL2 ipsec transform esp-aes256-sha256
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00190 ipsec vpn-profile GW-CTRL2 ike transform aes256-sha256
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00190 ipsec vpn-profile GW-CTRL2 ipsec transform esp-aes256-sha256
+set devices device NV-GW02-N6-SIN config orgs org-services IPC00190 ipsec vpn-profile GW-CTRL2 ike transform aes256-sha256
+set devices device NV-GW02-N6-SIN config orgs org-services IPC00190 ipsec vpn-profile GW-CTRL2 ipsec transform esp-aes256-sha256
+set devices device NV-WC02-N1-HKG config orgs org-services IPC00190 ipsec vpn-profile IPC00190-PostStaging ike transform aes256-sha256
+set devices device NV-WC02-N1-HKG config orgs org-services IPC00190 ipsec vpn-profile IPC00190-PostStaging ipsec transform esp-aes256-sha256
+set devices device NV-WC02-N1-HKG config orgs org-services IPC00190 ipsec vpn-profile NV-WC02-N1-HKG-to-NV-WC02-N6-SIN-Profile ike transform aes256-sha256
+set devices device NV-WC02-N1-HKG config orgs org-services IPC00190 ipsec vpn-profile NV-WC02-N1-HKG-to-NV-WC02-N6-SIN-Profile ipsec transform esp-aes256-sha256
+set devices device NV-WC02-N6-SIN config orgs org-services IPC00190 ipsec vpn-profile IPC00190-PostStaging ike transform aes256-sha256
+set devices device NV-WC02-N6-SIN config orgs org-services IPC00190 ipsec vpn-profile IPC00190-PostStaging ipsec transform esp-aes256-sha256
+
+2019-10-11 15:02:10,927 - Versa_director - INFO - 
+2019-10-11 15:02:10,927 - Versa_director - INFO - ****************************************
+2019-10-11 15:02:10,927 - Versa_director - INFO - CONFIG_RESULT:
+2019-10-11 15:02:10,927 - Versa_director - INFO - 
+2019-10-11 15:02:10,927 - Versa_director - INFO - ****************************************
+2019-10-11 15:02:10,959 - Versa_director - INFO - request devices device CPE25-Performance-DUT live-status clear ipsec sa org IPC00190 vpn-profile NV-WC02-N1-HKG-Profile
+request devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status clear ipsec sa org IPC00190 vpn-profile NV-WC02-N6-SIN-Profile
+request devices device CPE31-Performance-810 live-status clear ipsec sa org IPC00190 vpn-profile NV-WC02-N1-HKG-Profile
+request devices device NV-GW01-N1-HKG live-status clear ipsec sa org IPC00190 vpn-profile GW-CTRL2
+request devices device NV-GW01-N6-SIN live-status clear ipsec sa org IPC00190 vpn-profile GW-CTRL2
+request devices device NV-GW02-N1-HKG live-status clear ipsec sa org IPC00190 vpn-profile GW-CTRL2
+request devices device NV-GW02-N6-SIN live-status clear ipsec sa org IPC00190 vpn-profile GW-CTRL2
+request devices device NV-WC02-N1-HKG live-status clear ipsec sa org IPC00190 vpn-profile IPC00190-PostStaging
+request devices device NV-WC02-N1-HKG live-status clear ipsec sa org IPC00190 vpn-profile NV-WC02-N1-HKG-to-NV-WC02-N6-SIN-Profile
+request devices device NV-WC02-N6-SIN live-status clear ipsec sa org IPC00190 vpn-profile IPC00190-PostStaging
+

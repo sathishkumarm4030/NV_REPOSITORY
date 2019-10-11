@@ -1,0 +1,324 @@
+2019-10-11 12:29:29,000 - Versa_director - DEBUG - <netmiko.versa.versa.VersaSSH object at 0x000000000D519CC0>
+2019-10-11 12:29:34,201 - Versa_director - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2019-10-11 12:29:34,661 - Versa_director - INFO - CMD>> : request devices device CPE25-Performance-DUT ping
+2019-10-11 12:29:35,061 - Versa_director - INFO - request devices device CPE25-Performance-DUT ping
+result PING 20.20.90.25 (20.20.90.25) 56(84) bytes of data.
+64 bytes from 20.20.90.25: icmp_seq=1 ttl=61 time=7.41 ms
+
+--- 20.20.90.25 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 7.418/7.418/7.418/0.000 ms
+
+[ok][2019-10-11 06:59:35]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:35,068 - Versa_director - INFO - CMD>> : request devices device CPE25-Performance-DUT connect
+2019-10-11 12:29:36,108 - Versa_director - INFO - request devices device CPE25-Performance-DUT connect
+result true
+info (Automated) Connected to CPE25-Performance-DUT - 20.20.90.25:2022
+[ok][2019-10-11 06:59:35]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:36,108 - Versa_director - INFO - CMD>> : request devices device CPE25-Performance-DUT check-sync
+2019-10-11 12:29:36,911 - Versa_director - INFO - request devices device CPE25-Performance-DUT check-sync
+result in-sync
+[ok][2019-10-11 06:59:36]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:36,911 - Versa_director - INFO - CMD>> : show devices device CPE25-Performance-DUT live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 12:29:38,328 - Versa_director - INFO - show devices device CPE25-Performance-DUT live-status  bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     20.20.90.25  0      ipv4    0       65505   Established  5         90        1d01h10m     54127     46165        
+                     10.90.64.11  ipv4     20.20.90.25  0      ipv4    0       65505   Established  5         137       4d00h04m     53771     46292        
+
+[ok][2019-10-11 06:59:38]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:38,746 - Versa_director - INFO - CMD>> : request devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 ping
+2019-10-11 12:29:39,147 - Versa_director - INFO - request devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 ping
+result PING 20.20.90.27 (20.20.90.27) 56(84) bytes of data.
+64 bytes from 20.20.90.27: icmp_seq=1 ttl=61 time=2.59 ms
+
+--- 20.20.90.27 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 2.590/2.590/2.590/0.000 ms
+
+[ok][2019-10-11 06:59:39]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:39,148 - Versa_director - INFO - CMD>> : request devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 connect
+2019-10-11 12:29:39,950 - Versa_director - INFO - request devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 connect
+result true
+info (Automated) Connected to CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 - 20.20.90.27:2022
+[ok][2019-10-11 06:59:39]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:39,950 - Versa_director - INFO - CMD>> : request devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 check-sync
+2019-10-11 12:29:40,756 - Versa_director - INFO - request devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 check-sync
+result in-sync
+[ok][2019-10-11 06:59:40]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:40,756 - Versa_director - INFO - CMD>> : show devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 12:29:42,187 - Versa_director - INFO - show devices device CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18 live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     20.20.90.27  0      ipv4    0       65505   Established  6         73        01:14:20     85072     73076        
+                     10.90.64.17  ipv4     20.20.90.27  0      ipv4    0       65505   Established  6         161       2w3d01h      84366     73002        
+
+[ok][2019-10-11 06:59:42]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:42,589 - Versa_director - INFO - CMD>> : request devices device CPE31-Performance-810 ping
+2019-10-11 12:29:42,990 - Versa_director - INFO - request devices device CPE31-Performance-810 ping
+result PING 20.20.90.31 (20.20.90.31) 56(84) bytes of data.
+64 bytes from 20.20.90.31: icmp_seq=1 ttl=61 time=4.93 ms
+
+--- 20.20.90.31 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 4.939/4.939/4.939/0.000 ms
+
+[ok][2019-10-11 06:59:42]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:42,992 - Versa_director - INFO - CMD>> : request devices device CPE31-Performance-810 connect
+2019-10-11 12:29:43,795 - Versa_director - INFO - request devices device CPE31-Performance-810 connect
+result true
+info (Automated) Connected to CPE31-Performance-810 - 20.20.90.31:2022
+[ok][2019-10-11 06:59:43]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:43,796 - Versa_director - INFO - CMD>> : request devices device CPE31-Performance-810 check-sync
+2019-10-11 12:29:44,608 - Versa_director - INFO - request devices device CPE31-Performance-810 check-sync
+result in-sync
+[ok][2019-10-11 06:59:44]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:44,608 - Versa_director - INFO - CMD>> : show devices device CPE31-Performance-810 live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 12:29:46,042 - Versa_director - INFO - show devices device CPE31-Performance-810 live-status  bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     20.20.90.31  0      ipv4    0       65505   Established  5         90        18:21:43     53819     45928        
+                     10.90.64.11  ipv4     20.20.90.31  0      ipv4    0       65505   Established  5         137       3d18h52m     53701     46215        
+
+[ok][2019-10-11 06:59:46]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:46,444 - Versa_director - INFO - CMD>> : request devices device NV-GW01-N1-HKG ping
+2019-10-11 12:29:46,845 - Versa_director - INFO - request devices device NV-GW01-N1-HKG ping
+result PING 10.83.44.37 (10.83.44.37) 56(84) bytes of data.
+64 bytes from 10.83.44.37: icmp_seq=1 ttl=63 time=2.75 ms
+
+--- 10.83.44.37 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 2.756/2.756/2.756/0.000 ms
+
+[ok][2019-10-11 06:59:46]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:46,845 - Versa_director - INFO - CMD>> : request devices device NV-GW01-N1-HKG connect
+2019-10-11 12:29:47,457 - Versa_director - INFO - request devices device NV-GW01-N1-HKG connect
+result true
+info (Automated) Connected to NV-GW01-N1-HKG - 10.83.44.37:2022
+[ok][2019-10-11 06:59:47]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:47,457 - Versa_director - INFO - CMD>> : request devices device NV-GW01-N1-HKG check-sync
+2019-10-11 12:29:48,059 - Versa_director - INFO - request devices device NV-GW01-N1-HKG check-sync
+result in-sync
+[ok][2019-10-11 06:59:48]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:48,061 - Versa_director - INFO - CMD>> : show devices device NV-GW01-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 12:29:49,463 - Versa_director - INFO - show devices device NV-GW01-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     0.0.0.0  0      ipv4    0       65505   Established  38        27        06:20:33     121661    102989       
+                     10.90.64.11  ipv4     0.0.0.0  0      ipv4    0       65505   Established  38        69        3d18h53m     122400    103671       
+
+[ok][2019-10-11 06:59:49]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:49,865 - Versa_director - INFO - CMD>> : request devices device NV-GW01-N6-SIN ping
+2019-10-11 12:29:50,267 - Versa_director - INFO - request devices device NV-GW01-N6-SIN ping
+result PING 10.83.46.135 (10.83.46.135) 56(84) bytes of data.
+64 bytes from 10.83.46.135: icmp_seq=1 ttl=63 time=0.629 ms
+
+--- 10.83.46.135 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.629/0.629/0.629/0.000 ms
+
+[ok][2019-10-11 06:59:50]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:50,269 - Versa_director - INFO - CMD>> : request devices device NV-GW01-N6-SIN connect
+2019-10-11 12:29:50,885 - Versa_director - INFO - request devices device NV-GW01-N6-SIN connect
+result true
+info (Automated) Connected to NV-GW01-N6-SIN - 10.83.46.135:2022
+[ok][2019-10-11 06:59:50]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:50,885 - Versa_director - INFO - CMD>> : request devices device NV-GW01-N6-SIN check-sync
+2019-10-11 12:29:51,502 - Versa_director - INFO - request devices device NV-GW01-N6-SIN check-sync
+result in-sync
+[ok][2019-10-11 06:59:51]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:51,503 - Versa_director - INFO - CMD>> : show devices device NV-GW01-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 12:29:52,908 - Versa_director - INFO - show devices device NV-GW01-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        23        3d19h02m     248999    217762       
+                     10.90.64.17  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        79        3d19h14m     223640    209138       
+
+[ok][2019-10-11 06:59:52]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:53,321 - Versa_director - INFO - CMD>> : request devices device NV-GW02-N1-HKG ping
+2019-10-11 12:29:53,721 - Versa_director - INFO - request devices device NV-GW02-N1-HKG ping
+result PING 10.83.44.60 (10.83.44.60) 56(84) bytes of data.
+64 bytes from 10.83.44.60: icmp_seq=1 ttl=63 time=1.23 ms
+
+--- 10.83.44.60 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 1.237/1.237/1.237/0.000 ms
+
+[ok][2019-10-11 06:59:53]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:53,721 - Versa_director - INFO - CMD>> : request devices device NV-GW02-N1-HKG connect
+2019-10-11 12:29:54,338 - Versa_director - INFO - request devices device NV-GW02-N1-HKG connect
+result true
+info (Automated) Connected to NV-GW02-N1-HKG - 10.83.44.60:2022
+[ok][2019-10-11 06:59:54]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:54,338 - Versa_director - INFO - CMD>> : request devices device NV-GW02-N1-HKG check-sync
+2019-10-11 12:29:54,941 - Versa_director - INFO - request devices device NV-GW02-N1-HKG check-sync
+result out-of-sync
+info got: 1570-713133-329768@vcn0 expected: 1570-430130-193075@vcn0
+
+[ok][2019-10-11 06:59:54]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:29:54,941 - Versa_director - INFO - CMD>> : request devices device NV-GW02-N1-HKG sync-from
+2019-10-11 12:34:05,665 - Versa_director - INFO - request devices device NV-GW02-N1-HKG sync-from
+result true
+[ok][2019-10-11 07:04:05]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:34:05,665 - Versa_director - INFO - CMD>> : show devices device NV-GW02-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 12:34:07,286 - Versa_director - INFO - show devices device NV-GW02-N1-HKG live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.1   ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        27        17:50:45     182748    161927       
+                     10.90.64.11  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        69        3d18h57m     195816    173641       
+
+[ok][2019-10-11 07:04:07]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:34:07,687 - Versa_director - INFO - CMD>> : request devices device NV-GW02-N6-SIN ping
+2019-10-11 12:34:08,088 - Versa_director - INFO - request devices device NV-GW02-N6-SIN ping
+result PING 10.63.46.133 (10.63.46.133) 56(84) bytes of data.
+64 bytes from 10.63.46.133: icmp_seq=1 ttl=61 time=0.628 ms
+
+--- 10.63.46.133 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.628/0.628/0.628/0.000 ms
+
+[ok][2019-10-11 07:04:08]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:34:08,088 - Versa_director - INFO - CMD>> : request devices device NV-GW02-N6-SIN connect
+2019-10-11 12:34:08,698 - Versa_director - INFO - request devices device NV-GW02-N6-SIN connect
+result true
+info (Automated) Connected to NV-GW02-N6-SIN - 10.63.46.133:2022
+[ok][2019-10-11 07:04:08]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:34:08,698 - Versa_director - INFO - CMD>> : request devices device NV-GW02-N6-SIN check-sync
+2019-10-11 12:34:09,315 - Versa_director - INFO - request devices device NV-GW02-N6-SIN check-sync
+result in-sync
+[ok][2019-10-11 07:04:09]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:34:09,315 - Versa_director - INFO - CMD>> : show devices device NV-GW02-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+2019-10-11 12:34:10,717 - Versa_director - INFO - show devices device NV-GW02-N6-SIN live-status bgp neighbor brief IPC00190-Control-VR | tab
+                                  LOCAL                    REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS  LOCAL    LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     ADDR     PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00190-Control-VR  10.90.64.15  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        23        6d16h43m     240699    211588       
+                     10.90.64.17  ipv4     0.0.0.0  0      ipv4    0       65505   Established  35        79        1w2d19h      214847    202166       
+
+[ok][2019-10-11 07:04:10]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:34:11,117 - Versa_director - INFO - CMD>> : request devices device NV-WC02-N1-HKG ping
+2019-10-11 12:34:11,517 - Versa_director - INFO - request devices device NV-WC02-N1-HKG ping
+result PING 10.83.44.62 (10.83.44.62) 56(84) bytes of data.
+64 bytes from 10.83.44.62: icmp_seq=1 ttl=63 time=0.706 ms
+
+--- 10.83.44.62 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.706/0.706/0.706/0.000 ms
+
+[ok][2019-10-11 07:04:11]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:34:11,517 - Versa_director - INFO - CMD>> : request devices device NV-WC02-N1-HKG connect
+2019-10-11 12:34:12,319 - Versa_director - INFO - request devices device NV-WC02-N1-HKG connect
+result true
+info (Automated) Connected to NV-WC02-N1-HKG - 10.83.44.62:2022
+[ok][2019-10-11 07:04:12]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:34:12,319 - Versa_director - INFO - CMD>> : request devices device NV-WC02-N1-HKG check-sync
+2019-10-11 12:34:12,921 - Versa_director - INFO - request devices device NV-WC02-N1-HKG check-sync
+result in-sync
+[ok][2019-10-11 07:04:12]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:34:13,325 - Versa_director - INFO - CMD>> : request devices device NV-WC02-N1-HKG ping
+2019-10-11 12:34:13,724 - Versa_director - INFO - request devices device NV-WC02-N1-HKG ping
+result PING 10.83.44.62 (10.83.44.62) 56(84) bytes of data.
+64 bytes from 10.83.44.62: icmp_seq=1 ttl=63 time=0.621 ms
+
+--- 10.83.44.62 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.621/0.621/0.621/0.000 ms
+
+[ok][2019-10-11 07:04:13]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:34:13,724 - Versa_director - INFO - CMD>> : request devices device NV-WC02-N1-HKG connect
+2019-10-11 12:34:14,326 - Versa_director - INFO - request devices device NV-WC02-N1-HKG connect
+result true
+info (Automated) Connected to NV-WC02-N1-HKG - 10.83.44.62:2022
+[ok][2019-10-11 07:04:14]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:34:14,326 - Versa_director - INFO - CMD>> : request devices device NV-WC02-N1-HKG check-sync
+2019-10-11 12:34:14,943 - Versa_director - INFO - request devices device NV-WC02-N1-HKG check-sync
+result in-sync
+[ok][2019-10-11 07:04:14]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:34:15,344 - Versa_director - INFO - CMD>> : request devices device NV-WC02-N6-SIN ping
+2019-10-11 12:34:15,744 - Versa_director - INFO - request devices device NV-WC02-N6-SIN ping
+result PING 10.63.46.132 (10.63.46.132) 56(84) bytes of data.
+64 bytes from 10.63.46.132: icmp_seq=1 ttl=61 time=0.799 ms
+
+--- 10.63.46.132 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.799/0.799/0.799/0.000 ms
+
+[ok][2019-10-11 07:04:15]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:34:15,744 - Versa_director - INFO - CMD>> : request devices device NV-WC02-N6-SIN connect
+2019-10-11 12:34:16,346 - Versa_director - INFO - request devices device NV-WC02-N6-SIN connect
+result true
+info (Automated) Connected to NV-WC02-N6-SIN - 10.63.46.132:2022
+[ok][2019-10-11 07:04:16]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:34:16,346 - Versa_director - INFO - CMD>> : request devices device NV-WC02-N6-SIN check-sync
+2019-10-11 12:34:16,947 - Versa_director - INFO - request devices device NV-WC02-N6-SIN check-sync
+result out-of-sync
+info got: 1570-774812-838984@vcn0 expected: 1570-438824-184561@vcn0
+
+[ok][2019-10-11 07:04:16]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:34:16,947 - Versa_director - INFO - CMD>> : request devices device NV-WC02-N6-SIN sync-from
+2019-10-11 12:35:06,473 - Versa_director - INFO - request devices device NV-WC02-N6-SIN sync-from
+result true
+[ok][2019-10-11 07:05:06]
+Automated@VDir-BLR-NEW-01> 
+2019-10-11 12:35:06,473 - Versa_director - INFO - ['NV-GW01-N1-HKG', 'IPC00190', 'BGP nbr check passed.BGP established nbr  count:2']
+2019-10-11 12:35:06,473 - Versa_director - INFO - ['NV-WC02-N6-SIN', 'IPC00190', 'Ping,connect,sync CHECK passed.']
+2019-10-11 12:35:06,473 - Versa_director - INFO - ['NV-GW01-N6-SIN', 'IPC00190', 'BGP nbr check passed.BGP established nbr  count:2']
+2019-10-11 12:35:06,473 - Versa_director - INFO - ['CPE25-Performance-DUT', 'IPC00190', 'BGP nbr check passed.BGP established nbr  count:2']
+2019-10-11 12:35:06,473 - Versa_director - INFO - ['NV-WC02-N1-HKG', 'IPC00190', 'Ping,connect,sync CHECK passed.']
+2019-10-11 12:35:06,473 - Versa_director - INFO - ['NV-GW02-N6-SIN', 'IPC00190', 'BGP nbr check passed.BGP established nbr  count:2']
+2019-10-11 12:35:06,473 - Versa_director - INFO - ['CPE27-HKG2-SINGLE-CPE-DUAL-INTERNET18', 'IPC00190', 'BGP nbr check passed.BGP established nbr  count:2']
+2019-10-11 12:35:06,473 - Versa_director - INFO - ['NV-GW02-N1-HKG', 'IPC00190', 'BGP nbr check passed.BGP established nbr  count:2']
+2019-10-11 12:35:06,473 - Versa_director - INFO - ['CPE31-Performance-810', 'IPC00190', 'BGP nbr check passed.BGP established nbr  count:2']
+2019-10-11 12:35:06,474 - Versa_director - DEBUG - Result stored in : C:\Softwares_mine\stefano\NV_REPOSITORY\csit/LOGS/2019_10_11_12_29_24_319000/PRE_IPSEC_CHANGE_MODIFICATION_RESULT_WC2_DEVICES.csv
+2019-10-11 12:35:06,476 - Versa_director - INFO - Failures Present.Please check  : C:\Softwares_mine\stefano\NV_REPOSITORY\csit/LOGS/2019_10_11_12_29_24_319000/PRE_IPSEC_CHANGE_MODIFICATION_RESULT_WC2_DEVICES.csv

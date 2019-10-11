@@ -960,6 +960,12 @@ class VersaLib:
         return nc_handler.send_config_set(config_commands=cmds, strip_prompt=False, strip_command=False, \
                                           max_loops=5000, delay_factor=0.0001, exit_config_mode=False)
 
+    def device_request_commands(self, nc_handler, cmds):
+        self.main_logger.debug(nc_handler.exit_config_mode())
+        for cmd in cmds.split("\n"):
+            self.main_logger.info(nc_handler.send_command_expect(cmd, expect_string='>', strip_prompt=False, strip_command=False, max_loops=1000, delay_factor=0.0001))
+        return "PASS"
+
 
     def linux_device_config_commands(self, nc_handler, cmds, expect_string="\$"):
         for cmd in cmds.split("\n"):
@@ -1553,6 +1559,35 @@ class VersaLib:
         self.main_logger.info("LOGS Stored in : " + logfile_dir)
         return
 
+    def Do_commit_and_check_commit(self, nc, result):
+        self.main_logger.debug(result)
+        res_check = ""
+        if "syntax error:" in result:
+            res_check += "syntax error found."
+        elif "Error: element not found" in result:
+            res_check += "element not found error."
+        # else:
+        commit_result = nc.send_command_expect("commit", \
+                                               expect_string='%', \
+                                               strip_prompt=False, strip_command=False, max_loops=5000)
+        self.main_logger.debug(commit_result)
+        ex_result = nc.send_command_expect("exit no-confirm", expect_string=">", strip_prompt=False,
+                                           strip_command=False, max_loops=5000)
+        self.main_logger.debug(ex_result)
+        if "No modifications to commit." in commit_result:
+            res_check += "No modifications to commit."
+        elif "Commit complete." in commit_result:
+            res_check += "Commit success."
+        else:
+            res_check += "commit failed.Check log"
+        return res_check
+
+    def search_a_value(self, values, searchFor):
+        for v in values:
+            if searchFor in v:
+                return "PASS"
+        return "FAIL"
+
 
     def check_functions(self, nc, csv_data_read, config_for, csv_file, template_file, type="", org_name="", **kwargs):
         new_device_status_dict = {}
@@ -1591,14 +1626,16 @@ class VersaLib:
 
     def generic_config_function(self, nc, config_for, csv_file, template_file, type="", org_name="", **kwargs):
         # global device_status_dict
+        ike_tranform = "aes256-sha256"
+        ipsec_transform = "esp-aes256-sha256"
         if 'device_status_dict' not in self.__dict__:
             self.device_status_dict = {}
         start_time = datetime.now()
         # self.main_logger = self.setup_logger('Versa-director', 'Config_devices_template')
+        csv_data_read = pd.read_csv(curr_file_dir + "/DATA/" + csv_file )
         curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/PROD_CONFIG/")
         curr_env = Environment(loader=curr_file_loader)
         template = curr_env.get_template(template_file)
-        csv_data_read = pd.read_csv(curr_file_dir + "/DATA/" + csv_file )
         if type != "ps":
             csv_data_read = csv_data_read.loc[csv_data_read['ORG_NAME'] == org_name]
         result_dict = {}
@@ -1608,11 +1645,22 @@ class VersaLib:
                 res_check = ""
                 dev_dict = row.to_dict()
                 if config_for == "ipsec_ike_transform":
-                    if dev_dict['ORG_NAME'] == org_name:
-                        device_cmds += template.render(dev_dict, IKE_TRANSFORM="aes256-sha256", IPSEC_TRANSFORM="esp-aes128-gcm")+"\n"
-                        # device_cmds += template.render(dev_dict, IKE_TRANSFORM="aes256-sha256", IPSEC_TRANSFORM="esp-aes256-sha256")+"\n"
+                    # if dev_dict['ORG_NAME'] == org_name:
+                    device_cmds += template.render(dev_dict, IKE_TRANSFORM=ike_tranform, IPSEC_TRANSFORM=ipsec_transform)+"\n"
+                    # device_cmds += template.render(dev_dict, IKE_TRANSFORM=ike_tranform, IPSEC_TRANSFORM=ipsec_transform)+"\n"
             self.main_logger.info(device_cmds)
             result = self.device_config_commands_wo_split(nc, device_cmds)
+            res_check = self.Do_commit_and_check_commit(nc, result)
+            self.main_logger.debug(res_check)
+            # main_logger.info(result_dict)
+            self.main_logger.info("*" * 40)
+            self.main_logger.info("CONFIG_RESULT:")
+            self.main_logger.info(res_check)
+            self.main_logger.info("*" * 40)
+            #clear Ipsec session
+
+            self.main_logger.info("\nTime elapsed: {}".format(datetime.now() - start_time))
+            self.main_logger.info("LOGS Stored in : " + logfile_dir)
         elif type == "device_check":
             self.device_status_dict1 = self.check_functions(nc, csv_data_read, config_for, csv_file, template_file, type, org_name)
             self.device_status_dict.update(self.device_status_dict1)
@@ -1620,70 +1668,55 @@ class VersaLib:
                 self.main_logger.info([k, org_name, v])
             self.write_check_result_from_dict(self.device_status_dict1, org_name, "RESULT_" + csv_file)
         elif type == "device":
-            # self.device_status_dict = self.check_functions(nc, csv_data_read, config_for, csv_file, template_file, type, org_name)
-            # for k, v in self.device_status_dict.iteritems():
-            #     self.main_logger.info([k, v])
-            # self.write_check_result_from_dict(self.device_status_dict)
-            # for idx, row in csv_data_read.iterrows():
-            #     res_check = ""
-            #     dev_dict = row.to_dict()
-            #     if dev_dict['ORG_NAME'] != org_name:
-            #         continue
-            #     if device_status_dict.has_key(dev_dict['NAME']):
-            #         continue
-            #     check_result = self.check_device_status(nc, dev_dict['NAME'])
-            #     if check_result == "PASS":
-            #         device_status_dict[dev_dict['NAME']] = "PASS"
-            #     else:
-            #         device_status_dict[dev_dict['NAME']] = check_result
-            #         continue
-            #     if "WC" not in dev_dict['NAME']:
-            #         if device_status_dict[dev_dict['NAME']] == "PASS":
-            #             shw_dev_bgp_nbr_br = "show devices device " + dev_dict['NAME'] + " live-status bgp neighbor brief " + dev_dict['ORG_NAME'] + "-Control-VR | tab"
-            #             self.main_logger.info("CMD>> : " + shw_dev_bgp_nbr_br)
-            #             output = nc.send_command_expect(shw_dev_bgp_nbr_br, strip_prompt=False, strip_command=False)
-            #             nbrs = re.findall("Established", output, re.M)
-            #             if len(nbrs) == 2:
-            #                 device_status_dict[dev_dict['NAME']] = "PASS. BGP established nbr  count:" + str(len(nbrs))
-            #             elif len(nbrs) < 2:
-            #                 device_status_dict[dev_dict['NAME']] = "FAIL. BGP established nbr  count:" + str(len(nbrs))
-            #             self.main_logger.info(output)
-
             for idx, row in csv_data_read.iterrows():
                 res_check = ""
                 dev_dict = row.to_dict()
-                if config_for == "ipsec_ike_transform":
-                    if dev_dict['ORG_NAME'] == org_name:
-                        device_cmds += template.render(dev_dict, IKE_TRANSFORM="aes256-sha256", IPSEC_TRANSFORM="esp-aes128-gcm")+"\n"
-                        # device_cmds += template.render(dev_dict, IKE_TRANSFORM="aes256-sha256 ", IPSEC_TRANSFORM="esp-aes256-sha256")+"\n"
+                self.device_status_dict1 = self.check_functions(nc, csv_data_read, config_for, csv_file, template_file,
+                                                                type, org_name)
+                self.device_status_dict.update(self.device_status_dict1)
+            for k, v in self.device_status_dict1.iteritems():
+                self.main_logger.info([k, org_name, v])
+            self.write_check_result_from_dict(self.device_status_dict1, org_name, "PRE_IPSEC_CHANGE_MODIFICATION_RESULT_" + csv_file)
+            if "PASS" == self.search_a_value(self.device_status_dict1.values(), "fail"):
+                self.main_logger.info("Failures Present.Please check  : " + self.file_name_with_path)
+                exit()
+            if config_for == "ipsec_ike_transform":
+                for idx, row in csv_data_read.iterrows():
+                    res_check = ""
+                    dev_dict = row.to_dict()
+                    device_cmds += template.render(dev_dict, IKE_TRANSFORM=ike_tranform, IPSEC_TRANSFORM=ipsec_transform)+"\n"
+                    # device_cmds += template.render(dev_dict, IKE_TRANSFORM=ike_tranform, IPSEC_TRANSFORM=ipsec_transform)+"\n"
             self.main_logger.info(device_cmds)
             result = self.device_config_commands_wo_split(nc, device_cmds)
-            self.main_logger.info(result)
-            if "syntax error:" in result:
-                res_check += "syntax error found."
-            elif "Error: element not found" in result:
-                res_check += "element not found error."
-            # else:
-            commit_result = nc.send_command_expect("commit", \
-                                                   expect_string='%', \
-                                                   strip_prompt=False, strip_command=False, max_loops=5000)
-            self.main_logger.info(commit_result)
-            ex_result = nc.send_command_expect("exit no-confirm", expect_string=">", strip_prompt=False,
-                                                            strip_command=False, max_loops=5000)
-            self.main_logger.info(ex_result)
-            if "No modifications to commit." in commit_result:
-                res_check += "No modifications to commit."
-            elif "Commit complete." in commit_result:
-                res_check += "Commit success."
-            else:
-                res_check += "commit failed.Check log"
-            result_dict[dev_dict['ORG_NAME']] = res_check
+            self.main_logger.info(res_check)
             # main_logger.info(result_dict)
+            self.main_logger.info("*" * 40)
             self.main_logger.info("CONFIG_RESULT:")
-            for k, v in result_dict.iteritems():
-                self.main_logger.info([k , v])
-            write_result_from_dict(result_dict)
-            self.main_logger.info("Time elapsed: {}\n".format(datetime.now() - start_time))
+            self.main_logger.info(res_check)
+            self.main_logger.info("*" * 40)
+            #Clear IPSec Session
+            req_clear_cmd = ""
+            for idx, row in csv_data_read.iterrows():
+                res_check = ""
+                dev_dict = row.to_dict()
+                req_clear_temp = Template(req_clear_ipsec + "\n")
+                req_clear_cmd += req_clear_temp.render(dev_dict)
+            self.main_logger.info(req_clear_cmd)
+            result = self.device_request_commands(nc, req_clear_cmd.encode("utf-8"))
+            self.main_logger.info("Waiting 180 seconds")
+            time.sleep(180)
+            #Check After IPsec clear session
+            self.device_status_dict1 = self.check_functions(nc, csv_data_read, config_for, csv_file, template_file,
+                                                            type, org_name)
+            self.device_status_dict.update(self.device_status_dict1)
+            for k, v in self.device_status_dict1.iteritems():
+                self.main_logger.info([k, org_name, v])
+            self.write_check_result_from_dict(self.device_status_dict1, org_name,
+                                              "PRE_IPSEC_AFTER_MODIFICATION_RESULT_" + csv_file)
+            if "PASS" == self.search_a_value(self.device_status_dict1.values(), "fail"):
+                self.main_logger.info("Failures Present.Please check  : " + self.file_name_with_path)
+                exit()
+            self.main_logger.info("\nTime elapsed: {}".format(datetime.now() - start_time))
             self.main_logger.info("LOGS Stored in : " + logfile_dir)
         return
 
