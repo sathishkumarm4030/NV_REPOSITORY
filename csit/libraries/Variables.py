@@ -295,7 +295,8 @@ cmd4 = 'show configuration | display set | nomore'
 
 req_clear_ipsec = """request devices device {{ NAME }} live-status clear ipsec sa org {{ ORG_NAME }} vpn-profile {{ VPN_PROFILE }}
 """
-req_cre_snapshot = "request devices device {{ NAME }} live-status system create-snapshot description {{ snapshot_description }} no-confirm"
+req_cre_snapshot = """request devices device {{ NAME }} live-status system create-snapshot description {{ snapshot_description }} no-confirm
+"""
 
 
 

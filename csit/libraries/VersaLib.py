@@ -1600,6 +1600,8 @@ class VersaLib:
             dev_dict = row.to_dict()
             # if dev_dict['ORG_NAME'] != org_name:
             #     continue
+            if "WC" in dev_dict['NAME']:
+                pass
             if not device_status_dict.has_key(dev_dict['NAME']):
                 check_result = self.check_device_status(nc, dev_dict['NAME'])
                 if check_result == "PASS":
@@ -1657,8 +1659,6 @@ class VersaLib:
             self.main_logger.info("CONFIG_RESULT:")
             self.main_logger.info(res_check)
             self.main_logger.info("*" * 40)
-            #clear Ipsec session
-
             self.main_logger.info("\nTime elapsed: {}".format(datetime.now() - start_time))
             self.main_logger.info("LOGS Stored in : " + logfile_dir)
         elif type == "device_check":
@@ -1667,20 +1667,30 @@ class VersaLib:
             for k, v in self.device_status_dict1.iteritems():
                 self.main_logger.info([k, org_name, v])
             self.write_check_result_from_dict(self.device_status_dict1, org_name, "RESULT_" + csv_file)
+            self.main_logger.info("*" * 40)
+            self.main_logger.info("Device check Completed.")
+            self.main_logger.info("*" * 40)
         elif type == "device":
-            for idx, row in csv_data_read.iterrows():
-                res_check = ""
-                dev_dict = row.to_dict()
-                self.device_status_dict1 = self.check_functions(nc, csv_data_read, config_for, csv_file, template_file,
-                                                                type, org_name)
-                self.device_status_dict.update(self.device_status_dict1)
+            self.device_status_dict1 = self.check_functions(nc, csv_data_read, config_for, csv_file, template_file,
+                                                            type, org_name)
+            self.device_status_dict.update(self.device_status_dict1)
             for k, v in self.device_status_dict1.iteritems():
                 self.main_logger.info([k, org_name, v])
-            self.write_check_result_from_dict(self.device_status_dict1, org_name, "PRE_IPSEC_CHANGE_MODIFICATION_RESULT_" + csv_file)
+            self.write_check_result_from_dict(self.device_status_dict1, org_name, "PRE_IPSEC_MODIFICATION_RESULT_" + csv_file)
             if "PASS" == self.search_a_value(self.device_status_dict1.values(), "fail"):
                 self.main_logger.info("Failures Present.Please check  : " + self.file_name_with_path)
                 exit()
             if config_for == "ipsec_ike_transform":
+                # Create Snapshot
+                self.main_logger.debug("Snapshot description name : " + self.snapshot_description)
+                req_create_snap_cmd = ""
+                for idx, row in csv_data_read.iterrows():
+                    res_check = ""
+                    dev_dict = row.to_dict()
+                    req_create_snap_temp = Template(req_cre_snapshot + "\n")
+                    req_create_snap_cmd += req_create_snap_temp.render(dev_dict, snapshot_description=self.snapshot_description)
+                self.main_logger.info(req_create_snap_cmd)
+                result = self.device_request_commands(nc, req_create_snap_cmd.encode("utf-8"))
                 for idx, row in csv_data_read.iterrows():
                     res_check = ""
                     dev_dict = row.to_dict()
@@ -1688,6 +1698,7 @@ class VersaLib:
                     # device_cmds += template.render(dev_dict, IKE_TRANSFORM=ike_tranform, IPSEC_TRANSFORM=ipsec_transform)+"\n"
             self.main_logger.info(device_cmds)
             result = self.device_config_commands_wo_split(nc, device_cmds)
+            res_check = self.Do_commit_and_check_commit(nc, result)
             self.main_logger.info(res_check)
             # main_logger.info(result_dict)
             self.main_logger.info("*" * 40)
@@ -1706,16 +1717,20 @@ class VersaLib:
             self.main_logger.info("Waiting 180 seconds")
             time.sleep(180)
             #Check After IPsec clear session
+            self.device_status_dict = {}
             self.device_status_dict1 = self.check_functions(nc, csv_data_read, config_for, csv_file, template_file,
                                                             type, org_name)
             self.device_status_dict.update(self.device_status_dict1)
             for k, v in self.device_status_dict1.iteritems():
                 self.main_logger.info([k, org_name, v])
             self.write_check_result_from_dict(self.device_status_dict1, org_name,
-                                              "PRE_IPSEC_AFTER_MODIFICATION_RESULT_" + csv_file)
+                                              "POST_IPSEC_MODIFICATION_RESULT_" + csv_file)
             if "PASS" == self.search_a_value(self.device_status_dict1.values(), "fail"):
                 self.main_logger.info("Failures Present.Please check  : " + self.file_name_with_path)
                 exit()
+            self.main_logger.info("*" * 40)
+            self.main_logger.info("IKe Ipsec Transform changed successfully.")
+            self.main_logger.info("*" * 40)
             self.main_logger.info("\nTime elapsed: {}".format(datetime.now() - start_time))
             self.main_logger.info("LOGS Stored in : " + logfile_dir)
         return
