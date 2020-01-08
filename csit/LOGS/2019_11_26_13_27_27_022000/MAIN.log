@@ -1,0 +1,389 @@
+2019-11-26 13:27:30,148 - CPE12-SIN-HYBRD-IPC00190 - INFO - LOG FILE PATH : C:\Softwares_mine\stefano\NV_REPOSITORY\csit/LOGS/2019_11_26_13_27_27_022000/MAIN.log
+2019-11-26 13:27:30,148 - CPE12-SIN-HYBRD-IPC00190 - INFO - CPE NAME:CPE12-SIN-HYBRD-IPC00190
+2019-11-26 13:27:31,151 - CPE12-SIN-HYBRD-IPC00190 - INFO - SOLUTION SELECTED:SINGLE-CPE-HYBRID
+2019-11-26 13:27:31,213 - CPE12-SIN-HYBRD-IPC00190 - INFO - 
+STEP :ONBOARD CALL
+2019-11-26 13:27:31,227 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - 
+sudo /opt/versa/scripts/staging.py -w 1 -c 10.63.77.14 -s 172.16.7.46/30 -g 172.16.7.45 -l IPC00194-CPE12-SIN-HYBRD-IPC00190@colt.net -lk CPE12-SIN-HYBRD-IPC00190  -r NV-WC02-N6-SIN@colt.net -rk 1234
+
+2019-11-26 13:27:35,446 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - <netmiko.linux.linux_ssh.LinuxSSH object at 0x000000000D8DF5C0>
+2019-11-26 13:27:35,865 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - [sudo] password for admin: 
+2019-11-26 13:27:36,267 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - 12-SIN-INTONLY:~# 
+2019-11-26 13:27:36,670 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - exit
+2019-11-26 13:27:36,871 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - linux: admin@CPE12-SIN-INTONLY:~$
+2019-11-26 13:27:37,272 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - vsh allow-cli
+Enter password: 
+2019-11-26 13:27:37,674 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - 
+
+CLI now allowed
+admin@CPE12-SIN-INTONLY:~$ 
+2019-11-26 13:27:38,075 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - cli
+
+
+             .---.,
+            (      ``.
+       _     \        )    __      ________ _____   _____
+      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\
+       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \
+        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \
+         \    |   /           \  /  | |____| | \ \ ____) / ____ \
+          \   |  /             \/   |______|_|  \_\_____/_/    \_\
+           \  | /
+            \_|/                   _  _ ___ _______      _____  ___ _  _____
+                                  | \| | __|_   _\ \    / / _ \| _ \ |/ / __|
+                                  | .` | _|  | |  \ \/\/ / (_) |   / ' <\__ \
+                                  |_|\_|___| |_|   \_/\_/ \___/|_|_\_|\_\___/
+
+
+
+admin connected from 10.91.194.51 using ssh on CPE12-SIN-INTONLY
+[?7hadmin@CPE12-SIN-INTONLY-cli> 
+2019-11-26 13:27:38,676 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - request erase running-config
+Will delete the running config and restart Versa
+Services. Are you sure? [no,yes] 
+2019-11-26 13:27:50,671 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - yes
+status  Erasing config and restarting services 
+[ok][2019-11-26 04:38:54]
+admin@CPE12-SIN-INTONLY-cli> 
+System message at 2019-11-26 04:38:59...
+    Subsystem stopped: eventd
+admin@CPE12-SIN-INTONLY-cli> 
+System message at 2019-11-26 04:38:59...
+    Subsystem stopped: infmgr
+admin@CPE12-SIN-INTONLY-cli> 
+System message at 2019-11-26 04:38:59...
+    Subsystem stopped: snmp-config-hook
+
+System message at 2019-11-26 04:38:59...
+    Subsystem stopped: snmp-config-transform
+admin@CPE12-SIN-INTONLY-cli> admin@CPE12-SIN-INTONLY-cli> 
+System message at 2019-11-26 04:38:59...
+    Subsystem stopped: router-dcl
+admin@CPE12-SIN-INTONLY-cli> 
+System message at 2019-11-26 04:38:59...
+    Subsystem stopped: rtd-mgmt-thread
+
+System message at 2019-11-26 04:38:59...
+    Subsystem stopped: acctmgrd
+admin@CPE12-SIN-INTONLY-cli> admin@CPE12-SIN-INTONLY-cli> 
+System message at 2019-11-26 04:38:59...
+    Subsystem stopped: versa-vmod
+admin@CPE12-SIN-INTONLY-cli> admin@CPE12-SIN-INTONLY:~$ 
+2019-11-26 13:27:51,492 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - process not up. Please wait for it to come up
+2019-11-26 13:27:52,296 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - vsh status
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The product evaluation period has expired.
+ Please contact Versa Support (support@versa-networks.com) 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Stopped           
+versa-infmgr           is Stopped           
+versa-rfd              is Stopped           
+versa-vmod             is Stopped           
+versa-ip2user          is Stopped           
+versa-imgr             is Stopped           
+versa-acctmgrd         is Stopped           
+versa-fltrmgr          is Stopped           
+versa-vstated          is Stopped           
+versa-spack            is Stopped           
+versa-addrmgrd         is Stopped           
+versa-rt-cli-xfm       is Stopped           
+versa-rtd              is Stopped           
+versa-dhcpd            is Stopped           
+versa-eventd           is Stopped           
+versa-vrrpd            is Stopped           
+versa-dnsd             is Stopped           
+versa-ppmd             is Stopped           
+versa-snmp-xform       is Stopped           
+versa-certd            is Stopped           
+versa-ntpd             is Stopped           
+versa-dhclient6        is Stopped           
+versa-redis            is Stopped           
+versa-av-redis         is Stopped           
+versa-spackmgr         is Stopped           
+versa-devmgr           is Stopped           
+versa-monit            is Stopped           
+versa-confd            is Running,          [-] process 1433
+versa-fail2ban         is Stopped           
+versa-auditd           is Stopped           
+versa-nodejs           is Stopped           
+admin@CPE12-SIN-INTONLY:~$ 
+2019-11-26 13:28:02,301 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - process not up. Please wait for it to come up
+2019-11-26 13:28:03,125 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - vsh status
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The product evaluation period has expired.
+ Please contact Versa Support (support@versa-networks.com) 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Stopped           
+versa-infmgr           is Stopped           
+versa-rfd              is Stopped           
+versa-vmod             is Stopped           
+versa-ip2user          is Stopped           
+versa-imgr             is Stopped           
+versa-acctmgrd         is Stopped           
+versa-fltrmgr          is Stopped           
+versa-vstated          is Stopped           
+versa-spack            is Stopped           
+versa-addrmgrd         is Stopped           
+versa-rt-cli-xfm       is Stopped           
+versa-rtd              is Stopped           
+versa-dhcpd            is Stopped           
+versa-eventd           is Stopped           
+versa-vrrpd            is Stopped           
+versa-dnsd             is Stopped           
+versa-ppmd             is Stopped           
+versa-snmp-xform       is Stopped           
+versa-certd            is Stopped           
+versa-ntpd             is Stopped           
+versa-dhclient6        is Stopped           
+versa-redis            is Stopped           
+versa-av-redis         is Stopped           
+versa-spackmgr         is Stopped           
+versa-devmgr           is Stopped           
+versa-monit            is Stopped           
+versa-confd            is Stopped           
+versa-fail2ban         is Stopped           
+versa-auditd           is Stopped           
+versa-nodejs           is Stopped           
+admin@CPE12-SIN-INTONLY:~$ 
+2019-11-26 13:28:13,135 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - process not up. Please wait for it to come up
+2019-11-26 13:28:16,588 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - vsh status
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The product evaluation period has expired.
+ Please contact Versa Support (support@versa-networks.com) 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Netconf traffic yet to be allowed 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Stopped           
+versa-infmgr           is Running,          [-] process 4101
+versa-rfd              is Stopped           
+versa-vmod             is Stopped           
+versa-ip2user          is Stopped           
+versa-imgr             is Stopped           
+versa-acctmgrd         is Stopped           
+versa-fltrmgr          is Running,          [-] process 4115
+versa-vstated          is Running,          [-] process 4104
+versa-spack            is Stopped           
+versa-addrmgrd         is Stopped           
+versa-rt-cli-xfm       is Stopped           
+versa-rtd              is Stopped           
+versa-dhcpd            is Running,          [-] process 4102
+versa-eventd           is Stopped           
+versa-vrrpd            is Running,          [-] process 4107
+versa-dnsd             is Running,          [-] process 4113
+versa-ppmd             is Stopped           
+versa-snmp-xform       is Stopped           
+versa-certd            is Stopped           
+versa-ntpd             is Running,          [*] process 4081
+versa-dhclient6        is Stopped           
+versa-redis            is Running,          [-] process 3847
+versa-av-redis         is Running,          [-] process 3846
+versa-spackmgr         is Stopped           
+versa-devmgr           is Stopped           
+versa-monit            is Stopped           
+versa-confd            is Running,          [*] process 3809
+versa-fail2ban         is Stopped           
+versa-auditd           is Stopped           
+versa-nodejs           is Stopped           
+admin@CPE12-SIN-INTONLY:~$ 
+2019-11-26 13:28:26,589 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - process not up. Please wait for it to come up
+2019-11-26 13:28:38,766 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - vsh status
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The product evaluation period has expired.
+ Please contact Versa Support (support@versa-networks.com) 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Netconf traffic yet to be allowed 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Running,          [*] process 4187
+versa-infmgr           is Running,          [-] process 4101
+versa-rfd              is Running,          [-] process 4520
+versa-vmod             is Running,          [-] process 4515
+versa-ip2user          is Running,          [-] process 4523
+versa-imgr             is Running,          [-] process 4530
+versa-acctmgrd         is Running,          [-] process 4506
+versa-fltrmgr          is Running,          [-] process 4115
+versa-vstated          is Running,          [-] process 4104
+versa-spack            is Running,          [-] process 4752
+versa-addrmgrd         is Running,          [-] process 4525
+versa-rt-cli-xfm       is Running,          [-] process 4476
+versa-rtd              is Running,          [-] process 4501
+versa-dhcpd            is Running,          [-] process 4102
+versa-eventd           is Running,          [-] process 4507
+versa-vrrpd            is Running,          [-] process 4107
+versa-dnsd             is Running,          [-] process 4113
+versa-ppmd             is Running,          [-] process 4466
+versa-snmp-xform       is Running,          [-] process 4482
+versa-certd            is Running,          [-] process 4527
+versa-ntpd             is Running,          [*] process 4081
+versa-dhclient6        is Running,          [-] process 4484
+versa-redis            is Running,          [-] process 3847
+versa-av-redis         is Running,          [-] process 3846
+versa-spackmgr         is Running,          [-] process 4503
+versa-devmgr           is Running,          [-] process 4630
+versa-monit            is Running,          [*] process 4671
+versa-confd            is Running,          [*] process 3809
+versa-fail2ban         is Running,          [*] process 4703
+versa-auditd           is Running,          [*] process 4720
+versa-nodejs           is Running,          [-] process 4444
+admin@CPE12-SIN-INTONLY:~$ 
+2019-11-26 13:28:48,766 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - process not up. Please wait for it to come up
+2019-11-26 13:28:55,882 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - vsh status
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The product evaluation period has expired.
+ Please contact Versa Support (support@versa-networks.com) 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Netconf traffic yet to be allowed 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Running,          [*] process 4187
+versa-infmgr           is Running,          [-] process 4101
+versa-rfd              is Running,          [-] process 4520
+versa-vmod             is Running,          [-] process 4515
+versa-ip2user          is Running,          [-] process 4523
+versa-imgr             is Running,          [-] process 4530
+versa-acctmgrd         is Running,          [-] process 4506
+versa-fltrmgr          is Running,          [-] process 4115
+versa-vstated          is Running,          [-] process 4104
+versa-spack            is Running,          [-] process 4752
+versa-addrmgrd         is Running,          [-] process 4525
+versa-rt-cli-xfm       is Running,          [-] process 4476
+versa-rtd              is Running,          [-] process 4501
+versa-dhcpd            is Running,          [-] process 4102
+versa-eventd           is Running,          [-] process 4507
+versa-vrrpd            is Running,          [-] process 4107
+versa-dnsd             is Running,          [-] process 4113
+versa-ppmd             is Running,          [-] process 4466
+versa-snmp-xform       is Running,          [-] process 4482
+versa-certd            is Running,          [-] process 4527
+versa-ntpd             is Running,          [*] process 4081
+versa-dhclient6        is Running,          [-] process 4484
+versa-redis            is Running,          [-] process 5727
+versa-av-redis         is Running,          [-] process 3846
+versa-spackmgr         is Running,          [-] process 4503
+versa-devmgr           is Running,          [-] process 4630
+versa-monit            is Running,          [*] process 4671
+versa-confd            is Running,          [*] process 3809
+versa-fail2ban         is Running,          [*] process 4703
+versa-auditd           is Running,          [*] process 4720
+versa-nodejs           is Running,          [-] process 4444
+admin@CPE12-SIN-INTONLY:~$ 
+2019-11-26 13:29:05,884 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - process not up. Please wait for it to come up
+2019-11-26 13:29:10,720 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - vsh status
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The product evaluation period has expired.
+ Please contact Versa Support (support@versa-networks.com) 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Running,          [*] process 4187
+versa-infmgr           is Running,          [-] process 4101
+versa-rfd              is Running,          [-] process 4520
+versa-vmod             is Running,          [-] process 4515
+versa-ip2user          is Running,          [-] process 4523
+versa-imgr             is Running,          [-] process 4530
+versa-acctmgrd         is Running,          [-] process 4506
+versa-fltrmgr          is Running,          [-] process 4115
+versa-vstated          is Running,          [-] process 4104
+versa-spack            is Running,          [-] process 4752
+versa-addrmgrd         is Running,          [-] process 4525
+versa-rt-cli-xfm       is Running,          [-] process 4476
+versa-rtd              is Running,          [-] process 4501
+versa-dhcpd            is Running,          [-] process 4102
+versa-eventd           is Running,          [-] process 4507
+versa-vrrpd            is Running,          [-] process 4107
+versa-dnsd             is Running,          [-] process 4113
+versa-ppmd             is Running,          [-] process 4466
+versa-snmp-xform       is Running,          [-] process 4482
+versa-certd            is Running,          [-] process 4527
+versa-ntpd             is Running,          [*] process 4081
+versa-dhclient6        is Running,          [-] process 4484
+versa-redis            is Running,          [-] process 5727
+versa-av-redis         is Running,          [-] process 3846
+versa-spackmgr         is Running,          [-] process 4503
+versa-devmgr           is Running,          [-] process 4630
+versa-monit            is Running,          [*] process 4671
+versa-confd            is Running,          [*] process 3809
+versa-fail2ban         is Running,          [*] process 4703
+versa-auditd           is Running,          [*] process 4720
+versa-nodejs           is Running,          [-] process 4444
+admin@CPE12-SIN-INTONLY:~$ 
+2019-11-26 13:29:20,720 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - After breaking while
+2019-11-26 13:29:26,022 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The product evaluation period has expired.
+ Please contact Versa Support (support@versa-networks.com) 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+versa-service          is Running,          [*] process 4187
+versa-infmgr           is Running,          [-] process 4101
+versa-rfd              is Running,          [-] process 4520
+versa-vmod             is Running,          [-] process 4515
+versa-ip2user          is Running,          [-] process 4523
+versa-imgr             is Running,          [-] process 4530
+versa-acctmgrd         is Running,          [-] process 4506
+versa-fltrmgr          is Running,          [-] process 4115
+versa-vstated          is Running,          [-] process 4104
+versa-spack            is Running,          [-] process 4752
+versa-addrmgrd         is Running,          [-] process 4525
+versa-rt-cli-xfm       is Running,          [-] process 4476
+versa-rtd              is Running,          [-] process 4501
+versa-dhcpd            is Running,          [-] process 4102
+versa-eventd           is Running,          [-] process 4507
+versa-vrrpd            is Running,          [-] process 4107
+versa-dnsd             is Running,          [-] process 4113
+versa-ppmd             is Running,          [-] process 4466
+versa-snmp-xform       is Running,          [-] process 4482
+versa-certd            is Running,          [-] process 4527
+versa-ntpd             is Running,          [*] process 4081
+versa-dhclient6        is Running,          [-] process 4484
+versa-redis            is Running,          [-] process 5727
+versa-av-redis         is Running,          [-] process 3846
+versa-spackmgr         is Running,          [-] process 4503
+versa-devmgr           is Running,          [-] process 4630
+versa-monit            is Running,          [*] process 4671
+versa-confd            is Running,          [*] process 3809
+versa-fail2ban         is Running,          [*] process 4703
+versa-auditd           is Running,          [*] process 4720
+versa-nodejs           is Running,          [-] process 4444
+2019-11-26 13:29:26,421 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - CPE12KSA
+2019-11-26 13:29:26,823 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - CPE12NOVA90
+2019-11-26 13:29:27,223 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - CPE12NOVA90
+2019-11-26 13:29:27,625 - CPE12-SIN-HYBRD-IPC00190 - DEBUG - -WC02-N6-SIN@colt.net -rk 1234
+

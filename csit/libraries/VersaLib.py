@@ -859,7 +859,16 @@ class VersaLib:
                                  headers=headers,
                                  verify=False)
         print response
-        return response
+
+        if response.status_code == 200:
+            return 'PASS'
+        elif response.status_code == 204:
+            return 'PASS'
+        else:
+            self.main_logger.error(response.content)
+            return 'FAIL : ' + str(response.content)
+
+
 
     def check_vsh_status(self):
         pass
@@ -1003,6 +1012,7 @@ class VersaLib:
         self.main_logger.debug(cpe_shell_login.send_command_expect(self.Staging_command_template, expect_string='\$|#'))
         time.sleep(20)
 
+
 #    def create_PS_and_DG(self, Post_staging_template, Device_group_template, PS_main_template_modify):
     def config_devices_vrrp_and_lib(self):
         if "DUAL-CPE" in self.Solution_type:
@@ -1012,9 +1022,11 @@ class VersaLib:
             if self.DUAL == "PRIMARY":
                 self.DEVICE_template_modify = curr_env.get_template("Primary_Device_template_modify.j2")
                 self.DEVICE_template_modify_config = self.DEVICE_template_modify.render(self.__dict__)
+                self.main_logger.info(self.DEVICE_template_modify_config)
             elif self.DUAL == "SECONDARY":
                 self.DEVICE_template_modify = curr_env.get_template("Secondary_Device_template_modify.j2")
                 self.DEVICE_template_modify_config = self.DEVICE_template_modify.render(self.__dict__)
+                self.main_logger.info(self.DEVICE_template_modify_config)
             self.vdnc = self.login(vd_login='yes')
             self.device_config_commands(self.vdnc, self.DEVICE_template_modify_config)
             self.close(self.vdnc)
@@ -1687,8 +1699,9 @@ class VersaLib:
                 for idx, row in csv_data_read.iterrows():
                     res_check = ""
                     dev_dict = row.to_dict()
-                    req_create_snap_temp = Template(req_cre_snapshot + "\n")
-                    req_create_snap_cmd += req_create_snap_temp.render(dev_dict, snapshot_description=self.snapshot_description)
+                    if "WC" not in dev_dict['NAME'] and "GW" not in dev_dict['NAME']:
+                        req_create_snap_temp = Template(req_cre_snapshot + "\n")
+                        req_create_snap_cmd += req_create_snap_temp.render(dev_dict, snapshot_description=self.snapshot_description)
                 self.main_logger.info(req_create_snap_cmd)
                 result = self.device_request_commands(nc, req_create_snap_cmd.encode("utf-8"))
                 for idx, row in csv_data_read.iterrows():
@@ -1908,16 +1921,21 @@ class VersaLib:
                 self.ndb[node_dev] = node_device_data
         return
 
-    def create_fowarding_profile(self, profilename, preferwan):
+
+    def create_fowarding_profile(self, profilename, ckt_pr_1_lcl_intf, ckt_pr_2_lcl_intf, **kwargs):
+        if kwargs is not None:
+            for k, v in kwargs.iteritems(): exec("self."+ k+'=v')
+        self.ckt_pr_1_lcl_intf = ckt_pr_1_lcl_intf
+        self.ckt_pr_2_lcl_intf = ckt_pr_2_lcl_intf
         self.main_logger.info("\nCREATE FWD PROFILE\n")
-        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/FWD_PROFILE/" + self.Solution_type)
+        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/FWD_PROFILE")
         fwd_profile_url_mod = fwd_profile_url.replace("temporgname" , self.ORG_NAME)
         fwd_profile_url_mod = fwd_profile_url_mod.replace("tempdevicename", self.Device_name)
         self.FW_PROFILE_NAME = profilename
         curr_env = Environment(loader=curr_file_loader)
-        FWP_template = curr_env.get_template("PREFER_" + preferwan + ".j2")
+        FWP_template = curr_env.get_template("FWD_PROFILE.j2")
         self.fw_profile_template_body = FWP_template.render(self.__dict__)
-        print self.fw_profile_template_body
+        # print self.fw_profile_template_body
         fwd_profile_creation_result = self.post_operation(fwd_profile_url_mod, headers2, self.fw_profile_template_body)
         self.main_logger.info("\n" + fwd_profile_creation_result)
         if 'FAIL' in fwd_profile_creation_result:
@@ -1927,6 +1945,44 @@ class VersaLib:
             self.main_logger.info(">>>>>>>>>> FORWARDING PROFILE CREATION PASSED. <<<<<<<<<<<")
             return "PASS"
         time.sleep(5)
+
+    def delete_fowarding_profile(self, profilename, **kwargs):
+        if kwargs is not None:
+            for k, v in kwargs.iteritems(): exec("self."+ k+'=v')
+        self.main_logger.info("\nDELETE FWD PROFILE\n")
+        fwd_profile_url_mod = fwd_profile_url.replace("temporgname" , self.ORG_NAME)
+        fwd_profile_url_mod = fwd_profile_url_mod.replace("tempdevicename", self.Device_name)
+        self.FW_PROFILE_NAME = profilename
+        self.fwd_profile_url_mod = fwd_profile_url_mod + "/forwarding-profile/" + self.FW_PROFILE_NAME
+        # print self.fwd_profile_url_mod
+        fwd_profile_creation_result = self.delete_operation(self.fwd_profile_url_mod, headers2)
+        self.main_logger.info("\n" + fwd_profile_creation_result)
+        if 'FAIL' in fwd_profile_creation_result:
+            self.main_logger.info(">>>>>>>>>> FORWARDING PROFILE DELETION FAILED. <<<<<<<<<<<")
+            return "FAIL"
+        else:
+            self.main_logger.info(">>>>>>>>>> FORWARDING PROFILE DELETION PASSED. <<<<<<<<<<<")
+            return "PASS"
+        time.sleep(5)
+    # def create_fowarding_profile(self, profilename, preferwan):
+    #     self.main_logger.info("\nCREATE FWD PROFILE\n")
+    #     curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/FWD_PROFILE/" + self.Solution_type)
+    #     fwd_profile_url_mod = fwd_profile_url.replace("temporgname" , self.ORG_NAME)
+    #     fwd_profile_url_mod = fwd_profile_url_mod.replace("tempdevicename", self.Device_name)
+    #     self.FW_PROFILE_NAME = profilename
+    #     curr_env = Environment(loader=curr_file_loader)
+    #     FWP_template = curr_env.get_template("PREFER_" + preferwan + ".j2")
+    #     self.fw_profile_template_body = FWP_template.render(self.__dict__)
+    #     print self.fw_profile_template_body
+    #     fwd_profile_creation_result = self.post_operation(fwd_profile_url_mod, headers2, self.fw_profile_template_body)
+    #     self.main_logger.info("\n" + fwd_profile_creation_result)
+    #     if 'FAIL' in fwd_profile_creation_result:
+    #         self.main_logger.info(">>>>>>>>>> FORWARDING PROFILE CREATION FAILED. <<<<<<<<<<<")
+    #         return "FAIL"
+    #     else:
+    #         self.main_logger.info(">>>>>>>>>> FORWARDING PROFILE CREATION PASSED. <<<<<<<<<<<")
+    #         return "PASS"
+    #     time.sleep(5)
 
     def Create_Org(self, org_name, org_id, WC_list, no_of_vrfs):
         # main_logger = self.setup_logger('Versa-director', 'Create_org')

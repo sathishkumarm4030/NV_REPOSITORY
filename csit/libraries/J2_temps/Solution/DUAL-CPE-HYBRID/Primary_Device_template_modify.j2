@@ -7,3 +7,29 @@ set devices device {{ Device_name }} config interfaces {{ LAN_INTF }} unit {{ vl
 set devices device {{ Device_name }} config interfaces {{ LAN_INTF }} unit {{ vlanid }} family inet address {{ lan_ip_address }}/{{ lan_ip_prefixlen }} vrrp-group {{ lan_number }} track route {{ TRACK_MANAGEMENT_SUBNET }} routing-instance {{ ORG_NAME }}-Control-VR
 set devices device {{ Device_name }} config interfaces {{ LAN_INTF }} unit {{ vlanid }} family inet address {{ lan_ip_address }}/{{ lan_ip_prefixlen }} vrrp-group {{ lan_number }} track route {{ TRACK_MANAGEMENT_SUBNET }} priority-cost 10
 {% endfor -%}
+
+
+#Firewall
+set devices device {{ Device_name }} config orgs org {{ ORG_NAME }} services [ cgnat stateful-firewall sdwan ]
+set devices device {{ Device_name }} config service-node-groups default-sng services [ cgnat stateful-firewall sdwan ]
+delete devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies Default-Policy
+
+{% set LAN_NO = NO_OF_VRFS %}
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules CUST-LAN-INT-DENY set action deny
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules CUST-LAN-INT-DENY match source zone zone-list [ Intf-LAN{{ LAN_NO }}-Zone W-ST-LAN{{ LAN_NO }}-VRF-INT-WAN ]
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules CUST-LAN-INT-DENY match destination zone zone-list [ Intf-INT-WAN-Zone L-ST-LAN{{ LAN_NO }}-VRF-INT-WAN ]
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules CUST-LAN-INT-DENY set lef profile Default-Logging-Profile
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules CUST-LAN-INT-DENY set lef event both
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules SDWAN-ALLOW-INBOUND set action allow
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules SDWAN-ALLOW-INBOUND match source zone zone-list [ ptvi ]
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules SDWAN-ALLOW-INBOUND match destination zone zone-list [ Intf-LAN{{ LAN_NO }}-Zone ]
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules SDWAN-ALLOW-OUTBOUND set action allow
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules SDWAN-ALLOW-OUTBOUND match source zone zone-list [ Intf-LAN{{ LAN_NO }}-Zone ]
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules SDWAN-ALLOW-OUTBOUND match destination zone zone-list [ ptvi ]
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules SDWAN-ALLOW-TRANS-INBOUND set action allow
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules SDWAN-ALLOW-TRANS-INBOUND match destination zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules SDWAN-ALLOW-TRANS-OUTBOUND set action allow
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules SDWAN-ALLOW-TRANS-OUTBOUND match source zone zone-list [ Intf-MPLS-WAN-Failover-Zone ]
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules DEFAULT-DENY-ALL set action deny
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules DEFAULT-DENY-ALL set lef profile Default-Logging-Profile
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules DEFAULT-DENY-ALL set lef event both
