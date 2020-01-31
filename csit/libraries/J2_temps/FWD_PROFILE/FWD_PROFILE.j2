@@ -1,4 +1,5 @@
-{%- set recompute_timer = recompute_timer|default("300") -%}
+{%- set recompute_timer = recompute_timer|default("40") -%}
+{%- set evaluate_continuously = evaluate_continuously|default("enable") -%}
 
 
 
@@ -6,12 +7,13 @@
 {
   "forwarding-profile": {
     "name": "{{ FW_PROFILE_NAME }}",
+    {% if sla_name is defined %}"sla-profile": "{{ sla_name }}",{% endif %}
     "encryption": "optional",
     "connection-selection-method": "weighted-round-robin",
     "recompute-timer": "{{ recompute_timer }}",
     "sla-violation-action": "forward",
     "load-balance": "per-flow",
-    "evaluate-continuously": "disable",
+    "evaluate-continuously": "{{ evaluate_continuously }}",
     "turn-redirect": "disable",
     "symmetric-forwarding": "enable",
     "circuit-priorities": {

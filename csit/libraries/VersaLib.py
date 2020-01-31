@@ -1,4 +1,17 @@
 #!/usr/bin/env python
+import inspect
+import os
+
+
+frame = inspect.stack()[1]
+module = inspect.getmodule(frame[0])
+caller_filename = module.__file__
+
+print caller_filename
+
+
+
+
 
 # from os.path import dirname, realpath, sep, pardir
 # import sys
@@ -35,6 +48,7 @@ import logging.handlers
 import errno
 import csv
 import textfsm
+import yaml
 currtime = str(datetime.now())
 currtime = currtime.replace(" ", "_").replace(":", "_").replace("-", "_").replace(".", "_")
 from ast import literal_eval
@@ -59,6 +73,7 @@ curr_file_dir = os.path.dirname(os.path.dirname(os.path.realpath('__file__')))
 
 #print fileDir
 
+# if "*.robot" not in caller_filename:
 logfile_dir = os.path.dirname(os.path.dirname(os.path.realpath('__file__'))) + "/LOGS/"+ currtime + "/"
 if not os.path.exists(os.path.dirname(logfile_dir)):
     try:
@@ -120,15 +135,28 @@ class VersaLib:
         if kwargs is not None:
             for k, v in kwargs.iteritems(): exec("self."+ k+'=v')
         if 'topofile' in self.__dict__:
-            csv_data_read = pd.read_csv(curr_file_dir + "/Topology/" + self.topofile, dtype=object)
-            self.Device_name = device_name
-            data = csv_data_read.loc[csv_data_read['Device_name'] == device_name]
-            csv_dict = data.set_index('Device_name').T.to_dict()
-            for k, v in csv_dict[self.Device_name].iteritems():
-                if isinstance(v, float):
-                    if math.isnan(v):
+            if ".csv" in self.topofile:
+                csv_data_read = pd.read_csv(curr_file_dir + "/Topology/" + self.topofile, dtype=object)
+                self.Device_name = device_name
+                data = csv_data_read.loc[csv_data_read['Device_name'] == device_name]
+                csv_dict = data.set_index('Device_name').T.to_dict()
+                for k, v in csv_dict[self.Device_name].iteritems():
+                    if isinstance(v, float):
+                        if math.isnan(v):
+                            continue
+                    exec("self."+ k+'=v')
+            elif '.yml' in self.topofile:
+                print self.topofile
+                with open(curr_file_dir + "/Topology/" + self.topofile) as fp1:
+                    devices_dict = yaml.safe_load(fp1)
+                device_dict = devices_dict[device_name]
+                self.Device_name = device_name
+                for k, v in device_dict.iteritems():
+                    print type(v)
+                    if v == None:
                         continue
-                exec("self."+ k+'=v')
+                    exec("self."+ k+'=v')
+
             for k, v in self.__dict__.iteritems():
                 if isinstance(v, str):
                     if "temporgname" in v:
@@ -164,12 +192,19 @@ class VersaLib:
                 self.vdhead = 'https://' + self.mgmt_ip + ':9182'
                 self.vddata_dict = self.__dict__
             else:
-                self.vddata = csv_data_read.loc[csv_data_read['device_type'] == 'versa_director']
-                self.vdcsv_dict = self.vddata.set_index('Device_name').T.to_dict()
-                self.vddata_dict = {}
-                self.vdcsv_dict['VD1']['Device_name'] = 'VD1'
-                for i, k  in self.vdcsv_dict['VD1'].iteritems():
-                    self.vddata_dict[i] = k
+                if ".csv" in self.topofile:
+                    self.vddata = csv_data_read.loc[csv_data_read['device_type'] == 'versa_director']
+                    self.vdcsv_dict = self.vddata.set_index('Device_name').T.to_dict()
+                    self.vddata_dict = {}
+                    self.vdcsv_dict['VD1']['Device_name'] = 'VD1'
+                    for i, k  in self.vdcsv_dict['VD1'].iteritems():
+                        self.vddata_dict[i] = k
+                elif ".yml" in self.topofile:
+                    self.vdcsv_dict = devices_dict['VD1']
+                    self.vddata_dict = {}
+                    self.vdcsv_dict['VD1']['Device_name'] = 'VD1'
+                    for i, k in self.vdcsv_dict['VD1'].iteritems():
+                        self.vddata_dict[i] = k
                 self.vdhead = 'https://' + self.vddata_dict['mgmt_ip'] + ':9182'
         self.main_logger = self.setup_logger(device_name, 'MAIN', level=logging.DEBUG)
         self.curr_file_dir = os.path.dirname(os.path.dirname(os.path.realpath('__file__')))
@@ -776,7 +811,9 @@ class VersaLib:
         print response.content
         print response
 
-        if response.status_code == '200':
+        if response.status_code == '200' or 200:
+            return 'PASS'
+        elif response.status_code == '204' or 204:
             return 'PASS'
         else:
             print response.content
@@ -938,10 +975,7 @@ class VersaLib:
             self.get_device_info()
         return self.dev_dict
 
-    def get_interface_data_from_vd(self, interface_name):
-        self.vni_interface_url = "/api/config/devices/device/" + self.Device_name + "/config/interfaces/vni/%22" + interface_name + "%22"
-        data1 = self.get_operation(self.vni_interface_url, headers3)
-        return data1
+
 
 
 
@@ -963,11 +997,46 @@ class VersaLib:
             self.main_logger.debug(nc_handler.send_command_expect(cmd, expect_string='%', strip_prompt=False, strip_command=False))
         self.main_logger.debug(nc_handler.send_command_expect('commit and-quit', expect_string='>', strip_prompt=False, strip_command=False))
 
+    def device_config_commands_with_return(self, cmds):
+        res_check = ""
+        nc_handler = self.nc
+        self.main_logger.debug(nc_handler.config_mode(config_command='config private'))
+        self.main_logger.debug(nc_handler.check_config_mode())
+        for cmd in cmds.split("\n"):
+            self.main_logger.debug(nc_handler.send_command_expect(cmd, expect_string='%', strip_prompt=False, strip_command=False))
+        commit_result = nc_handler.send_command_expect('commit and-quit', expect_string='>', strip_prompt=False, strip_command=False)
+        self.main_logger.debug(commit_result)
+        if "No modifications to commit." in commit_result:
+            res_check += "No modifications to commit."
+        elif "Commit complete." in commit_result:
+            res_check += "Commit SUCCUESS."
+        else:
+            res_check += "Commit FAILED."
+        return res_check
+
+    def check_commit_result(self, commit_result):
+        print commit_result
+        res_check = ""
+        if "No modifications to commit." in commit_result:
+            res_check += "No modifications to commit."
+        elif "Commit complete." in commit_result:
+            res_check += "Commit SUCCUESS."
+        else:
+            res_check += "Commit FAILED."
+        return res_check
+
     def device_config_commands_wo_split(self, nc_handler, cmds):
         # nc_handler.config_mode(config_command='config private')
         # nc_handler.check_config_mode()
         return nc_handler.send_config_set(config_commands=cmds, strip_prompt=False, strip_command=False, \
                                           max_loops=5000, delay_factor=0.0001, exit_config_mode=False)
+
+    def commit_config_commands(self, nc_handler, cmds):
+        nc_handler.config_mode(config_command='config private')
+        nc_handler.check_config_mode()
+        cmds = cmds + "\ncommit"
+        return nc_handler.send_config_set(config_commands=cmds, strip_prompt=False, strip_command=False, \
+                                          exit_config_mode=True)
 
     def device_request_commands(self, nc_handler, cmds):
         self.main_logger.debug(nc_handler.exit_config_mode())
@@ -1377,6 +1446,16 @@ class VersaLib:
         output = self.parse_send_command(output, route_template)
         return output
 
+    def show_session_sdwan_detail(self,  **kwargs):
+        cmd = "show orgs org " + self.ORG_NAME + " sessions sdwan detail | nomore"
+        paramlist = ['destination_ip', 'destination_port', 'source_ip', 'source_port']
+        for element in paramlist:
+            if element in kwargs.keys():
+                cmd = cmd + " | select " + element.replace('_', '-') + " " + str(kwargs[element])
+        print cmd
+        output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
+        return output
+
 
     def send_commands_and_expect(self, cmds, expect_string=">|%"):
         for cmd in cmds.split("\n"):
@@ -1386,17 +1465,7 @@ class VersaLib:
         logger.info(output, also_console=True)
         return output
 
-    def shutdown_interface(self, intf_name):
-        data = self.get_interface_data_from_vd(intf_name)
-        data['vni']['enable'] = False
-        data1 = json.dumps(data)
-        self.put_operation(self.vni_interface_url, headers2, data1)
 
-    def unshutdown_interface(self, intf_name):
-        data = self.get_interface_data_from_vd(intf_name)
-        data['vni']['enable'] = True
-        data1 = json.dumps(data)
-        self.put_operation(self.vni_interface_url, headers2, data1)
 
     def request_ping(self, net_connect, cpe):
         net_connect.send_command_expect("cli", strip_prompt=False, strip_command=False, expect_string=">")
@@ -1921,6 +1990,91 @@ class VersaLib:
                 self.ndb[node_dev] = node_device_data
         return
 
+    def modify_url(self, url):
+        url_mod = url.replace("temporgname", self.ORG_NAME)
+        url_mod = url_mod.replace("tempdevicename", self.Device_name)
+        return url_mod
+
+
+    def create_sla_profile(self, name, **kwargs):
+        self.main_logger.info("\nCREATE SLA profile\n")
+        url = self.modify_url(sla_profile_url)
+        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/FWD_PROFILE")
+        curr_env = Environment(loader=curr_file_loader)
+        template = curr_env.get_template("SLA_PROFILE.j2")
+        template_body = template.render(name=name, **kwargs)
+        print template_body
+        result = self.post_operation(url, headers2, template_body)
+        self.main_logger.info("\n" + result)
+        if 'FAIL' in result:
+            self.main_logger.info(">>>>>>>>>> CREATE SLA Profile FAILED. <<<<<<<<<<<")
+            return "FAIL"
+        else:
+            self.main_logger.info(">>>>>>>>>> CREATE SLA Profile PASSED. <<<<<<<<<<<")
+            return "PASS"
+
+    def get_sla_profile(self, name):
+        url = self.modify_url(sla_profile_url)
+        url = url+ "/sla-profile/" + name
+        data1 = self.get_operation(url, headers2)
+        return data1
+
+
+    def delete_sla_profile(self, name):
+        self.main_logger.info("\nDELETE SLA profile\n")
+        url = self.modify_url(sla_profile_url)
+        url = url+ "/sla-profile/" + name
+        result = self.delete_operation(url, headers2)
+        self.main_logger.info("\n" + result)
+        if 'FAIL' in result:
+            self.main_logger.info(">>>>>>>>>> DELETE SLA Profile FAILED. <<<<<<<<<<<")
+            return "FAIL"
+        else:
+            self.main_logger.info(">>>>>>>>>> DELETE SLA Profile PASSED. <<<<<<<<<<<")
+            return "PASS"
+
+
+    def get_vni_interface_data(self, interface_name):
+        url = self.modify_url(vni_interface_url)
+        url = url.replace("interface_name", interface_name)
+        data1 = self.get_operation(url, headers3)
+        return data1
+
+    def get_vni_interface_bw(self, interface_name):
+        url = self.modify_url(vni_interface_bw_url)
+        url = url.replace("interface_name", interface_name)
+        data1 = self.get_operation(url, headers3)
+        return data1
+
+    def shutdown_vni_interface(self, interface_name):
+        data = self.get_vni_interface_data(interface_name)
+        data['vni']['enable'] = False
+        data1 = json.dumps(data)
+        self.put_operation(self.vni_interface_url, headers2, data1)
+
+    def unshutdown_vni_interface(self, interface_name):
+        data = self.get_vni_interface_data(interface_name)
+        data['vni']['enable'] = True
+        data1 = json.dumps(data)
+        self.put_operation(self.vni_interface_url, headers2, data1)
+
+    def modify_interface_bandwidth(self, interface_name, uplink, downlink):
+        data = self.get_vni_interface_bw(interface_name)
+        url = self.modify_url(vni_interface_bw_url)
+        url = url.replace("interface_name", interface_name)
+        data['bandwidth']['uplink'] = uplink
+        data['bandwidth']['downlink'] = downlink
+        data1 = json.dumps(data)
+        return self.put_operation(url, headers2, data1)
+
+    def modify_interface(self, interface_name, data):
+        url = self.modify_url(vni_interface_url)
+        url = url.replace("interface_name", interface_name)
+        data1 = json.dumps(data)
+        return self.put_operation(url, headers2, data1)
+
+
+
 
     def create_fowarding_profile(self, profilename, ckt_pr_1_lcl_intf, ckt_pr_2_lcl_intf, **kwargs):
         if kwargs is not None:
@@ -1946,9 +2100,7 @@ class VersaLib:
             return "PASS"
         time.sleep(5)
 
-    def delete_fowarding_profile(self, profilename, **kwargs):
-        if kwargs is not None:
-            for k, v in kwargs.iteritems(): exec("self."+ k+'=v')
+    def delete_fowarding_profile(self, profilename):
         self.main_logger.info("\nDELETE FWD PROFILE\n")
         fwd_profile_url_mod = fwd_profile_url.replace("temporgname" , self.ORG_NAME)
         fwd_profile_url_mod = fwd_profile_url_mod.replace("tempdevicename", self.Device_name)
@@ -1964,6 +2116,95 @@ class VersaLib:
             self.main_logger.info(">>>>>>>>>> FORWARDING PROFILE DELETION PASSED. <<<<<<<<<<<")
             return "PASS"
         time.sleep(5)
+
+
+    def create_address_object(self, name, type, address, **kwargs):
+        if kwargs is not None:
+            for k, v in kwargs.iteritems(): exec("self."+ k+'=v')
+
+        self.main_logger.info("\nCREATE IPaddress Object\n")
+        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/FWD_PROFILE")
+        add_obj_url_mod = address_object_create_url.replace("temporgname" , self.ORG_NAME)
+        add_obj_url_mod = add_obj_url_mod.replace("tempdevicename", self.Device_name)
+        curr_env = Environment(loader=curr_file_loader)
+        template = curr_env.get_template("IPaddress_object_creation.j2")
+        address_dict = { 'name' : name, 'type' : type, 'address' : address}
+        template_body = template.render(address_dict)
+        print template_body
+        address_obj_creation_result = self.post_operation(add_obj_url_mod, headers2, template_body)
+        self.main_logger.info("\n" + address_obj_creation_result)
+        if 'FAIL' in address_obj_creation_result:
+            self.main_logger.info(">>>>>>>>>> ADDRESS OBJECT CREATION FAILED. <<<<<<<<<<<")
+            return "FAIL"
+        else:
+            self.main_logger.info(">>>>>>>>>> ADDRESS OBJECT CREATION PASSED. <<<<<<<<<<<")
+            return "PASS"
+        time.sleep(5)
+
+
+    def delete_address_object(self, name):
+        self.main_logger.info("\nDELETE IPaddress Object\n")
+        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/FWD_PROFILE")
+        del_obj_url_mod = address_object_create_url.replace("temporgname" , self.ORG_NAME)
+        del_obj_url_mod = del_obj_url_mod.replace("tempdevicename", self.Device_name)
+        del_obj_url_mod = del_obj_url_mod + "/address/" + name
+        address_obj_creation_result = self.delete_operation(del_obj_url_mod, headers2)
+        self.main_logger.info("\n" + address_obj_creation_result)
+        if 'FAIL' in address_obj_creation_result:
+            self.main_logger.info(">>>>>>>>>> ADDRESS OBJECT DELETION FAILED. <<<<<<<<<<<")
+            return "FAIL"
+        else:
+            self.main_logger.info(">>>>>>>>>> ADDRESS OBJECT DELETION PASSED. <<<<<<<<<<<")
+            return "PASS"
+        time.sleep(5)
+
+
+
+    def create_policy_rule(self, name, address_name, fwd_profile_name, **kwargs):
+        if kwargs is not None:
+            for k, v in kwargs.iteritems(): exec("self."+ k+'=v')
+        self.main_logger.info("\nCREATE Policy rule\n")
+        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/FWD_PROFILE")
+        policy_rule_create_url_mod = policy_rule_create_url.replace("temporgname" , self.ORG_NAME)
+        policy_rule_create_url_mod = policy_rule_create_url_mod.replace("tempdevicename", self.Device_name)
+        curr_env = Environment(loader=curr_file_loader)
+        template = curr_env.get_template("RULE_Creation.j2")
+        rule_dict = { 'name' : name, 'address_name' : address_name, 'fwd_profile_name' : fwd_profile_name }
+        template_body = template.render(rule_dict)
+        print template_body
+        result = self.post_operation(policy_rule_create_url_mod, headers2, template_body)
+        self.main_logger.info("\n" + result)
+        if 'FAIL' in result:
+            self.main_logger.info(">>>>>>>>>> CREATE POLICY RULE FAILED. <<<<<<<<<<<")
+            return "FAIL"
+        else:
+            self.main_logger.info(">>>>>>>>>> CREATE POLICY RULE PASSED. <<<<<<<<<<<")
+            return "PASS"
+        time.sleep(5)
+
+    def move_policy_rule(self, device, org, policy, rule, position):
+        cmd = 'move devices device ' + device + ' config orgs org-services ' + org + ' sd-wan policies ' + policy +  ' rules ' + rule + " " + position
+        result = self.commit_config_commands(self.nc, cmd)
+        return self.check_commit_result(result)
+
+
+    def delete_policy_rule(self, name):
+        self.main_logger.info("\nDELETE IPaddress Object\n")
+        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/FWD_PROFILE")
+        url = policy_rule_create_url.replace("temporgname" , self.ORG_NAME)
+        url = url.replace("tempdevicename", self.Device_name)
+        url = url + "/rule/" + name
+        result = self.delete_operation(url, headers2)
+        self.main_logger.info("\n" + result)
+        if 'FAIL' in result:
+            self.main_logger.info(">>>>>>>>>> Policy rule DELETION FAILED. <<<<<<<<<<<")
+            return "FAIL"
+        else:
+            self.main_logger.info(">>>>>>>>>> Policy rule DELETION PASSED. <<<<<<<<<<<")
+            return "PASS"
+        time.sleep(5)
+
+
     # def create_fowarding_profile(self, profilename, preferwan):
     #     self.main_logger.info("\nCREATE FWD PROFILE\n")
     #     curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/FWD_PROFILE/" + self.Solution_type)

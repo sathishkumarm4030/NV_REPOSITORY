@@ -1,0 +1,72 @@
+[2020-01-22 16:20:08]: Started process.  Command line: 
+[2020-01-22 16:20:09]:      port number: 64384
+[2020-01-22 16:20:09]:    timeout value: 120
+[2020-01-22 16:20:09]:       log option: log
+[2020-01-22 16:20:09]: results dir path: C:\Softwares_mine\stefano\NV_REPOSITORY\csit\scripts
+[2020-01-22 16:20:09]:    log file name: Hltapi_interface_config.hltlog
+[2020-01-22 16:20:09]: Working directory is now: C:/Softwares_mine/stefano/NV_REPOSITORY/csit/scripts
+[2020-01-22 16:20:09]: Sourcing initialization file "stcinit.srv".
+[2020-01-22 16:20:09]: Connecting to port 64384 on 127.0.0.1.
+[2020-01-22 16:20:09]: Creating server socket.
+[2020-01-22 16:20:09]: Generated port number: 64386
+[2020-01-22 16:20:09]: Setting up timeout check.
+[2020-01-22 16:20:09]: Waiting for client connection.
+[2020-01-22 16:20:09]: Client connection from 127.0.0.1 port 64387.
+[2020-01-22 16:20:09]: Executing: <package require SpirentHltApi>
+[2020-01-22 16:20:28]: Return value: <4.67>
+[2020-01-22 16:20:28]: custom_path--C:/Softwares_mine/stefano/NV_REPOSITORY/csit/scripts
+[2020-01-22 16:20:28]: Executing: <set ret [sth::test_config -vendorlogfile HLTAPI_InterfaceConfig_Port_Load_stcExport -log_level 7 -log 1 -hlt2stcmappingfile HHLTAPI_InterfaceConfig_Port_Load_hlt2StcMapping -hlt2stcmapping 1 -hltlog 1 -logfile HLTAPI_InterfaceConfig_Port_Load_logfile -vendorlog 1 -hltlogfile HLTAPI_InterfaceConfig_Port_Load_hltExport]>
+[2020-01-22 16:20:28]: Return value: <{status 1}>
+[2020-01-22 16:20:28]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-01-22 16:20:28]: Return value: <>
+[2020-01-22 16:20:28]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-01-22 16:20:28]: Return value: <>
+[2020-01-22 16:20:28]: Executing: <set hashkey>
+[2020-01-22 16:20:28]: Return value: <status>
+[2020-01-22 16:20:28]: Executing: <set hashvalue>
+[2020-01-22 16:20:28]: Return value: <1>
+[2020-01-22 16:20:28]: Executing: <sth::connect -device 10.91.113.124 -port_list "10/1 10/2">
+[2020-01-22 16:20:32]: Return value: <{offline 0} {port_handle {{10 {{91 {{113 {{124 {{10/1 port1} {10/2 port2}}}}}}}}}}} {status 1}>
+[2020-01-22 16:20:32]: Executing: <set ret [sth::test_control -action enable]>
+[2020-01-22 16:20:32]: Return value: <{status 1}>
+[2020-01-22 16:20:32]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-01-22 16:20:32]: Return value: <>
+[2020-01-22 16:20:32]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-01-22 16:20:32]: Return value: <>
+[2020-01-22 16:20:32]: Executing: <set hashkey>
+[2020-01-22 16:20:32]: Return value: <status>
+[2020-01-22 16:20:32]: Executing: <set hashvalue>
+[2020-01-22 16:20:32]: Return value: <1>
+[2020-01-22 16:20:32]: Executing: <set ret [sth::interface_config -create_host false -scheduling_mode PORT_BASED -port_loadunit PERCENT_LINE_RATE -port_handle port1 -mode config -port_load 100 -speed ether1000 -intf_mode ethernet]>
+[2020-01-22 16:20:39]: Return value: <{arpnd_status 1} {arpnd_cache none} {arpnd_report none} {status 1} {handles 0}>
+[2020-01-22 16:20:39]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-01-22 16:20:39]: Return value: <>
+[2020-01-22 16:20:39]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-01-22 16:20:39]: Return value: <>
+[2020-01-22 16:20:39]: Executing: <set hashkey>
+[2020-01-22 16:20:39]: Return value: <arpnd_status arpnd_cache arpnd_report status handles>
+[2020-01-22 16:20:39]: Executing: <set hashvalue>
+[2020-01-22 16:20:39]: Return value: <1 none none 1 0>
+[2020-01-22 16:20:39]: Executing: <stc::perform saveasxml -filename interfaceconfig_port_load.xml>
+[2020-01-22 16:20:40]: Return value: <-parent system1 -Name {SaveAsXmlCommand 1} -Config system1 -FileName ./interfaceconfig_port_load.xml -ConfigList {} -SavedConfigString 0 -SaveDefault true -State COMPLETED -Status {} -StartTime 1579690239.56975 -EndTime 1579690240.66083 -ElapsedTime 1091 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true>
+[2020-01-22 16:20:40]: Executing: <set ret [sth::interface_stats -port_handle port1]>
+[2020-01-22 16:20:45]: Return value: <{intf_speed 1000} {port_name port1} {mac_address _none_} {duplex full} {link 1} {card_name FX2-1G-S12} {intf_type ethernet} {rx_ipv6_over_ipv4_frame_rate 0} {rx_byte_rate 230} {rx_prbs_fill_byte_count 0} {rx_max_frame_length 72} {rx_tcp_CheckSum_error_count 0} {rx_sig_count 0} {rx_ipv6_over_ipv4_frame_count 0} {rx_trigger1_count 0} {rx_sig_rate 0} {rx_trigger2_count 0} {rx_frames 11} {rx_ipv4_CheckSum_error_count 0} {rx_prbsbit_error_count 0} {rx_bytes 755} {rx_jumbo_frame_count 0} {rx_ipv4_frame_rate 1} {rx_trigger4_count 0} {rx_hw_frame_count 0} {rx_trigger5_count 0} {rx_oversize_frame_count 0} {rx_ipv6_frame_rate 0} {rx_jumbo_frame_rate 0} {rx_trigger6_count 0} {rx_pause_frame_rate 0} {rx_combo_trigger_count 0} {rx_fcs_error 0} {rx_frame_rate 3} {rx_runt_frames 0} {rx_mpls_frame_count 0} {tx_total_octet_rate 0} {tx_generator_sig_frame_rate 0} {tx_total_frame_rate 0} {tx_generator_l4_checksum_error_count 0} {tx_total_mpls_frame_count 0} {tx_generator_vlan_frame_count 0} {tx_generator_crc_error_frame_count 0} {tx_generator_abort_frame_rate 0} {tx_generator_l3_checksum_error_rate 0} {tx_generator_ipv4_frame_count 0} {tx_generator_l4_checksum_error_rate 0} {tx_generator_crc_error_frame_rate 0} {tx_generator_vlan_frame_rate 0} {tx_total_mpls_frame_rate 0} {tx_generator_jumbo_frame_count 0} {tx_generator_octet_count 0} {tx_generator_ipv6_frame_count 0} {tx_generator_ipv4_frame_rate 0} {tx_frames 0} {tx_generator_mpls_frame_rate 0} {tx_generator_oversize_frame_count 0} {tx_bytes 0} {tx_generator_jumbo_frame_rate 0} {tx_generator_ipv6_frame_rate 0} {tx_generator_octet_rate 0} {tx_generator_abort_frame_count 0} {tx_generator_l3_checksum_error_count 0} {tx_hw_frame_count 0} {tx_generator_undersize_frame_count 0} {tx_generator_frame_count 0} {tx_generator_oversize_frame_rate 0} {tx_generator_sig_frame_count 0} {tx_generator_undersize_frame_rate 0} {tx_generator_frame_rate 0} {tx_generator_mpls_frame_count 0} {status 1}>
+[2020-01-22 16:20:45]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-01-22 16:20:45]: Return value: <>
+[2020-01-22 16:20:45]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-01-22 16:20:45]: Return value: <>
+[2020-01-22 16:20:45]: Executing: <set hashkey>
+[2020-01-22 16:20:45]: Return value: <intf_speed port_name mac_address duplex link card_name intf_type rx_ipv6_over_ipv4_frame_rate rx_byte_rate rx_prbs_fill_byte_count rx_max_frame_length rx_tcp_CheckSum_error_count rx_sig_count rx_ipv6_over_ipv4_frame_count rx_trigger1_count rx_sig_rate rx_trigger2_count rx_frames rx_ipv4_CheckSum_error_count rx_prbsbit_error_count rx_bytes rx_jumbo_frame_count rx_ipv4_frame_rate rx_trigger4_count rx_hw_frame_count rx_trigger5_count rx_oversize_frame_count rx_ipv6_frame_rate rx_jumbo_frame_rate rx_trigger6_count rx_pause_frame_rate rx_combo_trigger_count rx_fcs_error rx_frame_rate rx_runt_frames rx_mpls_frame_count tx_total_octet_rate tx_generator_sig_frame_rate tx_total_frame_rate tx_generator_l4_checksum_error_count tx_total_mpls_frame_count tx_generator_vlan_frame_count tx_generator_crc_error_frame_count tx_generator_abort_frame_rate tx_generator_l3_checksum_error_rate tx_generator_ipv4_frame_count tx_generator_l4_checksum_error_rate tx_generator_crc_error_frame_rate tx_generator_vlan_frame_rate tx_total_mpls_frame_rate tx_generator_jumbo_frame_count tx_generator_octet_count tx_generator_ipv6_frame_count tx_generator_ipv4_frame_rate tx_frames tx_generator_mpls_frame_rate tx_generator_oversize_frame_count tx_bytes tx_generator_jumbo_frame_rate tx_generator_ipv6_frame_rate tx_generator_octet_rate tx_generator_abort_frame_count tx_generator_l3_checksum_error_count tx_hw_frame_count tx_generator_undersize_frame_count tx_generator_frame_count tx_generator_oversize_frame_rate tx_generator_sig_frame_count tx_generator_undersize_frame_rate tx_generator_frame_rate tx_generator_mpls_frame_count status>
+[2020-01-22 16:20:45]: Executing: <set hashvalue>
+[2020-01-22 16:20:45]: Return value: <1000 port1 _none_ full 1 FX2-1G-S12 ethernet 0 230 0 72 0 0 0 0 0 0 11 0 0 755 0 1 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1>
+[2020-01-22 16:20:45]: Executing: <set ret [sth::cleanup_session -port_handle "port1 port2" -clean_dbfile 1]>
+[2020-01-22 16:20:47]: Return value: <{status 1}>
+[2020-01-22 16:20:47]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-01-22 16:20:47]: Return value: <>
+[2020-01-22 16:20:47]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-01-22 16:20:47]: Return value: <>
+[2020-01-22 16:20:47]: Executing: <set hashkey>
+[2020-01-22 16:20:47]: Return value: <status>
+[2020-01-22 16:20:47]: Executing: <set hashvalue>
+[2020-01-22 16:20:47]: Return value: <1>
+[2020-01-22 16:20:47]: Client connection has been broken.  Exiting.

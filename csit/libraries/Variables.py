@@ -31,13 +31,21 @@ upgrade_dev_url = "/api/config/nms/actions/packages/upgrade"
 appliance_url = '/vnms/appliance/appliance?offset=0&limit=1000'
 package_url = '/api/operational/nms/packages/package?select=name;uri'
 fwd_profile_url = '/api/config/devices/device/tempdevicename/config/orgs/org-services/temporgname/sd-wan/forwarding-profiles'
+address_object_create_url = '/api/config/devices/device/tempdevicename/config/orgs/org-services/temporgname/objects/addresses'
+policy_rule_create_url = '/api/config/devices/device/tempdevicename/config/orgs/org-services/temporgname/sd-wan/policies/sdwan-policy-group/Default-Policy/rules'
 get_org_id = '/vnms/pac/vd?org-uuid'
+vni_interface_url = '/api/config/devices/device/tempdevicename/config/interfaces/vni/%22interface_name%22'
+vni_interface_bw_url = '/api/config/devices/device/tempdevicename/config/interfaces/vni/%22interface_name%22/bandwidth'
+sla_profile_url = '/api/config/devices/device/tempdevicename/config/orgs/org-services/temporgname/sd-wan/sla-profiles'
+
 
 org_url = '/vnms/sdwan/workflow/orgs/org'
 headers = {'Accept': 'application/vnd.yang.data+json'}
 headers2 = {'Accept': 'application/vnd.yang.data+json', 'Content-Type': 'application/vnd.yang.data+json'}
 headers3 = {'Accept': 'application/json', 'Content-Type': 'application/json'}
 headers4 = {'Content-Type': 'application/json'}
+
+move_to_top = 'move devices device tempdevicename config orgs org-services temporgname sd-wan policies Default-Policy rules DSTIP_MATCH first'
 
 #POD1
 # log_collector = "LogCollectors"
@@ -95,19 +103,21 @@ headers4 = {'Content-Type': 'application/json'}
 
 log_collector = "LogCollectors-GGN"
 TRACK_MANAGEMENT_SUBNET = "10.91.113.58/32"
-controllers_list = ['NV-WC01-N1-HKG', 'NV-WC01-N6-SIN', 'NV-WC02-N1-HKG', 'NV-WC02-N6-SIN', "NV-WC01-N5-LON", "NV-WC02-N5-LON"]
+controllers_list = ['NV-WC01-N1-HKG', 'NV-WC01-N6-SIN', 'NV-WC02-N1-HKG', 'NV-WC02-N6-SIN', "NV-WC01-N5-LON", "NV-WC02-N5-LON" , 'NV-WC02-N7-MYS', 'NV-WC02-N7-MYS']
 
 staging_servers_dict = {
     "HKG" : ["NV-WC01-N1-HKG", "NV-WC02-N1-HKG"],
     "LON" : ["NV-WC01-N5-LON", "NV-WC02-N5-LON"],
-    "SIN" : ["NV-WC01-N6-SIN", "NV-WC02-N6-SIN"]
+    "SIN" : ["NV-WC01-N6-SIN", "NV-WC02-N6-SIN"],
+    "MYS" : ["NV-WC01-N7-MYS", "NV-WC02-N7-MYS"]
 }
 
 
 ctlr_dict = {
     "HKG" : ["NV-WC01-N1-HKG", "NV-WC02-N1-HKG"],
     "LON" : ["NV-WC01-N5-LON", "NV-WC02-N5-LON"],
-    "SIN" : ["NV-WC01-N6-SIN", "NV-WC02-N6-SIN"]
+    "SIN" : ["NV-WC01-N6-SIN", "NV-WC02-N6-SIN"],
+    "MYS" : ["NV-WC01-N7-MYS", "NV-WC02-N7-MYS"]
 }
 
 ctlr_list = ["NV-WC01-N1-HKG", "NV-WC02-N6-SIN"]
@@ -115,16 +125,17 @@ ctlr_list = ["NV-WC01-N1-HKG", "NV-WC02-N6-SIN"]
 RR_SERVER = ["NV-WC01-N1-HKG", "NV-WC02-N6-SIN"]
 
 RR_Clients = {
-    "NV-WC01-N1-HKG" : ["NV-WC01-N6-SIN", "NV-WC01-N5-LON"],
-    "NV-WC02-N6-SIN" : ["NV-WC02-N1-HKG", "NV-WC02-N5-LON"]
+    "NV-WC01-N1-HKG" : ["NV-WC01-N6-SIN", "NV-WC01-N5-LON", "NV-WC01-N7-MYS"],
+    "NV-WC02-N6-SIN" : ["NV-WC02-N1-HKG", "NV-WC02-N5-LON", "NV-WC02-N7-MYS"]
 }
 
 
 
 gw_dict = {
-    "HKG": ["NV-GW01-N1-HKG", "NV-GW02-N1-HKG"],
-    "LON": ["NV-GW01-N5-LON", "NV-GW02-N5-LON"],
-    "SIN" : ["NV-GW01-N6-SIN", "NV-GW02-N6-SIN"]
+    "HKG" : ["NV-GW01-N1-HKG", "NV-GW02-N1-HKG"],
+    "LON" : ["NV-GW01-N5-LON", "NV-GW02-N5-LON"],
+    "SIN" : ["NV-GW01-N6-SIN", "NV-GW02-N6-SIN"],
+    "MYS" : ["NV-GW01-N7-MYS", "NV-GW02-N7-MYS"]
 }
 
 gw_list = []
@@ -132,7 +143,8 @@ gw_list = []
 LCC_dict = {
     "HKG" : "852",
     "LON" : "44",
-    "SIN" : "65"
+    "SIN" : "65",
+    "MYS" : "91"
 }
 
 VNF_IPADDRESS = ['10.92.116.67/32', '10.92.116.68/32']
