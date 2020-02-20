@@ -48,13 +48,16 @@ class HltapiLib:
             print "\nFailed to retrieve port handle!\n"
             print self.port_handle
 
+        self.interface_config(0)
+        self.interface_config(1)
+
 ##############################################################
 # interface config
 ##############################################################
     def interface_config(self, port):
         int_ret0 = sth.interface_config(
             mode='config',
-            port_handle=port,
+            port_handle=self.port_handle[int(port)],
             create_host='false',
             intf_mode='ethernet',
             phy_mode='copper',
@@ -77,25 +80,29 @@ class HltapiLib:
 ##############################################################
 # create device and config the protocol on it
 ##############################################################
-    def create_device(self, port, vlanid, mac_addr, intf_ip_addr, gateway_ip_addr, **kwargs):
+    def create_device(self, port, vlanid, intf_ip_addr, gateway_ip_addr, **kwargs):
         # start to create the device: Device 1
         device_ret0 = sth.emulation_device_config(
             mode='create',
             ip_version='ipv4',
             encapsulation='ethernet_ii_vlan',
-            port_handle=port,
+            port_handle=self.port_handle[int(port)],
             vlan_id=vlanid,
             enable_ping_response='1',
-            mac_addr= mac_addr,
             intf_ip_addr=intf_ip_addr,
             gateway_ip_addr=gateway_ip_addr,
             resolve_gateway_mac = 'true');
+
 
         status = device_ret0['status']
         if (status == '0'):
             print("run sth.emulation_device_config failed")
             print(device_ret0)
         else:
+            device_ret0['port'] = self.port_handle[int(port)]
+            device_ret0['gateway_ip_addr'] = gateway_ip_addr
+            device_ret0['vlanid'] = vlanid
+            device_ret0['intf_ip_addr'] = gateway_ip_addr
             print("***** run sth.emulation_device_config successfully")
             return device_ret0
 
@@ -118,12 +125,12 @@ class HltapiLib:
 ##############################################################
 # create tcp stream block
 ##############################################################
-    def create_tcp_stream_block(self, src_hdl, dst_hdl, src_dev_port_hdl, dst_dev_port_hdl, gateway_ip_addr, src_port, rate_mbps):
+    def create_tcp_stream_block(self, src_device, dst_device, src_port, rate_mbps):
         streamblock_ret1 = sth.traffic_config(
             mode='create',
-            port_handle=src_dev_port_hdl,
-            emulation_src_handle=src_hdl,
-            emulation_dst_handle=dst_hdl,
+            port_handle=src_device['port'],
+            emulation_src_handle=src_device['handle'],
+            emulation_dst_handle=dst_device['handle'],
             l3_protocol='ipv4',
             l4_protocol='tcp',
             tcp_src_port=src_port,
@@ -144,7 +151,7 @@ class HltapiLib:
             traffic_state='1',
             high_speed_result_analysis='1',
             length_mode='fixed',
-            dest_port_list=dst_dev_port_hdl,
+            dest_port_list=dst_device['port'],
             tx_port_sending_traffic_to_self_en='false',
             disable_signature='0',
             enable_stream_only_gen='1',
@@ -154,7 +161,7 @@ class HltapiLib:
             transmit_mode='continuous',
             inter_stream_gap='12',
             rate_mbps=rate_mbps,
-            mac_discovery_gw=gateway_ip_addr);
+            mac_discovery_gw=src_device['gateway_ip_addr']);
 
         status = streamblock_ret1['status']
         if (status == '0'):
@@ -167,13 +174,12 @@ class HltapiLib:
 ##############################################################
 # create udp stream block
 ##############################################################
-    def create_udp_stream_block(self, src_hdl, dst_hdl, src_dev_port_hdl, dst_dev_port_hdl, gateway_ip_addr,
-                                src_port, rate_mbps):
+    def create_udp_stream_block(self, src_device, dst_device, src_port, rate_mbps):
         streamblock_ret1 = sth.traffic_config(
             mode='create',
-            port_handle=src_dev_port_hdl,
-            emulation_src_handle=src_hdl,
-            emulation_dst_handle=dst_hdl,
+            port_handle=src_device['port'],
+            emulation_src_handle=src_device['handle'],
+            emulation_dst_handle=dst_device['handle'],
             l3_protocol='ipv4',
             l4_protocol='udp',
             udp_src_port=src_port,
@@ -195,7 +201,7 @@ class HltapiLib:
             traffic_state='1',
             high_speed_result_analysis='1',
             length_mode='fixed',
-            dest_port_list=dst_dev_port_hdl,
+            dest_port_list=dst_device['port'],
             tx_port_sending_traffic_to_self_en='false',
             disable_signature='0',
             enable_stream_only_gen='1',
@@ -205,7 +211,7 @@ class HltapiLib:
             transmit_mode='continuous',
             inter_stream_gap='12',
             rate_mbps=rate_mbps,
-            mac_discovery_gw=gateway_ip_addr);
+            mac_discovery_gw=src_device['gateway_ip_addr']);
 
         status = streamblock_ret1['status']
         if (status == '0'):
@@ -220,6 +226,7 @@ class HltapiLib:
 # start traffic
 ##############################################################
     def start_stream_traffic(self, strm_hdl):
+        print strm_hdl
         traffic_ctrl_ret = sth.traffic_control(
             stream_handle=[strm_hdl],
             action='run');
@@ -230,6 +237,7 @@ class HltapiLib:
             print(traffic_ctrl_ret)
         else:
             print("***** run sth.traffic_control successfully")
+            return traffic_ctrl_ret
 
     ##############################################################
     # start traffic

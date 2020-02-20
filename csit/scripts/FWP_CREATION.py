@@ -45,37 +45,23 @@ def get_vd_details():
 def Do_Cpe_onboarding():
     # cpe_name = raw_input("Enter CPE NAME:").upper()
     # print "CPE NAME:" + cpe_name
-    spirent1 = HltapiLib("10.91.113.124", "10/2", "10/1")
+    spirent1 = HltapiLib("10.91.113.124", "10/1", "10/2")
     spirent1.connect_and_reserve_ports()
-    spirent1.interface_config(spirent1.port_handle[0])
-    spirent1.interface_config(spirent1.port_handle[1])
-    device1 = spirent1.create_device(port=spirent1.port_handle[0], vlanid='600', mac_addr='00:10:94:00:00:0a',
+    # spirent1.interface_config(spirent1.port_handle[0])
+    # spirent1.interface_config(spirent1.port_handle[1])
+    device1 = spirent1.create_device(port=0, vlanid='600',
                            intf_ip_addr='192.169.101.3', gateway_ip_addr='192.169.101.1')
-    device2 = spirent1.create_device(port=spirent1.port_handle[1], vlanid='610', mac_addr='00:10:94:00:00:09',
+    device2 = spirent1.create_device(port=1, vlanid='610',
                            intf_ip_addr='192.169.111.3', gateway_ip_addr='192.169.111.1')
     src_dev_hdl = device1['handle'].split()[0]
     dst_dev_hdl =  device2['handle'].split()[0]
     src_dev_port_hdl = spirent1.port_handle[0]
     dst_dev_port_hdl = spirent1.port_handle[1]
     # spirent1.release_ports()
-    stream1 = spirent1.create_tcp_stream_block(src_dev_hdl, dst_dev_hdl, src_dev_port_hdl, dst_dev_port_hdl, gateway_ip_addr='192.169.111.1', src_port='1060', rate_mbps='2')
-    stream2 = spirent1.create_udp_stream_block(src_dev_hdl, dst_dev_hdl, src_dev_port_hdl, dst_dev_port_hdl, gateway_ip_addr='192.169.111.1', src_port='1061', rate_mbps='2')
-    stream3 = spirent1.create_tcp_stream_block(src_dev_hdl, dst_dev_hdl, src_dev_port_hdl, dst_dev_port_hdl, gateway_ip_addr='192.169.111.1', src_port='1062', rate_mbps='2')
 
-    spirent1.start_stream_traffic(stream1['stream_id'])
-    time.sleep(40)
-    spirent1.start_stream_traffic(stream2['stream_id'])
-    time.sleep(40)
-    spirent1.start_stream_traffic(stream3['stream_id'])
     # spirent1.get_traffic_results(src_dev_port_hdl, dst_dev_port_hdl)
 
-    spirent1.stop_stream_traffic(stream1['stream_id'])
-    spirent1.stop_stream_traffic(stream2['stream_id'])
-    spirent1.stop_stream_traffic(stream3['stream_id'])
 
-
-    spirent1.release_ports()
-    time.sleep(60)
 
 
 
@@ -103,40 +89,98 @@ def Do_Cpe_onboarding():
 
     ckt_pr_1_lcl_intf = cpe1.WAN1_NAME
     ckt_pr_2_lcl_intf = cpe1.WAN2_NAME
-    # curr_intf_bw =  cpe1.get_vni_interface_bw(cpe1.WAN1_INTF)
-    # print cpe1.modify_interface_bandwidth(cpe1.WAN1_INTF, 40000, 40000)
-    # print cpe1.get_vni_interface_bw(cpe1.WAN1_INTF)
+    curr_intf_bw = cpe1.get_vni_interface_bw(cpe1.WAN1_INTF)
+    print cpe1.modify_interface_bandwidth(cpe1.WAN1_INTF, 30000, 30000)
+    print cpe1.get_vni_interface_bw(cpe1.WAN1_INTF)
 
-    SLA_PRF_1 = "SLA2"
-    FWP1 = "FWP2"
-    IPADDOBJ = "Dest_ip_add2"
-    PLCYRULE = "ts_Destipaddr2"
+    SLA_PRF_1 = "SLA10"
+    FWP1 = "FWP10"
+    IPADDOBJ = "Dest_ip_add10"
+    PLCYRULE = "ts_Destipaddr10"
+
     cpe1.cross_login()
-    print cpe1.show_session_sdwan_detail(source_port='1060')
-
-
     cpe1.create_sla_profile(SLA_PRF_1, description="description", circuit_transmit_utilization=5)
     print cpe1.get_sla_profile(SLA_PRF_1)
-
-
-    cpe1.create_fowarding_profile(FWP1, ckt_pr_1_lcl_intf, ckt_pr_2_lcl_intf, sla_name=SLA_PRF_1)
+    cpe1.create_fowarding_profile(FWP1, ckt_pr_1_lcl_intf, ckt_pr_2_lcl_intf, sla_name=SLA_PRF_1, evaluate_continuously="disable")
     cpe1.create_address_object(IPADDOBJ, "ipv4-prefix", cpe2.lan[1]['third_host']+"/32")
     cpe1.create_policy_rule(PLCYRULE, IPADDOBJ, FWP1)
-
     print vd1.move_policy_rule(cpe1.Device_name, cpe1.ORG_NAME,  'Default-Policy', PLCYRULE, 'first')
 
+    print cpe1.req_clr_sess_all()
+
+    stream1 = spirent1.create_tcp_stream_block(device1, device2,
+                                               src_port='1060', rate_mbps='2')
+    stream2 = spirent1.create_udp_stream_block(device1, device2,
+                                               src_port='1061', rate_mbps='2')
+    stream3 = spirent1.create_tcp_stream_block(device1, device2,
+                                               src_port='1062', rate_mbps='2')
+
+    spirent1.start_stream_traffic(strm_hdl=stream1['stream_id'])
+    time.sleep(40)
+    spirent1.start_stream_traffic(strm_hdl=stream2['stream_id'])
+    time.sleep(40)
+    spirent1.start_stream_traffic(strm_hdl=stream3['stream_id'])
+    time.sleep(40)
+
+    result = cpe1.show_session_sdwan_detail(source_port='1060')
+
+    print result
+
+    if "tx-wan-ckt                 " + ckt_pr_1_lcl_intf in result:
+        print "passed"
+    else:
+        print result
+
+    result = cpe1.show_session_sdwan_detail(source_port='1061')
+
+    print result
+
+    if "tx-wan-ckt                 " + ckt_pr_2_lcl_intf in result:
+        print "passed"
+    else:
+        print result
+
+    result = cpe1.show_session_sdwan_detail(source_port='1062')
+
+    print result
+
+    if "tx-wan-ckt                 " + ckt_pr_2_lcl_intf in result:
+        print "passed"
+    else:
+        print result
+
+    spirent1.stop_stream_traffic(stream1['stream_id'])
+    spirent1.stop_stream_traffic(stream2['stream_id'])
+    spirent1.stop_stream_traffic(stream3['stream_id'])
+
+
+    spirent1.release_ports()
+    time.sleep(60)
 
 
 
-    # cpe1.delete_sla_profile(SLA_PRF_1)
-    # print cpe1.get_sla_profile(SLA_PRF_1)
 
-    # cpe1.modify_interface_bandwidth(cpe1.WAN1_INTF, curr_intf_bw['bandwidth']['uplink'], curr_intf_bw['bandwidth']['downlink'])
-    # print cpe1.get_vni_interface_bw(cpe1.WAN1_INTF)
 
-    # cpe1.delete_policy_rule("DSTIP_MATCH")
-    # cpe1.delete_address_object("dest_ip_add2")
-    # cpe1.delete_fowarding_profile("NEW2")
+
+
+
+
+
+
+    cpe1.delete_policy_rule(PLCYRULE)
+    cpe1.delete_address_object(IPADDOBJ)
+    cpe1.delete_fowarding_profile(FWP1)
+    cpe1.delete_sla_profile(SLA_PRF_1)
+
+    cpe1.modify_interface_bandwidth(cpe1.WAN1_INTF, curr_intf_bw['bandwidth']['uplink'], curr_intf_bw['bandwidth']['downlink'])
+    print cpe1.get_vni_interface_bw(cpe1.WAN1_INTF)
+
+
+
+
+
+
+
 
     run_result = ""
 

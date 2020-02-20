@@ -592,6 +592,13 @@ class VersaLib:
             self.lan[i]['first_host'] = str(n[1])
             self.lan[i]['second_host'] = str(n[2])
             self.lan[i]['third_host'] = str(n[3])
+            self.lan[i]['fourth_host'] = str(n[4])
+            self.lan[i]['fifth_host'] = str(n[5])
+            self.lan[i]['sixth_host'] = str(n[6])
+            self.lan[i]['seventh_host'] = str(n[7])
+            self.lan[i]['eighth_host'] = str(n[8])
+            self.lan[i]['ninth_host'] = str(n[9])
+            self.lan[i]['tenth_host'] = str(n[10])
             self.lan[i]['netmask'] = str(n.netmask)
             self.lan[i]['prefixlen'] = str(n.prefixlen)
             self.lan[i]['nw_with_prefixlen'] = str(n.with_prefixlen)
@@ -1451,11 +1458,15 @@ class VersaLib:
         paramlist = ['destination_ip', 'destination_port', 'source_ip', 'source_port']
         for element in paramlist:
             if element in kwargs.keys():
-                cmd = cmd + " | select " + element.replace('_', '-') + " " + str(kwargs[element])
+                cmd = cmd + "| select " + element.replace('_', '-') + " " + str(kwargs[element])
         print cmd
         output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
         return output
 
+    def req_clr_sess_all(self):
+        cmd = "request clear sessions all"
+        output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
+        return output
 
     def send_commands_and_expect(self, cmds, expect_string=">|%"):
         for cmd in cmds.split("\n"):

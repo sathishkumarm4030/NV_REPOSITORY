@@ -1,0 +1,41 @@
+{
+	"rule": {
+		"name": "{{ name }}",
+		"tag": [],
+		"match": {
+			"source": {
+				"zone": {},
+				"address": {},
+				"user": {
+					"user-type": "any",
+					"local-database": {
+						"status": "disabled"
+					},
+					"external-database": {
+						"status": "disabled"
+					}
+				}
+			},
+			"destination": {
+				"zone": {},
+				"address": {
+					"address-list": ["{{ address_name }}"]
+				}
+			},
+			"application": {},
+			"ttl": {}
+		},
+		"set": {
+			"lef": {
+				"event": "never",
+				"rate-limit": 10
+			},
+			"action": "allow",
+			"forwarding-profile": "{{ fwd_profile_name }}"
+		},
+		"monitor": {
+			"interval": "3",
+			"threshold": "5"
+		}
+	}
+}

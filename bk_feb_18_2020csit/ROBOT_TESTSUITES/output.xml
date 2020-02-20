@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20191217 17:35:39.155" generator="Robot 3.1.2 (Python 2.7.13 on win32)">
+<suite source="C:\Softwares_mine\stefano\NV_REPOSITORY\csit\ROBOT_TESTSUITES\SINGLE_CPE_SOLUTION_TEST.robot" id="s1" name="SINGLE CPE SOLUTION TEST">
+<kw type="setup" name="STARTUP">
+<doc>Make connecection to Versa devices</doc>
+<kw name="Cross Login" library="CPE1">
+<msg timestamp="20191217 17:35:46.095" level="FAIL">NetMikoTimeoutException: Connection to device timed-out: versa 10.91.127.194:22</msg>
+<status status="FAIL" endtime="20191217 17:35:46.095" starttime="20191217 17:35:45.016"></status>
+</kw>
+<status status="FAIL" endtime="20191217 17:35:46.096" starttime="20191217 17:35:45.015"></status>
+</kw>
+<test id="s1-t1" name="NV_SINGLE_CPE_HYBRID_SANITY_01">
+<doc>SANITY CHECKS on vCPE</doc>
+<tags>
+<tag>SANITY</tag>
+</tags>
+<status status="FAIL" endtime="20191217 17:35:46.097" critical="yes" starttime="20191217 17:35:46.096">Parent suite setup failed:
+NetMikoTimeoutException: Connection to device timed-out: versa 10.91.127.194:22</status>
+</test>
+<test id="s1-t2" name="NV_SINGLE_CPE_HYBRID_SANITY_02">
+<doc>Ping test CPE1 LAN1 VM to CPE2 LAN1 VM</doc>
+<tags>
+<tag>PING</tag>
+</tags>
+<status status="FAIL" endtime="20191217 17:35:46.101" critical="yes" starttime="20191217 17:35:46.100">Parent suite setup failed:
+NetMikoTimeoutException: Connection to device timed-out: versa 10.91.127.194:22</status>
+</test>
+<test id="s1-t3" name="NV_SINGLE_CPE_HYBRID_SANITY_03">
+<doc>Ping test CPE1 ALL LAN VM to CPE2 ALL LAN VM</doc>
+<tags>
+<tag>PING</tag>
+</tags>
+<status status="FAIL" endtime="20191217 17:35:46.104" critical="yes" starttime="20191217 17:35:46.103">Parent suite setup failed:
+NetMikoTimeoutException: Connection to device timed-out: versa 10.91.127.194:22</status>
+</test>
+<test id="s1-t4" name="NV_SINGLE_CPE_HYBRID_SANITY_04">
+<doc>Iperf test VM1 to VM2</doc>
+<tags>
+<tag>IPERF</tag>
+</tags>
+<status status="FAIL" endtime="20191217 17:35:46.109" critical="yes" starttime="20191217 17:35:46.108">Parent suite setup failed:
+NetMikoTimeoutException: Connection to device timed-out: versa 10.91.127.194:22</status>
+</test>
+<kw type="teardown" name="CLEANUP">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"cleanup done"</arg>
+</arguments>
+<status status="PASS" endtime="20191217 17:35:46.112" starttime="20191217 17:35:46.111"></status>
+</kw>
+<status status="PASS" endtime="20191217 17:35:46.112" starttime="20191217 17:35:46.111"></status>
+</kw>
+<doc>A test suite with tests for SDWAN SINGLE CPE Solution.
+Topology:-
+____________________________
+| VersaDirector |
+|___________________________|
+|
+|
+|
+_____________|_______________
+| WanCtrller1 |
+|____________________________|
+| |
+| |
+| |
+INTERNET/MPLS
+| |
+| |___
+______|__ ___|___
+| | | |
+LAN1--+ CPE1 | | CPE2 +--LAN1
+|________| |_______|
+
+
+Testplan Goals:-
+1. CHECK WAN INTERFACES STATUS.
+2. CHECK BGP NEIGHBOR STATUS.
+3. CHECK LAN ROUTE.
+4. Ping Test.
+5. IPERF Test.</doc>
+<metadata>
+<item name="Version">1.0
+More Info For more information about Robot Framework see http://robotframework.org
+Author Sathishkumar murugesan
+Date 12 Dec 2017
+Executed At HOST
+Test Framework Robot Framework Python</item>
+</metadata>
+<status status="FAIL" endtime="20191217 17:35:46.112" starttime="20191217 17:35:39.160">Suite setup failed:
+NetMikoTimeoutException: Connection to device timed-out: versa 10.91.127.194:22</status>
+</suite>
+<statistics>
+<total>
+<stat fail="4" pass="0">Critical Tests</stat>
+<stat fail="4" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">IPERF</stat>
+<stat fail="2" pass="0">PING</stat>
+<stat fail="1" pass="0">SANITY</stat>
+</tag>
+<suite>
+<stat fail="4" id="s1" name="SINGLE CPE SOLUTION TEST" pass="0">SINGLE CPE SOLUTION TEST</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

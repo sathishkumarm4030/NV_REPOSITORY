@@ -310,9 +310,12 @@ req_clear_ipsec = """request devices device {{ NAME }} live-status clear ipsec s
 req_cre_snapshot = """request devices device {{ NAME }} live-status system create-snapshot description {{ snapshot_description }} no-confirm
 """
 
+#ROBOT_TESTSUITE variables
 
-
-
+sla_prf_1 = "SLA10"
+fwp_1 = "FWP10"
+ipaddobj_1 = "Dest_ip_add10"
+plcyrule_1 = "ts_Destipaddr10"
 
 
 
