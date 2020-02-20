@@ -39,6 +39,7 @@ Library           ../libraries/VersaLib.py    ${CPE1}    topofile=Devices.csv   
 Library           ../libraries/VersaLib.py    ${CPE2}    topofile=Devices.csv    WITH NAME    CPE2
 Library           ../libraries/LinuxLib.py    ${VM1}    topofile=VM_Devices.csv    WITH NAME    VM1
 Library           ../libraries/LinuxLib.py    ${VM2}    topofile=VM_Devices.csv    WITH NAME    VM2
+Library           ../libraries/HltapiLib.py    ${Spirent1[0]}    ${Spirent1[1]}    ${Spirent1[2]}    WITH NAME    spirent1
 
 *** Variables ***
 ${est}            Established
