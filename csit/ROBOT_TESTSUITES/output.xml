@@ -1,120 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20200220 16:44:44.941" generator="Robot 3.0.2 (Python 2.7.12 on linux2)">
-<suite source="/home/sathish123/PycharmProjects/NV_REPOSITORY/csit/ROBOT_TESTSUITES/SINGLE_CPE_HYBRID_SOLUTION_TEST.robot" id="s1" name="SINGLE CPE HYBRID SOLUTION TEST">
+<robot rpa="false" generated="20200227 17:50:59.648" generator="Robot 3.1.2 (Python 2.7.13 on win32)">
+<suite source="C:\Softwares_mine\stefano\NV_REPOSITORY\csit\ROBOT_TESTSUITES\SINGLE_CPE_HYBRID_SOLUTION_TEST.robot" id="s1" name="SINGLE CPE HYBRID SOLUTION TEST">
 <kw type="setup" name="STARTUP">
 <doc>Make connecection to Versa devices</doc>
 <kw name="Login" library="VD1">
-<status status="PASS" endtime="20200220 16:45:13.670" starttime="20200220 16:45:03.725"></status>
+<status status="PASS" endtime="20200227 17:51:54.758" starttime="20200227 17:51:44.799"></status>
 </kw>
 <kw name="Get Data Dict" library="VD1">
 <assign>
 <var>${VD1}</var>
 </assign>
-<msg timestamp="20200220 16:45:13.671" level="INFO">${VD1} = {'ctlr_dict': {'MYS': ['NV-WC01-N7-MYS', 'NV-WC02-N7-MYS'], 'LON': ['NV-WC01-N5-LON', 'NV-WC02-N5-LON'], 'HKG': ['NV-WC01-N1-HKG', 'NV-WC02-N1-HKG'], 'SIN': ['NV-WC01-N6-SIN', 'NV-WC02-N6-SIN']}, 'GUI...</msg>
-<status status="PASS" endtime="20200220 16:45:13.671" starttime="20200220 16:45:13.670"></status>
+<msg timestamp="20200227 17:51:54.760" level="INFO">${VD1} = {'ctlr_dict': {'MYS': ['NV-WC01-N7-MYS', 'NV-WC02-N7-MYS'], 'LON': ['NV-WC01-N5-LON', 'NV-WC02-N5-LON'], 'HKG': ['NV-WC01-N1-HKG', 'NV-WC02-N1-HKG'], 'SIN': ['NV-WC01-N6-SIN', 'NV-WC02-N6-SIN']}, 'GUI...</msg>
+<status status="PASS" endtime="20200227 17:51:54.760" starttime="20200227 17:51:54.759"></status>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
 <arguments>
 <arg>${VM1}</arg>
 </arguments>
-<msg timestamp="20200220 16:45:13.673" level="INFO">${VM1} = CPE11_LAN_HOST1</msg>
-<status status="PASS" endtime="20200220 16:45:13.673" starttime="20200220 16:45:13.672"></status>
+<msg timestamp="20200227 17:51:54.762" level="INFO">${VM1} = CPE11_LAN_HOST1</msg>
+<status status="PASS" endtime="20200227 17:51:54.762" starttime="20200227 17:51:54.760"></status>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
 <arguments>
 <arg>${VM2}</arg>
 </arguments>
-<msg timestamp="20200220 16:45:13.674" level="INFO">${VM2} = CPE12_LAN_HOST1</msg>
-<status status="PASS" endtime="20200220 16:45:13.674" starttime="20200220 16:45:13.673"></status>
+<msg timestamp="20200227 17:51:54.764" level="INFO">${VM2} = CPE12_LAN_HOST1</msg>
+<status status="PASS" endtime="20200227 17:51:54.764" starttime="20200227 17:51:54.763"></status>
 </kw>
 <kw name="Cross Login" library="CPE1">
-<msg timestamp="20200220 16:45:42.900" level="INFO">ssh admin@20.20.90.11
+<msg timestamp="20200227 17:52:23.988" level="INFO">ssh admin@20.20.90.11
 admin@20.20.90.11's password: 
-
-             .---.,
-            (      ``.
-       _     \        )    __      ________ _____   _____
-      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\
-       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \
-        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \
-         \    |   /           \  /  | |____| | \ \ ____) / ____ \
-          \   |  /             \/   |______|_|  \_\_____/_/    \_\
-           \  | /
-            \_|/                     ___ _    _____  ___   ___  _ ___
-                                    | __| |  | __\ \/ | \ / / \| | __|
-                                    | _|| |__| _| &gt;  &lt; \ V /| .` | _|
-                                    |_| |____|___/_/\_\ \_/ |_|\_|_|
-
-
-Versa FlexVNF software
-Release     :	16.1R2 (S9)
-Release date:	20190628
-Package ID  :	80561de	
-
-Last login: Thu Feb 20 11:02:03 2020 from 10.92.116.67
+
+             .---.,
+            (      ``.
+       _     \        )    __      ________ _____   _____
+      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\
+       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \
+        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \
+         \    |   /           \  /  | |____| | \ \ ____) / ____ \
+          \   |  /             \/   |______|_|  \_\_____/_/    \_\
+           \  | /
+            \_|/                     ___ _    _____  ___   ___  _ ___
+                                    | __| |  | __\ \/ | \ / / \| | __|
+                                    | _|| |__| _| &gt;  &lt; \ V /| .` | _|
+                                    |_| |____|___/_/\_\ \_/ |_|\_|_|
+
+
+Versa FlexVNF software
+Release     :	16.1R2 (S9)
+Release date:	20190628
+Package ID  :	80561de	
+
+Last login: Thu Feb 27 12:06:25 2020 from 10.92.116.67
 admin@CPE11-HKG-HYBRD-IPC00190:~$ 
 doing redispatch</msg>
-<status status="PASS" endtime="20200220 16:45:42.900" starttime="20200220 16:45:13.674"></status>
+<status status="PASS" endtime="20200227 17:52:23.989" starttime="20200227 17:51:54.764"></status>
 </kw>
 <kw name="Cross Login" library="CPE2">
-<msg timestamp="20200220 16:46:12.104" level="INFO">ssh admin@20.20.90.12
+<msg timestamp="20200227 17:52:53.134" level="INFO">ssh admin@20.20.90.12
 admin@20.20.90.12's password: 
-
-             .---.,
-            (      ``.
-       _     \        )    __      ________ _____   _____
-      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\
-       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \
-        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \
-         \    |   /           \  /  | |____| | \ \ ____) / ____ \
-          \   |  /             \/   |______|_|  \_\_____/_/    \_\
-           \  | /
-            \_|/                     ___ _    _____  ___   ___  _ ___
-                                    | __| |  | __\ \/ | \ / / \| | __|
-                                    | _|| |__| _| &gt;  &lt; \ V /| .` | _|
-                                    |_| |____|___/_/\_\ \_/ |_|\_|_|
-
-
-Versa FlexVNF software
-Release     :	16.1R2 (S9)
-Release date:	20190628
-Package ID  :	80561de	
-
-Last login: Thu Feb 20 11:04:17 2020 from 10.92.116.67
+
+             .---.,
+            (      ``.
+       _     \        )    __      ________ _____   _____
+      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\
+       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \
+        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \
+         \    |   /           \  /  | |____| | \ \ ____) / ____ \
+          \   |  /             \/   |______|_|  \_\_____/_/    \_\
+           \  | /
+            \_|/                     ___ _    _____  ___   ___  _ ___
+                                    | __| |  | __\ \/ | \ / / \| | __|
+                                    | _|| |__| _| &gt;  &lt; \ V /| .` | _|
+                                    |_| |____|___/_/\_\ \_/ |_|\_|_|
+
+
+Versa FlexVNF software
+Release     :	16.1R2 (S9)
+Release date:	20190628
+Package ID  :	80561de	
+
+Last login: Thu Feb 27 11:33:57 2020 from 10.92.116.67
 admin@CPE12-HKG-HYBRD-IPC00190:~$ 
 doing redispatch</msg>
-<status status="PASS" endtime="20200220 16:46:12.104" starttime="20200220 16:45:42.901"></status>
+<status status="PASS" endtime="20200227 17:52:53.134" starttime="20200227 17:52:23.989"></status>
 </kw>
 <kw name="Connect And Reserve Ports" library="spirent1">
-<msg timestamp="20200220 16:46:26.224" level="INFO">reserved ports 10/1 : port1 : port_handle[0]
+<msg timestamp="20200227 17:53:09.295" level="INFO">reserved ports 10/1 : port1 : port_handle[0]
 
  reserved ports 10/2 : port2 : port_handle[1]
 ***** run sth.interface_config successfully
 ***** run sth.interface_config successfully</msg>
-<status status="PASS" endtime="20200220 16:46:26.225" starttime="20200220 16:46:12.105"></status>
+<status status="PASS" endtime="20200227 17:53:09.296" starttime="20200227 17:52:53.135"></status>
 </kw>
 <kw name="Get Device Info" library="CPE1">
 <assign>
 <var>${CPE1_dev_info_on_vd}</var>
 </assign>
-<msg timestamp="20200220 16:46:27.070" level="INFO">${CPE1_dev_info_on_vd} = {'ownerOrg': u'IPC00190', 'name': u'CPE11-HKG-HYBRD-IPC00190', 'ipAddress': u'20.20.90.11', 'packageName': u'versa-flexvnf-20190628-153930-80561de-16.1R2S9-wsm', 'ping_status': u'REACHABLE', 'controll...</msg>
-<status status="PASS" endtime="20200220 16:46:27.070" starttime="20200220 16:46:26.225"></status>
+<msg timestamp="20200227 17:53:11.216" level="INFO">${CPE1_dev_info_on_vd} = {'ownerOrg': u'IPC00190', 'name': u'CPE11-HKG-HYBRD-IPC00190', 'ipAddress': u'20.20.90.11', 'packageName': u'versa-flexvnf-20190628-153930-80561de-16.1R2S9-wsm', 'ping_status': u'REACHABLE', 'controll...</msg>
+<status status="PASS" endtime="20200227 17:53:11.216" starttime="20200227 17:53:09.296"></status>
 </kw>
 <kw name="Get Data Dict" library="CPE1">
 <assign>
 <var>${CPE1}</var>
 </assign>
-<msg timestamp="20200220 16:46:27.098" level="INFO">${CPE1} = {'username': 'admin', 'main_logger': &lt;logging.Logger object at 0x7f194e3d33d0&gt;, 'ctlr_dict': {'MYS': ['NV-WC01-N7-MYS', 'NV-WC02-N7-MYS'], 'LON': ['NV-WC01-N5-LON', 'NV-WC02-N5-LON'], 'HKG': ['NV-WC01...</msg>
-<status status="PASS" endtime="20200220 16:46:27.099" starttime="20200220 16:46:27.070"></status>
+<msg timestamp="20200227 17:53:11.232" level="INFO">${CPE1} = {'username': 'admin', 'main_logger': &lt;logging.Logger object at 0x000000000D2F4BA8&gt;, 'ctlr_dict': {'MYS': ['NV-WC01-N7-MYS', 'NV-WC02-N7-MYS'], 'LON': ['NV-WC01-N5-LON', 'NV-WC02-N5-LON'], 'HKG': ['NV-...</msg>
+<status status="PASS" endtime="20200227 17:53:11.232" starttime="20200227 17:53:11.216"></status>
 </kw>
 <kw name="Get Data Dict" library="CPE2">
 <assign>
 <var>${CPE2}</var>
 </assign>
-<msg timestamp="20200220 16:46:27.130" level="INFO">${CPE2} = {'username': 'admin', 'main_logger': &lt;logging.Logger object at 0x7f194e395b50&gt;, 'ctlr_dict': {'MYS': ['NV-WC01-N7-MYS', 'NV-WC02-N7-MYS'], 'LON': ['NV-WC01-N5-LON', 'NV-WC02-N5-LON'], 'HKG': ['NV-WC01...</msg>
-<status status="PASS" endtime="20200220 16:46:27.130" starttime="20200220 16:46:27.099"></status>
+<msg timestamp="20200227 17:53:11.248" level="INFO">${CPE2} = {'username': 'admin', 'main_logger': &lt;logging.Logger object at 0x000000000D33D2B0&gt;, 'ctlr_dict': {'MYS': ['NV-WC01-N7-MYS', 'NV-WC02-N7-MYS'], 'LON': ['NV-WC01-N5-LON', 'NV-WC02-N5-LON'], 'HKG': ['NV-...</msg>
+<status status="PASS" endtime="20200227 17:53:11.248" starttime="20200227 17:53:11.233"></status>
 </kw>
 <kw name="Create Controller List" library="CPE1">
 <arguments>
@@ -123,7 +123,7 @@ doing redispatch</msg>
 <arg>${CPE1['NO_OF_VRFS']}</arg>
 <arg>${CPE1['NODE']}</arg>
 </arguments>
-<status status="PASS" endtime="20200220 16:46:27.150" starttime="20200220 16:46:27.130"></status>
+<status status="PASS" endtime="20200227 17:53:11.277" starttime="20200227 17:53:11.248"></status>
 </kw>
 <kw name="Create Gateway List" library="CPE1">
 <arguments>
@@ -132,10 +132,10 @@ doing redispatch</msg>
 <arg>${CPE1['NO_OF_VRFS']}</arg>
 <arg>${CPE1['NODE']}</arg>
 </arguments>
-<status status="PASS" endtime="20200220 16:46:27.167" starttime="20200220 16:46:27.150"></status>
+<status status="PASS" endtime="20200227 17:53:11.302" starttime="20200227 17:53:11.277"></status>
 </kw>
 <kw name="Create Cpe Data" library="CPE1">
-<status status="PASS" endtime="20200220 16:46:27.169" starttime="20200220 16:46:27.167"></status>
+<status status="PASS" endtime="20200227 17:53:11.303" starttime="20200227 17:53:11.302"></status>
 </kw>
 <kw name="Create Controller List" library="CPE2">
 <arguments>
@@ -144,7 +144,7 @@ doing redispatch</msg>
 <arg>${CPE2['NO_OF_VRFS']}</arg>
 <arg>${CPE2['NODE']}</arg>
 </arguments>
-<status status="PASS" endtime="20200220 16:46:27.181" starttime="20200220 16:46:27.169"></status>
+<status status="PASS" endtime="20200227 17:53:11.332" starttime="20200227 17:53:11.304"></status>
 </kw>
 <kw name="Create Gateway List" library="CPE2">
 <arguments>
@@ -153,86 +153,86 @@ doing redispatch</msg>
 <arg>${CPE2['NO_OF_VRFS']}</arg>
 <arg>${CPE2['NODE']}</arg>
 </arguments>
-<status status="PASS" endtime="20200220 16:46:27.191" starttime="20200220 16:46:27.181"></status>
+<status status="PASS" endtime="20200227 17:53:11.354" starttime="20200227 17:53:11.332"></status>
 </kw>
 <kw name="Create Cpe Data" library="CPE2">
-<status status="PASS" endtime="20200220 16:46:27.192" starttime="20200220 16:46:27.192"></status>
+<status status="PASS" endtime="20200227 17:53:11.356" starttime="20200227 17:53:11.354"></status>
 </kw>
 <kw name="Get Data Dict" library="CPE1">
 <assign>
 <var>${CPE1}</var>
 </assign>
-<msg timestamp="20200220 16:46:27.207" level="INFO">${CPE1} = {'gw_list': ['NV-GW01-N1-HKG', 'NV-GW02-N1-HKG'], 'dev_dict': {'ownerOrg': u'IPC00190', 'name': u'CPE11-HKG-HYBRD-IPC00190', 'ipAddress': u'20.20.90.11', 'packageName': u'versa-flexvnf-20190628-153930...</msg>
-<status status="PASS" endtime="20200220 16:46:27.207" starttime="20200220 16:46:27.193"></status>
+<msg timestamp="20200227 17:53:11.376" level="INFO">${CPE1} = {'gw_list': ['NV-GW01-N1-HKG', 'NV-GW02-N1-HKG'], 'dev_dict': {'ownerOrg': u'IPC00190', 'name': u'CPE11-HKG-HYBRD-IPC00190', 'ipAddress': u'20.20.90.11', 'packageName': u'versa-flexvnf-20190628-153930...</msg>
+<status status="PASS" endtime="20200227 17:53:11.376" starttime="20200227 17:53:11.356"></status>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
 <arguments>
 <arg>${CPE1}</arg>
 </arguments>
-<msg timestamp="20200220 16:46:27.237" level="INFO">${CPE1} = {'gw_list': ['NV-GW01-N1-HKG', 'NV-GW02-N1-HKG'], 'dev_dict': {'ownerOrg': u'IPC00190', 'name': u'CPE11-HKG-HYBRD-IPC00190', 'ipAddress': u'20.20.90.11', 'packageName': u'versa-flexvnf-20190628-153930...</msg>
-<status status="PASS" endtime="20200220 16:46:27.237" starttime="20200220 16:46:27.208"></status>
+<msg timestamp="20200227 17:53:11.420" level="INFO">${CPE1} = {'gw_list': ['NV-GW01-N1-HKG', 'NV-GW02-N1-HKG'], 'dev_dict': {'ownerOrg': u'IPC00190', 'name': u'CPE11-HKG-HYBRD-IPC00190', 'ipAddress': u'20.20.90.11', 'packageName': u'versa-flexvnf-20190628-153930...</msg>
+<status status="PASS" endtime="20200227 17:53:11.421" starttime="20200227 17:53:11.377"></status>
 </kw>
 <kw name="Get Data Dict" library="CPE2">
 <assign>
 <var>${CPE2}</var>
 </assign>
-<msg timestamp="20200220 16:46:27.252" level="INFO">${CPE2} = {'gw_list': ['NV-GW01-N1-HKG', 'NV-GW02-N1-HKG'], 'START_LAN_IP_SUBNET': '192.169.111.0/24', 'PST_CREATION': 'NO', 'WAN2_INTF_NEXTHOP': '172.16.6.45', 'lan_vlan': [610], 'WC2_local_ike_key': 'CPE12-HK...</msg>
-<status status="PASS" endtime="20200220 16:46:27.252" starttime="20200220 16:46:27.238"></status>
+<msg timestamp="20200227 17:53:11.444" level="INFO">${CPE2} = {'gw_list': ['NV-GW01-N1-HKG', 'NV-GW02-N1-HKG'], 'START_LAN_IP_SUBNET': '192.169.111.0/24', 'PST_CREATION': 'NO', 'WAN2_INTF_NEXTHOP': '172.16.6.45', 'lan_vlan': [610], 'WC2_local_ike_key': 'CPE12-HK...</msg>
+<status status="PASS" endtime="20200227 17:53:11.444" starttime="20200227 17:53:11.421"></status>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
 <arguments>
 <arg>${CPE2}</arg>
 </arguments>
-<msg timestamp="20200220 16:46:27.281" level="INFO">${CPE2} = {'gw_list': ['NV-GW01-N1-HKG', 'NV-GW02-N1-HKG'], 'START_LAN_IP_SUBNET': '192.169.111.0/24', 'PST_CREATION': 'NO', 'WAN2_INTF_NEXTHOP': '172.16.6.45', 'lan_vlan': [610], 'WC2_local_ike_key': 'CPE12-HK...</msg>
-<status status="PASS" endtime="20200220 16:46:27.282" starttime="20200220 16:46:27.252"></status>
+<msg timestamp="20200227 17:53:11.484" level="INFO">${CPE2} = {'gw_list': ['NV-GW01-N1-HKG', 'NV-GW02-N1-HKG'], 'START_LAN_IP_SUBNET': '192.169.111.0/24', 'PST_CREATION': 'NO', 'WAN2_INTF_NEXTHOP': '172.16.6.45', 'lan_vlan': [610], 'WC2_local_ike_key': 'CPE12-HK...</msg>
+<status status="PASS" endtime="20200227 17:53:11.484" starttime="20200227 17:53:11.445"></status>
 </kw>
 <kw name="VM Pre Op" library="VM1">
-<msg timestamp="20200220 16:46:36.104" level="INFO">&lt;netmiko.linux.linux_ssh.LinuxSSH object at 0x7f194d591210&gt;
+<msg timestamp="20200227 17:53:20.184" level="INFO">&lt;netmiko.linux.linux_ssh.LinuxSSH object at 0x000000000D8F0CF8&gt;
 [sudo] password for sathish: 
 1:~# 
 exit
 linux: sathish@VM1:~$</msg>
-<status status="PASS" endtime="20200220 16:46:36.104" starttime="20200220 16:46:27.282"></status>
+<status status="PASS" endtime="20200227 17:53:20.185" starttime="20200227 17:53:11.484"></status>
 </kw>
 <kw name="VM Pre Op" library="VM2">
-<msg timestamp="20200220 16:46:44.696" level="INFO">&lt;netmiko.linux.linux_ssh.LinuxSSH object at 0x7f194ddd2d90&gt;
+<msg timestamp="20200227 17:53:29.013" level="INFO">&lt;netmiko.linux.linux_ssh.LinuxSSH object at 0x000000000DB9D710&gt;
 [sudo] password for sathish: 
 E12-VM1:~# 
 exit
 linux: sathish@CPE12-VM1:~$</msg>
-<status status="PASS" endtime="20200220 16:46:44.696" starttime="20200220 16:46:36.105"></status>
+<status status="PASS" endtime="20200227 17:53:29.013" starttime="20200227 17:53:20.185"></status>
 </kw>
 <kw name="Get Data Dict" library="VM1">
 <assign>
 <var>${VM1}</var>
 </assign>
-<msg timestamp="20200220 16:46:44.709" level="INFO">${VM1} = {'username': 'sathish', 'shell_nc': &lt;netmiko.linux.linux_ssh.LinuxSSH object at 0x7f194d591210&gt;, 'lan': {1: {'second_host': '192.169.101.2', 'vlan': 600, 'netmask': '255.255.255.0', 'first_host': '192...</msg>
-<status status="PASS" endtime="20200220 16:46:44.709" starttime="20200220 16:46:44.697"></status>
+<msg timestamp="20200227 17:53:29.026" level="INFO">${VM1} = {'username': 'sathish', 'shell_nc': &lt;netmiko.linux.linux_ssh.LinuxSSH object at 0x000000000D8F0CF8&gt;, 'lan': {1: {'second_host': '192.169.101.2', 'vlan': 600, 'netmask': '255.255.255.0', 'first_host': ...</msg>
+<status status="PASS" endtime="20200227 17:53:29.026" starttime="20200227 17:53:29.013"></status>
 </kw>
 <kw name="Get Data Dict" library="VM2">
 <assign>
 <var>${VM2}</var>
 </assign>
-<msg timestamp="20200220 16:46:44.724" level="INFO">${VM2} = {'username': 'sathish', 'shell_nc': &lt;netmiko.linux.linux_ssh.LinuxSSH object at 0x7f194ddd2d90&gt;, 'lan': {1: {'second_host': '192.169.111.2', 'vlan': 610, 'netmask': '255.255.255.0', 'first_host': '192...</msg>
-<status status="PASS" endtime="20200220 16:46:44.724" starttime="20200220 16:46:44.710"></status>
+<msg timestamp="20200227 17:53:29.035" level="INFO">${VM2} = {'username': 'sathish', 'shell_nc': &lt;netmiko.linux.linux_ssh.LinuxSSH object at 0x000000000DB9D710&gt;, 'lan': {1: {'second_host': '192.169.111.2', 'vlan': 610, 'netmask': '255.255.255.0', 'first_host': ...</msg>
+<status status="PASS" endtime="20200227 17:53:29.035" starttime="20200227 17:53:29.026"></status>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
 <arguments>
 <arg>${VM1}</arg>
 </arguments>
-<msg timestamp="20200220 16:46:44.750" level="INFO">${VM1} = {'username': 'sathish', 'shell_nc': &lt;netmiko.linux.linux_ssh.LinuxSSH object at 0x7f194d591210&gt;, 'lan': {1: {'second_host': '192.169.101.2', 'vlan': 600, 'netmask': '255.255.255.0', 'first_host': '192...</msg>
-<status status="PASS" endtime="20200220 16:46:44.750" starttime="20200220 16:46:44.724"></status>
+<msg timestamp="20200227 17:53:29.053" level="INFO">${VM1} = {'username': 'sathish', 'shell_nc': &lt;netmiko.linux.linux_ssh.LinuxSSH object at 0x000000000D8F0CF8&gt;, 'lan': {1: {'second_host': '192.169.101.2', 'vlan': 600, 'netmask': '255.255.255.0', 'first_host': ...</msg>
+<status status="PASS" endtime="20200227 17:53:29.053" starttime="20200227 17:53:29.036"></status>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
 <arguments>
 <arg>${VM2}</arg>
 </arguments>
-<msg timestamp="20200220 16:46:44.779" level="INFO">${VM2} = {'username': 'sathish', 'shell_nc': &lt;netmiko.linux.linux_ssh.LinuxSSH object at 0x7f194ddd2d90&gt;, 'lan': {1: {'second_host': '192.169.111.2', 'vlan': 610, 'netmask': '255.255.255.0', 'first_host': '192...</msg>
-<status status="PASS" endtime="20200220 16:46:44.779" starttime="20200220 16:46:44.750"></status>
+<msg timestamp="20200227 17:53:29.073" level="INFO">${VM2} = {'username': 'sathish', 'shell_nc': &lt;netmiko.linux.linux_ssh.LinuxSSH object at 0x000000000DB9D710&gt;, 'lan': {1: {'second_host': '192.169.111.2', 'vlan': 610, 'netmask': '255.255.255.0', 'first_host': ...</msg>
+<status status="PASS" endtime="20200227 17:53:29.073" starttime="20200227 17:53:29.054"></status>
 </kw>
 <kw type="for" name="${i} IN RANGE [ 1 | ${VM1['NO_OF_VRFS']} + 1 ]">
 <kw type="foritem" name="${i} = 1">
@@ -244,8 +244,8 @@ linux: sathish@CPE12-VM1:~$</msg>
 <assign>
 <var>${gw}</var>
 </assign>
-<msg timestamp="20200220 16:46:44.781" level="INFO">${gw} = 192.169.101.1</msg>
-<status status="PASS" endtime="20200220 16:46:44.781" starttime="20200220 16:46:44.780"></status>
+<msg timestamp="20200227 17:53:29.074" level="INFO">${gw} = 192.169.101.1</msg>
+<status status="PASS" endtime="20200227 17:53:29.074" starttime="20200227 17:53:29.074"></status>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <doc>Returns the given values which can then be assigned to a variables.</doc>
@@ -255,8 +255,8 @@ linux: sathish@CPE12-VM1:~$</msg>
 <assign>
 <var>${vlan}</var>
 </assign>
-<msg timestamp="20200220 16:46:44.782" level="INFO">${vlan} = 600</msg>
-<status status="PASS" endtime="20200220 16:46:44.782" starttime="20200220 16:46:44.781"></status>
+<msg timestamp="20200227 17:53:29.075" level="INFO">${vlan} = 600</msg>
+<status status="PASS" endtime="20200227 17:53:29.075" starttime="20200227 17:53:29.074"></status>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <doc>Returns the given values which can then be assigned to a variables.</doc>
@@ -266,18 +266,18 @@ linux: sathish@CPE12-VM1:~$</msg>
 <assign>
 <var>${destination_nw}</var>
 </assign>
-<msg timestamp="20200220 16:46:44.784" level="INFO">${destination_nw} = 192.169.111.0/24</msg>
-<status status="PASS" endtime="20200220 16:46:44.784" starttime="20200220 16:46:44.783"></status>
+<msg timestamp="20200227 17:53:29.076" level="INFO">${destination_nw} = 192.169.111.0/24</msg>
+<status status="PASS" endtime="20200227 17:53:29.076" starttime="20200227 17:53:29.075"></status>
 </kw>
 <kw name="Send Commands And Expect" library="VM1">
 <arguments>
 <arg>sudo ip route add ${destination_nw} via ${gw} dev ${VM1['LAN_INTF']}.${vlan}</arg>
 </arguments>
-<status status="PASS" endtime="20200220 16:46:45.186" starttime="20200220 16:46:44.784"></status>
+<status status="PASS" endtime="20200227 17:53:29.479" starttime="20200227 17:53:29.076"></status>
 </kw>
-<status status="PASS" endtime="20200220 16:46:45.187" starttime="20200220 16:46:44.780"></status>
+<status status="PASS" endtime="20200227 17:53:29.479" starttime="20200227 17:53:29.074"></status>
 </kw>
-<status status="PASS" endtime="20200220 16:46:45.187" starttime="20200220 16:46:44.779"></status>
+<status status="PASS" endtime="20200227 17:53:29.479" starttime="20200227 17:53:29.073"></status>
 </kw>
 <kw type="for" name="${i} IN RANGE [ 1 | ${VM2['NO_OF_VRFS']} + 1 ]">
 <kw type="foritem" name="${i} = 1">
@@ -289,8 +289,8 @@ linux: sathish@CPE12-VM1:~$</msg>
 <assign>
 <var>${gw}</var>
 </assign>
-<msg timestamp="20200220 16:46:45.189" level="INFO">${gw} = 192.169.111.1</msg>
-<status status="PASS" endtime="20200220 16:46:45.189" starttime="20200220 16:46:45.188"></status>
+<msg timestamp="20200227 17:53:29.482" level="INFO">${gw} = 192.169.111.1</msg>
+<status status="PASS" endtime="20200227 17:53:29.482" starttime="20200227 17:53:29.481"></status>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <doc>Returns the given values which can then be assigned to a variables.</doc>
@@ -300,8 +300,8 @@ linux: sathish@CPE12-VM1:~$</msg>
 <assign>
 <var>${vlan}</var>
 </assign>
-<msg timestamp="20200220 16:46:45.190" level="INFO">${vlan} = 610</msg>
-<status status="PASS" endtime="20200220 16:46:45.190" starttime="20200220 16:46:45.189"></status>
+<msg timestamp="20200227 17:53:29.484" level="INFO">${vlan} = 610</msg>
+<status status="PASS" endtime="20200227 17:53:29.484" starttime="20200227 17:53:29.483"></status>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <doc>Returns the given values which can then be assigned to a variables.</doc>
@@ -311,48 +311,186 @@ linux: sathish@CPE12-VM1:~$</msg>
 <assign>
 <var>${destination_nw}</var>
 </assign>
-<msg timestamp="20200220 16:46:45.191" level="INFO">${destination_nw} = 192.169.101.0/24</msg>
-<status status="PASS" endtime="20200220 16:46:45.191" starttime="20200220 16:46:45.190"></status>
+<msg timestamp="20200227 17:53:29.486" level="INFO">${destination_nw} = 192.169.101.0/24</msg>
+<status status="PASS" endtime="20200227 17:53:29.486" starttime="20200227 17:53:29.485"></status>
 </kw>
 <kw name="Send Commands And Expect" library="VM2">
 <arguments>
 <arg>sudo ip route add ${destination_nw} via ${gw} dev ${VM2['LAN_INTF']}.${vlan}</arg>
 </arguments>
-<status status="PASS" endtime="20200220 16:46:45.594" starttime="20200220 16:46:45.192"></status>
+<status status="PASS" endtime="20200227 17:53:29.889" starttime="20200227 17:53:29.487"></status>
 </kw>
-<status status="PASS" endtime="20200220 16:46:45.594" starttime="20200220 16:46:45.187"></status>
+<status status="PASS" endtime="20200227 17:53:29.889" starttime="20200227 17:53:29.480"></status>
 </kw>
-<status status="PASS" endtime="20200220 16:46:45.594" starttime="20200220 16:46:45.187"></status>
+<status status="PASS" endtime="20200227 17:53:29.889" starttime="20200227 17:53:29.479"></status>
 </kw>
-<status status="PASS" endtime="20200220 16:46:45.594" starttime="20200220 16:45:03.724"></status>
+<kw name="SPIRENT_STARTUP">
+<kw name="Create Device" library="spirent1">
+<arguments>
+<arg>port=0</arg>
+<arg>vlanid=${CPE1['lan'][1]['vlan']}</arg>
+<arg>intf_ip_addr=${CPE1['lan'][1]['third_host']}</arg>
+<arg>gateway_ip_addr=${CPE1['lan'][1]['first_host']}</arg>
+</arguments>
+<assign>
+<var>${device1}</var>
+</assign>
+<msg timestamp="20200227 17:53:31.318" level="INFO">***** run sth.emulation_device_config successfully</msg>
+<msg timestamp="20200227 17:53:31.318" level="INFO">${device1} = {'status': '1', 'handle': 'host1', 'intf_ip_addr': '192.169.101.1', 'vlanid': 600, 'gateway_ip_addr': '192.169.101.1', 'port': 'port1'}</msg>
+<status status="PASS" endtime="20200227 17:53:31.318" starttime="20200227 17:53:29.891"></status>
 </kw>
-<test id="s1-t1" name="NV_SINGLE_CPE_TRAFFIC_STEERING_01">
+<kw name="Create Device" library="spirent1">
+<arguments>
+<arg>port=1</arg>
+<arg>vlanid=${CPE2['lan'][1]['vlan']}</arg>
+<arg>intf_ip_addr=${CPE2['lan'][1]['third_host']}</arg>
+<arg>gateway_ip_addr=${CPE2['lan'][1]['first_host']}</arg>
+</arguments>
+<assign>
+<var>${device2}</var>
+</assign>
+<msg timestamp="20200227 17:53:31.792" level="INFO">***** run sth.emulation_device_config successfully</msg>
+<msg timestamp="20200227 17:53:31.792" level="INFO">${device2} = {'status': '1', 'handle': 'host2', 'intf_ip_addr': '192.169.111.1', 'vlanid': 610, 'gateway_ip_addr': '192.169.111.1', 'port': 'port2'}</msg>
+<status status="PASS" endtime="20200227 17:53:31.792" starttime="20200227 17:53:31.319"></status>
+</kw>
+<kw name="Create Tcp Stream Block" library="spirent1">
+<arguments>
+<arg>${device1}</arg>
+<arg>${device2}</arg>
+<arg>src_port=2000</arg>
+<arg>rate_mbps=2</arg>
+</arguments>
+<assign>
+<var>${stream1}</var>
+</assign>
+<msg timestamp="20200227 17:53:36.175" level="INFO">***** run sth.traffic_config successfully</msg>
+<msg timestamp="20200227 17:53:36.175" level="INFO">${stream1} = {'status': '1', 'stream_id': 'streamblock1'}</msg>
+<status status="PASS" endtime="20200227 17:53:36.175" starttime="20200227 17:53:31.793"></status>
+</kw>
+<kw name="Create Tcp Stream Block" library="spirent1">
+<arguments>
+<arg>${device1}</arg>
+<arg>${device2}</arg>
+<arg>src_port=2001</arg>
+<arg>rate_mbps=2</arg>
+</arguments>
+<assign>
+<var>${stream2}</var>
+</assign>
+<msg timestamp="20200227 17:53:38.984" level="INFO">***** run sth.traffic_config successfully</msg>
+<msg timestamp="20200227 17:53:38.984" level="INFO">${stream2} = {'status': '1', 'stream_id': 'streamblock2'}</msg>
+<status status="PASS" endtime="20200227 17:53:38.984" starttime="20200227 17:53:36.175"></status>
+</kw>
+<kw name="Create Udp Stream Block" library="spirent1">
+<arguments>
+<arg>${device1}</arg>
+<arg>${device2}</arg>
+<arg>src_port=2002</arg>
+<arg>rate_mbps=2</arg>
+</arguments>
+<assign>
+<var>${stream3}</var>
+</assign>
+<msg timestamp="20200227 17:53:41.875" level="INFO">***** run sth.traffic_config successfully</msg>
+<msg timestamp="20200227 17:53:41.876" level="INFO">${stream3} = {'status': '1', 'stream_id': 'streamblock3'}</msg>
+<status status="PASS" endtime="20200227 17:53:41.876" starttime="20200227 17:53:38.985"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${device1}</arg>
+</arguments>
+<msg timestamp="20200227 17:53:41.877" level="INFO">${device1} = {'status': '1', 'handle': 'host1', 'intf_ip_addr': '192.169.101.1', 'vlanid': 600, 'gateway_ip_addr': '192.169.101.1', 'port': 'port1'}</msg>
+<status status="PASS" endtime="20200227 17:53:41.877" starttime="20200227 17:53:41.876"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${device2}</arg>
+</arguments>
+<msg timestamp="20200227 17:53:41.878" level="INFO">${device2} = {'status': '1', 'handle': 'host2', 'intf_ip_addr': '192.169.111.1', 'vlanid': 610, 'gateway_ip_addr': '192.169.111.1', 'port': 'port2'}</msg>
+<status status="PASS" endtime="20200227 17:53:41.878" starttime="20200227 17:53:41.877"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${stream1}</arg>
+</arguments>
+<msg timestamp="20200227 17:53:41.879" level="INFO">${stream1} = {'status': '1', 'stream_id': 'streamblock1'}</msg>
+<status status="PASS" endtime="20200227 17:53:41.879" starttime="20200227 17:53:41.878"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${stream2}</arg>
+</arguments>
+<msg timestamp="20200227 17:53:41.879" level="INFO">${stream2} = {'status': '1', 'stream_id': 'streamblock2'}</msg>
+<status status="PASS" endtime="20200227 17:53:41.880" starttime="20200227 17:53:41.879"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${stream3}</arg>
+</arguments>
+<msg timestamp="20200227 17:53:41.880" level="INFO">${stream3} = {'status': '1', 'stream_id': 'streamblock3'}</msg>
+<status status="PASS" endtime="20200227 17:53:41.880" starttime="20200227 17:53:41.880"></status>
+</kw>
+<status status="PASS" endtime="20200227 17:53:41.880" starttime="20200227 17:53:29.890"></status>
+</kw>
+<kw name="CREATE FWD PROFILE">
+<kw name="Get Vni Interface Bw" library="CPE1">
+<arguments>
+<arg>${CPE1['WAN1_INTF']}</arg>
+</arguments>
+<assign>
+<var>${curr_intf_bw}</var>
+</assign>
+<msg timestamp="20200227 17:53:43.671" level="INFO">${curr_intf_bw} = {u'bandwidth': {u'downlink': 30000, u'uplink': 30000}}</msg>
+<status status="PASS" endtime="20200227 17:53:43.671" starttime="20200227 17:53:41.881"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${curr_intf_bw}</arg>
+</arguments>
+<msg timestamp="20200227 17:53:43.673" level="INFO">${curr_intf_bw} = {u'bandwidth': {u'downlink': 30000, u'uplink': 30000}}</msg>
+<status status="PASS" endtime="20200227 17:53:43.673" starttime="20200227 17:53:43.672"></status>
+</kw>
+<kw name="Modify Interface Bandwidth" library="CPE1">
+<arguments>
+<arg>${CPE1['WAN1_INTF']}</arg>
+<arg>${bw}</arg>
+<arg>${bw}</arg>
+</arguments>
+<msg timestamp="20200227 17:53:46.285" level="INFO">{"bandwidth": {"downlink": "30000", "uplink": "30000"}}
+
+&lt;Response [204]&gt;</msg>
+<status status="PASS" endtime="20200227 17:53:46.285" starttime="20200227 17:53:43.674"></status>
+</kw>
+<kw name="Get Vni Interface Bw" library="CPE1">
+<arguments>
+<arg>${CPE1['WAN1_INTF']}</arg>
+</arguments>
+<status status="PASS" endtime="20200227 17:53:47.174" starttime="20200227 17:53:46.286"></status>
+</kw>
 <kw name="Create Sla Profile" library="CPE1">
 <arguments>
 <arg>${sla_prf_1}</arg>
 <arg>circuit_transmit_utilization=5</arg>
 </arguments>
-<msg timestamp="20200220 16:46:45.597" level="INFO">
+<msg timestamp="20200227 17:53:47.176" level="INFO">
 CREATE SLA profile
 </msg>
-<msg timestamp="20200220 16:46:48.525" level="INFO">
+<msg timestamp="20200227 17:53:48.969" level="INFO">
 PASS</msg>
-<msg timestamp="20200220 16:46:48.525" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; CREATE SLA Profile PASSED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
-<msg timestamp="20200220 16:46:48.525" level="INFO">{
+<msg timestamp="20200227 17:53:48.970" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; CREATE SLA Profile PASSED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
+<msg timestamp="20200227 17:53:48.971" level="INFO">{
 	"sla-profile": {
-		"name": "SLA10"
+		"name": "SLA111"
 		,"circuit-transmit-utilization": "5"
 	}
 }</msg>
-<status status="PASS" endtime="20200220 16:46:48.526" starttime="20200220 16:46:45.596"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>CPE1.get_sla_profile</arg>
-<arg>${sla_prf_1}</arg>
-</arguments>
-<status status="PASS" endtime="20200220 16:46:48.527" starttime="20200220 16:46:48.526"></status>
+<status status="PASS" endtime="20200227 17:53:48.971" starttime="20200227 17:53:47.175"></status>
 </kw>
 <kw name="Create Fowarding Profile" library="CPE1">
 <arguments>
@@ -362,54 +500,82 @@ PASS</msg>
 <arg>sla_name=${sla_prf_1}</arg>
 <arg>evaluate_continuously=disable</arg>
 </arguments>
-<msg timestamp="20200220 16:46:48.529" level="INFO">
+<msg timestamp="20200227 17:53:48.977" level="INFO">
 CREATE FWD PROFILE
 </msg>
-<msg timestamp="20200220 16:46:50.455" level="INFO">
+<msg timestamp="20200227 17:53:50.894" level="INFO">
 PASS</msg>
-<msg timestamp="20200220 16:46:50.455" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; FORWARDING PROFILE CREATION PASSED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
-<status status="PASS" endtime="20200220 16:46:50.456" starttime="20200220 16:46:48.528"></status>
+<msg timestamp="20200227 17:53:50.895" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; FORWARDING PROFILE CREATION PASSED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
+<status status="PASS" endtime="20200227 17:53:50.895" starttime="20200227 17:53:48.972"></status>
 </kw>
 <kw name="Create Address Object" library="CPE1">
 <arguments>
 <arg>${ipaddobj_1}</arg>
 <arg>ipv4-prefix</arg>
-<arg>${CPE2['lan'][1]['third_host']}/32</arg>
+<arg>${CPE1['lan'][1]['third_host']}/32</arg>
 </arguments>
-<msg timestamp="20200220 16:46:50.457" level="INFO">
+<msg timestamp="20200227 17:53:50.898" level="INFO">
 CREATE IPaddress Object
 </msg>
-<msg timestamp="20200220 16:46:52.100" level="INFO">
+<msg timestamp="20200227 17:53:52.837" level="INFO">
 PASS</msg>
-<msg timestamp="20200220 16:46:52.101" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; ADDRESS OBJECT CREATION PASSED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
-<msg timestamp="20200220 16:46:52.101" level="INFO">{
+<msg timestamp="20200227 17:53:52.838" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; ADDRESS OBJECT CREATION PASSED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
+<msg timestamp="20200227 17:53:52.839" level="INFO">{
 	"address": {
-		"name": "Dest_ip_add10",
+		"name": "src_ip_add_obj1",
+		"ipv4-prefix": "192.169.101.3/32"
+	}
+}</msg>
+<status status="PASS" endtime="20200227 17:53:52.839" starttime="20200227 17:53:50.896"></status>
+</kw>
+<kw name="Create Address Object" library="CPE1">
+<arguments>
+<arg>${ipaddobj_2}</arg>
+<arg>ipv4-prefix</arg>
+<arg>${CPE2['lan'][1]['third_host']}/32</arg>
+</arguments>
+<msg timestamp="20200227 17:53:52.843" level="INFO">
+CREATE IPaddress Object
+</msg>
+<msg timestamp="20200227 17:53:55.369" level="INFO">
+PASS</msg>
+<msg timestamp="20200227 17:53:55.370" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; ADDRESS OBJECT CREATION PASSED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
+<msg timestamp="20200227 17:53:55.371" level="INFO">{
+	"address": {
+		"name": "dst_ip_add_obj1",
 		"ipv4-prefix": "192.169.111.3/32"
 	}
 }</msg>
-<status status="PASS" endtime="20200220 16:46:52.101" starttime="20200220 16:46:50.456"></status>
+<status status="PASS" endtime="20200227 17:53:55.371" starttime="20200227 17:53:52.840"></status>
 </kw>
+<status status="PASS" endtime="20200227 17:53:55.372" starttime="20200227 17:53:41.880"></status>
+</kw>
+<status status="PASS" endtime="20200227 17:53:55.373" starttime="20200227 17:51:44.798"></status>
+</kw>
+<test id="s1-t1" name="NV_SINGLE_CPE_TRAFFIC_STEERING_01">
 <kw name="Create Policy Rule" library="CPE1">
 <arguments>
 <arg>${plcyrule_1}</arg>
-<arg>${ipaddobj_1}</arg>
 <arg>${fwp_1}</arg>
+<arg>src_address_obj=${ipaddobj_1}</arg>
 </arguments>
-<msg timestamp="20200220 16:46:52.103" level="INFO">
+<msg timestamp="20200227 17:53:55.380" level="INFO">
 CREATE Policy rule
 </msg>
-<msg timestamp="20200220 16:46:54.020" level="INFO">
+<msg timestamp="20200227 17:53:57.424" level="INFO">
 PASS</msg>
-<msg timestamp="20200220 16:46:54.021" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; CREATE POLICY RULE PASSED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
-<msg timestamp="20200220 16:46:54.021" level="INFO">{
+<msg timestamp="20200227 17:53:57.424" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; CREATE POLICY RULE PASSED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
+<msg timestamp="20200227 17:53:57.425" level="INFO">{
 	"rule": {
-		"name": "ts_Destipaddr10",
+		"name": "policy_rule_1",
 		"tag": [],
 		"match": {
 			"source": {
 				"zone": {},
-				"address": {},
+				"address": {
+				"address-list": ["src_ip_add_obj1"]
+				
+				},
 				"user": {
 					"user-type": "any",
 					"local-database": {
@@ -423,10 +589,12 @@ PASS</msg>
 			"destination": {
 				"zone": {},
 				"address": {
-					"address-list": ["Dest_ip_add10"]
+				
 				}
 			},
-			"application": {},
+			"application": {
+				
+			},
 			"ttl": {}
 		},
 		"set": {
@@ -435,7 +603,7 @@ PASS</msg>
 				"rate-limit": 10
 			},
 			"action": "allow",
-			"forwarding-profile": "FWP10"
+			"forwarding-profile": "FWP111"
 		},
 		"monitor": {
 			"interval": "3",
@@ -443,7 +611,7 @@ PASS</msg>
 		}
 	}
 }</msg>
-<status status="PASS" endtime="20200220 16:46:54.021" starttime="20200220 16:46:52.102"></status>
+<status status="PASS" endtime="20200227 17:53:57.426" starttime="20200227 17:53:55.378"></status>
 </kw>
 <kw name="Move Policy Rule" library="VD1">
 <arguments>
@@ -453,140 +621,70 @@ PASS</msg>
 <arg>${plcyrule_1}</arg>
 <arg>first</arg>
 </arguments>
-<msg timestamp="20200220 16:47:01.552" level="INFO">move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 sd-wan policies Default-Policy rules ts_Destipaddr10 first
-[ok][2020-02-20 11:11:24]
+<msg timestamp="20200227 17:54:04.807" level="INFO">move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 sd-wan policies Default-Policy rules policy_rule_1 first
+[ok][2020-02-27 12:24:51]
 
 [edit]
 Automated@VDir-BLR-NEW-01% commit
 Commit complete.
-[ok][2020-02-20 11:11:25]
+[ok][2020-02-27 12:24:52]
 
 [edit]
 Automated@VDir-BLR-NEW-01% exit configuration-mode
-[ok][2020-02-20 11:11:28]
+[ok][2020-02-27 12:24:55]
 Automated@VDir-BLR-NEW-01&gt;</msg>
-<status status="PASS" endtime="20200220 16:47:01.552" starttime="20200220 16:46:54.022"></status>
+<status status="PASS" endtime="20200227 17:54:04.808" starttime="20200227 17:53:57.427"></status>
 </kw>
 <kw name="Req Clr Sess All" library="CPE1">
-<status status="PASS" endtime="20200220 16:47:02.155" starttime="20200220 16:47:01.553"></status>
-</kw>
-<kw name="Create Device" library="spirent1">
-<arguments>
-<arg>port=0</arg>
-<arg>vlanid=${CPE1['lan'][1]['vlan']}</arg>
-<arg>intf_ip_addr=${CPE1['lan'][1]['third_host']}</arg>
-<arg>gateway_ip_addr=${CPE1['lan'][1]['first_host']}</arg>
-</arguments>
-<assign>
-<var>${device1}</var>
-</assign>
-<msg timestamp="20200220 16:47:02.704" level="INFO">***** run sth.emulation_device_config successfully</msg>
-<msg timestamp="20200220 16:47:02.705" level="INFO">${device1} = {'status': '1', 'handle': 'host1', 'intf_ip_addr': '192.169.101.1', 'vlanid': 600, 'gateway_ip_addr': '192.169.101.1', 'port': 'port1'}</msg>
-<status status="PASS" endtime="20200220 16:47:02.705" starttime="20200220 16:47:02.156"></status>
-</kw>
-<kw name="Create Device" library="spirent1">
-<arguments>
-<arg>port=1</arg>
-<arg>vlanid=${CPE2['lan'][1]['vlan']}</arg>
-<arg>intf_ip_addr=${CPE2['lan'][1]['third_host']}</arg>
-<arg>gateway_ip_addr=${CPE2['lan'][1]['first_host']}</arg>
-</arguments>
-<assign>
-<var>${device2}</var>
-</assign>
-<msg timestamp="20200220 16:47:02.768" level="INFO">***** run sth.emulation_device_config successfully</msg>
-<msg timestamp="20200220 16:47:02.769" level="INFO">${device2} = {'status': '1', 'handle': 'host2', 'intf_ip_addr': '192.169.111.1', 'vlanid': 610, 'gateway_ip_addr': '192.169.111.1', 'port': 'port2'}</msg>
-<status status="PASS" endtime="20200220 16:47:02.769" starttime="20200220 16:47:02.705"></status>
-</kw>
-<kw name="Create Tcp Stream Block" library="spirent1">
-<arguments>
-<arg>${device1}</arg>
-<arg>${device2}</arg>
-<arg>src_port=2000</arg>
-<arg>rate_mbps=2</arg>
-</arguments>
-<assign>
-<var>${stream1}</var>
-</assign>
-<msg timestamp="20200220 16:47:04.681" level="INFO">***** run sth.traffic_config successfully</msg>
-<msg timestamp="20200220 16:47:04.681" level="INFO">${stream1} = {'status': '1', 'stream_id': 'streamblock1'}</msg>
-<status status="PASS" endtime="20200220 16:47:04.681" starttime="20200220 16:47:02.770"></status>
-</kw>
-<kw name="Create Tcp Stream Block" library="spirent1">
-<arguments>
-<arg>${device1}</arg>
-<arg>${device2}</arg>
-<arg>src_port=2001</arg>
-<arg>rate_mbps=2</arg>
-</arguments>
-<assign>
-<var>${stream2}</var>
-</assign>
-<msg timestamp="20200220 16:47:05.143" level="INFO">***** run sth.traffic_config successfully</msg>
-<msg timestamp="20200220 16:47:05.144" level="INFO">${stream2} = {'status': '1', 'stream_id': 'streamblock2'}</msg>
-<status status="PASS" endtime="20200220 16:47:05.144" starttime="20200220 16:47:04.682"></status>
-</kw>
-<kw name="Create Udp Stream Block" library="spirent1">
-<arguments>
-<arg>${device1}</arg>
-<arg>${device2}</arg>
-<arg>src_port=2002</arg>
-<arg>rate_mbps=2</arg>
-</arguments>
-<assign>
-<var>${stream3}</var>
-</assign>
-<msg timestamp="20200220 16:47:05.556" level="INFO">***** run sth.traffic_config successfully</msg>
-<msg timestamp="20200220 16:47:05.556" level="INFO">${stream3} = {'status': '1', 'stream_id': 'streamblock3'}</msg>
-<status status="PASS" endtime="20200220 16:47:05.557" starttime="20200220 16:47:05.144"></status>
+<status status="PASS" endtime="20200227 17:54:05.612" starttime="20200227 17:54:04.809"></status>
 </kw>
 <kw name="Start Stream Traffic" library="spirent1">
 <arguments>
 <arg>${stream1['stream_id']}</arg>
 </arguments>
-<msg timestamp="20200220 16:47:06.712" level="INFO">streamblock1
+<msg timestamp="20200227 17:54:08.182" level="INFO">streamblock1
 ***** run sth.traffic_control successfully</msg>
-<status status="PASS" endtime="20200220 16:47:06.712" starttime="20200220 16:47:05.557"></status>
+<status status="PASS" endtime="20200227 17:54:08.182" starttime="20200227 17:54:05.613"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>40s</arg>
 </arguments>
-<msg timestamp="20200220 16:47:46.714" level="INFO">Slept 40 seconds</msg>
-<status status="PASS" endtime="20200220 16:47:46.714" starttime="20200220 16:47:06.713"></status>
+<msg timestamp="20200227 17:54:48.184" level="INFO">Slept 40 seconds</msg>
+<status status="PASS" endtime="20200227 17:54:48.185" starttime="20200227 17:54:08.183"></status>
 </kw>
 <kw name="Start Stream Traffic" library="spirent1">
 <arguments>
 <arg>${stream2['stream_id']}</arg>
 </arguments>
-<msg timestamp="20200220 16:47:46.805" level="INFO">streamblock2
+<msg timestamp="20200227 17:54:48.874" level="INFO">streamblock2
 ***** run sth.traffic_control successfully</msg>
-<status status="PASS" endtime="20200220 16:47:46.805" starttime="20200220 16:47:46.715"></status>
+<status status="PASS" endtime="20200227 17:54:48.874" starttime="20200227 17:54:48.186"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>40s</arg>
 </arguments>
-<msg timestamp="20200220 16:48:26.807" level="INFO">Slept 40 seconds</msg>
-<status status="PASS" endtime="20200220 16:48:26.807" starttime="20200220 16:47:46.806"></status>
+<msg timestamp="20200227 17:55:28.875" level="INFO">Slept 40 seconds</msg>
+<status status="PASS" endtime="20200227 17:55:28.875" starttime="20200227 17:54:48.875"></status>
 </kw>
 <kw name="Start Stream Traffic" library="spirent1">
 <arguments>
 <arg>${stream3['stream_id']}</arg>
 </arguments>
-<msg timestamp="20200220 16:48:26.904" level="INFO">streamblock3
+<msg timestamp="20200227 17:55:29.589" level="INFO">streamblock3
 ***** run sth.traffic_control successfully</msg>
-<status status="PASS" endtime="20200220 16:48:26.905" starttime="20200220 16:48:26.808"></status>
+<status status="PASS" endtime="20200227 17:55:29.589" starttime="20200227 17:55:28.877"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>40s</arg>
 </arguments>
-<msg timestamp="20200220 16:49:06.906" level="INFO">Slept 40 seconds</msg>
-<status status="PASS" endtime="20200220 16:49:06.907" starttime="20200220 16:48:26.905"></status>
+<msg timestamp="20200227 17:56:09.590" level="INFO">Slept 40 seconds</msg>
+<status status="PASS" endtime="20200227 17:56:09.591" starttime="20200227 17:55:29.590"></status>
 </kw>
 <kw name="Show Session Sdwan Detail" library="CPE1">
 <arguments>
@@ -595,12 +693,12 @@ Automated@VDir-BLR-NEW-01&gt;</msg>
 <assign>
 <var>${result}</var>
 </assign>
-<msg timestamp="20200220 16:49:08.513" level="INFO">show orgs org IPC00190 sessions sdwan detail | nomore| select source-port 2000</msg>
-<msg timestamp="20200220 16:49:08.514" level="INFO">${result} = show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2000
-sessions sdwan detail 0 2 6447
+<msg timestamp="20200227 17:56:11.209" level="INFO">show orgs org IPC00190 sessions sdwan detail | nomore| select source-port 2000</msg>
+<msg timestamp="20200227 17:56:11.210" level="INFO">${result} = show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2000
+sessions sdwan detail 0 2 7364
  source-ip                  192.169.101.3
  destination-ip             192.1...</msg>
-<status status="PASS" endtime="20200220 16:49:08.514" starttime="20200220 16:49:06.908"></status>
+<status status="PASS" endtime="20200227 17:56:11.210" starttime="20200227 17:56:09.594"></status>
 </kw>
 <kw name="CHECK RESULT">
 <doc>Check result contains expected value</doc>
@@ -613,8 +711,8 @@ sessions sdwan detail 0 2 6447
 <arguments>
 <arg>${actual}</arg>
 </arguments>
-<msg timestamp="20200220 16:49:08.517" level="INFO">show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2000
-sessions sdwan detail 0 2 6447
+<msg timestamp="20200227 17:56:11.217" level="INFO">show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2000
+sessions sdwan detail 0 2 7364
  source-ip                  192.169.101.3
  destination-ip             192.169.111.3
  source-port                2000
@@ -623,15 +721,15 @@ sessions sdwan detail 0 2 6447
  natted                     No
  sdwan                      Yes
  application                -
- forward-pkt-count          169048
- forward-byte-count         23328624
+ forward-pkt-count          170777
+ forward-byte-count         23567226
  reverse-pkt-count          0
  reverse-byte-count         0
  dropped-forward-pkt-count  0
  dropped-forward-byte-count 0
  dropped-reverse-pkt-count  0
  dropped-reverse-byte-count 0
- session-age                00:02:01
+ session-age                00:02:02
  idle-for                   00:00:00
  idle-timeout               240
  pbf-enabled                false
@@ -641,7 +739,7 @@ sessions sdwan detail 0 2 6447
  forward-offload            false
  reverse-offload            false
  forward-ingress-interface  vni-0/4.600
- forward-egress-interface   ptvi-0/203
+ forward-egress-interface   ptvi-0/281
  reverse-ingress-interface  n/a
  reverse-egress-interface   vni-0/4.600
  forward-fc                 fc_be
@@ -660,18 +758,18 @@ sessions sdwan detail 0 2 6447
  forward-egress-ckt         MPLS-WAN:MPLS-WAN
  reverse-ingress-ckt        -
  reverse-egress-ckt         vni-0/4.600
- sdwan-rule-name            ts_Destipaddr10
-[ok][2020-02-20 11:09:09]
+ sdwan-rule-name            policy_rule_1
+[ok][2020-02-27 12:22:22]
 admin@CPE11-HKG-HYBRD-IPC00190-cli&gt; </msg>
-<status status="PASS" endtime="20200220 16:49:08.517" starttime="20200220 16:49:08.517"></status>
+<status status="PASS" endtime="20200227 17:56:11.218" starttime="20200227 17:56:11.215"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>${expected}</arg>
 </arguments>
-<msg timestamp="20200220 16:49:08.518" level="INFO">tx-wan-ckt                 MPLS-WAN</msg>
-<status status="PASS" endtime="20200220 16:49:08.518" starttime="20200220 16:49:08.518"></status>
+<msg timestamp="20200227 17:56:11.220" level="INFO">tx-wan-ckt                 MPLS-WAN</msg>
+<status status="PASS" endtime="20200227 17:56:11.221" starttime="20200227 17:56:11.218"></status>
 </kw>
 <kw name="Run Keyword And Continue On Failure" library="BuiltIn">
 <doc>Runs the keyword and continues execution even if a failure occurs.</doc>
@@ -686,11 +784,101 @@ admin@CPE11-HKG-HYBRD-IPC00190-cli&gt; </msg>
 <arg>${actual}</arg>
 <arg>${expected}</arg>
 </arguments>
-<status status="PASS" endtime="20200220 16:49:08.520" starttime="20200220 16:49:08.519"></status>
+<status status="PASS" endtime="20200227 17:56:11.224" starttime="20200227 17:56:11.223"></status>
 </kw>
-<status status="PASS" endtime="20200220 16:49:08.520" starttime="20200220 16:49:08.519"></status>
+<status status="PASS" endtime="20200227 17:56:11.224" starttime="20200227 17:56:11.221"></status>
 </kw>
-<status status="PASS" endtime="20200220 16:49:08.521" starttime="20200220 16:49:08.515"></status>
+<status status="PASS" endtime="20200227 17:56:11.224" starttime="20200227 17:56:11.212"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=sdwan-rule-name${SPACE*12}${plcyrule_1}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<msg timestamp="20200227 17:56:11.229" level="INFO">show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2000
+sessions sdwan detail 0 2 7364
+ source-ip                  192.169.101.3
+ destination-ip             192.169.111.3
+ source-port                2000
+ destination-port           1024
+ protocol                   6
+ natted                     No
+ sdwan                      Yes
+ application                -
+ forward-pkt-count          170777
+ forward-byte-count         23567226
+ reverse-pkt-count          0
+ reverse-byte-count         0
+ dropped-forward-pkt-count  0
+ dropped-forward-byte-count 0
+ dropped-reverse-pkt-count  0
+ dropped-reverse-byte-count 0
+ session-age                00:02:02
+ idle-for                   00:00:00
+ idle-timeout               240
+ pbf-enabled                false
+ forward-egress-vrf         LAN1-VRF
+ reverse-egress-vrf         LAN1-VRF
+ session-provider-zone      0
+ forward-offload            false
+ reverse-offload            false
+ forward-ingress-interface  vni-0/4.600
+ forward-egress-interface   ptvi-0/281
+ reverse-ingress-interface  n/a
+ reverse-egress-interface   vni-0/4.600
+ forward-fc                 fc_be
+ reverse-fc                 fc_be
+ forward-plp                low
+ reverse-plp                low
+ external-service-chaining  false
+ is-child                   No
+ parent-sess-id             0
+ rx-wan-ckt                 -
+ tx-wan-ckt                 MPLS-WAN:MPLS-WAN
+ tx-branch                  -
+ pbf-wan-ackt-enc           (E)
+ forward-ingress-ckt        vni-0/4.600
+ forward-egress-branch      CPE12-HKG-HYBRD-IPC00190
+ forward-egress-ckt         MPLS-WAN:MPLS-WAN
+ reverse-ingress-ckt        -
+ reverse-egress-ckt         vni-0/4.600
+ sdwan-rule-name            policy_rule_1
+[ok][2020-02-27 12:22:22]
+admin@CPE11-HKG-HYBRD-IPC00190-cli&gt; </msg>
+<status status="PASS" endtime="20200227 17:56:11.229" starttime="20200227 17:56:11.227"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<msg timestamp="20200227 17:56:11.232" level="INFO">sdwan-rule-name            policy_rule_1</msg>
+<status status="PASS" endtime="20200227 17:56:11.232" starttime="20200227 17:56:11.230"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20200227 17:56:11.236" starttime="20200227 17:56:11.235"></status>
+</kw>
+<status status="PASS" endtime="20200227 17:56:11.236" starttime="20200227 17:56:11.233"></status>
+</kw>
+<status status="PASS" endtime="20200227 17:56:11.236" starttime="20200227 17:56:11.225"></status>
 </kw>
 <kw name="Show Session Sdwan Detail" library="CPE1">
 <arguments>
@@ -699,12 +887,12 @@ admin@CPE11-HKG-HYBRD-IPC00190-cli&gt; </msg>
 <assign>
 <var>${result}</var>
 </assign>
-<msg timestamp="20200220 16:49:10.126" level="INFO">show orgs org IPC00190 sessions sdwan detail | nomore| select source-port 2001</msg>
-<msg timestamp="20200220 16:49:10.126" level="INFO">${result} = show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2001
-sessions sdwan detail 0 2 6448
+<msg timestamp="20200227 17:56:12.843" level="INFO">show orgs org IPC00190 sessions sdwan detail | nomore| select source-port 2001</msg>
+<msg timestamp="20200227 17:56:12.844" level="INFO">${result} = show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2001
+sessions sdwan detail 0 2 7366
  source-ip                  192.169.101.3
  destination-ip             192.1...</msg>
-<status status="PASS" endtime="20200220 16:49:10.126" starttime="20200220 16:49:08.521"></status>
+<status status="PASS" endtime="20200227 17:56:12.844" starttime="20200227 17:56:11.238"></status>
 </kw>
 <kw name="CHECK RESULT">
 <doc>Check result contains expected value</doc>
@@ -717,8 +905,8 @@ sessions sdwan detail 0 2 6448
 <arguments>
 <arg>${actual}</arg>
 </arguments>
-<msg timestamp="20200220 16:49:10.129" level="INFO">show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2001
-sessions sdwan detail 0 2 6448
+<msg timestamp="20200227 17:56:12.850" level="INFO">show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2001
+sessions sdwan detail 0 2 7366
  source-ip                  192.169.101.3
  destination-ip             192.169.111.3
  source-port                2001
@@ -727,8 +915,8 @@ sessions sdwan detail 0 2 6448
  natted                     No
  sdwan                      Yes
  application                -
- forward-pkt-count          115351
- forward-byte-count         15918438
+ forward-pkt-count          116460
+ forward-byte-count         16071480
  reverse-pkt-count          0
  reverse-byte-count         0
  dropped-forward-pkt-count  0
@@ -745,7 +933,7 @@ sessions sdwan detail 0 2 6448
  forward-offload            false
  reverse-offload            false
  forward-ingress-interface  vni-0/4.600
- forward-egress-interface   ptvi-0/203
+ forward-egress-interface   ptvi-0/281
  reverse-ingress-interface  n/a
  reverse-egress-interface   vni-0/4.600
  forward-fc                 fc_be
@@ -764,18 +952,18 @@ sessions sdwan detail 0 2 6448
  forward-egress-ckt         INT-WAN:INT-WAN
  reverse-ingress-ckt        -
  reverse-egress-ckt         vni-0/4.600
- sdwan-rule-name            ts_Destipaddr10
-[ok][2020-02-20 11:09:10]
+ sdwan-rule-name            policy_rule_1
+[ok][2020-02-27 12:22:23]
 admin@CPE11-HKG-HYBRD-IPC00190-cli&gt; </msg>
-<status status="PASS" endtime="20200220 16:49:10.129" starttime="20200220 16:49:10.128"></status>
+<status status="PASS" endtime="20200227 17:56:12.851" starttime="20200227 17:56:12.849"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>${expected}</arg>
 </arguments>
-<msg timestamp="20200220 16:49:10.130" level="INFO">tx-wan-ckt                 INT-WAN</msg>
-<status status="PASS" endtime="20200220 16:49:10.130" starttime="20200220 16:49:10.129"></status>
+<msg timestamp="20200227 17:56:12.852" level="INFO">tx-wan-ckt                 INT-WAN</msg>
+<status status="PASS" endtime="20200227 17:56:12.852" starttime="20200227 17:56:12.851"></status>
 </kw>
 <kw name="Run Keyword And Continue On Failure" library="BuiltIn">
 <doc>Runs the keyword and continues execution even if a failure occurs.</doc>
@@ -790,11 +978,101 @@ admin@CPE11-HKG-HYBRD-IPC00190-cli&gt; </msg>
 <arg>${actual}</arg>
 <arg>${expected}</arg>
 </arguments>
-<status status="PASS" endtime="20200220 16:49:10.132" starttime="20200220 16:49:10.131"></status>
+<status status="PASS" endtime="20200227 17:56:12.855" starttime="20200227 17:56:12.854"></status>
 </kw>
-<status status="PASS" endtime="20200220 16:49:10.132" starttime="20200220 16:49:10.130"></status>
+<status status="PASS" endtime="20200227 17:56:12.855" starttime="20200227 17:56:12.853"></status>
 </kw>
-<status status="PASS" endtime="20200220 16:49:10.132" starttime="20200220 16:49:10.127"></status>
+<status status="PASS" endtime="20200227 17:56:12.856" starttime="20200227 17:56:12.845"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=sdwan-rule-name${SPACE*12}${plcyrule_1}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<msg timestamp="20200227 17:56:12.860" level="INFO">show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2001
+sessions sdwan detail 0 2 7366
+ source-ip                  192.169.101.3
+ destination-ip             192.169.111.3
+ source-port                2001
+ destination-port           1024
+ protocol                   6
+ natted                     No
+ sdwan                      Yes
+ application                -
+ forward-pkt-count          116460
+ forward-byte-count         16071480
+ reverse-pkt-count          0
+ reverse-byte-count         0
+ dropped-forward-pkt-count  0
+ dropped-forward-byte-count 0
+ dropped-reverse-pkt-count  0
+ dropped-reverse-byte-count 0
+ session-age                00:01:23
+ idle-for                   00:00:00
+ idle-timeout               240
+ pbf-enabled                false
+ forward-egress-vrf         LAN1-VRF
+ reverse-egress-vrf         LAN1-VRF
+ session-provider-zone      0
+ forward-offload            false
+ reverse-offload            false
+ forward-ingress-interface  vni-0/4.600
+ forward-egress-interface   ptvi-0/281
+ reverse-ingress-interface  n/a
+ reverse-egress-interface   vni-0/4.600
+ forward-fc                 fc_be
+ reverse-fc                 fc_be
+ forward-plp                low
+ reverse-plp                low
+ external-service-chaining  false
+ is-child                   No
+ parent-sess-id             0
+ rx-wan-ckt                 -
+ tx-wan-ckt                 INT-WAN:INT-WAN
+ tx-branch                  -
+ pbf-wan-ackt-enc           (E)
+ forward-ingress-ckt        vni-0/4.600
+ forward-egress-branch      CPE12-HKG-HYBRD-IPC00190
+ forward-egress-ckt         INT-WAN:INT-WAN
+ reverse-ingress-ckt        -
+ reverse-egress-ckt         vni-0/4.600
+ sdwan-rule-name            policy_rule_1
+[ok][2020-02-27 12:22:23]
+admin@CPE11-HKG-HYBRD-IPC00190-cli&gt; </msg>
+<status status="PASS" endtime="20200227 17:56:12.861" starttime="20200227 17:56:12.859"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<msg timestamp="20200227 17:56:12.862" level="INFO">sdwan-rule-name            policy_rule_1</msg>
+<status status="PASS" endtime="20200227 17:56:12.863" starttime="20200227 17:56:12.861"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20200227 17:56:12.865" starttime="20200227 17:56:12.864"></status>
+</kw>
+<status status="PASS" endtime="20200227 17:56:12.865" starttime="20200227 17:56:12.863"></status>
+</kw>
+<status status="PASS" endtime="20200227 17:56:12.865" starttime="20200227 17:56:12.857"></status>
 </kw>
 <kw name="Show Session Sdwan Detail" library="CPE1">
 <arguments>
@@ -803,12 +1081,12 @@ admin@CPE11-HKG-HYBRD-IPC00190-cli&gt; </msg>
 <assign>
 <var>${result}</var>
 </assign>
-<msg timestamp="20200220 16:49:11.737" level="INFO">show orgs org IPC00190 sessions sdwan detail | nomore| select source-port 2002</msg>
-<msg timestamp="20200220 16:49:11.738" level="INFO">${result} = show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2002
-sessions sdwan detail 0 2 6449
+<msg timestamp="20200227 17:56:14.472" level="INFO">show orgs org IPC00190 sessions sdwan detail | nomore| select source-port 2002</msg>
+<msg timestamp="20200227 17:56:14.473" level="INFO">${result} = show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2002
+sessions sdwan detail 0 2 7367
  source-ip                  192.169.101.3
  destination-ip             192.1...</msg>
-<status status="PASS" endtime="20200220 16:49:11.738" starttime="20200220 16:49:10.133"></status>
+<status status="PASS" endtime="20200227 17:56:14.473" starttime="20200227 17:56:12.867"></status>
 </kw>
 <kw name="CHECK RESULT">
 <doc>Check result contains expected value</doc>
@@ -821,8 +1099,8 @@ sessions sdwan detail 0 2 6449
 <arguments>
 <arg>${actual}</arg>
 </arguments>
-<msg timestamp="20200220 16:49:11.740" level="INFO">show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2002
-sessions sdwan detail 0 2 6449
+<msg timestamp="20200227 17:56:14.478" level="INFO">show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2002
+sessions sdwan detail 0 2 7367
  source-ip                  192.169.101.3
  destination-ip             192.169.111.3
  source-port                2002
@@ -831,8 +1109,8 @@ sessions sdwan detail 0 2 6449
  natted                     No
  sdwan                      Yes
  application                unknown_udp
- forward-pkt-count          61951
- forward-byte-count         8549238
+ forward-pkt-count          62153
+ forward-byte-count         8577114
  reverse-pkt-count          0
  reverse-byte-count         0
  dropped-forward-pkt-count  0
@@ -849,7 +1127,7 @@ sessions sdwan detail 0 2 6449
  forward-offload            false
  reverse-offload            false
  forward-ingress-interface  vni-0/4.600
- forward-egress-interface   ptvi-0/203
+ forward-egress-interface   ptvi-0/281
  reverse-ingress-interface  n/a
  reverse-egress-interface   vni-0/4.600
  forward-fc                 fc_be
@@ -868,18 +1146,18 @@ sessions sdwan detail 0 2 6449
  forward-egress-ckt         INT-WAN:INT-WAN
  reverse-ingress-ckt        -
  reverse-egress-ckt         vni-0/4.600
- sdwan-rule-name            ts_Destipaddr10
-[ok][2020-02-20 11:09:12]
+ sdwan-rule-name            policy_rule_1
+[ok][2020-02-27 12:22:25]
 admin@CPE11-HKG-HYBRD-IPC00190-cli&gt; </msg>
-<status status="PASS" endtime="20200220 16:49:11.740" starttime="20200220 16:49:11.740"></status>
+<status status="PASS" endtime="20200227 17:56:14.478" starttime="20200227 17:56:14.477"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>${expected}</arg>
 </arguments>
-<msg timestamp="20200220 16:49:11.741" level="INFO">tx-wan-ckt                 INT-WAN</msg>
-<status status="PASS" endtime="20200220 16:49:11.741" starttime="20200220 16:49:11.741"></status>
+<msg timestamp="20200227 17:56:14.480" level="INFO">tx-wan-ckt                 INT-WAN</msg>
+<status status="PASS" endtime="20200227 17:56:14.480" starttime="20200227 17:56:14.479"></status>
 </kw>
 <kw name="Run Keyword And Continue On Failure" library="BuiltIn">
 <doc>Runs the keyword and continues execution even if a failure occurs.</doc>
@@ -894,1251 +1172,996 @@ admin@CPE11-HKG-HYBRD-IPC00190-cli&gt; </msg>
 <arg>${actual}</arg>
 <arg>${expected}</arg>
 </arguments>
-<status status="PASS" endtime="20200220 16:49:11.743" starttime="20200220 16:49:11.743"></status>
+<status status="PASS" endtime="20200227 17:56:14.483" starttime="20200227 17:56:14.482"></status>
 </kw>
-<status status="PASS" endtime="20200220 16:49:11.744" starttime="20200220 16:49:11.742"></status>
+<status status="PASS" endtime="20200227 17:56:14.483" starttime="20200227 17:56:14.481"></status>
 </kw>
-<status status="PASS" endtime="20200220 16:49:11.744" starttime="20200220 16:49:11.738"></status>
+<status status="PASS" endtime="20200227 17:56:14.484" starttime="20200227 17:56:14.474"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=sdwan-rule-name${SPACE*12}${plcyrule_1}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<msg timestamp="20200227 17:56:14.489" level="INFO">show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2002
+sessions sdwan detail 0 2 7367
+ source-ip                  192.169.101.3
+ destination-ip             192.169.111.3
+ source-port                2002
+ destination-port           1025
+ protocol                   17
+ natted                     No
+ sdwan                      Yes
+ application                unknown_udp
+ forward-pkt-count          62153
+ forward-byte-count         8577114
+ reverse-pkt-count          0
+ reverse-byte-count         0
+ dropped-forward-pkt-count  0
+ dropped-forward-byte-count 0
+ dropped-reverse-pkt-count  0
+ dropped-reverse-byte-count 0
+ session-age                00:00:44
+ idle-for                   00:00:00
+ idle-timeout               30
+ pbf-enabled                false
+ forward-egress-vrf         LAN1-VRF
+ reverse-egress-vrf         LAN1-VRF
+ session-provider-zone      0
+ forward-offload            false
+ reverse-offload            false
+ forward-ingress-interface  vni-0/4.600
+ forward-egress-interface   ptvi-0/281
+ reverse-ingress-interface  n/a
+ reverse-egress-interface   vni-0/4.600
+ forward-fc                 fc_be
+ reverse-fc                 fc_be
+ forward-plp                low
+ reverse-plp                low
+ external-service-chaining  false
+ is-child                   No
+ parent-sess-id             0
+ rx-wan-ckt                 -
+ tx-wan-ckt                 INT-WAN:INT-WAN
+ tx-branch                  -
+ pbf-wan-ackt-enc           (E)
+ forward-ingress-ckt        vni-0/4.600
+ forward-egress-branch      CPE12-HKG-HYBRD-IPC00190
+ forward-egress-ckt         INT-WAN:INT-WAN
+ reverse-ingress-ckt        -
+ reverse-egress-ckt         vni-0/4.600
+ sdwan-rule-name            policy_rule_1
+[ok][2020-02-27 12:22:25]
+admin@CPE11-HKG-HYBRD-IPC00190-cli&gt; </msg>
+<status status="PASS" endtime="20200227 17:56:14.490" starttime="20200227 17:56:14.488"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<msg timestamp="20200227 17:56:14.491" level="INFO">sdwan-rule-name            policy_rule_1</msg>
+<status status="PASS" endtime="20200227 17:56:14.491" starttime="20200227 17:56:14.490"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20200227 17:56:14.494" starttime="20200227 17:56:14.493"></status>
+</kw>
+<status status="PASS" endtime="20200227 17:56:14.495" starttime="20200227 17:56:14.492"></status>
+</kw>
+<status status="PASS" endtime="20200227 17:56:14.495" starttime="20200227 17:56:14.486"></status>
 </kw>
 <kw name="Stop Stream Traffic" library="spirent1">
 <arguments>
 <arg>${stream3['stream_id']}</arg>
 </arguments>
-<msg timestamp="20200220 16:49:14.950" level="INFO">***** run sth.traffic_control successfully</msg>
-<status status="PASS" endtime="20200220 16:49:14.950" starttime="20200220 16:49:11.744"></status>
+<msg timestamp="20200227 17:56:25.505" level="INFO">***** run sth.traffic_control successfully</msg>
+<status status="PASS" endtime="20200227 17:56:25.505" starttime="20200227 17:56:14.497"></status>
 </kw>
 <kw name="Stop Stream Traffic" library="spirent1">
 <arguments>
 <arg>${stream2['stream_id']}</arg>
 </arguments>
-<msg timestamp="20200220 16:49:17.647" level="INFO">***** run sth.traffic_control successfully</msg>
-<status status="PASS" endtime="20200220 16:49:17.647" starttime="20200220 16:49:14.951"></status>
+<msg timestamp="20200227 17:56:35.729" level="INFO">***** run sth.traffic_control successfully</msg>
+<status status="PASS" endtime="20200227 17:56:35.729" starttime="20200227 17:56:25.506"></status>
 </kw>
 <kw name="Stop Stream Traffic" library="spirent1">
 <arguments>
 <arg>${stream1['stream_id']}</arg>
 </arguments>
-<msg timestamp="20200220 16:49:21.005" level="INFO">***** run sth.traffic_control successfully</msg>
-<status status="PASS" endtime="20200220 16:49:21.005" starttime="20200220 16:49:17.648"></status>
+<msg timestamp="20200227 17:56:47.316" level="INFO">***** run sth.traffic_control successfully</msg>
+<status status="PASS" endtime="20200227 17:56:47.316" starttime="20200227 17:56:35.730"></status>
 </kw>
 <kw name="Delete Policy Rule" library="CPE1">
 <arguments>
 <arg>${plcyrule_1}</arg>
 </arguments>
-<msg timestamp="20200220 16:49:21.006" level="INFO">
+<msg timestamp="20200227 17:56:47.317" level="INFO">
 DELETE IPaddress Object
 </msg>
-<msg timestamp="20200220 16:49:24.805" level="INFO">
+<msg timestamp="20200227 17:56:51.158" level="INFO">
 PASS</msg>
-<msg timestamp="20200220 16:49:24.805" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; Policy rule DELETION PASSED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
-<msg timestamp="20200220 16:49:24.806" level="INFO">&lt;Response [204]&gt;</msg>
-<status status="PASS" endtime="20200220 16:49:24.806" starttime="20200220 16:49:21.006"></status>
-</kw>
-<kw name="Delete Address Object" library="CPE1">
-<arguments>
-<arg>${ipaddobj_1}</arg>
-</arguments>
-<msg timestamp="20200220 16:49:24.807" level="INFO">
-DELETE IPaddress Object
-</msg>
-<msg timestamp="20200220 16:49:27.526" level="INFO">
-PASS</msg>
-<msg timestamp="20200220 16:49:27.526" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; ADDRESS OBJECT DELETION PASSED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
-<msg timestamp="20200220 16:49:27.527" level="INFO">&lt;Response [204]&gt;</msg>
-<status status="PASS" endtime="20200220 16:49:27.527" starttime="20200220 16:49:24.806"></status>
-</kw>
-<kw name="Delete Fowarding Profile" library="CPE1">
-<arguments>
-<arg>${fwp_1}</arg>
-</arguments>
-<msg timestamp="20200220 16:49:27.528" level="INFO">
-DELETE FWD PROFILE
-</msg>
-<msg timestamp="20200220 16:49:30.165" level="INFO">
-PASS</msg>
-<msg timestamp="20200220 16:49:30.165" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; FORWARDING PROFILE DELETION PASSED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
-<msg timestamp="20200220 16:49:30.166" level="INFO">&lt;Response [204]&gt;</msg>
-<status status="PASS" endtime="20200220 16:49:30.166" starttime="20200220 16:49:27.527"></status>
-</kw>
-<kw name="Delete Sla Profile" library="CPE1">
-<arguments>
-<arg>${sla_prf_1}</arg>
-</arguments>
-<msg timestamp="20200220 16:49:30.167" level="INFO">
-DELETE SLA profile
-</msg>
-<msg timestamp="20200220 16:49:32.486" level="INFO">
-PASS</msg>
-<msg timestamp="20200220 16:49:32.487" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; DELETE SLA Profile PASSED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
-<msg timestamp="20200220 16:49:32.487" level="INFO">&lt;Response [204]&gt;</msg>
-<status status="PASS" endtime="20200220 16:49:32.487" starttime="20200220 16:49:30.166"></status>
+<msg timestamp="20200227 17:56:51.158" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; Policy rule DELETION PASSED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
+<msg timestamp="20200227 17:56:51.158" level="INFO">&lt;Response [204]&gt;</msg>
+<status status="PASS" endtime="20200227 17:56:51.158" starttime="20200227 17:56:47.317"></status>
 </kw>
 <doc>Traffic steering based on Source IP</doc>
 <tags>
 <tag>P1</tag>
 </tags>
-<status status="PASS" endtime="20200220 16:49:32.488" critical="yes" starttime="20200220 16:46:45.595"></status>
+<status status="PASS" endtime="20200227 17:56:51.159" critical="yes" starttime="20200227 17:53:55.373"></status>
 </test>
-<test id="s1-t2" name="NV_SINGLE_CPE_HYBRID_SANITY_01">
-<kw name="CHECK MPLS WAN INTERFACE UP in CPE1 &amp; CPE2">
-<kw name="Get Interface Status" library="CPE1">
+<test id="s1-t2" name="NV_SINGLE_CPE_TRAFFIC_STEERING_02">
+<kw name="Create Policy Rule" library="CPE1">
 <arguments>
-<arg>intf_name=${CPE1['WAN1_INTF']}${unit_o} | match MPLS</arg>
+<arg>${plcyrule_1}</arg>
+<arg>${fwp_1}</arg>
+<arg>dest_address_obj=${ipaddobj_2}</arg>
 </arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20200220 16:49:33.695" level="INFO">${result} = show interfaces brief | tab | match vni-0/1.0 | match MPLS
-vni-0/1.0    00:0b:ab:f1:9a:5a  up    up     2       MPLS-WAN-Transport-VR  172.16.7.42/30    
-[ok][2020-02-20 11:09:34]
-admin@CPE11-HKG-HYBR...</msg>
-<status status="PASS" endtime="20200220 16:49:33.695" starttime="20200220 16:49:32.490"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>Should Contain X Times</arg>
-<arg>${result}</arg>
-<arg>${up}</arg>
-<arg>2</arg>
-<arg>up not presnt 2 times</arg>
-</arguments>
-<kw name="Should Contain X Times" library="BuiltIn">
-<doc>Fails if ``item1`` does not contain ``item2`` ``count`` times.</doc>
-<arguments>
-<arg>${result}</arg>
-<arg>${up}</arg>
-<arg>2</arg>
-<arg>up not presnt 2 times</arg>
-</arguments>
-<msg timestamp="20200220 16:49:33.697" level="INFO">Item found from the first item 2 times</msg>
-<status status="PASS" endtime="20200220 16:49:33.697" starttime="20200220 16:49:33.696"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:33.697" starttime="20200220 16:49:33.695"></status>
-</kw>
-<kw name="Get Interface Status" library="CPE2">
-<arguments>
-<arg>intf_name=${CPE2['WAN1_INTF']}${unit_o} | match MPLS</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20200220 16:49:34.901" level="INFO">${result} = show interfaces brief | tab | match vni-0/1.0 | match MPLS
-vni-0/1.0    00:0b:ab:f4:4f:60  up    up     2       MPLS-WAN-Transport-VR  172.16.7.46/30    
-[ok][2020-02-20 11:11:21]
-admin@CPE12-HKG-HYBR...</msg>
-<status status="PASS" endtime="20200220 16:49:34.902" starttime="20200220 16:49:33.698"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>Should Contain X Times</arg>
-<arg>${result}</arg>
-<arg>${up}</arg>
-<arg>2</arg>
-</arguments>
-<kw name="Should Contain X Times" library="BuiltIn">
-<doc>Fails if ``item1`` does not contain ``item2`` ``count`` times.</doc>
-<arguments>
-<arg>${result}</arg>
-<arg>${up}</arg>
-<arg>2</arg>
-</arguments>
-<msg timestamp="20200220 16:49:34.904" level="INFO">Item found from the first item 2 times</msg>
-<status status="PASS" endtime="20200220 16:49:34.904" starttime="20200220 16:49:34.903"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:34.904" starttime="20200220 16:49:34.902"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:34.905" starttime="20200220 16:49:32.490"></status>
-</kw>
-<kw name="CHECK INTERNET WAN INTERFACE UP in CPE1 &amp; CPE2">
-<kw name="Get Interface Status" library="CPE1">
-<arguments>
-<arg>intf_name=${CPE1['WAN2_INTF']}${unit_o} | match INT</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20200220 16:49:36.110" level="INFO">${result} = show interfaces brief | tab | match vni-0/2.0 | match INT
-vni-0/2.0    00:0b:ab:f1:9a:5b  up    up     2       INT-WAN-Transport-VR   172.16.6.42/30    
-[ok][2020-02-20 11:09:36]
-admin@CPE11-HKG-HYBRD...</msg>
-<status status="PASS" endtime="20200220 16:49:36.110" starttime="20200220 16:49:34.906"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>Should Contain X Times</arg>
-<arg>${result}</arg>
-<arg>${up}</arg>
-<arg>2</arg>
-</arguments>
-<kw name="Should Contain X Times" library="BuiltIn">
-<doc>Fails if ``item1`` does not contain ``item2`` ``count`` times.</doc>
-<arguments>
-<arg>${result}</arg>
-<arg>${up}</arg>
-<arg>2</arg>
-</arguments>
-<msg timestamp="20200220 16:49:36.113" level="INFO">Item found from the first item 2 times</msg>
-<status status="PASS" endtime="20200220 16:49:36.113" starttime="20200220 16:49:36.112"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:36.114" starttime="20200220 16:49:36.111"></status>
-</kw>
-<kw name="Get Interface Status" library="CPE2">
-<arguments>
-<arg>intf_name=${CPE2['WAN2_INTF']}${unit_o} | match INT</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20200220 16:49:37.319" level="INFO">${result} = show interfaces brief | tab | match vni-0/2.0 | match INT
-vni-0/2.0    00:0b:ab:f4:4f:61  up    up     2       INT-WAN-Transport-VR   172.16.6.46/30    
-[ok][2020-02-20 11:11:23]
-admin@CPE12-HKG-HYBRD...</msg>
-<status status="PASS" endtime="20200220 16:49:37.319" starttime="20200220 16:49:36.114"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>Should Contain X Times</arg>
-<arg>${result}</arg>
-<arg>${up}</arg>
-<arg>2</arg>
-</arguments>
-<kw name="Should Contain X Times" library="BuiltIn">
-<doc>Fails if ``item1`` does not contain ``item2`` ``count`` times.</doc>
-<arguments>
-<arg>${result}</arg>
-<arg>${up}</arg>
-<arg>2</arg>
-</arguments>
-<msg timestamp="20200220 16:49:37.322" level="INFO">Item found from the first item 2 times</msg>
-<status status="PASS" endtime="20200220 16:49:37.322" starttime="20200220 16:49:37.321"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:37.323" starttime="20200220 16:49:37.320"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:37.323" starttime="20200220 16:49:34.905"></status>
-</kw>
-<kw name="CHECK WC1 PTVI INTERFACE STATUS in CPE1">
-<kw name="Get Interface Status" library="CPE1">
-<arguments>
-<arg>intf_name=${CPE1['ptvi_intf_wc1']}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20200220 16:49:38.328" level="INFO">${result} = show interfaces brief | tab | match ptvi180
-ptvi180      n/a                up    up     2       IPC00190-Control-VR    10.90.64.1/32     
-[ok][2020-02-20 11:09:39]
-admin@CPE11-HKG-HYBRD-IPC00190-cli&gt;...</msg>
-<status status="PASS" endtime="20200220 16:49:38.328" starttime="20200220 16:49:37.324"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>Should Contain X Times</arg>
-<arg>${result}</arg>
-<arg>${up}</arg>
-<arg>2</arg>
-</arguments>
-<kw name="Should Contain X Times" library="BuiltIn">
-<doc>Fails if ``item1`` does not contain ``item2`` ``count`` times.</doc>
-<arguments>
-<arg>${result}</arg>
-<arg>${up}</arg>
-<arg>2</arg>
-</arguments>
-<msg timestamp="20200220 16:49:38.330" level="INFO">Item found from the first item 2 times</msg>
-<status status="PASS" endtime="20200220 16:49:38.330" starttime="20200220 16:49:38.329"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:38.330" starttime="20200220 16:49:38.329"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:38.331" starttime="20200220 16:49:37.324"></status>
-</kw>
-<kw name="CHECK WC2 PTVI INTERFACE STATUS in CPE2">
-<kw name="Get Interface Status" library="CPE2">
-<arguments>
-<arg>intf_name=${CPE2['ptvi_intf_wc2']}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20200220 16:49:39.135" level="INFO">${result} = show interfaces brief | tab | match ptvi181
-ptvi181      n/a                up    up     2       IPC00190-Control-VR    10.90.64.11/32    
-[ok][2020-02-20 11:11:25]
-admin@CPE12-HKG-HYBRD-IPC00190-cli&gt;...</msg>
-<status status="PASS" endtime="20200220 16:49:39.135" starttime="20200220 16:49:38.332"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>Should Contain X Times</arg>
-<arg>${result}</arg>
-<arg>${up}</arg>
-<arg>2</arg>
-</arguments>
-<kw name="Should Contain X Times" library="BuiltIn">
-<doc>Fails if ``item1`` does not contain ``item2`` ``count`` times.</doc>
-<arguments>
-<arg>${result}</arg>
-<arg>${up}</arg>
-<arg>2</arg>
-</arguments>
-<msg timestamp="20200220 16:49:39.137" level="INFO">Item found from the first item 2 times</msg>
-<status status="PASS" endtime="20200220 16:49:39.137" starttime="20200220 16:49:39.136"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:39.137" starttime="20200220 16:49:39.135"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:39.137" starttime="20200220 16:49:38.331"></status>
-</kw>
-<kw name="CHECK WC1 PTVI INTERFACE STATUS in CPE1">
-<kw name="Get Interface Status" library="CPE1">
-<arguments>
-<arg>intf_name=${CPE1['ptvi_intf_wc1']}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20200220 16:49:40.142" level="INFO">${result} = show interfaces brief | tab | match ptvi180
-ptvi180      n/a                up    up     2       IPC00190-Control-VR    10.90.64.1/32     
-[ok][2020-02-20 11:09:40]
-admin@CPE11-HKG-HYBRD-IPC00190-cli&gt;...</msg>
-<status status="PASS" endtime="20200220 16:49:40.142" starttime="20200220 16:49:39.138"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>Should Contain X Times</arg>
-<arg>${result}</arg>
-<arg>${up}</arg>
-<arg>2</arg>
-</arguments>
-<kw name="Should Contain X Times" library="BuiltIn">
-<doc>Fails if ``item1`` does not contain ``item2`` ``count`` times.</doc>
-<arguments>
-<arg>${result}</arg>
-<arg>${up}</arg>
-<arg>2</arg>
-</arguments>
-<msg timestamp="20200220 16:49:40.144" level="INFO">Item found from the first item 2 times</msg>
-<status status="PASS" endtime="20200220 16:49:40.144" starttime="20200220 16:49:40.143"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:40.144" starttime="20200220 16:49:40.142"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:40.144" starttime="20200220 16:49:39.138"></status>
-</kw>
-<kw name="CHECK WC2 PTVI INTERFACE STATUS in CPE2">
-<kw name="Get Interface Status" library="CPE2">
-<arguments>
-<arg>intf_name=${CPE2['ptvi_intf_wc2']}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20200220 16:49:41.149" level="INFO">${result} = show interfaces brief | tab | match ptvi181
-ptvi181      n/a                up    up     2       IPC00190-Control-VR    10.90.64.11/32    
-[ok][2020-02-20 11:11:27]
-admin@CPE12-HKG-HYBRD-IPC00190-cli&gt;...</msg>
-<status status="PASS" endtime="20200220 16:49:41.149" starttime="20200220 16:49:40.145"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>Should Contain X Times</arg>
-<arg>${result}</arg>
-<arg>${up}</arg>
-<arg>2</arg>
-</arguments>
-<kw name="Should Contain X Times" library="BuiltIn">
-<doc>Fails if ``item1`` does not contain ``item2`` ``count`` times.</doc>
-<arguments>
-<arg>${result}</arg>
-<arg>${up}</arg>
-<arg>2</arg>
-</arguments>
-<msg timestamp="20200220 16:49:41.152" level="INFO">Item found from the first item 2 times</msg>
-<status status="PASS" endtime="20200220 16:49:41.152" starttime="20200220 16:49:41.151"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:41.152" starttime="20200220 16:49:41.149"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:41.153" starttime="20200220 16:49:40.145"></status>
-</kw>
-<kw name="CHECK WC1 BGP NEIGHBOR STATUS in CPE1 &amp; CPE2">
-<kw name="Get Bgp Nbr Status" library="CPE1">
-<arguments>
-<arg>nbr_ip=${CPE1['WC1_ESP_IP']}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20200220 16:49:42.358" level="INFO">${result} = show bgp neighbor org IPC00190 brief IPC00190-Control-VR | match 10.90.64.1
-10.90.64.1      3d05h03m   Established     124           5      40973        179
-10.90.64.11     3d05h03m   Established     ...</msg>
-<status status="PASS" endtime="20200220 16:49:42.358" starttime="20200220 16:49:41.154"></status>
-</kw>
-<kw name="CHECK RESULT">
-<doc>Check result contains expected value</doc>
-<arguments>
-<arg>actual=${result}</arg>
-<arg>expected=${est}</arg>
-</arguments>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${actual}</arg>
-</arguments>
-<msg timestamp="20200220 16:49:42.360" level="INFO">show bgp neighbor org IPC00190 brief IPC00190-Control-VR | match 10.90.64.1
-10.90.64.1      3d05h03m   Established     124           5      40973        179
-10.90.64.11     3d05h03m   Established     121           5      42835        179
-[ok][2020-02-20 11:09:43]
-admin@CPE11-HKG-HYBRD-IPC00190-cli&gt; </msg>
-<status status="PASS" endtime="20200220 16:49:42.361" starttime="20200220 16:49:42.360"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${expected}</arg>
-</arguments>
-<msg timestamp="20200220 16:49:42.361" level="INFO">Established</msg>
-<status status="PASS" endtime="20200220 16:49:42.362" starttime="20200220 16:49:42.361"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>should contain</arg>
-<arg>${actual}</arg>
-<arg>${expected}</arg>
-</arguments>
-<kw name="Should Contain" library="BuiltIn">
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<arguments>
-<arg>${actual}</arg>
-<arg>${expected}</arg>
-</arguments>
-<status status="PASS" endtime="20200220 16:49:42.364" starttime="20200220 16:49:42.363"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:42.364" starttime="20200220 16:49:42.362"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:42.365" starttime="20200220 16:49:42.359"></status>
-</kw>
-<kw name="Get Bgp Nbr Status" library="CPE2">
-<arguments>
-<arg>nbr_ip=${CPE2['WC1_ESP_IP']}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20200220 16:49:43.569" level="INFO">${result} = show bgp neighbor org IPC00190 brief IPC00190-Control-VR | match 10.90.64.1
-10.90.64.1      3d05h03m   Established     124           5      33317        179
-10.90.64.11     3d05h03m   Established     ...</msg>
-<status status="PASS" endtime="20200220 16:49:43.569" starttime="20200220 16:49:42.365"></status>
-</kw>
-<kw name="CHECK RESULT">
-<doc>Check result contains expected value</doc>
-<arguments>
-<arg>actual=${result}</arg>
-<arg>expected=${est}</arg>
-</arguments>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${actual}</arg>
-</arguments>
-<msg timestamp="20200220 16:49:43.571" level="INFO">show bgp neighbor org IPC00190 brief IPC00190-Control-VR | match 10.90.64.1
-10.90.64.1      3d05h03m   Established     124           5      33317        179
-10.90.64.11     3d05h03m   Established     121           5      34113        179
-[ok][2020-02-20 11:11:29]
-admin@CPE12-HKG-HYBRD-IPC00190-cli&gt; </msg>
-<status status="PASS" endtime="20200220 16:49:43.571" starttime="20200220 16:49:43.570"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${expected}</arg>
-</arguments>
-<msg timestamp="20200220 16:49:43.572" level="INFO">Established</msg>
-<status status="PASS" endtime="20200220 16:49:43.572" starttime="20200220 16:49:43.571"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>should contain</arg>
-<arg>${actual}</arg>
-<arg>${expected}</arg>
-</arguments>
-<kw name="Should Contain" library="BuiltIn">
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<arguments>
-<arg>${actual}</arg>
-<arg>${expected}</arg>
-</arguments>
-<status status="PASS" endtime="20200220 16:49:43.574" starttime="20200220 16:49:43.573"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:43.574" starttime="20200220 16:49:43.572"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:43.574" starttime="20200220 16:49:43.569"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:43.574" starttime="20200220 16:49:41.153"></status>
-</kw>
-<kw name="CHECK WC2 BGP NEIGHBOR STATUS in CPE1 &amp; CPE2">
-<kw name="Get Bgp Nbr Status" library="CPE1">
-<arguments>
-<arg>nbr_ip=${CPE1['WC2_ESP_IP']}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20200220 16:49:44.785" level="INFO">${result} = show bgp neighbor org IPC00190 brief IPC00190-Control-VR | match 10.90.64.11
-10.90.64.11     3d05h03m   Established     121           5      42835        179
-[ok][2020-02-20 11:09:45]
-admin@CPE11-HKG-...</msg>
-<status status="PASS" endtime="20200220 16:49:44.785" starttime="20200220 16:49:43.575"></status>
-</kw>
-<kw name="CHECK RESULT">
-<doc>Check result contains expected value</doc>
-<arguments>
-<arg>actual=${result}</arg>
-<arg>expected=${est}</arg>
-</arguments>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${actual}</arg>
-</arguments>
-<msg timestamp="20200220 16:49:44.786" level="INFO">show bgp neighbor org IPC00190 brief IPC00190-Control-VR | match 10.90.64.11
-10.90.64.11     3d05h03m   Established     121           5      42835        179
-[ok][2020-02-20 11:09:45]
-admin@CPE11-HKG-HYBRD-IPC00190-cli&gt; </msg>
-<status status="PASS" endtime="20200220 16:49:44.786" starttime="20200220 16:49:44.786"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${expected}</arg>
-</arguments>
-<msg timestamp="20200220 16:49:44.787" level="INFO">Established</msg>
-<status status="PASS" endtime="20200220 16:49:44.787" starttime="20200220 16:49:44.786"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>should contain</arg>
-<arg>${actual}</arg>
-<arg>${expected}</arg>
-</arguments>
-<kw name="Should Contain" library="BuiltIn">
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<arguments>
-<arg>${actual}</arg>
-<arg>${expected}</arg>
-</arguments>
-<status status="PASS" endtime="20200220 16:49:44.788" starttime="20200220 16:49:44.787"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:44.788" starttime="20200220 16:49:44.787"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:44.788" starttime="20200220 16:49:44.785"></status>
-</kw>
-<kw name="Get Bgp Nbr Status" library="CPE2">
-<arguments>
-<arg>nbr_ip=${CPE2['WC2_ESP_IP']}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20200220 16:49:45.992" level="INFO">${result} = show bgp neighbor org IPC00190 brief IPC00190-Control-VR | match 10.90.64.11
-10.90.64.11     3d05h03m   Established     121           5      34113        179
-[ok][2020-02-20 11:11:32]
-admin@CPE12-HKG-...</msg>
-<status status="PASS" endtime="20200220 16:49:45.992" starttime="20200220 16:49:44.788"></status>
-</kw>
-<kw name="CHECK RESULT">
-<doc>Check result contains expected value</doc>
-<arguments>
-<arg>actual=${result}</arg>
-<arg>expected=${est}</arg>
-</arguments>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${actual}</arg>
-</arguments>
-<msg timestamp="20200220 16:49:45.994" level="INFO">show bgp neighbor org IPC00190 brief IPC00190-Control-VR | match 10.90.64.11
-10.90.64.11     3d05h03m   Established     121           5      34113        179
-[ok][2020-02-20 11:11:32]
-admin@CPE12-HKG-HYBRD-IPC00190-cli&gt; </msg>
-<status status="PASS" endtime="20200220 16:49:45.994" starttime="20200220 16:49:45.993"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${expected}</arg>
-</arguments>
-<msg timestamp="20200220 16:49:45.995" level="INFO">Established</msg>
-<status status="PASS" endtime="20200220 16:49:45.995" starttime="20200220 16:49:45.994"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>should contain</arg>
-<arg>${actual}</arg>
-<arg>${expected}</arg>
-</arguments>
-<kw name="Should Contain" library="BuiltIn">
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<arguments>
-<arg>${actual}</arg>
-<arg>${expected}</arg>
-</arguments>
-<status status="PASS" endtime="20200220 16:49:45.997" starttime="20200220 16:49:45.996"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:45.997" starttime="20200220 16:49:45.995"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:45.997" starttime="20200220 16:49:45.992"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:45.998" starttime="20200220 16:49:43.575"></status>
-</kw>
-<kw name="CHECK CPE2 LAN ROUTE Present in CPE1">
-<kw name="Check Lan Route" library="CPE1">
-<arguments>
-<arg>lan=1</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20200220 16:49:48.809" level="INFO">${result} = routing_instance     Prot     Type     DestAddresswithMask     Nexthop     Interfacename
-LAN1-VRF BGP N/A +0.0.0.0/0 169.254.0.2 tvi-0/603.0
-LAN1-VRF BGP N/A +1.2.3.4/32 40.90.1.1 Indirect
-LAN1-VRF BG...</msg>
-<status status="PASS" endtime="20200220 16:49:48.809" starttime="20200220 16:49:45.999"></status>
-</kw>
-<kw name="Convert To String" library="BuiltIn">
-<doc>Converts the given item to a Unicode string.</doc>
-<arguments>
-<arg>\+${CPE2['lan'][1]['nw']} ${CPE2['ESP_IP']}</arg>
-</arguments>
-<assign>
-<var>${active_dest_route}</var>
-</assign>
-<msg timestamp="20200220 16:49:48.811" level="INFO">${active_dest_route} = +192.169.111.0/24 20.20.90.12</msg>
-<status status="PASS" endtime="20200220 16:49:48.811" starttime="20200220 16:49:48.809"></status>
-</kw>
-<kw name="CHECK RESULT">
-<doc>Check result contains expected value</doc>
-<arguments>
-<arg>actual=${result}</arg>
-<arg>expected=${active_dest_route}</arg>
-</arguments>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${actual}</arg>
-</arguments>
-<msg timestamp="20200220 16:49:48.813" level="INFO">routing_instance     Prot     Type     DestAddresswithMask     Nexthop     Interfacename
-LAN1-VRF BGP N/A +0.0.0.0/0 169.254.0.2 tvi-0/603.0
-LAN1-VRF BGP N/A +1.2.3.4/32 40.90.1.1 Indirect
-LAN1-VRF BGP N/A 1.2.3.4/32 40.90.1.2 Indirect
-LAN1-VRF BGP N/A +10.9.0.0/24 40.90.1.1 Indirect
-LAN1-VRF BGP N/A 10.9.0.0/24 40.90.1.2 Indirect
-LAN1-VRF BGP N/A +10.20.30.0/30 40.90.1.1 Indirect
-LAN1-VRF BGP N/A 10.20.30.0/30 40.90.1.2 Indirect
-LAN1-VRF BGP N/A +10.90.47.64/30 40.90.1.1 Indirect
-LAN1-VRF BGP N/A +10.90.47.64/30 40.90.1.2 Indirect
-LAN1-VRF BGP N/A +111.93.152.112/28 40.90.1.1 Indirect
-LAN1-VRF BGP N/A 111.93.152.112/28 40.90.1.2 Indirect
-LAN1-VRF conn N/A +169.254.0.2/31 0.0.0.0 tvi-0/603.0
-LAN1-VRF local N/A +169.254.0.3/32 0.0.0.0 directly connected
-LAN1-VRF BGP N/A 192.169.101.0/24 40.90.1.1 Indirect
-LAN1-VRF BGP N/A 192.169.101.0/24 40.90.1.2 Indirect
-LAN1-VRF conn N/A +192.169.101.0/24 0.0.0.0 vni-0/4.600
-LAN1-VRF local N/A +192.169.101.1/32 0.0.0.0 directly connected
-LAN1-VRF BGP N/A +192.169.111.0/24 20.20.90.12 Indirect
-LAN1-VRF BGP N/A 192.169.111.0/24 40.90.1.1 Indirect
-LAN1-VRF BGP N/A 192.169.111.0/24 40.90.1.2 Indirect
-LAN1-VRF BGP N/A +192.169.241.0/24 20.20.90.25 Indirect
-LAN1-VRF BGP N/A 192.169.241.0/24 40.90.1.1 Indirect
-LAN1-VRF BGP N/A 192.169.241.0/24 40.90.1.2 Indirect
-LAN1-VRF BGP N/A +192.170.101.0/24 20.20.90.45 Indirect
-LAN1-VRF BGP N/A 192.170.101.0/24 40.90.1.1 Indirect
-LAN1-VRF BGP N/A 192.170.101.0/24 40.90.1.2 Indirect
-LAN1-VRF BGP N/A +193.90.1.0/30 40.90.1.1 Indirect
-LAN1-VRF BGP N/A 193.90.1.0/30 40.90.1.2 Indirect
-LAN1-VRF BGP N/A 193.90.2.0/30 40.90.1.1 Indirect
-LAN1-VRF BGP N/A +193.90.2.0/30 40.90.1.2 Indirect
-LAN1-VRF BGP N/A +217.110.230.96/27 40.90.1.1 Indirect
-LAN1-VRF BGP N/A 217.110.230.96/27 40.90.1.2 Indirect
+<msg timestamp="20200227 17:56:51.162" level="INFO">
+CREATE Policy rule
 </msg>
-<status status="PASS" endtime="20200220 16:49:48.813" starttime="20200220 16:49:48.812"></status>
+<msg timestamp="20200227 17:56:53.281" level="INFO">
+PASS</msg>
+<msg timestamp="20200227 17:56:53.281" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; CREATE POLICY RULE PASSED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
+<msg timestamp="20200227 17:56:53.281" level="INFO">{
+	"rule": {
+		"name": "policy_rule_1",
+		"tag": [],
+		"match": {
+			"source": {
+				"zone": {},
+				"address": {
+				
+				},
+				"user": {
+					"user-type": "any",
+					"local-database": {
+						"status": "disabled"
+					},
+					"external-database": {
+						"status": "disabled"
+					}
+				}
+			},
+			"destination": {
+				"zone": {},
+				"address": {
+				"address-list": ["dst_ip_add_obj1"]
+				
+				}
+			},
+			"application": {
+				
+			},
+			"ttl": {}
+		},
+		"set": {
+			"lef": {
+				"event": "never",
+				"rate-limit": 10
+			},
+			"action": "allow",
+			"forwarding-profile": "FWP111"
+		},
+		"monitor": {
+			"interval": "3",
+			"threshold": "5"
+		}
+	}
+}</msg>
+<status status="PASS" endtime="20200227 17:56:53.281" starttime="20200227 17:56:51.161"></status>
 </kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
+<kw name="Move Policy Rule" library="VD1">
 <arguments>
-<arg>${expected}</arg>
+<arg>${CPE1['Device_name']}</arg>
+<arg>${cpe1['ORG_NAME']}</arg>
+<arg>Default-Policy</arg>
+<arg>${plcyrule_1}</arg>
+<arg>first</arg>
 </arguments>
-<msg timestamp="20200220 16:49:48.814" level="INFO">+192.169.111.0/24 20.20.90.12</msg>
-<status status="PASS" endtime="20200220 16:49:48.814" starttime="20200220 16:49:48.813"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>should contain</arg>
-<arg>${actual}</arg>
-<arg>${expected}</arg>
-</arguments>
-<kw name="Should Contain" library="BuiltIn">
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<arguments>
-<arg>${actual}</arg>
-<arg>${expected}</arg>
-</arguments>
-<status status="PASS" endtime="20200220 16:49:48.816" starttime="20200220 16:49:48.815"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:48.816" starttime="20200220 16:49:48.814"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:48.816" starttime="20200220 16:49:48.811"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:48.817" starttime="20200220 16:49:45.998"></status>
-</kw>
-<kw name="CHECK CPE1 LAN ROUTE Present in CPE2">
-<kw name="Check Lan Route" library="CPE2">
-<arguments>
-<arg>lan=1</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20200220 16:49:51.426" level="INFO">${result} = routing_instance     Prot     Type     DestAddresswithMask     Nexthop     Interfacename
-LAN1-VRF BGP N/A +0.0.0.0/0 169.254.0.2 tvi-0/603.0
-LAN1-VRF BGP N/A +1.2.3.4/32 40.90.1.1 Indirect
-LAN1-VRF BG...</msg>
-<status status="PASS" endtime="20200220 16:49:51.426" starttime="20200220 16:49:48.818"></status>
-</kw>
-<kw name="Convert To String" library="BuiltIn">
-<doc>Converts the given item to a Unicode string.</doc>
-<arguments>
-<arg>\+${CPE1['lan'][1]['nw']} ${CPE1['ESP_IP']}</arg>
-</arguments>
-<assign>
-<var>${active_dest_route}</var>
-</assign>
-<msg timestamp="20200220 16:49:51.428" level="INFO">${active_dest_route} = +192.169.101.0/24 20.20.90.11</msg>
-<status status="PASS" endtime="20200220 16:49:51.428" starttime="20200220 16:49:51.426"></status>
-</kw>
-<kw name="CHECK RESULT">
-<doc>Check result contains expected value</doc>
-<arguments>
-<arg>actual=${result}</arg>
-<arg>expected=${active_dest_route}</arg>
-</arguments>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${actual}</arg>
-</arguments>
-<msg timestamp="20200220 16:49:51.430" level="INFO">routing_instance     Prot     Type     DestAddresswithMask     Nexthop     Interfacename
-LAN1-VRF BGP N/A +0.0.0.0/0 169.254.0.2 tvi-0/603.0
-LAN1-VRF BGP N/A +1.2.3.4/32 40.90.1.1 Indirect
-LAN1-VRF BGP N/A 1.2.3.4/32 40.90.1.2 Indirect
-LAN1-VRF BGP N/A +10.9.0.0/24 40.90.1.1 Indirect
-LAN1-VRF BGP N/A 10.9.0.0/24 40.90.1.2 Indirect
-LAN1-VRF BGP N/A +10.20.30.0/30 40.90.1.1 Indirect
-LAN1-VRF BGP N/A 10.20.30.0/30 40.90.1.2 Indirect
-LAN1-VRF BGP N/A +10.90.47.64/30 40.90.1.1 Indirect
-LAN1-VRF BGP N/A +10.90.47.64/30 40.90.1.2 Indirect
-LAN1-VRF BGP N/A +111.93.152.112/28 40.90.1.1 Indirect
-LAN1-VRF BGP N/A 111.93.152.112/28 40.90.1.2 Indirect
-LAN1-VRF conn N/A +169.254.0.2/31 0.0.0.0 tvi-0/603.0
-LAN1-VRF local N/A +169.254.0.3/32 0.0.0.0 directly connected
-LAN1-VRF BGP N/A +192.169.101.0/24 20.20.90.11 Indirect
-LAN1-VRF BGP N/A 192.169.101.0/24 40.90.1.1 Indirect
-LAN1-VRF BGP N/A 192.169.101.0/24 40.90.1.2 Indirect
-LAN1-VRF BGP N/A 192.169.111.0/24 40.90.1.1 Indirect
-LAN1-VRF BGP N/A 192.169.111.0/24 40.90.1.2 Indirect
-LAN1-VRF conn N/A +192.169.111.0/24 0.0.0.0 vni-0/4.610
-LAN1-VRF local N/A +192.169.111.1/32 0.0.0.0 directly connected
-LAN1-VRF BGP N/A +192.169.241.0/24 20.20.90.25 Indirect
-LAN1-VRF BGP N/A 192.169.241.0/24 40.90.1.1 Indirect
-LAN1-VRF BGP N/A 192.169.241.0/24 40.90.1.2 Indirect
-LAN1-VRF BGP N/A +192.170.101.0/24 20.20.90.45 Indirect
-LAN1-VRF BGP N/A 192.170.101.0/24 40.90.1.1 Indirect
-LAN1-VRF BGP N/A 192.170.101.0/24 40.90.1.2 Indirect
-LAN1-VRF BGP N/A +193.90.1.0/30 40.90.1.1 Indirect
-LAN1-VRF BGP N/A 193.90.1.0/30 40.90.1.2 Indirect
-LAN1-VRF BGP N/A 193.90.2.0/30 40.90.1.1 Indirect
-LAN1-VRF BGP N/A +193.90.2.0/30 40.90.1.2 Indirect
-LAN1-VRF BGP N/A +217.110.230.96/27 40.90.1.1 Indirect
-LAN1-VRF BGP N/A 217.110.230.96/27 40.90.1.2 Indirect
-</msg>
-<status status="PASS" endtime="20200220 16:49:51.430" starttime="20200220 16:49:51.429"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${expected}</arg>
-</arguments>
-<msg timestamp="20200220 16:49:51.431" level="INFO">+192.169.101.0/24 20.20.90.11</msg>
-<status status="PASS" endtime="20200220 16:49:51.431" starttime="20200220 16:49:51.430"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>should contain</arg>
-<arg>${actual}</arg>
-<arg>${expected}</arg>
-</arguments>
-<kw name="Should Contain" library="BuiltIn">
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<arguments>
-<arg>${actual}</arg>
-<arg>${expected}</arg>
-</arguments>
-<status status="PASS" endtime="20200220 16:49:51.432" starttime="20200220 16:49:51.432"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:51.432" starttime="20200220 16:49:51.431"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:51.433" starttime="20200220 16:49:51.428"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:51.433" starttime="20200220 16:49:48.817"></status>
-</kw>
-<doc>SANITY CHECKS on vCPE</doc>
-<tags>
-<tag>SANITY</tag>
-</tags>
-<status status="PASS" endtime="20200220 16:49:51.433" critical="yes" starttime="20200220 16:49:32.488"></status>
-</test>
-<test id="s1-t3" name="NV_SINGLE_CPE_HYBRID_SANITY_02">
-<kw name="Ping Test VM1 to VM2(1 LAN)">
-<tags>
-<tag>HYBRID</tag>
-</tags>
-<kw name="Set Variable" library="BuiltIn">
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<arguments>
-<arg>${VM2['lan'][1]['second_host']}</arg>
-</arguments>
-<assign>
-<var>${destip}</var>
-</assign>
-<msg timestamp="20200220 16:49:51.437" level="INFO">${destip} = 192.169.111.2</msg>
-<status status="PASS" endtime="20200220 16:49:51.437" starttime="20200220 16:49:51.436"></status>
-</kw>
-<kw name="Shell Ping" library="VM1">
-<arguments>
-<arg>${destip}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20200220 16:49:56.048" level="INFO">sudo ping 192.169.111.2 -c 5
-sudo ping 192.169.111.2 -c 5
-PING 192.169.111.2 (192.169.111.2) 56(84) bytes of data.
-64 bytes from 192.169.111.2: icmp_seq=1 ttl=62 time=2.58 ms
-64 bytes from 192.169.111.2: icmp_seq=2 ttl=62 time=2.07 ms
-64 bytes from 192.169.111.2: icmp_seq=3 ttl=62 time=2.08 ms
-64 bytes from 192.169.111.2: icmp_seq=4 ttl=62 time=2.02 ms
-64 bytes from 192.169.111.2: icmp_seq=5 ttl=62 time=1.88 ms
+<msg timestamp="20200227 17:57:00.906" level="INFO">move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 sd-wan policies Default-Policy rules policy_rule_1 first
+[ok][2020-02-27 12:27:47]
 
---- 192.169.111.2 ping statistics ---
-5 packets transmitted, 5 received, 0% packet loss, time 4005ms
-rtt min/avg/max/mdev = 1.889/2.130/2.582/0.239 ms
-sathish@VM1:~$</msg>
-<msg timestamp="20200220 16:49:56.049" level="INFO">${result} = True</msg>
-<status status="PASS" endtime="20200220 16:49:56.049" starttime="20200220 16:49:51.437"></status>
-</kw>
-<kw name="CHECK RESULT">
-<doc>Check result contains expected value</doc>
-<arguments>
-<arg>actual=${result}</arg>
-</arguments>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${actual}</arg>
-</arguments>
-<msg timestamp="20200220 16:49:56.051" level="INFO">True</msg>
-<status status="PASS" endtime="20200220 16:49:56.051" starttime="20200220 16:49:56.050"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${expected}</arg>
-</arguments>
-<msg timestamp="20200220 16:49:56.052" level="INFO">True</msg>
-<status status="PASS" endtime="20200220 16:49:56.052" starttime="20200220 16:49:56.051"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>should contain</arg>
-<arg>${actual}</arg>
-<arg>${expected}</arg>
-</arguments>
-<kw name="Should Contain" library="BuiltIn">
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<arguments>
-<arg>${actual}</arg>
-<arg>${expected}</arg>
-</arguments>
-<status status="PASS" endtime="20200220 16:49:56.053" starttime="20200220 16:49:56.053"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:56.054" starttime="20200220 16:49:56.052"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:56.054" starttime="20200220 16:49:56.049"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:49:56.054" starttime="20200220 16:49:51.435"></status>
-</kw>
-<kw name="Ping Test VM2 to VM1(1 LAN)">
-<tags>
-<tag>HYBRID</tag>
-</tags>
-<kw name="Set Variable" library="BuiltIn">
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<arguments>
-<arg>${VM1['lan'][1]['second_host']}</arg>
-</arguments>
-<assign>
-<var>${destip}</var>
-</assign>
-<msg timestamp="20200220 16:49:56.056" level="INFO">${destip} = 192.169.101.2</msg>
-<status status="PASS" endtime="20200220 16:49:56.056" starttime="20200220 16:49:56.055"></status>
-</kw>
-<kw name="Shell Ping" library="VM2">
-<arguments>
-<arg>${destip}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20200220 16:50:00.668" level="INFO">sudo ping 192.169.101.2 -c 5
-sudo ping 192.169.101.2 -c 5
-PING 192.169.101.2 (192.169.101.2) 56(84) bytes of data.
-64 bytes from 192.169.101.2: icmp_seq=1 ttl=62 time=3.08 ms
-64 bytes from 192.169.101.2: icmp_seq=2 ttl=62 time=2.50 ms
-64 bytes from 192.169.101.2: icmp_seq=3 ttl=62 time=2.41 ms
-64 bytes from 192.169.101.2: icmp_seq=4 ttl=62 time=2.02 ms
-64 bytes from 192.169.101.2: icmp_seq=5 ttl=62 time=1.86 ms
+[edit]
+Automated@VDir-BLR-NEW-01% commit
+Commit complete.
+[ok][2020-02-27 12:27:49]
 
---- 192.169.101.2 ping statistics ---
-5 packets transmitted, 5 received, 0% packet loss, time 4006ms
-rtt min/avg/max/mdev = 1.869/2.378/3.081/0.425 ms
-sathish@CPE12-VM1:~$</msg>
-<msg timestamp="20200220 16:50:00.669" level="INFO">${result} = True</msg>
-<status status="PASS" endtime="20200220 16:50:00.669" starttime="20200220 16:49:56.056"></status>
+[edit]
+Automated@VDir-BLR-NEW-01% exit configuration-mode
+[ok][2020-02-27 12:27:51]
+Automated@VDir-BLR-NEW-01&gt;</msg>
+<status status="PASS" endtime="20200227 17:57:00.906" starttime="20200227 17:56:53.282"></status>
 </kw>
-<kw name="CHECK RESULT">
-<doc>Check result contains expected value</doc>
+<kw name="Req Clr Sess All" library="CPE1">
+<status status="PASS" endtime="20200227 17:57:01.511" starttime="20200227 17:57:00.908"></status>
+</kw>
+<kw name="Start Stream Traffic" library="spirent1">
 <arguments>
-<arg>actual=${result}</arg>
+<arg>${stream1['stream_id']}</arg>
 </arguments>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${actual}</arg>
-</arguments>
-<msg timestamp="20200220 16:50:00.670" level="INFO">True</msg>
-<status status="PASS" endtime="20200220 16:50:00.671" starttime="20200220 16:50:00.670"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${expected}</arg>
-</arguments>
-<msg timestamp="20200220 16:50:00.671" level="INFO">True</msg>
-<status status="PASS" endtime="20200220 16:50:00.672" starttime="20200220 16:50:00.671"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>should contain</arg>
-<arg>${actual}</arg>
-<arg>${expected}</arg>
-</arguments>
-<kw name="Should Contain" library="BuiltIn">
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<arguments>
-<arg>${actual}</arg>
-<arg>${expected}</arg>
-</arguments>
-<status status="PASS" endtime="20200220 16:50:00.673" starttime="20200220 16:50:00.673"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:50:00.674" starttime="20200220 16:50:00.672"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:50:00.674" starttime="20200220 16:50:00.669"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:50:00.674" starttime="20200220 16:49:56.055"></status>
-</kw>
-<doc>Ping test CPE1 LAN1 VM to CPE2 LAN1 VM</doc>
-<tags>
-<tag>PING</tag>
-</tags>
-<status status="PASS" endtime="20200220 16:50:00.674" critical="yes" starttime="20200220 16:49:51.434"></status>
-</test>
-<test id="s1-t4" name="NV_SINGLE_CPE_HYBRID_SANITY_03">
-<kw name="Ping Test VM1 to VM2(ALL LANS)">
-<tags>
-<tag>HYBRID</tag>
-</tags>
-<kw type="for" name="${vlan} IN RANGE [ 1 | ${VM1['NO_OF_VRFS']} + 1 ]">
-<kw type="foritem" name="${vlan} = 1">
-<kw name="Set Variable" library="BuiltIn">
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<arguments>
-<arg>${VM2['lan'][${vlan}]['second_host']}</arg>
-</arguments>
-<assign>
-<var>${destip}</var>
-</assign>
-<msg timestamp="20200220 16:50:00.679" level="INFO">${destip} = 192.169.111.2</msg>
-<status status="PASS" endtime="20200220 16:50:00.679" starttime="20200220 16:50:00.678"></status>
-</kw>
-<kw name="Shell Ping" library="VM1">
-<arguments>
-<arg>${destip}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20200220 16:50:05.289" level="INFO">sudo ping 192.169.111.2 -c 5
-sudo ping 192.169.111.2 -c 5
-PING 192.169.111.2 (192.169.111.2) 56(84) bytes of data.
-64 bytes from 192.169.111.2: icmp_seq=1 ttl=62 time=3.02 ms
-64 bytes from 192.169.111.2: icmp_seq=2 ttl=62 time=2.82 ms
-64 bytes from 192.169.111.2: icmp_seq=3 ttl=62 time=2.40 ms
-64 bytes from 192.169.111.2: icmp_seq=4 ttl=62 time=2.57 ms
-64 bytes from 192.169.111.2: icmp_seq=5 ttl=62 time=2.66 ms
-
---- 192.169.111.2 ping statistics ---
-5 packets transmitted, 5 received, 0% packet loss, time 4006ms
-rtt min/avg/max/mdev = 2.408/2.700/3.027/0.221 ms
-sathish@VM1:~$</msg>
-<msg timestamp="20200220 16:50:05.289" level="INFO">${result} = True</msg>
-<status status="PASS" endtime="20200220 16:50:05.289" starttime="20200220 16:50:00.679"></status>
-</kw>
-<kw name="CHECK RESULT">
-<doc>Check result contains expected value</doc>
-<arguments>
-<arg>actual=${result}</arg>
-</arguments>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${actual}</arg>
-</arguments>
-<msg timestamp="20200220 16:50:05.291" level="INFO">True</msg>
-<status status="PASS" endtime="20200220 16:50:05.291" starttime="20200220 16:50:05.291"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${expected}</arg>
-</arguments>
-<msg timestamp="20200220 16:50:05.292" level="INFO">True</msg>
-<status status="PASS" endtime="20200220 16:50:05.292" starttime="20200220 16:50:05.292"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>should contain</arg>
-<arg>${actual}</arg>
-<arg>${expected}</arg>
-</arguments>
-<kw name="Should Contain" library="BuiltIn">
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<arguments>
-<arg>${actual}</arg>
-<arg>${expected}</arg>
-</arguments>
-<status status="PASS" endtime="20200220 16:50:05.294" starttime="20200220 16:50:05.293"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:50:05.294" starttime="20200220 16:50:05.293"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:50:05.294" starttime="20200220 16:50:05.290"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:50:05.294" starttime="20200220 16:50:00.678"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:50:05.294" starttime="20200220 16:50:00.677"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:50:05.294" starttime="20200220 16:50:00.676"></status>
-</kw>
-<kw name="Ping Test VM2 to VM1(ALL LANS)">
-<tags>
-<tag>HYBRID</tag>
-</tags>
-<kw type="for" name="${vlan} IN RANGE [ 1 | ${VM2['NO_OF_VRFS']} + 1 ]">
-<kw type="foritem" name="${vlan} = 1">
-<kw name="Set Variable" library="BuiltIn">
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<arguments>
-<arg>${VM1['lan'][${vlan}]['second_host']}</arg>
-</arguments>
-<assign>
-<var>${destip}</var>
-</assign>
-<msg timestamp="20200220 16:50:05.297" level="INFO">${destip} = 192.169.101.2</msg>
-<status status="PASS" endtime="20200220 16:50:05.297" starttime="20200220 16:50:05.296"></status>
-</kw>
-<kw name="Shell Ping" library="VM1">
-<arguments>
-<arg>${destip}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20200220 16:50:09.908" level="INFO">sudo ping 192.169.101.2 -c 5
-sudo ping 192.169.101.2 -c 5
-PING 192.169.101.2 (192.169.101.2) 56(84) bytes of data.
-64 bytes from 192.169.101.2: icmp_seq=1 ttl=64 time=0.110 ms
-64 bytes from 192.169.101.2: icmp_seq=2 ttl=64 time=0.046 ms
-64 bytes from 192.169.101.2: icmp_seq=3 ttl=64 time=0.066 ms
-64 bytes from 192.169.101.2: icmp_seq=4 ttl=64 time=0.040 ms
-64 bytes from 192.169.101.2: icmp_seq=5 ttl=64 time=0.040 ms
-
---- 192.169.101.2 ping statistics ---
-5 packets transmitted, 5 received, 0% packet loss, time 3998ms
-rtt min/avg/max/mdev = 0.040/0.060/0.110/0.027 ms
-sathish@VM1:~$</msg>
-<msg timestamp="20200220 16:50:09.908" level="INFO">${result} = True</msg>
-<status status="PASS" endtime="20200220 16:50:09.908" starttime="20200220 16:50:05.298"></status>
-</kw>
-<kw name="CHECK RESULT">
-<doc>Check result contains expected value</doc>
-<arguments>
-<arg>actual=${result}</arg>
-</arguments>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${actual}</arg>
-</arguments>
-<msg timestamp="20200220 16:50:09.910" level="INFO">True</msg>
-<status status="PASS" endtime="20200220 16:50:09.910" starttime="20200220 16:50:09.910"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${expected}</arg>
-</arguments>
-<msg timestamp="20200220 16:50:09.911" level="INFO">True</msg>
-<status status="PASS" endtime="20200220 16:50:09.911" starttime="20200220 16:50:09.911"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>should contain</arg>
-<arg>${actual}</arg>
-<arg>${expected}</arg>
-</arguments>
-<kw name="Should Contain" library="BuiltIn">
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<arguments>
-<arg>${actual}</arg>
-<arg>${expected}</arg>
-</arguments>
-<status status="PASS" endtime="20200220 16:50:09.913" starttime="20200220 16:50:09.912"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:50:09.913" starttime="20200220 16:50:09.912"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:50:09.913" starttime="20200220 16:50:09.909"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:50:09.913" starttime="20200220 16:50:05.296"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:50:09.913" starttime="20200220 16:50:05.295"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:50:09.913" starttime="20200220 16:50:05.295"></status>
-</kw>
-<doc>Ping test CPE1 ALL LAN VM to CPE2 ALL LAN VM</doc>
-<tags>
-<tag>PING</tag>
-</tags>
-<status status="PASS" endtime="20200220 16:50:09.914" critical="yes" starttime="20200220 16:50:00.675"></status>
-</test>
-<test id="s1-t5" name="NV_SINGLE_CPE_HYBRID_SANITY_04">
-<kw name="Iperf3 test VM1 to VM2">
-<tags>
-<tag>HYBRID</tag>
-</tags>
-<kw name="Set Variable" library="BuiltIn">
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<arguments>
-<arg>${VM2['lan'][1]['second_host']}</arg>
-</arguments>
-<assign>
-<var>${destip}</var>
-</assign>
-<msg timestamp="20200220 16:50:09.918" level="INFO">${destip} = 192.169.111.2</msg>
-<status status="PASS" endtime="20200220 16:50:09.918" starttime="20200220 16:50:09.916"></status>
-</kw>
-<kw name="Send Commands And Expect" library="VM2">
-<arguments>
-<arg>pkill iperf3 &amp;</arg>
-</arguments>
-<status status="PASS" endtime="20200220 16:50:10.320" starttime="20200220 16:50:09.918"></status>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>10s</arg>
-</arguments>
-<msg timestamp="20200220 16:50:20.322" level="INFO">Slept 10 seconds</msg>
-<status status="PASS" endtime="20200220 16:50:20.322" starttime="20200220 16:50:10.321"></status>
-</kw>
-<kw name="Send Commands And Expect" library="VM2">
-<arguments>
-<arg>iperf3 -s &amp;</arg>
-</arguments>
-<status status="PASS" endtime="20200220 16:50:20.724" starttime="20200220 16:50:20.323"></status>
-</kw>
-<kw name="Send Commands And Expect" library="VM1">
-<arguments>
-<arg>iperf3 -c ${destip}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20200220 16:50:31.345" level="INFO">${result} = iperf3 -c 192.169.111.2
-Connecting to host 192.169.111.2, port 5201
-[  4] local 192.169.101.2 port 48020 connected to 192.169.111.2 port 5201
-[ ID] Interval           Transfer     Bandwidth       Retr...</msg>
-<status status="PASS" endtime="20200220 16:50:31.346" starttime="20200220 16:50:20.725"></status>
-</kw>
-<kw name="Should Contain" library="BuiltIn">
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<arguments>
-<arg>${result}</arg>
-<arg>iperf Done.</arg>
-</arguments>
-<status status="PASS" endtime="20200220 16:50:31.347" starttime="20200220 16:50:31.346"></status>
-</kw>
-<status status="PASS" endtime="20200220 16:50:31.347" starttime="20200220 16:50:09.916"></status>
-</kw>
-<doc>Iperf test VM1 to VM2</doc>
-<tags>
-<tag>IPERF</tag>
-</tags>
-<status status="PASS" endtime="20200220 16:50:31.348" critical="yes" starttime="20200220 16:50:09.915"></status>
-</test>
-<kw type="teardown" name="CLEANUP">
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>"cleanup done"</arg>
-</arguments>
-<status status="PASS" endtime="20200220 16:50:31.351" starttime="20200220 16:50:31.351"></status>
-</kw>
-<kw name="Release Ports" library="spirent1">
-<msg timestamp="20200220 16:50:33.380" level="INFO">Release resources
-***** run sth.cleanup_session successfully</msg>
-<status status="PASS" endtime="20200220 16:50:33.380" starttime="20200220 16:50:31.352"></status>
+<msg timestamp="20200227 17:57:02.851" level="INFO">streamblock1
+***** run sth.traffic_control successfully</msg>
+<status status="PASS" endtime="20200227 17:57:02.851" starttime="20200227 17:57:01.512"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>40s</arg>
 </arguments>
-<msg timestamp="20200220 16:51:13.382" level="INFO">Slept 40 seconds</msg>
-<status status="PASS" endtime="20200220 16:51:13.382" starttime="20200220 16:50:33.381"></status>
+<msg timestamp="20200227 17:57:42.852" level="INFO">Slept 40 seconds</msg>
+<status status="PASS" endtime="20200227 17:57:42.852" starttime="20200227 17:57:02.852"></status>
 </kw>
-<status status="PASS" endtime="20200220 16:51:13.383" starttime="20200220 16:50:31.350"></status>
+<kw name="Start Stream Traffic" library="spirent1">
+<arguments>
+<arg>${stream2['stream_id']}</arg>
+</arguments>
+<msg timestamp="20200227 17:57:43.544" level="INFO">streamblock2
+***** run sth.traffic_control successfully</msg>
+<status status="PASS" endtime="20200227 17:57:43.544" starttime="20200227 17:57:42.854"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>40s</arg>
+</arguments>
+<msg timestamp="20200227 17:58:23.546" level="INFO">Slept 40 seconds</msg>
+<status status="PASS" endtime="20200227 17:58:23.546" starttime="20200227 17:57:43.545"></status>
+</kw>
+<kw name="Start Stream Traffic" library="spirent1">
+<arguments>
+<arg>${stream3['stream_id']}</arg>
+</arguments>
+<msg timestamp="20200227 17:58:24.227" level="INFO">streamblock3
+***** run sth.traffic_control successfully</msg>
+<status status="PASS" endtime="20200227 17:58:24.227" starttime="20200227 17:58:23.548"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>40s</arg>
+</arguments>
+<msg timestamp="20200227 17:59:04.228" level="INFO">Slept 40 seconds</msg>
+<status status="PASS" endtime="20200227 17:59:04.228" starttime="20200227 17:58:24.227"></status>
+</kw>
+<kw name="Show Session Sdwan Detail" library="CPE1">
+<arguments>
+<arg>source_port=2000</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200227 17:59:05.839" level="INFO">show orgs org IPC00190 sessions sdwan detail | nomore| select source-port 2000</msg>
+<msg timestamp="20200227 17:59:05.839" level="INFO">${result} = show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2000
+sessions sdwan detail 0 2 7368
+ source-ip                  192.169.101.3
+ destination-ip             192.1...</msg>
+<status status="PASS" endtime="20200227 17:59:05.839" starttime="20200227 17:59:04.232"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=tx-wan-ckt${SPACE*17}${CPE1['WAN1_NAME']}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<msg timestamp="20200227 17:59:05.843" level="INFO">show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2000
+sessions sdwan detail 0 2 7368
+ source-ip                  192.169.101.3
+ destination-ip             192.169.111.3
+ source-port                2000
+ destination-port           1024
+ protocol                   6
+ natted                     No
+ sdwan                      Yes
+ application                -
+ forward-pkt-count          170799
+ forward-byte-count         23570262
+ reverse-pkt-count          0
+ reverse-byte-count         0
+ dropped-forward-pkt-count  0
+ dropped-forward-byte-count 0
+ dropped-reverse-pkt-count  0
+ dropped-reverse-byte-count 0
+ session-age                00:02:02
+ idle-for                   00:00:00
+ idle-timeout               240
+ pbf-enabled                false
+ forward-egress-vrf         LAN1-VRF
+ reverse-egress-vrf         LAN1-VRF
+ session-provider-zone      0
+ forward-offload            false
+ reverse-offload            false
+ forward-ingress-interface  vni-0/4.600
+ forward-egress-interface   ptvi-0/281
+ reverse-ingress-interface  n/a
+ reverse-egress-interface   vni-0/4.600
+ forward-fc                 fc_be
+ reverse-fc                 fc_be
+ forward-plp                low
+ reverse-plp                low
+ external-service-chaining  false
+ is-child                   No
+ parent-sess-id             0
+ rx-wan-ckt                 -
+ tx-wan-ckt                 MPLS-WAN:MPLS-WAN
+ tx-branch                  -
+ pbf-wan-ackt-enc           (E)
+ forward-ingress-ckt        vni-0/4.600
+ forward-egress-branch      CPE12-HKG-HYBRD-IPC00190
+ forward-egress-ckt         MPLS-WAN:MPLS-WAN
+ reverse-ingress-ckt        -
+ reverse-egress-ckt         vni-0/4.600
+ sdwan-rule-name            policy_rule_1
+[ok][2020-02-27 12:25:16]
+admin@CPE11-HKG-HYBRD-IPC00190-cli&gt; </msg>
+<status status="PASS" endtime="20200227 17:59:05.843" starttime="20200227 17:59:05.842"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<msg timestamp="20200227 17:59:05.843" level="INFO">tx-wan-ckt                 MPLS-WAN</msg>
+<status status="PASS" endtime="20200227 17:59:05.843" starttime="20200227 17:59:05.843"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20200227 17:59:05.844" starttime="20200227 17:59:05.844"></status>
+</kw>
+<status status="PASS" endtime="20200227 17:59:05.844" starttime="20200227 17:59:05.844"></status>
+</kw>
+<status status="PASS" endtime="20200227 17:59:05.845" starttime="20200227 17:59:05.839"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=sdwan-rule-name${SPACE*12}${plcyrule_1}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<msg timestamp="20200227 17:59:05.846" level="INFO">show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2000
+sessions sdwan detail 0 2 7368
+ source-ip                  192.169.101.3
+ destination-ip             192.169.111.3
+ source-port                2000
+ destination-port           1024
+ protocol                   6
+ natted                     No
+ sdwan                      Yes
+ application                -
+ forward-pkt-count          170799
+ forward-byte-count         23570262
+ reverse-pkt-count          0
+ reverse-byte-count         0
+ dropped-forward-pkt-count  0
+ dropped-forward-byte-count 0
+ dropped-reverse-pkt-count  0
+ dropped-reverse-byte-count 0
+ session-age                00:02:02
+ idle-for                   00:00:00
+ idle-timeout               240
+ pbf-enabled                false
+ forward-egress-vrf         LAN1-VRF
+ reverse-egress-vrf         LAN1-VRF
+ session-provider-zone      0
+ forward-offload            false
+ reverse-offload            false
+ forward-ingress-interface  vni-0/4.600
+ forward-egress-interface   ptvi-0/281
+ reverse-ingress-interface  n/a
+ reverse-egress-interface   vni-0/4.600
+ forward-fc                 fc_be
+ reverse-fc                 fc_be
+ forward-plp                low
+ reverse-plp                low
+ external-service-chaining  false
+ is-child                   No
+ parent-sess-id             0
+ rx-wan-ckt                 -
+ tx-wan-ckt                 MPLS-WAN:MPLS-WAN
+ tx-branch                  -
+ pbf-wan-ackt-enc           (E)
+ forward-ingress-ckt        vni-0/4.600
+ forward-egress-branch      CPE12-HKG-HYBRD-IPC00190
+ forward-egress-ckt         MPLS-WAN:MPLS-WAN
+ reverse-ingress-ckt        -
+ reverse-egress-ckt         vni-0/4.600
+ sdwan-rule-name            policy_rule_1
+[ok][2020-02-27 12:25:16]
+admin@CPE11-HKG-HYBRD-IPC00190-cli&gt; </msg>
+<status status="PASS" endtime="20200227 17:59:05.846" starttime="20200227 17:59:05.846"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<msg timestamp="20200227 17:59:05.847" level="INFO">sdwan-rule-name            policy_rule_1</msg>
+<status status="PASS" endtime="20200227 17:59:05.847" starttime="20200227 17:59:05.846"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20200227 17:59:05.848" starttime="20200227 17:59:05.848"></status>
+</kw>
+<status status="PASS" endtime="20200227 17:59:05.848" starttime="20200227 17:59:05.847"></status>
+</kw>
+<status status="PASS" endtime="20200227 17:59:05.848" starttime="20200227 17:59:05.845"></status>
+</kw>
+<kw name="Show Session Sdwan Detail" library="CPE1">
+<arguments>
+<arg>source_port=2001</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200227 17:59:07.477" level="INFO">show orgs org IPC00190 sessions sdwan detail | nomore| select source-port 2001</msg>
+<msg timestamp="20200227 17:59:07.477" level="INFO">${result} = show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2001
+sessions sdwan detail 0 2 7369
+ source-ip                  192.169.101.3
+ destination-ip             192.1...</msg>
+<status status="PASS" endtime="20200227 17:59:07.477" starttime="20200227 17:59:05.849"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=tx-wan-ckt${SPACE*17}${CPE1['WAN2_NAME']}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<msg timestamp="20200227 17:59:07.482" level="INFO">show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2001
+sessions sdwan detail 0 2 7369
+ source-ip                  192.169.101.3
+ destination-ip             192.169.111.3
+ source-port                2001
+ destination-port           1024
+ protocol                   6
+ natted                     No
+ sdwan                      Yes
+ application                -
+ forward-pkt-count          116350
+ forward-byte-count         16056300
+ reverse-pkt-count          0
+ reverse-byte-count         0
+ dropped-forward-pkt-count  0
+ dropped-forward-byte-count 0
+ dropped-reverse-pkt-count  0
+ dropped-reverse-byte-count 0
+ session-age                00:01:23
+ idle-for                   00:00:00
+ idle-timeout               240
+ pbf-enabled                false
+ forward-egress-vrf         LAN1-VRF
+ reverse-egress-vrf         LAN1-VRF
+ session-provider-zone      0
+ forward-offload            false
+ reverse-offload            false
+ forward-ingress-interface  vni-0/4.600
+ forward-egress-interface   ptvi-0/281
+ reverse-ingress-interface  n/a
+ reverse-egress-interface   vni-0/4.600
+ forward-fc                 fc_be
+ reverse-fc                 fc_be
+ forward-plp                low
+ reverse-plp                low
+ external-service-chaining  false
+ is-child                   No
+ parent-sess-id             0
+ rx-wan-ckt                 -
+ tx-wan-ckt                 INT-WAN:INT-WAN
+ tx-branch                  -
+ pbf-wan-ackt-enc           (E)
+ forward-ingress-ckt        vni-0/4.600
+ forward-egress-branch      CPE12-HKG-HYBRD-IPC00190
+ forward-egress-ckt         INT-WAN:INT-WAN
+ reverse-ingress-ckt        -
+ reverse-egress-ckt         vni-0/4.600
+ sdwan-rule-name            policy_rule_1
+[ok][2020-02-27 12:25:18]
+admin@CPE11-HKG-HYBRD-IPC00190-cli&gt; </msg>
+<status status="PASS" endtime="20200227 17:59:07.483" starttime="20200227 17:59:07.481"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<msg timestamp="20200227 17:59:07.484" level="INFO">tx-wan-ckt                 INT-WAN</msg>
+<status status="PASS" endtime="20200227 17:59:07.485" starttime="20200227 17:59:07.483"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20200227 17:59:07.488" starttime="20200227 17:59:07.487"></status>
+</kw>
+<status status="PASS" endtime="20200227 17:59:07.488" starttime="20200227 17:59:07.486"></status>
+</kw>
+<status status="PASS" endtime="20200227 17:59:07.488" starttime="20200227 17:59:07.479"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=sdwan-rule-name${SPACE*12}${plcyrule_1}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<msg timestamp="20200227 17:59:07.495" level="INFO">show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2001
+sessions sdwan detail 0 2 7369
+ source-ip                  192.169.101.3
+ destination-ip             192.169.111.3
+ source-port                2001
+ destination-port           1024
+ protocol                   6
+ natted                     No
+ sdwan                      Yes
+ application                -
+ forward-pkt-count          116350
+ forward-byte-count         16056300
+ reverse-pkt-count          0
+ reverse-byte-count         0
+ dropped-forward-pkt-count  0
+ dropped-forward-byte-count 0
+ dropped-reverse-pkt-count  0
+ dropped-reverse-byte-count 0
+ session-age                00:01:23
+ idle-for                   00:00:00
+ idle-timeout               240
+ pbf-enabled                false
+ forward-egress-vrf         LAN1-VRF
+ reverse-egress-vrf         LAN1-VRF
+ session-provider-zone      0
+ forward-offload            false
+ reverse-offload            false
+ forward-ingress-interface  vni-0/4.600
+ forward-egress-interface   ptvi-0/281
+ reverse-ingress-interface  n/a
+ reverse-egress-interface   vni-0/4.600
+ forward-fc                 fc_be
+ reverse-fc                 fc_be
+ forward-plp                low
+ reverse-plp                low
+ external-service-chaining  false
+ is-child                   No
+ parent-sess-id             0
+ rx-wan-ckt                 -
+ tx-wan-ckt                 INT-WAN:INT-WAN
+ tx-branch                  -
+ pbf-wan-ackt-enc           (E)
+ forward-ingress-ckt        vni-0/4.600
+ forward-egress-branch      CPE12-HKG-HYBRD-IPC00190
+ forward-egress-ckt         INT-WAN:INT-WAN
+ reverse-ingress-ckt        -
+ reverse-egress-ckt         vni-0/4.600
+ sdwan-rule-name            policy_rule_1
+[ok][2020-02-27 12:25:18]
+admin@CPE11-HKG-HYBRD-IPC00190-cli&gt; </msg>
+<status status="PASS" endtime="20200227 17:59:07.495" starttime="20200227 17:59:07.494"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<msg timestamp="20200227 17:59:07.497" level="INFO">sdwan-rule-name            policy_rule_1</msg>
+<status status="PASS" endtime="20200227 17:59:07.497" starttime="20200227 17:59:07.496"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20200227 17:59:07.499" starttime="20200227 17:59:07.498"></status>
+</kw>
+<status status="PASS" endtime="20200227 17:59:07.500" starttime="20200227 17:59:07.498"></status>
+</kw>
+<status status="PASS" endtime="20200227 17:59:07.500" starttime="20200227 17:59:07.490"></status>
+</kw>
+<kw name="Show Session Sdwan Detail" library="CPE1">
+<arguments>
+<arg>source_port=2002</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200227 17:59:09.134" level="INFO">show orgs org IPC00190 sessions sdwan detail | nomore| select source-port 2002</msg>
+<msg timestamp="20200227 17:59:09.135" level="INFO">${result} = show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2002
+sessions sdwan detail 0 2 7370
+ source-ip                  192.169.101.3
+ destination-ip             192.1...</msg>
+<status status="PASS" endtime="20200227 17:59:09.135" starttime="20200227 17:59:07.501"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=tx-wan-ckt${SPACE*17}${CPE1['WAN2_NAME']}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<msg timestamp="20200227 17:59:09.137" level="INFO">show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2002
+sessions sdwan detail 0 2 7370
+ source-ip                  192.169.101.3
+ destination-ip             192.169.111.3
+ source-port                2002
+ destination-port           1025
+ protocol                   17
+ natted                     No
+ sdwan                      Yes
+ application                unknown_udp
+ forward-pkt-count          62128
+ forward-byte-count         8573664
+ reverse-pkt-count          0
+ reverse-byte-count         0
+ dropped-forward-pkt-count  0
+ dropped-forward-byte-count 0
+ dropped-reverse-pkt-count  0
+ dropped-reverse-byte-count 0
+ session-age                00:00:44
+ idle-for                   00:00:00
+ idle-timeout               30
+ pbf-enabled                false
+ forward-egress-vrf         LAN1-VRF
+ reverse-egress-vrf         LAN1-VRF
+ session-provider-zone      0
+ forward-offload            false
+ reverse-offload            false
+ forward-ingress-interface  vni-0/4.600
+ forward-egress-interface   ptvi-0/281
+ reverse-ingress-interface  n/a
+ reverse-egress-interface   vni-0/4.600
+ forward-fc                 fc_be
+ reverse-fc                 fc_be
+ forward-plp                low
+ reverse-plp                low
+ external-service-chaining  false
+ is-child                   No
+ parent-sess-id             0
+ rx-wan-ckt                 -
+ tx-wan-ckt                 INT-WAN:INT-WAN
+ tx-branch                  -
+ pbf-wan-ackt-enc           (E)
+ forward-ingress-ckt        vni-0/4.600
+ forward-egress-branch      CPE12-HKG-HYBRD-IPC00190
+ forward-egress-ckt         INT-WAN:INT-WAN
+ reverse-ingress-ckt        -
+ reverse-egress-ckt         vni-0/4.600
+ sdwan-rule-name            policy_rule_1
+[ok][2020-02-27 12:25:19]
+admin@CPE11-HKG-HYBRD-IPC00190-cli&gt; </msg>
+<status status="PASS" endtime="20200227 17:59:09.137" starttime="20200227 17:59:09.137"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<msg timestamp="20200227 17:59:09.138" level="INFO">tx-wan-ckt                 INT-WAN</msg>
+<status status="PASS" endtime="20200227 17:59:09.138" starttime="20200227 17:59:09.138"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20200227 17:59:09.139" starttime="20200227 17:59:09.139"></status>
+</kw>
+<status status="PASS" endtime="20200227 17:59:09.139" starttime="20200227 17:59:09.138"></status>
+</kw>
+<status status="PASS" endtime="20200227 17:59:09.139" starttime="20200227 17:59:09.135"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=sdwan-rule-name${SPACE*12}${plcyrule_1}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<msg timestamp="20200227 17:59:09.141" level="INFO">show orgs org IPC00190 sessions sdwan detail  | nomore| select[8D | select source-port 2002
+sessions sdwan detail 0 2 7370
+ source-ip                  192.169.101.3
+ destination-ip             192.169.111.3
+ source-port                2002
+ destination-port           1025
+ protocol                   17
+ natted                     No
+ sdwan                      Yes
+ application                unknown_udp
+ forward-pkt-count          62128
+ forward-byte-count         8573664
+ reverse-pkt-count          0
+ reverse-byte-count         0
+ dropped-forward-pkt-count  0
+ dropped-forward-byte-count 0
+ dropped-reverse-pkt-count  0
+ dropped-reverse-byte-count 0
+ session-age                00:00:44
+ idle-for                   00:00:00
+ idle-timeout               30
+ pbf-enabled                false
+ forward-egress-vrf         LAN1-VRF
+ reverse-egress-vrf         LAN1-VRF
+ session-provider-zone      0
+ forward-offload            false
+ reverse-offload            false
+ forward-ingress-interface  vni-0/4.600
+ forward-egress-interface   ptvi-0/281
+ reverse-ingress-interface  n/a
+ reverse-egress-interface   vni-0/4.600
+ forward-fc                 fc_be
+ reverse-fc                 fc_be
+ forward-plp                low
+ reverse-plp                low
+ external-service-chaining  false
+ is-child                   No
+ parent-sess-id             0
+ rx-wan-ckt                 -
+ tx-wan-ckt                 INT-WAN:INT-WAN
+ tx-branch                  -
+ pbf-wan-ackt-enc           (E)
+ forward-ingress-ckt        vni-0/4.600
+ forward-egress-branch      CPE12-HKG-HYBRD-IPC00190
+ forward-egress-ckt         INT-WAN:INT-WAN
+ reverse-ingress-ckt        -
+ reverse-egress-ckt         vni-0/4.600
+ sdwan-rule-name            policy_rule_1
+[ok][2020-02-27 12:25:19]
+admin@CPE11-HKG-HYBRD-IPC00190-cli&gt; </msg>
+<status status="PASS" endtime="20200227 17:59:09.141" starttime="20200227 17:59:09.141"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<msg timestamp="20200227 17:59:09.142" level="INFO">sdwan-rule-name            policy_rule_1</msg>
+<status status="PASS" endtime="20200227 17:59:09.142" starttime="20200227 17:59:09.142"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20200227 17:59:09.144" starttime="20200227 17:59:09.143"></status>
+</kw>
+<status status="PASS" endtime="20200227 17:59:09.144" starttime="20200227 17:59:09.142"></status>
+</kw>
+<status status="PASS" endtime="20200227 17:59:09.144" starttime="20200227 17:59:09.140"></status>
+</kw>
+<kw name="Debug" library="DebugLibrary">
+<doc>Open a interactive shell, run any RobotFramework keywords.</doc>
+<status status="PASS" endtime="20200227 18:01:01.800" starttime="20200227 17:59:09.144"></status>
+</kw>
+<kw name="Stop Stream Traffic" library="spirent1">
+<arguments>
+<arg>${stream3['stream_id']}</arg>
+</arguments>
+<msg timestamp="20200227 18:01:12.227" level="INFO">***** run sth.traffic_control successfully</msg>
+<status status="PASS" endtime="20200227 18:01:12.228" starttime="20200227 18:01:01.800"></status>
+</kw>
+<kw name="Stop Stream Traffic" library="spirent1">
+<arguments>
+<arg>${stream2['stream_id']}</arg>
+</arguments>
+<msg timestamp="20200227 18:01:22.346" level="INFO">***** run sth.traffic_control successfully</msg>
+<status status="PASS" endtime="20200227 18:01:22.346" starttime="20200227 18:01:12.228"></status>
+</kw>
+<kw name="Stop Stream Traffic" library="spirent1">
+<arguments>
+<arg>${stream1['stream_id']}</arg>
+</arguments>
+<msg timestamp="20200227 18:01:33.603" level="INFO">***** run sth.traffic_control successfully</msg>
+<status status="PASS" endtime="20200227 18:01:33.603" starttime="20200227 18:01:22.347"></status>
+</kw>
+<kw name="Delete Policy Rule" library="CPE1">
+<arguments>
+<arg>${plcyrule_1}</arg>
+</arguments>
+<msg timestamp="20200227 18:01:33.605" level="INFO">
+DELETE IPaddress Object
+</msg>
+<msg timestamp="20200227 18:01:37.370" level="INFO">
+PASS</msg>
+<msg timestamp="20200227 18:01:37.370" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; Policy rule DELETION PASSED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
+<msg timestamp="20200227 18:01:37.370" level="INFO">&lt;Response [204]&gt;</msg>
+<status status="PASS" endtime="20200227 18:01:37.371" starttime="20200227 18:01:33.604"></status>
+</kw>
+<doc>Traffic steering based on Destination IP</doc>
+<tags>
+<tag>P1</tag>
+</tags>
+<status status="PASS" endtime="20200227 18:01:37.371" critical="yes" starttime="20200227 17:56:51.160"></status>
+</test>
+<kw type="teardown" name="CLEANUP">
+<kw name="DELETE FWD PROFILE">
+<kw name="Delete Address Object" library="CPE1">
+<arguments>
+<arg>${ipaddobj_1}</arg>
+</arguments>
+<msg timestamp="20200227 18:01:37.379" level="INFO">
+DELETE IPaddress Object
+</msg>
+<msg timestamp="20200227 18:01:39.989" level="INFO">
+PASS</msg>
+<msg timestamp="20200227 18:01:39.990" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; ADDRESS OBJECT DELETION PASSED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
+<msg timestamp="20200227 18:01:39.991" level="INFO">&lt;Response [204]&gt;</msg>
+<status status="PASS" endtime="20200227 18:01:39.991" starttime="20200227 18:01:37.377"></status>
+</kw>
+<kw name="Delete Address Object" library="CPE1">
+<arguments>
+<arg>${ipaddobj_2}</arg>
+</arguments>
+<msg timestamp="20200227 18:01:39.993" level="INFO">
+DELETE IPaddress Object
+</msg>
+<msg timestamp="20200227 18:01:42.439" level="INFO">
+PASS</msg>
+<msg timestamp="20200227 18:01:42.440" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; ADDRESS OBJECT DELETION PASSED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
+<msg timestamp="20200227 18:01:42.440" level="INFO">&lt;Response [204]&gt;</msg>
+<status status="PASS" endtime="20200227 18:01:42.440" starttime="20200227 18:01:39.992"></status>
+</kw>
+<kw name="Delete Fowarding Profile" library="CPE1">
+<arguments>
+<arg>${fwp_1}</arg>
+</arguments>
+<msg timestamp="20200227 18:01:42.442" level="INFO">
+DELETE FWD PROFILE
+</msg>
+<msg timestamp="20200227 18:01:45.189" level="INFO">
+PASS</msg>
+<msg timestamp="20200227 18:01:45.189" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; FORWARDING PROFILE DELETION PASSED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
+<msg timestamp="20200227 18:01:45.189" level="INFO">&lt;Response [204]&gt;</msg>
+<status status="PASS" endtime="20200227 18:01:45.189" starttime="20200227 18:01:42.441"></status>
+</kw>
+<kw name="Delete Sla Profile" library="CPE1">
+<arguments>
+<arg>${sla_prf_1}</arg>
+</arguments>
+<msg timestamp="20200227 18:01:45.190" level="INFO">
+DELETE SLA profile
+</msg>
+<msg timestamp="20200227 18:01:48.432" level="INFO">
+PASS</msg>
+<msg timestamp="20200227 18:01:48.432" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; DELETE SLA Profile PASSED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
+<msg timestamp="20200227 18:01:48.432" level="INFO">&lt;Response [204]&gt;</msg>
+<status status="PASS" endtime="20200227 18:01:48.433" starttime="20200227 18:01:45.190"></status>
+</kw>
+<kw name="Modify Interface Bandwidth" library="CPE1">
+<arguments>
+<arg>${CPE1['WAN1_INTF']}</arg>
+<arg>${curr_intf_bw['bandwidth']['uplink']}</arg>
+<arg>${curr_intf_bw['bandwidth']['downlink']}</arg>
+</arguments>
+<msg timestamp="20200227 18:01:50.984" level="INFO">{"bandwidth": {"downlink": 30000, "uplink": 30000}}
+
+&lt;Response [204]&gt;</msg>
+<status status="PASS" endtime="20200227 18:01:50.984" starttime="20200227 18:01:48.433"></status>
+</kw>
+<kw name="Get Vni Interface Bw" library="CPE1">
+<arguments>
+<arg>${CPE1['WAN1_INTF']}</arg>
+</arguments>
+<status status="PASS" endtime="20200227 18:01:51.851" starttime="20200227 18:01:50.984"></status>
+</kw>
+<status status="PASS" endtime="20200227 18:01:51.851" starttime="20200227 18:01:37.376"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"cleanup done"</arg>
+</arguments>
+<status status="PASS" endtime="20200227 18:01:51.855" starttime="20200227 18:01:51.851"></status>
+</kw>
+<kw name="Release Ports" library="spirent1">
+<msg timestamp="20200227 18:01:55.229" level="INFO">Release resources
+***** run sth.cleanup_session successfully</msg>
+<status status="PASS" endtime="20200227 18:01:55.229" starttime="20200227 18:01:51.855"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>40s</arg>
+</arguments>
+<msg timestamp="20200227 18:02:35.231" level="INFO">Slept 40 seconds</msg>
+<status status="PASS" endtime="20200227 18:02:35.231" starttime="20200227 18:01:55.230"></status>
+</kw>
+<status status="PASS" endtime="20200227 18:02:35.231" starttime="20200227 18:01:37.375"></status>
 </kw>
 <doc>A test suite with tests for SDWAN SINGLE CPE Solution.
 Topology:-
@@ -2177,21 +2200,18 @@ Date 12 Dec 2017
 Executed At HOST
 Test Framework Robot Framework Python</item>
 </metadata>
-<status status="PASS" endtime="20200220 16:51:13.383" starttime="20200220 16:44:44.943"></status>
+<status status="PASS" endtime="20200227 18:02:35.231" starttime="20200227 17:50:59.651"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="0" pass="5">Critical Tests</stat>
-<stat fail="0" pass="5">All Tests</stat>
+<stat fail="0" pass="2">Critical Tests</stat>
+<stat fail="0" pass="2">All Tests</stat>
 </total>
 <tag>
-<stat fail="0" pass="1">IPERF</stat>
-<stat fail="0" pass="1">P1</stat>
-<stat fail="0" pass="2">PING</stat>
-<stat fail="0" pass="1">SANITY</stat>
+<stat fail="0" pass="2">P1</stat>
 </tag>
 <suite>
-<stat fail="0" id="s1" name="SINGLE CPE HYBRID SOLUTION TEST" pass="5">SINGLE CPE HYBRID SOLUTION TEST</stat>
+<stat fail="0" id="s1" name="SINGLE CPE HYBRID SOLUTION TEST" pass="2">SINGLE CPE HYBRID SOLUTION TEST</stat>
 </suite>
 </statistics>
 <errors>

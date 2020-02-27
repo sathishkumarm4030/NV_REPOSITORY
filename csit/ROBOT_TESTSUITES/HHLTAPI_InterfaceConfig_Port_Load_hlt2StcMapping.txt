@@ -308,7 +308,7 @@ stc::get txstreamblockresults3 -FrameCount
 stc::unsubscribe resultdataset2
 stc::delete resultdataset2
 stc::perform StreamBlockStop -StreamBlockList streamblock3
-stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString /home/sathish123/PycharmProjects/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi164912.db
+stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi175617.db
 
 
 sth::traffic_control -action stop -stream_handle streamblock2
@@ -338,7 +338,7 @@ stc::get streamblock3 -RunningState
 stc::unsubscribe resultdataset4
 stc::delete resultdataset4
 stc::perform StreamBlockStop -StreamBlockList streamblock2
-stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString /home/sathish123/PycharmProjects/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi164915.db
+stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi175628.db
 
 
 sth::traffic_control -action stop -stream_handle streamblock1
@@ -364,7 +364,138 @@ stc::get streamblock2 -RunningState
 stc::unsubscribe resultdataset6
 stc::delete resultdataset6
 stc::perform StreamBlockStop -StreamBlockList streamblock1
-stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString /home/sathish123/PycharmProjects/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi164918.db
+stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi175638.db
+
+
+sth::traffic_control -action run -stream_handle streamblock1
+stc::get project1 -children-port
+stc::get project1 -children-port
+stc::get port1 -children-generator
+stc::get generator1.GeneratorConfig -DurationMode
+stc::get port2 -children-generator
+stc::get generator2.GeneratorConfig -DurationMode
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+::stc::apply
+stc::get streamblock1 -parent
+stc::perform StreamBlockStart -StreamBlockList streamblock1
+
+
+sth::traffic_control -action run -stream_handle streamblock2
+stc::get project1 -children-port
+stc::get project1 -children-port
+stc::get port1 -children-generator
+stc::get generator1.GeneratorConfig -DurationMode
+stc::get port2 -children-generator
+stc::get generator2.GeneratorConfig -DurationMode
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+::stc::apply
+stc::get streamblock2 -parent
+stc::perform StreamBlockStart -StreamBlockList streamblock2
+
+
+sth::traffic_control -action run -stream_handle streamblock3
+stc::get project1 -children-port
+stc::get project1 -children-port
+stc::get port1 -children-generator
+stc::get generator1.GeneratorConfig -DurationMode
+stc::get port2 -children-generator
+stc::get generator2.GeneratorConfig -DurationMode
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+::stc::apply
+stc::get streamblock3 -parent
+stc::perform StreamBlockStart -StreamBlockList streamblock3
+
+
+sth::traffic_control -action stop -stream_handle streamblock3
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+stc::get streamblock3 -parent
+stc::get port1 -children-generator
+stc::get generator1 -state
+stc::get port1 -children-streamblock
+stc::get generator1 -children-generatorportresults
+stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}
+stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}
+stc::get generator1 -children-generatorportresults
+stc::get generatorportresults4 -TotalFrameRate
+stc::get generatorportresults4 -TotalFrameCount
+stc::unsubscribe resultdataset7
+stc::delete resultdataset7
+stc::get streamblock1 -RunningState
+stc::get streamblock1 -children-TxStreamBlockResults
+stc::get txstreamblockresults7 -FrameRate
+stc::get txstreamblockresults7 -FrameCount
+stc::get streamblock2 -RunningState
+stc::get streamblock2 -children-TxStreamBlockResults
+stc::get txstreamblockresults8 -FrameRate
+stc::get txstreamblockresults8 -FrameCount
+stc::get streamblock3 -RunningState
+stc::get streamblock3 -children-TxStreamBlockResults
+stc::get txstreamblockresults9 -FrameRate
+stc::get txstreamblockresults9 -FrameCount
+stc::unsubscribe resultdataset8
+stc::delete resultdataset8
+stc::perform StreamBlockStop -StreamBlockList streamblock3
+stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi180104.db
+
+
+sth::traffic_control -action stop -stream_handle streamblock2
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+stc::get streamblock2 -parent
+stc::get port1 -children-generator
+stc::get generator1 -state
+stc::get port1 -children-streamblock
+stc::get generator1 -children-generatorportresults
+stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}
+stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}
+stc::get generator1 -children-generatorportresults
+stc::get generatorportresults5 -TotalFrameRate
+stc::get generatorportresults5 -TotalFrameCount
+stc::unsubscribe resultdataset9
+stc::delete resultdataset9
+stc::get streamblock1 -RunningState
+stc::get streamblock1 -children-TxStreamBlockResults
+stc::get txstreamblockresults10 -FrameRate
+stc::get txstreamblockresults10 -FrameCount
+stc::get streamblock2 -RunningState
+stc::get streamblock2 -children-TxStreamBlockResults
+stc::get txstreamblockresults11 -FrameRate
+stc::get txstreamblockresults11 -FrameCount
+stc::get streamblock3 -RunningState
+stc::unsubscribe resultdataset10
+stc::delete resultdataset10
+stc::perform StreamBlockStop -StreamBlockList streamblock2
+stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi180114.db
+
+
+sth::traffic_control -action stop -stream_handle streamblock1
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+stc::get streamblock1 -parent
+stc::get port1 -children-generator
+stc::get generator1 -state
+stc::get port1 -children-streamblock
+stc::get generator1 -children-generatorportresults
+stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}
+stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}
+stc::get generator1 -children-generatorportresults
+stc::get generatorportresults6 -TotalFrameRate
+stc::get generatorportresults6 -TotalFrameCount
+stc::unsubscribe resultdataset11
+stc::delete resultdataset11
+stc::get streamblock1 -RunningState
+stc::get streamblock1 -children-TxStreamBlockResults
+stc::get txstreamblockresults12 -FrameRate
+stc::get txstreamblockresults12 -FrameCount
+stc::get streamblock2 -RunningState
+stc::unsubscribe resultdataset12
+stc::delete resultdataset12
+stc::perform StreamBlockStop -StreamBlockList streamblock1
+stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi180124.db
 
 
 sth::cleanup_session -port_handle {port1 port2} -clean_dbfile 1

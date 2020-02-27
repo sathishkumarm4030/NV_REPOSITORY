@@ -1579,6 +1579,59 @@ class VersaLib:
         main_logger.info("Time elapsed: {}\n".format(datetime.now() - start_time))
         main_logger.info("LOGS Stored in : " + logfile_dir)
         return
+		
+	############################################
+	# Added by sunita for Cgw
+	############################################
+    def config_devices_template_using_template_parser(self, nc, cmds, device_name):
+        start_time = datetime.now()
+        main_logger = self.setup_logger('Versa-director', 'Config_devices_template')
+        result_dict = {}
+        res_check = ""
+        dev_dict = {}
+        dev_dict['NAME'] = device_name
+        device_cmds =  cmds
+        main_logger.info(device_cmds)
+        result = self.device_config_commands_wo_split(nc, device_cmds)
+        #result = self.device_config_commands(nc, device_cmds)
+        print result
+        main_logger.info(result)
+        if "syntax error:" in result:
+            res_check += "syntax error found."
+        elif "Error: element not found" in result:
+            res_check += "element not found error."
+        elif "error" in result:
+            res_check += "error occured."
+
+        if ("error" in res_check):
+            print "Error found during execution of configuration commands."
+            return 0
+
+        commit_result = nc.send_command_expect("commit", \
+                                               expect_string='%', \
+                                               strip_prompt=False, strip_command=False, max_loops=5000)
+        main_logger.info(commit_result)
+        if "No modifications to commit." in commit_result:
+            res_check += "No modifications to commit."
+        elif "Commit complete." in commit_result:
+            res_check += "Commit success."
+        else:
+            res_check += "commit failed.Check log"
+
+        result_dict[dev_dict['NAME']] = res_check
+        main_logger.info("CONFIG_RESULT:")
+        for k, v in result_dict.iteritems():
+            main_logger.info([k , v])
+        write_result_from_dict(result_dict)
+        main_logger.info("Time elapsed: {}\n".format(datetime.now() - start_time))
+        main_logger.info("LOGS Stored in : " + logfile_dir)
+
+        if (("Commit complete." in commit_result) or ("No modifications to commit." in commit_result)):
+            print "Commit Successful."
+            return 1
+        else:
+            print "Commit Failed."
+            return 0
 
     def config_function(self, nc, config_for, csv_file, template_file, type=""):
         start_time = datetime.now()
@@ -2171,17 +2224,23 @@ class VersaLib:
 
 
 
-    def create_policy_rule(self, name, address_name, fwd_profile_name, **kwargs):
+    def create_policy_rule(self, name, fwd_profile_name, **kwargs):
+        temp_dict = {}
+        # if kwargs is not None:
+        #     for k, v in kwargs.iteritems(): exec("self."+ k+'=v')
         if kwargs is not None:
-            for k, v in kwargs.iteritems(): exec("self."+ k+'=v')
+            for k, v in kwargs.iteritems():
+                temp_dict[k] = v
         self.main_logger.info("\nCREATE Policy rule\n")
         curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/FWD_PROFILE")
         policy_rule_create_url_mod = policy_rule_create_url.replace("temporgname" , self.ORG_NAME)
         policy_rule_create_url_mod = policy_rule_create_url_mod.replace("tempdevicename", self.Device_name)
         curr_env = Environment(loader=curr_file_loader)
         template = curr_env.get_template("RULE_Creation.j2")
-        rule_dict = { 'name' : name, 'address_name' : address_name, 'fwd_profile_name' : fwd_profile_name }
-        template_body = template.render(rule_dict)
+        rule_dict = { 'name' : name, 'fwd_profile_name' : fwd_profile_name }
+        temp_dict['name'] = name
+        temp_dict['fwd_profile_name'] = fwd_profile_name
+        template_body = template.render(temp_dict)
         print template_body
         result = self.post_operation(policy_rule_create_url_mod, headers2, template_body)
         self.main_logger.info("\n" + result)

@@ -1112,8 +1112,8 @@ puts "stc::perform StreamBlockStop -StreamBlockList streamblock3"
 set status [stc::perform StreamBlockStop -StreamBlockList streamblock3]
 puts $status
 
-puts "stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString /home/sathish123/PycharmProjects/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi164912.db"
-set status [stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString /home/sathish123/PycharmProjects/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi164912.db]
+puts "stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi175617.db"
+set status [stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi175617.db]
 puts $status
 
 puts "stc::get project1 -children-trafficoptions"
@@ -1220,8 +1220,8 @@ puts "stc::perform StreamBlockStop -StreamBlockList streamblock2"
 set status [stc::perform StreamBlockStop -StreamBlockList streamblock2]
 puts $status
 
-puts "stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString /home/sathish123/PycharmProjects/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi164915.db"
-set status [stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString /home/sathish123/PycharmProjects/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi164915.db]
+puts "stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi175628.db"
+set status [stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi175628.db]
 puts $status
 
 puts "stc::get project1 -children-trafficoptions"
@@ -1312,8 +1312,460 @@ puts "stc::perform StreamBlockStop -StreamBlockList streamblock1"
 set status [stc::perform StreamBlockStop -StreamBlockList streamblock1]
 puts $status
 
-puts "stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString /home/sathish123/PycharmProjects/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi164918.db"
-set status [stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString /home/sathish123/PycharmProjects/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi164918.db]
+puts "stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi175638.db"
+set status [stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi175638.db]
+puts $status
+
+puts "stc::get project1 -children-port"
+set status [stc::get project1 -children-port]
+puts $status
+
+puts "stc::get project1 -children-port"
+set status [stc::get project1 -children-port]
+puts $status
+
+puts "stc::get port1 -children-generator"
+set status [stc::get port1 -children-generator]
+puts $status
+
+puts "stc::get generator1.GeneratorConfig -DurationMode"
+set status [stc::get generator1.GeneratorConfig -DurationMode]
+puts $status
+
+puts "stc::get port2 -children-generator"
+set status [stc::get port2 -children-generator]
+puts $status
+
+puts "stc::get generator2.GeneratorConfig -DurationMode"
+set status [stc::get generator2.GeneratorConfig -DurationMode]
+puts $status
+
+puts "stc::get project1 -children-trafficoptions"
+set status [stc::get project1 -children-trafficoptions]
+puts $status
+
+puts "stc::config trafficoptions1 -TrafficStartMode asynchronous"
+set status [stc::config trafficoptions1 -TrafficStartMode asynchronous]
+puts $status
+
+puts "::stc::apply"
+set status [::stc::apply]
+puts $status
+
+puts "stc::get streamblock1 -parent"
+set status [stc::get streamblock1 -parent]
+puts $status
+
+puts "stc::perform StreamBlockStart -StreamBlockList streamblock1"
+set status [stc::perform StreamBlockStart -StreamBlockList streamblock1]
+puts $status
+
+puts "stc::get project1 -children-port"
+set status [stc::get project1 -children-port]
+puts $status
+
+puts "stc::get project1 -children-port"
+set status [stc::get project1 -children-port]
+puts $status
+
+puts "stc::get port1 -children-generator"
+set status [stc::get port1 -children-generator]
+puts $status
+
+puts "stc::get generator1.GeneratorConfig -DurationMode"
+set status [stc::get generator1.GeneratorConfig -DurationMode]
+puts $status
+
+puts "stc::get port2 -children-generator"
+set status [stc::get port2 -children-generator]
+puts $status
+
+puts "stc::get generator2.GeneratorConfig -DurationMode"
+set status [stc::get generator2.GeneratorConfig -DurationMode]
+puts $status
+
+puts "stc::get project1 -children-trafficoptions"
+set status [stc::get project1 -children-trafficoptions]
+puts $status
+
+puts "stc::config trafficoptions1 -TrafficStartMode asynchronous"
+set status [stc::config trafficoptions1 -TrafficStartMode asynchronous]
+puts $status
+
+puts "::stc::apply"
+set status [::stc::apply]
+puts $status
+
+puts "stc::get streamblock2 -parent"
+set status [stc::get streamblock2 -parent]
+puts $status
+
+puts "stc::perform StreamBlockStart -StreamBlockList streamblock2"
+set status [stc::perform StreamBlockStart -StreamBlockList streamblock2]
+puts $status
+
+puts "stc::get project1 -children-port"
+set status [stc::get project1 -children-port]
+puts $status
+
+puts "stc::get project1 -children-port"
+set status [stc::get project1 -children-port]
+puts $status
+
+puts "stc::get port1 -children-generator"
+set status [stc::get port1 -children-generator]
+puts $status
+
+puts "stc::get generator1.GeneratorConfig -DurationMode"
+set status [stc::get generator1.GeneratorConfig -DurationMode]
+puts $status
+
+puts "stc::get port2 -children-generator"
+set status [stc::get port2 -children-generator]
+puts $status
+
+puts "stc::get generator2.GeneratorConfig -DurationMode"
+set status [stc::get generator2.GeneratorConfig -DurationMode]
+puts $status
+
+puts "stc::get project1 -children-trafficoptions"
+set status [stc::get project1 -children-trafficoptions]
+puts $status
+
+puts "stc::config trafficoptions1 -TrafficStartMode asynchronous"
+set status [stc::config trafficoptions1 -TrafficStartMode asynchronous]
+puts $status
+
+puts "::stc::apply"
+set status [::stc::apply]
+puts $status
+
+puts "stc::get streamblock3 -parent"
+set status [stc::get streamblock3 -parent]
+puts $status
+
+puts "stc::perform StreamBlockStart -StreamBlockList streamblock3"
+set status [stc::perform StreamBlockStart -StreamBlockList streamblock3]
+puts $status
+
+puts "stc::get project1 -children-trafficoptions"
+set status [stc::get project1 -children-trafficoptions]
+puts $status
+
+puts "stc::config trafficoptions1 -TrafficStartMode asynchronous"
+set status [stc::config trafficoptions1 -TrafficStartMode asynchronous]
+puts $status
+
+puts "stc::get streamblock3 -parent"
+set status [stc::get streamblock3 -parent]
+puts $status
+
+puts "stc::get port1 -children-generator"
+set status [stc::get port1 -children-generator]
+puts $status
+
+puts "stc::get generator1 -state"
+set status [stc::get generator1 -state]
+puts $status
+
+puts "stc::get port1 -children-streamblock"
+set status [stc::get port1 -children-streamblock]
+puts $status
+
+puts "stc::get generator1 -children-generatorportresults"
+set status [stc::get generator1 -children-generatorportresults]
+puts $status
+
+puts "stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}"
+set status [stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}]
+puts $status
+
+puts "stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}"
+set status [stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}]
+puts $status
+
+puts "stc::get generator1 -children-generatorportresults"
+set status [stc::get generator1 -children-generatorportresults]
+puts $status
+
+puts "stc::get generatorportresults4 -TotalFrameRate"
+set status [stc::get generatorportresults4 -TotalFrameRate]
+puts $status
+
+puts "stc::get generatorportresults4 -TotalFrameCount"
+set status [stc::get generatorportresults4 -TotalFrameCount]
+puts $status
+
+puts "stc::unsubscribe resultdataset7"
+set status [stc::unsubscribe resultdataset7]
+puts $status
+
+puts "stc::delete resultdataset7"
+set status [stc::delete resultdataset7]
+puts $status
+
+puts "stc::get streamblock1 -RunningState"
+set status [stc::get streamblock1 -RunningState]
+puts $status
+
+puts "stc::get streamblock1 -children-TxStreamBlockResults"
+set status [stc::get streamblock1 -children-TxStreamBlockResults]
+puts $status
+
+puts "stc::get txstreamblockresults7 -FrameRate"
+set status [stc::get txstreamblockresults7 -FrameRate]
+puts $status
+
+puts "stc::get txstreamblockresults7 -FrameCount"
+set status [stc::get txstreamblockresults7 -FrameCount]
+puts $status
+
+puts "stc::get streamblock2 -RunningState"
+set status [stc::get streamblock2 -RunningState]
+puts $status
+
+puts "stc::get streamblock2 -children-TxStreamBlockResults"
+set status [stc::get streamblock2 -children-TxStreamBlockResults]
+puts $status
+
+puts "stc::get txstreamblockresults8 -FrameRate"
+set status [stc::get txstreamblockresults8 -FrameRate]
+puts $status
+
+puts "stc::get txstreamblockresults8 -FrameCount"
+set status [stc::get txstreamblockresults8 -FrameCount]
+puts $status
+
+puts "stc::get streamblock3 -RunningState"
+set status [stc::get streamblock3 -RunningState]
+puts $status
+
+puts "stc::get streamblock3 -children-TxStreamBlockResults"
+set status [stc::get streamblock3 -children-TxStreamBlockResults]
+puts $status
+
+puts "stc::get txstreamblockresults9 -FrameRate"
+set status [stc::get txstreamblockresults9 -FrameRate]
+puts $status
+
+puts "stc::get txstreamblockresults9 -FrameCount"
+set status [stc::get txstreamblockresults9 -FrameCount]
+puts $status
+
+puts "stc::unsubscribe resultdataset8"
+set status [stc::unsubscribe resultdataset8]
+puts $status
+
+puts "stc::delete resultdataset8"
+set status [stc::delete resultdataset8]
+puts $status
+
+puts "stc::perform StreamBlockStop -StreamBlockList streamblock3"
+set status [stc::perform StreamBlockStop -StreamBlockList streamblock3]
+puts $status
+
+puts "stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi180104.db"
+set status [stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi180104.db]
+puts $status
+
+puts "stc::get project1 -children-trafficoptions"
+set status [stc::get project1 -children-trafficoptions]
+puts $status
+
+puts "stc::config trafficoptions1 -TrafficStartMode asynchronous"
+set status [stc::config trafficoptions1 -TrafficStartMode asynchronous]
+puts $status
+
+puts "stc::get streamblock2 -parent"
+set status [stc::get streamblock2 -parent]
+puts $status
+
+puts "stc::get port1 -children-generator"
+set status [stc::get port1 -children-generator]
+puts $status
+
+puts "stc::get generator1 -state"
+set status [stc::get generator1 -state]
+puts $status
+
+puts "stc::get port1 -children-streamblock"
+set status [stc::get port1 -children-streamblock]
+puts $status
+
+puts "stc::get generator1 -children-generatorportresults"
+set status [stc::get generator1 -children-generatorportresults]
+puts $status
+
+puts "stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}"
+set status [stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}]
+puts $status
+
+puts "stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}"
+set status [stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}]
+puts $status
+
+puts "stc::get generator1 -children-generatorportresults"
+set status [stc::get generator1 -children-generatorportresults]
+puts $status
+
+puts "stc::get generatorportresults5 -TotalFrameRate"
+set status [stc::get generatorportresults5 -TotalFrameRate]
+puts $status
+
+puts "stc::get generatorportresults5 -TotalFrameCount"
+set status [stc::get generatorportresults5 -TotalFrameCount]
+puts $status
+
+puts "stc::unsubscribe resultdataset9"
+set status [stc::unsubscribe resultdataset9]
+puts $status
+
+puts "stc::delete resultdataset9"
+set status [stc::delete resultdataset9]
+puts $status
+
+puts "stc::get streamblock1 -RunningState"
+set status [stc::get streamblock1 -RunningState]
+puts $status
+
+puts "stc::get streamblock1 -children-TxStreamBlockResults"
+set status [stc::get streamblock1 -children-TxStreamBlockResults]
+puts $status
+
+puts "stc::get txstreamblockresults10 -FrameRate"
+set status [stc::get txstreamblockresults10 -FrameRate]
+puts $status
+
+puts "stc::get txstreamblockresults10 -FrameCount"
+set status [stc::get txstreamblockresults10 -FrameCount]
+puts $status
+
+puts "stc::get streamblock2 -RunningState"
+set status [stc::get streamblock2 -RunningState]
+puts $status
+
+puts "stc::get streamblock2 -children-TxStreamBlockResults"
+set status [stc::get streamblock2 -children-TxStreamBlockResults]
+puts $status
+
+puts "stc::get txstreamblockresults11 -FrameRate"
+set status [stc::get txstreamblockresults11 -FrameRate]
+puts $status
+
+puts "stc::get txstreamblockresults11 -FrameCount"
+set status [stc::get txstreamblockresults11 -FrameCount]
+puts $status
+
+puts "stc::get streamblock3 -RunningState"
+set status [stc::get streamblock3 -RunningState]
+puts $status
+
+puts "stc::unsubscribe resultdataset10"
+set status [stc::unsubscribe resultdataset10]
+puts $status
+
+puts "stc::delete resultdataset10"
+set status [stc::delete resultdataset10]
+puts $status
+
+puts "stc::perform StreamBlockStop -StreamBlockList streamblock2"
+set status [stc::perform StreamBlockStop -StreamBlockList streamblock2]
+puts $status
+
+puts "stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi180114.db"
+set status [stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi180114.db]
+puts $status
+
+puts "stc::get project1 -children-trafficoptions"
+set status [stc::get project1 -children-trafficoptions]
+puts $status
+
+puts "stc::config trafficoptions1 -TrafficStartMode asynchronous"
+set status [stc::config trafficoptions1 -TrafficStartMode asynchronous]
+puts $status
+
+puts "stc::get streamblock1 -parent"
+set status [stc::get streamblock1 -parent]
+puts $status
+
+puts "stc::get port1 -children-generator"
+set status [stc::get port1 -children-generator]
+puts $status
+
+puts "stc::get generator1 -state"
+set status [stc::get generator1 -state]
+puts $status
+
+puts "stc::get port1 -children-streamblock"
+set status [stc::get port1 -children-streamblock]
+puts $status
+
+puts "stc::get generator1 -children-generatorportresults"
+set status [stc::get generator1 -children-generatorportresults]
+puts $status
+
+puts "stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}"
+set status [stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}]
+puts $status
+
+puts "stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}"
+set status [stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}]
+puts $status
+
+puts "stc::get generator1 -children-generatorportresults"
+set status [stc::get generator1 -children-generatorportresults]
+puts $status
+
+puts "stc::get generatorportresults6 -TotalFrameRate"
+set status [stc::get generatorportresults6 -TotalFrameRate]
+puts $status
+
+puts "stc::get generatorportresults6 -TotalFrameCount"
+set status [stc::get generatorportresults6 -TotalFrameCount]
+puts $status
+
+puts "stc::unsubscribe resultdataset11"
+set status [stc::unsubscribe resultdataset11]
+puts $status
+
+puts "stc::delete resultdataset11"
+set status [stc::delete resultdataset11]
+puts $status
+
+puts "stc::get streamblock1 -RunningState"
+set status [stc::get streamblock1 -RunningState]
+puts $status
+
+puts "stc::get streamblock1 -children-TxStreamBlockResults"
+set status [stc::get streamblock1 -children-TxStreamBlockResults]
+puts $status
+
+puts "stc::get txstreamblockresults12 -FrameRate"
+set status [stc::get txstreamblockresults12 -FrameRate]
+puts $status
+
+puts "stc::get txstreamblockresults12 -FrameCount"
+set status [stc::get txstreamblockresults12 -FrameCount]
+puts $status
+
+puts "stc::get streamblock2 -RunningState"
+set status [stc::get streamblock2 -RunningState]
+puts $status
+
+puts "stc::unsubscribe resultdataset12"
+set status [stc::unsubscribe resultdataset12]
+puts $status
+
+puts "stc::delete resultdataset12"
+set status [stc::delete resultdataset12]
+puts $status
+
+puts "stc::perform StreamBlockStop -StreamBlockList streamblock1"
+set status [stc::perform StreamBlockStop -StreamBlockList streamblock1]
+puts $status
+
+puts "stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi180124.db"
+set status [stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi180124.db]
 puts $status
 
 puts "stc::get project1 -children-port"

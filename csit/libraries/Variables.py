@@ -240,7 +240,13 @@ MGMT_NW_SBNT = "10.91.140.0/22"
 # MGMT_NW_SBNT = "10.91.140.0/22"
 #############################################################
 
-SOLUTIONS_list = ['SINGLE-CPE-HYBRID', 'SINGLE-CPE-INTERNET-ONLY', 'SINGLE-CPE-MPLS-ONLY', 'SINGLE-CPE-DUAL-INTERNET', 'DUAL-CPE-DUAL-MPLS', 'DUAL-CPE-HYBRID', 'DUAL-CPE-DUAL-INTERNET']
+SOLUTIONS_list = ['SINGLE-CPE-HYBRID',
+                  'SINGLE-CPE-INTERNET-ONLY',
+                  'SINGLE-CPE-MPLS-ONLY',
+                  'SINGLE-CPE-DUAL-INTERNET',
+                  'DUAL-CPE-DUAL-MPLS',
+                  'DUAL-CPE-HYBRID',
+                  'DUAL-CPE-DUAL-INTERNET']
 
 #PAIRED_TVI_SUBNET = "10.63.47.64/30"
 
@@ -312,10 +318,11 @@ req_cre_snapshot = """request devices device {{ NAME }} live-status system creat
 
 #ROBOT_TESTSUITE variables
 
-sla_prf_1 = "SLA10"
-fwp_1 = "FWP10"
-ipaddobj_1 = "Dest_ip_add10"
-plcyrule_1 = "ts_Destipaddr10"
+sla_prf_1 = "SLA111"
+fwp_1 = "FWP111"
+ipaddobj_1 = "src_ip_add_obj1"
+ipaddobj_2 = "dst_ip_add_obj1"
+plcyrule_1 = "policy_rule_1"
 
 
 

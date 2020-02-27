@@ -5,7 +5,11 @@
 		"match": {
 			"source": {
 				"zone": {},
-				"address": {},
+				"address": {
+				{% if src_address_obj is defined -%}
+					"address-list": ["{{ src_address_obj }}"]
+				{% endif %}
+				},
 				"user": {
 					"user-type": "any",
 					"local-database": {
@@ -19,10 +23,16 @@
 			"destination": {
 				"zone": {},
 				"address": {
-					"address-list": ["{{ address_name }}"]
+				{% if dest_address_obj is defined -%}
+					"address-list": ["{{ dest_address_obj }}"]
+				{% endif %}
 				}
 			},
-			"application": {},
+			"application": {
+				{% if application is defined -%}
+				"predefined-application-list": ["{{ application }}"]
+				{% endif %}
+			},
 			"ttl": {}
 		},
 		"set": {
