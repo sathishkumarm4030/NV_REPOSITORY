@@ -44,9 +44,12 @@ class CiscoLib():
 
     def shell_login_cisco(self, input_yml_file, solution_type):
 
+        os.chdir(fileDir)
+        os.chdir("..")
         pwd = os.getcwd()
-        #with open(pwd + "\\CGW_config\\" + input_yml_file) as fp1:
-        with open("C:\\NV_REPOSITORY\\csit\\libraries\\CGW_config\\" + input_yml_file) as fp1:
+
+        with open(pwd + "\\libraries\\CGW_config\\" + input_yml_file) as fp1:
+        #with open("C:\\NV_REPOSITORY\\csit\\libraries\\CGW_config\\" + input_yml_file) as fp1:
             input_data = yaml.safe_load(fp1)
 
         device_dict = {
@@ -57,7 +60,8 @@ class CiscoLib():
         }
         input_data["SOLUTION_TYPE"] = solution_type
 
-        with open("C:\\NV_REPOSITORY\\csit\\libraries\\CGW_config\\" + input_yml_file, 'w') as outfile:
+        with open(pwd + "\\libraries\\CGW_config\\" + input_yml_file, 'w') as outfile:
+        #with open("C:\\NV_REPOSITORY\\csit\\libraries\\CGW_config\\" + input_yml_file, 'w') as outfile:
             yaml.dump(input_data, outfile, default_flow_style=False)
 
         try:
@@ -96,3 +100,6 @@ class CiscoLib():
             return 0
         else:
             return 1
+
+# obj = CiscoLib()
+# obj.shell_login_cisco("cisco_device_details.yml", "DUAL")

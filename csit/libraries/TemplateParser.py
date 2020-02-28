@@ -13,15 +13,24 @@ import os, sys, json, yaml
 from argparse import ArgumentParser, FileType
 from jinja2 import meta, Environment, FileSystemLoader, StrictUndefined
 
+if __name__ == "__main__":
+    fileDir = os.path.dirname(os.path.dirname(os.path.realpath('__file__')))
+else:
+    fileDir = os.path.dirname(os.path.realpath('__file__'))
+
 class TemplateParser:
 
     def __init__(self):
         pass
 
     def template_parse(self, input_yml_file, template_jinja_file):
+
+        os.chdir(fileDir)
+        os.chdir("..")
         pwd = os.getcwd()
-        #with open(pwd + "\\CGW_config\\" + input_yml_file) as fp1:
-        with open("C:\\NV_REPOSITORY\\csit\\libraries\\CGW_config\\" + input_yml_file) as fp1:
+
+        with open(pwd + "\\libraries\\CGW_config\\" + input_yml_file) as fp1:
+        #with open("C:\\NV_REPOSITORY\\csit\\libraries\\CGW_config\\" + input_yml_file) as fp1:
             input_data = yaml.safe_load(fp1)
 
         self.template_vars = {}
@@ -30,8 +39,9 @@ class TemplateParser:
         # Fail on undefined
         self.env = Environment(undefined=StrictUndefined, trim_blocks=True, lstrip_blocks=True)
         self.env.loader = FileSystemLoader('.')
-        #with open(pwd + "\\CGW_config\\" + template_jinja_file) as fp2:
-        with open("C:\\NV_REPOSITORY\\csit\\libraries\\CGW_config\\" + template_jinja_file) as fp2:
+
+        with open(pwd + "\\libraries\\CGW_config\\" + template_jinja_file) as fp2:
+        #with open("C:\\NV_REPOSITORY\\csit\\libraries\\CGW_config\\" + template_jinja_file) as fp2:
             template_str = fp2.read()
 
         self.template = self.env.from_string(template_str)

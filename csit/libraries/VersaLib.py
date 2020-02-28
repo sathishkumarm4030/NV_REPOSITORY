@@ -753,13 +753,13 @@ class VersaLib:
             output = self.cnc.read_channel()
             print(output)
             time.sleep(1)
-            self.cnc.write_channel(self.data_dict["password"] + "\n")
+            self.cnc.write_channel(self.password + "\n")
             time.sleep(5)
             output = self.cnc.read_channel()
             print(output)
         else:
             # cpe_logger.info(output)
-            return "VD to CPE " + self.data_dict["ip"] + "ssh Failed."
+            return "VD to CPE " + self.ESP_IP + "ssh Failed."
         # self.cnc.write_channel("cli\n")
         # time.sleep(2)
         # output1 = self.cnc.read_channel()

@@ -1,4 +1,4 @@
-import os, sys, json, yaml, re, itertools
+import os, sys, json, yaml, re, itertools,time
 from argparse import ArgumentParser, FileType
 from jinja2 import meta, Environment, FileSystemLoader, StrictUndefined
 from csit.libraries.VersaLib import VersaLib
@@ -116,10 +116,12 @@ class CloudGatewayLib():
         # SDWAN CPE Verification
         cpe = VersaLib(cpe_name, topofile="Devices.csv")
         lan_vrf = "1"
+        main_logger = cpe.setup_logger(cpe_name, 'CPE LAN Verification')
         cnc = cpe.cross_login()
 
         output = cpe.check_lan_route(str(lan_vrf))
         print output
+        main_logger.info(output)
 
         match2 = 1
         count = 0
@@ -156,11 +158,14 @@ class CloudGatewayLib():
 
         total = 0
         cpe = VersaLib(cpe_name, topofile="Devices.csv")
-        cnc = cpe.cross_login()
+        main_logger = cpe.setup_logger(cpe_name, 'CPE to CGW Ping Test')
 
+        cnc = cpe.cross_login()
         for ip in loopback_ip_list:
             result = cpe.ping(ip, routing_instance="LAN1-VRF", source=lan_ip)
             print result
+            main_logger.info("Ping test result between CPE and CGW loopback ip : " + ip + "\n")
+            main_logger.info(result)
 
             if (result == "True"):
                 total+=1

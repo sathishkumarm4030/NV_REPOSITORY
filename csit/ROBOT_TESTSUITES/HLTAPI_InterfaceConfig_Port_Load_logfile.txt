@@ -647,3 +647,583 @@ Fri Feb 28 17:06:23 IST 2020 [debug] return value: udp:udp1
 Fri Feb 28 17:06:23 IST 2020 [info] processCreateL4Protocol: stc::get Success. Handle is udp:udp1
 Fri Feb 28 17:06:23 IST 2020 [stccall] ::stc::apply
 Fri Feb 28 17:06:23 IST 2020 [info] [doStcApply] ::stc::apply PASSED. 
+Fri Feb 28 17:07:44 IST 2020 [hltcall] ::sth::traffic_control {-action run -stream_handle streamblock1}
+Fri Feb 28 17:07:44 IST 2020 [debug] {Calling sth::traffic_control}
+Fri Feb 28 17:07:44 IST 2020 [info] {Generating traffic table}
+Fri Feb 28 17:07:44 IST 2020 [stccall] stc::get project1 -children-port
+Fri Feb 28 17:07:44 IST 2020 [debug] return value: port1 port2 
+Fri Feb 28 17:07:44 IST 2020 [stccall] stc::get port1 -children-generator
+Fri Feb 28 17:07:44 IST 2020 [debug] return value: generator1 
+Fri Feb 28 17:07:44 IST 2020 [stccall] stc::get generator1.GeneratorConfig -DurationMode
+Fri Feb 28 17:07:44 IST 2020 [debug] return value: CONTINUOUS 
+Fri Feb 28 17:07:44 IST 2020 [stccall] stc::get port2 -children-generator
+Fri Feb 28 17:07:44 IST 2020 [debug] return value: generator2 
+Fri Feb 28 17:07:44 IST 2020 [stccall] stc::get generator2.GeneratorConfig -DurationMode
+Fri Feb 28 17:07:44 IST 2020 [debug] return value: CONTINUOUS 
+Fri Feb 28 17:07:44 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlPort_handle}
+Fri Feb 28 17:07:44 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlAction}
+Fri Feb 28 17:07:44 IST 2020 [stccall] stc::get project1 -children-port
+Fri Feb 28 17:07:44 IST 2020 [debug] return value: port1 port2 
+Fri Feb 28 17:07:44 IST 2020 [stccall] stc::get port1 -children-generator
+Fri Feb 28 17:07:44 IST 2020 [debug] return value: generator1 
+Fri Feb 28 17:07:44 IST 2020 [stccall] stc::get generator1.GeneratorConfig -DurationMode
+Fri Feb 28 17:07:44 IST 2020 [debug] return value: CONTINUOUS 
+Fri Feb 28 17:07:44 IST 2020 [stccall] stc::get port2 -children-generator
+Fri Feb 28 17:07:44 IST 2020 [debug] return value: generator2 
+Fri Feb 28 17:07:44 IST 2020 [stccall] stc::get generator2.GeneratorConfig -DurationMode
+Fri Feb 28 17:07:44 IST 2020 [debug] return value: CONTINUOUS 
+Fri Feb 28 17:07:44 IST 2020 [stccall] stc::get project1 -children-trafficoptions
+Fri Feb 28 17:07:44 IST 2020 [debug] return value: trafficoptions1 
+Fri Feb 28 17:07:44 IST 2020 [stccall] stc::config trafficoptions1 -TrafficStartMode asynchronous
+Fri Feb 28 17:07:44 IST 2020 [debug] return value:  
+Fri Feb 28 17:07:44 IST 2020 [stccall] ::stc::apply
+Fri Feb 28 17:07:45 IST 2020 [info] [doStcApply] ::stc::apply PASSED. 
+Fri Feb 28 17:07:45 IST 2020 [stccall] stc::get streamblock1 -parent
+Fri Feb 28 17:07:45 IST 2020 [debug] return value: port1 
+Fri Feb 28 17:07:45 IST 2020 [stccall] stc::get port1 -affiliationport-Sources
+Fri Feb 28 17:07:45 IST 2020 [debug] return value: host1 
+Fri Feb 28 17:07:45 IST 2020 [stccall] stc::get host1 -children-PppoeClientBlockConfig
+Fri Feb 28 17:07:45 IST 2020 [debug] return value:  
+Fri Feb 28 17:07:45 IST 2020 [stccall] stc::get host1 -children-PppoeServerBlockConfig
+Fri Feb 28 17:07:45 IST 2020 [debug] return value:  
+Fri Feb 28 17:07:45 IST 2020 [stccall] stc::get host1 -children-riprouterconfig
+Fri Feb 28 17:07:45 IST 2020 [debug] return value:  
+Fri Feb 28 17:07:45 IST 2020 [stccall] stc::get port1 -children-streamblock
+Fri Feb 28 17:07:45 IST 2020 [debug] return value: streamblock1 streamblock2 streamblock3 
+Fri Feb 28 17:07:45 IST 2020 [stccall] stc::perform ArpNdStart -HandleList {streamblock1 streamblock2 streamblock3}
+Fri Feb 28 17:07:46 IST 2020 [debug] return value: -parent system1 -Name {Learning: Start ArpNd 3} -HandleList {streamblock1 streamblock2 streamblock3} -ArpNdState SUCCESSFUL -WaitForArpToFinish true -ForceArp true -State COMPLETED -Status {} -StartTime 1582889865.37649 -EndTime 1582889866.97549 -ElapsedTime 1599 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Fri Feb 28 17:07:47 IST 2020 [debug] ::stc::perform ArpNdStart -HandleList port1
+Fri Feb 28 17:07:47 IST 2020 [stccall] stc::perform StreamBlockStart -StreamBlockList streamblock1
+Fri Feb 28 17:07:47 IST 2020 [debug] return value: -parent system1 -Name {Start StreamBlocks 1} -StreamBlockList streamblock1 -State COMPLETED -Status {Command finished.} -StartTime 1582889867.06576 -EndTime 1582889867.26573 -ElapsedTime 200 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Fri Feb 28 17:07:47 IST 2020 [info] {SUCCESS: Connect: {status 1}}
+Fri Feb 28 17:08:27 IST 2020 [hltcall] ::sth::traffic_control {-action run -stream_handle streamblock2}
+Fri Feb 28 17:08:27 IST 2020 [debug] {Calling sth::traffic_control}
+Fri Feb 28 17:08:27 IST 2020 [info] {Generating traffic table}
+Fri Feb 28 17:08:27 IST 2020 [stccall] stc::get project1 -children-port
+Fri Feb 28 17:08:27 IST 2020 [debug] return value: port1 port2 
+Fri Feb 28 17:08:27 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlPort_handle}
+Fri Feb 28 17:08:27 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlAction}
+Fri Feb 28 17:08:27 IST 2020 [stccall] stc::get project1 -children-port
+Fri Feb 28 17:08:27 IST 2020 [debug] return value: port1 port2 
+Fri Feb 28 17:08:27 IST 2020 [stccall] stc::get port1 -children-generator
+Fri Feb 28 17:08:27 IST 2020 [debug] return value: generator1 
+Fri Feb 28 17:08:27 IST 2020 [stccall] stc::get generator1.GeneratorConfig -DurationMode
+Fri Feb 28 17:08:27 IST 2020 [debug] return value: CONTINUOUS 
+Fri Feb 28 17:08:27 IST 2020 [stccall] stc::get port2 -children-generator
+Fri Feb 28 17:08:27 IST 2020 [debug] return value: generator2 
+Fri Feb 28 17:08:27 IST 2020 [stccall] stc::get generator2.GeneratorConfig -DurationMode
+Fri Feb 28 17:08:27 IST 2020 [debug] return value: CONTINUOUS 
+Fri Feb 28 17:08:27 IST 2020 [stccall] stc::get project1 -children-trafficoptions
+Fri Feb 28 17:08:27 IST 2020 [debug] return value: trafficoptions1 
+Fri Feb 28 17:08:27 IST 2020 [stccall] stc::config trafficoptions1 -TrafficStartMode asynchronous
+Fri Feb 28 17:08:27 IST 2020 [debug] return value:  
+Fri Feb 28 17:08:27 IST 2020 [stccall] ::stc::apply
+Fri Feb 28 17:08:27 IST 2020 [info] [doStcApply] ::stc::apply PASSED. 
+Fri Feb 28 17:08:27 IST 2020 [stccall] stc::get streamblock2 -parent
+Fri Feb 28 17:08:27 IST 2020 [debug] return value: port1 
+Fri Feb 28 17:08:27 IST 2020 [stccall] stc::perform StreamBlockStart -StreamBlockList streamblock2
+Fri Feb 28 17:08:28 IST 2020 [debug] return value: -parent system1 -Name {Start StreamBlocks 2} -StreamBlockList streamblock2 -State COMPLETED -Status {Command finished.} -StartTime 1582889907.91966 -EndTime 1582889907.99105 -ElapsedTime 71 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Fri Feb 28 17:08:28 IST 2020 [info] {SUCCESS: Connect: {status 1}}
+Fri Feb 28 17:09:08 IST 2020 [hltcall] ::sth::traffic_control {-action run -stream_handle streamblock3}
+Fri Feb 28 17:09:08 IST 2020 [debug] {Calling sth::traffic_control}
+Fri Feb 28 17:09:08 IST 2020 [info] {Generating traffic table}
+Fri Feb 28 17:09:08 IST 2020 [stccall] stc::get project1 -children-port
+Fri Feb 28 17:09:08 IST 2020 [debug] return value: port1 port2 
+Fri Feb 28 17:09:08 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlPort_handle}
+Fri Feb 28 17:09:08 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlAction}
+Fri Feb 28 17:09:08 IST 2020 [stccall] stc::get project1 -children-port
+Fri Feb 28 17:09:08 IST 2020 [debug] return value: port1 port2 
+Fri Feb 28 17:09:08 IST 2020 [stccall] stc::get port1 -children-generator
+Fri Feb 28 17:09:08 IST 2020 [debug] return value: generator1 
+Fri Feb 28 17:09:08 IST 2020 [stccall] stc::get generator1.GeneratorConfig -DurationMode
+Fri Feb 28 17:09:08 IST 2020 [debug] return value: CONTINUOUS 
+Fri Feb 28 17:09:08 IST 2020 [stccall] stc::get port2 -children-generator
+Fri Feb 28 17:09:08 IST 2020 [debug] return value: generator2 
+Fri Feb 28 17:09:08 IST 2020 [stccall] stc::get generator2.GeneratorConfig -DurationMode
+Fri Feb 28 17:09:08 IST 2020 [debug] return value: CONTINUOUS 
+Fri Feb 28 17:09:08 IST 2020 [stccall] stc::get project1 -children-trafficoptions
+Fri Feb 28 17:09:08 IST 2020 [debug] return value: trafficoptions1 
+Fri Feb 28 17:09:08 IST 2020 [stccall] stc::config trafficoptions1 -TrafficStartMode asynchronous
+Fri Feb 28 17:09:08 IST 2020 [debug] return value:  
+Fri Feb 28 17:09:08 IST 2020 [stccall] ::stc::apply
+Fri Feb 28 17:09:08 IST 2020 [info] [doStcApply] ::stc::apply PASSED. 
+Fri Feb 28 17:09:08 IST 2020 [stccall] stc::get streamblock3 -parent
+Fri Feb 28 17:09:08 IST 2020 [debug] return value: port1 
+Fri Feb 28 17:09:08 IST 2020 [stccall] stc::perform StreamBlockStart -StreamBlockList streamblock3
+Fri Feb 28 17:09:08 IST 2020 [debug] return value: -parent system1 -Name {Start StreamBlocks 3} -StreamBlockList streamblock3 -State COMPLETED -Status {Command finished.} -StartTime 1582889948.63796 -EndTime 1582889948.72659 -ElapsedTime 89 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Fri Feb 28 17:09:08 IST 2020 [info] {SUCCESS: Connect: {status 1}}
+Fri Feb 28 17:09:53 IST 2020 [hltcall] ::sth::traffic_control {-action stop -stream_handle streamblock3}
+Fri Feb 28 17:09:53 IST 2020 [debug] {Calling sth::traffic_control}
+Fri Feb 28 17:09:53 IST 2020 [info] {Generating traffic table}
+Fri Feb 28 17:09:53 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlPort_handle}
+Fri Feb 28 17:09:53 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlAction}
+Fri Feb 28 17:09:53 IST 2020 [stccall] stc::get project1 -children-trafficoptions
+Fri Feb 28 17:09:53 IST 2020 [debug] return value: trafficoptions1 
+Fri Feb 28 17:09:53 IST 2020 [stccall] stc::config trafficoptions1 -TrafficStartMode asynchronous
+Fri Feb 28 17:09:53 IST 2020 [debug] return value:  
+Fri Feb 28 17:09:53 IST 2020 [stccall] stc::get streamblock3 -parent
+Fri Feb 28 17:09:53 IST 2020 [debug] return value: port1 
+Fri Feb 28 17:09:53 IST 2020 [stccall] stc::get port1 -children-generator
+Fri Feb 28 17:09:53 IST 2020 [debug] return value: generator1 
+Fri Feb 28 17:09:53 IST 2020 [stccall] stc::get generator1 -state
+Fri Feb 28 17:09:53 IST 2020 [debug] return value: RUNNING 
+Fri Feb 28 17:09:53 IST 2020 [stccall] stc::get port1 -children-streamblock
+Fri Feb 28 17:09:53 IST 2020 [debug] return value: streamblock1 streamblock2 streamblock3 
+Fri Feb 28 17:09:53 IST 2020 [stccall] stc::get generator1 -children-generatorportresults
+Fri Feb 28 17:09:54 IST 2020 [debug] return value:  
+Fri Feb 28 17:09:54 IST 2020 [stccall] stc::subscribe -Parent project1 -ResultParent {port1}  -ConfigType Generator   -resulttype GeneratorPortResults  -viewAttributeList {TotalFrameRate TotalFrameCount}
+Fri Feb 28 17:09:54 IST 2020 [debug] return value: resultdataset1 
+Fri Feb 28 17:09:54 IST 2020 [stccall] stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3}  -ConfigType StreamBlock  -resulttype TxStreamBlockResults  -viewAttributeList {FrameRate FrameCount}
+Fri Feb 28 17:09:55 IST 2020 [debug] return value: resultdataset2 
+Fri Feb 28 17:09:55 IST 2020 [stccall] stc::get generator1 -children-generatorportresults
+Fri Feb 28 17:09:55 IST 2020 [debug] return value: generatorportresults1 
+Fri Feb 28 17:09:55 IST 2020 [stccall] stc::get generatorportresults1 -TotalFrameRate
+Fri Feb 28 17:09:55 IST 2020 [debug] return value: 4166 
+Fri Feb 28 17:09:55 IST 2020 [stccall] stc::get generatorportresults1 -TotalFrameCount
+Fri Feb 28 17:09:55 IST 2020 [debug] return value: 359271 
+Fri Feb 28 17:09:55 IST 2020 [stccall] stc::unsubscribe resultdataset1
+Fri Feb 28 17:09:55 IST 2020 [debug] return value:  
+Fri Feb 28 17:09:55 IST 2020 [stccall] stc::delete resultdataset1
+Fri Feb 28 17:09:55 IST 2020 [debug] return value:  
+Fri Feb 28 17:09:55 IST 2020 [stccall] stc::get streamblock1 -RunningState
+Fri Feb 28 17:09:55 IST 2020 [debug] return value: RUNNING 
+Fri Feb 28 17:09:55 IST 2020 [stccall] stc::get streamblock1 -children-TxStreamBlockResults
+Fri Feb 28 17:09:55 IST 2020 [debug] return value: txstreamblockresults1 
+Fri Feb 28 17:09:55 IST 2020 [stccall] stc::get txstreamblockresults1 -FrameRate
+Fri Feb 28 17:09:55 IST 2020 [debug] return value: 809 
+Fri Feb 28 17:09:55 IST 2020 [stccall] stc::get txstreamblockresults1 -FrameCount
+Fri Feb 28 17:09:55 IST 2020 [debug] return value: 177063 
+Fri Feb 28 17:09:55 IST 2020 [stccall] stc::get streamblock2 -RunningState
+Fri Feb 28 17:09:55 IST 2020 [debug] return value: RUNNING 
+Fri Feb 28 17:09:55 IST 2020 [stccall] stc::get streamblock2 -children-TxStreamBlockResults
+Fri Feb 28 17:09:55 IST 2020 [debug] return value: txstreamblockresults2 
+Fri Feb 28 17:09:55 IST 2020 [stccall] stc::get txstreamblockresults2 -FrameRate
+Fri Feb 28 17:09:55 IST 2020 [debug] return value: 562 
+Fri Feb 28 17:09:55 IST 2020 [stccall] stc::get txstreamblockresults2 -FrameCount
+Fri Feb 28 17:09:55 IST 2020 [debug] return value: 120422 
+Fri Feb 28 17:09:55 IST 2020 [stccall] stc::get streamblock3 -RunningState
+Fri Feb 28 17:09:55 IST 2020 [debug] return value: RUNNING 
+Fri Feb 28 17:09:55 IST 2020 [stccall] stc::get streamblock3 -children-TxStreamBlockResults
+Fri Feb 28 17:09:55 IST 2020 [debug] return value: txstreamblockresults3 
+Fri Feb 28 17:09:55 IST 2020 [stccall] stc::get txstreamblockresults3 -FrameRate
+Fri Feb 28 17:09:55 IST 2020 [debug] return value: 303 
+Fri Feb 28 17:09:55 IST 2020 [stccall] stc::get txstreamblockresults3 -FrameCount
+Fri Feb 28 17:09:55 IST 2020 [debug] return value: 63866 
+Fri Feb 28 17:09:55 IST 2020 [stccall] stc::unsubscribe resultdataset2
+Fri Feb 28 17:09:56 IST 2020 [debug] return value:  
+Fri Feb 28 17:09:56 IST 2020 [stccall] stc::delete resultdataset2
+Fri Feb 28 17:09:56 IST 2020 [debug] return value:  
+Fri Feb 28 17:09:56 IST 2020 [stccall] stc::perform StreamBlockStop -StreamBlockList streamblock3
+Fri Feb 28 17:09:56 IST 2020 [debug] return value: -parent system1 -Name {Stop StreamBlocks 1} -StreamBlockList streamblock3 -State COMPLETED -Status {Command finished.} -StartTime 1582889996.46002 -EndTime 1582889996.52301 -ElapsedTime 63 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Fri Feb 28 17:09:56 IST 2020 [stccall] stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi170956.db
+Fri Feb 28 17:10:06 IST 2020 [debug] return value: -parent system1 -Name {Save Results 1} -SaveToDatabase true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi170956.db -OverwriteIfExist true -CollectResult true -SaveDetailedResults true -ParentEotResultNode {} -State COMPLETED -Status {} -StartTime 1582889996.58352 -EndTime 1582890005.9889 -ElapsedTime 9405 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Fri Feb 28 17:10:06 IST 2020 [info] {SUCCESS: Connect: {status 1}}
+Fri Feb 28 17:10:06 IST 2020 [hltcall] ::sth::traffic_control {-action stop -stream_handle streamblock2}
+Fri Feb 28 17:10:06 IST 2020 [debug] {Calling sth::traffic_control}
+Fri Feb 28 17:10:06 IST 2020 [info] {Generating traffic table}
+Fri Feb 28 17:10:06 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlPort_handle}
+Fri Feb 28 17:10:06 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlAction}
+Fri Feb 28 17:10:06 IST 2020 [stccall] stc::get project1 -children-trafficoptions
+Fri Feb 28 17:10:06 IST 2020 [debug] return value: trafficoptions1 
+Fri Feb 28 17:10:06 IST 2020 [stccall] stc::config trafficoptions1 -TrafficStartMode asynchronous
+Fri Feb 28 17:10:06 IST 2020 [debug] return value:  
+Fri Feb 28 17:10:06 IST 2020 [stccall] stc::get streamblock2 -parent
+Fri Feb 28 17:10:06 IST 2020 [debug] return value: port1 
+Fri Feb 28 17:10:06 IST 2020 [stccall] stc::get port1 -children-generator
+Fri Feb 28 17:10:06 IST 2020 [debug] return value: generator1 
+Fri Feb 28 17:10:06 IST 2020 [stccall] stc::get generator1 -state
+Fri Feb 28 17:10:06 IST 2020 [debug] return value: RUNNING 
+Fri Feb 28 17:10:06 IST 2020 [stccall] stc::get port1 -children-streamblock
+Fri Feb 28 17:10:06 IST 2020 [debug] return value: streamblock1 streamblock2 streamblock3 
+Fri Feb 28 17:10:06 IST 2020 [stccall] stc::get generator1 -children-generatorportresults
+Fri Feb 28 17:10:06 IST 2020 [debug] return value:  
+Fri Feb 28 17:10:06 IST 2020 [stccall] stc::subscribe -Parent project1 -ResultParent {port1}  -ConfigType Generator   -resulttype GeneratorPortResults  -viewAttributeList {TotalFrameRate TotalFrameCount}
+Fri Feb 28 17:10:07 IST 2020 [debug] return value: resultdataset3 
+Fri Feb 28 17:10:07 IST 2020 [stccall] stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3}  -ConfigType StreamBlock  -resulttype TxStreamBlockResults  -viewAttributeList {FrameRate FrameCount}
+Fri Feb 28 17:10:07 IST 2020 [debug] return value: resultdataset4 
+Fri Feb 28 17:10:07 IST 2020 [stccall] stc::get generator1 -children-generatorportresults
+Fri Feb 28 17:10:07 IST 2020 [debug] return value: generatorportresults2 
+Fri Feb 28 17:10:07 IST 2020 [stccall] stc::get generatorportresults2 -TotalFrameRate
+Fri Feb 28 17:10:07 IST 2020 [debug] return value: 2778 
+Fri Feb 28 17:10:07 IST 2020 [stccall] stc::get generatorportresults2 -TotalFrameCount
+Fri Feb 28 17:10:07 IST 2020 [debug] return value: 395830 
+Fri Feb 28 17:10:07 IST 2020 [stccall] stc::unsubscribe resultdataset3
+Fri Feb 28 17:10:07 IST 2020 [debug] return value:  
+Fri Feb 28 17:10:07 IST 2020 [stccall] stc::delete resultdataset3
+Fri Feb 28 17:10:07 IST 2020 [debug] return value:  
+Fri Feb 28 17:10:07 IST 2020 [stccall] stc::get streamblock1 -RunningState
+Fri Feb 28 17:10:07 IST 2020 [debug] return value: RUNNING 
+Fri Feb 28 17:10:07 IST 2020 [stccall] stc::get streamblock1 -children-TxStreamBlockResults
+Fri Feb 28 17:10:07 IST 2020 [debug] return value: txstreamblockresults4 
+Fri Feb 28 17:10:07 IST 2020 [stccall] stc::get txstreamblockresults4 -FrameRate
+Fri Feb 28 17:10:07 IST 2020 [debug] return value: 1389 
+Fri Feb 28 17:10:07 IST 2020 [stccall] stc::get txstreamblockresults4 -FrameCount
+Fri Feb 28 17:10:07 IST 2020 [debug] return value: 194539 
+Fri Feb 28 17:10:07 IST 2020 [stccall] stc::get streamblock2 -RunningState
+Fri Feb 28 17:10:07 IST 2020 [debug] return value: RUNNING 
+Fri Feb 28 17:10:07 IST 2020 [stccall] stc::get streamblock2 -children-TxStreamBlockResults
+Fri Feb 28 17:10:07 IST 2020 [debug] return value: txstreamblockresults5 
+Fri Feb 28 17:10:07 IST 2020 [stccall] stc::get txstreamblockresults5 -FrameRate
+Fri Feb 28 17:10:07 IST 2020 [debug] return value: 1389 
+Fri Feb 28 17:10:07 IST 2020 [stccall] stc::get txstreamblockresults5 -FrameCount
+Fri Feb 28 17:10:08 IST 2020 [debug] return value: 137899 
+Fri Feb 28 17:10:08 IST 2020 [stccall] stc::get streamblock3 -RunningState
+Fri Feb 28 17:10:08 IST 2020 [debug] return value: STOPPED 
+Fri Feb 28 17:10:08 IST 2020 [stccall] stc::unsubscribe resultdataset4
+Fri Feb 28 17:10:08 IST 2020 [debug] return value:  
+Fri Feb 28 17:10:08 IST 2020 [stccall] stc::delete resultdataset4
+Fri Feb 28 17:10:08 IST 2020 [debug] return value:  
+Fri Feb 28 17:10:08 IST 2020 [stccall] stc::perform StreamBlockStop -StreamBlockList streamblock2
+Fri Feb 28 17:10:08 IST 2020 [debug] return value: -parent system1 -Name {Stop StreamBlocks 2} -StreamBlockList streamblock2 -State COMPLETED -Status {Command finished.} -StartTime 1582890008.7021 -EndTime 1582890008.76411 -ElapsedTime 62 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Fri Feb 28 17:10:08 IST 2020 [stccall] stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi171008.db
+Fri Feb 28 17:10:15 IST 2020 [debug] return value: -parent system1 -Name {Save Results 2} -SaveToDatabase true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi171008.db -OverwriteIfExist true -CollectResult true -SaveDetailedResults true -ParentEotResultNode {} -State COMPLETED -Status {} -StartTime 1582890008.84003 -EndTime 1582890015.90999 -ElapsedTime 7070 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Fri Feb 28 17:10:15 IST 2020 [info] {SUCCESS: Connect: {status 1}}
+Fri Feb 28 17:10:15 IST 2020 [hltcall] ::sth::traffic_control {-action stop -stream_handle streamblock1}
+Fri Feb 28 17:10:15 IST 2020 [debug] {Calling sth::traffic_control}
+Fri Feb 28 17:10:15 IST 2020 [info] {Generating traffic table}
+Fri Feb 28 17:10:16 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlPort_handle}
+Fri Feb 28 17:10:16 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlAction}
+Fri Feb 28 17:10:16 IST 2020 [stccall] stc::get project1 -children-trafficoptions
+Fri Feb 28 17:10:16 IST 2020 [debug] return value: trafficoptions1 
+Fri Feb 28 17:10:16 IST 2020 [stccall] stc::config trafficoptions1 -TrafficStartMode asynchronous
+Fri Feb 28 17:10:16 IST 2020 [debug] return value:  
+Fri Feb 28 17:10:16 IST 2020 [stccall] stc::get streamblock1 -parent
+Fri Feb 28 17:10:16 IST 2020 [debug] return value: port1 
+Fri Feb 28 17:10:16 IST 2020 [stccall] stc::get port1 -children-generator
+Fri Feb 28 17:10:16 IST 2020 [debug] return value: generator1 
+Fri Feb 28 17:10:16 IST 2020 [stccall] stc::get generator1 -state
+Fri Feb 28 17:10:16 IST 2020 [debug] return value: RUNNING 
+Fri Feb 28 17:10:16 IST 2020 [stccall] stc::get port1 -children-streamblock
+Fri Feb 28 17:10:16 IST 2020 [debug] return value: streamblock1 streamblock2 streamblock3 
+Fri Feb 28 17:10:16 IST 2020 [stccall] stc::get generator1 -children-generatorportresults
+Fri Feb 28 17:10:16 IST 2020 [debug] return value:  
+Fri Feb 28 17:10:16 IST 2020 [stccall] stc::subscribe -Parent project1 -ResultParent {port1}  -ConfigType Generator   -resulttype GeneratorPortResults  -viewAttributeList {TotalFrameRate TotalFrameCount}
+Fri Feb 28 17:10:16 IST 2020 [debug] return value: resultdataset5 
+Fri Feb 28 17:10:16 IST 2020 [stccall] stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3}  -ConfigType StreamBlock  -resulttype TxStreamBlockResults  -viewAttributeList {FrameRate FrameCount}
+Fri Feb 28 17:10:17 IST 2020 [debug] return value: resultdataset6 
+Fri Feb 28 17:10:17 IST 2020 [stccall] stc::get generator1 -children-generatorportresults
+Fri Feb 28 17:10:17 IST 2020 [debug] return value: generatorportresults3 
+Fri Feb 28 17:10:17 IST 2020 [stccall] stc::get generatorportresults3 -TotalFrameRate
+Fri Feb 28 17:10:17 IST 2020 [debug] return value: 1389 
+Fri Feb 28 17:10:17 IST 2020 [stccall] stc::get generatorportresults3 -TotalFrameCount
+Fri Feb 28 17:10:17 IST 2020 [debug] return value: 413278 
+Fri Feb 28 17:10:17 IST 2020 [stccall] stc::unsubscribe resultdataset5
+Fri Feb 28 17:10:17 IST 2020 [debug] return value:  
+Fri Feb 28 17:10:17 IST 2020 [stccall] stc::delete resultdataset5
+Fri Feb 28 17:10:17 IST 2020 [debug] return value:  
+Fri Feb 28 17:10:17 IST 2020 [stccall] stc::get streamblock1 -RunningState
+Fri Feb 28 17:10:17 IST 2020 [debug] return value: RUNNING 
+Fri Feb 28 17:10:17 IST 2020 [stccall] stc::get streamblock1 -children-TxStreamBlockResults
+Fri Feb 28 17:10:17 IST 2020 [debug] return value: txstreamblockresults6 
+Fri Feb 28 17:10:17 IST 2020 [stccall] stc::get txstreamblockresults6 -FrameRate
+Fri Feb 28 17:10:17 IST 2020 [debug] return value: 1389 
+Fri Feb 28 17:10:17 IST 2020 [stccall] stc::get txstreamblockresults6 -FrameCount
+Fri Feb 28 17:10:17 IST 2020 [debug] return value: 207646 
+Fri Feb 28 17:10:17 IST 2020 [stccall] stc::get streamblock2 -RunningState
+Fri Feb 28 17:10:17 IST 2020 [debug] return value: STOPPED 
+Fri Feb 28 17:10:17 IST 2020 [stccall] stc::unsubscribe resultdataset6
+Fri Feb 28 17:10:18 IST 2020 [debug] return value:  
+Fri Feb 28 17:10:18 IST 2020 [stccall] stc::delete resultdataset6
+Fri Feb 28 17:10:18 IST 2020 [debug] return value:  
+Fri Feb 28 17:10:18 IST 2020 [stccall] stc::perform StreamBlockStop -StreamBlockList streamblock1
+Fri Feb 28 17:10:18 IST 2020 [debug] return value: -parent system1 -Name {Stop StreamBlocks 3} -StreamBlockList streamblock1 -State COMPLETED -Status {Command finished.} -StartTime 1582890018.38731 -EndTime 1582890018.42868 -ElapsedTime 41 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Fri Feb 28 17:10:18 IST 2020 [stccall] stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi171018.db
+Fri Feb 28 17:10:26 IST 2020 [debug] return value: -parent system1 -Name {Save Results 3} -SaveToDatabase true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi171018.db -OverwriteIfExist true -CollectResult true -SaveDetailedResults true -ParentEotResultNode {} -State COMPLETED -Status {} -StartTime 1582890018.50061 -EndTime 1582890026.18116 -ElapsedTime 7681 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Fri Feb 28 17:10:26 IST 2020 [info] {SUCCESS: Connect: {status 1}}
+Fri Feb 28 17:11:05 IST 2020 [hltcall] ::sth::traffic_control {-action run -stream_handle streamblock1}
+Fri Feb 28 17:11:05 IST 2020 [debug] {Calling sth::traffic_control}
+Fri Feb 28 17:11:05 IST 2020 [info] {Generating traffic table}
+Fri Feb 28 17:11:05 IST 2020 [stccall] stc::get project1 -children-port
+Fri Feb 28 17:11:05 IST 2020 [debug] return value: port1 port2 
+Fri Feb 28 17:11:05 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlPort_handle}
+Fri Feb 28 17:11:05 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlAction}
+Fri Feb 28 17:11:05 IST 2020 [stccall] stc::get project1 -children-port
+Fri Feb 28 17:11:05 IST 2020 [debug] return value: port1 port2 
+Fri Feb 28 17:11:05 IST 2020 [stccall] stc::get port1 -children-generator
+Fri Feb 28 17:11:06 IST 2020 [debug] return value: generator1 
+Fri Feb 28 17:11:06 IST 2020 [stccall] stc::get generator1.GeneratorConfig -DurationMode
+Fri Feb 28 17:11:06 IST 2020 [debug] return value: CONTINUOUS 
+Fri Feb 28 17:11:06 IST 2020 [stccall] stc::get port2 -children-generator
+Fri Feb 28 17:11:06 IST 2020 [debug] return value: generator2 
+Fri Feb 28 17:11:06 IST 2020 [stccall] stc::get generator2.GeneratorConfig -DurationMode
+Fri Feb 28 17:11:06 IST 2020 [debug] return value: CONTINUOUS 
+Fri Feb 28 17:11:06 IST 2020 [stccall] stc::get project1 -children-trafficoptions
+Fri Feb 28 17:11:06 IST 2020 [debug] return value: trafficoptions1 
+Fri Feb 28 17:11:06 IST 2020 [stccall] stc::config trafficoptions1 -TrafficStartMode asynchronous
+Fri Feb 28 17:11:06 IST 2020 [debug] return value:  
+Fri Feb 28 17:11:06 IST 2020 [stccall] ::stc::apply
+Fri Feb 28 17:11:06 IST 2020 [info] [doStcApply] ::stc::apply PASSED. 
+Fri Feb 28 17:11:06 IST 2020 [stccall] stc::get streamblock1 -parent
+Fri Feb 28 17:11:06 IST 2020 [debug] return value: port1 
+Fri Feb 28 17:11:06 IST 2020 [stccall] stc::perform StreamBlockStart -StreamBlockList streamblock1
+Fri Feb 28 17:11:07 IST 2020 [debug] return value: -parent system1 -Name {Start StreamBlocks 4} -StreamBlockList streamblock1 -State COMPLETED -Status {Command finished.} -StartTime 1582890066.9308 -EndTime 1582890067.17922 -ElapsedTime 248 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Fri Feb 28 17:11:07 IST 2020 [info] {SUCCESS: Connect: {status 1}}
+Fri Feb 28 17:11:47 IST 2020 [hltcall] ::sth::traffic_control {-action run -stream_handle streamblock2}
+Fri Feb 28 17:11:47 IST 2020 [debug] {Calling sth::traffic_control}
+Fri Feb 28 17:11:47 IST 2020 [info] {Generating traffic table}
+Fri Feb 28 17:11:47 IST 2020 [stccall] stc::get project1 -children-port
+Fri Feb 28 17:11:47 IST 2020 [debug] return value: port1 port2 
+Fri Feb 28 17:11:47 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlPort_handle}
+Fri Feb 28 17:11:47 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlAction}
+Fri Feb 28 17:11:47 IST 2020 [stccall] stc::get project1 -children-port
+Fri Feb 28 17:11:47 IST 2020 [debug] return value: port1 port2 
+Fri Feb 28 17:11:47 IST 2020 [stccall] stc::get port1 -children-generator
+Fri Feb 28 17:11:47 IST 2020 [debug] return value: generator1 
+Fri Feb 28 17:11:47 IST 2020 [stccall] stc::get generator1.GeneratorConfig -DurationMode
+Fri Feb 28 17:11:47 IST 2020 [debug] return value: CONTINUOUS 
+Fri Feb 28 17:11:47 IST 2020 [stccall] stc::get port2 -children-generator
+Fri Feb 28 17:11:47 IST 2020 [debug] return value: generator2 
+Fri Feb 28 17:11:47 IST 2020 [stccall] stc::get generator2.GeneratorConfig -DurationMode
+Fri Feb 28 17:11:47 IST 2020 [debug] return value: CONTINUOUS 
+Fri Feb 28 17:11:47 IST 2020 [stccall] stc::get project1 -children-trafficoptions
+Fri Feb 28 17:11:47 IST 2020 [debug] return value: trafficoptions1 
+Fri Feb 28 17:11:47 IST 2020 [stccall] stc::config trafficoptions1 -TrafficStartMode asynchronous
+Fri Feb 28 17:11:47 IST 2020 [debug] return value:  
+Fri Feb 28 17:11:47 IST 2020 [stccall] ::stc::apply
+Fri Feb 28 17:11:47 IST 2020 [info] [doStcApply] ::stc::apply PASSED. 
+Fri Feb 28 17:11:47 IST 2020 [stccall] stc::get streamblock2 -parent
+Fri Feb 28 17:11:47 IST 2020 [debug] return value: port1 
+Fri Feb 28 17:11:47 IST 2020 [stccall] stc::perform StreamBlockStart -StreamBlockList streamblock2
+Fri Feb 28 17:11:47 IST 2020 [debug] return value: -parent system1 -Name {Start StreamBlocks 5} -StreamBlockList streamblock2 -State COMPLETED -Status {Command finished.} -StartTime 1582890107.81754 -EndTime 1582890107.88751 -ElapsedTime 70 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Fri Feb 28 17:11:47 IST 2020 [info] {SUCCESS: Connect: {status 1}}
+Fri Feb 28 17:12:27 IST 2020 [hltcall] ::sth::traffic_control {-action run -stream_handle streamblock3}
+Fri Feb 28 17:12:27 IST 2020 [debug] {Calling sth::traffic_control}
+Fri Feb 28 17:12:27 IST 2020 [info] {Generating traffic table}
+Fri Feb 28 17:12:27 IST 2020 [stccall] stc::get project1 -children-port
+Fri Feb 28 17:12:28 IST 2020 [debug] return value: port1 port2 
+Fri Feb 28 17:12:28 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlPort_handle}
+Fri Feb 28 17:12:28 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlAction}
+Fri Feb 28 17:12:28 IST 2020 [stccall] stc::get project1 -children-port
+Fri Feb 28 17:12:28 IST 2020 [debug] return value: port1 port2 
+Fri Feb 28 17:12:28 IST 2020 [stccall] stc::get port1 -children-generator
+Fri Feb 28 17:12:28 IST 2020 [debug] return value: generator1 
+Fri Feb 28 17:12:28 IST 2020 [stccall] stc::get generator1.GeneratorConfig -DurationMode
+Fri Feb 28 17:12:28 IST 2020 [debug] return value: CONTINUOUS 
+Fri Feb 28 17:12:28 IST 2020 [stccall] stc::get port2 -children-generator
+Fri Feb 28 17:12:28 IST 2020 [debug] return value: generator2 
+Fri Feb 28 17:12:28 IST 2020 [stccall] stc::get generator2.GeneratorConfig -DurationMode
+Fri Feb 28 17:12:28 IST 2020 [debug] return value: CONTINUOUS 
+Fri Feb 28 17:12:28 IST 2020 [stccall] stc::get project1 -children-trafficoptions
+Fri Feb 28 17:12:28 IST 2020 [debug] return value: trafficoptions1 
+Fri Feb 28 17:12:28 IST 2020 [stccall] stc::config trafficoptions1 -TrafficStartMode asynchronous
+Fri Feb 28 17:12:28 IST 2020 [debug] return value:  
+Fri Feb 28 17:12:28 IST 2020 [stccall] ::stc::apply
+Fri Feb 28 17:12:28 IST 2020 [info] [doStcApply] ::stc::apply PASSED. 
+Fri Feb 28 17:12:28 IST 2020 [stccall] stc::get streamblock3 -parent
+Fri Feb 28 17:12:28 IST 2020 [debug] return value: port1 
+Fri Feb 28 17:12:28 IST 2020 [stccall] stc::perform StreamBlockStart -StreamBlockList streamblock3
+Fri Feb 28 17:12:28 IST 2020 [debug] return value: -parent system1 -Name {Start StreamBlocks 6} -StreamBlockList streamblock3 -State COMPLETED -Status {Command finished.} -StartTime 1582890148.5519 -EndTime 1582890148.64357 -ElapsedTime 92 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Fri Feb 28 17:12:28 IST 2020 [info] {SUCCESS: Connect: {status 1}}
+Fri Feb 28 17:13:13 IST 2020 [hltcall] ::sth::traffic_control {-action stop -stream_handle streamblock3}
+Fri Feb 28 17:13:13 IST 2020 [debug] {Calling sth::traffic_control}
+Fri Feb 28 17:13:13 IST 2020 [info] {Generating traffic table}
+Fri Feb 28 17:13:13 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlPort_handle}
+Fri Feb 28 17:13:13 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlAction}
+Fri Feb 28 17:13:13 IST 2020 [stccall] stc::get project1 -children-trafficoptions
+Fri Feb 28 17:13:13 IST 2020 [debug] return value: trafficoptions1 
+Fri Feb 28 17:13:13 IST 2020 [stccall] stc::config trafficoptions1 -TrafficStartMode asynchronous
+Fri Feb 28 17:13:13 IST 2020 [debug] return value:  
+Fri Feb 28 17:13:13 IST 2020 [stccall] stc::get streamblock3 -parent
+Fri Feb 28 17:13:13 IST 2020 [debug] return value: port1 
+Fri Feb 28 17:13:13 IST 2020 [stccall] stc::get port1 -children-generator
+Fri Feb 28 17:13:13 IST 2020 [debug] return value: generator1 
+Fri Feb 28 17:13:13 IST 2020 [stccall] stc::get generator1 -state
+Fri Feb 28 17:13:13 IST 2020 [debug] return value: RUNNING 
+Fri Feb 28 17:13:13 IST 2020 [stccall] stc::get port1 -children-streamblock
+Fri Feb 28 17:13:13 IST 2020 [debug] return value: streamblock1 streamblock2 streamblock3 
+Fri Feb 28 17:13:13 IST 2020 [stccall] stc::get generator1 -children-generatorportresults
+Fri Feb 28 17:13:13 IST 2020 [debug] return value:  
+Fri Feb 28 17:13:13 IST 2020 [stccall] stc::subscribe -Parent project1 -ResultParent {port1}  -ConfigType Generator   -resulttype GeneratorPortResults  -viewAttributeList {TotalFrameRate TotalFrameCount}
+Fri Feb 28 17:13:14 IST 2020 [debug] return value: resultdataset7 
+Fri Feb 28 17:13:14 IST 2020 [stccall] stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3}  -ConfigType StreamBlock  -resulttype TxStreamBlockResults  -viewAttributeList {FrameRate FrameCount}
+Fri Feb 28 17:13:15 IST 2020 [debug] return value: resultdataset8 
+Fri Feb 28 17:13:15 IST 2020 [stccall] stc::get generator1 -children-generatorportresults
+Fri Feb 28 17:13:15 IST 2020 [debug] return value: generatorportresults4 
+Fri Feb 28 17:13:15 IST 2020 [stccall] stc::get generatorportresults4 -TotalFrameRate
+Fri Feb 28 17:13:15 IST 2020 [debug] return value: 4166 
+Fri Feb 28 17:13:15 IST 2020 [stccall] stc::get generatorportresults4 -TotalFrameCount
+Fri Feb 28 17:13:15 IST 2020 [debug] return value: 776019 
+Fri Feb 28 17:13:15 IST 2020 [stccall] stc::unsubscribe resultdataset7
+Fri Feb 28 17:13:15 IST 2020 [debug] return value:  
+Fri Feb 28 17:13:15 IST 2020 [stccall] stc::delete resultdataset7
+Fri Feb 28 17:13:15 IST 2020 [debug] return value:  
+Fri Feb 28 17:13:15 IST 2020 [stccall] stc::get streamblock1 -RunningState
+Fri Feb 28 17:13:15 IST 2020 [debug] return value: RUNNING 
+Fri Feb 28 17:13:15 IST 2020 [stccall] stc::get streamblock1 -children-TxStreamBlockResults
+Fri Feb 28 17:13:15 IST 2020 [debug] return value: txstreamblockresults7 
+Fri Feb 28 17:13:15 IST 2020 [stccall] stc::get txstreamblockresults7 -FrameRate
+Fri Feb 28 17:13:15 IST 2020 [debug] return value: 1009 
+Fri Feb 28 17:13:15 IST 2020 [stccall] stc::get txstreamblockresults7 -FrameCount
+Fri Feb 28 17:13:15 IST 2020 [debug] return value: 387598 
+Fri Feb 28 17:13:15 IST 2020 [stccall] stc::get streamblock2 -RunningState
+Fri Feb 28 17:13:15 IST 2020 [debug] return value: RUNNING 
+Fri Feb 28 17:13:15 IST 2020 [stccall] stc::get streamblock2 -children-TxStreamBlockResults
+Fri Feb 28 17:13:15 IST 2020 [debug] return value: txstreamblockresults8 
+Fri Feb 28 17:13:15 IST 2020 [stccall] stc::get txstreamblockresults8 -FrameRate
+Fri Feb 28 17:13:15 IST 2020 [debug] return value: 687 
+Fri Feb 28 17:13:15 IST 2020 [stccall] stc::get txstreamblockresults8 -FrameCount
+Fri Feb 28 17:13:15 IST 2020 [debug] return value: 260915 
+Fri Feb 28 17:13:15 IST 2020 [stccall] stc::get streamblock3 -RunningState
+Fri Feb 28 17:13:15 IST 2020 [debug] return value: RUNNING 
+Fri Feb 28 17:13:15 IST 2020 [stccall] stc::get streamblock3 -children-TxStreamBlockResults
+Fri Feb 28 17:13:15 IST 2020 [debug] return value: txstreamblockresults9 
+Fri Feb 28 17:13:15 IST 2020 [stccall] stc::get txstreamblockresults9 -FrameRate
+Fri Feb 28 17:13:15 IST 2020 [debug] return value: 366 
+Fri Feb 28 17:13:15 IST 2020 [stccall] stc::get txstreamblockresults9 -FrameCount
+Fri Feb 28 17:13:15 IST 2020 [debug] return value: 130757 
+Fri Feb 28 17:13:15 IST 2020 [stccall] stc::unsubscribe resultdataset8
+Fri Feb 28 17:13:16 IST 2020 [debug] return value:  
+Fri Feb 28 17:13:16 IST 2020 [stccall] stc::delete resultdataset8
+Fri Feb 28 17:13:16 IST 2020 [debug] return value:  
+Fri Feb 28 17:13:16 IST 2020 [stccall] stc::perform StreamBlockStop -StreamBlockList streamblock3
+Fri Feb 28 17:13:16 IST 2020 [debug] return value: -parent system1 -Name {Stop StreamBlocks 4} -StreamBlockList streamblock3 -State COMPLETED -Status {Command finished.} -StartTime 1582890196.45538 -EndTime 1582890196.51958 -ElapsedTime 64 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Fri Feb 28 17:13:16 IST 2020 [stccall] stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi171316.db
+Fri Feb 28 17:13:24 IST 2020 [debug] return value: -parent system1 -Name {Save Results 4} -SaveToDatabase true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi171316.db -OverwriteIfExist true -CollectResult true -SaveDetailedResults true -ParentEotResultNode {} -State COMPLETED -Status {} -StartTime 1582890196.61174 -EndTime 1582890204.0997 -ElapsedTime 7488 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Fri Feb 28 17:13:24 IST 2020 [info] {SUCCESS: Connect: {status 1}}
+Fri Feb 28 17:13:24 IST 2020 [hltcall] ::sth::traffic_control {-action stop -stream_handle streamblock2}
+Fri Feb 28 17:13:24 IST 2020 [debug] {Calling sth::traffic_control}
+Fri Feb 28 17:13:24 IST 2020 [info] {Generating traffic table}
+Fri Feb 28 17:13:24 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlPort_handle}
+Fri Feb 28 17:13:24 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlAction}
+Fri Feb 28 17:13:24 IST 2020 [stccall] stc::get project1 -children-trafficoptions
+Fri Feb 28 17:13:24 IST 2020 [debug] return value: trafficoptions1 
+Fri Feb 28 17:13:24 IST 2020 [stccall] stc::config trafficoptions1 -TrafficStartMode asynchronous
+Fri Feb 28 17:13:24 IST 2020 [debug] return value:  
+Fri Feb 28 17:13:24 IST 2020 [stccall] stc::get streamblock2 -parent
+Fri Feb 28 17:13:24 IST 2020 [debug] return value: port1 
+Fri Feb 28 17:13:24 IST 2020 [stccall] stc::get port1 -children-generator
+Fri Feb 28 17:13:24 IST 2020 [debug] return value: generator1 
+Fri Feb 28 17:13:24 IST 2020 [stccall] stc::get generator1 -state
+Fri Feb 28 17:13:24 IST 2020 [debug] return value: RUNNING 
+Fri Feb 28 17:13:24 IST 2020 [stccall] stc::get port1 -children-streamblock
+Fri Feb 28 17:13:24 IST 2020 [debug] return value: streamblock1 streamblock2 streamblock3 
+Fri Feb 28 17:13:24 IST 2020 [stccall] stc::get generator1 -children-generatorportresults
+Fri Feb 28 17:13:24 IST 2020 [debug] return value:  
+Fri Feb 28 17:13:24 IST 2020 [stccall] stc::subscribe -Parent project1 -ResultParent {port1}  -ConfigType Generator   -resulttype GeneratorPortResults  -viewAttributeList {TotalFrameRate TotalFrameCount}
+Fri Feb 28 17:13:25 IST 2020 [debug] return value: resultdataset9 
+Fri Feb 28 17:13:25 IST 2020 [stccall] stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3}  -ConfigType StreamBlock  -resulttype TxStreamBlockResults  -viewAttributeList {FrameRate FrameCount}
+Fri Feb 28 17:13:25 IST 2020 [debug] return value: resultdataset10 
+Fri Feb 28 17:13:25 IST 2020 [stccall] stc::get generator1 -children-generatorportresults
+Fri Feb 28 17:13:25 IST 2020 [debug] return value: generatorportresults5 
+Fri Feb 28 17:13:25 IST 2020 [stccall] stc::get generatorportresults5 -TotalFrameRate
+Fri Feb 28 17:13:25 IST 2020 [debug] return value: 2778 
+Fri Feb 28 17:13:25 IST 2020 [stccall] stc::get generatorportresults5 -TotalFrameCount
+Fri Feb 28 17:13:25 IST 2020 [debug] return value: 807020 
+Fri Feb 28 17:13:25 IST 2020 [stccall] stc::unsubscribe resultdataset9
+Fri Feb 28 17:13:25 IST 2020 [debug] return value:  
+Fri Feb 28 17:13:25 IST 2020 [stccall] stc::delete resultdataset9
+Fri Feb 28 17:13:25 IST 2020 [debug] return value:  
+Fri Feb 28 17:13:25 IST 2020 [stccall] stc::get streamblock1 -RunningState
+Fri Feb 28 17:13:25 IST 2020 [debug] return value: RUNNING 
+Fri Feb 28 17:13:25 IST 2020 [stccall] stc::get streamblock1 -children-TxStreamBlockResults
+Fri Feb 28 17:13:25 IST 2020 [debug] return value: txstreamblockresults10 
+Fri Feb 28 17:13:25 IST 2020 [stccall] stc::get txstreamblockresults10 -FrameRate
+Fri Feb 28 17:13:25 IST 2020 [debug] return value: 1389 
+Fri Feb 28 17:13:25 IST 2020 [stccall] stc::get txstreamblockresults10 -FrameCount
+Fri Feb 28 17:13:25 IST 2020 [debug] return value: 401434 
+Fri Feb 28 17:13:25 IST 2020 [stccall] stc::get streamblock2 -RunningState
+Fri Feb 28 17:13:25 IST 2020 [debug] return value: RUNNING 
+Fri Feb 28 17:13:25 IST 2020 [stccall] stc::get streamblock2 -children-TxStreamBlockResults
+Fri Feb 28 17:13:25 IST 2020 [debug] return value: txstreamblockresults11 
+Fri Feb 28 17:13:25 IST 2020 [stccall] stc::get txstreamblockresults11 -FrameRate
+Fri Feb 28 17:13:26 IST 2020 [debug] return value: 1389 
+Fri Feb 28 17:13:26 IST 2020 [stccall] stc::get txstreamblockresults11 -FrameCount
+Fri Feb 28 17:13:26 IST 2020 [debug] return value: 274750 
+Fri Feb 28 17:13:26 IST 2020 [stccall] stc::get streamblock3 -RunningState
+Fri Feb 28 17:13:26 IST 2020 [debug] return value: STOPPED 
+Fri Feb 28 17:13:26 IST 2020 [stccall] stc::unsubscribe resultdataset10
+Fri Feb 28 17:13:26 IST 2020 [debug] return value:  
+Fri Feb 28 17:13:26 IST 2020 [stccall] stc::delete resultdataset10
+Fri Feb 28 17:13:26 IST 2020 [debug] return value:  
+Fri Feb 28 17:13:26 IST 2020 [stccall] stc::perform StreamBlockStop -StreamBlockList streamblock2
+Fri Feb 28 17:13:26 IST 2020 [debug] return value: -parent system1 -Name {Stop StreamBlocks 5} -StreamBlockList streamblock2 -State COMPLETED -Status {Command finished.} -StartTime 1582890206.76366 -EndTime 1582890206.83916 -ElapsedTime 76 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Fri Feb 28 17:13:26 IST 2020 [stccall] stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi171326.db
+Fri Feb 28 17:13:34 IST 2020 [debug] return value: -parent system1 -Name {Save Results 5} -SaveToDatabase true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi171326.db -OverwriteIfExist true -CollectResult true -SaveDetailedResults true -ParentEotResultNode {} -State COMPLETED -Status {} -StartTime 1582890206.92368 -EndTime 1582890214.14998 -ElapsedTime 7226 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Fri Feb 28 17:13:34 IST 2020 [info] {SUCCESS: Connect: {status 1}}
+Fri Feb 28 17:13:34 IST 2020 [hltcall] ::sth::traffic_control {-action stop -stream_handle streamblock1}
+Fri Feb 28 17:13:34 IST 2020 [debug] {Calling sth::traffic_control}
+Fri Feb 28 17:13:34 IST 2020 [info] {Generating traffic table}
+Fri Feb 28 17:13:34 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlPort_handle}
+Fri Feb 28 17:13:34 IST 2020 [info] {Calling: ::sth::Traffic::processTraffic_controlAction}
+Fri Feb 28 17:13:34 IST 2020 [stccall] stc::get project1 -children-trafficoptions
+Fri Feb 28 17:13:34 IST 2020 [debug] return value: trafficoptions1 
+Fri Feb 28 17:13:34 IST 2020 [stccall] stc::config trafficoptions1 -TrafficStartMode asynchronous
+Fri Feb 28 17:13:34 IST 2020 [debug] return value:  
+Fri Feb 28 17:13:34 IST 2020 [stccall] stc::get streamblock1 -parent
+Fri Feb 28 17:13:34 IST 2020 [debug] return value: port1 
+Fri Feb 28 17:13:34 IST 2020 [stccall] stc::get port1 -children-generator
+Fri Feb 28 17:13:34 IST 2020 [debug] return value: generator1 
+Fri Feb 28 17:13:34 IST 2020 [stccall] stc::get generator1 -state
+Fri Feb 28 17:13:34 IST 2020 [debug] return value: RUNNING 
+Fri Feb 28 17:13:34 IST 2020 [stccall] stc::get port1 -children-streamblock
+Fri Feb 28 17:13:34 IST 2020 [debug] return value: streamblock1 streamblock2 streamblock3 
+Fri Feb 28 17:13:34 IST 2020 [stccall] stc::get generator1 -children-generatorportresults
+Fri Feb 28 17:13:34 IST 2020 [debug] return value:  
+Fri Feb 28 17:13:34 IST 2020 [stccall] stc::subscribe -Parent project1 -ResultParent {port1}  -ConfigType Generator   -resulttype GeneratorPortResults  -viewAttributeList {TotalFrameRate TotalFrameCount}
+Fri Feb 28 17:13:35 IST 2020 [debug] return value: resultdataset11 
+Fri Feb 28 17:13:35 IST 2020 [stccall] stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3}  -ConfigType StreamBlock  -resulttype TxStreamBlockResults  -viewAttributeList {FrameRate FrameCount}
+Fri Feb 28 17:13:35 IST 2020 [debug] return value: resultdataset12 
+Fri Feb 28 17:13:35 IST 2020 [stccall] stc::get generator1 -children-generatorportresults
+Fri Feb 28 17:13:35 IST 2020 [debug] return value: generatorportresults6 
+Fri Feb 28 17:13:35 IST 2020 [stccall] stc::get generatorportresults6 -TotalFrameRate
+Fri Feb 28 17:13:35 IST 2020 [debug] return value: 1389 
+Fri Feb 28 17:13:35 IST 2020 [stccall] stc::get generatorportresults6 -TotalFrameCount
+Fri Feb 28 17:13:35 IST 2020 [debug] return value: 824563 
+Fri Feb 28 17:13:35 IST 2020 [stccall] stc::unsubscribe resultdataset11
+Fri Feb 28 17:13:35 IST 2020 [debug] return value:  
+Fri Feb 28 17:13:35 IST 2020 [stccall] stc::delete resultdataset11
+Fri Feb 28 17:13:35 IST 2020 [debug] return value:  
+Fri Feb 28 17:13:35 IST 2020 [stccall] stc::get streamblock1 -RunningState
+Fri Feb 28 17:13:35 IST 2020 [debug] return value: RUNNING 
+Fri Feb 28 17:13:35 IST 2020 [stccall] stc::get streamblock1 -children-TxStreamBlockResults
+Fri Feb 28 17:13:35 IST 2020 [debug] return value: txstreamblockresults12 
+Fri Feb 28 17:13:35 IST 2020 [stccall] stc::get txstreamblockresults12 -FrameRate
+Fri Feb 28 17:13:35 IST 2020 [debug] return value: 1389 
+Fri Feb 28 17:13:35 IST 2020 [stccall] stc::get txstreamblockresults12 -FrameCount
+Fri Feb 28 17:13:35 IST 2020 [debug] return value: 415997 
+Fri Feb 28 17:13:35 IST 2020 [stccall] stc::get streamblock2 -RunningState
+Fri Feb 28 17:13:35 IST 2020 [debug] return value: STOPPED 
+Fri Feb 28 17:13:35 IST 2020 [stccall] stc::unsubscribe resultdataset12
+Fri Feb 28 17:13:36 IST 2020 [debug] return value:  
+Fri Feb 28 17:13:36 IST 2020 [stccall] stc::delete resultdataset12
+Fri Feb 28 17:13:36 IST 2020 [debug] return value:  
+Fri Feb 28 17:13:36 IST 2020 [stccall] stc::perform StreamBlockStop -StreamBlockList streamblock1
+Fri Feb 28 17:13:36 IST 2020 [debug] return value: -parent system1 -Name {Stop StreamBlocks 6} -StreamBlockList streamblock1 -State COMPLETED -Status {Command finished.} -StartTime 1582890216.62358 -EndTime 1582890216.65597 -ElapsedTime 32 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Fri Feb 28 17:13:36 IST 2020 [stccall] stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi171336.db
+Fri Feb 28 17:13:44 IST 2020 [debug] return value: -parent system1 -Name {Save Results 6} -SaveToDatabase true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi171336.db -OverwriteIfExist true -CollectResult true -SaveDetailedResults true -ParentEotResultNode {} -State COMPLETED -Status {} -StartTime 1582890216.73196 -EndTime 1582890224.66223 -ElapsedTime 7930 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Fri Feb 28 17:13:44 IST 2020 [info] {SUCCESS: Connect: {status 1}}
+Fri Feb 28 17:14:01 IST 2020 [hltcall] ::sth::cleanup_session {-port_handle {port1 port2} -clean_dbfile 1}
+Fri Feb 28 17:14:01 IST 2020 [debug] {Calling: sth::cleanup_session}
+Fri Feb 28 17:14:01 IST 2020 [info] {Generating session table}
+Fri Feb 28 17:14:01 IST 2020 [info] {Calling: ::sth::Session::processCleanup_sessionPort_list port1 port2}
+Fri Feb 28 17:14:01 IST 2020 [hltcall] ::sth::traffic_config {-mode reset}
+Fri Feb 28 17:14:02 IST 2020 [stccall] stc::get project1 -children-port
+Fri Feb 28 17:14:02 IST 2020 [debug] return value: port1 port2 
+Fri Feb 28 17:14:02 IST 2020 [stccall] stc::get port1 -children-streamblock
+Fri Feb 28 17:14:02 IST 2020 [debug] return value: streamblock1 streamblock2 streamblock3 
+Fri Feb 28 17:14:02 IST 2020 [stccall] stc::get port2 -children-streamblock
+Fri Feb 28 17:14:02 IST 2020 [debug] return value:  
+Fri Feb 28 17:14:02 IST 2020 [stccall] stc::perform DeleteCommand -ConfigList {streamblock1 streamblock2 streamblock3}
+Fri Feb 28 17:14:02 IST 2020 [debug] return value: -parent system1 -Name {DeleteCommand 161} -ConfigList {streamblock1 streamblock2 streamblock3} -WarnOnAdditionalDelete false -State COMPLETED -Status {} -StartTime 1582890242.25841 -EndTime 1582890242.26585 -ElapsedTime 7 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName Deleting... -ProgressMaxValue 3 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Fri Feb 28 17:14:02 IST 2020 [stccall] ::stc::apply
+Fri Feb 28 17:14:04 IST 2020 [info] [doStcApply] ::stc::apply PASSED. 
+Fri Feb 28 17:14:04 IST 2020 [stccall] stc::get port1 -online
+Fri Feb 28 17:14:04 IST 2020 [debug] return value: true 
+Fri Feb 28 17:14:04 IST 2020 [stccall] stclib::bll::release 10.91.113.124/10/1
+Fri Feb 28 17:14:04 IST 2020 [debug] return value:  
+Fri Feb 28 17:14:04 IST 2020 [stccall] stc::delete port1
+Fri Feb 28 17:14:04 IST 2020 [debug] return value:  
+Fri Feb 28 17:14:04 IST 2020 [stccall] stc::get port2 -online
+Fri Feb 28 17:14:04 IST 2020 [debug] return value: true 
+Fri Feb 28 17:14:04 IST 2020 [stccall] stclib::bll::release 10.91.113.124/10/2
+Fri Feb 28 17:14:04 IST 2020 [debug] return value:  
+Fri Feb 28 17:14:04 IST 2020 [stccall] stc::delete port2
+Fri Feb 28 17:14:04 IST 2020 [debug] return value:  
+Fri Feb 28 17:14:04 IST 2020 [stccall] stc::get system1 -children-physicalchassismanager
+Fri Feb 28 17:14:04 IST 2020 [debug] return value: physicalchassismanager1 
+Fri Feb 28 17:14:04 IST 2020 [stccall] stc::get physicalchassismanager1 -children-physicalchassis
+Fri Feb 28 17:14:04 IST 2020 [debug] return value: physicalchassis1 
+Fri Feb 28 17:14:04 IST 2020 [stccall] stc::get physicalchassis1 -Hostname
+Fri Feb 28 17:14:05 IST 2020 [debug] return value: 10.91.113.124 
+Fri Feb 28 17:14:05 IST 2020 [stccall] stc::disconnect 10.91.113.124
+Fri Feb 28 17:14:05 IST 2020 [debug] return value:  

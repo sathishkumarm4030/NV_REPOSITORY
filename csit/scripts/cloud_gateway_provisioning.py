@@ -8,7 +8,7 @@
 # Author : Sunita Martha(116616)
 #######################################################################################################
 
-import os, sys, json, yaml, re, itertools
+import os, sys, json, yaml, re, itertools,time
 from argparse import ArgumentParser, FileType
 from jinja2 import meta, Environment, FileSystemLoader, StrictUndefined
 from csit.libraries.VersaLib import VersaLib
@@ -25,8 +25,6 @@ if __name__ == "__main__":
 else:
     fileDir = os.path.dirname(os.path.realpath('__file__'))
 
-Par_Dir = os.path.dirname(fileDir)
-sys.path.append(Par_Dir)
 
 def get_vd_details():
     global cpe_list
@@ -78,10 +76,9 @@ def main():
 
     args = parser.parse_args()
 
-    pwd = os.getcwd()
     if args.vars_file:
-        #with open(pwd + "\\CGW_config\\" + args.vars_file) as fp1:
-        with open("C:\\NV_REPOSITORY\\csit\\libraries\\CGW_config\\" + args.vars_file) as fp1:
+        with open(fileDir + "\\libraries\\CGW_config\\" + args.vars_file) as fp1:
+        #with open("C:\\NV_REPOSITORY\\csit\\libraries\\CGW_config\\" + args.vars_file) as fp1:
             input_data = yaml.safe_load(fp1)
         cpe_name = input_data["CPE_NAME"]
 
@@ -133,7 +130,7 @@ def main():
         if (cisco_result == 0):
             print "CISCO device configuration for deletion operation failed."
             return
-
+    time.sleep(10)
     # step-7 : CPE LAN route verification.
     cpe_lan_result = obj.cpe_lan_route_verify(cpe_name, loopback_ip_list, args.solution_type, CGW1_ESP_IP, CGW2_ESP_IP=CGW2_ESP_IP)
 

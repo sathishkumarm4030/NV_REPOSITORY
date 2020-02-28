@@ -1,0 +1,101 @@
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} graceful-restart maximum-restart-time 15
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} hold-time 90
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} graceful-restart recovery-time 15
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} graceful-restart select-defer-time 15
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} graceful-restart stalepath-time 15
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} graceful-restart dynamic-peer-restart-time 0
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} prefix-list MGMT-VA-SB seq 10 permit
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} prefix-list MGMT-VA-SB seq 10 address-family ipv4 unicast address-mask {{ MANAGEMENT_NW_SUBNET }}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} prefix-list MGMT-VA-SB seq 10 address-family ipv4 unicast ge_le ge 27
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} prefix-list MGMT-VA-SB seq 10 address-family ipv4 unicast ge_le le 32
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-Controllers term 1REJECT-MGMT-ROUTES match community "(^|,)100:1($|,)"
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-Controllers term 1REJECT-MGMT-ROUTES action reject
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-Controllers term 2ACCEPT-L-CPE-ROUTES match family inet-vpn
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-Controllers term 2ACCEPT-L-CPE-ROUTES match community "(^|,){{ LCC }}:10($|,)"
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-Controllers term 2ACCEPT-L-CPE-ROUTES action accept
+delete devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}--Control-VR routing-options static route 0.0.0.0/0 0.0.0.0 none
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR routing-options static route 0.0.0.0/0 0.0.0.0 {{ ESP_TVI_INTERFACE }}.0
+delete devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile {{ ORG_NAME }}-PostStaging psk-auth-clients
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile {{ ORG_NAME }}-PostStaging psk-auth-clients
+{% if WC_RR|length %}
+{% set WC_RR_list = WC_RR.split(', ') %}
+{% for WC_RR_ACCEPT in WC_RR_list %}
+{% set REMOTE_NODE = WC_RR_ACCEPT.split("_") %}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-Controllers term 2ACCEPT-{{ REMOTE_NODE[0] }}-ROUTES match family inet-vpn
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-Controllers term 2ACCEPT-{{ REMOTE_NODE[0] }}-ROUTES match community "(^|,){{ REMOTE_NODE[1] }}:10($|,)"
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-Controllers term 2ACCEPT-{{ REMOTE_NODE[0] }}-ROUTES action accept
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile {{ ORG_NAME }}-PostStaging psk-auth-clients remote-client {{ REMOTE_NODE[2] }} id-type email
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile {{ ORG_NAME }}-PostStaging psk-auth-clients remote-client {{ REMOTE_NODE[2] }} key {{ REMOTE_NODE[3] }}
+{% endfor %}
+{% else %}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group Controllers export EXPORT-Controllers
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group Controllers peer-as 65505
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile {{ LOCAL_WC_HOSTNAME }}-to-{{ SERVER_WC_HOSTNAME }}-Profile local-auth-info key {{ WAN_CONTROLLER_AUTH_KEY }}
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile {{ LOCAL_WC_HOSTNAME }}-to-{{ SERVER_WC_HOSTNAME }}-Profile local-auth-info id-string {{ WAN_CONTROLLER_AUTH_STRING }}
+delete devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile {{ LOCAL_WC_HOSTNAME }}-to-{{ SERVER_WC_HOSTNAME }}-Profile peer-auth-info
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile {{ LOCAL_WC_HOSTNAME }}-to-{{ SERVER_WC_HOSTNAME }}-Profile peer-auth-info auth-type psk
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile {{ LOCAL_WC_HOSTNAME }}-to-{{ SERVER_WC_HOSTNAME }}-Profile peer-auth-info id-type email
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile {{ LOCAL_WC_HOSTNAME }}-to-{{ SERVER_WC_HOSTNAME }}-Profile peer-auth-info key {{ REMOTE_WAN_CONTROLLER_AUTH_KEY }}
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile {{ LOCAL_WC_HOSTNAME }}-to-{{ SERVER_WC_HOSTNAME }}-Profile peer-auth-info id-string {{ REMOTE_WAN_CONTROLLER_AUTH_STRING }}
+{% endif %}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-Controllers term 3DENY-REST match family inet-vpn
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-Controllers term 3DENY-REST action reject
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-WC-TO-GW term 1ACCEPT-MGMT-VA-SB match ip nlri prefix-list MGMT-VA-SB
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-WC-TO-GW term 1ACCEPT-MGMT-VA-SB action accept
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-WC-TO-GW term 2REJECT-MGMT-ROUTES match community "(^|,)100:1($|,)"
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-WC-TO-GW term 2REJECT-MGMT-ROUTES action reject
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-WC-TO-GW term 3REJECT-L-PGW-ROUTES match community "(^|,){{ LCC }}:11($|,)"
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-WC-TO-GW term 3REJECT-L-PGW-ROUTES match family inet-vpn
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-WC-TO-GW term 3REJECT-L-PGW-ROUTES action reject
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-WC-TO-GW term 4REJECT-L-SGW-ROUTES match community "(^|,){{ LCC }}:12($|,)"
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-WC-TO-GW term 4REJECT-L-SGW-ROUTES match family inet-vpn
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-WC-TO-GW term 4REJECT-L-SGW-ROUTES action reject
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-WC-TO-GW term 5ACCEPT-L-CPE-ROUTES match family inet-vpn
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-WC-TO-GW term 5ACCEPT-L-CPE-ROUTES match community "(^|,){{ LCC }}:10($|,)"
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-WC-TO-GW term 5ACCEPT-L-CPE-ROUTES action accept
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES match community "(^|,)*:10($|,)"
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES action accept
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES action community 666:666
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-WC-TO-GW term 6ACCEPT-R-CPE-ROUTES action community-action set-specific
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-WC-TO-GW term 7DENY-REST match family inet-vpn
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-WC-TO-GW term 7DENY-REST action reject
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy IMPORT-{{ ORG_NAME }}-GW-TO-WC term 1REJECT-R-CPE-ROUTES match community "(^|,)666:666($|,)"
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy IMPORT-{{ ORG_NAME }}-GW-TO-WC term 1REJECT-R-CPE-ROUTES action reject
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy IMPORT-{{ ORG_NAME }}-GW-TO-WC term 2ACCEPT-REST match family inet-vpn
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy IMPORT-{{ ORG_NAME }}-GW-TO-WC term 2ACCEPT-REST action accept
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group VNF-GW import IMPORT-{{ ORG_NAME }}-GW-TO-WC
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group VNF-GW export IMPORT-{{ ORG_NAME }}-WC-TO-GW
+delete devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group Branches allow
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group Branches allow all
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group VNF-GW type internal
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group VNF-GW family inet unicast
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group VNF-GW family inet versa-private
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group VNF-GW family inet-vpn unicast
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group VNF-GW export EXPORT-{{ ORG_NAME }}-WC-TO-GW
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group VNF-GW route-reflector-client
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group VNF-GW bfd-liveness-detection
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group VNF-GW bfd-liveness-detection minimum-receive-interval 1000
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group VNF-GW bfd-liveness-detection multiplier 3
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group VNF-GW bfd-liveness-detection transmit-interval minimum-interval 1000
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group VNF-GW neighbor {{ VNF_GATEWAY1_ESP_ADDRESS }}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group VNF-GW neighbor {{ VNF_GATEWAY1_ESP_ADDRESS }} peer-as 65505
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group VNF-GW neighbor {{ VNF_GATEWAY2_ESP_ADDRESS }}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group VNF-GW neighbor {{ VNF_GATEWAY2_ESP_ADDRESS }} peer-as 65505
+{% if REMOTE_WC_ESP_IPs|length -%}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group Controllers type internal
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group Controllers family inet versa-private
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group Controllers family inet-vpn unicast
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group Controllers export EXPORT-Controllers
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group Controllers route-reflector-client
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group Controllers peer-as 65505
+{% set REMOTE_WC_ESP_IP_list = REMOTE_WC_ESP_IPs.split(', ') -%}
+{%- for REMOTE_WC_ESP_IP in REMOTE_WC_ESP_IP_list -%}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group Controllers neighbor {{ REMOTE_WC_ESP_IP }}
+{% endfor -%}
+{% endif -%}
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile {{ ORG_NAME }}-PostStaging local-auth-info key {{ WAN_CONTROLLER_AUTH_KEY }}
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile {{ ORG_NAME }}-PostStaging local-auth-info id-string {{ WAN_CONTROLLER_AUTH_STRING }}
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile {{ ORG_NAME }}-PostStaging psk-auth-clients remote-client {{ VNF_GATEWAY1_AUTH_STRING }} id-type email
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile {{ ORG_NAME }}-PostStaging psk-auth-clients remote-client {{ VNF_GATEWAY1_AUTH_STRING }} key {{ VNF_GATEWAY1_AUTH_KEY }}
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile {{ ORG_NAME }}-PostStaging psk-auth-clients remote-client {{ VNF_GATEWAY2_AUTH_STRING }} id-type email
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile {{ ORG_NAME }}-PostStaging psk-auth-clients remote-client {{ VNF_GATEWAY2_AUTH_STRING }} key {{ VNF_GATEWAY2_AUTH_KEY }}
