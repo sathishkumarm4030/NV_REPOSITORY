@@ -11,19 +11,20 @@
 import os, sys, json, yaml, re, itertools,time
 from argparse import ArgumentParser, FileType
 from jinja2 import meta, Environment, FileSystemLoader, StrictUndefined
-from csit.libraries.VersaLib import VersaLib
-from csit.libraries.CloudGatewayLib import  CloudGatewayLib
 
-def try_literal_eval(s):
-    try:
-        return literal_eval(s)
-    except ValueError:
-        return s
 
 if __name__ == "__main__":
     fileDir = os.path.dirname(os.path.dirname(os.path.realpath('__file__')))
 else:
     fileDir = os.path.dirname(os.path.realpath('__file__'))
+
+# print fileDir
+Par_Dir = os.path.dirname(fileDir)
+# print Par_Dir
+sys.path.append(Par_Dir)
+
+from csit.libraries.VersaLib import VersaLib
+from csit.libraries.CloudGatewayLib import  CloudGatewayLib
 
 
 def get_vd_details():
