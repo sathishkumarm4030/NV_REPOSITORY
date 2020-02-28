@@ -1,0 +1,352 @@
+==============================================================================
+20200228 17:04:18.393 - INFO - + START SUITE: SINGLE CPE HYBRID SOLUTION TEST [ ]
+==============================================================================
+20200228 17:04:18.395 - INFO - +- START SETUP: STARTUP [ ]
+20200228 17:04:18.396 - INFO - +-- START KW: VD1.Login [ ]
+20200228 17:04:23.124 - DEBUG - <netmiko.versa.versa_ssh.VersaSSH object at 0x000000000E5106A0>
+20200228 17:04:28.326 - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+20200228 17:04:28.327 - INFO - +-- END KW: VD1.Login (9931)
+20200228 17:04:28.327 - INFO - +-- START KW: VD1.Get Data Dict [ ]
+20200228 17:04:28.327 - INFO - ${VD1} = {'ctlr_dict': {'MYS': ['NV-WC01-N7-MYS', 'NV-WC02-N7-MYS'], 'LON': ['NV-WC01-N5-LON', 'NV-WC02-N5-LON'], 'HKG': ['NV-WC01-N1-HKG', 'NV-WC02-N1-HKG'], 'SIN': ['NV-WC01-N6-SIN', 'NV-WC02-N6-SIN']}, 'GUI...
+20200228 17:04:28.328 - INFO - +-- END KW: VD1.Get Data Dict (1)
+20200228 17:04:28.328 - INFO - +-- START KW: BuiltIn.Set Suite Variable [ ${VM1} ]
+20200228 17:04:28.328 - INFO - ${VM1} = CPE11_LAN_HOST1
+20200228 17:04:28.329 - INFO - +-- END KW: BuiltIn.Set Suite Variable (1)
+20200228 17:04:28.329 - INFO - +-- START KW: BuiltIn.Set Suite Variable [ ${VM2} ]
+20200228 17:04:28.329 - INFO - ${VM2} = CPE12_LAN_HOST1
+20200228 17:04:28.329 - INFO - +-- END KW: BuiltIn.Set Suite Variable (0)
+20200228 17:04:28.330 - INFO - +-- START KW: CPE1.Cross Login [ ]
+20200228 17:04:33.175 - DEBUG - <netmiko.versa.versa_ssh.VersaSSH object at 0x000000000E590748>
+20200228 17:04:38.376 - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+20200228 17:04:58.132 - INFO - ssh admin@20.20.90.11
+admin@20.20.90.11's password: 
+
+             .---.,
+            (      ``.
+       _     \        )    __      ________ _____   _____
+      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\
+       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \
+        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \
+         \    |   /           \  /  | |____| | \ \ ____) / ____ \
+          \   |  /             \/   |______|_|  \_\_____/_/    \_\
+           \  | /
+            \_|/                     ___ _    _____  ___   ___  _ ___
+                                    | __| |  | __\ \/ | \ / / \| | __|
+                                    | _|| |__| _| >  < \ V /| .` | _|
+                                    |_| |____|___/_/\_\ \_/ |_|\_|_|
+
+
+Versa FlexVNF software
+Release     :	16.1R2 (S9)
+Release date:	20190628
+Package ID  :	80561de	
+
+Last login: Fri Feb 28 11:12:50 2020 from 10.92.116.67
+admin@CPE11-HKG-HYBRD-IPC00190:~$ 
+doing redispatch
+set idle-timeout 0
+[ok][2020-02-28 11:31:08]
+admin@CPE11-HKG-HYBRD-IPC00190-cli>
+20200228 17:04:58.133 - INFO - +-- END KW: CPE1.Cross Login (29803)
+20200228 17:04:58.133 - INFO - +-- START KW: CPE2.Cross Login [ ]
+20200228 17:05:02.847 - DEBUG - <netmiko.versa.versa_ssh.VersaSSH object at 0x000000000E5AD2B0>
+20200228 17:05:08.049 - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+20200228 17:05:27.858 - INFO - ssh admin@20.20.90.12
+admin@20.20.90.12's password: 
+
+             .---.,
+            (      ``.
+       _     \        )    __      ________ _____   _____
+      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\
+       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \
+        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \
+         \    |   /           \  /  | |____| | \ \ ____) / ____ \
+          \   |  /             \/   |______|_|  \_\_____/_/    \_\
+           \  | /
+            \_|/                     ___ _    _____  ___   ___  _ ___
+                                    | __| |  | __\ \/ | \ / / \| | __|
+                                    | _|| |__| _| >  < \ V /| .` | _|
+                                    |_| |____|___/_/\_\ \_/ |_|\_|_|
+
+
+Versa FlexVNF software
+Release     :	16.1R2 (S9)
+Release date:	20190628
+Package ID  :	80561de	
+
+Last login: Fri Feb 28 11:15:01 2020 from 10.92.116.67
+admin@CPE12-HKG-HYBRD-IPC00190:~$ 
+doing redispatch
+set idle-timeout 0
+[ok][2020-02-28 11:33:18]
+admin@CPE12-HKG-HYBRD-IPC00190-cli>
+20200228 17:05:27.858 - INFO - +-- END KW: CPE2.Cross Login (29725)
+20200228 17:05:27.858 - INFO - +-- START KW: spirent1.Connect And Reserve Ports [ ]
+20200228 17:05:44.856 - INFO - reserved ports 10/1 : port1 : port_handle[0]
+
+ reserved ports 10/2 : port2 : port_handle[1]
+***** run sth.interface_config successfully
+***** run sth.interface_config successfully
+20200228 17:05:44.856 - INFO - +-- END KW: spirent1.Connect And Reserve Ports (16998)
+20200228 17:05:44.856 - INFO - +-- START KW: CPE1.Get Device Info [ ]
+20200228 17:05:46.858 - INFO - ${CPE1_dev_info_on_vd} = {'ownerOrg': u'IPC00190', 'name': u'CPE11-HKG-HYBRD-IPC00190', 'ipAddress': u'20.20.90.11', 'packageName': u'versa-flexvnf-20190628-153930-80561de-16.1R2S9-wsm', 'ping_status': u'REACHABLE', 'controll...
+20200228 17:05:46.858 - INFO - +-- END KW: CPE1.Get Device Info (2002)
+20200228 17:05:46.858 - INFO - +-- START KW: CPE1.Get Data Dict [ ]
+20200228 17:05:46.873 - INFO - ${CPE1} = {'username': 'admin', 'main_logger': <logging.Logger object at 0x000000000DF642B0>, 'ctlr_dict': {'MYS': ['NV-WC01-N7-MYS', 'NV-WC02-N7-MYS'], 'LON': ['NV-WC01-N5-LON', 'NV-WC02-N5-LON'], 'HKG': ['NV-...
+20200228 17:05:46.874 - INFO - +-- END KW: CPE1.Get Data Dict (16)
+20200228 17:05:46.874 - INFO - +-- START KW: CPE2.Get Data Dict [ ]
+20200228 17:05:46.889 - INFO - ${CPE2} = {'username': 'admin', 'main_logger': <logging.Logger object at 0x000000000E03D978>, 'ctlr_dict': {'MYS': ['NV-WC01-N7-MYS', 'NV-WC02-N7-MYS'], 'LON': ['NV-WC01-N5-LON', 'NV-WC02-N5-LON'], 'HKG': ['NV-...
+20200228 17:05:46.890 - INFO - +-- END KW: CPE2.Get Data Dict (16)
+20200228 17:05:46.890 - INFO - +-- START KW: CPE1.Create Controller List [ ${CPE1['ORG_NAME']} | ${CPE1['ORG_ID']} | ${CPE1['NO_OF_VRFS']} | ${CPE1['NODE']} ]
+20200228 17:05:46.915 - INFO - +-- END KW: CPE1.Create Controller List (25)
+20200228 17:05:46.915 - INFO - +-- START KW: CPE1.Create Gateway List [ ${CPE1['ORG_NAME']} | ${CPE1['ORG_ID']} | ${CPE1['NO_OF_VRFS']} | ${CPE1['NODE']} ]
+20200228 17:05:46.936 - INFO - +-- END KW: CPE1.Create Gateway List (21)
+20200228 17:05:46.936 - INFO - +-- START KW: CPE1.Create Cpe Data [ ]
+20200228 17:05:46.938 - INFO - +-- END KW: CPE1.Create Cpe Data (1)
+20200228 17:05:46.938 - INFO - +-- START KW: CPE2.Create Controller List [ ${CPE2['ORG_NAME']} | ${CPE2['ORG_ID']} | ${CPE2['NO_OF_VRFS']} | ${CPE2['NODE']} ]
+20200228 17:05:46.968 - INFO - +-- END KW: CPE2.Create Controller List (30)
+20200228 17:05:46.968 - INFO - +-- START KW: CPE2.Create Gateway List [ ${CPE2['ORG_NAME']} | ${CPE2['ORG_ID']} | ${CPE2['NO_OF_VRFS']} | ${CPE2['NODE']} ]
+20200228 17:05:46.988 - INFO - +-- END KW: CPE2.Create Gateway List (20)
+20200228 17:05:46.988 - INFO - +-- START KW: CPE2.Create Cpe Data [ ]
+20200228 17:05:46.989 - INFO - +-- END KW: CPE2.Create Cpe Data (1)
+20200228 17:05:46.989 - INFO - +-- START KW: CPE1.Get Data Dict [ ]
+20200228 17:05:47.007 - INFO - ${CPE1} = {'gw_list': ['NV-GW01-N1-HKG', 'NV-GW02-N1-HKG'], 'dev_dict': {'ownerOrg': u'IPC00190', 'name': u'CPE11-HKG-HYBRD-IPC00190', 'ipAddress': u'20.20.90.11', 'packageName': u'versa-flexvnf-20190628-153930...
+20200228 17:05:47.007 - INFO - +-- END KW: CPE1.Get Data Dict (18)
+20200228 17:05:47.008 - INFO - +-- START KW: BuiltIn.Set Suite Variable [ ${CPE1} ]
+20200228 17:05:47.047 - INFO - ${CPE1} = {'gw_list': ['NV-GW01-N1-HKG', 'NV-GW02-N1-HKG'], 'dev_dict': {'ownerOrg': u'IPC00190', 'name': u'CPE11-HKG-HYBRD-IPC00190', 'ipAddress': u'20.20.90.11', 'packageName': u'versa-flexvnf-20190628-153930...
+20200228 17:05:47.047 - INFO - +-- END KW: BuiltIn.Set Suite Variable (39)
+20200228 17:05:47.048 - INFO - +-- START KW: CPE2.Get Data Dict [ ]
+20200228 17:05:47.066 - INFO - ${CPE2} = {'gw_list': ['NV-GW01-N1-HKG', 'NV-GW02-N1-HKG'], 'START_LAN_IP_SUBNET': '192.169.111.0/24', 'PST_CREATION': 'NO', 'WAN2_INTF_NEXTHOP': '172.16.6.45', 'lan_vlan': [610], 'WC2_local_ike_key': 'CPE12-HK...
+20200228 17:05:47.066 - INFO - +-- END KW: CPE2.Get Data Dict (19)
+20200228 17:05:47.066 - INFO - +-- START KW: BuiltIn.Set Suite Variable [ ${CPE2} ]
+20200228 17:05:47.104 - INFO - ${CPE2} = {'gw_list': ['NV-GW01-N1-HKG', 'NV-GW02-N1-HKG'], 'START_LAN_IP_SUBNET': '192.169.111.0/24', 'PST_CREATION': 'NO', 'WAN2_INTF_NEXTHOP': '172.16.6.45', 'lan_vlan': [610], 'WC2_local_ike_key': 'CPE12-HK...
+20200228 17:05:47.105 - INFO - +-- END KW: BuiltIn.Set Suite Variable (39)
+20200228 17:05:47.105 - INFO - +-- START KW: VM1.VM Pre Op [ ]
+20200228 17:05:55.812 - INFO - <netmiko.linux.linux_ssh.LinuxSSH object at 0x000000000E8A8C50>
+[sudo] password for sathish: 
+1:~# 
+exit
+linux: sathish@VM1:~$
+20200228 17:05:55.813 - INFO - +-- END KW: VM1.VM Pre Op (8707)
+20200228 17:05:55.813 - INFO - +-- START KW: VM2.VM Pre Op [ ]
+20200228 17:06:10.170 - INFO - <netmiko.linux.linux_ssh.LinuxSSH object at 0x000000000E890588>
+[sudo] password for sathish: 
+E12-VM1:~# 
+exit
+linux: sathish@CPE12-VM1:~$
+20200228 17:06:10.170 - INFO - +-- END KW: VM2.VM Pre Op (14357)
+20200228 17:06:10.170 - INFO - +-- START KW: VM1.Get Data Dict [ ]
+20200228 17:06:10.179 - INFO - ${VM1} = {'username': 'sathish', 'shell_nc': <netmiko.linux.linux_ssh.LinuxSSH object at 0x000000000E8A8C50>, 'lan': {1: {'second_host': '192.169.101.2', 'vlan': 600, 'netmask': '255.255.255.0', 'first_host': ...
+20200228 17:06:10.179 - INFO - +-- END KW: VM1.Get Data Dict (9)
+20200228 17:06:10.180 - INFO - +-- START KW: VM2.Get Data Dict [ ]
+20200228 17:06:10.189 - INFO - ${VM2} = {'username': 'sathish', 'shell_nc': <netmiko.linux.linux_ssh.LinuxSSH object at 0x000000000E890588>, 'lan': {1: {'second_host': '192.169.111.2', 'vlan': 610, 'netmask': '255.255.255.0', 'first_host': ...
+20200228 17:06:10.190 - INFO - +-- END KW: VM2.Get Data Dict (10)
+20200228 17:06:10.190 - INFO - +-- START KW: BuiltIn.Set Suite Variable [ ${VM1} ]
+20200228 17:06:10.210 - INFO - ${VM1} = {'username': 'sathish', 'shell_nc': <netmiko.linux.linux_ssh.LinuxSSH object at 0x000000000E8A8C50>, 'lan': {1: {'second_host': '192.169.101.2', 'vlan': 600, 'netmask': '255.255.255.0', 'first_host': ...
+20200228 17:06:10.210 - INFO - +-- END KW: BuiltIn.Set Suite Variable (20)
+20200228 17:06:10.210 - INFO - +-- START KW: BuiltIn.Set Suite Variable [ ${VM2} ]
+20200228 17:06:10.229 - INFO - ${VM2} = {'username': 'sathish', 'shell_nc': <netmiko.linux.linux_ssh.LinuxSSH object at 0x000000000E890588>, 'lan': {1: {'second_host': '192.169.111.2', 'vlan': 610, 'netmask': '255.255.255.0', 'first_host': ...
+20200228 17:06:10.230 - INFO - +-- END KW: BuiltIn.Set Suite Variable (19)
+20200228 17:06:10.230 - INFO - +-- START KW: ${i} IN RANGE [ 1 | ${VM1['NO_OF_VRFS']} + 1 ] [ ]
+20200228 17:06:10.230 - INFO - +--- START KW: ${i} = 1 [ ]
+20200228 17:06:10.230 - INFO - +---- START KW: BuiltIn.Set Variable [ ${VM1['lan'][${i}]['first_host']} ]
+20200228 17:06:10.231 - INFO - ${gw} = 192.169.101.1
+20200228 17:06:10.231 - INFO - +---- END KW: BuiltIn.Set Variable (1)
+20200228 17:06:10.231 - INFO - +---- START KW: BuiltIn.Set Variable [ ${VM1['lan'][${i}]['vlan']} ]
+20200228 17:06:10.232 - INFO - ${vlan} = 600
+20200228 17:06:10.232 - INFO - +---- END KW: BuiltIn.Set Variable (1)
+20200228 17:06:10.232 - INFO - +---- START KW: BuiltIn.Set Variable [ ${VM2['lan'][${i}]['nw']} ]
+20200228 17:06:10.232 - INFO - ${destination_nw} = 192.169.111.0/24
+20200228 17:06:10.232 - INFO - +---- END KW: BuiltIn.Set Variable (0)
+20200228 17:06:10.233 - INFO - +---- START KW: VM1.Send Commands And Expect [ sudo ip route add ${destination_nw} via ${gw} dev ${VM1['LAN_INTF']}.${vlan} ]
+20200228 17:06:10.634 - INFO - +---- END KW: VM1.Send Commands And Expect (401)
+20200228 17:06:10.635 - INFO - +--- END KW: ${i} = 1 (405)
+20200228 17:06:10.635 - INFO - +-- END KW: ${i} IN RANGE [ 1 | ${VM1['NO_OF_VRFS']} + 1 ] (405)
+20200228 17:06:10.635 - INFO - +-- START KW: ${i} IN RANGE [ 1 | ${VM2['NO_OF_VRFS']} + 1 ] [ ]
+20200228 17:06:10.635 - INFO - +--- START KW: ${i} = 1 [ ]
+20200228 17:06:10.635 - INFO - +---- START KW: BuiltIn.Set Variable [ ${VM2['lan'][${i}]['first_host']} ]
+20200228 17:06:10.636 - INFO - ${gw} = 192.169.111.1
+20200228 17:06:10.636 - INFO - +---- END KW: BuiltIn.Set Variable (1)
+20200228 17:06:10.636 - INFO - +---- START KW: BuiltIn.Set Variable [ ${VM2['lan'][${i}]['vlan']} ]
+20200228 17:06:10.637 - INFO - ${vlan} = 610
+20200228 17:06:10.637 - INFO - +---- END KW: BuiltIn.Set Variable (1)
+20200228 17:06:10.637 - INFO - +---- START KW: BuiltIn.Set Variable [ ${VM1['lan'][${i}]['nw']} ]
+20200228 17:06:10.638 - INFO - ${destination_nw} = 192.169.101.0/24
+20200228 17:06:10.638 - INFO - +---- END KW: BuiltIn.Set Variable (1)
+20200228 17:06:10.638 - INFO - +---- START KW: VM2.Send Commands And Expect [ sudo ip route add ${destination_nw} via ${gw} dev ${VM2['LAN_INTF']}.${vlan} ]
+20200228 17:06:11.040 - INFO - +---- END KW: VM2.Send Commands And Expect (401)
+20200228 17:06:11.040 - INFO - +--- END KW: ${i} = 1 (405)
+20200228 17:06:11.041 - INFO - +-- END KW: ${i} IN RANGE [ 1 | ${VM2['NO_OF_VRFS']} + 1 ] (406)
+20200228 17:06:11.042 - INFO - +-- START KW: SPIRENT_STARTUP [ ]
+20200228 17:06:11.044 - INFO - +--- START KW: spirent1.Create Device [ port=0 | vlanid=${CPE1['lan'][1]['vlan']} | intf_ip_addr=${CPE1['lan'][1]['third_host']} | gateway_ip_addr=${CPE1['lan'][1]['first_host']} ]
+20200228 17:06:12.392 - INFO - ***** run sth.emulation_device_config successfully
+20200228 17:06:12.392 - INFO - ${device1} = {'status': '1', 'handle': 'host1', 'intf_ip_addr': '192.169.101.1', 'vlanid': 600, 'gateway_ip_addr': '192.169.101.1', 'port': 'port1'}
+20200228 17:06:12.392 - INFO - +--- END KW: spirent1.Create Device (1348)
+20200228 17:06:12.392 - INFO - +--- START KW: spirent1.Create Device [ port=1 | vlanid=${CPE2['lan'][1]['vlan']} | intf_ip_addr=${CPE2['lan'][1]['third_host']} | gateway_ip_addr=${CPE2['lan'][1]['first_host']} ]
+20200228 17:06:12.810 - INFO - ***** run sth.emulation_device_config successfully
+20200228 17:06:12.810 - INFO - ${device2} = {'status': '1', 'handle': 'host2', 'intf_ip_addr': '192.169.111.1', 'vlanid': 610, 'gateway_ip_addr': '192.169.111.1', 'port': 'port2'}
+20200228 17:06:12.811 - INFO - +--- END KW: spirent1.Create Device (418)
+20200228 17:06:12.811 - INFO - +--- START KW: spirent1.Create Tcp Stream Block [ ${device1} | ${device2} | src_port=2000 | rate_mbps=2 ]
+20200228 17:06:17.334 - INFO - ***** run sth.traffic_config successfully
+20200228 17:06:17.334 - INFO - ${stream1} = {'status': '1', 'stream_id': 'streamblock1'}
+20200228 17:06:17.334 - INFO - +--- END KW: spirent1.Create Tcp Stream Block (4523)
+20200228 17:06:17.335 - INFO - +--- START KW: spirent1.Create Tcp Stream Block [ ${device1} | ${device2} | src_port=2001 | rate_mbps=2 ]
+20200228 17:06:20.677 - INFO - ***** run sth.traffic_config successfully
+20200228 17:06:20.677 - INFO - ${stream2} = {'status': '1', 'stream_id': 'streamblock2'}
+20200228 17:06:20.677 - INFO - +--- END KW: spirent1.Create Tcp Stream Block (3342)
+20200228 17:06:20.677 - INFO - +--- START KW: spirent1.Create Udp Stream Block [ ${device1} | ${device2} | src_port=2002 | rate_mbps=2 ]
+20200228 17:06:23.987 - INFO - ***** run sth.traffic_config successfully
+20200228 17:06:23.988 - INFO - ${stream3} = {'status': '1', 'stream_id': 'streamblock3'}
+20200228 17:06:23.988 - INFO - +--- END KW: spirent1.Create Udp Stream Block (3311)
+20200228 17:06:23.988 - INFO - +--- START KW: BuiltIn.Set Suite Variable [ ${device1} ]
+20200228 17:06:23.988 - INFO - ${device1} = {'status': '1', 'handle': 'host1', 'intf_ip_addr': '192.169.101.1', 'vlanid': 600, 'gateway_ip_addr': '192.169.101.1', 'port': 'port1'}
+20200228 17:06:23.988 - INFO - +--- END KW: BuiltIn.Set Suite Variable (0)
+20200228 17:06:23.989 - INFO - +--- START KW: BuiltIn.Set Suite Variable [ ${device2} ]
+20200228 17:06:23.989 - INFO - ${device2} = {'status': '1', 'handle': 'host2', 'intf_ip_addr': '192.169.111.1', 'vlanid': 610, 'gateway_ip_addr': '192.169.111.1', 'port': 'port2'}
+20200228 17:06:23.989 - INFO - +--- END KW: BuiltIn.Set Suite Variable (0)
+20200228 17:06:23.989 - INFO - +--- START KW: BuiltIn.Set Suite Variable [ ${stream1} ]
+20200228 17:06:23.990 - INFO - ${stream1} = {'status': '1', 'stream_id': 'streamblock1'}
+20200228 17:06:23.990 - INFO - +--- END KW: BuiltIn.Set Suite Variable (1)
+20200228 17:06:23.990 - INFO - +--- START KW: BuiltIn.Set Suite Variable [ ${stream2} ]
+20200228 17:06:23.991 - INFO - ${stream2} = {'status': '1', 'stream_id': 'streamblock2'}
+20200228 17:06:23.991 - INFO - +--- END KW: BuiltIn.Set Suite Variable (1)
+20200228 17:06:23.991 - INFO - +--- START KW: BuiltIn.Set Suite Variable [ ${stream3} ]
+20200228 17:06:23.992 - INFO - ${stream3} = {'status': '1', 'stream_id': 'streamblock3'}
+20200228 17:06:23.992 - INFO - +--- END KW: BuiltIn.Set Suite Variable (1)
+20200228 17:06:23.992 - INFO - +-- END KW: SPIRENT_STARTUP (12950)
+20200228 17:06:23.992 - INFO - +- END SETUP: STARTUP (125597)
+------------------------------------------------------------------------------
+20200228 17:06:23.993 - INFO - +- START TEST: NV_SINGLE_CPE_HYBRID_SANITY_01 [ ]
+------------------------------------------------------------------------------
+20200228 17:06:23.994 - INFO - +-- START KW: CHECK MPLS WAN INTERFACE UP in CPE1 & CPE2 [ ]
+20200228 17:06:23.994 - INFO - +--- START KW: CPE1.Get Interface Status [ intf_name=${CPE1['WAN1_INTF']}${unit_o} | match MPLS ]
+20200228 17:06:25.198 - INFO - ${result} = show interfaces brief | tab | match vni-0/1.0 | match MPLS
+vni-0/1.0    00:0b:ab:f1:9a:5a  up    up     2       MPLS-WAN-Transport-VR  172.16.7.42/30    
+[ok][2020-02-28 11:32:35]
+admin@CPE11-HKG-HYBR...
+20200228 17:06:25.198 - INFO - +--- END KW: CPE1.Get Interface Status (1204)
+20200228 17:06:25.198 - INFO - +--- START KW: BuiltIn.Run Keyword And Continue On Failure [ Should Contain X Times | ${result} | ${up} | 2 | up not presnt 2 times ]
+20200228 17:06:25.199 - INFO - +---- START KW: BuiltIn.Should Contain X Times [ ${result} | ${up} | 2 | up not presnt 2 times ]
+20200228 17:06:25.199 - INFO - Item found from the first item 2 times
+20200228 17:06:25.199 - DEBUG - Argument types are:
+<type 'int'>
+<type 'int'>
+20200228 17:06:25.199 - INFO - +---- END KW: BuiltIn.Should Contain X Times (0)
+20200228 17:06:25.200 - INFO - +--- END KW: BuiltIn.Run Keyword And Continue On Failure (1)
+20200228 17:06:25.200 - INFO - +--- START KW: CPE2.Get Interface Status [ intf_name=${CPE2['WAN1_INTF']}${unit_o} | match MPLS ]
+20200228 17:06:26.403 - INFO - ${result} = show interfaces brief | tab | match vni-0/1.0 | match MPLS
+vni-0/1.0    00:0b:ab:f4:4f:60  up    up     2       MPLS-WAN-Transport-VR  172.16.7.46/30    
+[ok][2020-02-28 11:34:17]
+admin@CPE12-HKG-HYBR...
+20200228 17:06:26.404 - INFO - +--- END KW: CPE2.Get Interface Status (1203)
+20200228 17:06:26.404 - INFO - +--- START KW: BuiltIn.Run Keyword And Continue On Failure [ Should Contain X Times | ${result} | ${up} | 2 ]
+20200228 17:06:26.405 - INFO - +---- START KW: BuiltIn.Should Contain X Times [ ${result} | ${up} | 2 ]
+20200228 17:06:26.406 - INFO - Item found from the first item 2 times
+20200228 17:06:26.406 - DEBUG - Argument types are:
+<type 'int'>
+<type 'int'>
+20200228 17:06:26.406 - INFO - +---- END KW: BuiltIn.Should Contain X Times (2)
+20200228 17:06:26.406 - INFO - +--- END KW: BuiltIn.Run Keyword And Continue On Failure (2)
+20200228 17:06:26.407 - INFO - +-- END KW: CHECK MPLS WAN INTERFACE UP in CPE1 & CPE2 (2414)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20200228 17:06:26.407 - INFO - +-- START KW: CHECK INTERNET WAN INTERFACE UP in CPE1 & CPE2 [ ]
+20200228 17:06:26.408 - INFO - +--- START KW: CPE1.Get Interface Status [ intf_name=${CPE1['WAN2_INTF']}${unit_o} | match INT ]
+20200228 17:06:27.610 - INFO - ${result} = show interfaces brief | tab | match vni-0/2.0 | match INT
+vni-0/2.0    00:0b:ab:f1:9a:5b  up    up     2       INT-WAN-Transport-VR   172.16.6.42/30    
+[ok][2020-02-28 11:32:37]
+admin@CPE11-HKG-HYBRD...
+20200228 17:06:27.611 - INFO - +--- END KW: CPE1.Get Interface Status (1202)
+20200228 17:06:27.611 - INFO - +--- START KW: BuiltIn.Run Keyword And Continue On Failure [ Should Contain X Times | ${result} | ${up} | 2 ]
+20200228 17:06:27.611 - INFO - +---- START KW: BuiltIn.Should Contain X Times [ ${result} | ${up} | 2 ]
+20200228 17:06:27.612 - INFO - Item found from the first item 2 times
+20200228 17:06:27.612 - DEBUG - Argument types are:
+<type 'int'>
+<type 'int'>
+20200228 17:06:27.612 - INFO - +---- END KW: BuiltIn.Should Contain X Times (1)
+20200228 17:06:27.612 - INFO - +--- END KW: BuiltIn.Run Keyword And Continue On Failure (1)
+20200228 17:06:27.613 - INFO - +--- START KW: CPE2.Get Interface Status [ intf_name=${CPE2['WAN2_INTF']}${unit_o} | match INT ]
+20200228 17:06:28.814 - INFO - ${result} = show interfaces brief | tab | match vni-0/2.0 | match INT
+vni-0/2.0    00:0b:ab:f4:4f:61  up    up     2       INT-WAN-Transport-VR   172.16.6.46/30    
+[ok][2020-02-28 11:34:19]
+admin@CPE12-HKG-HYBRD...
+20200228 17:06:28.815 - INFO - +--- END KW: CPE2.Get Interface Status (1201)
+20200228 17:06:28.815 - INFO - +--- START KW: BuiltIn.Run Keyword And Continue On Failure [ Should Contain X Times | ${result} | ${up} | 2 ]
+20200228 17:06:28.815 - INFO - +---- START KW: BuiltIn.Should Contain X Times [ ${result} | ${up} | 2 ]
+20200228 17:06:28.816 - INFO - Item found from the first item 2 times
+20200228 17:06:28.816 - DEBUG - Argument types are:
+<type 'int'>
+<type 'int'>
+20200228 17:06:28.816 - INFO - +---- END KW: BuiltIn.Should Contain X Times (1)
+20200228 17:06:28.816 - INFO - +--- END KW: BuiltIn.Run Keyword And Continue On Failure (1)
+20200228 17:06:28.816 - INFO - +-- END KW: CHECK INTERNET WAN INTERFACE UP in CPE1 & CPE2 (2409)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20200228 17:06:28.817 - INFO - +-- START KW: CHECK WC1 PTVI INTERFACE STATUS in CPE1 [ ]
+20200228 17:06:28.817 - INFO - +--- START KW: CPE1.Get Interface Status [ intf_name=${CPE1['ptvi_intf_wc1']} ]
+20200228 17:06:29.820 - INFO - ${result} = show interfaces brief | tab | match ptvi180
+ptvi180      n/a                up    up     2       IPC00190-Control-VR    10.90.64.1/32     
+[ok][2020-02-28 11:32:39]
+admin@CPE11-HKG-HYBRD-IPC00190-cli>...
+20200228 17:06:29.820 - INFO - +--- END KW: CPE1.Get Interface Status (1003)
+20200228 17:06:29.821 - INFO - +--- START KW: BuiltIn.Run Keyword And Continue On Failure [ Should Contain X Times | ${result} | ${up} | 2 ]
+20200228 17:06:29.822 - INFO - +---- START KW: BuiltIn.Should Contain X Times [ ${result} | ${up} | 2 ]
+20200228 17:06:29.822 - INFO - Item found from the first item 2 times
+20200228 17:06:29.822 - DEBUG - Argument types are:
+<type 'int'>
+<type 'int'>
+20200228 17:06:29.823 - INFO - +---- END KW: BuiltIn.Should Contain X Times (1)
+20200228 17:06:29.823 - INFO - +--- END KW: BuiltIn.Run Keyword And Continue On Failure (2)
+20200228 17:06:29.825 - INFO - +-- END KW: CHECK WC1 PTVI INTERFACE STATUS in CPE1 (1006)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20200228 17:06:29.825 - INFO - +-- START KW: CHECK WC2 PTVI INTERFACE STATUS in CPE2 [ ]
+20200228 17:06:29.825 - INFO - +--- START KW: CPE2.Get Interface Status [ intf_name=${CPE2['ptvi_intf_wc2']} ]
+20200228 17:06:30.828 - INFO - ${result} = show interfaces brief | tab | match ptvi181
+ptvi181      n/a                up    up     2       IPC00190-Control-VR    10.90.64.11/32    
+[ok][2020-02-28 11:34:21]
+admin@CPE12-HKG-HYBRD-IPC00190-cli>...
+20200228 17:06:30.829 - INFO - +--- END KW: CPE2.Get Interface Status (1004)
+20200228 17:06:30.829 - INFO - +--- START KW: BuiltIn.Run Keyword And Continue On Failure [ Should Contain X Times | ${result} | ${up} | 2 ]
+20200228 17:06:30.829 - INFO - +---- START KW: BuiltIn.Should Contain X Times [ ${result} | ${up} | 2 ]
+20200228 17:06:30.830 - INFO - Item found from the first item 2 times
+20200228 17:06:30.830 - DEBUG - Argument types are:
+<type 'int'>
+<type 'int'>
+20200228 17:06:30.830 - INFO - +---- END KW: BuiltIn.Should Contain X Times (1)
+20200228 17:06:30.830 - INFO - +--- END KW: BuiltIn.Run Keyword And Continue On Failure (1)
+20200228 17:06:30.831 - INFO - +-- END KW: CHECK WC2 PTVI INTERFACE STATUS in CPE2 (1005)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20200228 17:06:30.831 - INFO - +-- START KW: CHECK WC1 PTVI INTERFACE STATUS in CPE1 [ ]
+20200228 17:06:30.831 - INFO - +--- START KW: CPE1.Get Interface Status [ intf_name=${CPE1['ptvi_intf_wc1']} ]
+20200228 17:06:31.834 - INFO - ${result} = show interfaces brief | tab | match ptvi180
+ptvi180      n/a                up    up     2       IPC00190-Control-VR    10.90.64.1/32     
+[ok][2020-02-28 11:32:41]
+admin@CPE11-HKG-HYBRD-IPC00190-cli>...
+20200228 17:06:31.834 - INFO - +--- END KW: CPE1.Get Interface Status (1003)
+20200228 17:06:31.834 - INFO - +--- START KW: BuiltIn.Run Keyword And Continue On Failure [ Should Contain X Times | ${result} | ${up} | 2 ]
+20200228 17:06:31.835 - INFO - +---- START KW: BuiltIn.Should Contain X Times [ ${result} | ${up} | 2 ]
+20200228 17:06:31.836 - INFO - Item found from the first item 2 times
+20200228 17:06:31.836 - DEBUG - Argument types are:
+<type 'int'>
+<type 'int'>
+20200228 17:06:31.837 - INFO - +---- END KW: BuiltIn.Should Contain X Times (2)
+20200228 17:06:31.837 - INFO - +--- END KW: BuiltIn.Run Keyword And Continue On Failure (3)
+20200228 17:06:31.837 - INFO - +-- END KW: CHECK WC1 PTVI INTERFACE STATUS in CPE1 (1006)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20200228 17:06:31.838 - INFO - +-- START KW: CHECK WC2 PTVI INTERFACE STATUS in CPE2 [ ]
+20200228 17:06:31.839 - INFO - +--- START KW: CPE2.Get Interface Status [ intf_name=${CPE2['ptvi_intf_wc2']} ]
+20200228 17:06:32.842 - INFO - ${result} = show interfaces brief | tab | match ptvi181
+ptvi181      n/a                up    up     2       IPC00190-Control-VR    10.90.64.11/32    
+[ok][2020-02-28 11:34:23]
+admin@CPE12-HKG-HYBRD-IPC00190-cli>...
+20200228 17:06:32.842 - INFO - +--- END KW: CPE2.Get Interface Status (1003)
+20200228 17:06:32.842 - INFO - +--- START KW: BuiltIn.Run Keyword And Continue On Failure [ Should Contain X Times | ${result} | ${up} | 2 ]
+20200228 17:06:32.843 - INFO - +---- START KW: BuiltIn.Should Contain X Times [ ${result} | ${up} | 2 ]
+20200228 17:06:32.844 - INFO - Item found from the first item 2 times
+20200228 17:06:32.844 - DEBUG - Argument types are:
+<type 'int'>
+<type 'int'>
+20200228 17:06:32.844 - INFO - +---- END KW: BuiltIn.Should Contain X Times (1)
+20200228 17:06:32.844 - INFO - +--- END KW: BuiltIn.Run Keyword And Continue On Failure (2)
+20200228 17:06:32.845 - INFO - +-- END KW: CHECK WC2 PTVI INTERFACE STATUS in CPE2 (1007)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20200228 17:06:32.845 - INFO - +-- START KW: CHECK WC1 BGP NEIGHBOR STATUS in CPE1 & CPE2 [ ]
+20200228 17:06:32.846 - INFO - +--- START KW: CPE1.Get Bgp Nbr Status [ nbr_ip=${CPE1['WC1_ESP_IP']} ]

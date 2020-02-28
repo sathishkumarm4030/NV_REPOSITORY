@@ -773,6 +773,8 @@ class VersaLib:
             print("Not able to get router prompt from CPE" + self.ESP_IP + " CLI. please check")
             return "Redispatch not Success"
         time.sleep(2)
+        rs = self.cnc.send_command_expect("set idle-timeout 0", expect_string='>', strip_prompt=False, strip_command=False)
+        print rs
         return self.cnc
 
 
