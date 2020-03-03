@@ -1,0 +1,86 @@
+2020-03-03 14:12:12,898 - VD1 - DEBUG - <netmiko.versa.versa_ssh.VersaSSH object at 0x000000000DAB96D8>
+2020-03-03 14:12:18,105 - VD1 - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2020-03-03 14:12:22,878 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <netmiko.versa.versa_ssh.VersaSSH object at 0x000000000DB36828>
+2020-03-03 14:12:28,082 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2020-03-03 14:12:52,671 - CPE12-HKG-HYBRD-IPC00190 - DEBUG - <netmiko.versa.versa_ssh.VersaSSH object at 0x000000000DB36FD0>
+2020-03-03 14:12:57,875 - CPE12-HKG-HYBRD-IPC00190 - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2020-03-03 14:14:11,328 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+CREATE SLA profile
+
+2020-03-03 14:14:13,434 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <Response [201]>
+2020-03-03 14:14:13,443 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-03 14:14:13,443 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> CREATE SLA Profile PASSED. <<<<<<<<<<<
+2020-03-03 14:14:13,447 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+CREATE FWD PROFILE
+
+2020-03-03 14:14:15,424 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <Response [201]>
+2020-03-03 14:14:15,424 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-03 14:14:15,426 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> FORWARDING PROFILE CREATION PASSED. <<<<<<<<<<<
+2020-03-03 14:14:15,428 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+CREATE IPaddress Object
+
+2020-03-03 14:14:17,167 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <Response [201]>
+2020-03-03 14:14:17,168 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-03 14:14:17,170 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> ADDRESS OBJECT CREATION PASSED. <<<<<<<<<<<
+2020-03-03 14:14:17,174 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+CREATE IPaddress Object
+
+2020-03-03 14:14:19,687 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <Response [201]>
+2020-03-03 14:14:19,687 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-03 14:14:19,687 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> ADDRESS OBJECT CREATION PASSED. <<<<<<<<<<<
+2020-03-03 14:14:19,690 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+CREATE Service Object
+
+2020-03-03 14:14:21,596 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <Response [201]>
+2020-03-03 14:14:21,598 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-03 14:14:21,598 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> Service OBJECT CREATION PASSED. <<<<<<<<<<<
+2020-03-03 14:14:21,607 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+CREATE Policy rule
+
+2020-03-03 14:14:23,259 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <Response [400]>
+2020-03-03 14:14:23,259 - CPE11-HKG-HYBRD-IPC00190 - ERROR - {  "errors": {    "error": [      {        "error-message": "RPC error towards CPE11-HKG-HYBRD-IPC00190: data_missing: for /rpc/edit-config/config/org:orgs/org:org-services[org:name='IPC00190']/sdwan:sd-wan/sdwan:policies/sdwan:sdwan-policy-group[sdwan:name='Default-Policy']/sdwan:rules/sdwan:rule[sdwan:name='policy_rule_11']/sdwan:match/sdwan:application/sdwan:predefined-application-list: illegal reference /orgs/org-services[name='IPC00190']/sdwan:sd-wan/policies/sdwan-policy-group[name='Default-Policy']/rules/rule[name='policy_rule_11']/match/application/predefined-application-list",        "error-urlpath": "/api/config/devices/device/CPE11-HKG-HYBRD-IPC00190/config/org:orgs/org-services/IPC00190/sdwan:sd-wan/policies/sdwan-policy-group/Default-Policy/rules/rule/policy_rule_11",        "error-tag": "malformed-message"      }    ]  }}
+2020-03-03 14:14:23,279 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+FAIL : {  "errors": {    "error": [      {        "error-message": "RPC error towards CPE11-HKG-HYBRD-IPC00190: data_missing: for /rpc/edit-config/config/org:orgs/org:org-services[org:name='IPC00190']/sdwan:sd-wan/sdwan:policies/sdwan:sdwan-policy-group[sdwan:name='Default-Policy']/sdwan:rules/sdwan:rule[sdwan:name='policy_rule_11']/sdwan:match/sdwan:application/sdwan:predefined-application-list: illegal reference /orgs/org-services[name='IPC00190']/sdwan:sd-wan/policies/sdwan-policy-group[name='Default-Policy']/rules/rule[name='policy_rule_11']/match/application/predefined-application-list",        "error-urlpath": "/api/config/devices/device/CPE11-HKG-HYBRD-IPC00190/config/org:orgs/org-services/IPC00190/sdwan:sd-wan/policies/sdwan-policy-group/Default-Policy/rules/rule/policy_rule_11",        "error-tag": "malformed-message"      }    ]  }}
+2020-03-03 14:14:23,279 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> CREATE POLICY RULE FAILED. <<<<<<<<<<<
+2020-03-03 14:17:21,862 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+DELETE IPaddress Object
+
+2020-03-03 14:17:23,585 - CPE11-HKG-HYBRD-IPC00190 - ERROR - 
+2020-03-03 14:17:23,589 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+FAIL : 
+2020-03-03 14:17:23,591 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> Policy rule DELETION FAILED. <<<<<<<<<<<
+2020-03-03 14:17:23,618 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+DELETE Service Object
+
+2020-03-03 14:17:25,997 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-03 14:17:25,999 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> ADDRESS OBJECT DELETION PASSED. <<<<<<<<<<<
+2020-03-03 14:17:26,000 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+DELETE IPaddress Object
+
+2020-03-03 14:17:28,466 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-03 14:17:28,467 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> ADDRESS OBJECT DELETION PASSED. <<<<<<<<<<<
+2020-03-03 14:17:28,470 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+DELETE IPaddress Object
+
+2020-03-03 14:17:31,107 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-03 14:17:31,107 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> ADDRESS OBJECT DELETION PASSED. <<<<<<<<<<<
+2020-03-03 14:17:31,109 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+DELETE FWD PROFILE
+
+2020-03-03 14:17:33,433 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-03 14:17:33,434 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> FORWARDING PROFILE DELETION PASSED. <<<<<<<<<<<
+2020-03-03 14:17:33,436 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+DELETE SLA profile
+
+2020-03-03 14:17:36,473 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-03 14:17:36,473 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> DELETE SLA Profile PASSED. <<<<<<<<<<<

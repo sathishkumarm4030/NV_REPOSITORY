@@ -33,6 +33,11 @@
 				"predefined-application-list": ["{{ application }}"]
 				{% endif %}
 			},
+			{% if port_address_obj is defined -%}
+			"services": {
+				"services-list": ["{{ port_address_obj }}"]
+			},
+			{% endif %}
 			"ttl": {}
 		},
 		"set": {

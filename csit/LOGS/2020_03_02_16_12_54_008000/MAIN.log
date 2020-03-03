@@ -1,0 +1,44 @@
+2020-03-02 16:12:58,766 - VD1 - DEBUG - <netmiko.versa.versa_ssh.VersaSSH object at 0x000000000EC0DF28>
+2020-03-02 16:13:03,970 - VD1 - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2020-03-02 16:13:03,971 - CPE11-HKG-HYBRD-IPC00190 - INFO - CPE NAME:CPE11-HKG-HYBRD-IPC00190
+2020-03-02 16:13:04,973 - CPE11-HKG-HYBRD-IPC00190 - INFO - SOLUTION SELECTED:SINGLE-CPE-HYBRID
+2020-03-02 16:13:16,378 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <netmiko.versa.versa_ssh.VersaSSH object at 0x000000000E212588>
+2020-03-02 16:13:21,581 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2020-03-02 16:13:41,398 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+CREATE SLA profile
+
+2020-03-02 16:13:42,937 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <Response [409]>
+2020-03-02 16:13:42,944 - CPE11-HKG-HYBRD-IPC00190 - ERROR - {  "errors": {    "error": [      {        "error-message": "object already exists: /ncs:devices/ncs:device[ncs:name='CPE11-HKG-HYBRD-IPC00190']/ncs:config/org:orgs/org:org-services[org:name='IPC00190']/sdwan:sd-wan/sdwan:sla-profiles/sdwan:sla-profile[sdwan:name='SLA100']",        "error-urlpath": "/api/config/devices/device/CPE11-HKG-HYBRD-IPC00190/config/org:orgs/org-services/IPC00190/sdwan:sd-wan/sla-profiles",        "error-tag": "data-exists"      }    ]  }}
+2020-03-02 16:13:42,946 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+FAIL : {  "errors": {    "error": [      {        "error-message": "object already exists: /ncs:devices/ncs:device[ncs:name='CPE11-HKG-HYBRD-IPC00190']/ncs:config/org:orgs/org:org-services[org:name='IPC00190']/sdwan:sd-wan/sdwan:sla-profiles/sdwan:sla-profile[sdwan:name='SLA100']",        "error-urlpath": "/api/config/devices/device/CPE11-HKG-HYBRD-IPC00190/config/org:orgs/org-services/IPC00190/sdwan:sd-wan/sla-profiles",        "error-tag": "data-exists"      }    ]  }}
+2020-03-02 16:13:42,947 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> CREATE SLA Profile FAILED. <<<<<<<<<<<
+2020-03-02 16:13:43,743 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+CREATE FWD PROFILE
+
+2020-03-02 16:13:44,578 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <Response [409]>
+2020-03-02 16:13:44,578 - CPE11-HKG-HYBRD-IPC00190 - ERROR - {  "errors": {    "error": [      {        "error-message": "object already exists: /ncs:devices/ncs:device[ncs:name='CPE11-HKG-HYBRD-IPC00190']/ncs:config/org:orgs/org:org-services[org:name='IPC00190']/sdwan:sd-wan/sdwan:forwarding-profiles/sdwan:forwarding-profile[sdwan:name='FWP100']",        "error-urlpath": "/api/config/devices/device/CPE11-HKG-HYBRD-IPC00190/config/org:orgs/org-services/IPC00190/sdwan:sd-wan/forwarding-profiles",        "error-tag": "data-exists"      }    ]  }}
+2020-03-02 16:13:44,578 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+FAIL : {  "errors": {    "error": [      {        "error-message": "object already exists: /ncs:devices/ncs:device[ncs:name='CPE11-HKG-HYBRD-IPC00190']/ncs:config/org:orgs/org:org-services[org:name='IPC00190']/sdwan:sd-wan/sdwan:forwarding-profiles/sdwan:forwarding-profile[sdwan:name='FWP100']",        "error-urlpath": "/api/config/devices/device/CPE11-HKG-HYBRD-IPC00190/config/org:orgs/org-services/IPC00190/sdwan:sd-wan/forwarding-profiles",        "error-tag": "data-exists"      }    ]  }}
+2020-03-02 16:13:44,579 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> FORWARDING PROFILE CREATION FAILED. <<<<<<<<<<<
+2020-03-02 16:13:44,581 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+CREATE IPaddress Object
+
+2020-03-02 16:13:45,296 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <Response [409]>
+2020-03-02 16:13:45,296 - CPE11-HKG-HYBRD-IPC00190 - ERROR - {  "errors": {    "error": [      {        "error-message": "object already exists: /ncs:devices/ncs:device[ncs:name='CPE11-HKG-HYBRD-IPC00190']/ncs:config/org:orgs/org:org-services[org:name='IPC00190']/security:objects/security:addresses/security:address[security:name='Dest_ip_add100']",        "error-urlpath": "/api/config/devices/device/CPE11-HKG-HYBRD-IPC00190/config/org:orgs/org-services/IPC00190/security:objects/addresses",        "error-tag": "data-exists"      }    ]  }}
+2020-03-02 16:13:45,298 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+FAIL : {  "errors": {    "error": [      {        "error-message": "object already exists: /ncs:devices/ncs:device[ncs:name='CPE11-HKG-HYBRD-IPC00190']/ncs:config/org:orgs/org:org-services[org:name='IPC00190']/security:objects/security:addresses/security:address[security:name='Dest_ip_add100']",        "error-urlpath": "/api/config/devices/device/CPE11-HKG-HYBRD-IPC00190/config/org:orgs/org-services/IPC00190/security:objects/addresses",        "error-tag": "data-exists"      }    ]  }}
+2020-03-02 16:13:45,299 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> ADDRESS OBJECT CREATION FAILED. <<<<<<<<<<<
+2020-03-02 16:13:48,944 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+CREATE Service Object
+
+2020-03-02 16:13:50,680 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <Response [201]>
+2020-03-02 16:13:50,681 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-02 16:13:50,683 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> Service OBJECT CREATION PASSED. <<<<<<<<<<<
+2020-03-02 16:15:01,539 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+DELETE Service Object
+
+2020-03-02 16:15:03,301 - CPE11-HKG-HYBRD-IPC00190 - ERROR - 
+2020-03-02 16:15:03,302 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+FAIL : 
+2020-03-02 16:15:03,302 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> ADDRESS OBJECT DELETION FAILED. <<<<<<<<<<<

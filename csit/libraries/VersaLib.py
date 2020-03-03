@@ -2226,6 +2226,52 @@ class VersaLib:
 
 
 
+    def create_service_object(self, name, protocol, **kwargs):
+        service_dict = {}
+        if kwargs is not None:
+            for k, v in kwargs.iteritems():
+                service_dict[k] = v
+        self.main_logger.info("\nCREATE Service Object\n")
+        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/FWD_PROFILE")
+        obj_url_mod = service_object_create_url.replace("temporgname" , self.ORG_NAME)
+        obj_url_mod = obj_url_mod.replace("tempdevicename", self.Device_name)
+        curr_env = Environment(loader=curr_file_loader)
+        template = curr_env.get_template("Service_object_creation.j2")
+        service_dict['name'] = name
+        service_dict['protocol'] = protocol
+        template_body = template.render(service_dict)
+        print template_body
+        address_obj_creation_result = self.post_operation(obj_url_mod, headers2, template_body)
+        self.main_logger.info("\n" + address_obj_creation_result)
+        if 'FAIL' in address_obj_creation_result:
+            self.main_logger.info(">>>>>>>>>> Service OBJECT CREATION FAILED. <<<<<<<<<<<")
+            return "FAIL"
+        else:
+            self.main_logger.info(">>>>>>>>>> Service OBJECT CREATION PASSED. <<<<<<<<<<<")
+            return "PASS"
+        time.sleep(5)
+
+
+    def delete_service_object(self, name):
+        self.main_logger.info("\nDELETE Service Object\n")
+        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/FWD_PROFILE")
+        del_obj_url_mod = service_object_create_url.replace("temporgname" , self.ORG_NAME)
+        del_obj_url_mod = del_obj_url_mod.replace("tempdevicename", self.Device_name)
+        del_obj_url_mod = del_obj_url_mod + "/service/" + name
+        obj_deletion_result = self.delete_operation(del_obj_url_mod, headers2)
+        self.main_logger.info("\n" + obj_deletion_result)
+        if 'FAIL' in obj_deletion_result:
+            self.main_logger.info(">>>>>>>>>> ADDRESS OBJECT DELETION FAILED. <<<<<<<<<<<")
+            return "FAIL"
+        else:
+            self.main_logger.info(">>>>>>>>>> ADDRESS OBJECT DELETION PASSED. <<<<<<<<<<<")
+            return "PASS"
+        time.sleep(5)
+
+
+
+
+
     def create_policy_rule(self, name, fwd_profile_name, **kwargs):
         temp_dict = {}
         # if kwargs is not None:

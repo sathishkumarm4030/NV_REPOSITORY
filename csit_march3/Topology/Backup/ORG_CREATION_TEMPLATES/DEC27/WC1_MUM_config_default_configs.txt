@@ -1,0 +1,344 @@
+smurugesan2@NV-WC01-N4-MUM-cli> show configuration | display set | match AADEC26                                             
+set orgs org AADEC26 type exclusive
+set orgs org AADEC26 services [ sdwan ]
+set orgs org AADEC26 available-routing-instances [ AADEC26-Control-VR Colt-Control-VR ]
+set orgs org AADEC26 owned-routing-instances [ AADEC26-Control-VR ]
+set orgs org AADEC26 available-provider-orgs [ Colt ]
+set orgs org AADEC26 traffic-identification using [ ptvi808 tvi-0/404.0 tvi-0/405.0 ]
+set orgs org AADEC26 sd-wan site
+set orgs org AADEC26 sd-wan site global-tenant-id 202
+set orgs org AADEC26 sd-wan site site-name NV-WC01-N4-MUM
+set orgs org AADEC26 sd-wan site management-routing-instance AADEC26-Control-VR
+set orgs org AADEC26 sd-wan site wan-interfaces vni-0/1.415 sla-monitoring fc_nc interval 10
+set orgs org AADEC26 sd-wan site wan-interfaces vni-0/1.415 encryption optional
+set orgs org AADEC26 sd-wan site wan-interfaces vni-0/1.416 sla-monitoring fc_nc interval 10
+set orgs org AADEC26 sd-wan site wan-interfaces vni-0/1.416 encryption optional
+set orgs org AADEC26 sd-wan controllers NV-WC01-N2-BLR management-addresses IKE ip-address 10.202.0.23
+set orgs org AADEC26 sd-wan controllers NV-WC01-N2-BLR management-addresses IKE routing-instance AADEC26-Control-VR
+set orgs org AADEC26 sd-wan controllers NV-WC01-N2-BLR management-addresses secure ip-address 10.202.64.23
+set orgs org AADEC26 sd-wan controllers NV-WC01-N2-BLR management-addresses secure routing-instance AADEC26-Control-VR
+set orgs org AADEC26 available-service-node-groups [ default-sng ]
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging vpn-type controller-sdwan
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging local-auth-info
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging local-auth-info auth-type psk
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging local-auth-info id-type email
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging local-auth-info key 1234
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging local-auth-info id-string NV-WC01-N4-MUM@AADEC26.com
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging local
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging local interface-name tvi-0/404.0
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging routing-instance AADEC26-Control-VR
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging tunnel-routing-instance AADEC26-Control-VR
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging ipsec life duration 28000
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging ike group mod19
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging ike lifetime 28800
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging ike dpd-timeout 10
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging ike auth-domain AADEC26-PostStaging-Domain
+set orgs org-services AADEC26 ipsec vpn-profile AADEC26-PostStaging remote-auth-type psk
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile vpn-type branch-sdwan
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile local-auth-info
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile local-auth-info auth-type psk
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile local-auth-info id-type email
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile local-auth-info key 1234
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile local-auth-info id-string NV-WC01-N4-MUM@AADEC26.com
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile local
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile local interface-name tvi-0/404.0
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile routing-instance AADEC26-Control-VR
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile tunnel-routing-instance AADEC26-Control-VR
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile tunnel-initiate automatic
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile ipsec life duration 28000
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile ike group mod19
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile ike lifetime 28800
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile ike dpd-timeout 10
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile ike auth-domain NV-WC01-N4-MUM-to-NV-WC01-N2-BLR
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile peer-auth-info
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile peer-auth-info auth-type psk
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile peer-auth-info id-type email
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile peer-auth-info key 1234
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile peer-auth-info id-string NV-WC01-N2-BLR@AADEC26.com
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile peer
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile peer address [ 10.202.0.23 ]
+set orgs org-services AADEC26 ipsec vpn-profile NV-WC01-N4-MUM-to-NV-WC01-N2-BLR-Profile tunnel-interface ptvi808
+set orgs org-services AADEC26 lef collectors LEF-Collector-log_collector1 destination-address 10.91.116.71
+set orgs org-services AADEC26 lef collectors LEF-Collector-log_collector1 destination-port 1234
+set orgs org-services AADEC26 lef collectors LEF-Collector-log_collector1 routing-instance Colt-Control-VR
+set orgs org-services AADEC26 lef collectors LEF-Collector-log_collector1 transport tcp
+set orgs org-services AADEC26 lef collectors LEF-Collector-log_collector1 template Default-LEF-Template
+set orgs org-services AADEC26 lef collectors LEF-Collector-log_collector2 destination-address 10.91.116.72
+set orgs org-services AADEC26 lef collectors LEF-Collector-log_collector2 destination-port 1234
+set orgs org-services AADEC26 lef collectors LEF-Collector-log_collector2 routing-instance Colt-Control-VR
+set orgs org-services AADEC26 lef collectors LEF-Collector-log_collector2 transport tcp
+set orgs org-services AADEC26 lef collectors LEF-Collector-log_collector2 template Default-LEF-Template
+set orgs org-services AADEC26 lef collectors LEF-Collector-log_collector3 destination-address 10.91.116.73
+set orgs org-services AADEC26 lef collectors LEF-Collector-log_collector3 destination-port 1234
+set orgs org-services AADEC26 lef collectors LEF-Collector-log_collector3 routing-instance Colt-Control-VR
+set orgs org-services AADEC26 lef collectors LEF-Collector-log_collector3 transport tcp
+set orgs org-services AADEC26 lef collectors LEF-Collector-log_collector3 template Default-LEF-Template
+set orgs org-services AADEC26 lef collector-groups Default-Collector-Group collectors [ LEF-Collector-log_collector1 LEF-Collector-log_collector2 LEF-Collector-log_collector3 ]
+set orgs org-services AADEC26 lef templates Default-LEF-Template type ipfix
+set orgs org-services AADEC26 lef profiles Default-Logging-Profile collector-group Default-Collector-Group
+set orgs org-services AADEC26 lef default-profile Default-Logging-Profile
+set orgs org-services AADEC26 traffic-monitoring logging-control Default-Logging-Control profile Default-Logging-Profile
+set orgs org-services AADEC26 traffic-monitoring logging-control Default-Logging-Control options
+set orgs org-services AADEC26 traffic-monitoring logging-control Default-Logging-Control options stats
+set orgs org-services AADEC26 traffic-monitoring logging-control Default-Logging-Control options stats all
+set routing-instances Colt-Control-VR policy-options instance-import from-instance AADEC26-Control-VR family inet policy To-ProviderOrg
+set routing-instances AADEC26-Control-VR instance-type virtual-router
+set routing-instances AADEC26-Control-VR policy-options redistribution-policy To-Branches-Policy term Paired-TVI-Reject match address 169.254.0.0/16
+set routing-instances AADEC26-Control-VR policy-options redistribution-policy To-Branches-Policy term Paired-TVI-Reject action reject
+set routing-instances AADEC26-Control-VR policy-options redistribution-policy To-Branches-Policy term Direct match protocol direct
+set routing-instances AADEC26-Control-VR policy-options redistribution-policy To-Branches-Policy term Direct action accept
+set routing-instances AADEC26-Control-VR policy-options redistribution-policy To-Branches-Policy term Direct action set-origin igp
+set routing-instances AADEC26-Control-VR policy-options redistribution-policy To-Branches-Policy term BGP match protocol bgp
+set routing-instances AADEC26-Control-VR policy-options redistribution-policy To-Branches-Policy term BGP action accept
+set routing-instances AADEC26-Control-VR policy-options redistribution-policy To-Branches-Policy term BGP action set-origin egp
+set routing-instances AADEC26-Control-VR policy-options redistribution-policy To-Branches-Policy term OSPF match protocol ospf
+set routing-instances AADEC26-Control-VR policy-options redistribution-policy To-Branches-Policy term OSPF action accept
+set routing-instances AADEC26-Control-VR policy-options redistribution-policy To-Branches-Policy term OSPF action set-origin igp
+set routing-instances AADEC26-Control-VR policy-options redistribution-policy To-ProviderOrg term T1-SDWAN match protocol sdwan
+set routing-instances AADEC26-Control-VR policy-options redistribution-policy To-ProviderOrg term T1-SDWAN action accept
+set routing-instances AADEC26-Control-VR policy-options redistribution-policy To-ProviderOrg term T1-SDWAN action set-origin igp
+set routing-instances AADEC26-Control-VR policy-options redistribution-policy To-ProviderOrg term T1-SDWAN action set-route-preference 18
+set routing-instances AADEC26-Control-VR policy-options redistribution-policy To-ProviderOrg term T2-BGP match protocol bgp
+set routing-instances AADEC26-Control-VR policy-options redistribution-policy To-ProviderOrg term T2-BGP action accept
+set routing-instances AADEC26-Control-VR policy-options redistribution-policy To-ProviderOrg term T2-BGP action set-origin egp
+set routing-instances AADEC26-Control-VR policy-options redistribution-policy To-ProviderOrg term T3-Rejct_NonSDWAN action reject
+set routing-instances AADEC26-Control-VR policy-options redistribute-to-bgp To-Branches-Policy
+set routing-instances AADEC26-Control-VR policy-options instance-import from-instance Colt-Control-VR family inet policy TO_SubOrgs
+set routing-instances AADEC26-Control-VR mpls-vpn-core
+set routing-instances AADEC26-Control-VR interfaces [ ptvi808 tvi-0/404.0 tvi-0/405.0 ]
+set routing-instances AADEC26-Control-VR routing-options mpls-vpn-local-router-address 10.202.64.5
+set routing-instances AADEC26-Control-VR routing-options static route 0.0.0.0/0 0.0.0.0 none preference 255
+set routing-instances AADEC26-Control-VR routing-options static route 0.0.0.0/0 0.0.0.0 none tag 0
+set routing-instances AADEC26-Control-VR routing-options static route 0.0.0.0/0 0.0.0.0 none discard
+set routing-instances AADEC26-Control-VR protocols bgp 202 enable-alarms
+set routing-instances AADEC26-Control-VR protocols bgp 202 local-address tvi-0/405.0
+set routing-instances AADEC26-Control-VR protocols bgp 202 graceful-restart enable
+set routing-instances AADEC26-Control-VR protocols bgp 202 graceful-restart maximum-restart-time 3600
+set routing-instances AADEC26-Control-VR protocols bgp 202 graceful-restart recovery-time 3600
+set routing-instances AADEC26-Control-VR protocols bgp 202 graceful-restart select-defer-time 30
+set routing-instances AADEC26-Control-VR protocols bgp 202 graceful-restart stalepath-time 3600
+set routing-instances AADEC26-Control-VR protocols bgp 202 graceful-restart dynamic-peer-restart-time 120
+set routing-instances AADEC26-Control-VR protocols bgp 202 graceful-restart multiplier 8
+set routing-instances AADEC26-Control-VR protocols bgp 202 graceful-restart family inet versa-private forwarding-state-bit
+set routing-instances AADEC26-Control-VR protocols bgp 202 graceful-restart family inet-vpn unicast forwarding-state-bit
+set routing-instances AADEC26-Control-VR protocols bgp 202 router-id 10.202.64.5
+set routing-instances AADEC26-Control-VR protocols bgp 202 local-as as-number 65505
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Branches type internal
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Branches family inet unicast
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Branches family inet versa-private
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Branches family inet-vpn unicast
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Branches family inet6-vpn unicast
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Branches peer-as 65505
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Branches route-reflector-client
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Branches allow 10.202.64.0/18
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Branches share-aro
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Controllers type internal
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Controllers family inet versa-private
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Controllers family inet-vpn unicast
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Controllers family inet6-vpn unicast
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Controllers peer-as 65505
+set routing-instances AADEC26-Control-VR protocols bgp 202 group Controllers neighbor 10.202.64.23
+set nacm groups group AADEC26-adc-admin-group
+set nacm groups group AADEC26-cgnat-admin-group
+set nacm groups group AADEC26-network-admin-group
+set nacm groups group AADEC26-oper-group
+set nacm groups group AADEC26-sdwan-admin-group
+set nacm groups group AADEC26-security-admin-group
+set nacm groups group AADEC26-tenant-admin-group
+set nacm rule-list AADEC26-adc-admin-rules group [ AADEC26-adc-admin-group ]
+set nacm rule-list AADEC26-adc-admin-rules rule r1 path /orgs/org-services[name='AADEC26']/adc
+set nacm rule-list AADEC26-adc-admin-rules rule r1 access-operations *
+set nacm rule-list AADEC26-adc-admin-rules rule r1 action permit
+set nacm rule-list AADEC26-adc-admin-rules rule r2 path /
+set nacm rule-list AADEC26-adc-admin-rules rule r2 access-operations *
+set nacm rule-list AADEC26-adc-admin-rules rule r2 action deny
+set nacm rule-list AADEC26-adc-admin-rules cmdrule r3 command request
+set nacm rule-list AADEC26-adc-admin-rules cmdrule r3 access-operations *
+set nacm rule-list AADEC26-adc-admin-rules cmdrule r3 action deny
+set nacm rule-list AADEC26-adc-admin-rules cmdrule r4 command shell
+set nacm rule-list AADEC26-adc-admin-rules cmdrule r4 access-operations *
+set nacm rule-list AADEC26-adc-admin-rules cmdrule r4 action deny
+set nacm rule-list AADEC26-adc-admin-rules cmdrule r5 command rollback
+set nacm rule-list AADEC26-adc-admin-rules cmdrule r5 access-operations *
+set nacm rule-list AADEC26-adc-admin-rules cmdrule r5 action deny
+set nacm rule-list AADEC26-adc-admin-rules cmdrule r6 command *
+set nacm rule-list AADEC26-adc-admin-rules cmdrule r6 action permit
+set nacm rule-list AADEC26-cgnat-admin-rules group [ AADEC26-cgnat-admin-group ]
+set nacm rule-list AADEC26-cgnat-admin-rules rule r1 path /orgs/org-services[name='AADEC26']/cgnat
+set nacm rule-list AADEC26-cgnat-admin-rules rule r1 access-operations *
+set nacm rule-list AADEC26-cgnat-admin-rules rule r1 action permit
+set nacm rule-list AADEC26-cgnat-admin-rules rule r2 path /
+set nacm rule-list AADEC26-cgnat-admin-rules rule r2 access-operations *
+set nacm rule-list AADEC26-cgnat-admin-rules rule r2 action deny
+set nacm rule-list AADEC26-cgnat-admin-rules cmdrule r3 command request
+set nacm rule-list AADEC26-cgnat-admin-rules cmdrule r3 access-operations *
+set nacm rule-list AADEC26-cgnat-admin-rules cmdrule r3 action deny
+set nacm rule-list AADEC26-cgnat-admin-rules cmdrule r4 command shell
+set nacm rule-list AADEC26-cgnat-admin-rules cmdrule r4 access-operations *
+set nacm rule-list AADEC26-cgnat-admin-rules cmdrule r4 action deny
+set nacm rule-list AADEC26-cgnat-admin-rules cmdrule r5 command rollback
+set nacm rule-list AADEC26-cgnat-admin-rules cmdrule r5 access-operations *
+set nacm rule-list AADEC26-cgnat-admin-rules cmdrule r5 action deny
+set nacm rule-list AADEC26-cgnat-admin-rules cmdrule r6 command *
+set nacm rule-list AADEC26-cgnat-admin-rules cmdrule r6 action permit
+set nacm rule-list AADEC26-network-admin-rules group [ AADEC26-network-admin-group ]
+set nacm rule-list AADEC26-network-admin-rules rule r1 path /interfaces
+set nacm rule-list AADEC26-network-admin-rules rule r1 access-operations *
+set nacm rule-list AADEC26-network-admin-rules rule r1 action permit
+set nacm rule-list AADEC26-network-admin-rules rule r2 path /routing-instances
+set nacm rule-list AADEC26-network-admin-rules rule r2 access-operations *
+set nacm rule-list AADEC26-network-admin-rules rule r2 action permit
+set nacm rule-list AADEC26-network-admin-rules rule r3 path /networks
+set nacm rule-list AADEC26-network-admin-rules rule r3 access-operations *
+set nacm rule-list AADEC26-network-admin-rules rule r3 action permit
+set nacm rule-list AADEC26-network-admin-rules cmdrule r4 command request
+set nacm rule-list AADEC26-network-admin-rules cmdrule r4 access-operations *
+set nacm rule-list AADEC26-network-admin-rules cmdrule r4 action deny
+set nacm rule-list AADEC26-network-admin-rules cmdrule r5 command shell
+set nacm rule-list AADEC26-network-admin-rules cmdrule r5 access-operations *
+set nacm rule-list AADEC26-network-admin-rules cmdrule r5 action deny
+set nacm rule-list AADEC26-network-admin-rules cmdrule r6 command rollback
+set nacm rule-list AADEC26-network-admin-rules cmdrule r6 access-operations *
+set nacm rule-list AADEC26-network-admin-rules cmdrule r6 action deny
+set nacm rule-list AADEC26-network-admin-rules cmdrule r7 command *
+set nacm rule-list AADEC26-network-admin-rules cmdrule r7 action permit
+set nacm rule-list AADEC26-oper-rules group [ AADEC26-oper-group ]
+set nacm rule-list AADEC26-oper-rules rule r1 path /orgs/org-services[name='AADEC26']
+set nacm rule-list AADEC26-oper-rules rule r1 access-operations read
+set nacm rule-list AADEC26-oper-rules rule r1 action permit
+set nacm rule-list AADEC26-oper-rules rule r2 path /
+set nacm rule-list AADEC26-oper-rules rule r2 access-operations *
+set nacm rule-list AADEC26-oper-rules rule r2 action deny
+set nacm rule-list AADEC26-oper-rules cmdrule r3 command "request clear"
+set nacm rule-list AADEC26-oper-rules cmdrule r3 access-operations *
+set nacm rule-list AADEC26-oper-rules cmdrule r3 action deny
+set nacm rule-list AADEC26-oper-rules cmdrule r4 command "request system"
+set nacm rule-list AADEC26-oper-rules cmdrule r4 access-operations *
+set nacm rule-list AADEC26-oper-rules cmdrule r4 action deny
+set nacm rule-list AADEC26-oper-rules cmdrule r5 command shell
+set nacm rule-list AADEC26-oper-rules cmdrule r5 access-operations *
+set nacm rule-list AADEC26-oper-rules cmdrule r5 action deny
+set nacm rule-list AADEC26-oper-rules cmdrule r6 command rollback
+set nacm rule-list AADEC26-oper-rules cmdrule r6 access-operations *
+set nacm rule-list AADEC26-oper-rules cmdrule r6 action deny
+set nacm rule-list AADEC26-oper-rules cmdrule r7 command *
+set nacm rule-list AADEC26-oper-rules cmdrule r7 action permit
+set nacm rule-list AADEC26-sdwan-admin-rules group [ AADEC26-sdwan-admin-group ]
+set nacm rule-list AADEC26-sdwan-admin-rules rule r1 path /system/sd-wan
+set nacm rule-list AADEC26-sdwan-admin-rules rule r1 access-operations *
+set nacm rule-list AADEC26-sdwan-admin-rules rule r1 action permit
+set nacm rule-list AADEC26-sdwan-admin-rules rule r2 path /routing-instances
+set nacm rule-list AADEC26-sdwan-admin-rules rule r2 access-operations *
+set nacm rule-list AADEC26-sdwan-admin-rules rule r2 action permit
+set nacm rule-list AADEC26-sdwan-admin-rules rule r3 path /orgs/org[name='AADEC26']/sd-wan
+set nacm rule-list AADEC26-sdwan-admin-rules rule r3 access-operations *
+set nacm rule-list AADEC26-sdwan-admin-rules rule r3 action permit
+set nacm rule-list AADEC26-sdwan-admin-rules rule r4 path /orgs/org-services[name='AADEC26']/lef
+set nacm rule-list AADEC26-sdwan-admin-rules rule r4 access-operations *
+set nacm rule-list AADEC26-sdwan-admin-rules rule r4 action permit
+set nacm rule-list AADEC26-sdwan-admin-rules rule r5 path /orgs/org-services[name='AADEC26']/ipsec
+set nacm rule-list AADEC26-sdwan-admin-rules rule r5 access-operations *
+set nacm rule-list AADEC26-sdwan-admin-rules rule r5 action permit
+set nacm rule-list AADEC26-sdwan-admin-rules rule r6 path /orgs/org-services[name='AADEC26']/cgnat
+set nacm rule-list AADEC26-sdwan-admin-rules rule r6 access-operations *
+set nacm rule-list AADEC26-sdwan-admin-rules rule r6 action permit
+set nacm rule-list AADEC26-sdwan-admin-rules rule r7 path /orgs/org-services[name='AADEC26']/sd-wan
+set nacm rule-list AADEC26-sdwan-admin-rules rule r7 access-operations *
+set nacm rule-list AADEC26-sdwan-admin-rules rule r7 action permit
+set nacm rule-list AADEC26-sdwan-admin-rules rule r8 path /
+set nacm rule-list AADEC26-sdwan-admin-rules rule r8 access-operations *
+set nacm rule-list AADEC26-sdwan-admin-rules rule r8 action deny
+set nacm rule-list AADEC26-sdwan-admin-rules cmdrule r9 command request
+set nacm rule-list AADEC26-sdwan-admin-rules cmdrule r9 access-operations *
+set nacm rule-list AADEC26-sdwan-admin-rules cmdrule r9 action deny
+set nacm rule-list AADEC26-sdwan-admin-rules cmdrule r10 command shell
+set nacm rule-list AADEC26-sdwan-admin-rules cmdrule r10 access-operations *
+set nacm rule-list AADEC26-sdwan-admin-rules cmdrule r10 action deny
+set nacm rule-list AADEC26-sdwan-admin-rules cmdrule r11 command rollback
+set nacm rule-list AADEC26-sdwan-admin-rules cmdrule r11 access-operations *
+set nacm rule-list AADEC26-sdwan-admin-rules cmdrule r11 action deny
+set nacm rule-list AADEC26-sdwan-admin-rules cmdrule r12 command *
+set nacm rule-list AADEC26-sdwan-admin-rules cmdrule r12 action permit
+set nacm rule-list AADEC26-security-admin-rules group [ AADEC26-security-admin-group ]
+set nacm rule-list AADEC26-security-admin-rules rule r1 path /predefineded-actions
+set nacm rule-list AADEC26-security-admin-rules rule r1 access-operations read
+set nacm rule-list AADEC26-security-admin-rules rule r1 action permit
+set nacm rule-list AADEC26-security-admin-rules rule r2 path /predefineded-appid
+set nacm rule-list AADEC26-security-admin-rules rule r2 access-operations read
+set nacm rule-list AADEC26-security-admin-rules rule r2 action permit
+set nacm rule-list AADEC26-security-admin-rules rule r3 path /predefined-file-extract-apps
+set nacm rule-list AADEC26-security-admin-rules rule r3 access-operations read
+set nacm rule-list AADEC26-security-admin-rules rule r3 action permit
+set nacm rule-list AADEC26-security-admin-rules rule r4 path /predefined-file-extract-apps
+set nacm rule-list AADEC26-security-admin-rules rule r4 access-operations read
+set nacm rule-list AADEC26-security-admin-rules rule r4 action permit
+set nacm rule-list AADEC26-security-admin-rules rule r5 path /predefined-file-types
+set nacm rule-list AADEC26-security-admin-rules rule r5 access-operations read
+set nacm rule-list AADEC26-security-admin-rules rule r5 action permit
+set nacm rule-list AADEC26-security-admin-rules rule r6 path /predefined-filefilter
+set nacm rule-list AADEC26-security-admin-rules rule r6 access-operations read
+set nacm rule-list AADEC26-security-admin-rules rule r6 action permit
+set nacm rule-list AADEC26-security-admin-rules rule r7 path /predefined-geoip
+set nacm rule-list AADEC26-security-admin-rules rule r7 access-operations read
+set nacm rule-list AADEC26-security-admin-rules rule r7 action permit
+set nacm rule-list AADEC26-security-admin-rules rule r8 path /predefined-iprep
+set nacm rule-list AADEC26-security-admin-rules rule r8 access-operations read
+set nacm rule-list AADEC26-security-admin-rules rule r8 action permit
+set nacm rule-list AADEC26-security-admin-rules rule r9 path /predefined-ips-scanner-parameters
+set nacm rule-list AADEC26-security-admin-rules rule r9 access-operations read
+set nacm rule-list AADEC26-security-admin-rules rule r9 action permit
+set nacm rule-list AADEC26-security-admin-rules rule r10 path /predefined-ips-scanners
+set nacm rule-list AADEC26-security-admin-rules rule r10 access-operations read
+set nacm rule-list AADEC26-security-admin-rules rule r10 action permit
+set nacm rule-list AADEC26-security-admin-rules rule r11 path /predefined-ips
+set nacm rule-list AADEC26-security-admin-rules rule r11 access-operations read
+set nacm rule-list AADEC26-security-admin-rules rule r11 action permit
+set nacm rule-list AADEC26-security-admin-rules rule r12 path /predefined-services
+set nacm rule-list AADEC26-security-admin-rules rule r12 access-operations read
+set nacm rule-list AADEC26-security-admin-rules rule r12 action permit
+set nacm rule-list AADEC26-security-admin-rules rule r13 path /predefined-url-categories
+set nacm rule-list AADEC26-security-admin-rules rule r13 access-operations read
+set nacm rule-list AADEC26-security-admin-rules rule r13 action permit
+set nacm rule-list AADEC26-security-admin-rules rule r14 path /predefined-url-reputations
+set nacm rule-list AADEC26-security-admin-rules rule r14 access-operations read
+set nacm rule-list AADEC26-security-admin-rules rule r14 action permit
+set nacm rule-list AADEC26-security-admin-rules rule r15 path /networks
+set nacm rule-list AADEC26-security-admin-rules rule r15 access-operations read
+set nacm rule-list AADEC26-security-admin-rules rule r15 action permit
+set nacm rule-list AADEC26-security-admin-rules rule r16 path /orgs/org-services[name='AADEC26']/lef
+set nacm rule-list AADEC26-security-admin-rules rule r16 access-operations read
+set nacm rule-list AADEC26-security-admin-rules rule r16 action permit
+set nacm rule-list AADEC26-security-admin-rules rule r17 path /orgs/org-services[name='AADEC26']/security
+set nacm rule-list AADEC26-security-admin-rules rule r17 access-operations *
+set nacm rule-list AADEC26-security-admin-rules rule r17 action permit
+set nacm rule-list AADEC26-security-admin-rules rule r18 path /orgs/org-services[name='AADEC26']/objects
+set nacm rule-list AADEC26-security-admin-rules rule r18 access-operations *
+set nacm rule-list AADEC26-security-admin-rules rule r18 action permit
+set nacm rule-list AADEC26-security-admin-rules rule r19 path /
+set nacm rule-list AADEC26-security-admin-rules rule r19 access-operations *
+set nacm rule-list AADEC26-security-admin-rules rule r19 action deny
+set nacm rule-list AADEC26-security-admin-rules cmdrule r20 command request
+set nacm rule-list AADEC26-security-admin-rules cmdrule r20 access-operations *
+set nacm rule-list AADEC26-security-admin-rules cmdrule r20 action deny
+set nacm rule-list AADEC26-security-admin-rules cmdrule r21 command shell
+set nacm rule-list AADEC26-security-admin-rules cmdrule r21 access-operations *
+set nacm rule-list AADEC26-security-admin-rules cmdrule r21 action deny
+set nacm rule-list AADEC26-security-admin-rules cmdrule r22 command *
+set nacm rule-list AADEC26-security-admin-rules cmdrule r22 action permit
+set nacm rule-list AADEC26-tenant-admin-rules group [ AADEC26-tenant-admin-group ]
+set nacm rule-list AADEC26-tenant-admin-rules rule r1 path /orgs/org-services[name='AADEC26']
+set nacm rule-list AADEC26-tenant-admin-rules rule r1 access-operations *
+set nacm rule-list AADEC26-tenant-admin-rules rule r1 action permit
+set nacm rule-list AADEC26-tenant-admin-rules rule r2 path /
+set nacm rule-list AADEC26-tenant-admin-rules rule r2 access-operations *
+set nacm rule-list AADEC26-tenant-admin-rules rule r2 action deny
+set nacm rule-list AADEC26-tenant-admin-rules cmdrule r3 command shell
+set nacm rule-list AADEC26-tenant-admin-rules cmdrule r3 access-operations *
+set nacm rule-list AADEC26-tenant-admin-rules cmdrule r3 action deny
+set nacm rule-list AADEC26-tenant-admin-rules cmdrule r4 command rollback
+set nacm rule-list AADEC26-tenant-admin-rules cmdrule r4 access-operations *
+set nacm rule-list AADEC26-tenant-admin-rules cmdrule r4 action deny
+set nacm rule-list AADEC26-tenant-admin-rules cmdrule r5 command *
+set nacm rule-list AADEC26-tenant-admin-rules cmdrule r5 action permit
+[ok][2018-12-27 13:24:00]
+smurugesan2@NV-WC01-N4-MUM-cli> 

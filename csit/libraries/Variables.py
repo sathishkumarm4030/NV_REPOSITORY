@@ -32,6 +32,7 @@ appliance_url = '/vnms/appliance/appliance?offset=0&limit=1000'
 package_url = '/api/operational/nms/packages/package?select=name;uri'
 fwd_profile_url = '/api/config/devices/device/tempdevicename/config/orgs/org-services/temporgname/sd-wan/forwarding-profiles'
 address_object_create_url = '/api/config/devices/device/tempdevicename/config/orgs/org-services/temporgname/objects/addresses'
+service_object_create_url = '/api/config/devices/device/tempdevicename/config/orgs/org-services/temporgname/objects/services'
 policy_rule_create_url = '/api/config/devices/device/tempdevicename/config/orgs/org-services/temporgname/sd-wan/policies/sdwan-policy-group/Default-Policy/rules'
 get_org_id = '/vnms/pac/vd?org-uuid'
 vni_interface_url = '/api/config/devices/device/tempdevicename/config/interfaces/vni/%22interface_name%22'
@@ -318,11 +319,13 @@ req_cre_snapshot = """request devices device {{ NAME }} live-status system creat
 
 #ROBOT_TESTSUITE variables
 
-sla_prf_1 = "SLA111"
-fwp_1 = "FWP111"
-ipaddobj_1 = "src_ip_add_obj1"
-ipaddobj_2 = "dst_ip_add_obj1"
-plcyrule_1 = "policy_rule_1"
+sla_prf_1 = "SLA112"
+fwp_1 = "FWP112"
+ipaddobj_1 = "src_ip_add_obj11"
+ipaddobj_2 = "dst_ip_add_obj11"
+plcyrule_1 = "policy_rule_11"
+TCP = "TCP"
+serviceobj_1 = "src_port_2000"
 
 
 

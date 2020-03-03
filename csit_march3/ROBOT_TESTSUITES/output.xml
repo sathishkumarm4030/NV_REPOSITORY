@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20200228 17:21:18.844" generator="Robot 3.1.2 (Python 2.7.13 on win32)">
+<suite source="C:\Softwares_mine\stefano\NV_REPOSITORY\csit\ROBOT_TESTSUITES\SINGLE_CPE_HYBRID_SOLUTION_TEST.robot" id="s1" name="SINGLE CPE HYBRID SOLUTION TEST">
+<kw type="setup" name="STARTUP">
+<doc>Make connecection to Versa devices</doc>
+<msg timestamp="20200228 17:21:21.177" level="TRACE">Arguments: [  ]</msg>
+<kw name="Login" library="VD1">
+<msg timestamp="20200228 17:21:21.177" level="TRACE">Arguments: [  ]</msg>
+<status status="FAIL" endtime="20200228 17:21:21.177" starttime="20200228 17:21:21.177"></status>
+</kw>
+<status status="FAIL" endtime="20200228 17:21:21.178" starttime="20200228 17:21:21.176"></status>
+</kw>
+<test id="s1-t1" name="NV_SINGLE_CPE_HYBRID_SANITY_01">
+<doc>SANITY CHECKS on vCPE</doc>
+<tags>
+<tag>robot:exit</tag>
+<tag>SANITY</tag>
+</tags>
+<status status="FAIL" endtime="20200228 17:21:21.178" critical="yes" starttime="20200228 17:21:21.178">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t2" name="NV_SINGLE_CPE_HYBRID_SANITY_02">
+<doc>Ping test CPE1 LAN1 VM to CPE2 LAN1 VM</doc>
+<tags>
+<tag>PING</tag>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" endtime="20200228 17:21:21.180" critical="yes" starttime="20200228 17:21:21.180">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t3" name="NV_SINGLE_CPE_HYBRID_SANITY_03">
+<doc>Ping test CPE1 ALL LAN VM to CPE2 ALL LAN VM</doc>
+<tags>
+<tag>PING</tag>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" endtime="20200228 17:21:21.182" critical="yes" starttime="20200228 17:21:21.181">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t4" name="NV_SINGLE_CPE_HYBRID_SANITY_04">
+<doc>Iperf test VM1 to VM2</doc>
+<tags>
+<tag>IPERF</tag>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" endtime="20200228 17:21:21.184" critical="yes" starttime="20200228 17:21:21.183">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t5" name="NV_SINGLE_CPE_TRAFFIC_STEERING_01">
+<doc>Traffic steering based on Source IP</doc>
+<tags>
+<tag>P1</tag>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" endtime="20200228 17:21:21.187" critical="yes" starttime="20200228 17:21:21.186">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t6" name="NV_SINGLE_CPE_TRAFFIC_STEERING_02">
+<doc>Traffic steering based on Desination IP</doc>
+<tags>
+<tag>P1</tag>
+<tag>robot:exit</tag>
+</tags>
+<status status="FAIL" endtime="20200228 17:21:21.188" critical="yes" starttime="20200228 17:21:21.188">Test execution stopped due to a fatal error.</status>
+</test>
+<kw type="teardown" name="CLEANUP">
+<msg timestamp="20200228 17:21:21.190" level="TRACE">Arguments: [  ]</msg>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"cleanup done"</arg>
+</arguments>
+<msg timestamp="20200228 17:21:21.190" level="TRACE">Arguments: [ '"cleanup done"' ]</msg>
+<msg timestamp="20200228 17:21:21.190" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20200228 17:21:21.191" starttime="20200228 17:21:21.190"></status>
+</kw>
+<kw name="spirent1.release_ports">
+<msg timestamp="20200228 17:21:21.199" level="FAIL">No keyword with name 'spirent1.release_ports' found.</msg>
+<status status="FAIL" endtime="20200228 17:21:21.199" starttime="20200228 17:21:21.199"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>40s</arg>
+</arguments>
+<msg timestamp="20200228 17:21:21.200" level="TRACE">Arguments: [ '40s' ]</msg>
+<msg timestamp="20200228 17:22:01.200" level="INFO">Slept 40 seconds</msg>
+<msg timestamp="20200228 17:22:01.201" level="TRACE">Return: None</msg>
+<status status="PASS" endtime="20200228 17:22:01.201" starttime="20200228 17:21:21.200"></status>
+</kw>
+<msg timestamp="20200228 17:22:01.203" level="TRACE">Return: None</msg>
+<status status="FAIL" endtime="20200228 17:22:01.203" starttime="20200228 17:21:21.190">No keyword with name 'spirent1.release_ports' found.</status>
+</kw>
+<doc>A test suite with tests for SDWAN SINGLE CPE Solution.
+Topology:-
+____________________________
+| VersaDirector |
+|___________________________|
+|
+|
+|
+_____________|_______________
+| WanCtrller1 |
+|____________________________|
+| |
+| |
+| |
+INTERNET/MPLS
+| |
+| |___
+______|__ ___|___
+| | | |
+LAN1--+ CPE1 | | CPE2 +--LAN1
+|________| |_______|
+
+
+Testplan Goals:-
+1. CHECK WAN INTERFACES STATUS.
+2. CHECK BGP NEIGHBOR STATUS.
+3. CHECK LAN ROUTE.
+4. Ping Test.
+5. IPERF Test.</doc>
+<metadata>
+<item name="Version">1.0
+More Info For more information about Robot Framework see http://robotframework.org
+Author Sathishkumar murugesan
+Date 12 Dec 2017
+Executed At HOST
+Test Framework Robot Framework Python</item>
+</metadata>
+<status status="FAIL" endtime="20200228 17:22:01.204" starttime="20200228 17:21:18.849">Suite setup failed:
+Execution terminated by signal
+
+Also suite teardown failed:
+No keyword with name 'spirent1.release_ports' found.</status>
+</suite>
+<statistics>
+<total>
+<stat fail="6" pass="0">Critical Tests</stat>
+<stat fail="6" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat info="combined" fail="0" combined="NOT robot:exit" pass="0">NOT robot:exit</stat>
+<stat fail="1" pass="0">IPERF</stat>
+<stat fail="2" pass="0">P1</stat>
+<stat fail="2" pass="0">PING</stat>
+<stat fail="6" pass="0">robot:exit</stat>
+<stat fail="1" pass="0">SANITY</stat>
+</tag>
+<suite>
+<stat fail="6" id="s1" name="SINGLE CPE HYBRID SOLUTION TEST" pass="0">SINGLE CPE HYBRID SOLUTION TEST</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20200228 17:21:21.045" level="ERROR">Error in file 'C:\Softwares_mine\stefano\NV_REPOSITORY\csit\ROBOT_TESTSUITES\SINGLE_CPE_HYBRID_SOLUTION_TEST.robot': Initializing test library 'HltapiLib' with arguments [ 10.91.113.124 | 10/1 | 10/2 ] failed: error: [Errno 10054] An existing connection was forcibly closed by the remote host
+Traceback (most recent call last):
+  File "C:\Softwares_mine\stefano\NV_REPOSITORY\csit\libraries\HltapiLib.py", line 22, in __init__
+    log_level='7')
+  File "C:\Softwares_mine\stefano\NV_REPOSITORY\csit\libraries\sth.py", line 1722, in test_config
+    return _process_cmd("test_config",**arg)
+  File "C:\Softwares_mine\stefano\NV_REPOSITORY\csit\libraries\sth.py", line 1072, in _process_cmd
+    retVal=_private_invoke("set ret [sth::"+cmd_name+cmdline+"]")
+  File "C:\Softwares_mine\stefano\NV_REPOSITORY\csit\libraries\sth.py", line 425, in _private_invoke
+    tclserversocket.send(cmd+'\n')</msg>
+</errors>
+</robot>

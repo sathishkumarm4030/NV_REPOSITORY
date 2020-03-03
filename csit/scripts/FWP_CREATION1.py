@@ -93,17 +93,22 @@ def Do_Cpe_onboarding():
     print cpe1.modify_interface_bandwidth(cpe1.WAN1_INTF, 30000, 30000)
     print cpe1.get_vni_interface_bw(cpe1.WAN1_INTF)
 
-    SLA_PRF_1 = "SLA100"
-    FWP1 = "FWP100"
-    IPADDOBJ = "Dest_ip_add100"
-    PLCYRULE = "ts_Destipaddr100"
+    SLA_PRF_1 = "SLA10001"
+    FWP1 = "FWP10001"
+    IPADDOBJ = "Dest_ip_add10001"
+    SERVICE_OBJ = "tcp_src_port_2000_11"
+    PLCYRULE = "ts_Destipaddr10001"
 
     cpe1.cross_login()
     cpe1.create_sla_profile(SLA_PRF_1, description="description", circuit_transmit_utilization=5)
     print cpe1.get_sla_profile(SLA_PRF_1)
     cpe1.create_fowarding_profile(FWP1, ckt_pr_1_lcl_intf, ckt_pr_2_lcl_intf, sla_name=SLA_PRF_1, evaluate_continuously="disable")
     cpe1.create_address_object(IPADDOBJ, "ipv4-prefix", cpe2.lan[1]['third_host']+"/32")
-    cpe1.create_policy_rule(PLCYRULE, FWP1, dest_address_obj=IPADDOBJ)
+    cpe1.create_service_object(SERVICE_OBJ, "TCP", source_port=2000)
+
+    # cpe1.create_sla_profile(IPADDOBJ, "ipv4-prefix", cpe2.lan[1]['third_host'] + "/32")
+    # cpe1.create_policy_rule(PLCYRULE, FWP1, dest_address_obj=IPADDOBJ)
+    cpe1.create_policy_rule(PLCYRULE, FWP1, port_address_obj=SERVICE_OBJ)
     print vd1.move_policy_rule(cpe1.Device_name, cpe1.ORG_NAME,  'Default-Policy', PLCYRULE, 'first')
 
     print cpe1.req_clr_sess_all()
@@ -157,16 +162,7 @@ def Do_Cpe_onboarding():
     # spirent1.release_ports()
     time.sleep(60)
 
-
-
-
-
-
-
-
-
-
-
+    cpe1.delete_service_object(SERVICE_OBJ)
     cpe1.delete_policy_rule(PLCYRULE)
     cpe1.delete_address_object(IPADDOBJ)
     cpe1.delete_fowarding_profile(FWP1)

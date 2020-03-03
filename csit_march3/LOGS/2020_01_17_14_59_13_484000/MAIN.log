@@ -1,0 +1,28 @@
+2020-01-17 14:59:18,285 - VD1 - DEBUG - <netmiko.versa.versa_ssh.VersaSSH object at 0x000000000D22F780>
+2020-01-17 14:59:23,487 - VD1 - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2020-01-17 14:59:23,487 - CPE11-HKG-HYBRD-IPC00190 - INFO - CPE NAME:CPE11-HKG-HYBRD-IPC00190
+2020-01-17 14:59:24,490 - CPE11-HKG-HYBRD-IPC00190 - INFO - SOLUTION SELECTED:SINGLE-CPE-HYBRID
+2020-01-17 14:59:24,573 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+CREATE FWD PROFILE
+
+2020-01-17 14:59:33,155 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <Response [409]>
+2020-01-17 14:59:33,157 - CPE11-HKG-HYBRD-IPC00190 - ERROR - {  "errors": {    "error": [      {        "error-message": "object already exists: /ncs:devices/ncs:device[ncs:name='CPE11-HKG-HYBRD-IPC00190']/ncs:config/org:orgs/org:org-services[org:name='IPC00190']/sdwan:sd-wan/sdwan:forwarding-profiles/sdwan:forwarding-profile[sdwan:name='NEW2']",        "error-urlpath": "/api/config/devices/device/CPE11-HKG-HYBRD-IPC00190/config/org:orgs/org-services/IPC00190/sdwan:sd-wan/forwarding-profiles",        "error-tag": "data-exists"      }    ]  }}
+2020-01-17 14:59:33,164 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+FAIL : {  "errors": {    "error": [      {        "error-message": "object already exists: /ncs:devices/ncs:device[ncs:name='CPE11-HKG-HYBRD-IPC00190']/ncs:config/org:orgs/org:org-services[org:name='IPC00190']/sdwan:sd-wan/sdwan:forwarding-profiles/sdwan:forwarding-profile[sdwan:name='NEW2']",        "error-urlpath": "/api/config/devices/device/CPE11-HKG-HYBRD-IPC00190/config/org:orgs/org-services/IPC00190/sdwan:sd-wan/forwarding-profiles",        "error-tag": "data-exists"      }    ]  }}
+2020-01-17 14:59:33,164 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> FORWARDING PROFILE CREATION FAILED. <<<<<<<<<<<
+2020-01-17 14:59:33,164 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+CREATE IPaddress Object
+
+2020-01-17 14:59:33,905 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <Response [409]>
+2020-01-17 14:59:33,905 - CPE11-HKG-HYBRD-IPC00190 - ERROR - {  "errors": {    "error": [      {        "error-message": "object already exists: /ncs:devices/ncs:device[ncs:name='CPE11-HKG-HYBRD-IPC00190']/ncs:config/org:orgs/org:org-services[org:name='IPC00190']/security:objects/security:addresses/security:address[security:name='dest_ip_add2']",        "error-urlpath": "/api/config/devices/device/CPE11-HKG-HYBRD-IPC00190/config/org:orgs/org-services/IPC00190/security:objects/addresses",        "error-tag": "data-exists"      }    ]  }}
+2020-01-17 14:59:33,905 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+FAIL : {  "errors": {    "error": [      {        "error-message": "object already exists: /ncs:devices/ncs:device[ncs:name='CPE11-HKG-HYBRD-IPC00190']/ncs:config/org:orgs/org:org-services[org:name='IPC00190']/security:objects/security:addresses/security:address[security:name='dest_ip_add2']",        "error-urlpath": "/api/config/devices/device/CPE11-HKG-HYBRD-IPC00190/config/org:orgs/org-services/IPC00190/security:objects/addresses",        "error-tag": "data-exists"      }    ]  }}
+2020-01-17 14:59:33,907 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> ADDRESS OBJECT CREATION FAILED. <<<<<<<<<<<
+2020-01-17 14:59:33,907 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+CREATE Policy rule
+
+2020-01-17 14:59:34,917 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <Response [409]>
+2020-01-17 14:59:34,917 - CPE11-HKG-HYBRD-IPC00190 - ERROR - {  "errors": {    "error": [      {        "error-message": "object already exists: /ncs:devices/ncs:device[ncs:name='CPE11-HKG-HYBRD-IPC00190']/ncs:config/org:orgs/org:org-services[org:name='IPC00190']/sdwan:sd-wan/sdwan:policies/sdwan:sdwan-policy-group[sdwan:name='Default-Policy']/sdwan:rules/sdwan:rule[sdwan:name='DSTIP_MATCH']",        "error-urlpath": "/api/config/devices/device/CPE11-HKG-HYBRD-IPC00190/config/org:orgs/org-services/IPC00190/sdwan:sd-wan/policies/sdwan-policy-group/Default-Policy/rules",        "error-tag": "data-exists"      }    ]  }}
+2020-01-17 14:59:34,917 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+FAIL : {  "errors": {    "error": [      {        "error-message": "object already exists: /ncs:devices/ncs:device[ncs:name='CPE11-HKG-HYBRD-IPC00190']/ncs:config/org:orgs/org:org-services[org:name='IPC00190']/sdwan:sd-wan/sdwan:policies/sdwan:sdwan-policy-group[sdwan:name='Default-Policy']/sdwan:rules/sdwan:rule[sdwan:name='DSTIP_MATCH']",        "error-urlpath": "/api/config/devices/device/CPE11-HKG-HYBRD-IPC00190/config/org:orgs/org-services/IPC00190/sdwan:sd-wan/policies/sdwan-policy-group/Default-Policy/rules",        "error-tag": "data-exists"      }    ]  }}
+2020-01-17 14:59:34,918 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> CREATE POLICY RULE FAILED. <<<<<<<<<<<
