@@ -1465,6 +1465,13 @@ class VersaLib:
         output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
         return output
 
+    def show_intf_port_stats_br(self):
+        cmd = "show interfaces port statistics brief | tab | nomore"
+        print cmd
+        output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
+        return output
+
+
     def req_clr_sess_all(self):
         cmd = "request clear sessions all"
         output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)

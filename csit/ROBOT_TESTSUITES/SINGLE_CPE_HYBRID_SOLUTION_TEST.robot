@@ -87,25 +87,27 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_01
     [Tags]    P1
     CPE1.create_policy_rule    ${plcyrule_1}    ${fwp_1}    src_address_obj=${ipaddobj_1}
     VD1.move_policy_rule  ${CPE1['Device_name']}       ${cpe1['ORG_NAME']}    Default-Policy      ${plcyrule_1}    first
-    ${result}   CPE1.req_clr_sess_all
-    Log To Console  ${result}
-    ${result}   CPE1.show_session_sdwan_detail
-    Log To Console  ${result}
+    REQ CLR SESSION ALL
+    SHOW SESSION SDWAN DETAIL
+    SHOW INTERFACE PORT STATISTICS BRIEF
 
     spirent1.Start Stream Traffic   ${stream1['stream_id']}
     sleep    40s
+    SHOW INTERFACE PORT STATISTICS BRIEF
     ${result}   CPE1.show_session_sdwan_detail  source_port=2000
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN1_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
 
     spirent1.Start Stream Traffic    ${stream2['stream_id']}
     sleep    40s
+    SHOW INTERFACE PORT STATISTICS BRIEF
     ${result}   CPE1.show_session_sdwan_detail    source_port=2001
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN2_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
 
     spirent1.Start Stream Traffic    ${stream3['stream_id']}
     sleep    40s
+    SHOW INTERFACE PORT STATISTICS BRIEF
     ${result}   CPE1.show_session_sdwan_detail    source_port=2002
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN2_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
@@ -121,25 +123,27 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_02
     [Tags]    P1
     CPE1.create_policy_rule    ${plcyrule_1}    ${fwp_1}    dest_address_obj=${ipaddobj_2}
     VD1.move_policy_rule  ${CPE1['Device_name']}       ${cpe1['ORG_NAME']}    Default-Policy      ${plcyrule_1}    first
-    ${result}   CPE1.req_clr_sess_all
-    Log To Console  ${result}
-    ${result}   CPE1.show_session_sdwan_detail
-    Log To Console  ${result}
+    REQ CLR SESSION ALL
+    SHOW SESSION SDWAN DETAIL
+    SHOW INTERFACE PORT STATISTICS BRIEF
 
     spirent1.Start Stream Traffic   ${stream1['stream_id']}
     sleep    40s
+    SHOW INTERFACE PORT STATISTICS BRIEF
     ${result}   CPE1.show_session_sdwan_detail  source_port=2000
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN1_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
 
     spirent1.Start Stream Traffic    ${stream2['stream_id']}
     sleep    40s
+    SHOW INTERFACE PORT STATISTICS BRIEF
     ${result}   CPE1.show_session_sdwan_detail    source_port=2001
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN2_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
 
     spirent1.Start Stream Traffic    ${stream3['stream_id']}
     sleep    40s
+    SHOW INTERFACE PORT STATISTICS BRIEF
     ${result}   CPE1.show_session_sdwan_detail    source_port=2002
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN2_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
@@ -156,13 +160,12 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_03
     [Tags]    P1
     CPE1.create_policy_rule    ${plcyrule_1}    ${fwp_1}    port_address_obj=${serviceobj_1}
     VD1.move_policy_rule  ${CPE1['Device_name']}       ${cpe1['ORG_NAME']}    Default-Policy      ${plcyrule_1}    first
-    ${result}   CPE1.req_clr_sess_all
-#    Debug
-    Log To Console  ${result}
-    ${result}   CPE1.show_session_sdwan_detail
-    Log To Console  ${result}
+    REQ CLR SESSION ALL
+    SHOW SESSION SDWAN DETAIL
+    SHOW INTERFACE PORT STATISTICS BRIEF
     spirent1.Start Stream Traffic   ${stream1['stream_id']}
     sleep    40s
+    SHOW INTERFACE PORT STATISTICS BRIEF
     ${result}   CPE1.show_session_sdwan_detail  source_port=2000
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN1_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
@@ -174,10 +177,9 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_04
     [Tags]    P1
     CPE1.create_policy_rule    ${plcyrule_1}    ${fwp_1}    application=IPERF
     VD1.move_policy_rule  ${CPE1['Device_name']}       ${cpe1['ORG_NAME']}    Default-Policy      ${plcyrule_1}    first
-    ${result}   CPE1.req_clr_sess_all
-    Log To Console  ${result}
-    ${result}   CPE1.show_session_sdwan_detail
-    Log To Console  ${result}
+    REQ CLR SESSION ALL
+    SHOW SESSION SDWAN DETAIL
+    SHOW INTERFACE PORT STATISTICS BRIEF
     ${destip}=    set variable    ${VM2['lan'][1]['second_host']}
     VM2.send_commands_and_expect    pkill iperf3 &
     sleep    10s
@@ -185,6 +187,7 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_04
     sleep    5s
     ${result}=    VM1.send_commands_and_expect    iperf3 -c ${destip} &
     sleep    5s
+    SHOW INTERFACE PORT STATISTICS BRIEF
     ${result}   CPE1.show_session_sdwan_detail  application=iperf
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN1_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
@@ -193,6 +196,19 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_04
 
 
 *** Keywords ***
+REQ CLR SESSION ALL
+    ${result}   CPE1.req_clr_sess_all
+    Log To Console  ${result}
+
+SHOW INTERFACE PORT STATISTICS BRIEF
+    ${result}   CPE1.show_intf_port_stats_br
+    Log To Console  ${result}
+
+SHOW SESSION SDWAN DETAIL
+    ${result}   CPE1.show_session_sdwan_detail
+    Log To Console  ${result}
+
+
 CREATE FWD PROFILE
     ${curr_intf_bw}    CPE1.get_vni_interface_bw    ${CPE1['WAN1_INTF']}
     set suite variable  ${curr_intf_bw}
