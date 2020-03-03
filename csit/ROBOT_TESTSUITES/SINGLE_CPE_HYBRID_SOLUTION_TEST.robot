@@ -83,6 +83,46 @@ NV_SINGLE_CPE_HYBRID_SANITY_04
 
 
 NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_01
+    [Documentation]    Traffic steering based on Destination IP
+    [Tags]    P1
+    CPE1.create_policy_rule    ${plcyrule_1}    ${fwp_1}    dest_address_obj=${ipaddobj_2}
+    VD1.move_policy_rule  ${CPE1['Device_name']}       ${cpe1['ORG_NAME']}    Default-Policy      ${plcyrule_1}    first
+    REQ CLR SESSION ALL
+    SHOW SESSION SDWAN DETAIL
+    SHOW INTERFACE PORT STATISTICS BRIEF
+    SHOW COMMIT CHANGES 0
+    sleep  10s
+    spirent1.Start Stream Traffic   ${stream1['stream_id']}
+    sleep    40s
+    SHOW INTERFACE PORT STATISTICS BRIEF
+    ${result}   CPE1.show_session_sdwan_detail  source_port=2000
+    CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN1_NAME']}
+    CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
+
+    spirent1.Start Stream Traffic    ${stream2['stream_id']}
+    sleep    40s
+    SHOW INTERFACE PORT STATISTICS BRIEF
+    ${result}   CPE1.show_session_sdwan_detail    source_port=2001
+    CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN2_NAME']}
+    CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
+
+    spirent1.Start Stream Traffic    ${stream3['stream_id']}
+    sleep    40s
+    SHOW INTERFACE PORT STATISTICS BRIEF
+    ${result}   CPE1.show_session_sdwan_detail    source_port=2002
+    CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN2_NAME']}
+    CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
+
+    spirent1.stop_stream_traffic    ${stream3['stream_id']}
+    spirent1.stop_stream_traffic    ${stream2['stream_id']}
+    spirent1.stop_stream_traffic    ${stream1['stream_id']}
+
+    CPE1.delete_policy_rule    ${plcyrule_1}
+
+
+
+
+NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_02
     [Documentation]    Traffic steering based on Source IP
     [Tags]    P1
     CPE1.create_policy_rule    ${plcyrule_1}    ${fwp_1}    src_address_obj=${ipaddobj_1}
@@ -119,42 +159,6 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_01
 
     CPE1.delete_policy_rule    ${plcyrule_1}
 
-NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_02
-    [Documentation]    Traffic steering based on Destination IP
-    [Tags]    P1
-    CPE1.create_policy_rule    ${plcyrule_1}    ${fwp_1}    dest_address_obj=${ipaddobj_2}
-    VD1.move_policy_rule  ${CPE1['Device_name']}       ${cpe1['ORG_NAME']}    Default-Policy      ${plcyrule_1}    first
-    REQ CLR SESSION ALL
-    SHOW SESSION SDWAN DETAIL
-    SHOW INTERFACE PORT STATISTICS BRIEF
-    SHOW COMMIT CHANGES 0
-    sleep  10s
-    spirent1.Start Stream Traffic   ${stream1['stream_id']}
-    sleep    40s
-    SHOW INTERFACE PORT STATISTICS BRIEF
-    ${result}   CPE1.show_session_sdwan_detail  source_port=2000
-    CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN1_NAME']}
-    CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
-
-    spirent1.Start Stream Traffic    ${stream2['stream_id']}
-    sleep    40s
-    SHOW INTERFACE PORT STATISTICS BRIEF
-    ${result}   CPE1.show_session_sdwan_detail    source_port=2001
-    CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN2_NAME']}
-    CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
-
-    spirent1.Start Stream Traffic    ${stream3['stream_id']}
-    sleep    40s
-    SHOW INTERFACE PORT STATISTICS BRIEF
-    ${result}   CPE1.show_session_sdwan_detail    source_port=2002
-    CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN2_NAME']}
-    CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
-
-    spirent1.stop_stream_traffic    ${stream3['stream_id']}
-    spirent1.stop_stream_traffic    ${stream2['stream_id']}
-    spirent1.stop_stream_traffic    ${stream1['stream_id']}
-
-    CPE1.delete_policy_rule    ${plcyrule_1}
 
 
 NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_03
