@@ -90,7 +90,8 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_01
     REQ CLR SESSION ALL
     SHOW SESSION SDWAN DETAIL
     SHOW INTERFACE PORT STATISTICS BRIEF
-
+    SHOW COMMIT CHANGES 0
+    sleep  10s
     spirent1.Start Stream Traffic   ${stream1['stream_id']}
     sleep    40s
     SHOW INTERFACE PORT STATISTICS BRIEF
@@ -126,7 +127,8 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_02
     REQ CLR SESSION ALL
     SHOW SESSION SDWAN DETAIL
     SHOW INTERFACE PORT STATISTICS BRIEF
-
+    SHOW COMMIT CHANGES 0
+    sleep  10s
     spirent1.Start Stream Traffic   ${stream1['stream_id']}
     sleep    40s
     SHOW INTERFACE PORT STATISTICS BRIEF
@@ -163,6 +165,8 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_03
     REQ CLR SESSION ALL
     SHOW SESSION SDWAN DETAIL
     SHOW INTERFACE PORT STATISTICS BRIEF
+    SHOW COMMIT CHANGES 0
+    sleep  10s
     spirent1.Start Stream Traffic   ${stream1['stream_id']}
     sleep    40s
     SHOW INTERFACE PORT STATISTICS BRIEF
@@ -180,6 +184,8 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_04
     REQ CLR SESSION ALL
     SHOW SESSION SDWAN DETAIL
     SHOW INTERFACE PORT STATISTICS BRIEF
+    SHOW COMMIT CHANGES 0
+    sleep  10s
     ${destip}=    set variable    ${VM2['lan'][1]['second_host']}
     VM2.send_commands_and_expect    pkill iperf3 &
     sleep    10s
@@ -207,6 +213,11 @@ SHOW INTERFACE PORT STATISTICS BRIEF
 SHOW SESSION SDWAN DETAIL
     ${result}   CPE1.show_session_sdwan_detail
     Log To Console  ${result}
+
+SHOW COMMIT CHANGES 0
+    ${result}   CPE1.show_commit_changes_0
+    Log To Console  ${result}
+
 
 
 CREATE FWD PROFILE

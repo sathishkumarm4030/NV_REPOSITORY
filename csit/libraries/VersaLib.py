@@ -1471,6 +1471,14 @@ class VersaLib:
         output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
         return output
 
+    def show_commit_changes_0(self):
+        cmd = "show commit changes 0 | nomore"
+        print cmd
+        output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
+        return output
+
+
+
 
     def req_clr_sess_all(self):
         cmd = "request clear sessions all"
