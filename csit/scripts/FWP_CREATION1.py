@@ -110,6 +110,7 @@ def Do_Cpe_onboarding():
     # cpe1.create_policy_rule(PLCYRULE, FWP1, dest_address_obj=IPADDOBJ)
     cpe1.create_policy_rule(PLCYRULE, FWP1, port_address_obj=SERVICE_OBJ)
     print vd1.move_policy_rule(cpe1.Device_name, cpe1.ORG_NAME,  'Default-Policy', PLCYRULE, 'first')
+    print vd1.config_devices_qos(cpe1.Device_name, cpe1.ORG_NAME, cpe1.WAN1_INTF)
 
     print cpe1.req_clr_sess_all()
 

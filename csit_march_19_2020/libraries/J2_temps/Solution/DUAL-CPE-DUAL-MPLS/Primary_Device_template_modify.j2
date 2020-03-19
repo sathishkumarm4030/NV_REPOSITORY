@@ -1,0 +1,9 @@
+{% for i in range(1,  NO_OF_VRFS+1) %}
+{% set lan_number = loop.index %}
+{% set vlanid = lan[i]['vlan'] %}
+{% set lan_ip_address = lan[lan_number]['second_host'] %}
+{% set lan_ip_prefixlen = lan[lan_number]['prefixlen'] %}
+set devices device {{ Device_name }} config interfaces {{ LAN_INTF }} unit {{ vlanid }} family inet address {{ lan_ip_address }}/{{ lan_ip_prefixlen }} vrrp-group {{ lan_number }} priority 105
+set devices device {{ Device_name }} config interfaces {{ LAN_INTF }} unit {{ vlanid }} family inet address {{ lan_ip_address }}/{{ lan_ip_prefixlen }} vrrp-group {{ lan_number }} track route {{ TRACK_MANAGEMENT_SUBNET }} routing-instance {{ ORG_NAME }}-Control-VR
+set devices device {{ Device_name }} config interfaces {{ LAN_INTF }} unit {{ vlanid }} family inet address {{ lan_ip_address }}/{{ lan_ip_prefixlen }} vrrp-group {{ lan_number }} track route {{ TRACK_MANAGEMENT_SUBNET }} priority-cost 10
+{% endfor -%}

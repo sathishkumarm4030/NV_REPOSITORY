@@ -40,3 +40,83 @@ if {$ret ne $logged_ret} {
     puts "<warning>NOT same return value as logged result."
 }
 puts $ret
+
+puts "\nsth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.169.101.1 -rate_mbps 2 -tcp_src_port 2001 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 46 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 0 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 1 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create"
+set ret [sth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.169.101.1 -rate_mbps 2 -tcp_src_port 2001 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 46 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 0 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 1 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create]
+set logged_ret "{stream_id streamblock1} {status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.169.101.1 -rate_mbps 2 -tcp_src_port 2002 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 26 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 0 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 1 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create"
+set ret [sth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.169.101.1 -rate_mbps 2 -tcp_src_port 2002 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 26 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 0 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 1 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create]
+set logged_ret "{stream_id streamblock2} {status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.169.101.1 -rate_mbps 2 -tcp_src_port 2003 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 18 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 0 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 1 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create"
+set ret [sth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.169.101.1 -rate_mbps 2 -tcp_src_port 2003 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 18 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 0 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 1 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create]
+set logged_ret "{stream_id streamblock3} {status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.169.101.1 -rate_mbps 2 -tcp_src_port 2004 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 10 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 0 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 1 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create"
+set ret [sth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.169.101.1 -rate_mbps 2 -tcp_src_port 2004 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 10 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 0 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 1 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create]
+set logged_ret "{stream_id streamblock4} {status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.169.101.1 -rate_mbps 2 -tcp_src_port 2005 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 48 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 1 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 10 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create"
+set ret [sth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.169.101.1 -rate_mbps 2 -tcp_src_port 2005 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 48 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 1 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 10 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create]
+set logged_ret "{stream_id streamblock5} {status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_control -action run -stream_handle streamblock1"
+set ret [sth::traffic_control -action run -stream_handle streamblock1]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_control -action run -stream_handle streamblock2"
+set ret [sth::traffic_control -action run -stream_handle streamblock2]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_control -action run -stream_handle streamblock3"
+set ret [sth::traffic_control -action run -stream_handle streamblock3]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_control -action run -stream_handle streamblock4"
+set ret [sth::traffic_control -action run -stream_handle streamblock4]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_control -action run -stream_handle streamblock5"
+set ret [sth::traffic_control -action run -stream_handle streamblock5]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret

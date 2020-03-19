@@ -1,0 +1,120 @@
+[2020-01-29 17:48:55]: Started process.  Command line: 
+[2020-01-29 17:48:55]:      port number: 56476
+[2020-01-29 17:48:55]:    timeout value: 120
+[2020-01-29 17:48:55]:       log option: log
+[2020-01-29 17:48:55]: results dir path: C:\Softwares_mine\stefano\NV_REPOSITORY\csit\scripts
+[2020-01-29 17:48:55]:    log file name: traffice_steering_stream.hltlog
+[2020-01-29 17:48:55]: Working directory is now: C:/Softwares_mine/stefano/NV_REPOSITORY/csit/scripts
+[2020-01-29 17:48:55]: Sourcing initialization file "stcinit.srv".
+[2020-01-29 17:48:55]: Connecting to port 56476 on 127.0.0.1.
+[2020-01-29 17:48:55]: Creating server socket.
+[2020-01-29 17:48:55]: Generated port number: 56478
+[2020-01-29 17:48:55]: Setting up timeout check.
+[2020-01-29 17:48:55]: Waiting for client connection.
+[2020-01-29 17:48:55]: Client connection from 127.0.0.1 port 56479.
+[2020-01-29 17:48:55]: Executing: <package require SpirentHltApi>
+[2020-01-29 17:49:27]: Return value: <4.67>
+[2020-01-29 17:49:27]: custom_path--C:/Softwares_mine/stefano/NV_REPOSITORY/csit/scripts
+[2020-01-29 17:49:27]: Executing: <set ret [sth::test_config -vendorlogfile traffice_steering_stream_stcExport -log_level 7 -log 1 -hlt2stcmappingfile traffice_steering_stream_hlt2StcMapping -hlt2stcmapping 1 -hltlog 1 -logfile traffice_steering_stream_logfile -vendorlog 1 -hltlogfile traffice_steering_stream_hltExport]>
+[2020-01-29 17:49:27]: Return value: <{status 1}>
+[2020-01-29 17:49:27]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-01-29 17:49:27]: Return value: <>
+[2020-01-29 17:49:27]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-01-29 17:49:27]: Return value: <>
+[2020-01-29 17:49:27]: Executing: <set hashkey>
+[2020-01-29 17:49:27]: Return value: <status>
+[2020-01-29 17:49:27]: Executing: <set hashvalue>
+[2020-01-29 17:49:27]: Return value: <1>
+[2020-01-29 17:49:27]: Executing: <set ret [sth::test_control -action enable]>
+[2020-01-29 17:49:27]: Return value: <{status 1}>
+[2020-01-29 17:49:27]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-01-29 17:49:27]: Return value: <>
+[2020-01-29 17:49:27]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-01-29 17:49:27]: Return value: <>
+[2020-01-29 17:49:27]: Executing: <set hashkey>
+[2020-01-29 17:49:27]: Return value: <status>
+[2020-01-29 17:49:27]: Executing: <set hashvalue>
+[2020-01-29 17:49:27]: Return value: <1>
+[2020-01-29 17:49:27]: Executing: <sth::connect -device 10.91.113.124 -offline 0 -port_list "10/1 10/2" -break_locks 1>
+[2020-01-29 17:49:31]: Return value: <{offline 0} {port_handle {{10 {{91 {{113 {{124 {{10/1 port1} {10/2 port2}}}}}}}}}}} {status 1}>
+[2020-01-29 17:49:31]: Executing: <set ret [sth::interface_config -create_host false -scheduling_mode RATE_BASED -phy_mode copper -port_loadunit MEGABITS_PER_SECOND -control_plane_mtu 1500 -enable_ping_response 0 -autonegotiation 1 -port_handle port1 -duplex full -mode config -port_load 1 -speed ether1000 -intf_mode ethernet]>
+[2020-01-29 17:49:37]: Return value: <{arpnd_status 1} {arpnd_cache none} {arpnd_report none} {status 1} {handles 0}>
+[2020-01-29 17:49:37]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-01-29 17:49:37]: Return value: <>
+[2020-01-29 17:49:37]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-01-29 17:49:37]: Return value: <>
+[2020-01-29 17:49:37]: Executing: <set hashkey>
+[2020-01-29 17:49:37]: Return value: <arpnd_status arpnd_cache arpnd_report status handles>
+[2020-01-29 17:49:37]: Executing: <set hashvalue>
+[2020-01-29 17:49:37]: Return value: <1 none none 1 0>
+[2020-01-29 17:49:37]: Executing: <set ret [sth::interface_config -create_host false -scheduling_mode PORT_BASED -phy_mode copper -port_loadunit MEGABITS_PER_SECOND -control_plane_mtu 1500 -enable_ping_response 0 -autonegotiation 1 -port_handle port2 -duplex full -mode config -port_load 1 -speed ether1000 -intf_mode ethernet]>
+[2020-01-29 17:49:43]: Return value: <{arpnd_status 1} {arpnd_cache none} {arpnd_report none} {status 1} {handles 0}>
+[2020-01-29 17:49:43]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-01-29 17:49:43]: Return value: <>
+[2020-01-29 17:49:43]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-01-29 17:49:43]: Return value: <>
+[2020-01-29 17:49:43]: Executing: <set hashkey>
+[2020-01-29 17:49:43]: Return value: <arpnd_status arpnd_cache arpnd_report status handles>
+[2020-01-29 17:49:43]: Executing: <set hashvalue>
+[2020-01-29 17:49:43]: Return value: <1 none none 1 0>
+[2020-01-29 17:49:43]: Executing: <set ret [sth::emulation_device_config -vlan_cfi 0 -intf_ip_addr 192.169.111.3 -gateway_ip_addr_step 0.0.0.0 -gateway_mac 00:0b:ab:f4:4f:63 -vlan_id 610 -vlan_tpid 33024 -port_handle port1 -vlan_id_step 0 -vlan_id_repeat_count 0 -mac_addr 00:10:94:00:00:05 -router_id 192.0.0.5 -resolve_gateway_mac true -intf_ip_addr_step 0.0.0.1 -gateway_ip_addr 192.169.111.1 -vlan_user_pri 7 -encapsulation ethernet_ii_vlan -count 1 -intf_prefix_len 24 -mac_addr_step 00:00:00:00:00:01 -mode create -ip_version ipv4 -enable_ping_response 1]>
+[2020-01-29 17:49:44]: Return value: <{handle host1} {status 1}>
+[2020-01-29 17:49:44]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-01-29 17:49:44]: Return value: <>
+[2020-01-29 17:49:44]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-01-29 17:49:44]: Return value: <>
+[2020-01-29 17:49:44]: Executing: <set hashkey>
+[2020-01-29 17:49:44]: Return value: <handle status>
+[2020-01-29 17:49:44]: Executing: <set hashvalue>
+[2020-01-29 17:49:44]: Return value: <host1 1>
+[2020-01-29 17:49:44]: Executing: <set ret [sth::emulation_device_config -vlan_cfi 0 -intf_ip_addr 192.169.101.3 -gateway_ip_addr_step 0.0.0.0 -gateway_mac 00:0b:ab:f1:9a:5d -vlan_id 600 -vlan_tpid 33024 -port_handle port2 -vlan_id_step 0 -vlan_id_repeat_count 0 -mac_addr 00:10:94:00:00:07 -router_id 192.0.0.7 -resolve_gateway_mac true -intf_ip_addr_step 0.0.0.1 -gateway_ip_addr 192.169.101.1 -vlan_user_pri 7 -encapsulation ethernet_ii_vlan -count 1 -intf_prefix_len 24 -mac_addr_step 00:00:00:00:00:01 -mode create -ip_version ipv4 -enable_ping_response 0]>
+[2020-01-29 17:49:44]: Return value: <{handle host2} {status 1}>
+[2020-01-29 17:49:44]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-01-29 17:49:44]: Return value: <>
+[2020-01-29 17:49:44]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-01-29 17:49:44]: Return value: <>
+[2020-01-29 17:49:44]: Executing: <set hashkey>
+[2020-01-29 17:49:44]: Return value: <handle status>
+[2020-01-29 17:49:44]: Executing: <set hashvalue>
+[2020-01-29 17:49:44]: Return value: <host2 1>
+[2020-01-29 17:49:44]: Executing: <set ret [sth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.169.101.1 -rate_mbps 1 -pkts_per_burst 1 -high_speed_result_analysis 1 -ip_tos_field 0 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -udp_dst_port 1024 -fill_type constant -length_mode fixed -fcs_error 0 -udp_src_port 1024 -port_handle port2 -emulation_dst_handle host1 -ip_ttl 255 -ip_fragment_offset 0 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_protocol 17 -ip_hdr_length 5 -l3_length 128 -ip_mbz 0 -dest_port_list port1 -transmit_mode continuous -frame_size 128 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -emulation_src_handle host2 -name StreamBlock_11-2 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -l4_protocol udp -mode create]>
+[2020-01-29 17:49:47]: Return value: <{stream_id streamblock1} {status 1}>
+[2020-01-29 17:49:47]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-01-29 17:49:47]: Return value: <>
+[2020-01-29 17:49:47]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-01-29 17:49:47]: Return value: <>
+[2020-01-29 17:49:47]: Executing: <set hashkey>
+[2020-01-29 17:49:47]: Return value: <stream_id status>
+[2020-01-29 17:49:47]: Executing: <set hashvalue>
+[2020-01-29 17:49:47]: Return value: <streamblock1 1>
+[2020-01-29 17:52:50]: Executing: <set ret [sth::traffic_control -action run -port_handle "port1 port2"]>
+[2020-01-29 17:52:54]: Return value: <{status 1}>
+[2020-01-29 17:52:54]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-01-29 17:52:54]: Return value: <>
+[2020-01-29 17:52:54]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-01-29 17:52:54]: Return value: <>
+[2020-01-29 17:52:54]: Executing: <set hashkey>
+[2020-01-29 17:52:54]: Return value: <status>
+[2020-01-29 17:52:54]: Executing: <set hashvalue>
+[2020-01-29 17:52:54]: Return value: <1>
+[2020-01-29 17:52:54]: Executing: <set ret [sth::traffic_stats -port_handle "port1 port2" -mode all]>
+[2020-01-29 17:53:10]: Return value: <{port1 {{aggregate {{rx {{total_pkt_bytes 522420} {fcoe_frame_rate 0} {udp_pkts 3891} {tcp_checksum_errors 0} {total_pkts 4205} {pfc_frame_rate 0} {fcoe_frame_count 0} {tcp_pkts 0} {pkt_bit_rate 865520} {raw_pkt_count 4205} {pkt_byte_count 522420} {pkt_rate 845} {pfc_frame_count 0} {total_pkt_rate 846} {pkt_count 3889} {ip_pkts 3891}}} {tx {{total_pkt_bytes 0} {total_pkts 0} {raw_pkt_count 0} {pkt_bit_rate 0} {pkt_byte_count 0} {pkt_rate 0} {pfc_frame_count 0} {raw_pkt_rate 0} {total_pkt_rate 0} {pkt_count 0} {ip_pkts 0} {elapsed_time 0}}}}} {stream {{unknown {{rx {{total_pkt_bytes 24628} {total_pkts 316} {good_pkt_bit_rate 0} {min_pkt_length 64} {max_pkt_length 452} {total_pkt_rate 0}}}}}}}}} {port2 {{aggregate {{rx {{total_pkt_bytes 1331364} {fcoe_frame_rate 0} {udp_pkts 10040} {tcp_checksum_errors 0} {total_pkts 10681} {pfc_frame_rate 0} {fcoe_frame_count 0} {tcp_pkts 0} {pkt_bit_rate 866976} {raw_pkt_count 10681} {pkt_byte_count 1331364} {pkt_rate 845} {pfc_frame_count 0} {total_pkt_rate 848} {pkt_count 10038} {ip_pkts 10249}}} {tx {{total_pkt_bytes 1329984} {total_pkts 10391} {raw_pkt_count 10391} {pkt_bit_rate 864816} {pkt_byte_count 1329984} {pkt_rate 845} {pfc_frame_count 0} {raw_pkt_rate 845} {total_pkt_rate 845} {pkt_count 10390} {ip_pkts 10390} {elapsed_time 12}}}}} {stream {{unknown {{rx {{total_pkt_bytes 46500} {total_pkts 643} {good_pkt_bit_rate 1952} {min_pkt_length 64} {max_pkt_length 452} {total_pkt_rate 4}}}}} {streamblock1 {{rx {{total_pkt_bytes 1226624} {ipv6_outer_present 0} {max_delay 24356.56} {total_pkts 9583} {dropped_pkts 0} {min_pkt_length 128} {rx_port {10.91.113.124-10-1 //10/1}} {prbs_bit_errors 0} {duplicate_pkts 0} {first_tstamp 0} {udp_present 1} {total_pkt_rate 845} {ipv4_outer_present 0} {min_delay 371.59} {rx_sig_count 9583} {avg_delay 857.903} {out_of_sequence_pkts 0} {rx_sig_rate 845} {misinserted_pkt_rate 0} {prbs_bit_error_rate 0} {ipv4_present 1} {ipv6_present 0} {pkt_byte_rate 108093} {out_of_pkt_frame_rate 0} {misinserted_pkts 0} {total_pkt_bit_rate 864744} {last_tstamp 0} {Min 128} {max_pkt_length 128} {Max 128} {tcp_present 0}}} {tx {{total_pkt_bytes 1396736} {ipv4_outer_present 0} {ipv6_outer_present 0} {total_pkts 10912} {udp_present 1} {total_pkt_bit_rate 864904} {ipv4_present 1} {elapsed_time 12} {total_pkt_rate 845} {ipv6_present 0} {tcp_present 0}}}}}}}}} {status 1}>
+[2020-01-29 17:53:10]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-01-29 17:53:10]: Return value: <>
+[2020-01-29 17:53:10]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-01-29 17:53:10]: Return value: <>
+[2020-01-29 17:53:10]: Executing: <set hashkey>
+[2020-01-29 17:53:10]: Return value: <{port1 . aggregate . rx . total_pkt_bytes} {port1 . aggregate . rx . fcoe_frame_rate} {port1 . aggregate . rx . udp_pkts} {port1 . aggregate . rx . tcp_checksum_errors} {port1 . aggregate . rx . total_pkts} {port1 . aggregate . rx . pfc_frame_rate} {port1 . aggregate . rx . fcoe_frame_count} {port1 . aggregate . rx . tcp_pkts} {port1 . aggregate . rx . pkt_bit_rate} {port1 . aggregate . rx . raw_pkt_count} {port1 . aggregate . rx . pkt_byte_count} {port1 . aggregate . rx . pkt_rate} {port1 . aggregate . rx . pfc_frame_count} {port1 . aggregate . rx . total_pkt_rate} {port1 . aggregate . rx . pkt_count} {port1 . aggregate . rx . ip_pkts} {port1 . aggregate . tx . total_pkt_bytes} {port1 . aggregate . tx . total_pkts} {port1 . aggregate . tx . raw_pkt_count} {port1 . aggregate . tx . pkt_bit_rate} {port1 . aggregate . tx . pkt_byte_count} {port1 . aggregate . tx . pkt_rate} {port1 . aggregate . tx . pfc_frame_count} {port1 . aggregate . tx . raw_pkt_rate} {port1 . aggregate . tx . total_pkt_rate} {port1 . aggregate . tx . pkt_count} {port1 . aggregate . tx . ip_pkts} {port1 . aggregate . tx . elapsed_time} {port1 . stream . unknown . rx . total_pkt_bytes} {port1 . stream . unknown . rx . total_pkts} {port1 . stream . unknown . rx . good_pkt_bit_rate} {port1 . stream . unknown . rx . min_pkt_length} {port1 . stream . unknown . rx . max_pkt_length} {port1 . stream . unknown . rx . total_pkt_rate} {port2 . aggregate . rx . total_pkt_bytes} {port2 . aggregate . rx . fcoe_frame_rate} {port2 . aggregate . rx . udp_pkts} {port2 . aggregate . rx . tcp_checksum_errors} {port2 . aggregate . rx . total_pkts} {port2 . aggregate . rx . pfc_frame_rate} {port2 . aggregate . rx . fcoe_frame_count} {port2 . aggregate . rx . tcp_pkts} {port2 . aggregate . rx . pkt_bit_rate} {port2 . aggregate . rx . raw_pkt_count} {port2 . aggregate . rx . pkt_byte_count} {port2 . aggregate . rx . pkt_rate} {port2 . aggregate . rx . pfc_frame_count} {port2 . aggregate . rx . total_pkt_rate} {port2 . aggregate . rx . pkt_count} {port2 . aggregate . rx . ip_pkts} {port2 . aggregate . tx . total_pkt_bytes} {port2 . aggregate . tx . total_pkts} {port2 . aggregate . tx . raw_pkt_count} {port2 . aggregate . tx . pkt_bit_rate} {port2 . aggregate . tx . pkt_byte_count} {port2 . aggregate . tx . pkt_rate} {port2 . aggregate . tx . pfc_frame_count} {port2 . aggregate . tx . raw_pkt_rate} {port2 . aggregate . tx . total_pkt_rate} {port2 . aggregate . tx . pkt_count} {port2 . aggregate . tx . ip_pkts} {port2 . aggregate . tx . elapsed_time} {port2 . stream . unknown . rx . total_pkt_bytes} {port2 . stream . unknown . rx . total_pkts} {port2 . stream . unknown . rx . good_pkt_bit_rate} {port2 . stream . unknown . rx . min_pkt_length} {port2 . stream . unknown . rx . max_pkt_length} {port2 . stream . unknown . rx . total_pkt_rate} {port2 . stream . streamblock1 . rx . total_pkt_bytes} {port2 . stream . streamblock1 . rx . ipv6_outer_present} {port2 . stream . streamblock1 . rx . max_delay} {port2 . stream . streamblock1 . rx . total_pkts} {port2 . stream . streamblock1 . rx . dropped_pkts} {port2 . stream . streamblock1 . rx . min_pkt_length} {port2 . stream . streamblock1 . rx . rx_port} {port2 . stream . streamblock1 . rx . prbs_bit_errors} {port2 . stream . streamblock1 . rx . duplicate_pkts} {port2 . stream . streamblock1 . rx . first_tstamp} {port2 . stream . streamblock1 . rx . udp_present} {port2 . stream . streamblock1 . rx . total_pkt_rate} {port2 . stream . streamblock1 . rx . ipv4_outer_present} {port2 . stream . streamblock1 . rx . min_delay} {port2 . stream . streamblock1 . rx . rx_sig_count} {port2 . stream . streamblock1 . rx . avg_delay} {port2 . stream . streamblock1 . rx . out_of_sequence_pkts} {port2 . stream . streamblock1 . rx . rx_sig_rate} {port2 . stream . streamblock1 . rx . misinserted_pkt_rate} {port2 . stream . streamblock1 . rx . prbs_bit_error_rate} {port2 . stream . streamblock1 . rx . ipv4_present} {port2 . stream . streamblock1 . rx . ipv6_present} {port2 . stream . streamblock1 . rx . pkt_byte_rate} {port2 . stream . streamblock1 . rx . out_of_pkt_frame_rate} {port2 . stream . streamblock1 . rx . misinserted_pkts} {port2 . stream . streamblock1 . rx . total_pkt_bit_rate} {port2 . stream . streamblock1 . rx . last_tstamp} {port2 . stream . streamblock1 . rx . Min} {port2 . stream . streamblock1 . rx . max_pkt_length} {port2 . stream . streamblock1 . rx . Max} {port2 . stream . streamblock1 . rx . tcp_present} {port2 . stream . streamblock1 . tx . total_pkt_bytes} {port2 . stream . streamblock1 . tx . ipv4_outer_present} {port2 . stream . streamblock1 . tx . ipv6_outer_present} {port2 . stream . streamblock1 . tx . total_pkts} {port2 . stream . streamblock1 . tx . udp_present} {port2 . stream . streamblock1 . tx . total_pkt_bit_rate} {port2 . stream . streamblock1 . tx . ipv4_present} {port2 . stream . streamblock1 . tx . elapsed_time} {port2 . stream . streamblock1 . tx . total_pkt_rate} {port2 . stream . streamblock1 . tx . ipv6_present} {port2 . stream . streamblock1 . tx . tcp_present} status>
+[2020-01-29 17:53:10]: Executing: <set hashvalue>
+[2020-01-29 17:53:10]: Return value: <522420 0 3891 0 4205 0 0 0 865520 4205 522420 845 0 846 3889 3891 0 0 0 0 0 0 0 0 0 0 0 0 24628 316 0 64 452 0 1331364 0 10040 0 10681 0 0 0 866976 10681 1331364 845 0 848 10038 10249 1329984 10391 10391 864816 1329984 845 0 845 845 10390 10390 12 46500 643 1952 64 452 4 1226624 0 24356.56 9583 0 128 {10.91.113.124-10-1 //10/1} 0 0 0 1 845 0 371.59 9583 857.903 0 845 0 0 1 0 108093 0 0 864744 0 128 128 128 0 1396736 0 0 10912 1 864904 1 12 845 0 0 1>
+[2020-01-29 17:53:10]: Executing: <set ret [sth::cleanup_session -port_handle "port1 port2" -clean_dbfile 1]>
+[2020-01-29 17:53:12]: Return value: <{status 1}>
+[2020-01-29 17:53:12]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-01-29 17:53:12]: Return value: <>
+[2020-01-29 17:53:12]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-01-29 17:53:12]: Return value: <>
+[2020-01-29 17:53:12]: Executing: <set hashkey>
+[2020-01-29 17:53:12]: Return value: <status>
+[2020-01-29 17:53:12]: Executing: <set hashvalue>
+[2020-01-29 17:53:12]: Return value: <1>
+[2020-01-29 17:53:12]: Client connection has been broken.  Exiting.

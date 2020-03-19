@@ -1106,9 +1106,26 @@ class VersaLib:
                 self.DEVICE_template_modify_config = self.DEVICE_template_modify.render(self.__dict__)
                 self.main_logger.info(self.DEVICE_template_modify_config)
             self.vdnc = self.login(vd_login='yes')
-            self.device_config_commands(self.vdnc, self.DEVICE_template_modify_config)
+            self.device_config_commands_with_return(self.vdnc, self.DEVICE_template_modify_config)
             self.close(self.vdnc)
             self.main_logger.info(">>>>>>>>>> CONFIG VRRP TRACK ROUTE passed. <<<<<<<<<<<")
+
+
+    def config_devices_qos(self, device_name, org_name, schdulermap_intf):
+        self.main_logger.info("\n\nSTEP :CONFIG QOS\n")
+        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/QOS/")
+        curr_env = Environment(loader=curr_file_loader)
+        self.DEVICE_template_modify = curr_env.get_template("qos_device_config.j2")
+        temp_dict = {}
+        temp_dict['Device_name'] = device_name
+        temp_dict['ORG_NAME'] = org_name
+        temp_dict['schdulermap_intf'] = schdulermap_intf
+        temp_dict.update(LAN1_QOS_RULES)
+        self.DEVICE_template_modify_config = self.DEVICE_template_modify.render(temp_dict)
+        self.main_logger.info(self.DEVICE_template_modify_config)
+        result = self.device_config_commands_with_return(self.DEVICE_template_modify_config)
+        return result
+        self.main_logger.info(">>>>>>>>>> CONFIG QOS passed. <<<<<<<<<<<")
 
 
     def check_org_for_controller(self, controller):
@@ -1465,6 +1482,13 @@ class VersaLib:
         output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
         return output
 
+    def show_cos_qos_policy_rules(self, policy = 'Default-Policy',  **kwargs):
+        cmd = "show orgs org-services " + self.ORG_NAME + " class-of-service qos-policies " + policy + " rules | tab | nomore"
+        print cmd
+        output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
+        return output
+
+
     def show_intf_port_stats_br(self):
         cmd = "show interfaces port statistics brief | tab | nomore"
         print cmd
@@ -1482,6 +1506,11 @@ class VersaLib:
 
     def req_clr_sess_all(self):
         cmd = "request clear sessions all"
+        output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
+        return output
+
+    def req_clr_stats_cos_qos_plcy_all(self):
+        cmd = "request clear statistics class-of-service qos-policy all"
         output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
         return output
 

@@ -327,5 +327,13 @@ plcyrule_1 = "policy_rule_11"
 TCP = "TCP"
 serviceobj_1 = "src_port_2000"
 
+LAN1_QOS_RULES = {
+'Premium' : 'LAN1-VRF-Premium',
+'Business1' : 'LAN1-VRF-Business1',
+'Business2' : 'LAN1-VRF-Business2',
+'Business3' : 'LAN1-VRF-Business3',
+'Internet-Default' : 'LAN1-VRF-Internet-Default'
+}
+
 
 

@@ -125,7 +125,7 @@ class HltapiLib:
 ##############################################################
 # create tcp stream block
 ##############################################################
-    def create_tcp_stream_block(self, src_device, dst_device, src_port, rate_mbps):
+    def create_tcp_stream_block(self, src_device, dst_device, src_port, rate_mbps, ip_dscp = '48',tcp_src_port_count='1', tcp_src_port_repeat_count='0'):
         streamblock_ret1 = sth.traffic_config(
             mode='create',
             port_handle=src_device['port'],
@@ -141,7 +141,11 @@ class HltapiLib:
             ip_fragment_offset='0',
             ip_mbz='0',
             ip_precedence='6',
-            ip_tos_field='0',
+            ip_dscp=ip_dscp,
+            tcp_src_port_count=tcp_src_port_count,
+            tcp_src_port_mode='increment',
+            tcp_src_port_repeat_count=tcp_src_port_repeat_count,
+            tcp_src_port_step='1',
             enable_control_plane='0',
             l3_length='160',
             fill_type='constant',
@@ -174,7 +178,7 @@ class HltapiLib:
 ##############################################################
 # create udp stream block
 ##############################################################
-    def create_udp_stream_block(self, src_device, dst_device, src_port, rate_mbps):
+    def create_udp_stream_block(self, src_device, dst_device, src_port, rate_mbps, ip_dscp = '48',udp_src_port_count='1', udp_src_port_repeat_count='0'):
         streamblock_ret1 = sth.traffic_config(
             mode='create',
             port_handle=src_device['port'],
@@ -191,7 +195,11 @@ class HltapiLib:
             ip_fragment_offset='0',
             ip_mbz='0',
             ip_precedence='6',
-            ip_tos_field='0',
+            ip_dscp=ip_dscp,
+            udp_src_port_count=udp_src_port_count,
+            udp_src_port_mode='increment',
+            udp_src_port_repeat_count=udp_src_port_repeat_count,
+            udp_src_port_step='1',
             enable_control_plane='0',
             l3_length='160',
             fill_type='constant',
