@@ -50,45 +50,6 @@ ${up}             up
 ${bw}             30000
 
 *** Test Cases ***
-NV_SINGLE_CPE_HYBRID_QOS_01
-    [Documentation]    1.1.9	QOS Based on DSCP Values
-    [Tags]    QOS
-    REQ CLR SESSION ALL
-    SHOW SESSION SDWAN DETAIL
-    SHOW INTERFACE PORT STATISTICS BRIEF
-    SHOW COMMIT CHANGES 0
-#    Debug
-    CPE1.req_clr_stats_cos_qos_plcy_all
-    CPE1.show_cos_qos_policy_rules
-    sleep  10s
-    ${premium_tcp_stream1}          spirent1.create_tcp_stream_block   ${device1}     ${device2}    src_port=3001     rate_mbps=1     ip_dscp=46
-    ${business1_tcp_stream1}        spirent1.create_tcp_stream_block   ${device1}     ${device2}    src_port=3002     rate_mbps=1     ip_dscp=26
-    ${business2_tcp_stream1}        spirent1.create_tcp_stream_block   ${device1}     ${device2}    src_port=3003     rate_mbps=1     ip_dscp=18
-    ${business3_tcp_stream1}        spirent1.create_tcp_stream_block   ${device1}     ${device2}    src_port=3004     rate_mbps=1     ip_dscp=10
-    ${internet_default_tcp_stream1}    spirent1.Create Tcp Stream Block   ${device1}    ${device2}    src_port=5000    rate_mbps=1
-    sleep    10s
-    spirent1.Start Stream Traffic   ${premium_tcp_stream1['stream_id']}
-    spirent1.Start Stream Traffic   ${business1_tcp_stream1['stream_id']}
-    spirent1.Start Stream Traffic   ${business2_tcp_stream1['stream_id']}
-    spirent1.Start Stream Traffic   ${business3_tcp_stream1['stream_id']}
-    spirent1.Start Stream Traffic   ${internet_default_tcp_stream1['stream_id']}
-    sleep    10s
-    SHOW INTERFACE PORT STATISTICS BRIEF
-    ${result}  CPE1.show_cos_qos_policy_rules
-    Log To Console  ${result}
-    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Premium\\s+1
-    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Business1\\s+1
-    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Business2\\s+1
-    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Business3\\s+1
-    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Internet-Default\\s+(\\d{1})
-
-    spirent1.stop_stream_traffic    ${premium_tcp_stream1['stream_id']}
-    spirent1.stop_stream_traffic    ${business1_tcp_stream1['stream_id']}
-    spirent1.stop_stream_traffic    ${business2_tcp_stream1['stream_id']}
-    spirent1.stop_stream_traffic    ${business3_tcp_stream1['stream_id']}
-    spirent1.stop_stream_traffic    ${internet_default_tcp_stream1['stream_id']}
-
-
 NV_SINGLE_CPE_HYBRID_SANITY_01
     [Documentation]    SANITY CHECKS on vCPE
     [Tags]    SANITY1
@@ -242,6 +203,37 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_04
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
     CPE1.delete_policy_rule    ${plcyrule_1}
 
+NV_SINGLE_CPE_HYBRID_QOS_01
+    [Documentation]    1.1.9	QOS Based on DSCP Values
+    [Tags]    QOS
+    REQ CLR SESSION ALL
+    SHOW SESSION SDWAN DETAIL
+    SHOW INTERFACE PORT STATISTICS BRIEF
+    SHOW COMMIT CHANGES 0
+#    Debug
+    CPE1.req_clr_stats_cos_qos_plcy_all
+    CPE1.show_cos_qos_policy_rules
+    sleep  10s
+    spirent1.Start Stream Traffic   ${premium_tcp_stream1['stream_id']}
+    spirent1.Start Stream Traffic   ${business1_tcp_stream1['stream_id']}
+    spirent1.Start Stream Traffic   ${business2_tcp_stream1['stream_id']}
+    spirent1.Start Stream Traffic   ${business3_tcp_stream1['stream_id']}
+    spirent1.Start Stream Traffic   ${internet_default_tcp_stream1['stream_id']}
+    sleep    10s
+    SHOW INTERFACE PORT STATISTICS BRIEF
+    ${result}  CPE1.show_cos_qos_policy_rules
+    Log To Console  ${result}
+    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Premium\\s+1
+    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Business1\\s+1
+    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Business2\\s+1
+    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Business3\\s+1
+    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Internet-Default\\s+(\\d{1})
+
+    spirent1.stop_stream_traffic    ${premium_tcp_stream1['stream_id']}
+    spirent1.stop_stream_traffic    ${business1_tcp_stream1['stream_id']}
+    spirent1.stop_stream_traffic    ${business2_tcp_stream1['stream_id']}
+    spirent1.stop_stream_traffic    ${business3_tcp_stream1['stream_id']}
+    spirent1.stop_stream_traffic    ${internet_default_tcp_stream1['stream_id']}
 
 
 *** Keywords ***
@@ -399,12 +391,25 @@ SPIRENT_STARTUP
     ${stream1}    spirent1.Create Tcp Stream Block   ${device1}    ${device2}    src_port=2000    rate_mbps=2
     ${stream2}    spirent1.Create Tcp Stream Block   ${device1}    ${device2}    src_port=2001    rate_mbps=2
     ${stream3}    spirent1.Create Udp Stream Block   ${device1}    ${device2}    src_port=2002    rate_mbps=2
+    ${premium_tcp_stream1}          spirent1.create_tcp_stream_block   ${device1}     ${device2}    src_port=3001     rate_mbps=1     ip_dscp=46
+    ${business1_tcp_stream1}        spirent1.create_tcp_stream_block   ${device1}     ${device2}    src_port=3002     rate_mbps=1     ip_dscp=26
+    ${business2_tcp_stream1}        spirent1.create_tcp_stream_block   ${device1}     ${device2}    src_port=3003     rate_mbps=1     ip_dscp=18
+    ${business3_tcp_stream1}        spirent1.create_tcp_stream_block   ${device1}     ${device2}    src_port=3004     rate_mbps=1     ip_dscp=10
+    ${internet_default_tcp_stream1}    spirent1.Create Tcp Stream Block   ${device1}    ${device2}    src_port=5000    rate_mbps=1
     
     set suite variable    ${device1}
     set suite variable    ${device2}
     set suite variable    ${stream1}
     set suite variable    ${stream2}
     set suite variable    ${stream3}
+    set suite variable    ${premium_tcp_stream1}
+    set suite variable    ${business1_tcp_stream1}
+    set suite variable    ${business2_tcp_stream1}
+    set suite variable    ${business3_tcp_stream1}
+    set suite variable    ${internet_default_tcp_stream1}
+
+
+
 
 CLEANUP
     DELETE FWD PROFILE

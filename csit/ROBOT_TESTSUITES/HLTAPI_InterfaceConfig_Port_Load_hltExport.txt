@@ -105,6 +105,118 @@ if {$ret ne $logged_ret} {
 }
 puts $ret
 
+puts "\nsth::traffic_control -action run -stream_handle streamblock1"
+set ret [sth::traffic_control -action run -stream_handle streamblock1]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_control -action run -stream_handle streamblock2"
+set ret [sth::traffic_control -action run -stream_handle streamblock2]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_control -action run -stream_handle streamblock3"
+set ret [sth::traffic_control -action run -stream_handle streamblock3]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_control -action stop -stream_handle streamblock3"
+set ret [sth::traffic_control -action stop -stream_handle streamblock3]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_control -action stop -stream_handle streamblock2"
+set ret [sth::traffic_control -action stop -stream_handle streamblock2]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_control -action stop -stream_handle streamblock1"
+set ret [sth::traffic_control -action stop -stream_handle streamblock1]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_control -action run -stream_handle streamblock1"
+set ret [sth::traffic_control -action run -stream_handle streamblock1]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_control -action run -stream_handle streamblock2"
+set ret [sth::traffic_control -action run -stream_handle streamblock2]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_control -action run -stream_handle streamblock3"
+set ret [sth::traffic_control -action run -stream_handle streamblock3]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_control -action stop -stream_handle streamblock3"
+set ret [sth::traffic_control -action stop -stream_handle streamblock3]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_control -action stop -stream_handle streamblock2"
+set ret [sth::traffic_control -action stop -stream_handle streamblock2]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_control -action stop -stream_handle streamblock1"
+set ret [sth::traffic_control -action stop -stream_handle streamblock1]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_control -action run -stream_handle streamblock1"
+set ret [sth::traffic_control -action run -stream_handle streamblock1]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_control -action stop -stream_handle streamblock1"
+set ret [sth::traffic_control -action stop -stream_handle streamblock1]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
 puts "\nsth::traffic_control -action run -stream_handle streamblock4"
 set ret [sth::traffic_control -action run -stream_handle streamblock4]
 set logged_ret "{status 1}"
@@ -179,118 +291,6 @@ puts $ret
 
 puts "\nsth::traffic_control -action stop -stream_handle streamblock8"
 set ret [sth::traffic_control -action stop -stream_handle streamblock8]
-set logged_ret "{status 1}"
-if {$ret ne $logged_ret} {
-    puts "<warning>NOT same return value as logged result."
-}
-puts $ret
-
-puts "\nsth::traffic_control -action run -stream_handle streamblock1"
-set ret [sth::traffic_control -action run -stream_handle streamblock1]
-set logged_ret "{status 1}"
-if {$ret ne $logged_ret} {
-    puts "<warning>NOT same return value as logged result."
-}
-puts $ret
-
-puts "\nsth::traffic_control -action run -stream_handle streamblock2"
-set ret [sth::traffic_control -action run -stream_handle streamblock2]
-set logged_ret "{status 1}"
-if {$ret ne $logged_ret} {
-    puts "<warning>NOT same return value as logged result."
-}
-puts $ret
-
-puts "\nsth::traffic_control -action run -stream_handle streamblock3"
-set ret [sth::traffic_control -action run -stream_handle streamblock3]
-set logged_ret "{status 1}"
-if {$ret ne $logged_ret} {
-    puts "<warning>NOT same return value as logged result."
-}
-puts $ret
-
-puts "\nsth::traffic_control -action stop -stream_handle streamblock3"
-set ret [sth::traffic_control -action stop -stream_handle streamblock3]
-set logged_ret "{status 1}"
-if {$ret ne $logged_ret} {
-    puts "<warning>NOT same return value as logged result."
-}
-puts $ret
-
-puts "\nsth::traffic_control -action stop -stream_handle streamblock2"
-set ret [sth::traffic_control -action stop -stream_handle streamblock2]
-set logged_ret "{status 1}"
-if {$ret ne $logged_ret} {
-    puts "<warning>NOT same return value as logged result."
-}
-puts $ret
-
-puts "\nsth::traffic_control -action stop -stream_handle streamblock1"
-set ret [sth::traffic_control -action stop -stream_handle streamblock1]
-set logged_ret "{status 1}"
-if {$ret ne $logged_ret} {
-    puts "<warning>NOT same return value as logged result."
-}
-puts $ret
-
-puts "\nsth::traffic_control -action run -stream_handle streamblock1"
-set ret [sth::traffic_control -action run -stream_handle streamblock1]
-set logged_ret "{status 1}"
-if {$ret ne $logged_ret} {
-    puts "<warning>NOT same return value as logged result."
-}
-puts $ret
-
-puts "\nsth::traffic_control -action run -stream_handle streamblock2"
-set ret [sth::traffic_control -action run -stream_handle streamblock2]
-set logged_ret "{status 1}"
-if {$ret ne $logged_ret} {
-    puts "<warning>NOT same return value as logged result."
-}
-puts $ret
-
-puts "\nsth::traffic_control -action run -stream_handle streamblock3"
-set ret [sth::traffic_control -action run -stream_handle streamblock3]
-set logged_ret "{status 1}"
-if {$ret ne $logged_ret} {
-    puts "<warning>NOT same return value as logged result."
-}
-puts $ret
-
-puts "\nsth::traffic_control -action stop -stream_handle streamblock3"
-set ret [sth::traffic_control -action stop -stream_handle streamblock3]
-set logged_ret "{status 1}"
-if {$ret ne $logged_ret} {
-    puts "<warning>NOT same return value as logged result."
-}
-puts $ret
-
-puts "\nsth::traffic_control -action stop -stream_handle streamblock2"
-set ret [sth::traffic_control -action stop -stream_handle streamblock2]
-set logged_ret "{status 1}"
-if {$ret ne $logged_ret} {
-    puts "<warning>NOT same return value as logged result."
-}
-puts $ret
-
-puts "\nsth::traffic_control -action stop -stream_handle streamblock1"
-set ret [sth::traffic_control -action stop -stream_handle streamblock1]
-set logged_ret "{status 1}"
-if {$ret ne $logged_ret} {
-    puts "<warning>NOT same return value as logged result."
-}
-puts $ret
-
-puts "\nsth::traffic_control -action run -stream_handle streamblock1"
-set ret [sth::traffic_control -action run -stream_handle streamblock1]
-set logged_ret "{status 1}"
-if {$ret ne $logged_ret} {
-    puts "<warning>NOT same return value as logged result."
-}
-puts $ret
-
-puts "\nsth::traffic_control -action stop -stream_handle streamblock1"
-set ret [sth::traffic_control -action stop -stream_handle streamblock1]
 set logged_ret "{status 1}"
 if {$ret ne $logged_ret} {
     puts "<warning>NOT same return value as logged result."
