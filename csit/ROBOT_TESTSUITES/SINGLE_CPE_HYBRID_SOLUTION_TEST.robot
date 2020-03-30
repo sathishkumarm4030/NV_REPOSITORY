@@ -28,6 +28,8 @@ Documentation     A test suite with tests for SDWAN SINGLE CPE Solution.
 ...               3. CHECK LAN ROUTE.
 ...               4. Ping Test.
 ...               5. IPERF Test.
+...               6. Traffic steering Test.
+...               7. QOS Test.
 Suite Setup       STARTUP
 Suite Teardown    CLEANUP
 Metadata          Version    1.0\nMore Info For more information about Robot Framework see http://robotframework.org\nAuthor Sathishkumar murugesan\nDate 12 Dec 2017\nExecuted At HOST\nTest Framework Robot Framework Python
@@ -204,7 +206,7 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_04
     CPE1.delete_policy_rule    ${plcyrule_1}
 
 NV_SINGLE_CPE_HYBRID_QOS_01
-    [Documentation]    1.1.9	QOS Based on DSCP Values
+    [Documentation]    DSCP Values based QOS
     [Tags]    QOS
     REQ CLR SESSION ALL
     SHOW SESSION SDWAN DETAIL
@@ -234,6 +236,64 @@ NV_SINGLE_CPE_HYBRID_QOS_01
     spirent1.stop_stream_traffic    ${business2_tcp_stream1['stream_id']}
     spirent1.stop_stream_traffic    ${business3_tcp_stream1['stream_id']}
     spirent1.stop_stream_traffic    ${internet_default_tcp_stream1['stream_id']}
+
+
+NV_SINGLE_CPE_HYBRID_QOS_02
+    [Documentation]    Source IP address Based QOS
+    [Tags]    QOS
+    VD1.modify_qos_device_config    ${CPE1['Device_name']}    ${cpe1['ORG_NAME']}    qos_ip_based_premium.j2    src_address_obj=${ipaddobj_1}
+    VD1.move_qos_policy_rule    ${CPE1['Device_name']}    ${cpe1['ORG_NAME']}    Default-Policy    LAN1-VRF-Premium    first
+    sleep    10s
+#    Debug
+    REQ CLR SESSION ALL
+    SHOW SESSION SDWAN DETAIL
+    SHOW INTERFACE PORT STATISTICS BRIEF
+    SHOW COMMIT CHANGES 0
+#    Debug
+    CPE1.req_clr_stats_cos_qos_plcy_all
+    CPE1.show_cos_qos_policy_rules
+    sleep  10s
+    spirent1.Start Stream Traffic   ${stream1['stream_id']}
+    sleep    10s
+    SHOW INTERFACE PORT STATISTICS BRIEF
+    ${result}  CPE1.show_cos_qos_policy_rules
+    Log To Console  ${result}
+    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Premium\\s+1
+    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Business1\\s+0
+    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Business2\\s+0
+    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Business3\\s+0
+    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Internet-Default\\s+(\\d{1})
+    spirent1.stop_stream_traffic    ${stream1['stream_id']}
+    VD1.modify_qos_device_config    ${CPE1['Device_name']}    ${cpe1['ORG_NAME']}    revert_qos_ip_based_premium.j2    src_address_obj=${ipaddobj_1}
+    VD1.move_qos_policy_rule    ${CPE1['Device_name']}    ${cpe1['ORG_NAME']}    Default-Policy    LAN1-VRF-Premium    first
+
+NV_SINGLE_CPE_HYBRID_QOS_03
+    [Documentation]    Destination IP address Based QOS
+    [Tags]    QOS
+    VD1.modify_qos_device_config    ${CPE1['Device_name']}    ${cpe1['ORG_NAME']}    qos_ip_based_premium.j2    dst_address_obj=${ipaddobj_2}
+    VD1.move_qos_policy_rule    ${CPE1['Device_name']}    ${cpe1['ORG_NAME']}    Default-Policy    LAN1-VRF-Premium    first
+    sleep  10s
+    REQ CLR SESSION ALL
+    SHOW SESSION SDWAN DETAIL
+    SHOW INTERFACE PORT STATISTICS BRIEF
+    SHOW COMMIT CHANGES 0
+#    Debug
+    CPE1.req_clr_stats_cos_qos_plcy_all
+    CPE1.show_cos_qos_policy_rules
+    sleep  10s
+    spirent1.Start Stream Traffic   ${stream1['stream_id']}
+    sleep    10s
+    SHOW INTERFACE PORT STATISTICS BRIEF
+    ${result}  CPE1.show_cos_qos_policy_rules
+    Log To Console  ${result}
+    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Premium\\s+1
+    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Business1\\s+0
+    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Business2\\s+0
+    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Business3\\s+0
+    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Internet-Default\\s+(\\d{1})
+    spirent1.stop_stream_traffic    ${stream1['stream_id']}
+    VD1.modify_qos_device_config    ${CPE1['Device_name']}    ${cpe1['ORG_NAME']}    revert_qos_ip_based_premium.j2    dst_address_obj=${ipaddobj_2}
+    VD1.move_qos_policy_rule    ${CPE1['Device_name']}    ${cpe1['ORG_NAME']}    Default-Policy    LAN1-VRF-Premium    first
 
 
 *** Keywords ***
@@ -274,7 +334,6 @@ DELETE FWD PROFILE
     CPE1.delete_sla_profile    ${sla_prf_1}
     CPE1.modify_interface_bandwidth    ${CPE1['WAN1_INTF']}    ${curr_intf_bw['bandwidth']['uplink']}    ${curr_intf_bw['bandwidth']['downlink']}
     CPE1.get_vni_interface_bw    ${CPE1['WAN1_INTF']}
-
 
 CHECK MPLS WAN INTERFACE UP in CPE1 & CPE2
     ${result}=    CPE1.get interface status    intf_name=${CPE1['WAN1_INTF']}${unit_o} | match MPLS
@@ -384,6 +443,7 @@ STARTUP
     ###########spirent ###########
     SPIRENT_STARTUP
     CREATE FWD PROFILE
+    VD1.config_devices_qos    ${CPE1['Device_name']}    ${CPE1['ORG_NAME']}    ${CPE1['WAN1_INTF']}
 
 SPIRENT_STARTUP
     ${device1}    spirent1.Create Device    port=0    vlanid=${CPE1['lan'][1]['vlan']}    intf_ip_addr=${CPE1['lan'][1]['third_host']}    gateway_ip_addr=${CPE1['lan'][1]['first_host']}

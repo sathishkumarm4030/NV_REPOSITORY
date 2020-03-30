@@ -297,6 +297,38 @@ if {$ret ne $logged_ret} {
 }
 puts $ret
 
+puts "\nsth::traffic_control -action run -stream_handle streamblock1"
+set ret [sth::traffic_control -action run -stream_handle streamblock1]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_control -action stop -stream_handle streamblock1"
+set ret [sth::traffic_control -action stop -stream_handle streamblock1]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_control -action run -stream_handle streamblock1"
+set ret [sth::traffic_control -action run -stream_handle streamblock1]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::traffic_control -action stop -stream_handle streamblock1"
+set ret [sth::traffic_control -action stop -stream_handle streamblock1]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
 puts "\nsth::cleanup_session -port_handle {port1 port2} -clean_dbfile 1"
 set ret [sth::cleanup_session -port_handle {port1 port2} -clean_dbfile 1]
 set logged_ret "{status 1}"
