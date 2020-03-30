@@ -1127,6 +1127,22 @@ class VersaLib:
         return result
         self.main_logger.info(">>>>>>>>>> CONFIG QOS passed. <<<<<<<<<<<")
 
+    def modify_qos_device_config(self, device_name, org_name, tempalte_name, **kwargs):
+        temp_dict = {}
+        if kwargs is not None:
+            for k, v in kwargs.iteritems():
+                temp_dict[k] = v
+        self.main_logger.info("\n\nSTEP :CONFIG QOS\n")
+        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/QOS/")
+        curr_env = Environment(loader=curr_file_loader)
+        self.DEVICE_template_modify = curr_env.get_template(tempalte_name)
+        temp_dict['Device_name'] = device_name
+        temp_dict['ORG_NAME'] = org_name
+        self.DEVICE_template_modify_config = self.DEVICE_template_modify.render(temp_dict)
+        self.main_logger.info(self.DEVICE_template_modify_config)
+        result = self.device_config_commands_with_return(self.DEVICE_template_modify_config)
+        return result
+        self.main_logger.info(">>>>>>>>>> CONFIG QOS passed. <<<<<<<<<<<")
 
     def check_org_for_controller(self, controller):
         data1 = self.get_operation(org_url + "/" + self.ORG_NAME, headers3)
@@ -2346,6 +2362,11 @@ class VersaLib:
 
     def move_policy_rule(self, device, org, policy, rule, position):
         cmd = 'move devices device ' + device + ' config orgs org-services ' + org + ' sd-wan policies ' + policy +  ' rules ' + rule + " " + position
+        result = self.commit_config_commands(self.nc, cmd)
+        return self.check_commit_result(result)
+
+    def move_qos_policy_rule(self, device, org, policy, rule, position):
+        cmd = 'move devices device ' + device + ' config orgs org-services ' + org + ' class-of-service qos-policies ' + policy +  ' rules ' + rule + " " + position
         result = self.commit_config_commands(self.nc, cmd)
         return self.check_commit_result(result)
 
