@@ -29,22 +29,22 @@ curr_file_dir = os.path.dirname(os.path.dirname(os.path.realpath('__file__')))
 from csit.libraries.VersaLib import VersaLib
 
 def get_vd_details():
-    ip = raw_input("Enter Versa Director IP address:\n")
-    print "Versa director IP:" + ip
-    ldap_user = raw_input("Enter LDAP Username for making SSH connection to VD:\n")
-    print "Versa director Username:" + ldap_user
-    ldap_passwd = getpass.getpass("Enter LDAP Password:\n")
+    # ip = raw_input("Enter Versa Director IP address:\n")
+    # print "Versa director IP:" + ip
+    # ldap_user = raw_input("Enter LDAP Username for making SSH connection to VD:\n")
+    # print "Versa director Username:" + ldap_user
+    # ldap_passwd = getpass.getpass("Enter LDAP Password:\n")
     # user = raw_input("Enter Username for making REST actions to Versa Director :\n")
     # print "Versa director Username:" + user
     # passwd = getpass.getpass("Enter REST Password:\n")
     # cpe_user = raw_input("Enter Versa CPE Username:\n")
     # print "Versa CPE Username:" + cpe_user
     # cpe_passwd = getpass.getpass("Enter Versa CPE Password:\n")
-    # ip = '10.91.127.194'
-    # ldap_user = 'Automated'
-    # ldap_passwd = 'Auto@12345'
-    # user = 'Automated'
-    # passwd = 'Auto@12345'
+    ip = '10.91.127.194'
+    ldap_user = 'Automated'
+    ldap_passwd = 'Auto@12345'
+    user = 'Automated'
+    passwd = 'Auto@12345'
     return {'mgmt_ip' : ip, 'username' : ldap_user,\
             'password' : ldap_passwd}
 

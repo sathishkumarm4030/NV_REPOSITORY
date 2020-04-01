@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20200323 17:14:56.641" generator="Robot 3.0.2 (Python 2.7.12 on linux2)">
+<suite source="/home/sathish123/PycharmProjects/NV_REPOSITORY/csit_march23/ROBOT_TESTSUITES/SINGLE_CPE_HYBRID_SOLUTION_TEST.robot" id="s1" name="SINGLE CPE HYBRID SOLUTION TEST">
+<kw type="setup" name="STARTUP">
+<doc>Make connecection to Versa devices</doc>
+<kw name="Login" library="VD1">
+<msg timestamp="20200323 17:15:48.768" level="FAIL">ValueError: Unable to find prompt: </msg>
+<status status="FAIL" endtime="20200323 17:15:48.768" starttime="20200323 17:15:34.579"></status>
+</kw>
+<status status="FAIL" endtime="20200323 17:15:48.769" starttime="20200323 17:15:34.577"></status>
+</kw>
+<test id="s1-t1" name="NV_SINGLE_CPE_HYBRID_SANITY_01">
+<doc>SANITY CHECKS on vCPE</doc>
+<tags>
+<tag>SANITY1</tag>
+</tags>
+<status status="FAIL" endtime="20200323 17:15:48.771" critical="yes" starttime="20200323 17:15:48.769">Parent suite setup failed:
+ValueError: Unable to find prompt: </status>
+</test>
+<test id="s1-t2" name="NV_SINGLE_CPE_HYBRID_SANITY_02">
+<doc>Ping test CPE1 LAN1 VM to CPE2 LAN1 VM</doc>
+<tags>
+<tag>PING</tag>
+</tags>
+<status status="FAIL" endtime="20200323 17:15:48.773" critical="yes" starttime="20200323 17:15:48.772">Parent suite setup failed:
+ValueError: Unable to find prompt: </status>
+</test>
+<test id="s1-t3" name="NV_SINGLE_CPE_HYBRID_SANITY_03">
+<doc>Ping test CPE1 ALL LAN VM to CPE2 ALL LAN VM</doc>
+<tags>
+<tag>PING</tag>
+</tags>
+<status status="FAIL" endtime="20200323 17:15:48.775" critical="yes" starttime="20200323 17:15:48.774">Parent suite setup failed:
+ValueError: Unable to find prompt: </status>
+</test>
+<test id="s1-t4" name="NV_SINGLE_CPE_HYBRID_SANITY_04">
+<doc>Iperf test VM1 to VM2</doc>
+<tags>
+<tag>IPERF</tag>
+</tags>
+<status status="FAIL" endtime="20200323 17:15:48.777" critical="yes" starttime="20200323 17:15:48.776">Parent suite setup failed:
+ValueError: Unable to find prompt: </status>
+</test>
+<test id="s1-t5" name="NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_01">
+<doc>Traffic steering based on Destination IP</doc>
+<tags>
+<tag>P1</tag>
+</tags>
+<status status="FAIL" endtime="20200323 17:15:48.778" critical="yes" starttime="20200323 17:15:48.777">Parent suite setup failed:
+ValueError: Unable to find prompt: </status>
+</test>
+<test id="s1-t6" name="NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_02">
+<doc>Traffic steering based on Source IP</doc>
+<tags>
+<tag>P1</tag>
+</tags>
+<status status="FAIL" endtime="20200323 17:15:48.780" critical="yes" starttime="20200323 17:15:48.779">Parent suite setup failed:
+ValueError: Unable to find prompt: </status>
+</test>
+<test id="s1-t7" name="NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_03">
+<doc>Traffic steering based on Source PORT</doc>
+<tags>
+<tag>P1</tag>
+</tags>
+<status status="FAIL" endtime="20200323 17:15:48.782" critical="yes" starttime="20200323 17:15:48.781">Parent suite setup failed:
+ValueError: Unable to find prompt: </status>
+</test>
+<test id="s1-t8" name="NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_04">
+<doc>Traffic steering based on Application (IPERF)</doc>
+<tags>
+<tag>P1</tag>
+</tags>
+<status status="FAIL" endtime="20200323 17:15:48.784" critical="yes" starttime="20200323 17:15:48.783">Parent suite setup failed:
+ValueError: Unable to find prompt: </status>
+</test>
+<test id="s1-t9" name="NV_SINGLE_CPE_HYBRID_QOS_01">
+<doc>1.1.9 QOS Based on DSCP Values</doc>
+<tags>
+<tag>QOS</tag>
+</tags>
+<status status="FAIL" endtime="20200323 17:15:48.786" critical="yes" starttime="20200323 17:15:48.785">Parent suite setup failed:
+ValueError: Unable to find prompt: </status>
+</test>
+<kw type="teardown" name="CLEANUP">
+<kw name="DELETE FWD PROFILE">
+<kw name="Delete Service Object" library="CPE1">
+<arguments>
+<arg>${serviceobj_1}</arg>
+</arguments>
+<msg timestamp="20200323 17:15:48.790" level="INFO">
+DELETE Service Object
+</msg>
+<msg timestamp="20200323 17:15:54.040" level="ERROR"></msg>
+<msg timestamp="20200323 17:15:54.041" level="INFO">
+FAIL : </msg>
+<msg timestamp="20200323 17:15:54.042" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; ADDRESS OBJECT DELETION FAILED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
+<msg timestamp="20200323 17:15:54.042" level="INFO">&lt;Response [404]&gt;</msg>
+<status status="PASS" endtime="20200323 17:15:54.042" starttime="20200323 17:15:48.789"></status>
+</kw>
+<kw name="Delete Address Object" library="CPE1">
+<arguments>
+<arg>${ipaddobj_1}</arg>
+</arguments>
+<msg timestamp="20200323 17:15:54.044" level="INFO">
+DELETE IPaddress Object
+</msg>
+<msg timestamp="20200323 17:15:55.960" level="ERROR"></msg>
+<msg timestamp="20200323 17:15:55.961" level="INFO">
+FAIL : </msg>
+<msg timestamp="20200323 17:15:55.962" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; ADDRESS OBJECT DELETION FAILED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
+<msg timestamp="20200323 17:15:55.962" level="INFO">&lt;Response [404]&gt;</msg>
+<status status="PASS" endtime="20200323 17:15:55.962" starttime="20200323 17:15:54.043"></status>
+</kw>
+<kw name="Delete Address Object" library="CPE1">
+<arguments>
+<arg>${ipaddobj_2}</arg>
+</arguments>
+<msg timestamp="20200323 17:15:55.964" level="INFO">
+DELETE IPaddress Object
+</msg>
+<msg timestamp="20200323 17:16:03.410" level="ERROR"></msg>
+<msg timestamp="20200323 17:16:03.411" level="INFO">
+FAIL : </msg>
+<msg timestamp="20200323 17:16:03.412" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; ADDRESS OBJECT DELETION FAILED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
+<msg timestamp="20200323 17:16:03.412" level="INFO">&lt;Response [404]&gt;</msg>
+<status status="PASS" endtime="20200323 17:16:03.412" starttime="20200323 17:15:55.963"></status>
+</kw>
+<kw name="Delete Fowarding Profile" library="CPE1">
+<arguments>
+<arg>${fwp_1}</arg>
+</arguments>
+<msg timestamp="20200323 17:16:03.414" level="INFO">
+DELETE FWD PROFILE
+</msg>
+<msg timestamp="20200323 17:16:04.716" level="ERROR"></msg>
+<msg timestamp="20200323 17:16:04.717" level="INFO">
+FAIL : </msg>
+<msg timestamp="20200323 17:16:04.717" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; FORWARDING PROFILE DELETION FAILED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
+<msg timestamp="20200323 17:16:04.718" level="INFO">&lt;Response [404]&gt;</msg>
+<status status="PASS" endtime="20200323 17:16:04.718" starttime="20200323 17:16:03.413"></status>
+</kw>
+<kw name="Delete Sla Profile" library="CPE1">
+<arguments>
+<arg>${sla_prf_1}</arg>
+</arguments>
+<msg timestamp="20200323 17:16:04.719" level="INFO">
+DELETE SLA profile
+</msg>
+<msg timestamp="20200323 17:16:05.152" level="ERROR"></msg>
+<msg timestamp="20200323 17:16:05.153" level="INFO">
+FAIL : </msg>
+<msg timestamp="20200323 17:16:05.154" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; DELETE SLA Profile FAILED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
+<msg timestamp="20200323 17:16:05.154" level="INFO">&lt;Response [404]&gt;</msg>
+<status status="PASS" endtime="20200323 17:16:05.155" starttime="20200323 17:16:04.718"></status>
+</kw>
+<kw name="Modify Interface Bandwidth" library="CPE1">
+<arguments>
+<arg>${CPE1['WAN1_INTF']}</arg>
+<arg>${curr_intf_bw['bandwidth']['uplink']}</arg>
+<arg>${curr_intf_bw['bandwidth']['downlink']}</arg>
+</arguments>
+<msg timestamp="20200323 17:16:05.156" level="FAIL">Resolving variable '${CPE1['WAN1_INTF']}' failed: TypeError: string indices must be integers, not str</msg>
+<status status="FAIL" endtime="20200323 17:16:05.156" starttime="20200323 17:16:05.155"></status>
+</kw>
+<kw name="Get Vni Interface Bw" library="CPE1">
+<arguments>
+<arg>${CPE1['WAN1_INTF']}</arg>
+</arguments>
+<msg timestamp="20200323 17:16:05.157" level="FAIL">Resolving variable '${CPE1['WAN1_INTF']}' failed: TypeError: string indices must be integers, not str</msg>
+<status status="FAIL" endtime="20200323 17:16:05.158" starttime="20200323 17:16:05.157"></status>
+</kw>
+<status status="FAIL" endtime="20200323 17:16:05.158" starttime="20200323 17:15:48.788"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"cleanup done"</arg>
+</arguments>
+<status status="PASS" endtime="20200323 17:16:05.159" starttime="20200323 17:16:05.159"></status>
+</kw>
+<kw name="Release Ports" library="spirent1">
+<msg timestamp="20200323 17:16:05.160" level="INFO">Release resources</msg>
+<msg timestamp="20200323 17:16:05.161" level="FAIL">IndexError: list index out of range</msg>
+<status status="FAIL" endtime="20200323 17:16:05.161" starttime="20200323 17:16:05.160"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>40s</arg>
+</arguments>
+<msg timestamp="20200323 17:16:45.163" level="INFO">Slept 40 seconds</msg>
+<status status="PASS" endtime="20200323 17:16:45.163" starttime="20200323 17:16:05.162"></status>
+</kw>
+<status status="FAIL" endtime="20200323 17:16:45.164" starttime="20200323 17:15:48.787">Several failures occurred:
+
+1) Resolving variable '${CPE1['WAN1_INTF']}' failed: TypeError: string indices must be integers, not str
+
+2) Resolving variable '${CPE1['WAN1_INTF']}' failed: TypeError: string indices must be integers, not str
+
+3) IndexError: list index out of range</status>
+</kw>
+<doc>A test suite with tests for SDWAN SINGLE CPE Solution.
+Topology:-
+____________________________
+| VersaDirector |
+|___________________________|
+|
+|
+|
+_____________|_______________
+| WanCtrller1 |
+|____________________________|
+| |
+| |
+| |
+INTERNET/MPLS
+| |
+| |___
+______|__ ___|___
+| | | |
+LAN1--+ CPE1 | | CPE2 +--LAN1
+|________| |_______|
+
+
+Testplan Goals:-
+1. CHECK WAN INTERFACES STATUS.
+2. CHECK BGP NEIGHBOR STATUS.
+3. CHECK LAN ROUTE.
+4. Ping Test.
+5. IPERF Test.</doc>
+<metadata>
+<item name="Version">1.0
+More Info For more information about Robot Framework see http://robotframework.org
+Author Sathishkumar murugesan
+Date 12 Dec 2017
+Executed At HOST
+Test Framework Robot Framework Python</item>
+</metadata>
+<status status="FAIL" endtime="20200323 17:16:45.165" starttime="20200323 17:14:56.649">Suite setup failed:
+ValueError: Unable to find prompt: 
+
+Also suite teardown failed:
+Several failures occurred:
+
+1) Resolving variable '${CPE1['WAN1_INTF']}' failed: TypeError: string indices must be integers, not str
+
+2) Resolving variable '${CPE1['WAN1_INTF']}' failed: TypeError: string indices must be integers, not str
+
+3) IndexError: list index out of range</status>
+</suite>
+<statistics>
+<total>
+<stat fail="9" pass="0">Critical Tests</stat>
+<stat fail="9" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">IPERF</stat>
+<stat fail="4" pass="0">P1</stat>
+<stat fail="2" pass="0">PING</stat>
+<stat fail="1" pass="0">QOS</stat>
+<stat fail="1" pass="0">SANITY1</stat>
+</tag>
+<suite>
+<stat fail="9" id="s1" name="SINGLE CPE HYBRID SOLUTION TEST" pass="0">SINGLE CPE HYBRID SOLUTION TEST</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20200323 17:15:54.040" level="ERROR"></msg>
+<msg timestamp="20200323 17:15:55.960" level="ERROR"></msg>
+<msg timestamp="20200323 17:16:03.410" level="ERROR"></msg>
+<msg timestamp="20200323 17:16:04.716" level="ERROR"></msg>
+<msg timestamp="20200323 17:16:05.152" level="ERROR"></msg>
+</errors>
+</robot>

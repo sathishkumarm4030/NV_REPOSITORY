@@ -1,0 +1,400 @@
+[2020-03-19 18:22:05]: Started process.  Command line: 
+[2020-03-19 18:22:05]:      port number: 64831
+[2020-03-19 18:22:05]:    timeout value: 120
+[2020-03-19 18:22:05]:       log option: log
+[2020-03-19 18:22:05]: results dir path: C:\Softwares_mine\stefano\NV_REPOSITORY\csit\ROBOT_TESTSUITES
+[2020-03-19 18:22:05]:    log file name: robot.hltlog
+[2020-03-19 18:22:05]: Working directory is now: C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES
+[2020-03-19 18:22:05]: Sourcing initialization file "stcinit.srv".
+[2020-03-19 18:22:05]: Connecting to port 64831 on 127.0.0.1.
+[2020-03-19 18:22:05]: Creating server socket.
+[2020-03-19 18:22:05]: Generated port number: 64833
+[2020-03-19 18:22:05]: Setting up timeout check.
+[2020-03-19 18:22:05]: Waiting for client connection.
+[2020-03-19 18:22:05]: Client connection from 127.0.0.1 port 64834.
+[2020-03-19 18:22:05]: Executing: <package require SpirentHltApi>
+[2020-03-19 18:22:24]: Return value: <4.67>
+[2020-03-19 18:22:24]: custom_path--C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES
+[2020-03-19 18:22:24]: Executing: <set ret [sth::test_config -vendorlogfile HLTAPI_InterfaceConfig_Port_Load_stcExport -log_level 7 -log 1 -hlt2stcmappingfile HHLTAPI_InterfaceConfig_Port_Load_hlt2StcMapping -hlt2stcmapping 1 -hltlog 1 -logfile HLTAPI_InterfaceConfig_Port_Load_logfile -vendorlog 1 -hltlogfile HLTAPI_InterfaceConfig_Port_Load_hltExport]>
+[2020-03-19 18:22:24]: Return value: <{status 1}>
+[2020-03-19 18:22:24]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:22:24]: Return value: <>
+[2020-03-19 18:22:24]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:22:24]: Return value: <>
+[2020-03-19 18:22:24]: Executing: <set hashkey>
+[2020-03-19 18:22:24]: Return value: <status>
+[2020-03-19 18:22:24]: Executing: <set hashvalue>
+[2020-03-19 18:22:24]: Return value: <1>
+[2020-03-19 18:23:34]: Executing: <sth::connect -device 10.91.113.124 -port_list "10/1 10/2">
+[2020-03-19 18:23:39]: Return value: <{offline 0} {port_handle {{10 {{91 {{113 {{124 {{10/1 port1} {10/2 port2}}}}}}}}}}} {status 1}>
+[2020-03-19 18:23:39]: Executing: <set ret [sth::interface_config -create_host false -scheduling_mode RATE_BASED -phy_mode copper -port_loadunit MEGABITS_PER_SECOND -control_plane_mtu 1500 -enable_ping_response 0 -autonegotiation 1 -port_handle port1 -duplex full -mode config -port_load 5 -speed ether1000 -intf_mode ethernet]>
+[2020-03-19 18:23:45]: Return value: <{arpnd_status 1} {arpnd_cache none} {arpnd_report none} {status 1} {handles 0}>
+[2020-03-19 18:23:45]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:23:45]: Return value: <>
+[2020-03-19 18:23:45]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:23:45]: Return value: <>
+[2020-03-19 18:23:45]: Executing: <set hashkey>
+[2020-03-19 18:23:45]: Return value: <arpnd_status arpnd_cache arpnd_report status handles>
+[2020-03-19 18:23:45]: Executing: <set hashvalue>
+[2020-03-19 18:23:45]: Return value: <1 none none 1 0>
+[2020-03-19 18:23:45]: Executing: <set ret [sth::interface_config -create_host false -scheduling_mode RATE_BASED -phy_mode copper -port_loadunit MEGABITS_PER_SECOND -control_plane_mtu 1500 -enable_ping_response 0 -autonegotiation 1 -port_handle port2 -duplex full -mode config -port_load 5 -speed ether1000 -intf_mode ethernet]>
+[2020-03-19 18:23:51]: Return value: <{arpnd_status 1} {arpnd_cache none} {arpnd_report none} {status 1} {handles 0}>
+[2020-03-19 18:23:51]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:23:51]: Return value: <>
+[2020-03-19 18:23:51]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:23:51]: Return value: <>
+[2020-03-19 18:23:51]: Executing: <set hashkey>
+[2020-03-19 18:23:51]: Return value: <arpnd_status arpnd_cache arpnd_report status handles>
+[2020-03-19 18:23:51]: Executing: <set hashvalue>
+[2020-03-19 18:23:51]: Return value: <1 none none 1 0>
+[2020-03-19 18:24:12]: Executing: <set ret [sth::emulation_device_config -resolve_gateway_mac true -port_handle port1 -intf_ip_addr 192.169.101.3 -mode create -vlan_id 600 -gateway_ip_addr 192.169.101.1 -ip_version ipv4 -encapsulation ethernet_ii_vlan -enable_ping_response 1]>
+[2020-03-19 18:24:13]: Return value: <{handle host1} {status 1}>
+[2020-03-19 18:24:13]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:24:13]: Return value: <>
+[2020-03-19 18:24:13]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:24:13]: Return value: <>
+[2020-03-19 18:24:13]: Executing: <set hashkey>
+[2020-03-19 18:24:13]: Return value: <handle status>
+[2020-03-19 18:24:13]: Executing: <set hashvalue>
+[2020-03-19 18:24:13]: Return value: <host1 1>
+[2020-03-19 18:24:13]: Executing: <set ret [sth::emulation_device_config -resolve_gateway_mac true -port_handle port2 -intf_ip_addr 192.169.111.3 -mode create -vlan_id 610 -gateway_ip_addr 192.169.111.1 -ip_version ipv4 -encapsulation ethernet_ii_vlan -enable_ping_response 1]>
+[2020-03-19 18:24:13]: Return value: <{handle host2} {status 1}>
+[2020-03-19 18:24:13]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:24:13]: Return value: <>
+[2020-03-19 18:24:13]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:24:13]: Return value: <>
+[2020-03-19 18:24:13]: Executing: <set hashkey>
+[2020-03-19 18:24:13]: Return value: <handle status>
+[2020-03-19 18:24:13]: Executing: <set hashvalue>
+[2020-03-19 18:24:13]: Return value: <host2 1>
+[2020-03-19 18:24:13]: Executing: <set ret [sth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.169.101.1 -rate_mbps 2 -tcp_src_port 2000 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 48 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 0 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 1 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create]>
+[2020-03-19 18:24:18]: Return value: <{stream_id streamblock1} {status 1}>
+[2020-03-19 18:24:18]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:24:18]: Return value: <>
+[2020-03-19 18:24:18]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:24:18]: Return value: <>
+[2020-03-19 18:24:18]: Executing: <set hashkey>
+[2020-03-19 18:24:18]: Return value: <stream_id status>
+[2020-03-19 18:24:18]: Executing: <set hashvalue>
+[2020-03-19 18:24:18]: Return value: <streamblock1 1>
+[2020-03-19 18:24:18]: Executing: <set ret [sth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.169.101.1 -rate_mbps 2 -tcp_src_port 2001 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 48 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 0 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 1 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create]>
+[2020-03-19 18:24:21]: Return value: <{stream_id streamblock2} {status 1}>
+[2020-03-19 18:24:21]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:24:21]: Return value: <>
+[2020-03-19 18:24:21]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:24:21]: Return value: <>
+[2020-03-19 18:24:21]: Executing: <set hashkey>
+[2020-03-19 18:24:21]: Return value: <stream_id status>
+[2020-03-19 18:24:21]: Executing: <set hashvalue>
+[2020-03-19 18:24:21]: Return value: <streamblock2 1>
+[2020-03-19 18:24:21]: Executing: <set ret [sth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.169.101.1 -rate_mbps 2 -pkts_per_burst 1 -udp_src_port_repeat_count 0 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -udp_dst_port 1025 -udp_src_port_mode increment -fill_type constant -length_mode fixed -fcs_error 0 -udp_src_port 2002 -port_handle port1 -emulation_dst_handle host2 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 48 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_protocol 17 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -udp_src_port_count 1 -frame_size 160 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -udp_src_port_step 1 -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -l4_protocol udp -high_speed_result_analysis 1 -mode create]>
+[2020-03-19 18:24:24]: Return value: <{stream_id streamblock3} {status 1}>
+[2020-03-19 18:24:24]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:24:24]: Return value: <>
+[2020-03-19 18:24:24]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:24:24]: Return value: <>
+[2020-03-19 18:24:24]: Executing: <set hashkey>
+[2020-03-19 18:24:24]: Return value: <stream_id status>
+[2020-03-19 18:24:24]: Executing: <set hashvalue>
+[2020-03-19 18:24:24]: Return value: <streamblock3 1>
+[2020-03-19 18:24:58]: Executing: <set ret [sth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.169.101.1 -rate_mbps 1 -tcp_src_port 3001 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 46 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 0 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 1 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create]>
+[2020-03-19 18:25:02]: Return value: <{stream_id streamblock4} {status 1}>
+[2020-03-19 18:25:02]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:25:02]: Return value: <>
+[2020-03-19 18:25:02]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:25:02]: Return value: <>
+[2020-03-19 18:25:02]: Executing: <set hashkey>
+[2020-03-19 18:25:02]: Return value: <stream_id status>
+[2020-03-19 18:25:02]: Executing: <set hashvalue>
+[2020-03-19 18:25:02]: Return value: <streamblock4 1>
+[2020-03-19 18:25:02]: Executing: <set ret [sth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.169.101.1 -rate_mbps 1 -tcp_src_port 3002 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 26 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 0 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 1 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create]>
+[2020-03-19 18:25:05]: Return value: <{stream_id streamblock5} {status 1}>
+[2020-03-19 18:25:05]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:25:05]: Return value: <>
+[2020-03-19 18:25:05]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:25:05]: Return value: <>
+[2020-03-19 18:25:05]: Executing: <set hashkey>
+[2020-03-19 18:25:05]: Return value: <stream_id status>
+[2020-03-19 18:25:05]: Executing: <set hashvalue>
+[2020-03-19 18:25:05]: Return value: <streamblock5 1>
+[2020-03-19 18:25:05]: Executing: <set ret [sth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.169.101.1 -rate_mbps 1 -tcp_src_port 3003 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 18 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 0 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 1 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create]>
+[2020-03-19 18:25:08]: Return value: <{stream_id streamblock6} {status 1}>
+[2020-03-19 18:25:08]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:25:08]: Return value: <>
+[2020-03-19 18:25:08]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:25:08]: Return value: <>
+[2020-03-19 18:25:08]: Executing: <set hashkey>
+[2020-03-19 18:25:08]: Return value: <stream_id status>
+[2020-03-19 18:25:08]: Executing: <set hashvalue>
+[2020-03-19 18:25:08]: Return value: <streamblock6 1>
+[2020-03-19 18:25:08]: Executing: <set ret [sth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.169.101.1 -rate_mbps 1 -tcp_src_port 3004 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 10 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 0 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 1 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create]>
+[2020-03-19 18:25:11]: Return value: <{stream_id streamblock7} {status 1}>
+[2020-03-19 18:25:11]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:25:11]: Return value: <>
+[2020-03-19 18:25:11]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:25:11]: Return value: <>
+[2020-03-19 18:25:11]: Executing: <set hashkey>
+[2020-03-19 18:25:11]: Return value: <stream_id status>
+[2020-03-19 18:25:11]: Executing: <set hashvalue>
+[2020-03-19 18:25:11]: Return value: <streamblock7 1>
+[2020-03-19 18:25:11]: Executing: <set ret [sth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.169.101.1 -rate_mbps 1 -tcp_src_port 5000 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 48 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 0 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 1 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create]>
+[2020-03-19 18:25:14]: Return value: <{stream_id streamblock8} {status 1}>
+[2020-03-19 18:25:14]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:25:14]: Return value: <>
+[2020-03-19 18:25:14]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:25:14]: Return value: <>
+[2020-03-19 18:25:14]: Executing: <set hashkey>
+[2020-03-19 18:25:14]: Return value: <stream_id status>
+[2020-03-19 18:25:14]: Executing: <set hashvalue>
+[2020-03-19 18:25:14]: Return value: <streamblock8 1>
+[2020-03-19 18:25:24]: Executing: <set ret [sth::traffic_control -action run -stream_handle "streamblock4"]>
+[2020-03-19 18:25:26]: Return value: <{status 1}>
+[2020-03-19 18:25:26]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:25:26]: Return value: <>
+[2020-03-19 18:25:26]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:25:26]: Return value: <>
+[2020-03-19 18:25:26]: Executing: <set hashkey>
+[2020-03-19 18:25:26]: Return value: <status>
+[2020-03-19 18:25:26]: Executing: <set hashvalue>
+[2020-03-19 18:25:26]: Return value: <1>
+[2020-03-19 18:25:26]: Executing: <set ret [sth::traffic_control -action run -stream_handle "streamblock5"]>
+[2020-03-19 18:25:27]: Return value: <{status 1}>
+[2020-03-19 18:25:27]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:25:27]: Return value: <>
+[2020-03-19 18:25:27]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:25:27]: Return value: <>
+[2020-03-19 18:25:27]: Executing: <set hashkey>
+[2020-03-19 18:25:27]: Return value: <status>
+[2020-03-19 18:25:27]: Executing: <set hashvalue>
+[2020-03-19 18:25:27]: Return value: <1>
+[2020-03-19 18:25:27]: Executing: <set ret [sth::traffic_control -action run -stream_handle "streamblock6"]>
+[2020-03-19 18:25:28]: Return value: <{status 1}>
+[2020-03-19 18:25:28]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:25:28]: Return value: <>
+[2020-03-19 18:25:28]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:25:28]: Return value: <>
+[2020-03-19 18:25:28]: Executing: <set hashkey>
+[2020-03-19 18:25:28]: Return value: <status>
+[2020-03-19 18:25:28]: Executing: <set hashvalue>
+[2020-03-19 18:25:28]: Return value: <1>
+[2020-03-19 18:25:28]: Executing: <set ret [sth::traffic_control -action run -stream_handle "streamblock7"]>
+[2020-03-19 18:25:28]: Return value: <{status 1}>
+[2020-03-19 18:25:28]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:25:28]: Return value: <>
+[2020-03-19 18:25:28]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:25:28]: Return value: <>
+[2020-03-19 18:25:28]: Executing: <set hashkey>
+[2020-03-19 18:25:28]: Return value: <status>
+[2020-03-19 18:25:28]: Executing: <set hashvalue>
+[2020-03-19 18:25:28]: Return value: <1>
+[2020-03-19 18:25:28]: Executing: <set ret [sth::traffic_control -action run -stream_handle "streamblock8"]>
+[2020-03-19 18:25:29]: Return value: <{status 1}>
+[2020-03-19 18:25:29]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:25:29]: Return value: <>
+[2020-03-19 18:25:29]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:25:29]: Return value: <>
+[2020-03-19 18:25:29]: Executing: <set hashkey>
+[2020-03-19 18:25:29]: Return value: <status>
+[2020-03-19 18:25:29]: Executing: <set hashvalue>
+[2020-03-19 18:25:29]: Return value: <1>
+[2020-03-19 18:25:42]: Executing: <set ret [sth::traffic_control -action stop -stream_handle "streamblock4"]>
+[2020-03-19 18:25:51]: Return value: <{status 1}>
+[2020-03-19 18:25:51]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:25:51]: Return value: <>
+[2020-03-19 18:25:51]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:25:51]: Return value: <>
+[2020-03-19 18:25:51]: Executing: <set hashkey>
+[2020-03-19 18:25:51]: Return value: <status>
+[2020-03-19 18:25:51]: Executing: <set hashvalue>
+[2020-03-19 18:25:51]: Return value: <1>
+[2020-03-19 18:25:52]: Executing: <set ret [sth::traffic_control -action stop -stream_handle "streamblock5"]>
+[2020-03-19 18:26:01]: Return value: <{status 1}>
+[2020-03-19 18:26:01]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:26:01]: Return value: <>
+[2020-03-19 18:26:01]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:26:01]: Return value: <>
+[2020-03-19 18:26:01]: Executing: <set hashkey>
+[2020-03-19 18:26:01]: Return value: <status>
+[2020-03-19 18:26:01]: Executing: <set hashvalue>
+[2020-03-19 18:26:01]: Return value: <1>
+[2020-03-19 18:26:01]: Executing: <set ret [sth::traffic_control -action stop -stream_handle "streamblock6"]>
+[2020-03-19 18:26:10]: Return value: <{status 1}>
+[2020-03-19 18:26:10]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:26:10]: Return value: <>
+[2020-03-19 18:26:10]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:26:10]: Return value: <>
+[2020-03-19 18:26:10]: Executing: <set hashkey>
+[2020-03-19 18:26:10]: Return value: <status>
+[2020-03-19 18:26:10]: Executing: <set hashvalue>
+[2020-03-19 18:26:10]: Return value: <1>
+[2020-03-19 18:26:10]: Executing: <set ret [sth::traffic_control -action stop -stream_handle "streamblock7"]>
+[2020-03-19 18:26:20]: Return value: <{status 1}>
+[2020-03-19 18:26:20]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:26:20]: Return value: <>
+[2020-03-19 18:26:20]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:26:20]: Return value: <>
+[2020-03-19 18:26:20]: Executing: <set hashkey>
+[2020-03-19 18:26:20]: Return value: <status>
+[2020-03-19 18:26:20]: Executing: <set hashvalue>
+[2020-03-19 18:26:20]: Return value: <1>
+[2020-03-19 18:26:20]: Executing: <set ret [sth::traffic_control -action stop -stream_handle "streamblock8"]>
+[2020-03-19 18:26:29]: Return value: <{status 1}>
+[2020-03-19 18:26:29]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:26:29]: Return value: <>
+[2020-03-19 18:26:29]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:26:29]: Return value: <>
+[2020-03-19 18:26:29]: Executing: <set hashkey>
+[2020-03-19 18:26:29]: Return value: <status>
+[2020-03-19 18:26:29]: Executing: <set hashvalue>
+[2020-03-19 18:26:29]: Return value: <1>
+[2020-03-19 18:28:00]: Executing: <set ret [sth::traffic_control -action run -stream_handle "streamblock1"]>
+[2020-03-19 18:28:02]: Return value: <{status 1}>
+[2020-03-19 18:28:02]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:28:02]: Return value: <>
+[2020-03-19 18:28:02]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:28:02]: Return value: <>
+[2020-03-19 18:28:02]: Executing: <set hashkey>
+[2020-03-19 18:28:02]: Return value: <status>
+[2020-03-19 18:28:02]: Executing: <set hashvalue>
+[2020-03-19 18:28:02]: Return value: <1>
+[2020-03-19 18:28:45]: Executing: <set ret [sth::traffic_control -action run -stream_handle "streamblock2"]>
+[2020-03-19 18:28:45]: Return value: <{status 1}>
+[2020-03-19 18:28:45]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:28:45]: Return value: <>
+[2020-03-19 18:28:45]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:28:45]: Return value: <>
+[2020-03-19 18:28:45]: Executing: <set hashkey>
+[2020-03-19 18:28:45]: Return value: <status>
+[2020-03-19 18:28:45]: Executing: <set hashvalue>
+[2020-03-19 18:28:45]: Return value: <1>
+[2020-03-19 18:29:28]: Executing: <set ret [sth::traffic_control -action run -stream_handle "streamblock3"]>
+[2020-03-19 18:29:29]: Return value: <{status 1}>
+[2020-03-19 18:29:29]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:29:29]: Return value: <>
+[2020-03-19 18:29:29]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:29:29]: Return value: <>
+[2020-03-19 18:29:29]: Executing: <set hashkey>
+[2020-03-19 18:29:29]: Return value: <status>
+[2020-03-19 18:29:29]: Executing: <set hashvalue>
+[2020-03-19 18:29:29]: Return value: <1>
+[2020-03-19 18:30:12]: Executing: <set ret [sth::traffic_control -action stop -stream_handle "streamblock3"]>
+[2020-03-19 18:30:25]: Return value: <{status 1}>
+[2020-03-19 18:30:25]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:30:25]: Return value: <>
+[2020-03-19 18:30:25]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:30:25]: Return value: <>
+[2020-03-19 18:30:25]: Executing: <set hashkey>
+[2020-03-19 18:30:25]: Return value: <status>
+[2020-03-19 18:30:25]: Executing: <set hashvalue>
+[2020-03-19 18:30:25]: Return value: <1>
+[2020-03-19 18:30:25]: Executing: <set ret [sth::traffic_control -action stop -stream_handle "streamblock2"]>
+[2020-03-19 18:30:36]: Return value: <{status 1}>
+[2020-03-19 18:30:36]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:30:36]: Return value: <>
+[2020-03-19 18:30:36]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:30:36]: Return value: <>
+[2020-03-19 18:30:36]: Executing: <set hashkey>
+[2020-03-19 18:30:36]: Return value: <status>
+[2020-03-19 18:30:36]: Executing: <set hashvalue>
+[2020-03-19 18:30:36]: Return value: <1>
+[2020-03-19 18:30:36]: Executing: <set ret [sth::traffic_control -action stop -stream_handle "streamblock1"]>
+[2020-03-19 18:30:47]: Return value: <{status 1}>
+[2020-03-19 18:30:47]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:30:47]: Return value: <>
+[2020-03-19 18:30:47]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:30:47]: Return value: <>
+[2020-03-19 18:30:47]: Executing: <set hashkey>
+[2020-03-19 18:30:47]: Return value: <status>
+[2020-03-19 18:30:47]: Executing: <set hashvalue>
+[2020-03-19 18:30:47]: Return value: <1>
+[2020-03-19 18:31:19]: Executing: <set ret [sth::traffic_control -action run -stream_handle "streamblock1"]>
+[2020-03-19 18:31:21]: Return value: <{status 1}>
+[2020-03-19 18:31:21]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:31:21]: Return value: <>
+[2020-03-19 18:31:21]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:31:21]: Return value: <>
+[2020-03-19 18:31:21]: Executing: <set hashkey>
+[2020-03-19 18:31:21]: Return value: <status>
+[2020-03-19 18:31:21]: Executing: <set hashvalue>
+[2020-03-19 18:31:21]: Return value: <1>
+[2020-03-19 18:32:03]: Executing: <set ret [sth::traffic_control -action run -stream_handle "streamblock2"]>
+[2020-03-19 18:32:04]: Return value: <{status 1}>
+[2020-03-19 18:32:04]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:32:04]: Return value: <>
+[2020-03-19 18:32:04]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:32:04]: Return value: <>
+[2020-03-19 18:32:04]: Executing: <set hashkey>
+[2020-03-19 18:32:04]: Return value: <status>
+[2020-03-19 18:32:04]: Executing: <set hashvalue>
+[2020-03-19 18:32:04]: Return value: <1>
+[2020-03-19 18:32:47]: Executing: <set ret [sth::traffic_control -action run -stream_handle "streamblock3"]>
+[2020-03-19 18:32:48]: Return value: <{status 1}>
+[2020-03-19 18:32:48]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:32:48]: Return value: <>
+[2020-03-19 18:32:48]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:32:48]: Return value: <>
+[2020-03-19 18:32:48]: Executing: <set hashkey>
+[2020-03-19 18:32:48]: Return value: <status>
+[2020-03-19 18:32:48]: Executing: <set hashvalue>
+[2020-03-19 18:32:48]: Return value: <1>
+[2020-03-19 18:33:30]: Executing: <set ret [sth::traffic_control -action stop -stream_handle "streamblock3"]>
+[2020-03-19 18:33:40]: Return value: <{status 1}>
+[2020-03-19 18:33:40]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:33:40]: Return value: <>
+[2020-03-19 18:33:40]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:33:40]: Return value: <>
+[2020-03-19 18:33:40]: Executing: <set hashkey>
+[2020-03-19 18:33:40]: Return value: <status>
+[2020-03-19 18:33:40]: Executing: <set hashvalue>
+[2020-03-19 18:33:40]: Return value: <1>
+[2020-03-19 18:33:40]: Executing: <set ret [sth::traffic_control -action stop -stream_handle "streamblock2"]>
+[2020-03-19 18:33:51]: Return value: <{status 1}>
+[2020-03-19 18:33:51]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:33:51]: Return value: <>
+[2020-03-19 18:33:51]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:33:51]: Return value: <>
+[2020-03-19 18:33:51]: Executing: <set hashkey>
+[2020-03-19 18:33:51]: Return value: <status>
+[2020-03-19 18:33:51]: Executing: <set hashvalue>
+[2020-03-19 18:33:51]: Return value: <1>
+[2020-03-19 18:33:51]: Executing: <set ret [sth::traffic_control -action stop -stream_handle "streamblock1"]>
+[2020-03-19 18:34:00]: Return value: <{status 1}>
+[2020-03-19 18:34:00]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:34:00]: Return value: <>
+[2020-03-19 18:34:00]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:34:00]: Return value: <>
+[2020-03-19 18:34:00]: Executing: <set hashkey>
+[2020-03-19 18:34:00]: Return value: <status>
+[2020-03-19 18:34:00]: Executing: <set hashvalue>
+[2020-03-19 18:34:00]: Return value: <1>
+[2020-03-19 18:34:36]: Executing: <set ret [sth::traffic_control -action run -stream_handle "streamblock1"]>
+[2020-03-19 18:34:37]: Return value: <{status 1}>
+[2020-03-19 18:34:37]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:34:37]: Return value: <>
+[2020-03-19 18:34:37]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:34:37]: Return value: <>
+[2020-03-19 18:34:37]: Executing: <set hashkey>
+[2020-03-19 18:34:37]: Return value: <status>
+[2020-03-19 18:34:37]: Executing: <set hashvalue>
+[2020-03-19 18:34:37]: Return value: <1>
+[2020-03-19 18:35:19]: Executing: <set ret [sth::traffic_control -action stop -stream_handle "streamblock1"]>
+[2020-03-19 18:35:31]: Return value: <{status 1}>
+[2020-03-19 18:35:31]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:35:31]: Return value: <>
+[2020-03-19 18:35:31]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:35:31]: Return value: <>
+[2020-03-19 18:35:31]: Executing: <set hashkey>
+[2020-03-19 18:35:31]: Return value: <status>
+[2020-03-19 18:35:31]: Executing: <set hashvalue>
+[2020-03-19 18:35:31]: Return value: <1>
+[2020-03-19 18:36:40]: Executing: <set ret [sth::cleanup_session -port_handle "port1 port2" -clean_dbfile 1]>
+[2020-03-19 18:36:43]: Return value: <{status 1}>
+[2020-03-19 18:36:43]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-03-19 18:36:43]: Return value: <>
+[2020-03-19 18:36:43]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-03-19 18:36:43]: Return value: <>
+[2020-03-19 18:36:43]: Executing: <set hashkey>
+[2020-03-19 18:36:43]: Return value: <status>
+[2020-03-19 18:36:43]: Executing: <set hashvalue>
+[2020-03-19 18:36:43]: Return value: <1>
+[2020-03-19 18:37:23]: Client connection has been broken.  Exiting.

@@ -1,0 +1,920 @@
+2020-03-30 17:20:37,102 - VD1 - DEBUG - <netmiko.versa.versa_ssh.VersaSSH object at 0x000000000D96E978>
+2020-03-30 17:20:42,311 - VD1 - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2020-03-30 17:20:47,269 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <netmiko.versa.versa_ssh.VersaSSH object at 0x000000000D9A21D0>
+2020-03-30 17:20:52,471 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2020-03-30 17:21:17,200 - CPE12-HKG-HYBRD-IPC00190 - DEBUG - <netmiko.versa.versa_ssh.VersaSSH object at 0x000000000D9C4278>
+2020-03-30 17:21:22,407 - CPE12-HKG-HYBRD-IPC00190 - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2020-03-30 17:22:58,586 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+CREATE SLA profile
+
+2020-03-30 17:22:59,809 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <Response [201]>
+2020-03-30 17:22:59,811 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-30 17:22:59,812 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> CREATE SLA Profile PASSED. <<<<<<<<<<<
+2020-03-30 17:22:59,815 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+CREATE FWD PROFILE
+
+2020-03-30 17:23:01,058 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <Response [201]>
+2020-03-30 17:23:01,058 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-30 17:23:01,059 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> FORWARDING PROFILE CREATION PASSED. <<<<<<<<<<<
+2020-03-30 17:23:01,059 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+CREATE IPaddress Object
+
+2020-03-30 17:23:02,334 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <Response [201]>
+2020-03-30 17:23:02,335 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-30 17:23:02,335 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> ADDRESS OBJECT CREATION PASSED. <<<<<<<<<<<
+2020-03-30 17:23:02,336 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+CREATE IPaddress Object
+
+2020-03-30 17:23:03,563 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <Response [201]>
+2020-03-30 17:23:03,565 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-30 17:23:03,565 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> ADDRESS OBJECT CREATION PASSED. <<<<<<<<<<<
+2020-03-30 17:23:03,566 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+CREATE Service Object
+
+2020-03-30 17:23:04,690 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <Response [201]>
+2020-03-30 17:23:04,690 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-30 17:23:04,691 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> Service OBJECT CREATION PASSED. <<<<<<<<<<<
+2020-03-30 17:23:04,693 - VD1 - INFO - 
+
+STEP :CONFIG QOS
+
+2020-03-30 17:23:04,769 - VD1 - INFO - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc_nc loss-priority low code-point af41
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc_ef loss-priority low code-point ef
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc_be loss-priority high code-point be
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc13 loss-priority high code-point af31
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc14 loss-priority high code-point af21
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc15 loss-priority high code-point af11
+
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc_nc traffic-class tc0
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc_nc queue 0
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc_ef traffic-class tc1
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc_ef queue 0
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc13 traffic-class tc3
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc13 queue 0
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc14 traffic-class tc3
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc14 queue 1
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc15 traffic-class tc3
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc15 queue 2
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc_be traffic-class tc3
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc_be queue 3
+
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service interfaces vni-0/1 scheduler-map IPC00190
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service interfaces tunnel dscp-rewrite-rule rw-1
+
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service scheduler-maps IPC00190 traffic-class tc0 scheduler sc_nc
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service scheduler-maps IPC00190 traffic-class tc1 scheduler sc_ef
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service scheduler-maps IPC00190 traffic-class tc3 scheduler sc_be
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service drop-profiles wred-high-drop maximum 128 minimum 64
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service drop-profiles wred-low-drop maximum 128 minimum 96
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service drop-profiles tail-drop maximum 65 minimum 64
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service schedulers sc_be drop-profile-map loss-priority low drop-profile wred-low-drop
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service schedulers sc_be drop-profile-map loss-priority high drop-profile wred-high-drop
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service schedulers sc_be queue 0 weight 6
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service schedulers sc_be queue 1 weight 4
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service schedulers sc_be queue 2 weight 4
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service schedulers sc_be queue 3 weight 3
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service schedulers sc_ef
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service schedulers sc_nc drop-profile-map loss-priority low drop-profile tail-drop
+
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium set action allow
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium set qos-profile Premium
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match source zone zone-list [ Intf-LAN1-Zone ]
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match destination zone zone-list [ ptvi ]
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match dscp [ 46 ]
+
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 set action allow
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 set qos-profile Business1
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 match source zone zone-list [ Intf-LAN1-Zone ]
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 match dscp [ 26 ]
+
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 set action allow
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 set qos-profile Business2
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 match source zone zone-list [ Intf-LAN1-Zone ]
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 match dscp [ 18 ]
+
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 set action allow
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 set qos-profile Business3
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 match source zone zone-list [ Intf-LAN1-Zone ]
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 match dscp [ 10 ]
+
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Internet-Default set action allow
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Internet-Default set qos-profile Internet-Default
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Internet-Default match source zone zone-list [ Intf-LAN1-Zone ]
+
+
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service app-qos-policies Default-Policy
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business1 forwarding-class fc13
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business1 loss-priority high
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business1 dscp-rw-enable yes
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business1 dot1p-rw-enable no
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business2 forwarding-class fc14
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business2 loss-priority high
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business2 dscp-rw-enable yes
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business2 dot1p-rw-enable no
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business3 forwarding-class fc15
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business3 loss-priority high
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business3 dscp-rw-enable yes
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business3 dot1p-rw-enable no
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Internet-Default forwarding-class fc_be
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Internet-Default loss-priority high
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Internet-Default dscp-rw-enable no
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Internet-Default dot1p-rw-enable no
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Premium forwarding-class fc_ef
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Premium loss-priority low
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Premium dscp-rw-enable yes
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Premium dot1p-rw-enable no
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Routing-Management forwarding-class fc_nc
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Routing-Management loss-priority low
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Routing-Management dscp-rw-enable yes
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Routing-Management dot1p-rw-enable no
+
+#move rule to first
+move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Internet-Default  first
+move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 first
+move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 first
+move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 first
+move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium first
+
+2020-03-30 17:23:04,901 - VD1 - DEBUG - 
+Automated@VDir-BLR-NEW-01> configure private
+Entering configuration mode private
+[ok][2020-03-30 11:54:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:04,917 - VD1 - DEBUG - True
+2020-03-30 17:23:05,927 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc_nc loss-priority low code-point af41
+[ok][2020-03-30 11:54:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:06,737 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc_ef loss-priority low code-point ef
+[ok][2020-03-30 11:54:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:07,553 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc_be loss-priority high code-point be
+[ok][2020-03-30 11:54:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:08,371 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc13 loss-priority high code-point af31
+[ok][2020-03-30 11:54:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:09,380 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc14 loss-priority high code-point af21
+[ok][2020-03-30 11:54:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:10,190 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc15 loss-priority high code-point af11
+[ok][2020-03-30 11:54:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:10,596 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:11,401 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc_nc traffic-class tc0
+[ok][2020-03-30 11:54:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:12,213 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc_nc queue 0
+[ok][2020-03-30 11:54:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:12,819 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc_ef traffic-class tc1
+[ok][2020-03-30 11:54:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:13,433 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc_ef queue 0
+[ok][2020-03-30 11:54:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:14,240 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc13 traffic-class tc3
+[ok][2020-03-30 11:54:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:14,849 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc13 queue 0
+[ok][2020-03-30 11:54:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:15,457 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc14 traffic-class tc3
+[ok][2020-03-30 11:54:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:16,276 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc14 queue 1
+[ok][2020-03-30 11:54:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:17,092 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc15 traffic-class tc3
+[ok][2020-03-30 11:54:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:17,907 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc15 queue 2
+[ok][2020-03-30 11:54:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:18,732 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc_be traffic-class tc3
+[ok][2020-03-30 11:54:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:19,342 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service forwarding-class-map fc_be queue 3
+[ok][2020-03-30 11:54:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:19,752 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:20,362 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service interfaces vni-0/1 scheduler-map IPC00190
+[ok][2020-03-30 11:54:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:21,170 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service interfaces tunnel dscp-rewrite-rule rw-1
+[ok][2020-03-30 11:54:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:21,575 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:22,186 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service scheduler-maps IPC00190 traffic-class  tc0 scheduler sc_nc
+[ok][2020-03-30 11:54:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:22,798 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service scheduler-maps IPC00190 traffic-class  tc1 scheduler sc_ef
+[ok][2020-03-30 11:54:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:23,611 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service scheduler-maps IPC00190 traffic-class  tc3 scheduler sc_be
+[ok][2020-03-30 11:54:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:24,217 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service drop-profiles wred-high-drop maximum 128 minimum 64
+[ok][2020-03-30 11:54:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:24,828 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service drop-profiles wred-low-drop maximum 128 minimum 96
+[ok][2020-03-30 11:54:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:25,644 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service drop-profiles tail-drop maximum 65 minimum 64
+[ok][2020-03-30 11:54:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:26,457 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service schedulers sc_be drop-profile-map loss-priority low drop-profile wred-low-drop
+[ok][2020-03-30 11:54:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:27,267 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service schedulers sc_be drop-profile-map loss-priority high drop-profile wred-high-drop
+[ok][2020-03-30 11:54:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:27,875 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service schedulers sc_be queue 0 weight 6
+[ok][2020-03-30 11:54:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:28,684 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service schedulers sc_be queue 1 weight 4
+[ok][2020-03-30 11:54:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:29,497 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service schedulers sc_be queue 2 weight 4
+[ok][2020-03-30 11:54:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:30,315 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service schedulers sc_be queue 3 weight 3
+[ok][2020-03-30 11:54:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:30,930 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service schedulers sc_ef
+[ok][2020-03-30 11:54:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:31,947 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service schedulers sc_nc drop-profile-map loss-priority low drop-profile tail-drop
+[ok][2020-03-30 11:54:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:32,351 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:33,161 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium set action allow
+[ok][2020-03-30 11:54:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:33,766 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium set qos-profile Premium
+[ok][2020-03-30 11:54:57]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:34,782 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match source zone zone-list [ Intf-LAN1-Zone ]
+[ok][2020-03-30 11:54:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:35,592 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match destination zone zone-list [ ptvi ]
+[ok][2020-03-30 11:54:59]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:36,407 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match dscp [ 46 ]
+[ok][2020-03-30 11:54:59]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:36,813 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:37,622 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 set action allow
+[ok][2020-03-30 11:55:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:38,233 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 set qos-profile Business1
+[ok][2020-03-30 11:55:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:39,042 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 match source zone zone-list [ Intf-LAN1-Zone ]
+[ok][2020-03-30 11:55:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:40,049 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 match dscp [ 26 ]
+[ok][2020-03-30 11:55:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:40,460 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:41,279 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 set action allow
+[ok][2020-03-30 11:55:04]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:42,298 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 set qos-profile Business2
+[ok][2020-03-30 11:55:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:43,109 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 match source zone zone-list [ Intf-LAN1-Zone ]
+[ok][2020-03-30 11:55:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:43,924 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 match dscp [ 18 ]
+[ok][2020-03-30 11:55:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:44,331 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:45,141 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 set action allow
+[ok][2020-03-30 11:55:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:45,755 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 set qos-profile Business3
+[ok][2020-03-30 11:55:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:46,773 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 match source zone zone-list [ Intf-LAN1-Zone ]
+[ok][2020-03-30 11:55:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:47,581 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 match dscp [ 10 ]
+[ok][2020-03-30 11:55:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:47,990 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:48,605 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Internet-Default set action allow
+[ok][2020-03-30 11:55:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:49,417 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Internet-Default set qos-profile Internet-Default
+[ok][2020-03-30 11:55:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:50,226 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Internet-Default match source zone zone-list [ Intf-LAN1-Zone ]
+[ok][2020-03-30 11:55:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:50,637 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:51,043 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:51,655 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service app-qos-policies Default-Policy
+[ok][2020-03-30 11:55:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:52,469 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business1 forwarding-class fc13
+[ok][2020-03-30 11:55:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:53,075 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business1 loss-priority high
+[ok][2020-03-30 11:55:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:53,683 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business1 dscp-rw-enable  yes
+[ok][2020-03-30 11:55:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:54,296 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business1 dot1p-rw-enable  no
+[ok][2020-03-30 11:55:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:54,908 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business2 forwarding-class fc14
+[ok][2020-03-30 11:55:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:55,723 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business2 loss-priority high
+[ok][2020-03-30 11:55:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:56,538 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business2 dscp-rw-enable  yes
+[ok][2020-03-30 11:55:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:57,145 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business2 dot1p-rw-enable  no
+[ok][2020-03-30 11:55:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:57,752 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business3 forwarding-class fc15
+[ok][2020-03-30 11:55:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:58,359 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business3 loss-priority high
+[ok][2020-03-30 11:55:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:58,967 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business3 dscp-rw-enable  yes
+[ok][2020-03-30 11:55:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:23:59,578 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Business3 dot1p-rw-enable  no
+[ok][2020-03-30 11:55:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:24:00,187 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Internet-Default forwarding-class fc_be
+[ok][2020-03-30 11:55:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:24:00,792 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Internet-Default loss-priority high
+[ok][2020-03-30 11:55:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:24:01,398 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Internet-Default dscp-rw-enable no
+[ok][2020-03-30 11:55:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:24:02,009 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Internet-Default dot1p-rw-enable no
+[ok][2020-03-30 11:55:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:24:02,621 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Premium forwarding-class  fc_ef
+[ok][2020-03-30 11:55:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:24:03,232 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Premium loss-priority low 
+[ok][2020-03-30 11:55:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:24:03,839 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Premium dscp-rw-enable yes
+[ok][2020-03-30 11:55:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:24:04,440 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Premium dot1p-rw-enable no
+[ok][2020-03-30 11:55:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:24:05,042 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Routing-Management forwarding-class fc_nc
+[ok][2020-03-30 11:55:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:24:05,644 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Routing-Management loss-priority low
+[ok][2020-03-30 11:55:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:24:06,246 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Routing-Management dscp-rw-enable yes
+[ok][2020-03-30 11:55:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:24:06,848 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-profiles Routing-Management dot1p-rw-enable no
+[ok][2020-03-30 11:55:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:24:07,250 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:24:07,651 - VD1 - DEBUG - #move rule to first
+[ok][2020-03-30 11:55:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:24:09,257 - VD1 - DEBUG - move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Internet-Default 
+Possible completions:
+  after  before  first  last
+Automated@VDir-BLR-NEW-01% move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Internet-Default first
+[ok][2020-03-30 11:55:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:24:10,461 - VD1 - DEBUG - move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 first
+[ok][2020-03-30 11:55:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:24:11,865 - VD1 - DEBUG - move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 first
+[ok][2020-03-30 11:55:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:24:13,671 - VD1 - DEBUG - move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 first
+[ok][2020-03-30 11:55:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:24:15,275 - VD1 - DEBUG - move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium first
+[ok][2020-03-30 11:55:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:24:15,676 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:24:16,076 - VD1 - DEBUG - commit and-quit
+No modifications to commit.
+[ok][2020-03-30 11:55:39]
+Automated@VDir-BLR-NEW-01> 
+2020-03-30 17:25:16,207 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+CREATE Policy rule
+
+2020-03-30 17:25:18,815 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <Response [201]>
+2020-03-30 17:25:18,815 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-30 17:25:18,815 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> CREATE POLICY RULE PASSED. <<<<<<<<<<<
+2020-03-30 17:28:32,703 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+DELETE IPaddress Object
+
+2020-03-30 17:28:35,233 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-30 17:28:35,233 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> Policy rule DELETION PASSED. <<<<<<<<<<<
+2020-03-30 17:28:35,246 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+CREATE Policy rule
+
+2020-03-30 17:28:36,736 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <Response [201]>
+2020-03-30 17:28:36,737 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-30 17:28:36,739 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> CREATE POLICY RULE PASSED. <<<<<<<<<<<
+2020-03-30 17:31:49,163 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+DELETE IPaddress Object
+
+2020-03-30 17:31:51,628 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-30 17:31:51,628 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> Policy rule DELETION PASSED. <<<<<<<<<<<
+2020-03-30 17:31:51,640 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+CREATE Policy rule
+
+2020-03-30 17:31:53,098 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <Response [201]>
+2020-03-30 17:31:53,098 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-30 17:31:53,099 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> CREATE POLICY RULE PASSED. <<<<<<<<<<<
+2020-03-30 17:33:17,256 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+DELETE IPaddress Object
+
+2020-03-30 17:33:19,536 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-30 17:33:19,539 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> Policy rule DELETION PASSED. <<<<<<<<<<<
+2020-03-30 17:33:19,549 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+CREATE Policy rule
+
+2020-03-30 17:33:21,098 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <Response [201]>
+2020-03-30 17:33:21,098 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-30 17:33:21,098 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> CREATE POLICY RULE PASSED. <<<<<<<<<<<
+2020-03-30 17:34:12,953 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+DELETE IPaddress Object
+
+2020-03-30 17:34:15,273 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-30 17:34:15,273 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> Policy rule DELETION PASSED. <<<<<<<<<<<
+2020-03-30 17:35:49,917 - VD1 - INFO - 
+
+STEP :CONFIG QOS
+
+2020-03-30 17:35:49,923 - VD1 - INFO - delete devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match dscp [ 46 ]
+
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match source address address-list src_ip_add_obj11
+
+move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium first
+
+
+
+2020-03-30 17:35:50,052 - VD1 - DEBUG - 
+Automated@VDir-BLR-NEW-01> 
+2020-03-30 17:35:50,069 - VD1 - DEBUG - True
+2020-03-30 17:35:50,871 - VD1 - DEBUG - delete devices device CPE11-HKG-HYBRD-IPC00190 config  orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match dscp [ 46 ]
+[ok][2020-03-30 12:07:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:35:51,273 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:35:52,078 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match source address address-list src_ip_add_obj11
+[ok][2020-03-30 12:07:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:35:52,480 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:35:53,684 - VD1 - DEBUG - move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium first
+[ok][2020-03-30 12:07:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:35:54,085 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:35:54,486 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:35:54,891 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:35:55,895 - VD1 - DEBUG - commit and-quit
+Commit complete.
+[ok][2020-03-30 12:07:19]
+Automated@VDir-BLR-NEW-01> 
+2020-03-30 17:36:59,654 - VD1 - INFO - 
+
+STEP :CONFIG QOS
+
+2020-03-30 17:36:59,660 - VD1 - INFO - 
+delete devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match source address address-list src_ip_add_obj11
+
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match dscp [ 46 ]
+move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium first
+
+2020-03-30 17:36:59,813 - VD1 - DEBUG - configure private
+Entering configuration mode private
+[ok][2020-03-30 12:08:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:36:59,834 - VD1 - DEBUG - True
+2020-03-30 17:37:00,240 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:37:01,042 - VD1 - DEBUG - delete devices device CPE11-HKG-HYBRD-IPC00190 config  orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match source address address-list src_ip_add_obj11
+[ok][2020-03-30 12:08:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:37:01,446 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:37:02,247 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match dscp [ 46 ]
+[ok][2020-03-30 12:08:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:37:03,453 - VD1 - DEBUG - move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium first
+[ok][2020-03-30 12:08:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:37:03,855 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:37:04,857 - VD1 - DEBUG - commit and-quit
+Commit complete.
+[ok][2020-03-30 12:08:28]
+Automated@VDir-BLR-NEW-01> 
+2020-03-30 17:37:10,505 - VD1 - INFO - 
+
+STEP :CONFIG QOS
+
+2020-03-30 17:37:10,517 - VD1 - INFO - delete devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match dscp [ 46 ]
+
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match destination address address-list dst_ip_add_obj11
+
+move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium first
+
+
+
+2020-03-30 17:37:10,671 - VD1 - DEBUG - configure private
+Entering configuration mode private
+[ok][2020-03-30 12:08:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:37:10,690 - VD1 - DEBUG - True
+2020-03-30 17:37:11,493 - VD1 - DEBUG - delete devices device CPE11-HKG-HYBRD-IPC00190 config  orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match dscp [ 46 ]
+[ok][2020-03-30 12:08:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:37:11,894 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:37:12,697 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match destination address address-list dst_ip_add_obj11
+[ok][2020-03-30 12:08:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:37:13,101 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:37:14,706 - VD1 - DEBUG - move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium first
+[ok][2020-03-30 12:08:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:37:15,107 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:37:15,507 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:37:15,910 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:37:16,913 - VD1 - DEBUG - commit and-quit
+Commit complete.
+[ok][2020-03-30 12:08:40]
+Automated@VDir-BLR-NEW-01> 
+2020-03-30 17:38:23,983 - VD1 - INFO - 
+
+STEP :CONFIG QOS
+
+2020-03-30 17:38:23,989 - VD1 - INFO - 
+delete devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match destination address address-list dst_ip_add_obj11
+
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match dscp [ 46 ]
+move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium first
+
+2020-03-30 17:38:24,137 - VD1 - DEBUG - configure private
+Entering configuration mode private
+[ok][2020-03-30 12:09:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:38:24,154 - VD1 - DEBUG - True
+2020-03-30 17:38:24,555 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:38:25,357 - VD1 - DEBUG - delete devices device CPE11-HKG-HYBRD-IPC00190 config  orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match destination address address-list dst_ip_add_obj11
+[ok][2020-03-30 12:09:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:38:25,757 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:38:26,561 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match dscp [ 46 ]
+[ok][2020-03-30 12:09:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:38:27,763 - VD1 - DEBUG - move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium first
+[ok][2020-03-30 12:09:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:38:28,165 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-30 17:38:29,167 - VD1 - DEBUG - commit and-quit
+Commit complete.
+[ok][2020-03-30 12:09:52]
+Automated@VDir-BLR-NEW-01> 
+2020-03-30 17:38:36,520 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+DELETE Service Object
+
+2020-03-30 17:38:38,750 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-30 17:38:38,752 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> ADDRESS OBJECT DELETION PASSED. <<<<<<<<<<<
+2020-03-30 17:38:38,755 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+DELETE IPaddress Object
+
+2020-03-30 17:38:40,038 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-30 17:38:40,038 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> ADDRESS OBJECT DELETION PASSED. <<<<<<<<<<<
+2020-03-30 17:38:40,039 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+DELETE IPaddress Object
+
+2020-03-30 17:38:41,398 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-30 17:38:41,398 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> ADDRESS OBJECT DELETION PASSED. <<<<<<<<<<<
+2020-03-30 17:38:41,400 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+DELETE FWD PROFILE
+
+2020-03-30 17:38:42,780 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-30 17:38:42,780 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> FORWARDING PROFILE DELETION PASSED. <<<<<<<<<<<
+2020-03-30 17:38:42,782 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+DELETE SLA profile
+
+2020-03-30 17:38:44,078 - CPE11-HKG-HYBRD-IPC00190 - INFO - 
+PASS
+2020-03-30 17:38:44,079 - CPE11-HKG-HYBRD-IPC00190 - INFO - >>>>>>>>>> DELETE SLA Profile PASSED. <<<<<<<<<<<

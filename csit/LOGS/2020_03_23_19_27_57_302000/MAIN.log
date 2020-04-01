@@ -1,0 +1,48 @@
+2020-03-23 19:28:02,358 - VD1 - DEBUG - <netmiko.versa.versa_ssh.VersaSSH object at 0x000000000D71A160>
+2020-03-23 19:28:07,561 - VD1 - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2020-03-23 19:28:07,562 - CPE11-HKG-HYBRD-IPC00190 - INFO - CPE NAME:CPE11-HKG-HYBRD-IPC00190
+2020-03-23 19:28:08,563 - CPE11-HKG-HYBRD-IPC00190 - INFO - SOLUTION SELECTED:SINGLE-CPE-HYBRID
+2020-03-23 19:28:13,619 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <netmiko.versa.versa_ssh.VersaSSH object at 0x000000000D70B0F0>
+2020-03-23 19:28:18,821 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2020-03-23 19:28:41,085 - VD1 - INFO - 
+
+STEP :CONFIG QOS
+
+2020-03-23 19:28:41,088 - VD1 - INFO - delete devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match dscp [ 46 ]
+set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match source address address-list Dest_ip_add10001yu
+
+move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium first
+
+2020-03-23 19:28:41,296 - VD1 - DEBUG - configure private
+Entering configuration mode private
+Current configuration users:
+Automated ssh (cli from 10.91.194.111) on since 2020-03-23 13:56:49 private mode
+Automated ssh (cli from 10.91.194.111) on since 2020-03-23 13:54:38 private mode
+[ok][2020-03-23 13:59:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-23 19:28:41,332 - VD1 - DEBUG - True
+2020-03-23 19:28:42,134 - VD1 - DEBUG - delete devices device CPE11-HKG-HYBRD-IPC00190 config  orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match dscp [ 46 ]
+[ok][2020-03-23 13:59:59]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-23 19:28:43,137 - VD1 - DEBUG - set devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match source address address-list Dest_ip_add10001yu
+[ok][2020-03-23 14:00:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-23 19:28:43,538 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-23 19:28:44,740 - VD1 - DEBUG - move devices device CPE11-HKG-HYBRD-IPC00190 config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium first
+[ok][2020-03-23 14:00:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-03-23 19:28:45,141 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 

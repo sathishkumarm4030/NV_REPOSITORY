@@ -31,15 +31,20 @@ def get_vd_details():
     # user = raw_input("Enter VD GUI username:\n")
     # print "Versa director GUI Username:" + user
     # passwd = getpass.getpass("Enter VD GUI password::\n")
-    ip = '10.91.116.35'
-    ldap_user = 'admin'
-    ldap_passwd = 'versa123'
-    user = 'Sathish'
-    passwd = 'Jan*1234'
-    cpe_user = 'admin'
-    cpe_passwd = 'versa123'
-    node_user = 'admin'
-    node_passwd = 'versa123'
+    ip = '10.91.127.194'
+    ldap_user = 'Automated'
+    ldap_passwd = 'Auto@12345'
+    user = 'Automated'
+    passwd = 'Auto@12345'
+    # ip = '10.91.116.35'
+    # ldap_user = 'admin'
+    # ldap_passwd = 'versa123'
+    # user = 'Sathish'
+    # passwd = 'Jan*1234'
+    # cpe_user = 'admin'
+    # cpe_passwd = 'versa123'
+    # node_user = 'admin'
+    # node_passwd = 'versa123'
     return {'mgmt_ip': ip, 'username': ldap_user, \
             'password': ldap_passwd, 'GUIusername': user, 'GUIpassword': passwd}
 
@@ -85,11 +90,11 @@ def Do_Cpe_onboarding():
     cpe2.create_cpe_data()
 
 
-    SLA_PRF_1 = "SLA10001"
-    FWP1 = "FWP10001"
-    IPADDOBJ = "Dest_ip_add10001"
-    SERVICE_OBJ = "tcp_src_port_2000_11"
-    PLCYRULE = "ts_Destipaddr10001"
+    SLA_PRF_1 = "SLA10001yu"
+    FWP1 = "FWP10001yu"
+    IPADDOBJ = "srcip"
+    SERVICE_OBJ = "tcp_src_port_2000_11yu"
+    PLCYRULE = "ts_Destipaddr10001yu"
 
     # print vd1.move_policy_rule(cpe1.Device_name, cpe1.ORG_NAME, 'Default-Policy', PLCYRULE, 'first')
     # print vd1.config_devices_qos(cpe1.Device_name, cpe1.ORG_NAME, cpe1.WAN1_INTF)
@@ -99,7 +104,14 @@ def Do_Cpe_onboarding():
     print cpe1.show_cos_qos_policy_rules()
 
 
+    # print vd1.config_devices_qos(cpe1.Device_name, cpe1.ORG_NAME, cpe1.WAN1_INTF)
+    # cpe1.create_address_object(IPADDOBJ, "ipv4-prefix", cpe2.lan[1]['third_host']+"/32")
+    print vd1.modify_qos_device_config(cpe1.Device_name, cpe1.ORG_NAME, 'qos_ip_based_premium.j2', src_address_obj=IPADDOBJ)
+    print vd1.move_qos_policy_rule(cpe1.Device_name, cpe1.ORG_NAME, 'Default-Policy', 'LAN1-VRF-Premium', 'first')
+    time.sleep(10)
 
+    print vd1.modify_qos_device_config(cpe1.Device_name, cpe1.ORG_NAME, 'revert_qos_ip_based_premium.j2', src_address_obj=IPADDOBJ)
+    print vd1.move_qos_policy_rule(cpe1.Device_name, cpe1.ORG_NAME, 'Default-Policy', 'LAN1-VRF-Premium', 'first')
 
 start_time = datetime.now()
 Do_Cpe_onboarding()

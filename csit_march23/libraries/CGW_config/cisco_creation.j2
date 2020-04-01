@@ -1,0 +1,45 @@
+{#
+    CISCO Device Create Configuration for Cloud Peering
+    * For Lab Testing
+#}
+
+hostname {{HOSTNAME}}
+{% for VRF in CISCO_PEER_VRFS %}
+ip vrf {{VRF.VRF_NAME}}
+ rd {{VRF.RD}}
+ route-target export {{VRF.RT}}
+ route-target import {{VRF.RT}}
+{% endfor %}
+
+{% for VRF in CISCO_PEER_VRFS %}
+interface {{VRF.LOOPBACK_ADDRESS_NAME}}
+ description {{VRF.LOOPBACK_DECRIPTION}}
+ ip vrf forwarding {{VRF.VRF_NAME}}
+ ip address {{VRF.LOOPBACK_ADDRESS_IP}} 255.255.255.255
+{% endfor %}
+ 
+{% for VRF in CISCO_PEER_VRFS %}
+interface {{CGW_FACING_INTERFACE}}.{{VRF.VLAN_ID}}
+ encapsulation dot1Q {{VRF.VLAN_ID}}
+ ip vrf forwarding {{VRF.VRF_NAME}}
+ ip address {{VRF.LOCAL_IP}} {{VRF.MASK}}
+{% endfor %}
+
+router bgp {{LOCAL_AS}}
+{% for VRF in CISCO_PEER_VRFS %}
+ address-family ipv4 vrf {{VRF.VRF_NAME}}
+  redistribute connected
+  neighbor {{VRF.PRIMARY_NEIGHBOR_IP}} remote-as {{REMOTE_AS}}
+  {% if VRF.PASSWORD != None %}
+  neighbor {{VRF.PRIMARY_NEIGHBOR_IP}} password {{VRF.PASSWORD}}
+  {% endif %}
+  neighbor {{VRF.PRIMARY_NEIGHBOR_IP}} activate
+  {% if SOLUTION_TYPE == "DUAL" %}
+  neighbor {{VRF.SECONDARY_NEIGHBOR_IP}} remote-as {{REMOTE_AS}}
+  {% if VRF.PASSWORD != None %}
+  neighbor {{VRF.SECONDARY_NEIGHBOR_IP}} password {{VRF.PASSWORD}}
+  {% endif %}
+  neighbor {{VRF.SECONDARY_NEIGHBOR_IP}} activate
+  {% endif %}
+ exit-address-family
+{% endfor %}

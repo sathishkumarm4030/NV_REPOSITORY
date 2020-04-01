@@ -1,0 +1,49 @@
+==============================================================================
+20200323 16:02:36.550 - INFO - + START SUITE: SINGLE CPE HYBRID SOLUTION TEST [ ]
+==============================================================================
+20200323 16:02:36.553 - INFO - +- START SETUP: STARTUP [ ]
+20200323 16:02:36.562 - INFO - +-- START KW: VD1.login [ ]
+20200323 16:02:36.562 - FAIL - No keyword with name 'VD1.login' found.
+20200323 16:02:36.563 - INFO - +-- END KW: VD1.login (1)
+20200323 16:02:36.563 - INFO - +- END SETUP: STARTUP (10)
+------------------------------------------------------------------------------
+20200323 16:02:36.564 - INFO - +- START TEST: NV_SINGLE_CPE_HYBRID_QOS_01 [ ]
+------------------------------------------------------------------------------
+20200323 16:02:36.565 - INFO - +- END TEST: NV_SINGLE_CPE_HYBRID_QOS_01 (1)
+------------------------------------------------------------------------------
+20200323 16:02:36.566 - INFO - +- START TEARDOWN: CLEANUP [ ]
+20200323 16:02:36.567 - INFO - +-- START KW: DELETE FWD PROFILE [ ]
+20200323 16:02:36.575 - INFO - +--- START KW: CPE1.delete_service_object [ ${serviceobj_1} ]
+20200323 16:02:36.575 - FAIL - No keyword with name 'CPE1.delete_service_object' found.
+20200323 16:02:36.575 - INFO - +--- END KW: CPE1.delete_service_object (0)
+20200323 16:02:36.583 - INFO - +--- START KW: CPE1.delete_address_object [ ${ipaddobj_1} ]
+20200323 16:02:36.583 - FAIL - No keyword with name 'CPE1.delete_address_object' found.
+20200323 16:02:36.584 - INFO - +--- END KW: CPE1.delete_address_object (1)
+20200323 16:02:36.591 - INFO - +--- START KW: CPE1.delete_address_object [ ${ipaddobj_2} ]
+20200323 16:02:36.592 - FAIL - No keyword with name 'CPE1.delete_address_object' found.
+20200323 16:02:36.592 - INFO - +--- END KW: CPE1.delete_address_object (1)
+20200323 16:02:36.600 - INFO - +--- START KW: CPE1.delete_fowarding_profile [ ${fwp_1} ]
+20200323 16:02:36.600 - FAIL - No keyword with name 'CPE1.delete_fowarding_profile' found.
+20200323 16:02:36.600 - INFO - +--- END KW: CPE1.delete_fowarding_profile (0)
+20200323 16:02:36.608 - INFO - +--- START KW: CPE1.delete_sla_profile [ ${sla_prf_1} ]
+20200323 16:02:36.608 - FAIL - No keyword with name 'CPE1.delete_sla_profile' found.
+20200323 16:02:36.608 - INFO - +--- END KW: CPE1.delete_sla_profile (0)
+20200323 16:02:36.616 - INFO - +--- START KW: CPE1.modify_interface_bandwidth [ ${CPE1['WAN1_INTF']} | ${curr_intf_bw['bandwidth']['uplink']} | ${curr_intf_bw['bandwidth']['downlink']} ]
+20200323 16:02:36.616 - FAIL - No keyword with name 'CPE1.modify_interface_bandwidth' found.
+20200323 16:02:36.617 - INFO - +--- END KW: CPE1.modify_interface_bandwidth (1)
+20200323 16:02:36.625 - INFO - +--- START KW: CPE1.get_vni_interface_bw [ ${CPE1['WAN1_INTF']} ]
+20200323 16:02:36.625 - FAIL - No keyword with name 'CPE1.get_vni_interface_bw' found.
+20200323 16:02:36.625 - INFO - +--- END KW: CPE1.get_vni_interface_bw (0)
+20200323 16:02:36.626 - INFO - +-- END KW: DELETE FWD PROFILE (60)
+20200323 16:02:36.626 - INFO - +-- START KW: BuiltIn.Log To Console [ "cleanup done" ]
+20200323 16:02:36.627 - INFO - +-- END KW: BuiltIn.Log To Console (1)
+20200323 16:02:36.634 - INFO - +-- START KW: spirent1.release_ports [ ]
+20200323 16:02:36.634 - FAIL - No keyword with name 'spirent1.release_ports' found.
+20200323 16:02:36.634 - INFO - +-- END KW: spirent1.release_ports (0)
+20200323 16:02:36.635 - INFO - +-- START KW: BuiltIn.Sleep [ 40s ]
+20200323 16:03:16.636 - INFO - Slept 40 seconds
+20200323 16:03:16.637 - INFO - +-- END KW: BuiltIn.Sleep (40002)
+20200323 16:03:16.639 - INFO - +- END TEARDOWN: CLEANUP (40072)
+==============================================================================
+20200323 16:03:16.645 - INFO - + END SUITE: SINGLE CPE HYBRID SOLUTION TEST (40229)
+==============================================================================

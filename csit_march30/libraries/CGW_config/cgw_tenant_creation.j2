@@ -1,0 +1,512 @@
+{#
+    SDWAN Cloud Gateway Tenant
+    * For Lab Testing
+#}
+
+{% set VXLAN_TVI_INTERFACE = "tvi-0/%s"|format(2*CUSTOMER_ORG_ID) %}
+{% set ESP_TVI_INTERFACE = "tvi-0/%s"|format(2*CUSTOMER_ORG_ID + 1) %}
+{% set PTVI_INTERFACE1 = "ptvi%s"|format(2*CUSTOMER_ORG_ID) %}
+{% set PTVI_INTERFACE2 = "ptvi%s"|format(2*CUSTOMER_ORG_ID + 1) %}
+{% set VRF1_ID = 10*CUSTOMER_ORG_ID + 120 %}
+{% if PRIMARY_CGW==true %}
+{% set RD = 10*CUSTOMER_ORG_ID + 120 %}
+{% else %}
+{% set RD = 10*CUSTOMER_ORG_ID + 121 %}
+{% endif %}
+{% set CSP_NETWORKS %}
+{% for PEERING in CSP_PEERINGS %}{{CUSTOMER_ORG_NAME}}-{{PEERING.NAME}} {% endfor %}
+{% endset %}
+
+{% set CSP_PUB_ZONES %}
+{% for PEERING in CSP_PEERINGS if PEERING.TYPE=="PUBLIC"%}{{CUSTOMER_ORG_NAME}}-{{PEERING.NAME}} {% endfor %}
+{% endset %}
+
+{% set CSP_PRIV_ZONES %}
+{% for PEERING in CSP_PEERINGS if PEERING.TYPE=="PRIVATE"%}{{CUSTOMER_ORG_NAME}}-{{PEERING.NAME}} {% endfor %}
+{% endset %}
+
+{% set LOG_COLLECTOR_NAMES %}
+{% for COLLECTOR in LOG_COLLECTORS %}{{COLLECTOR.NAME}} {% endfor %}
+{% endset %}
+
+{#
+	Configure tvi and ptvi interface for IPSec
+#}
+set devices device {{HOSTNAME}} config interfaces {{VXLAN_TVI_INTERFACE}} enable true
+set devices device {{HOSTNAME}} config interfaces {{VXLAN_TVI_INTERFACE}} mode ipsec
+set devices device {{HOSTNAME}} config interfaces {{VXLAN_TVI_INTERFACE}} type p2mp-vxlan
+set devices device {{HOSTNAME}} config interfaces {{VXLAN_TVI_INTERFACE}} unit 0 enable true
+set devices device {{HOSTNAME}} config interfaces {{VXLAN_TVI_INTERFACE}} description "VxLAN {{CUSTOMER_ORG_NAME}} Management"
+set devices device {{HOSTNAME}} config interfaces {{VXLAN_TVI_INTERFACE}} unit 0 family
+set devices device {{HOSTNAME}} config interfaces {{VXLAN_TVI_INTERFACE}} unit 0 family inet
+set devices device {{HOSTNAME}} config interfaces {{VXLAN_TVI_INTERFACE}} unit 0 family inet address {{VXLAN_IP}}/32
+
+set devices device {{HOSTNAME}} config interfaces {{ESP_TVI_INTERFACE}} enable true
+set devices device {{HOSTNAME}} config interfaces {{ESP_TVI_INTERFACE}} mode ipsec
+set devices device {{HOSTNAME}} config interfaces {{ESP_TVI_INTERFACE}} type p2mp-esp
+set devices device {{HOSTNAME}} config interfaces {{ESP_TVI_INTERFACE}} unit 0 enable true
+set devices device {{HOSTNAME}} config interfaces {{ESP_TVI_INTERFACE}} description "ESP {{CUSTOMER_ORG_NAME}} Management"
+set devices device {{HOSTNAME}} config interfaces {{ESP_TVI_INTERFACE}} unit 0 enable true
+set devices device {{HOSTNAME}} config interfaces {{ESP_TVI_INTERFACE}} unit 0 family
+set devices device {{HOSTNAME}} config interfaces {{ESP_TVI_INTERFACE}} unit 0 family inet
+set devices device {{HOSTNAME}} config interfaces {{ESP_TVI_INTERFACE}} unit 0 family inet address {{ESP_IP}}/32
+
+set devices device {{HOSTNAME}} config interfaces {{CSP_INTERFACE}} enable true
+
+set devices device {{HOSTNAME}} config interfaces {{PTVI_INTERFACE1}} parent-interface {{ESP_TVI_INTERFACE}}.0 remote-address {{WC1_ESP_IP}}
+set devices device {{HOSTNAME}} config interfaces {{PTVI_INTERFACE2}} parent-interface {{ESP_TVI_INTERFACE}}.0 remote-address {{WC2_ESP_IP}} 
+
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security logs logging-control stats all
+
+{#
+	Configure different networks and associate
+#}
+set devices device {{HOSTNAME}} config orgs org {{CUSTOMER_ORG_NAME}} available-routing-instances [ INT-TRANSP-VR MPLS-TRANSP-VR {{CUSTOMER_ORG_NAME}}-Control-VR {{CUSTOMER_ORG_NAME}}-LAN1-VRF ]
+set devices device {{HOSTNAME}} config orgs org {{CUSTOMER_ORG_NAME}} traffic-identification using [ {{PTVI_INTERFACE1}} {{PTVI_INTERFACE2}} {{VXLAN_TVI_INTERFACE}}.0 {{ESP_TVI_INTERFACE}}.0 ]
+set devices device {{HOSTNAME}} config orgs org {{CUSTOMER_ORG_NAME}} owned-routing-instances [ {{CUSTOMER_ORG_NAME}}-Control-VR {{CUSTOMER_ORG_NAME}}-LAN1-VRF ]
+
+{#
+	Configure IPSec
+#}
+set devices device {{HOSTNAME}} config orgs org {{CUSTOMER_ORG_NAME}} available-provider-orgs [ {{CUSTOMER_ORG_NAME}} ]
+set devices device {{HOSTNAME}} config orgs org {{CUSTOMER_ORG_NAME}} available-service-node-groups [ default-sng ]
+set devices device {{HOSTNAME}} config orgs org {{CUSTOMER_ORG_NAME}} sd-wan site
+set devices device {{HOSTNAME}} config orgs org {{CUSTOMER_ORG_NAME}} sd-wan site global-tenant-id {{CUSTOMER_ORG_ID}}
+set devices device {{HOSTNAME}} config orgs org {{CUSTOMER_ORG_NAME}} sd-wan site site-name {{HOSTNAME}}
+set devices device {{HOSTNAME}} config orgs org {{CUSTOMER_ORG_NAME}} sd-wan site management-routing-instance {{CUSTOMER_ORG_NAME}}-Control-VR
+
+{#
+	Configure SLA
+#}
+set devices device {{HOSTNAME}} config orgs org {{CUSTOMER_ORG_NAME}} sd-wan site wan-interfaces {{INT_INTERFACE}}.{{INT_WAN_VLAN_ID}} sla-monitoring fc_be interval 10
+set devices device {{HOSTNAME}} config orgs org {{CUSTOMER_ORG_NAME}} sd-wan site wan-interfaces {{INT_INTERFACE}}.{{INT_WAN_VLAN_ID}} sla-monitoring fc_be logging-interval 300
+set devices device {{HOSTNAME}} config orgs org {{CUSTOMER_ORG_NAME}} sd-wan site wan-interfaces {{INT_INTERFACE}}.{{INT_WAN_VLAN_ID}} encryption optional
+set devices device {{HOSTNAME}} config orgs org {{CUSTOMER_ORG_NAME}} sd-wan site wan-interfaces {{MPLS_INTERFACE}}.{{MPLS_WAN_VLAN_ID}} sla-monitoring fc_be interval 10
+set devices device {{HOSTNAME}} config orgs org {{CUSTOMER_ORG_NAME}} sd-wan site wan-interfaces {{MPLS_INTERFACE}}.{{MPLS_WAN_VLAN_ID}} sla-monitoring fc_be logging-interval 300
+
+{#
+	Configure IPSec
+#}
+set devices device {{HOSTNAME}} config orgs org {{CUSTOMER_ORG_NAME}} sd-wan controllers {{WC1_HOSTNAME}} management-addresses IKE ip-address {{WC1_VXLAN_IP}} routing-instance {{CUSTOMER_ORG_NAME}}-Control-VR
+set devices device {{HOSTNAME}} config orgs org {{CUSTOMER_ORG_NAME}} sd-wan controllers {{WC1_HOSTNAME}} management-addresses secure ip-address {{WC1_ESP_IP}} routing-instance {{CUSTOMER_ORG_NAME}}-Control-VR
+set devices device {{HOSTNAME}} config orgs org {{CUSTOMER_ORG_NAME}} sd-wan controllers {{WC2_HOSTNAME}} management-addresses IKE ip-address {{WC2_VXLAN_IP}} routing-instance {{CUSTOMER_ORG_NAME}}-Control-VR
+set devices device {{HOSTNAME}} config orgs org {{CUSTOMER_ORG_NAME}} sd-wan controllers {{WC2_HOSTNAME}} management-addresses secure ip-address {{WC2_ESP_IP}} routing-instance {{CUSTOMER_ORG_NAME}}-Control-VR
+
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 vpn-type branch-sdwan
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 local-auth-info
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 local-auth-info auth-type psk
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 local-auth-info id-type email
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 local-auth-info key {{LOCAL_PSK}}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 local-auth-info id-string {{LOCAL_ID_STRING}}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 local
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 local address {{VXLAN_IP}}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 routing-instance {{CUSTOMER_ORG_NAME}}-Control-VR
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 tunnel-routing-instance {{CUSTOMER_ORG_NAME}}-Control-VR
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 tunnel-initiate automatic
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 ipsec fragmentation pre-fragmentation
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 ipsec transform esp-aes256-sha256
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 ipsec mode tunnel
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 ipsec pfs-group mod-none
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 ipsec anti-replay enable
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 ipsec life duration 25000
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 ike version v2
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 ike group mod19
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 ike transform aes256-sha256
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 ike lifetime 27000
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 ike dpd-timeout 10
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 peer-auth-info
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 peer-auth-info auth-type psk
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 peer-auth-info id-type email
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 peer-auth-info key {{WC1_PSK}}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 peer-auth-info id-string {{WC1_ID_STRING}}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 peer
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 peer address {{WC1_VXLAN_IP}}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL1 tunnel-interface {{PTVI_INTERFACE1}}
+
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 vpn-type branch-sdwan
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 local-auth-info
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 local-auth-info auth-type psk
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 local-auth-info id-type email
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 local-auth-info key {{LOCAL_PSK}}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 local-auth-info id-string {{LOCAL_ID_STRING}}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 local
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 local address {{VXLAN_IP}}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 routing-instance {{CUSTOMER_ORG_NAME}}-Control-VR
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 tunnel-routing-instance {{CUSTOMER_ORG_NAME}}-Control-VR
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 tunnel-initiate automatic
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 ipsec fragmentation pre-fragmentation
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 ipsec transform esp-aes256-sha256
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 ipsec mode tunnel
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 ipsec pfs-group mod-none
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 ipsec anti-replay enable
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 ipsec life duration 25000
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 ike version v2
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 ike group mod19
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 ike transform aes256-sha256
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 ike lifetime 27000
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 ike dpd-timeout 10
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 peer-auth-info
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 peer-auth-info auth-type psk
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 peer-auth-info id-type email
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 peer-auth-info key {{WC2_PSK}}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 peer-auth-info id-string {{WC2_ID_STRING}}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 peer
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 peer address {{WC2_VXLAN_IP}}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile GW-CTRL2 tunnel-interface {{PTVI_INTERFACE2}}
+
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} objects zones trust
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} objects zones untrust
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} objects zones host
+
+{#
+	Configure GW to send system statistics to VA log collector
+#}
+
+{% for COLLECTOR in LOG_COLLECTORS %}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} lef collectors {{COLLECTOR.NAME}} destination-address {{COLLECTOR.ADDRESS}} destination-port 5140 routing-instance {{CUSTOMER_ORG_NAME}}-Control-VR transport tcp template Default-LEF-Template
+{% endfor %}
+
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} lef collector-groups Default-Collector-Group collectors [ {{LOG_COLLECTOR_NAMES}}]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} lef templates Default-LEF-Template type ipfix
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} lef profiles Default-Logging-Profile collector-group Default-Collector-Group
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} lef default-profile Default-Logging-Profile
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} lef collectors LEF-Collector-log_collector1 source-address {{ESP_IP}}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} lef collectors LEF-Collector-log_collector2 source-address {{ESP_IP}}
+
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} traffic-monitoring logging-control Default-Logging-Control profile Default-Logging-Profile
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} traffic-monitoring logging-control Default-Logging-Control options
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} traffic-monitoring logging-control Default-Logging-Control options stats
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} traffic-monitoring logging-control Default-Logging-Control options stats all
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} traffic-monitoring policies Analytics-policy rules rule1 set lef profile Default-Logging-Profile
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} objects zones ptvi lef-profile Default-Logging-Profile
+
+{#
+	Configure routing-instances for Customer org
+#}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR instance-type virtual-router
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR mpls-vpn-core
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR interfaces [ {{PTVI_INTERFACE1}} {{PTVI_INTERFACE2}} {{VXLAN_TVI_INTERFACE}}.0 {{ESP_TVI_INTERFACE}}.0 ]
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR routing-options mpls-vpn-local-router-address {{ESP_IP}}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR routing-options static route 0.0.0.0/0 {{ESP_IP}} {{ESP_TVI_INTERFACE}}.0 preference 1
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR routing-options static route 0.0.0.0/0 {{ESP_IP}} {{ESP_TVI_INTERFACE}}.0 tag 0
+
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} hold-time 90 router-id {{ESP_IP}} peer-as {{CGW_BGP_ASN}} ibgp-preference 200 ebgp-preference 20 local-as as-number {{CGW_BGP_ASN}}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} route-flap free-max-time 180 reuse-max-time 60 reuse-size 256 reuse-array-size 1024
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} graceful-restart enable maximum-restart-time 120 recovery-time 120 select-defer-time 120 stalepath-time 120 dynamic-peer-restart-time 0
+
+{#
+	Below config should be applied for advertising cloud routes towards the branch
+#}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} routing-peer-policy EXPORT-{{CUSTOMER_ORG_NAME}}-CGW-TO-WC term ACCEPT-L-CGW-ROUTES match community "(^|,){{LCC}}:[5-6][0-1]($|,)"
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} routing-peer-policy EXPORT-{{CUSTOMER_ORG_NAME}}-CGW-TO-WC term ACCEPT-L-CGW-ROUTES action accept
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} routing-peer-policy EXPORT-{{CUSTOMER_ORG_NAME}}-CGW-TO-WC term DENY-REST action reject
+
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} group CGW-WC export EXPORT-{{CUSTOMER_ORG_NAME}}-CGW-TO-WC
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} group CGW-WC type internal
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} group CGW-WC family inet unicast
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} group CGW-WC family inet versa-private
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} group CGW-WC family inet-vpn unicast
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} group CGW-WC bfd-liveness-detection minimum-receive-interval 1000 multiplier 3 transmit-interval minimum-interval 1000
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} group CGW-WC neighbor {{WC1_ESP_IP}} peer-as {{CGW_BGP_ASN}}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} group CGW-WC neighbor {{WC2_ESP_IP}} peer-as {{CGW_BGP_ASN}}
+
+{#
+	Default Traffic Steering Rule
+#}
+set devices device {{HOSTNAME}} config org org-services {{CUSTOMER_ORG_NAME}} sd-wan forwarding-profiles DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names local [ MPLS-WAN INT-WAN ]
+set devices device {{HOSTNAME}} config org org-services {{CUSTOMER_ORG_NAME}} sd-wan forwarding-profiles DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 1 circuit-names remote [ MPLS-WAN MPLS-WAN1 MPLS-WAN2 INT-WAN INT-WAN1 INT-WAN2 ]
+set devices device {{HOSTNAME}} config org org-services {{CUSTOMER_ORG_NAME}} sd-wan forwarding-profiles DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names local [ INT-WAN ]
+set devices device {{HOSTNAME}} config org org-services {{CUSTOMER_ORG_NAME}} sd-wan forwarding-profiles DEFAULT-TRAFFIC-PROFILE circuit-priorities priority 2 circuit-names remote [ LTE-WAN ]
+set devices device {{HOSTNAME}} config org org-services {{CUSTOMER_ORG_NAME}} sd-wan forwarding-profiles DEFAULT-TRAFFIC-PROFILE connection-selection-method weighted-round-robin
+set devices device {{HOSTNAME}} config org org-services {{CUSTOMER_ORG_NAME}} sd-wan forwarding-profiles DEFAULT-TRAFFIC-PROFILE recompute-timer 40
+set devices device {{HOSTNAME}} config org org-services {{CUSTOMER_ORG_NAME}} sd-wan forwarding-profiles DEFAULT-TRAFFIC-PROFILE encryption optional
+set devices device {{HOSTNAME}} config org org-services {{CUSTOMER_ORG_NAME}} sd-wan forwarding-profiles DEFAULT-TRAFFIC-PROFILE symmetric-forwarding enable
+set devices device {{HOSTNAME}} config org org-services {{CUSTOMER_ORG_NAME}} sd-wan policies Default-Policy rules DEFAULT-TRAFFIC-RULE description DEFAULT-TRAFFIC-RULE
+set devices device {{HOSTNAME}} config org org-services {{CUSTOMER_ORG_NAME}} sd-wan policies Default-Policy rules DEFAULT-TRAFFIC-RULE set action allow
+set devices device {{HOSTNAME}} config org org-services {{CUSTOMER_ORG_NAME}} sd-wan policies Default-Policy rules DEFAULT-TRAFFIC-RULE set forwarding-profile DEFAULT-TRAFFIC-PROFILE
+
+{#
+	For redistributing standby routes with community :51, :61
+	For accepting bgp, direct and static routes.
+#}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP-STDBY match protocol bgp
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP-STDBY match community {{LCC}}:51
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP-STDBY action accept
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP-STDBY action set-local-preference 80
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action set-origin igp
+
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP-STDBY match protocol bgp
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP-STDBY match community {{LCC}}:61
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP-STDBY action accept
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP-STDBY action set-local-preference 80
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action set-origin igp
+
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action set-origin igp
+
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT match protocol direct
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action accept
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action set-origin igp
+
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC match protocol static
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action accept
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action set-origin igp
+
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF instance-type vrf
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF global-vrf-id {{VRF1_ID}}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF mpls-vpn-core-instance {{CUSTOMER_ORG_NAME}}-Control-VR
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF route-distinguisher {{VRF1_ID}}L:{{RD}}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF vrf-import-target target:{{VRF1_ID}}L:{{VRF1_ID}}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF vrf-export-target target:{{VRF1_ID}}L:{{VRF1_ID}}
+
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 router-id {{CGW_ROUTER_ID}} local-as as-number {{CGW_BGP_ASN}}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 route-flap free-max-time 180 reuse-max-time 60 reuse-size 256 reuse-array-size 1024
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 graceful-restart enable maximum-restart-time 120 recovery-time 120 select-defer-time 120 stalepath-time 120 dynamic-peer-restart-time 0
+
+{#
+	CSP interface & network config. It's configured depending on the cloud services request.
+#}
+{% for PEERING in CSP_PEERINGS %}
+set devices device {{HOSTNAME}} config interfaces {{CSP_INTERFACE}} unit {{PEERING.VLAN}} vlan-id {{PEERING.VLAN}}
+set devices device {{HOSTNAME}} config interfaces {{CSP_INTERFACE}} unit {{PEERING.VLAN}} enable true
+set devices device {{HOSTNAME}} config interfaces {{CSP_INTERFACE}} unit {{PEERING.VLAN}} family
+set devices device {{HOSTNAME}} config interfaces {{CSP_INTERFACE}} unit {{PEERING.VLAN}} family inet
+set devices device {{HOSTNAME}} config interfaces {{CSP_INTERFACE}} unit {{PEERING.VLAN}} family inet address {{PEERING.LOCAL_IP}}/{{PEERING.PREFIX_LEN}}
+set devices device {{HOSTNAME}} config interfaces {{CSP_INTERFACE}} unit {{PEERING.VLAN}} description "{{CUSTOMER_ORG_NAME}}-{{PEERING.NAME}}"
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} class-of-service networks {{CUSTOMER_ORG_NAME}}-{{PEERING.NAME}} shaping-rate rate {{PEERING.SHAPING_RATE}}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} class-of-service networks {{CUSTOMER_ORG_NAME}}-{{PEERING.NAME}} shaping-rate burst-size {{PEERING.BURST_SIZE}}
+set devices device {{HOSTNAME}} config networks {{CUSTOMER_ORG_NAME}}-{{PEERING.NAME}} interfaces [ {{CSP_INTERFACE}}.{{PEERING.VLAN}} ]
+{% endfor %}
+
+set devices device {{HOSTNAME}} config orgs org {{CUSTOMER_ORG_NAME}} available-networks [ {{CSP_NETWORKS}}]
+set devices device {{HOSTNAME}} config orgs org {{CUSTOMER_ORG_NAME}} traffic-identification using-networks [ {{CSP_NETWORKS}} ]
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF networks [ {{CSP_NETWORKS}} ]
+
+{#
+	Export policy for CSP_PEERING_TYPE=="PRIVATE"
+#}
+{% for PEERING in CSP_PEERINGS %}
+{% if PEERING.TYPE=="PRIVATE" %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy EXPORT-POLICY-{{PEERING.NAME}} term ACCEPT-SDWAN match community "(^|,)([0-9]*:10)($|,)"
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy EXPORT-POLICY-{{PEERING.NAME}} term ACCEPT-SDWAN action accept
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy EXPORT-POLICY-{{PEERING.NAME}} term ACCEPT-CLOUD-PRIV match community "(^|,)([0-9]*:[5][0-1])($|,)"
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy EXPORT-POLICY-{{PEERING.NAME}} term ACCEPT-CLOUD-PRIV action accept
+{% if PRIMARY_CGW==false %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy EXPORT-POLICY-{{PEERING.NAME}} term ACCEPT-SDWAN action as-path-prepend {{CGW_BGP_ASN}}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy EXPORT-POLICY-{{PEERING.NAME}} term ACCEPT-CLOUD-PRIV action as-path-prepend {{CGW_BGP_ASN}}
+{% endif %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy EXPORT-POLICY-{{PEERING.NAME}} term DENY-REST action reject
+{% endif %}
+{% endfor %}
+
+{#
+	Import policy for CSP_PEERING_TYPE=="PRIVATE"
+#}
+{% for PEERING in CSP_PEERINGS %}
+{% if PEERING.TYPE=="PRIVATE" %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy IMPORT-POLICY-{{PEERING.NAME}} term 1ACCEPT-CLOUD action accept
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy IMPORT-POLICY-{{PEERING.NAME}} term 1ACCEPT-CLOUD action community-action set-specific
+{% if PRIMARY_CGW==false %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy IMPORT-POLICY-{{PEERING.NAME}} term 1ACCEPT-CLOUD action community {{LCC}}:51
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy IMPORT-POLICY-{{PEERING.NAME}} term 1ACCEPT-CLOUD action set-local-preference 80
+{% else %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy IMPORT-POLICY-{{PEERING.NAME}} term 1ACCEPT-CLOUD action community {{LCC}}:50
+{% endif %}
+{% endif %}
+{% endfor %}
+
+{#
+	Export policy for CSP_PEERING_TYPE=="PUBLIC".
+#}
+{% for PEERING in CSP_PEERINGS %}
+{% if PEERING.TYPE=="PUBLIC" %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 prefix-list {{PEERING.NAME}}-DIRECT seq 1 permit
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 prefix-list {{PEERING.NAME}}-DIRECT seq 1 address-family ipv4 unicast address-mask {{PEERING.CSP_PEER_NW}}
+{% if PEERING.CSP_NAT_POOL != None %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 prefix-list {{PEERING.NAME}}-NAT-POOL seq 1 permit
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 prefix-list {{PEERING.NAME}}-NAT-POOL seq 1 address-family ipv4 unicast address-mask {{PEERING.CSP_NAT_POOL}}
+{% endif %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy EXPORT-POLICY-{{PEERING.NAME}} term ALLOW-DIRECT match ip nlri prefix-list {{PEERING.NAME}}-DIRECT
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy EXPORT-POLICY-{{PEERING.NAME}} term ALLOW-DIRECT action accept
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy EXPORT-POLICY-{{PEERING.NAME}} term ALLOW-DIRECT action metric set-value 100
+{% if PEERING.CSP_NAT_POOL != None %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy EXPORT-POLICY-{{PEERING.NAME}} term ALLOW-NAT-POOL match ip nlri prefix-list {{PEERING.NAME}}-NAT-POOL
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy EXPORT-POLICY-{{PEERING.NAME}} term ALLOW-NAT-POOL action accept
+{% endif %}
+{% if PRIMARY_CGW==false %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy EXPORT-POLICY-{{PEERING.NAME}} term ALLOW-DIRECT action as-path-prepend {{CGW_BGP_ASN}}
+{% if PEERING.CSP_NAT_POOL != None %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy EXPORT-POLICY-{{PEERING.NAME}} term ALLOW-NAT-POOL action as-path-prepend {{CGW_BGP_ASN}}
+{% endif %}
+{% endif %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy EXPORT-POLICY-{{PEERING.NAME}} term DENY-REST action reject
+{% endif %}
+{% endfor %}
+
+{#
+	Import policy for CSP_PEERING_TYPE=="PUBLIC"
+#}
+{% for PEERING in CSP_PEERINGS %}
+{% if PEERING.TYPE=="PUBLIC" %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy IMPORT-POLICY-{{PEERING.NAME}} term 1ACCEPT-CLOUD action accept
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy IMPORT-POLICY-{{PEERING.NAME}} term 1ACCEPT-CLOUD action community-action set-specific
+{% if PRIMARY_CGW==false %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy IMPORT-POLICY-{{PEERING.NAME}} term 1ACCEPT-CLOUD action community {{LCC}}:61
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy IMPORT-POLICY-{{PEERING.NAME}} term 1ACCEPT-CLOUD action set-local-preference 80
+{% else %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 routing-peer-policy IMPORT-POLICY-{{PEERING.NAME}} term 1ACCEPT-CLOUD action community {{LCC}}:60 
+{% endif %}
+{% endif %}
+{% endfor %}
+
+{#
+	If NAT POOL is configured
+#}
+{% for PEERING in CSP_PEERINGS %}
+{% if PEERING.TYPE=="PUBLIC" %}
+{% if PEERING.CSP_NAT_POOL != None %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF routing-options static route {{PEERING.CSP_NAT_POOL}} 0.0.0.0 none preference 1
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF routing-options static route {{PEERING.CSP_NAT_POOL}} 0.0.0.0 none discard
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF routing-options static route {{PEERING.CSP_NAT_POOL}} 0.0.0.0 none no-install
+{% endif %}
+{% endif %}
+{% endfor %}
+
+{#
+	For configuring BGP peering export and import policy
+#}
+{% for PEERING in CSP_PEERINGS %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 local-as as-number {{CGW_BGP_ASN}}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 group EBGP-With-{{PEERING.NAME}} type external
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 group EBGP-With-{{PEERING.NAME}} neighbor {{PEERING.PEER_IP}} local-as {{CGW_BGP_ASN}}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 group EBGP-With-{{PEERING.NAME}} neighbor {{PEERING.PEER_IP}} as-override
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 group EBGP-With-{{PEERING.NAME}} import IMPORT-POLICY-{{PEERING.NAME}}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 group EBGP-With-{{PEERING.NAME}} export EXPORT-POLICY-{{PEERING.NAME}}
+{% endfor %}
+
+{#
+	BFD config
+#}
+{% for PEERING in CSP_PEERINGS %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 group EBGP-With-{{PEERING.NAME}} bfd-liveness-detection
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 group EBGP-With-{{PEERING.NAME}} bfd-liveness-detection minimum-receive-interval 1000
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 group EBGP-With-{{PEERING.NAME}} bfd-liveness-detection multiplier 3
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 group EBGP-With-{{PEERING.NAME}} bfd-liveness-detection transmit-interval minimum-interval 1000
+{% endfor %}
+
+{#
+	BGP peer config
+#}
+{% for PEERING in CSP_PEERINGS %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 group EBGP-With-{{PEERING.NAME}} neighbor {{PEERING.PEER_IP}} local-address {{PEERING.LOCAL_IP}}
+{% if PEERING.PASSWD != None %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 group EBGP-With-{{PEERING.NAME}} neighbor {{PEERING.PEER_IP}} password {{PEERING.PASSWD}}
+{% endif %}
+{% if PEERING.TTL != None %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 group EBGP-With-{{PEERING.NAME}} neighbor {{PEERING.PEER_IP}} ttl {{PEERING.TTL}}
+{% endif %}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF protocols bgp {{CUSTOMER_ORG_ID}}01 group EBGP-With-{{PEERING.NAME}} neighbor {{PEERING.PEER_IP}} peer-as {{PEERING.PEER_BGP_ASN}}
+{% endfor %}
+
+{#
+	Zones for CGNAT/Firewall
+#}
+{% for PEERING in CSP_PEERINGS %}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} objects zones {{CUSTOMER_ORG_NAME}}-{{PEERING.NAME}} description {{CUSTOMER_ORG_NAME}}-{{PEERING.NAME}}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} objects zones {{CUSTOMER_ORG_NAME}}-{{PEERING.NAME}} networks [ {{CUSTOMER_ORG_NAME}}-{{PEERING.NAME}} ]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} objects zones {{CUSTOMER_ORG_NAME}}-{{PEERING.NAME}} lef-profile Default-Logging-Profile
+{% endfor %}
+
+{#
+    Default Firewall Policy
+#}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules SDWAN_TO_PRIV-ALLOW description SDWAN_TO_PRIV_CLOUD-ALLOW set action allow
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules SDWAN_TO_PRIV-ALLOW match source zone zone-list [ ptvi ]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules SDWAN_TO_PRIV-ALLOW match destination zone zone-list [ {{CSP_PRIV_ZONES}}]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules SDWAN_TO_PRIV-ALLOW set lef profile Default-Logging-Profile
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules SDWAN_TO_PRIV-ALLOW set lef event both
+
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PRIV_TO_SDWAN-ALLOW description PRIV_CLOUD_TO_SDWAN-ALLOW set action allow
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PRIV_TO_SDWAN-ALLOW match source zone zone-list [ {{CSP_PRIV_ZONES}}]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PRIV_TO_SDWAN-ALLOW match destination zone zone-list [ ptvi ]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PRIV_TO_SDWAN-ALLOW set lef profile Default-Logging-Profile
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PRIV_TO_SDWAN-ALLOW set lef event both
+
+{% if CSP_PRIV_ZONES|length > 1 %}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PRIV_TO_PRIV-ALLOW description PRIV_CLOUD_TO_PRIV_CLOUD-ALLOW set action allow
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PRIV_TO_PRIV-ALLOW match source zone zone-list [ {{CSP_PRIV_ZONES}}]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PRIV_TO_PRIV-ALLOW match destination zone zone-list [ {{CSP_PRIV_ZONES}}]
+{% endif %}
+
+{#
+	Sample FW Config for allowing required Public Cloud Access will be configured via Portal by customer
+#}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules TestCloudInbound1 description TestCloudInbound set action allow
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules TestCloudInbound1 match source zone zone-list [ {{CSP_PUB_ZONES}}]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules TestCloudInbound1 match destination zone zone-list [ ptvi {{CSP_PRIV_ZONES}}]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules TestCloudInbound1 set lef event start
+
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules TestCloudOutbound1 description TestCloudOutbound set action allow
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules TestCloudOutbound1 match source zone zone-list [ ptvi {{CSP_PRIV_ZONES}}]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules TestCloudOutbound1 match destination zone zone-list [ {{CSP_PUB_ZONES}}]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules TestCloudOutbound1 set lef event start
+
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules SDWAN-PUBLIC-DENY description SDWAN-TO-PUBLIC-CLOUD-DENY-ALL set action deny
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules SDWAN-PUBLIC-DENY match source zone zone-list [ ptvi ]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules SDWAN-PUBLIC-DENY match destination zone zone-list [ {{CSP_PUB_ZONES}}]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules SDWAN-PUBLIC-DENY set lef profile Default-Logging-Profile
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules SDWAN-PUBLIC-DENY set lef event both
+
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PUBLIC-SDWAN-DENY description PUBLIC-CLOUD-SDWAN-TO-DENY-ALL set action deny
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PUBLIC-SDWAN-DENY match source zone zone-list [ {{CSP_PUB_ZONES}}]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PUBLIC-SDWAN-DENY match destination zone zone-list [ ptvi ]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PUBLIC-SDWAN-DENY set lef profile Default-Logging-Profile
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PUBLIC-SDWAN-DENY set lef event both
+
+{% if CSP_PUB_ZONES|length and CSP_PRIV_ZONES|length %}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PUBLIC-PRIV-DENY description PUB-CLOUD-TO-PRIV-CLOUD-DENY-ALL set action deny
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PUBLIC-PRIV-DENY match source zone zone-list [ {{CSP_PUB_ZONES}}]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PUBLIC-PRIV-DENY match destination zone zone-list [ {{CSP_PRIV_ZONES}}]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PUBLIC-PRIV-DENY set lef profile Default-Logging-Profile
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PUBLIC-PRIV-DENY set lef event both
+
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PRIV-PUBLIC-DENY description PRIVATE-CLOUD-TO-PUBLIC-CLOUD-DENY-ALL set action deny
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PRIV-PUBLIC-DENY match source zone zone-list [ {{CSP_PRIV_ZONES}}]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PRIV-PUBLIC-DENY match destination zone zone-list [ {{CSP_PUB_ZONES}}]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PRIV-PUBLIC-DENY set lef profile Default-Logging-Profile
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules PRIV-PUBLIC-DENY set lef event both
+{% endif %}
+
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules DEFAULT-DENY-ALL set action deny
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules DEFAULT-DENY-ALL set lef profile Default-Logging-Profile
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security access-policies FW-ACCESS-POLICY rules DEFAULT-DENY-ALL set lef event both
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} security logs profile Default-Logging-Profile
+
+{#
+    SNAT Config for only and each Cloud Public Peerings CSP_PEERING.TYPE=="PUBLIC"
+#}
+{% for PEERING in CSP_PEERINGS %}
+{% if PEERING.TYPE=="PUBLIC" %}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} cgnat pools Cloud-NAT-Pool-{{PEERING.NAME}} routing-instance {{CUSTOMER_ORG_NAME}}-LAN1-VRF
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} cgnat pools Cloud-NAT-Pool-{{PEERING.NAME}} egress-network [ {{CUSTOMER_ORG_NAME}}-{{PEERING.NAME}} ]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} cgnat pools Cloud-NAT-Pool-{{PEERING.NAME}} source-port random-allocation
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} cgnat rules Cloud-NAT-Rule-{{PEERING.NAME}} from destination-zone [ {{CUSTOMER_ORG_NAME}}-{{PEERING.NAME}} ]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} cgnat rules Cloud-NAT-Rule-{{PEERING.NAME}} then translated translation-type napt-44 source-pool Cloud-NAT-Pool-{{PEERING.NAME}} lef-profile-default false lef-profile Default-Logging-Profile filtering-type none mapping-type none
+{% endif %}
+{% endfor %}
+
+{#
+	Below lines are Sample DNAT/Public Cloud access Firewall rules, applicable in case of Public Cloud only and is Configured via Portal by customer
+#}
+{% for PEERING in CSP_PEERINGS %}
+{% if PEERING.TYPE=="PUBLIC" %}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} cgnat pools Cloud-NAT-Pool-{{PEERING.NAME}} routing-instance {{CUSTOMER_ORG_NAME}}-LAN1-VRF
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} cgnat pools Cloud-NAT-Pool-{{PEERING.NAME}} egress-network [ {{CUSTOMER_ORG_NAME}}-{{PEERING.NAME}} ]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} cgnat pools Cloud-NAT-Pool-{{PEERING.NAME}} source-port random-allocation
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} cgnat rules Cloud-NAT-Rule-{{PEERING.NAME}} from destination-zone [ {{CUSTOMER_ORG_NAME}}-{{PEERING.NAME}} ]
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} cgnat rules Cloud-NAT-Rule-{{PEERING.NAME}} then translated translation-type napt-44 source-pool Cloud-NAT-Pool-{{PEERING.NAME}} lef-profile-default false lef-profile Default-Logging-Profile filtering-type none mapping-type none
+{% endif %}
+{% endfor %}

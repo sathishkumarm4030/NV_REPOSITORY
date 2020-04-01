@@ -1,0 +1,2589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20190510 11:16:51.260" generator="Robot 3.0.4 (Python 2.7.13 on win32)">
+<suite source="C:\Softwares_mine\stefano\NV_REPOSITORY\csit\suites\SINGLE_CPE_SOLUTION_TEST.robot" id="s1" name="SINGLE CPE SOLUTION TEST">
+<kw type="setup" name="STARTUP">
+<doc>Make connecection to Versa devices</doc>
+<kw name="Cross Login" library="CPE1">
+<msg timestamp="20190510 11:17:26.224" level="INFO">&lt;netmiko.versa.versa.VersaSSH object at 0x000000000D554CF8&gt;
+versa: Administrator@Versa-Dir-BLR-1&gt;
+ssh admin@20.20.125.11
+admin@20.20.125.11's password: 
+
+             .---.,
+            (      ``.
+       _     \        )    __      ________ _____   _____
+      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\
+       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \
+        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \
+         \    |   /           \  /  | |____| | \ \ ____) / ____ \
+          \   |  /             \/   |______|_|  \_\_____/_/    \_\
+           \  | /
+            \_|/                     ___ _    _____  ___   ___  _ ___
+                                    | __| |  | __\ \/ | \ / / \| | __|
+                                    | _|| |__| _| &gt;  &lt; \ V /| .` | _|
+                                    |_| |____|___/_/\_\ \_/ |_|\_|_|
+
+
+Versa FlexVNF software
+Release     :	16.1R2 (S2.2)
+Release date:	20180505
+Package ID  :	5cd1c58	
+
+Last login: Fri May 10 05:35:52 2019 from 10.91.116.67
+admin@CPE11-BLR-HYBRID:~$ 
+doing redispatch</msg>
+<status status="PASS" endtime="20190510 11:17:26.225" starttime="20190510 11:16:51.960"></status>
+</kw>
+<kw name="Cross Login" library="CPE2">
+<msg timestamp="20190510 11:18:00.382" level="INFO">&lt;netmiko.versa.versa.VersaSSH object at 0x000000000D74FAC8&gt;
+versa: Administrator@Versa-Dir-BLR-1&gt;
+ssh admin@20.20.125.12
+admin@20.20.125.12's password: 
+
+             .---.,
+            (      ``.
+       _     \        )    __      ________ _____   _____
+      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\
+       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \
+        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \
+         \    |   /           \  /  | |____| | \ \ ____) / ____ \
+          \   |  /             \/   |______|_|  \_\_____/_/    \_\
+           \  | /
+            \_|/                     ___ _    _____  ___   ___  _ ___
+                                    | __| |  | __\ \/ | \ / / \| | __|
+                                    | _|| |__| _| &gt;  &lt; \ V /| .` | _|
+                                    |_| |____|___/_/\_\ \_/ |_|\_|_|
+
+
+Versa FlexVNF software
+Release     :	16.1R2 (S2.2)
+Release date:	20180508
+Package ID  :	d1653f6	
+
+Last login: Fri May 10 05:36:20 2019 from 10.91.116.67
+admin@CPE12-BLR-MPLS:~$ 
+doing redispatch</msg>
+<status status="PASS" endtime="20190510 11:18:00.383" starttime="20190510 11:17:26.227"></status>
+</kw>
+<kw name="Get Device Info" library="CPE1">
+<assign>
+<var>${CPE1_dev_info_on_vd}</var>
+</assign>
+<msg timestamp="20190510 11:18:02.428" level="INFO">&lt;Response [200]&gt;</msg>
+<msg timestamp="20190510 11:18:02.428" level="INFO">C:\Python27\lib\site-packages\urllib3\connectionpool.py:857: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190510 11:18:02.428" level="INFO">${CPE1_dev_info_on_vd} = {'ownerOrg': u'JAPAN', 'name': u'CPE11-BLR-HYBRID', 'ipAddress': u'20.20.125.11', 'packageName': u'versa-flexvnf-20180505-164725-5cd1c58-16.1R2S2.2-wsm', 'ping_status': u'REACHABLE', 'controllers': [u...</msg>
+<status status="PASS" endtime="20190510 11:18:02.428" starttime="20190510 11:18:00.384"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${CPE1_dev_info_on_vd}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:02.428" starttime="20190510 11:18:02.428"></status>
+</kw>
+<kw name="Get Data Dict" library="CPE1">
+<assign>
+<var>${CPE1}</var>
+</assign>
+<msg timestamp="20190510 11:18:02.443" level="INFO">${CPE1} = {'username': 'admin', 'main_logger': &lt;logging.Logger object at 0x000000000D3E7860&gt;, 'ctlr_dict': {'MUM': ['NV-WC01-N4-MUM', 'NV-WC02-N4-MUM'], 'BLR': ['NV-WC01-N2-BLR', 'NV-WC02-N2-BLR']}, 'gw_list': ...</msg>
+<status status="PASS" endtime="20190510 11:18:02.443" starttime="20190510 11:18:02.428"></status>
+</kw>
+<kw name="Get Data Dict" library="CPE2">
+<assign>
+<var>${CPE2}</var>
+</assign>
+<msg timestamp="20190510 11:18:02.443" level="INFO">${CPE2} = {'username': 'admin', 'main_logger': &lt;logging.Logger object at 0x000000000D460908&gt;, 'ctlr_dict': {'MUM': ['NV-WC01-N4-MUM', 'NV-WC02-N4-MUM'], 'BLR': ['NV-WC01-N2-BLR', 'NV-WC02-N2-BLR']}, 'gw_list': ...</msg>
+<status status="PASS" endtime="20190510 11:18:02.443" starttime="20190510 11:18:02.443"></status>
+</kw>
+<kw name="Create Controller List" library="CPE1">
+<arguments>
+<arg>${CPE1['ORG_NAME']}</arg>
+<arg>${CPE1['ORG_ID']}</arg>
+<arg>${CPE1['NO_OF_VRFS']}</arg>
+<arg>${CPE1['NODE']}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:02.475" starttime="20190510 11:18:02.443"></status>
+</kw>
+<kw name="Create Gateway List" library="CPE1">
+<arguments>
+<arg>${CPE1['ORG_NAME']}</arg>
+<arg>${CPE1['ORG_ID']}</arg>
+<arg>${CPE1['NO_OF_VRFS']}</arg>
+<arg>${CPE1['NODE']}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:02.481" starttime="20190510 11:18:02.476"></status>
+</kw>
+<kw name="Create Cpe Data" library="CPE1">
+<status status="PASS" endtime="20190510 11:18:02.481" starttime="20190510 11:18:02.481"></status>
+</kw>
+<kw name="Create Controller List" library="CPE2">
+<arguments>
+<arg>${CPE2['ORG_NAME']}</arg>
+<arg>${CPE2['ORG_ID']}</arg>
+<arg>${CPE2['NO_OF_VRFS']}</arg>
+<arg>${CPE2['NODE']}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:02.497" starttime="20190510 11:18:02.481"></status>
+</kw>
+<kw name="Create Gateway List" library="CPE2">
+<arguments>
+<arg>${CPE2['ORG_NAME']}</arg>
+<arg>${CPE2['ORG_ID']}</arg>
+<arg>${CPE2['NO_OF_VRFS']}</arg>
+<arg>${CPE2['NODE']}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:02.512" starttime="20190510 11:18:02.497"></status>
+</kw>
+<kw name="Create Cpe Data" library="CPE2">
+<status status="PASS" endtime="20190510 11:18:02.512" starttime="20190510 11:18:02.512"></status>
+</kw>
+<kw name="Get Data Dict" library="CPE1">
+<assign>
+<var>${CPE1}</var>
+</assign>
+<msg timestamp="20190510 11:18:02.528" level="INFO">${CPE1} = {'username': 'admin', 'main_logger': &lt;logging.Logger object at 0x000000000D3E7860&gt;, 'ctlr_dict': {'MUM': ['NV-WC01-N4-MUM', 'NV-WC02-N4-MUM'], 'BLR': ['NV-WC01-N2-BLR', 'NV-WC02-N2-BLR']}, 'WC2_NAME':...</msg>
+<status status="PASS" endtime="20190510 11:18:02.528" starttime="20190510 11:18:02.512"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${CPE1}</arg>
+</arguments>
+<msg timestamp="20190510 11:18:02.573" level="INFO">${CPE1} = {'username': 'admin', 'main_logger': &lt;logging.Logger object at 0x000000000D3E7860&gt;, 'ctlr_dict': {'MUM': ['NV-WC01-N4-MUM', 'NV-WC02-N4-MUM'], 'BLR': ['NV-WC01-N2-BLR', 'NV-WC02-N2-BLR']}, 'WC2_NAME':...</msg>
+<status status="PASS" endtime="20190510 11:18:02.573" starttime="20190510 11:18:02.528"></status>
+</kw>
+<kw name="Get Data Dict" library="CPE2">
+<assign>
+<var>${CPE2}</var>
+</assign>
+<msg timestamp="20190510 11:18:02.590" level="INFO">${CPE2} = {'username': 'admin', 'main_logger': &lt;logging.Logger object at 0x000000000D460908&gt;, 'ctlr_dict': {'MUM': ['NV-WC01-N4-MUM', 'NV-WC02-N4-MUM'], 'BLR': ['NV-WC01-N2-BLR', 'NV-WC02-N2-BLR']}, 'WC2_NAME':...</msg>
+<status status="PASS" endtime="20190510 11:18:02.591" starttime="20190510 11:18:02.574"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${CPE2}</arg>
+</arguments>
+<msg timestamp="20190510 11:18:02.623" level="INFO">${CPE2} = {'username': 'admin', 'main_logger': &lt;logging.Logger object at 0x000000000D460908&gt;, 'ctlr_dict': {'MUM': ['NV-WC01-N4-MUM', 'NV-WC02-N4-MUM'], 'BLR': ['NV-WC01-N2-BLR', 'NV-WC02-N2-BLR']}, 'WC2_NAME':...</msg>
+<status status="PASS" endtime="20190510 11:18:02.624" starttime="20190510 11:18:02.592"></status>
+</kw>
+<kw name="VM Pre Op" library="VM1">
+<msg timestamp="20190510 11:18:16.212" level="INFO">&lt;netmiko.linux.linux_ssh.LinuxSSH object at 0x000000000D875588&gt;
+[sudo] password for sathish: 
+:~# 
+exit
+linux: sathish@VM1:~$
+sudo bash
+sudo bash
+root@VM1:~# 
+versa123
+versa123
+versa123: command not found
+root@VM1:~# 
+exit
+exit
+exit
+sathish@VM1:~$ 
+sudo ifconfig ens33 up
+sudo ifconfig ens33 up
+sathish@VM1:~$ 
+sudo vconfig add ens33 600
+sudo vconfig add ens33 600
+ERROR: trying to add VLAN #600 to IF -:ens33:-  error: File exists
+sathish@VM1:~$ 
+sudo ifconfig ens33.600 up
+sudo ifconfig ens33.600 up
+sathish@VM1:~$ 
+sudo ifconfig ens33.600 192.169.101.2 netmask 255.255.255.0
+sudo ifconfig ens33.600 192.169.101.2 netmask 255.255.255.0
+sathish@VM1:~$ 
+sudo vconfig add ens33 601
+sudo vconfig add ens33 601
+ERROR: trying to add VLAN #601 to IF -:ens33:-  error: File exists
+sathish@VM1:~$ 
+sudo ifconfig ens33.601 up
+sudo ifconfig ens33.601 up
+sathish@VM1:~$ 
+sudo ifconfig ens33.601 192.169.102.2 netmask 255.255.255.0
+sudo ifconfig ens33.601 192.169.102.2 netmask 255.255.255.0
+sathish@VM1:~$ 
+sudo vconfig add ens33 602
+sudo vconfig add ens33 602
+ERROR: trying to add VLAN #602 to IF -:ens33:-  error: File exists
+sathish@VM1:~$ 
+sudo ifconfig ens33.602 up
+sudo ifconfig ens33.602 up
+sathish@VM1:~$ 
+sudo ifconfig ens33.602 192.169.103.2 netmask 255.255.255.0
+sudo ifconfig ens33.602 192.169.103.2 netmask 255.255.255.0
+sathish@VM1:~$ 
+sudo vconfig add ens33 603
+sudo vconfig add ens33 603
+ERROR: trying to add VLAN #603 to IF -:ens33:-  error: File exists
+sathish@VM1:~$ 
+sudo ifconfig ens33.603 up
+sudo ifconfig ens33.603 up
+sathish@VM1:~$ 
+sudo ifconfig ens33.603 192.169.104.2 netmask 255.255.255.0
+sudo ifconfig ens33.603 192.169.104.2 netmask 255.255.255.0
+sathish@VM1:~$ 
+sudo vconfig add ens33 604
+sudo vconfig add ens33 604
+ERROR: trying to add VLAN #604 to IF -:ens33:-  error: File exists
+sathish@VM1:~$ 
+sudo ifconfig ens33.604 up
+sudo ifconfig ens33.604 up
+sathish@VM1:~$ 
+sudo ifconfig ens33.604 192.169.105.2 netmask 255.255.255.0
+sudo ifconfig ens33.604 192.169.105.2 netmask 255.255.255.0
+sathish@VM1:~$</msg>
+<status status="PASS" endtime="20190510 11:18:16.212" starttime="20190510 11:18:02.624"></status>
+</kw>
+<kw name="VM Pre Op" library="VM2">
+<msg timestamp="20190510 11:18:29.801" level="INFO">&lt;netmiko.linux.linux_ssh.LinuxSSH object at 0x000000000D875CF8&gt;
+[sudo] password for sathish: 
+12-VM1:~# 
+exit
+linux: sathish@CPE12-VM1:~$
+sudo bash
+sudo bash
+root@CPE12-VM1:~# 
+versa123
+versa123
+versa123: command not found
+root@CPE12-VM1:~# 
+exit
+exit
+exit
+sathish@CPE12-VM1:~$ 
+sudo ifconfig ens33 up
+sudo ifconfig ens33 up
+sathish@CPE12-VM1:~$ 
+sudo vconfig add ens33 610
+sudo vconfig add ens33 610
+ERROR: trying to add VLAN #610 to IF -:ens33:-  error: File exists
+sathish@CPE12-VM1:~$ 
+sudo ifconfig ens33.610 up
+sudo ifconfig ens33.610 up
+sathish@CPE12-VM1:~$ 
+sudo ifconfig ens33.610 192.169.111.2 netmask 255.255.255.0
+sudo ifconfig ens33.610 192.169.111.2 netmask 255.255.255.0 
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C0
+sathish@CPE12-VM1:~$ 
+sudo vconfig add ens33 611
+sudo vconfig add ens33 611
+ERROR: trying to add VLAN #611 to IF -:ens33:-  error: File exists
+sathish@CPE12-VM1:~$ 
+sudo ifconfig ens33.611 up
+sudo ifconfig ens33.611 up
+sathish@CPE12-VM1:~$ 
+sudo ifconfig ens33.611 192.169.112.2 netmask 255.255.255.0
+sudo ifconfig ens33.611 192.169.112.2 netmask 255.255.255.0 
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C0
+sathish@CPE12-VM1:~$ 
+sudo vconfig add ens33 612
+sudo vconfig add ens33 612
+ERROR: trying to add VLAN #612 to IF -:ens33:-  error: File exists
+sathish@CPE12-VM1:~$ 
+sudo ifconfig ens33.612 up
+sudo ifconfig ens33.612 up
+sathish@CPE12-VM1:~$ 
+sudo ifconfig ens33.612 192.169.113.2 netmask 255.255.255.0
+sudo ifconfig ens33.612 192.169.113.2 netmask 255.255.255.0 
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C0
+sathish@CPE12-VM1:~$ 
+sudo vconfig add ens33 613
+sudo vconfig add ens33 613
+ERROR: trying to add VLAN #613 to IF -:ens33:-  error: File exists
+sathish@CPE12-VM1:~$ 
+sudo ifconfig ens33.613 up
+sudo ifconfig ens33.613 up
+sathish@CPE12-VM1:~$ 
+sudo ifconfig ens33.613 192.169.114.2 netmask 255.255.255.0
+sudo ifconfig ens33.613 192.169.114.2 netmask 255.255.255.0 
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C0
+sathish@CPE12-VM1:~$ 
+sudo vconfig add ens33 614
+sudo vconfig add ens33 614
+ERROR: trying to add VLAN #614 to IF -:ens33:-  error: File exists
+sathish@CPE12-VM1:~$ 
+sudo ifconfig ens33.614 up
+sudo ifconfig ens33.614 up
+sathish@CPE12-VM1:~$ 
+sudo ifconfig ens33.614 192.169.115.2 netmask 255.255.255.0
+sudo ifconfig ens33.614 192.169.115.2 netmask 255.255.255.0 
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C0
+sathish@CPE12-VM1:~$</msg>
+<status status="PASS" endtime="20190510 11:18:29.803" starttime="20190510 11:18:16.212"></status>
+</kw>
+<kw name="Get Data Dict" library="VM1">
+<assign>
+<var>${VM1}</var>
+</assign>
+<msg timestamp="20190510 11:18:29.819" level="INFO">${VM1} = {'username': 'sathish', 'shell_nc': &lt;netmiko.linux.linux_ssh.LinuxSSH object at 0x000000000D875588&gt;, 'lan': {1: {'second_host': '192.169.101.2', 'vlan': 600, 'netmask': '255.255.255.0', 'first_host': ...</msg>
+<status status="PASS" endtime="20190510 11:18:29.819" starttime="20190510 11:18:29.803"></status>
+</kw>
+<kw name="Get Data Dict" library="VM2">
+<assign>
+<var>${VM2}</var>
+</assign>
+<msg timestamp="20190510 11:18:29.841" level="INFO">${VM2} = {'username': 'sathish', 'shell_nc': &lt;netmiko.linux.linux_ssh.LinuxSSH object at 0x000000000D875CF8&gt;, 'lan': {1: {'second_host': '192.169.111.2', 'vlan': 610, 'netmask': '255.255.255.0', 'first_host': ...</msg>
+<status status="PASS" endtime="20190510 11:18:29.841" starttime="20190510 11:18:29.819"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${VM1}</arg>
+</arguments>
+<msg timestamp="20190510 11:18:29.860" level="INFO">${VM1} = {'username': 'sathish', 'shell_nc': &lt;netmiko.linux.linux_ssh.LinuxSSH object at 0x000000000D875588&gt;, 'lan': {1: {'second_host': '192.169.101.2', 'vlan': 600, 'netmask': '255.255.255.0', 'first_host': ...</msg>
+<status status="PASS" endtime="20190510 11:18:29.860" starttime="20190510 11:18:29.843"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${VM2}</arg>
+</arguments>
+<msg timestamp="20190510 11:18:29.863" level="INFO">${VM2} = {'username': 'sathish', 'shell_nc': &lt;netmiko.linux.linux_ssh.LinuxSSH object at 0x000000000D875CF8&gt;, 'lan': {1: {'second_host': '192.169.111.2', 'vlan': 610, 'netmask': '255.255.255.0', 'first_host': ...</msg>
+<status status="PASS" endtime="20190510 11:18:29.863" starttime="20190510 11:18:29.861"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ 1 | ${VM1['NO_OF_VRFS']} + 1 ]">
+<kw type="foritem" name="${i} = 1">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM1['lan'][${i}]['first_host']}</arg>
+</arguments>
+<assign>
+<var>${gw}</var>
+</assign>
+<msg timestamp="20190510 11:18:29.863" level="INFO">${gw} = 192.169.101.1</msg>
+<status status="PASS" endtime="20190510 11:18:29.863" starttime="20190510 11:18:29.863"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM1['lan'][${i}]['vlan']}</arg>
+</arguments>
+<assign>
+<var>${vlan}</var>
+</assign>
+<msg timestamp="20190510 11:18:29.863" level="INFO">${vlan} = 600</msg>
+<status status="PASS" endtime="20190510 11:18:29.863" starttime="20190510 11:18:29.863"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM2['lan'][${i}]['nw']}</arg>
+</arguments>
+<assign>
+<var>${destination_nw}</var>
+</assign>
+<msg timestamp="20190510 11:18:29.879" level="INFO">${destination_nw} = 192.169.111.0/24</msg>
+<status status="PASS" endtime="20190510 11:18:29.879" starttime="20190510 11:18:29.863"></status>
+</kw>
+<kw name="Send Commands And Expect" library="VM1">
+<arguments>
+<arg>sudo ip route add ${destination_nw} via ${gw} dev ${VM1['LAN_INTF']}.${vlan}</arg>
+</arguments>
+<msg timestamp="20190510 11:18:30.282" level="INFO">sudo ip route add 192.169.111.0/24 via 192.169.101.1 dev ens33.60 
+0
+RTNETLINK answers: File exists
+sathish@VM1:~$ </msg>
+<msg timestamp="20190510 11:18:30.282" level="INFO">sudo ip route add 192.169.111.0/24 via 192.169.101.1 dev ens33.600</msg>
+<status status="PASS" endtime="20190510 11:18:30.282" starttime="20190510 11:18:29.879"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:30.282" starttime="20190510 11:18:29.863"></status>
+</kw>
+<kw type="foritem" name="${i} = 2">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM1['lan'][${i}]['first_host']}</arg>
+</arguments>
+<assign>
+<var>${gw}</var>
+</assign>
+<msg timestamp="20190510 11:18:30.282" level="INFO">${gw} = 192.169.102.1</msg>
+<status status="PASS" endtime="20190510 11:18:30.282" starttime="20190510 11:18:30.282"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM1['lan'][${i}]['vlan']}</arg>
+</arguments>
+<assign>
+<var>${vlan}</var>
+</assign>
+<msg timestamp="20190510 11:18:30.282" level="INFO">${vlan} = 601</msg>
+<status status="PASS" endtime="20190510 11:18:30.282" starttime="20190510 11:18:30.282"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM2['lan'][${i}]['nw']}</arg>
+</arguments>
+<assign>
+<var>${destination_nw}</var>
+</assign>
+<msg timestamp="20190510 11:18:30.282" level="INFO">${destination_nw} = 192.169.112.0/24</msg>
+<status status="PASS" endtime="20190510 11:18:30.298" starttime="20190510 11:18:30.282"></status>
+</kw>
+<kw name="Send Commands And Expect" library="VM1">
+<arguments>
+<arg>sudo ip route add ${destination_nw} via ${gw} dev ${VM1['LAN_INTF']}.${vlan}</arg>
+</arguments>
+<msg timestamp="20190510 11:18:30.703" level="INFO">sudo ip route add 192.169.112.0/24 via 192.169.102.1 dev ens33.60 
+1
+RTNETLINK answers: File exists
+sathish@VM1:~$ </msg>
+<msg timestamp="20190510 11:18:30.704" level="INFO">sudo ip route add 192.169.112.0/24 via 192.169.102.1 dev ens33.601</msg>
+<status status="PASS" endtime="20190510 11:18:30.705" starttime="20190510 11:18:30.300"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:30.707" starttime="20190510 11:18:30.282"></status>
+</kw>
+<kw type="foritem" name="${i} = 3">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM1['lan'][${i}]['first_host']}</arg>
+</arguments>
+<assign>
+<var>${gw}</var>
+</assign>
+<msg timestamp="20190510 11:18:30.712" level="INFO">${gw} = 192.169.103.1</msg>
+<status status="PASS" endtime="20190510 11:18:30.713" starttime="20190510 11:18:30.710"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM1['lan'][${i}]['vlan']}</arg>
+</arguments>
+<assign>
+<var>${vlan}</var>
+</assign>
+<msg timestamp="20190510 11:18:30.716" level="INFO">${vlan} = 602</msg>
+<status status="PASS" endtime="20190510 11:18:30.717" starttime="20190510 11:18:30.714"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM2['lan'][${i}]['nw']}</arg>
+</arguments>
+<assign>
+<var>${destination_nw}</var>
+</assign>
+<msg timestamp="20190510 11:18:30.719" level="INFO">${destination_nw} = 192.169.113.0/24</msg>
+<status status="PASS" endtime="20190510 11:18:30.719" starttime="20190510 11:18:30.718"></status>
+</kw>
+<kw name="Send Commands And Expect" library="VM1">
+<arguments>
+<arg>sudo ip route add ${destination_nw} via ${gw} dev ${VM1['LAN_INTF']}.${vlan}</arg>
+</arguments>
+<msg timestamp="20190510 11:18:31.124" level="INFO">sudo ip route add 192.169.113.0/24 via 192.169.103.1 dev ens33.60 
+2
+RTNETLINK answers: File exists
+sathish@VM1:~$ </msg>
+<msg timestamp="20190510 11:18:31.124" level="INFO">sudo ip route add 192.169.113.0/24 via 192.169.103.1 dev ens33.602</msg>
+<status status="PASS" endtime="20190510 11:18:31.124" starttime="20190510 11:18:30.719"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:31.124" starttime="20190510 11:18:30.708"></status>
+</kw>
+<kw type="foritem" name="${i} = 4">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM1['lan'][${i}]['first_host']}</arg>
+</arguments>
+<assign>
+<var>${gw}</var>
+</assign>
+<msg timestamp="20190510 11:18:31.124" level="INFO">${gw} = 192.169.104.1</msg>
+<status status="PASS" endtime="20190510 11:18:31.124" starttime="20190510 11:18:31.124"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM1['lan'][${i}]['vlan']}</arg>
+</arguments>
+<assign>
+<var>${vlan}</var>
+</assign>
+<msg timestamp="20190510 11:18:31.124" level="INFO">${vlan} = 603</msg>
+<status status="PASS" endtime="20190510 11:18:31.124" starttime="20190510 11:18:31.124"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM2['lan'][${i}]['nw']}</arg>
+</arguments>
+<assign>
+<var>${destination_nw}</var>
+</assign>
+<msg timestamp="20190510 11:18:31.124" level="INFO">${destination_nw} = 192.169.114.0/24</msg>
+<status status="PASS" endtime="20190510 11:18:31.124" starttime="20190510 11:18:31.124"></status>
+</kw>
+<kw name="Send Commands And Expect" library="VM1">
+<arguments>
+<arg>sudo ip route add ${destination_nw} via ${gw} dev ${VM1['LAN_INTF']}.${vlan}</arg>
+</arguments>
+<msg timestamp="20190510 11:18:31.540" level="INFO">sudo ip route add 192.169.114.0/24 via 192.169.104.1 dev ens33.60 
+3
+RTNETLINK answers: File exists
+sathish@VM1:~$ </msg>
+<msg timestamp="20190510 11:18:31.540" level="INFO">sudo ip route add 192.169.114.0/24 via 192.169.104.1 dev ens33.603</msg>
+<status status="PASS" endtime="20190510 11:18:31.540" starttime="20190510 11:18:31.124"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:31.540" starttime="20190510 11:18:31.124"></status>
+</kw>
+<kw type="foritem" name="${i} = 5">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM1['lan'][${i}]['first_host']}</arg>
+</arguments>
+<assign>
+<var>${gw}</var>
+</assign>
+<msg timestamp="20190510 11:18:31.540" level="INFO">${gw} = 192.169.105.1</msg>
+<status status="PASS" endtime="20190510 11:18:31.540" starttime="20190510 11:18:31.540"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM1['lan'][${i}]['vlan']}</arg>
+</arguments>
+<assign>
+<var>${vlan}</var>
+</assign>
+<msg timestamp="20190510 11:18:31.540" level="INFO">${vlan} = 604</msg>
+<status status="PASS" endtime="20190510 11:18:31.540" starttime="20190510 11:18:31.540"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM2['lan'][${i}]['nw']}</arg>
+</arguments>
+<assign>
+<var>${destination_nw}</var>
+</assign>
+<msg timestamp="20190510 11:18:31.540" level="INFO">${destination_nw} = 192.169.115.0/24</msg>
+<status status="PASS" endtime="20190510 11:18:31.540" starttime="20190510 11:18:31.540"></status>
+</kw>
+<kw name="Send Commands And Expect" library="VM1">
+<arguments>
+<arg>sudo ip route add ${destination_nw} via ${gw} dev ${VM1['LAN_INTF']}.${vlan}</arg>
+</arguments>
+<msg timestamp="20190510 11:18:31.956" level="INFO">sudo ip route add 192.169.115.0/24 via 192.169.105.1 dev ens33.60 
+4
+RTNETLINK answers: File exists
+sathish@VM1:~$ </msg>
+<msg timestamp="20190510 11:18:31.956" level="INFO">sudo ip route add 192.169.115.0/24 via 192.169.105.1 dev ens33.604</msg>
+<status status="PASS" endtime="20190510 11:18:31.956" starttime="20190510 11:18:31.540"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:31.956" starttime="20190510 11:18:31.540"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:31.956" starttime="20190510 11:18:29.863"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ 1 | ${VM2['NO_OF_VRFS']} + 1 ]">
+<kw type="foritem" name="${i} = 1">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM2['lan'][${i}]['first_host']}</arg>
+</arguments>
+<assign>
+<var>${gw}</var>
+</assign>
+<msg timestamp="20190510 11:18:31.956" level="INFO">${gw} = 192.169.111.1</msg>
+<status status="PASS" endtime="20190510 11:18:31.956" starttime="20190510 11:18:31.956"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM2['lan'][${i}]['vlan']}</arg>
+</arguments>
+<assign>
+<var>${vlan}</var>
+</assign>
+<msg timestamp="20190510 11:18:31.956" level="INFO">${vlan} = 610</msg>
+<status status="PASS" endtime="20190510 11:18:31.956" starttime="20190510 11:18:31.956"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM1['lan'][${i}]['nw']}</arg>
+</arguments>
+<assign>
+<var>${destination_nw}</var>
+</assign>
+<msg timestamp="20190510 11:18:31.971" level="INFO">${destination_nw} = 192.169.101.0/24</msg>
+<status status="PASS" endtime="20190510 11:18:31.971" starttime="20190510 11:18:31.971"></status>
+</kw>
+<kw name="Send Commands And Expect" library="VM2">
+<arguments>
+<arg>sudo ip route add ${destination_nw} via ${gw} dev ${VM2['LAN_INTF']}.${vlan}</arg>
+</arguments>
+<msg timestamp="20190510 11:18:32.384" level="INFO">sudo ip route add 192.169.101.0/24 via 192.169.111.1 dev en 
+s33.610
+RTNETLINK answers: File exists
+sathish@CPE12-VM1:~$ </msg>
+<msg timestamp="20190510 11:18:32.384" level="INFO">sudo ip route add 192.169.101.0/24 via 192.169.111.1 dev ens33.610</msg>
+<status status="PASS" endtime="20190510 11:18:32.384" starttime="20190510 11:18:31.971"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:32.384" starttime="20190510 11:18:31.956"></status>
+</kw>
+<kw type="foritem" name="${i} = 2">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM2['lan'][${i}]['first_host']}</arg>
+</arguments>
+<assign>
+<var>${gw}</var>
+</assign>
+<msg timestamp="20190510 11:18:32.384" level="INFO">${gw} = 192.169.112.1</msg>
+<status status="PASS" endtime="20190510 11:18:32.384" starttime="20190510 11:18:32.384"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM2['lan'][${i}]['vlan']}</arg>
+</arguments>
+<assign>
+<var>${vlan}</var>
+</assign>
+<msg timestamp="20190510 11:18:32.384" level="INFO">${vlan} = 611</msg>
+<status status="PASS" endtime="20190510 11:18:32.384" starttime="20190510 11:18:32.384"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM1['lan'][${i}]['nw']}</arg>
+</arguments>
+<assign>
+<var>${destination_nw}</var>
+</assign>
+<msg timestamp="20190510 11:18:32.384" level="INFO">${destination_nw} = 192.169.102.0/24</msg>
+<status status="PASS" endtime="20190510 11:18:32.384" starttime="20190510 11:18:32.384"></status>
+</kw>
+<kw name="Send Commands And Expect" library="VM2">
+<arguments>
+<arg>sudo ip route add ${destination_nw} via ${gw} dev ${VM2['LAN_INTF']}.${vlan}</arg>
+</arguments>
+<msg timestamp="20190510 11:18:32.805" level="INFO">sudo ip route add 192.169.102.0/24 via 192.169.112.1 dev en 
+s33.611
+RTNETLINK answers: File exists
+sathish@CPE12-VM1:~$ </msg>
+<msg timestamp="20190510 11:18:32.806" level="INFO">sudo ip route add 192.169.102.0/24 via 192.169.112.1 dev ens33.611</msg>
+<status status="PASS" endtime="20190510 11:18:32.806" starttime="20190510 11:18:32.401"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:32.808" starttime="20190510 11:18:32.384"></status>
+</kw>
+<kw type="foritem" name="${i} = 3">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM2['lan'][${i}]['first_host']}</arg>
+</arguments>
+<assign>
+<var>${gw}</var>
+</assign>
+<msg timestamp="20190510 11:18:32.809" level="INFO">${gw} = 192.169.113.1</msg>
+<status status="PASS" endtime="20190510 11:18:32.809" starttime="20190510 11:18:32.809"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM2['lan'][${i}]['vlan']}</arg>
+</arguments>
+<assign>
+<var>${vlan}</var>
+</assign>
+<msg timestamp="20190510 11:18:32.809" level="INFO">${vlan} = 612</msg>
+<status status="PASS" endtime="20190510 11:18:32.809" starttime="20190510 11:18:32.809"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM1['lan'][${i}]['nw']}</arg>
+</arguments>
+<assign>
+<var>${destination_nw}</var>
+</assign>
+<msg timestamp="20190510 11:18:32.809" level="INFO">${destination_nw} = 192.169.103.0/24</msg>
+<status status="PASS" endtime="20190510 11:18:32.809" starttime="20190510 11:18:32.809"></status>
+</kw>
+<kw name="Send Commands And Expect" library="VM2">
+<arguments>
+<arg>sudo ip route add ${destination_nw} via ${gw} dev ${VM2['LAN_INTF']}.${vlan}</arg>
+</arguments>
+<msg timestamp="20190510 11:18:33.225" level="INFO">sudo ip route add 192.169.103.0/24 via 192.169.113.1 dev en 
+s33.612
+RTNETLINK answers: File exists
+sathish@CPE12-VM1:~$ </msg>
+<msg timestamp="20190510 11:18:33.225" level="INFO">sudo ip route add 192.169.103.0/24 via 192.169.113.1 dev ens33.612</msg>
+<status status="PASS" endtime="20190510 11:18:33.225" starttime="20190510 11:18:32.809"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:33.225" starttime="20190510 11:18:32.809"></status>
+</kw>
+<kw type="foritem" name="${i} = 4">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM2['lan'][${i}]['first_host']}</arg>
+</arguments>
+<assign>
+<var>${gw}</var>
+</assign>
+<msg timestamp="20190510 11:18:33.225" level="INFO">${gw} = 192.169.114.1</msg>
+<status status="PASS" endtime="20190510 11:18:33.225" starttime="20190510 11:18:33.225"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM2['lan'][${i}]['vlan']}</arg>
+</arguments>
+<assign>
+<var>${vlan}</var>
+</assign>
+<msg timestamp="20190510 11:18:33.225" level="INFO">${vlan} = 613</msg>
+<status status="PASS" endtime="20190510 11:18:33.241" starttime="20190510 11:18:33.225"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM1['lan'][${i}]['nw']}</arg>
+</arguments>
+<assign>
+<var>${destination_nw}</var>
+</assign>
+<msg timestamp="20190510 11:18:33.241" level="INFO">${destination_nw} = 192.169.104.0/24</msg>
+<status status="PASS" endtime="20190510 11:18:33.241" starttime="20190510 11:18:33.241"></status>
+</kw>
+<kw name="Send Commands And Expect" library="VM2">
+<arguments>
+<arg>sudo ip route add ${destination_nw} via ${gw} dev ${VM2['LAN_INTF']}.${vlan}</arg>
+</arguments>
+<msg timestamp="20190510 11:18:33.642" level="INFO">sudo ip route add 192.169.104.0/24 via 192.169.114.1 dev en 
+s33.613
+RTNETLINK answers: File exists
+sathish@CPE12-VM1:~$ </msg>
+<msg timestamp="20190510 11:18:33.642" level="INFO">sudo ip route add 192.169.104.0/24 via 192.169.114.1 dev ens33.613</msg>
+<status status="PASS" endtime="20190510 11:18:33.642" starttime="20190510 11:18:33.241"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:33.642" starttime="20190510 11:18:33.225"></status>
+</kw>
+<kw type="foritem" name="${i} = 5">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM2['lan'][${i}]['first_host']}</arg>
+</arguments>
+<assign>
+<var>${gw}</var>
+</assign>
+<msg timestamp="20190510 11:18:33.642" level="INFO">${gw} = 192.169.115.1</msg>
+<status status="PASS" endtime="20190510 11:18:33.642" starttime="20190510 11:18:33.642"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM2['lan'][${i}]['vlan']}</arg>
+</arguments>
+<assign>
+<var>${vlan}</var>
+</assign>
+<msg timestamp="20190510 11:18:33.642" level="INFO">${vlan} = 614</msg>
+<status status="PASS" endtime="20190510 11:18:33.642" starttime="20190510 11:18:33.642"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM1['lan'][${i}]['nw']}</arg>
+</arguments>
+<assign>
+<var>${destination_nw}</var>
+</assign>
+<msg timestamp="20190510 11:18:33.657" level="INFO">${destination_nw} = 192.169.105.0/24</msg>
+<status status="PASS" endtime="20190510 11:18:33.657" starttime="20190510 11:18:33.642"></status>
+</kw>
+<kw name="Send Commands And Expect" library="VM2">
+<arguments>
+<arg>sudo ip route add ${destination_nw} via ${gw} dev ${VM2['LAN_INTF']}.${vlan}</arg>
+</arguments>
+<msg timestamp="20190510 11:18:34.059" level="INFO">sudo ip route add 192.169.105.0/24 via 192.169.115.1 dev en 
+s33.614
+RTNETLINK answers: File exists
+sathish@CPE12-VM1:~$ </msg>
+<msg timestamp="20190510 11:18:34.059" level="INFO">sudo ip route add 192.169.105.0/24 via 192.169.115.1 dev ens33.614</msg>
+<status status="PASS" endtime="20190510 11:18:34.059" starttime="20190510 11:18:33.657"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:34.059" starttime="20190510 11:18:33.642"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:34.059" starttime="20190510 11:18:31.956"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:34.059" starttime="20190510 11:16:51.960"></status>
+</kw>
+<test id="s1-t1" name="Testcase: CHECK WAN INTERFACES STATUS">
+<kw name="Get Interface Status" library="CPE1">
+<arguments>
+<arg>intf_name=${CPE1['ptvi_intf_wc1']}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:18:35.062" level="INFO">${result} = show interfaces brief | tab | match ptvi250
+ptvi250      n/a                up    up     2       JAPAN-Control-VR       10.125.64.23/32   
+[ok][2019-05-10 05:48:22]
+admin@CPE11-BLR-HYBRID-cli&gt; </msg>
+<status status="PASS" endtime="20190510 11:18:35.062" starttime="20190510 11:18:34.059"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=up</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:35.062" starttime="20190510 11:18:35.062"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:35.062" starttime="20190510 11:18:35.062"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:35.062" starttime="20190510 11:18:35.062"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:35.062" starttime="20190510 11:18:35.062"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:35.062" starttime="20190510 11:18:35.062"></status>
+</kw>
+<kw name="Get Interface Status" library="CPE1">
+<arguments>
+<arg>intf_name=${CPE1['ptvi_intf_wc2']}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:18:36.094" level="INFO">${result} = show interfaces brief | tab | match ptvi251
+ptvi251      n/a                up    up     2       JAPAN-Control-VR       10.125.64.24/32   
+[ok][2019-05-10 05:48:23]
+admin@CPE11-BLR-HYBRID-cli&gt; </msg>
+<status status="PASS" endtime="20190510 11:18:36.094" starttime="20190510 11:18:35.062"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=up</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:36.094" starttime="20190510 11:18:36.094"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:36.094" starttime="20190510 11:18:36.094"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:36.094" starttime="20190510 11:18:36.094"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:36.094" starttime="20190510 11:18:36.094"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:36.094" starttime="20190510 11:18:36.094"></status>
+</kw>
+<kw name="Get Interface Status" library="CPE2">
+<arguments>
+<arg>intf_name=${CPE2['ptvi_intf_wc1']}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:18:37.116" level="INFO">${result} = show interfaces brief | tab | match ptvi250
+ptvi250      n/a                up    up     2       JAPAN-Control-VR       10.125.64.23/32   
+[ok][2019-05-10 05:48:18]
+admin@CPE12-BLR-MPLS-cli&gt; </msg>
+<status status="PASS" endtime="20190510 11:18:37.117" starttime="20190510 11:18:36.110"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=up</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:37.117" starttime="20190510 11:18:37.117"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:37.117" starttime="20190510 11:18:37.117"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:37.117" starttime="20190510 11:18:37.117"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:37.117" starttime="20190510 11:18:37.117"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:37.117" starttime="20190510 11:18:37.117"></status>
+</kw>
+<kw name="Get Interface Status" library="CPE2">
+<arguments>
+<arg>intf_name=${CPE2['ptvi_intf_wc2']}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:18:38.135" level="INFO">${result} = show interfaces brief | tab | match ptvi251
+ptvi251      n/a                up    up     2       JAPAN-Control-VR       10.125.64.24/32   
+[ok][2019-05-10 05:48:19]
+admin@CPE12-BLR-MPLS-cli&gt; </msg>
+<status status="PASS" endtime="20190510 11:18:38.135" starttime="20190510 11:18:37.133"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=up</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:38.135" starttime="20190510 11:18:38.135"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:38.135" starttime="20190510 11:18:38.135"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:38.135" starttime="20190510 11:18:38.135"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:38.135" starttime="20190510 11:18:38.135"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:38.135" starttime="20190510 11:18:38.135"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:38.151" critical="yes" starttime="20190510 11:18:34.059"></status>
+</test>
+<test id="s1-t2" name="Testcase: CHECK BGP NEIGHBOR STATUS">
+<kw name="Get Bgp Nbr Status" library="CPE1">
+<arguments>
+<arg>nbr_ip=${CPE1['WC1_ESP_IP']}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:18:39.615" level="INFO">${result} = show bgp neighbor org JAPAN brief JAPAN-Control-VR |  match 10.125.64.23
+10.125.64.23    1w3d23h    Established     111           9      44272        179
+[ok][2019-05-10 05:48:27]
+admin@CPE11-BLR-HYB...</msg>
+<status status="PASS" endtime="20190510 11:18:39.616" starttime="20190510 11:18:38.151"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=${est}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:39.621" starttime="20190510 11:18:39.620"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:39.621" starttime="20190510 11:18:39.621"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:39.621" starttime="20190510 11:18:39.621"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:39.621" starttime="20190510 11:18:39.621"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:39.621" starttime="20190510 11:18:39.617"></status>
+</kw>
+<kw name="Get Bgp Nbr Status" library="CPE1">
+<arguments>
+<arg>nbr_ip=${CPE1['WC2_ESP_IP']}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:18:41.070" level="INFO">${result} = show bgp neighbor org JAPAN brief JAPAN-Control-VR |  match 10.125.64.24
+10.125.64.24    1w0d20h    Established      98           9      37860        179
+[ok][2019-05-10 05:48:28]
+admin@CPE11-BLR-HYB...</msg>
+<status status="PASS" endtime="20190510 11:18:41.070" starttime="20190510 11:18:39.621"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=${est}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:41.070" starttime="20190510 11:18:41.070"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:41.070" starttime="20190510 11:18:41.070"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:41.070" starttime="20190510 11:18:41.070"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:41.070" starttime="20190510 11:18:41.070"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:41.070" starttime="20190510 11:18:41.070"></status>
+</kw>
+<kw name="Get Bgp Nbr Status" library="CPE2">
+<arguments>
+<arg>nbr_ip=${CPE2['WC1_ESP_IP']}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:18:42.303" level="INFO">${result} = show bgp neighbor org JAPAN brief JAPAN-Control-VR | match 10.125.64.23
+10.125.64.23    1w3d23h    Established     111           9      45356        179
+[ok][2019-05-10 05:48:24]
+admin@CPE12-BLR-MPLS-...</msg>
+<status status="PASS" endtime="20190510 11:18:42.303" starttime="20190510 11:18:41.070"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=${est}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:42.303" starttime="20190510 11:18:42.303"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:42.303" starttime="20190510 11:18:42.303"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:42.303" starttime="20190510 11:18:42.303"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:42.303" starttime="20190510 11:18:42.303"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:42.303" starttime="20190510 11:18:42.303"></status>
+</kw>
+<kw name="Get Bgp Nbr Status" library="CPE2">
+<arguments>
+<arg>nbr_ip=${CPE2['WC2_ESP_IP']}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:18:43.522" level="INFO">${result} = show bgp neighbor org JAPAN brief JAPAN-Control-VR | match 10.125.64.24
+10.125.64.24    1w3d23h    Established      98           9      36809        179
+[ok][2019-05-10 05:48:25]
+admin@CPE12-BLR-MPLS-...</msg>
+<status status="PASS" endtime="20190510 11:18:43.522" starttime="20190510 11:18:42.303"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=${est}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:43.527" starttime="20190510 11:18:43.526"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:43.527" starttime="20190510 11:18:43.527"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:43.527" starttime="20190510 11:18:43.527"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:43.527" starttime="20190510 11:18:43.527"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:43.527" starttime="20190510 11:18:43.524"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:43.527" critical="yes" starttime="20190510 11:18:38.151"></status>
+</test>
+<test id="s1-t3" name="Testcase: CHECK LAN ROUTE">
+<kw name="Check Lan Route" library="CPE1">
+<arguments>
+<arg>lan=1</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:18:45.976" level="INFO">routing_instance     Prot     Type     DestAddresswithMask     Nexthop     Interfacename
+LAN1-VRF BGP N/A +0.0.0.0/0 169.254.0.2 tvi-0/603.0
+LAN1-VRF BGP N/A +10.125.47.64/30 40.125.2.2 Indirect
+LAN1-VRF conn N/A +169.254.0.2/31 0.0.0.0 tvi-0/603.0
+LAN1-VRF local N/A +169.254.0.3/32 0.0.0.0 directly connected
+LAN1-VRF BGP N/A 192.169.101.0/24 40.125.2.2 Indirect
+LAN1-VRF conn N/A +192.169.101.0/24 0.0.0.0 vni-0/4.600
+LAN1-VRF local N/A +192.169.101.1/32 0.0.0.0 directly connected
+LAN1-VRF BGP N/A +192.169.111.0/24 20.20.125.12 Indirect
+LAN1-VRF BGP N/A 192.169.111.0/24 40.125.2.2 Indirect
+LAN1-VRF BGP N/A +193.125.2.0/30 40.125.2.2 Indirect</msg>
+<msg timestamp="20190510 11:18:45.976" level="INFO">${result} = routing_instance     Prot     Type     DestAddresswithMask     Nexthop     Interfacename
+LAN1-VRF BGP N/A +0.0.0.0/0 169.254.0.2 tvi-0/603.0
+LAN1-VRF BGP N/A +10.125.47.64/30 40.125.2.2 Indirect
+LAN1-...</msg>
+<status status="PASS" endtime="20190510 11:18:45.976" starttime="20190510 11:18:43.527"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:45.976" starttime="20190510 11:18:45.976"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>\+${CPE2['lan'][1]['nw']} ${CPE2['ESP_IP']}</arg>
+</arguments>
+<assign>
+<var>${active_dest_route}</var>
+</assign>
+<msg timestamp="20190510 11:18:45.976" level="INFO">${active_dest_route} = +192.169.111.0/24 20.20.125.12</msg>
+<status status="PASS" endtime="20190510 11:18:45.976" starttime="20190510 11:18:45.976"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=${active_dest_route}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:45.992" starttime="20190510 11:18:45.992"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:45.992" starttime="20190510 11:18:45.992"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:45.992" starttime="20190510 11:18:45.992"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:46.007" starttime="20190510 11:18:45.992"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:46.007" starttime="20190510 11:18:45.976"></status>
+</kw>
+<kw name="Check Lan Route" library="CPE2">
+<arguments>
+<arg>lan=1</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:18:48.431" level="INFO">routing_instance     Prot     Type     DestAddresswithMask     Nexthop     Interfacename
+LAN1-VRF BGP N/A +10.125.47.64/30 40.125.2.2 Indirect
+LAN1-VRF BGP N/A +192.169.101.0/24 20.20.125.11 Indirect
+LAN1-VRF BGP N/A 192.169.101.0/24 40.125.2.2 Indirect
+LAN1-VRF BGP N/A 192.169.111.0/24 40.125.2.2 Indirect
+LAN1-VRF conn N/A +192.169.111.0/24 0.0.0.0 vni-0/4.610
+LAN1-VRF local N/A +192.169.111.1/32 0.0.0.0 directly connected
+LAN1-VRF BGP N/A +193.125.2.0/30 40.125.2.2 Indirect</msg>
+<msg timestamp="20190510 11:18:48.431" level="INFO">${result} = routing_instance     Prot     Type     DestAddresswithMask     Nexthop     Interfacename
+LAN1-VRF BGP N/A +10.125.47.64/30 40.125.2.2 Indirect
+LAN1-VRF BGP N/A +192.169.101.0/24 20.20.125.11 Indirect
+...</msg>
+<status status="PASS" endtime="20190510 11:18:48.431" starttime="20190510 11:18:46.007"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>\+${CPE1['lan'][1]['nw']} ${CPE1['ESP_IP']}</arg>
+</arguments>
+<assign>
+<var>${active_dest_route}</var>
+</assign>
+<msg timestamp="20190510 11:18:48.431" level="INFO">${active_dest_route} = +192.169.101.0/24 20.20.125.11</msg>
+<status status="PASS" endtime="20190510 11:18:48.431" starttime="20190510 11:18:48.431"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+<arg>expected=${active_dest_route}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:48.431" starttime="20190510 11:18:48.431"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:48.431" starttime="20190510 11:18:48.431"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:48.447" starttime="20190510 11:18:48.447"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:48.447" starttime="20190510 11:18:48.431"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:48.447" starttime="20190510 11:18:48.431"></status>
+</kw>
+<tags>
+<tag>LAN</tag>
+</tags>
+<status status="PASS" endtime="20190510 11:18:48.447" critical="yes" starttime="20190510 11:18:43.527"></status>
+</test>
+<test id="s1-t4" name="Testcase: Ping Test VM1 To VM2(1 LAN)">
+<kw name="Ping Test VM1 to VM2(1 LAN)">
+<tags>
+<tag>HYBRID</tag>
+</tags>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM2['lan'][1]['second_host']}</arg>
+</arguments>
+<assign>
+<var>${destip}</var>
+</assign>
+<msg timestamp="20190510 11:18:48.447" level="INFO">${destip} = 192.169.111.2</msg>
+<status status="PASS" endtime="20190510 11:18:48.447" starttime="20190510 11:18:48.447"></status>
+</kw>
+<kw name="Shell Ping" library="VM1">
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:18:52.935" level="INFO">sudo ping 192.169.111.2 -c 5
+sudo ping 192.169.111.2 -c 5
+PING 192.169.111.2 (192.169.111.2) 56(84) bytes of data.
+64 bytes from 192.169.111.2: icmp_seq=1 ttl=62 time=2.65 ms
+64 bytes from 192.169.111.2: icmp_seq=2 ttl=62 time=1.83 ms
+64 bytes from 192.169.111.2: icmp_seq=3 ttl=62 time=2.26 ms
+64 bytes from 192.169.111.2: icmp_seq=4 ttl=62 time=2.03 ms
+64 bytes from 192.169.111.2: icmp_seq=5 ttl=62 time=2.01 ms
+
+--- 192.169.111.2 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4006ms
+rtt min/avg/max/mdev = 1.832/2.159/2.651/0.286 ms
+sathish@VM1:~$</msg>
+<msg timestamp="20190510 11:18:52.935" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20190510 11:18:52.935" starttime="20190510 11:18:48.447"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:52.935" starttime="20190510 11:18:52.935"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:52.935" starttime="20190510 11:18:52.935"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:52.935" starttime="20190510 11:18:52.935"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:52.935" starttime="20190510 11:18:52.935"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:52.951" starttime="20190510 11:18:52.935"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:52.951" starttime="20190510 11:18:48.447"></status>
+</kw>
+<tags>
+<tag>PING</tag>
+</tags>
+<status status="PASS" endtime="20190510 11:18:52.951" critical="yes" starttime="20190510 11:18:48.447"></status>
+</test>
+<test id="s1-t5" name="Testcase: Ping Test VM2 To VM1(1 LAN)">
+<kw name="Ping Test VM2 to VM1(1 LAN)">
+<tags>
+<tag>HYBRID</tag>
+</tags>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM1['lan'][1]['second_host']}</arg>
+</arguments>
+<assign>
+<var>${destip}</var>
+</assign>
+<msg timestamp="20190510 11:18:52.951" level="INFO">${destip} = 192.169.101.2</msg>
+<status status="PASS" endtime="20190510 11:18:52.951" starttime="20190510 11:18:52.951"></status>
+</kw>
+<kw name="Shell Ping" library="VM2">
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:18:57.438" level="INFO">sudo ping 192.169.101.2 -c 5
+sudo ping 192.169.101.2 -c 5
+PING 192.169.101.2 (192.169.101.2) 56(84) bytes of data.
+64 bytes from 192.169.101.2: icmp_seq=1 ttl=62 time=3.07 ms
+64 bytes from 192.169.101.2: icmp_seq=2 ttl=62 time=2.11 ms
+64 bytes from 192.169.101.2: icmp_seq=3 ttl=62 time=2.21 ms
+64 bytes from 192.169.101.2: icmp_seq=4 ttl=62 time=1.71 ms
+64 bytes from 192.169.101.2: icmp_seq=5 ttl=62 time=2.33 ms
+
+--- 192.169.101.2 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4005ms
+rtt min/avg/max/mdev = 1.715/2.291/3.074/0.444 ms
+sathish@CPE12-VM1:~$</msg>
+<msg timestamp="20190510 11:18:57.439" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20190510 11:18:57.440" starttime="20190510 11:18:52.951"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:57.443" starttime="20190510 11:18:57.443"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:57.443" starttime="20190510 11:18:57.443"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:57.443" starttime="20190510 11:18:57.443"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:57.443" starttime="20190510 11:18:57.443"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:57.443" starttime="20190510 11:18:57.441"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:18:57.443" starttime="20190510 11:18:52.951"></status>
+</kw>
+<tags>
+<tag>PING</tag>
+</tags>
+<status status="PASS" endtime="20190510 11:18:57.443" critical="yes" starttime="20190510 11:18:52.951"></status>
+</test>
+<test id="s1-t6" name="Testcase: Ping Test VM1 To VM2(ALL LANS)">
+<kw name="Ping Test VM1 to VM2(ALL LANS)">
+<tags>
+<tag>HYBRID</tag>
+</tags>
+<kw type="for" name="${vlan} IN RANGE [ 1 | ${VM1['NO_OF_VRFS']} + 1 ]">
+<kw type="foritem" name="${vlan} = 1">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM2['lan'][${vlan}]['second_host']}</arg>
+</arguments>
+<assign>
+<var>${destip}</var>
+</assign>
+<msg timestamp="20190510 11:18:57.459" level="INFO">${destip} = 192.169.111.2</msg>
+<status status="PASS" endtime="20190510 11:18:57.459" starttime="20190510 11:18:57.459"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:18:57.475" starttime="20190510 11:18:57.475"></status>
+</kw>
+<kw name="Shell Ping" library="VM1">
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:19:01.948" level="INFO">sudo ping 192.169.111.2 -c 5
+sudo ping 192.169.111.2 -c 5
+PING 192.169.111.2 (192.169.111.2) 56(84) bytes of data.
+64 bytes from 192.169.111.2: icmp_seq=1 ttl=62 time=2.79 ms
+64 bytes from 192.169.111.2: icmp_seq=2 ttl=62 time=2.30 ms
+64 bytes from 192.169.111.2: icmp_seq=3 ttl=62 time=2.25 ms
+64 bytes from 192.169.111.2: icmp_seq=4 ttl=62 time=1.77 ms
+64 bytes from 192.169.111.2: icmp_seq=5 ttl=62 time=2.35 ms
+
+--- 192.169.111.2 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4006ms
+rtt min/avg/max/mdev = 1.779/2.295/2.790/0.324 ms
+sathish@VM1:~$</msg>
+<msg timestamp="20190510 11:19:01.949" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20190510 11:19:01.949" starttime="20190510 11:18:57.475"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:01.949" starttime="20190510 11:19:01.949"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:01.949" starttime="20190510 11:19:01.949"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:01.949" starttime="20190510 11:19:01.949"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:01.949" starttime="20190510 11:19:01.949"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:01.949" starttime="20190510 11:19:01.949"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:01.949" starttime="20190510 11:18:57.459"></status>
+</kw>
+<kw type="foritem" name="${vlan} = 2">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM2['lan'][${vlan}]['second_host']}</arg>
+</arguments>
+<assign>
+<var>${destip}</var>
+</assign>
+<msg timestamp="20190510 11:19:01.964" level="INFO">${destip} = 192.169.112.2</msg>
+<status status="PASS" endtime="20190510 11:19:01.964" starttime="20190510 11:19:01.964"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:01.964" starttime="20190510 11:19:01.964"></status>
+</kw>
+<kw name="Shell Ping" library="VM1">
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:19:06.473" level="INFO">sudo ping 192.169.112.2 -c 5
+sudo ping 192.169.112.2 -c 5
+PING 192.169.112.2 (192.169.112.2) 56(84) bytes of data.
+64 bytes from 192.169.112.2: icmp_seq=1 ttl=62 time=2.60 ms
+64 bytes from 192.169.112.2: icmp_seq=2 ttl=62 time=1.98 ms
+64 bytes from 192.169.112.2: icmp_seq=3 ttl=62 time=2.26 ms
+64 bytes from 192.169.112.2: icmp_seq=4 ttl=62 time=1.79 ms
+64 bytes from 192.169.112.2: icmp_seq=5 ttl=62 time=2.20 ms
+
+--- 192.169.112.2 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4006ms
+rtt min/avg/max/mdev = 1.794/2.170/2.601/0.277 ms
+sathish@VM1:~$</msg>
+<msg timestamp="20190510 11:19:06.473" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20190510 11:19:06.473" starttime="20190510 11:19:01.964"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:06.473" starttime="20190510 11:19:06.473"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:06.473" starttime="20190510 11:19:06.473"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:06.488" starttime="20190510 11:19:06.473"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:06.488" starttime="20190510 11:19:06.473"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:06.488" starttime="20190510 11:19:06.473"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:06.488" starttime="20190510 11:19:01.949"></status>
+</kw>
+<kw type="foritem" name="${vlan} = 3">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM2['lan'][${vlan}]['second_host']}</arg>
+</arguments>
+<assign>
+<var>${destip}</var>
+</assign>
+<msg timestamp="20190510 11:19:06.488" level="INFO">${destip} = 192.169.113.2</msg>
+<status status="PASS" endtime="20190510 11:19:06.488" starttime="20190510 11:19:06.488"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:06.488" starttime="20190510 11:19:06.488"></status>
+</kw>
+<kw name="Shell Ping" library="VM1">
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:19:10.959" level="INFO">sudo ping 192.169.113.2 -c 5
+sudo ping 192.169.113.2 -c 5
+PING 192.169.113.2 (192.169.113.2) 56(84) bytes of data.
+64 bytes from 192.169.113.2: icmp_seq=1 ttl=62 time=2.95 ms
+64 bytes from 192.169.113.2: icmp_seq=2 ttl=62 time=10.9 ms
+64 bytes from 192.169.113.2: icmp_seq=3 ttl=62 time=2.46 ms
+64 bytes from 192.169.113.2: icmp_seq=4 ttl=62 time=2.19 ms
+64 bytes from 192.169.113.2: icmp_seq=5 ttl=62 time=1.98 ms
+
+--- 192.169.113.2 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4005ms
+rtt min/avg/max/mdev = 1.981/4.118/10.997/3.455 ms
+sathish@VM1:~$</msg>
+<msg timestamp="20190510 11:19:10.960" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20190510 11:19:10.960" starttime="20190510 11:19:06.488"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:10.960" starttime="20190510 11:19:10.960"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:10.960" starttime="20190510 11:19:10.960"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:10.960" starttime="20190510 11:19:10.960"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:10.960" starttime="20190510 11:19:10.960"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:10.960" starttime="20190510 11:19:10.960"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:10.960" starttime="20190510 11:19:06.488"></status>
+</kw>
+<kw type="foritem" name="${vlan} = 4">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM2['lan'][${vlan}]['second_host']}</arg>
+</arguments>
+<assign>
+<var>${destip}</var>
+</assign>
+<msg timestamp="20190510 11:19:10.977" level="INFO">${destip} = 192.169.114.2</msg>
+<status status="PASS" endtime="20190510 11:19:11.008" starttime="20190510 11:19:10.977"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:11.008" starttime="20190510 11:19:11.008"></status>
+</kw>
+<kw name="Shell Ping" library="VM1">
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:19:15.665" level="INFO">sudo ping 192.169.114.2 -c 5
+sudo ping 192.169.114.2 -c 5
+PING 192.169.114.2 (192.169.114.2) 56(84) bytes of data.
+64 bytes from 192.169.114.2: icmp_seq=1 ttl=62 time=2.53 ms
+64 bytes from 192.169.114.2: icmp_seq=2 ttl=62 time=2.16 ms
+64 bytes from 192.169.114.2: icmp_seq=3 ttl=62 time=2.31 ms
+64 bytes from 192.169.114.2: icmp_seq=4 ttl=62 time=1.93 ms
+64 bytes from 192.169.114.2: icmp_seq=5 ttl=62 time=2.28 ms
+
+--- 192.169.114.2 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4005ms
+rtt min/avg/max/mdev = 1.934/2.247/2.535/0.196 ms
+sathish@VM1:~$</msg>
+<msg timestamp="20190510 11:19:15.665" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20190510 11:19:15.665" starttime="20190510 11:19:11.008"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:15.665" starttime="20190510 11:19:15.665"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:15.665" starttime="20190510 11:19:15.665"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:15.665" starttime="20190510 11:19:15.665"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:15.665" starttime="20190510 11:19:15.665"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:15.665" starttime="20190510 11:19:15.665"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:15.665" starttime="20190510 11:19:10.960"></status>
+</kw>
+<kw type="foritem" name="${vlan} = 5">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM2['lan'][${vlan}]['second_host']}</arg>
+</arguments>
+<assign>
+<var>${destip}</var>
+</assign>
+<msg timestamp="20190510 11:19:15.665" level="INFO">${destip} = 192.169.115.2</msg>
+<status status="PASS" endtime="20190510 11:19:15.665" starttime="20190510 11:19:15.665"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:15.665" starttime="20190510 11:19:15.665"></status>
+</kw>
+<kw name="Shell Ping" library="VM1">
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:19:20.166" level="INFO">sudo ping 192.169.115.2 -c 5
+sudo ping 192.169.115.2 -c 5
+PING 192.169.115.2 (192.169.115.2) 56(84) bytes of data.
+64 bytes from 192.169.115.2: icmp_seq=1 ttl=62 time=2.83 ms
+64 bytes from 192.169.115.2: icmp_seq=2 ttl=62 time=1.92 ms
+64 bytes from 192.169.115.2: icmp_seq=3 ttl=62 time=1.74 ms
+64 bytes from 192.169.115.2: icmp_seq=4 ttl=62 time=1.77 ms
+64 bytes from 192.169.115.2: icmp_seq=5 ttl=62 time=2.49 ms
+
+--- 192.169.115.2 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4006ms
+rtt min/avg/max/mdev = 1.743/2.153/2.832/0.436 ms
+sathish@VM1:~$</msg>
+<msg timestamp="20190510 11:19:20.167" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20190510 11:19:20.167" starttime="20190510 11:19:15.665"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:20.170" starttime="20190510 11:19:20.169"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:20.171" starttime="20190510 11:19:20.170"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:20.172" starttime="20190510 11:19:20.172"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:20.172" starttime="20190510 11:19:20.172"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:20.172" starttime="20190510 11:19:20.168"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:20.172" starttime="20190510 11:19:15.665"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:20.172" starttime="20190510 11:18:57.459"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:20.172" starttime="20190510 11:18:57.459"></status>
+</kw>
+<tags>
+<tag>PING</tag>
+</tags>
+<status status="PASS" endtime="20190510 11:19:20.172" critical="yes" starttime="20190510 11:18:57.459"></status>
+</test>
+<test id="s1-t7" name="Testcase: Ping Test VM2 To VM1(ALL LANS)">
+<kw name="Ping Test VM2 to VM1(ALL LANS)">
+<tags>
+<tag>HYBRID</tag>
+</tags>
+<kw type="for" name="${vlan} IN RANGE [ 1 | ${VM2['NO_OF_VRFS']} + 1 ]">
+<kw type="foritem" name="${vlan} = 1">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM1['lan'][${vlan}]['second_host']}</arg>
+</arguments>
+<assign>
+<var>${destip}</var>
+</assign>
+<msg timestamp="20190510 11:19:20.172" level="INFO">${destip} = 192.169.101.2</msg>
+<status status="PASS" endtime="20190510 11:19:20.172" starttime="20190510 11:19:20.172"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:20.188" starttime="20190510 11:19:20.188"></status>
+</kw>
+<kw name="Shell Ping" library="VM1">
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:19:24.715" level="INFO">sudo ping 192.169.101.2 -c 5
+sudo ping 192.169.101.2 -c 5
+PING 192.169.101.2 (192.169.101.2) 56(84) bytes of data.
+64 bytes from 192.169.101.2: icmp_seq=1 ttl=64 time=0.086 ms
+64 bytes from 192.169.101.2: icmp_seq=2 ttl=64 time=0.050 ms
+64 bytes from 192.169.101.2: icmp_seq=3 ttl=64 time=0.051 ms
+64 bytes from 192.169.101.2: icmp_seq=4 ttl=64 time=0.058 ms
+64 bytes from 192.169.101.2: icmp_seq=5 ttl=64 time=0.068 ms
+
+--- 192.169.101.2 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 3998ms
+rtt min/avg/max/mdev = 0.050/0.062/0.086/0.015 ms
+sathish@VM1:~$</msg>
+<msg timestamp="20190510 11:19:24.716" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20190510 11:19:24.717" starttime="20190510 11:19:20.188"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:24.720" starttime="20190510 11:19:24.720"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:24.720" starttime="20190510 11:19:24.720"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:24.720" starttime="20190510 11:19:24.720"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:24.720" starttime="20190510 11:19:24.720"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:24.720" starttime="20190510 11:19:24.719"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:24.720" starttime="20190510 11:19:20.172"></status>
+</kw>
+<kw type="foritem" name="${vlan} = 2">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM1['lan'][${vlan}]['second_host']}</arg>
+</arguments>
+<assign>
+<var>${destip}</var>
+</assign>
+<msg timestamp="20190510 11:19:24.720" level="INFO">${destip} = 192.169.102.2</msg>
+<status status="PASS" endtime="20190510 11:19:24.736" starttime="20190510 11:19:24.720"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:24.736" starttime="20190510 11:19:24.736"></status>
+</kw>
+<kw name="Shell Ping" library="VM1">
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:19:29.236" level="INFO">sudo ping 192.169.102.2 -c 5
+sudo ping 192.169.102.2 -c 5
+PING 192.169.102.2 (192.169.102.2) 56(84) bytes of data.
+64 bytes from 192.169.102.2: icmp_seq=1 ttl=64 time=0.079 ms
+64 bytes from 192.169.102.2: icmp_seq=2 ttl=64 time=0.050 ms
+64 bytes from 192.169.102.2: icmp_seq=3 ttl=64 time=0.045 ms
+64 bytes from 192.169.102.2: icmp_seq=4 ttl=64 time=0.041 ms
+64 bytes from 192.169.102.2: icmp_seq=5 ttl=64 time=0.043 ms
+
+--- 192.169.102.2 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 3997ms
+rtt min/avg/max/mdev = 0.041/0.051/0.079/0.016 ms
+sathish@VM1:~$</msg>
+<msg timestamp="20190510 11:19:29.239" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20190510 11:19:29.239" starttime="20190510 11:19:24.736"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:29.239" starttime="20190510 11:19:29.239"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:29.239" starttime="20190510 11:19:29.239"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:29.254" starttime="20190510 11:19:29.254"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:29.254" starttime="20190510 11:19:29.239"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:29.254" starttime="20190510 11:19:29.239"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:29.254" starttime="20190510 11:19:24.720"></status>
+</kw>
+<kw type="foritem" name="${vlan} = 3">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM1['lan'][${vlan}]['second_host']}</arg>
+</arguments>
+<assign>
+<var>${destip}</var>
+</assign>
+<msg timestamp="20190510 11:19:29.254" level="INFO">${destip} = 192.169.103.2</msg>
+<status status="PASS" endtime="20190510 11:19:29.254" starttime="20190510 11:19:29.254"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:29.254" starttime="20190510 11:19:29.254"></status>
+</kw>
+<kw name="Shell Ping" library="VM1">
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:19:33.766" level="INFO">sudo ping 192.169.103.2 -c 5
+sudo ping 192.169.103.2 -c 5
+PING 192.169.103.2 (192.169.103.2) 56(84) bytes of data.
+64 bytes from 192.169.103.2: icmp_seq=1 ttl=64 time=0.059 ms
+64 bytes from 192.169.103.2: icmp_seq=2 ttl=64 time=0.043 ms
+64 bytes from 192.169.103.2: icmp_seq=3 ttl=64 time=0.041 ms
+64 bytes from 192.169.103.2: icmp_seq=4 ttl=64 time=0.043 ms
+64 bytes from 192.169.103.2: icmp_seq=5 ttl=64 time=0.044 ms
+
+--- 192.169.103.2 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 3999ms
+rtt min/avg/max/mdev = 0.041/0.046/0.059/0.006 ms
+sathish@VM1:~$</msg>
+<msg timestamp="20190510 11:19:33.767" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20190510 11:19:33.768" starttime="20190510 11:19:29.254"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:33.772" starttime="20190510 11:19:33.770"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:33.774" starttime="20190510 11:19:33.773"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:33.784" starttime="20190510 11:19:33.782"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:33.784" starttime="20190510 11:19:33.776"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:33.785" starttime="20190510 11:19:33.769"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:33.786" starttime="20190510 11:19:29.254"></status>
+</kw>
+<kw type="foritem" name="${vlan} = 4">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM1['lan'][${vlan}]['second_host']}</arg>
+</arguments>
+<assign>
+<var>${destip}</var>
+</assign>
+<msg timestamp="20190510 11:19:33.789" level="INFO">${destip} = 192.169.104.2</msg>
+<status status="PASS" endtime="20190510 11:19:33.789" starttime="20190510 11:19:33.787"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:33.792" starttime="20190510 11:19:33.790"></status>
+</kw>
+<kw name="Shell Ping" library="VM1">
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:19:38.375" level="INFO">sudo ping 192.169.104.2 -c 5
+sudo ping 192.169.104.2 -c 5
+PING 192.169.104.2 (192.169.104.2) 56(84) bytes of data.
+64 bytes from 192.169.104.2: icmp_seq=1 ttl=64 time=0.058 ms
+64 bytes from 192.169.104.2: icmp_seq=2 ttl=64 time=0.046 ms
+64 bytes from 192.169.104.2: icmp_seq=3 ttl=64 time=0.044 ms
+64 bytes from 192.169.104.2: icmp_seq=4 ttl=64 time=0.040 ms
+64 bytes from 192.169.104.2: icmp_seq=5 ttl=64 time=0.049 ms
+
+--- 192.169.104.2 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 3997ms
+rtt min/avg/max/mdev = 0.040/0.047/0.058/0.008 ms
+sathish@VM1:~$</msg>
+<msg timestamp="20190510 11:19:38.376" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20190510 11:19:38.377" starttime="20190510 11:19:33.793"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:38.379" starttime="20190510 11:19:38.379"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:38.379" starttime="20190510 11:19:38.379"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:38.379" starttime="20190510 11:19:38.379"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:38.379" starttime="20190510 11:19:38.379"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:38.379" starttime="20190510 11:19:38.378"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:38.379" starttime="20190510 11:19:33.787"></status>
+</kw>
+<kw type="foritem" name="${vlan} = 5">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM1['lan'][${vlan}]['second_host']}</arg>
+</arguments>
+<assign>
+<var>${destip}</var>
+</assign>
+<msg timestamp="20190510 11:19:38.394" level="INFO">${destip} = 192.169.105.2</msg>
+<status status="PASS" endtime="20190510 11:19:38.394" starttime="20190510 11:19:38.379"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:38.394" starttime="20190510 11:19:38.394"></status>
+</kw>
+<kw name="Shell Ping" library="VM1">
+<arguments>
+<arg>${destip}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:19:42.881" level="INFO">sudo ping 192.169.105.2 -c 5
+sudo ping 192.169.105.2 -c 5
+PING 192.169.105.2 (192.169.105.2) 56(84) bytes of data.
+64 bytes from 192.169.105.2: icmp_seq=1 ttl=64 time=0.104 ms
+64 bytes from 192.169.105.2: icmp_seq=2 ttl=64 time=0.054 ms
+64 bytes from 192.169.105.2: icmp_seq=3 ttl=64 time=0.057 ms
+64 bytes from 192.169.105.2: icmp_seq=4 ttl=64 time=0.060 ms
+64 bytes from 192.169.105.2: icmp_seq=5 ttl=64 time=0.052 ms
+
+--- 192.169.105.2 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4000ms
+rtt min/avg/max/mdev = 0.052/0.065/0.104/0.020 ms
+sathish@VM1:~$</msg>
+<msg timestamp="20190510 11:19:42.882" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20190510 11:19:42.883" starttime="20190510 11:19:38.394"></status>
+</kw>
+<kw name="CHECK RESULT">
+<doc>Check result contains expected value</doc>
+<arguments>
+<arg>actual=${result}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${actual}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:42.884" starttime="20190510 11:19:42.884"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:42.884" starttime="20190510 11:19:42.884"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should contain</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:19:42.884" starttime="20190510 11:19:42.884"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:42.884" starttime="20190510 11:19:42.884"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:42.884" starttime="20190510 11:19:42.884"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:42.884" starttime="20190510 11:19:38.379"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:42.884" starttime="20190510 11:19:20.172"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:19:42.900" starttime="20190510 11:19:20.172"></status>
+</kw>
+<tags>
+<tag>PING</tag>
+</tags>
+<status status="PASS" endtime="20190510 11:19:42.900" critical="yes" starttime="20190510 11:19:20.172"></status>
+</test>
+<test id="s1-t8" name="Testcase: Iperf3 Test VM1 To VM2">
+<kw name="Iperf3 test VM1 to VM2">
+<tags>
+<tag>HYBRID</tag>
+</tags>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${VM2['lan'][1]['second_host']}</arg>
+</arguments>
+<assign>
+<var>${destip}</var>
+</assign>
+<msg timestamp="20190510 11:19:42.900" level="INFO">${destip} = 192.169.111.2</msg>
+<status status="PASS" endtime="20190510 11:19:42.900" starttime="20190510 11:19:42.900"></status>
+</kw>
+<kw name="Send Commands And Expect" library="VM2">
+<arguments>
+<arg>pkill iperf3 &amp;</arg>
+</arguments>
+<msg timestamp="20190510 11:19:43.301" level="INFO">pkill iperf3 &amp;
+[1] 5751
+sathish@CPE12-VM1:~$ </msg>
+<msg timestamp="20190510 11:19:43.301" level="INFO">pkill iperf3 &amp;</msg>
+<status status="PASS" endtime="20190510 11:19:43.301" starttime="20190510 11:19:42.900"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10s</arg>
+</arguments>
+<msg timestamp="20190510 11:19:53.315" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" endtime="20190510 11:19:53.315" starttime="20190510 11:19:43.301"></status>
+</kw>
+<kw name="Send Commands And Expect" library="VM2">
+<arguments>
+<arg>iperf3 -s &amp;</arg>
+</arguments>
+<msg timestamp="20190510 11:19:53.731" level="INFO">iperf3 -s &amp;
+[2] 5753
+[1]   Done                    pkill iperf3
+sathish@CPE12-VM1:~$ -----------------------------------------------------------
+Server listening on 5201
+-----------------------------------------------------------
+</msg>
+<msg timestamp="20190510 11:19:53.732" level="INFO">iperf3 -s &amp;</msg>
+<status status="PASS" endtime="20190510 11:19:53.732" starttime="20190510 11:19:53.315"></status>
+</kw>
+<kw name="Send Commands And Expect" library="VM1">
+<arguments>
+<arg>iperf3 -c ${destip}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190510 11:20:04.188" level="INFO">iperf3 -c 192.169.111.2
+Connecting to host 192.169.111.2, port 5201
+[  4] local 192.169.101.2 port 44746 connected to 192.169.111.2 port 5201
+[ ID] Interval           Transfer     Bandwidth       Retr  Cwnd
+[  4]   0.00-1.00   sec  27.6 MBytes   232 Mbits/sec    0   1.26 MBytes       
+[  4]   1.00-2.00   sec  26.2 MBytes   220 Mbits/sec    0   2.57 MBytes       
+[  4]   2.00-3.00   sec  26.2 MBytes   220 Mbits/sec    4   3.02 MBytes       
+[  4]   3.00-4.00   sec  27.5 MBytes   231 Mbits/sec    0   3.02 MBytes       
+[  4]   4.00-5.00   sec  27.5 MBytes   231 Mbits/sec    0   3.02 MBytes       
+[  4]   5.00-6.00   sec  27.5 MBytes   231 Mbits/sec    0   3.02 MBytes       
+[  4]   6.00-7.00   sec  26.2 MBytes   220 Mbits/sec    0   3.02 MBytes       
+[  4]   7.00-8.00   sec  27.5 MBytes   231 Mbits/sec    0   3.02 MBytes       
+[  4]   8.00-9.00   sec  27.5 MBytes   231 Mbits/sec    0   3.02 MBytes       
+[  4]   9.00-10.00  sec  27.5 MBytes   231 Mbits/sec    0   3.02 MBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bandwidth       Retr
+[  4]   0.00-10.00  sec   271 MBytes   228 Mbits/sec    4             sender
+[  4]   0.00-10.00  sec   270 MBytes   226 Mbits/sec                  receiver
+
+iperf Done.
+sathish@VM1:~$ </msg>
+<msg timestamp="20190510 11:20:04.188" level="INFO">iperf3 -c 192.169.111.2</msg>
+<msg timestamp="20190510 11:20:04.188" level="INFO">${result} = iperf3 -c 192.169.111.2
+Connecting to host 192.169.111.2, port 5201
+[  4] local 192.169.101.2 port 44746 connected to 192.169.111.2 port 5201
+[ ID] Interval           Transfer     Bandwidth       Retr...</msg>
+<status status="PASS" endtime="20190510 11:20:04.188" starttime="20190510 11:19:53.733"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>iperf Done.</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:20:04.188" starttime="20190510 11:20:04.188"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:20:04.188" starttime="20190510 11:19:42.900"></status>
+</kw>
+<tags>
+<tag>IPERF</tag>
+</tags>
+<status status="PASS" endtime="20190510 11:20:04.188" critical="yes" starttime="20190510 11:19:42.900"></status>
+</test>
+<kw type="teardown" name="CLEANUP">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"cleanup done"</arg>
+</arguments>
+<status status="PASS" endtime="20190510 11:20:04.204" starttime="20190510 11:20:04.204"></status>
+</kw>
+<status status="PASS" endtime="20190510 11:20:04.204" starttime="20190510 11:20:04.188"></status>
+</kw>
+<doc>A test suite with tests for SDWAN SINGLE CPE Solution.
+Topology:-
+____________________________
+| VersaDirector |
+|___________________________|
+|
+|
+|
+_____________|_______________
+| WanCtrller1 |
+|____________________________|
+| |
+| |
+| |
+INTERNET/MPLS
+| |
+| |___
+______|__ ___|___
+| | | |
+LAN1--+ CPE1 | | CPE2 +--LAN1
+|________| |_______|
+
+
+Testplan Goals:-
+1. CHECK WAN INTERFACES STATUS.
+2. CHECK BGP NEIGHBOR STATUS.
+3. CHECK LAN ROUTE.
+4. Ping Test.
+5. IPERF Test.</doc>
+<metadata>
+<item name="Version">1.0
+More Info For more information about Robot Framework see http://robotframework.org
+Author Sathishkumar murugesan
+Date 12 Dec 2017
+Executed At HOST
+Test Framework Robot Framework Python</item>
+</metadata>
+<status status="PASS" endtime="20190510 11:20:04.204" starttime="20190510 11:16:51.275"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="8">Critical Tests</stat>
+<stat fail="0" pass="8">All Tests</stat>
+</total>
+<tag>
+<stat fail="0" pass="1">IPERF</stat>
+<stat fail="0" pass="1">LAN</stat>
+<stat fail="0" pass="4">PING</stat>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="SINGLE CPE SOLUTION TEST" pass="8">SINGLE CPE SOLUTION TEST</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

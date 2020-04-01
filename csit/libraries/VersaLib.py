@@ -1517,8 +1517,53 @@ class VersaLib:
         output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
         return output
 
+    def show_config_cos_qos_policy_rules(self, policy = 'Default-Policy',  **kwargs):
+        cmd = "show configuration orgs org-services " + self.ORG_NAME + " class-of-service qos-policies " + policy + " rules | display set | nomore"
+        output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
+        print output
+        return output
 
 
+
+    def show_config_sdwan_policy_rules(self, rules, policy='Default-Policy', **kwargs):
+        cmd = "show configuration orgs org-services " + self.ORG_NAME + " sd-wan policies Default-Policy rules " + rules + " | display set | nomore"
+        output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
+        print output
+        return output
+
+
+
+    def show_config_object_addresses(self, name):
+        cmd = "show configuration orgs org-services " + self.ORG_NAME + " objects addresses " + name + " | display set | nomore"
+        output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
+        print output
+        return output
+
+    def show_config_object_services(self, name):
+        cmd = "show configuration orgs org-services " + self.ORG_NAME + " objects services " + name + " | display set | nomore"
+        output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
+        print output
+        return output
+
+
+    def show_config_sdwan_fwd_profile(self, fwd_profile):
+        cmd = "show configuration orgs org-services " + self.ORG_NAME + " sd-wan forwarding-profiles " + fwd_profile + " | display set | nomore"
+        output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
+        print output
+        return output
+
+    def show_config_sdwan_sla_profile(self, sla_profile):
+        cmd = "show configuration orgs org-services " + self.ORG_NAME + " sd-wan sla-profiles " + sla_profile + " | display set | nomore"
+        output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
+        print output
+        return output
+
+
+    def show_config_cos(self):
+        cmd = "show configuration orgs org-services " + self.ORG_NAME + " class-of-service | display set | nomore"
+        output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
+        print output
+        return output
 
     def req_clr_sess_all(self):
         cmd = "request clear sessions all"
@@ -2225,6 +2270,7 @@ class VersaLib:
             self.main_logger.info(">>>>>>>>>> FORWARDING PROFILE CREATION PASSED. <<<<<<<<<<<")
             return "PASS"
         time.sleep(5)
+
 
     def delete_fowarding_profile(self, profilename):
         self.main_logger.info("\nDELETE FWD PROFILE\n")

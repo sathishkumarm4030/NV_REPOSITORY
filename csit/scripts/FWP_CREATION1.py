@@ -29,15 +29,20 @@ def get_vd_details():
     # user = raw_input("Enter VD GUI username:\n")
     # print "Versa director GUI Username:" + user
     # passwd = getpass.getpass("Enter VD GUI password::\n")
-    ip = '10.91.116.35'
-    ldap_user = 'admin'
-    ldap_passwd = 'versa123'
-    user = 'Sathish'
-    passwd = 'Jan*1234'
-    cpe_user = 'admin'
-    cpe_passwd = 'versa123'
-    node_user = 'admin'
-    node_passwd = 'versa123'
+    # ip = '10.91.116.35'
+    # ldap_user = 'admin'
+    # ldap_passwd = 'versa123'
+    # user = 'Sathish'
+    # passwd = 'Jan*1234'
+    # cpe_user = 'admin'
+    # cpe_passwd = 'versa123'
+    # node_user = 'admin'
+    # node_passwd = 'versa123'
+    ip = '10.91.127.194'
+    ldap_user = 'Automated'
+    ldap_passwd = 'Auto@12345'
+    user = 'Automated'
+    passwd = 'Auto@12345'
     return {'mgmt_ip' : ip, 'username' : ldap_user,\
             'password' : ldap_passwd, 'GUIusername' : user, 'GUIpassword' : passwd}
 
@@ -93,16 +98,19 @@ def Do_Cpe_onboarding():
     print cpe1.modify_interface_bandwidth(cpe1.WAN1_INTF, 30000, 30000)
     print cpe1.get_vni_interface_bw(cpe1.WAN1_INTF)
 
-    SLA_PRF_1 = "SLA10001"
-    FWP1 = "FWP10001"
-    IPADDOBJ = "Dest_ip_add10001"
-    SERVICE_OBJ = "tcp_src_port_2000_11"
-    PLCYRULE = "ts_Destipaddr10001"
+    SLA_PRF_1 = "SLA10001y"
+    FWP1 = "FWP10001y"
+    IPADDOBJ = "Dest_ip_add10001y"
+    SERVICE_OBJ = "tcp_src_port_2000_11y"
+    PLCYRULE = "ts_Destipaddr10001y"
 
     cpe1.cross_login()
     cpe1.create_sla_profile(SLA_PRF_1, description="description", circuit_transmit_utilization=5)
     print cpe1.get_sla_profile(SLA_PRF_1)
     cpe1.create_fowarding_profile(FWP1, ckt_pr_1_lcl_intf, ckt_pr_2_lcl_intf, sla_name=SLA_PRF_1, evaluate_continuously="disable")
+    cpe1.show_config_sdwan_fwd_profile(FWP1)
+    cpe1.show_config_sdwan_sla_profile(SLA_PRF_1)
+    cpe1.show_config_cos()
     cpe1.create_address_object(IPADDOBJ, "ipv4-prefix", cpe2.lan[1]['third_host']+"/32")
     cpe1.create_service_object(SERVICE_OBJ, "TCP", source_port=2000)
 

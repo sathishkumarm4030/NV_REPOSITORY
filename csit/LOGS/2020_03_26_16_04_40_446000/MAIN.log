@@ -1,0 +1,207 @@
+2020-03-26 16:04:45,506 - Versa_director - DEBUG - <netmiko.versa.versa_ssh.VersaSSH object at 0x000000000B4B8320>
+2020-03-26 16:04:50,740 - Versa_director - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2020-03-26 16:04:51,206 - Versa_director - INFO - CMD>> : request devices device CPE-17-LON-DUAL-HYBRID-MPLS ping
+2020-03-26 16:04:51,638 - Versa_director - INFO - request devices device CPE-17-LON-DUAL-HYBRID-MPLS ping
+result PING 20.20.16.17 (20.20.16.17) 56(84) bytes of data.
+From 10.64.0.1 icmp_seq=1 Destination Net Unreachable
+
+--- 20.20.16.17 ping statistics ---
+1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms
+
+
+[ok][2020-03-26 10:36:11]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:04:52,056 - Versa_director - INFO - CMD>> : request devices device CPE-18-LON-DUAL-HYBRID-INT ping
+2020-03-26 16:04:52,490 - Versa_director - INFO - request devices device CPE-18-LON-DUAL-HYBRID-INT ping
+result PING 20.20.16.18 (20.20.16.18) 56(84) bytes of data.
+From 10.64.0.1 icmp_seq=1 Destination Net Unreachable
+
+--- 20.20.16.18 ping statistics ---
+1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms
+
+
+[ok][2020-03-26 10:36:12]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:04:52,921 - Versa_director - INFO - CMD>> : request devices device CPE19 ping
+2020-03-26 16:04:53,539 - Versa_director - INFO - request devices device CPE19-MYS-HYB-INT ping
+result PING 20.20.16.19 (20.20.16.19) 56(84) bytes of data.
+64 bytes from 20.20.16.19: icmp_seq=1 ttl=61 time=42.4 ms
+
+--- 20.20.16.19 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 42.458/42.458/42.458/0.000 ms
+
+[ok][2020-03-26 10:36:12]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:04:53,540 - Versa_director - INFO - CMD>> : request devices device CPE19 connect
+2020-03-26 16:04:55,055 - Versa_director - INFO - request devices device CPE19-MYS-HYB-INT connect
+result true
+info (Automated) Connected to CPE19-MYS-HYB-INT - 20.20.16.19:2022
+[ok][2020-03-26 10:36:14]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:04:55,056 - Versa_director - INFO - CMD>> : request devices device CPE19 check-sync
+2020-03-26 16:04:56,124 - Versa_director - INFO - request devices device CPE19-MYS-HYB-INT check-sync
+result out-of-sync
+info got: 1585-212960-739597@vcn0 expected: 1579-884027-426780@vcn0
+
+[ok][2020-03-26 10:36:15]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:04:56,124 - Versa_director - INFO - CMD>> : request devices device CPE19 sync-from
+2020-03-26 16:05:02,516 - Versa_director - INFO - request devices device CPE19-MYS-HYB-INT sync-from
+result true
+[ok][2020-03-26 10:36:21]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:05:02,516 - Versa_director - INFO - CMD>> : show devices device CPE19 live-status bgp neighbor brief IPC00012-Control-VR | tab
+2020-03-26 16:05:04,190 - Versa_director - INFO - show devices device CPE19-MYS-HYB-INT live-status bgp  neighbor brief IPC00012-Control-VR | tab
+                                  LOCAL                        REMOTE          REMOTE               TOTAL     TOTAL                  TOTAL     TOTAL        
+                                  ADDRESS               LOCAL  ADDR    REMOTE  AS                   SENT      RECEIVED  ESTABLISHED  RECEIVED  TRANSMITTED  
+ROUTING INSTANCE     NEIGHBOR IP  TYPE     LOCAL ADDR   PORT   TYPE    PORT    NUMBER  STATE        PREFIXES  PREFIXES  TIME         MESSAGES  MESSAGES     
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+IPC00012-Control-VR  10.16.64.30  ipv4     20.20.16.19  0      ipv4    0       65505   Established  5         95        1w2d20h      34476     32783        
+                     10.16.64.32  ipv4     20.20.16.19  0      ipv4    0       65505   Established  5         283       3w0d00h      75224     70046        
+
+[ok][2020-03-26 10:36:23]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:05:04,611 - Versa_director - INFO - CMD>> : request devices device CPE20 ping
+2020-03-26 16:05:15,104 - Versa_director - INFO - request devices device CPE20 ping
+result PING 20.20.16.20 (20.20.16.20) 56(84) bytes of data.
+
+--- 20.20.16.20 ping statistics ---
+1 packets transmitted, 0 received, 100% packet loss, time 0ms
+
+
+[ok][2020-03-26 10:36:34]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:05:15,519 - Versa_director - INFO - CMD>> : request devices device NV-WC01-N1-HKG ping
+2020-03-26 16:05:15,933 - Versa_director - INFO - request devices device NV-WC01-N1-HKG ping
+result PING 10.83.44.35 (10.83.44.35) 56(84) bytes of data.
+64 bytes from 10.83.44.35: icmp_seq=1 ttl=63 time=0.290 ms
+
+--- 10.83.44.35 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.290/0.290/0.290/0.000 ms
+
+[ok][2020-03-26 10:36:35]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:05:15,933 - Versa_director - INFO - CMD>> : request devices device NV-WC01-N1-HKG connect
+2020-03-26 16:05:16,585 - Versa_director - INFO - request devices device NV-WC01-N1-HKG connect
+result true
+info (Automated) Connected to NV-WC01-N1-HKG - 10.83.44.35:2022
+[ok][2020-03-26 10:36:36]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:05:16,586 - Versa_director - INFO - CMD>> : request devices device NV-WC01-N1-HKG check-sync
+2020-03-26 16:05:17,203 - Versa_director - INFO - request devices device NV-WC01-N1-HKG check-sync
+result in-sync
+[ok][2020-03-26 10:36:36]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:05:17,627 - Versa_director - INFO - CMD>> : request devices device NV-WC01-N5-LON ping
+2020-03-26 16:05:18,059 - Versa_director - INFO - request devices device NV-WC01-N5-LON ping
+result PING 10.83.46.57 (10.83.46.57) 56(84) bytes of data.
+64 bytes from 10.83.46.57: icmp_seq=1 ttl=63 time=0.518 ms
+
+--- 10.83.46.57 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.518/0.518/0.518/0.000 ms
+
+[ok][2020-03-26 10:36:37]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:05:18,059 - Versa_director - INFO - CMD>> : request devices device NV-WC01-N5-LON connect
+2020-03-26 16:05:18,714 - Versa_director - INFO - request devices device NV-WC01-N5-LON connect
+result true
+info (Automated) Connected to NV-WC01-N5-LON - 10.83.46.57:2022
+[ok][2020-03-26 10:36:38]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:05:18,716 - Versa_director - INFO - CMD>> : request devices device NV-WC01-N5-LON check-sync
+2020-03-26 16:05:19,369 - Versa_director - INFO - request devices device NV-WC01-N5-LON check-sync
+result in-sync
+[ok][2020-03-26 10:36:38]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:05:19,802 - Versa_director - INFO - CMD>> : request devices device NV-WC01-N5-LON ping
+2020-03-26 16:05:20,220 - Versa_director - INFO - request devices device NV-WC01-N5-LON ping
+result PING 10.83.46.57 (10.83.46.57) 56(84) bytes of data.
+64 bytes from 10.83.46.57: icmp_seq=1 ttl=63 time=0.619 ms
+
+--- 10.83.46.57 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.619/0.619/0.619/0.000 ms
+
+[ok][2020-03-26 10:36:39]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:05:20,220 - Versa_director - INFO - CMD>> : request devices device NV-WC01-N5-LON connect
+2020-03-26 16:05:20,869 - Versa_director - INFO - request devices device NV-WC01-N5-LON connect
+result true
+info (Automated) Connected to NV-WC01-N5-LON - 10.83.46.57:2022
+[ok][2020-03-26 10:36:40]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:05:20,871 - Versa_director - INFO - CMD>> : request devices device NV-WC01-N5-LON check-sync
+2020-03-26 16:05:21,519 - Versa_director - INFO - request devices device NV-WC01-N5-LON check-sync
+result in-sync
+[ok][2020-03-26 10:36:41]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:05:21,930 - Versa_director - INFO - CMD>> : request devices device NV-WC01-N6-SIN ping
+2020-03-26 16:05:22,357 - Versa_director - INFO - request devices device NV-WC01-N6-SIN ping
+result PING 10.83.46.133 (10.83.46.133) 56(84) bytes of data.
+64 bytes from 10.83.46.133: icmp_seq=1 ttl=63 time=0.364 ms
+
+--- 10.83.46.133 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.364/0.364/0.364/0.000 ms
+
+[ok][2020-03-26 10:36:41]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:05:22,357 - Versa_director - INFO - CMD>> : request devices device NV-WC01-N6-SIN connect
+2020-03-26 16:05:23,020 - Versa_director - INFO - request devices device NV-WC01-N6-SIN connect
+result true
+info (Automated) Connected to NV-WC01-N6-SIN - 10.83.46.133:2022
+[ok][2020-03-26 10:36:42]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:05:23,020 - Versa_director - INFO - CMD>> : request devices device NV-WC01-N6-SIN check-sync
+2020-03-26 16:05:23,670 - Versa_director - INFO - request devices device NV-WC01-N6-SIN check-sync
+result in-sync
+[ok][2020-03-26 10:36:43]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:05:24,099 - Versa_director - INFO - CMD>> : request devices device NV-WC01-N6-SIN ping
+2020-03-26 16:05:24,530 - Versa_director - INFO - request devices device NV-WC01-N6-SIN ping
+result PING 10.83.46.133 (10.83.46.133) 56(84) bytes of data.
+64 bytes from 10.83.46.133: icmp_seq=1 ttl=63 time=0.529 ms
+
+--- 10.83.46.133 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.529/0.529/0.529/0.000 ms
+
+[ok][2020-03-26 10:36:44]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:05:24,532 - Versa_director - INFO - CMD>> : request devices device NV-WC01-N6-SIN connect
+2020-03-26 16:05:25,186 - Versa_director - INFO - request devices device NV-WC01-N6-SIN connect
+result true
+info (Automated) Connected to NV-WC01-N6-SIN - 10.83.46.133:2022
+[ok][2020-03-26 10:36:44]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:05:25,187 - Versa_director - INFO - CMD>> : request devices device NV-WC01-N6-SIN check-sync
+2020-03-26 16:05:25,835 - Versa_director - INFO - request devices device NV-WC01-N6-SIN check-sync
+result in-sync
+[ok][2020-03-26 10:36:45]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:05:26,269 - Versa_director - INFO - CMD>> : request devices device NV-CGW21-N5-LON ping
+2020-03-26 16:05:26,686 - Versa_director - INFO - request devices device NV-CGW21-N5-LON ping
+result PING 10.83.46.165 (10.83.46.165) 56(84) bytes of data.
+64 bytes from 10.83.46.165: icmp_seq=1 ttl=63 time=0.718 ms
+
+--- 10.83.46.165 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.718/0.718/0.718/0.000 ms
+
+[ok][2020-03-26 10:36:46]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:05:26,686 - Versa_director - INFO - CMD>> : request devices device NV-CGW21-N5-LON connect
+2020-03-26 16:05:27,319 - Versa_director - INFO - request devices device NV-CGW21-N5-LON connect
+result true
+info (Automated) Connected to NV-CGW21-N5-LON - 10.83.46.165:2022
+[ok][2020-03-26 10:36:46]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:05:27,319 - Versa_director - INFO - CMD>> : request devices device NV-CGW21-N5-LON check-sync
+2020-03-26 16:05:27,987 - Versa_director - INFO - request devices device NV-CGW21-N5-LON check-sync
+result in-sync
+[ok][2020-03-26 10:36:47]
+Automated@VDir-BLR-NEW-01> 
+2020-03-26 16:05:27,987 - Versa_director - INFO - CMD>> : show devices device NV-CGW21-N5-LON live-status bgp neighbor brief IPC00012-Control-VR | tab
