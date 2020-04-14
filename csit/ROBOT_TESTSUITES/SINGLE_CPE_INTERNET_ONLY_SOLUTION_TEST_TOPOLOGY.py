@@ -6,3 +6,4 @@ VM1  = "CPE27_LAN_HOST1"
 VM2  = "CPE11_LAN_HOST1"
 VM3  = "CPE26_LAN_HOST1"
 Spirent_chasis1 = ["10.91.113.124", "10/1", "10/2"]
+

@@ -113,7 +113,7 @@ class LinuxLib:
         network = CalcIPv4Network(unicode(START_LAN_IP_SUBNET))
         network_address = (network + (i + 1) * network.size() for i in it.count())
         nw_addr = network
-        for i in range(1, 11):
+        for i in range(1, int(self.NO_OF_VRFS) + 1):
             self.lan[i]['nw'] = nw_addr
             n = ipaddress.ip_network(nw_addr)
             self.lan[i]['first_host'] = str(n[1])

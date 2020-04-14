@@ -1,0 +1,10 @@
+delete devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match dscp [ 46 ]
+{% if src_address_obj is defined %}
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match source address address-list {{ src_address_obj }}
+{% elif dst_address_obj is defined %}
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match destination address address-list {{ dst_address_obj }}
+{% endif %}
+move devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium first
+
+
+

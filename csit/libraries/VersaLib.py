@@ -518,6 +518,8 @@ class VersaLib:
         self.GW2_NAME = gw_dict[self.NODE][1]
         self.WC1_ESP_IP = self.ndb[self.WC1_NAME]['ESP_IP']
         self.WC2_ESP_IP = self.ndb[self.WC2_NAME]['ESP_IP']
+        self.GW1_ESP_IP = self.ndb[self.GW1_NAME]['ESP_IP']
+        self.GW2_ESP_IP = self.ndb[self.GW2_NAME]['ESP_IP']
         self.WC1_local_ike_key = self.AUTH_KEY
         self.WC2_local_ike_key = self.AUTH_KEY
         self.WC1_local_ike_id = self.AUTH_STRING
@@ -1877,6 +1879,35 @@ class VersaLib:
                     new_device_status_dict[dev_dict['NAME']] = "BGP nbr check failed. BGP established nbr  count:" + str(len(nbrs))
                 self.main_logger.info(output)
         return new_device_status_dict
+
+    def gw_generic_config_commands_genrate(self, csv_file, template_file, GW_no, **kwargs):
+        start_time = datetime.now()
+        temp_dict = {}
+        if kwargs is not None:
+            for k, v in kwargs.iteritems():
+                temp_dict[k] = v
+        csv_data_read = pd.read_csv(curr_file_dir + "/DATA/" + csv_file )
+        curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/PROD_CONFIG/")
+        curr_env = Environment(loader=curr_file_loader)
+        template = curr_env.get_template(template_file)
+        device_cmds = ""
+        for idx, row in csv_data_read.iterrows():
+            res_check = ""
+            dev_dict = row.to_dict()
+            if "GW" + GW_no in dev_dict['VNF_GATEWAY_HOSTNAME']:
+                device_cmds += template.render(dev_dict)
+        self.main_logger.info(device_cmds)
+        # main_logger.info(result_dict)
+        self.main_logger.info("*" * 40)
+        self.main_logger.info("CONFIG_RESULT:")
+        self.main_logger.info(res_check)
+        self.main_logger.info("*" * 40)
+        self.main_logger.info("\nTime elapsed: {}".format(datetime.now() - start_time))
+        self.main_logger.info("LOGS Stored in : " + logfile_dir)
+        return
+
+
+
 
     def generic_config_function(self, nc, config_for, csv_file, template_file, type="", org_name="", **kwargs):
         # global device_status_dict

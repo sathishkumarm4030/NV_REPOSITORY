@@ -77,6 +77,19 @@ class HltapiLib:
         else:
             print("***** run sth.interface_config successfully")
 
+    def interface_config_delete(self, port):
+        int_ret0 = sth.interface_config(
+            mode='destroy',
+            port_handle=self.port_handle[int(port)]);
+
+        status = int_ret0['status']
+        if (status == '0'):
+            print("run sth.interface_config_delete failed")
+            print(int_ret0)
+        else:
+            print("***** run sth.interface_config_delete successfully")
+
+
 ##############################################################
 # create device and config the protocol on it
 ##############################################################
@@ -283,6 +296,8 @@ class HltapiLib:
 ##############################################################
     def release_ports(self):
         print "Release resources"
+        self.interface_config_delete(0)
+        self.interface_config_delete(1)
         cleanup_sta = sth.cleanup_session(port_handle=[self.port_handle[0], self.port_handle[1]], clean_dbfile='1')
         status = cleanup_sta['status']
         if status == '0':

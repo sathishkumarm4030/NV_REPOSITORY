@@ -54,7 +54,7 @@ ${bw}             30000
 *** Test Cases ***
 NV_SINGLE_CPE_HYBRID_SANITY_01
     [Documentation]    SANITY CHECKS on vCPE
-    [Tags]    SANITY1
+    [Tags]    SANITY01
     CHECK MPLS WAN INTERFACE UP in CPE1 & CPE2
     CHECK INTERNET WAN INTERFACE UP in CPE1 & CPE2
     CHECK WC1 PTVI INTERFACE STATUS in CPE1
@@ -83,12 +83,11 @@ NV_SINGLE_CPE_HYBRID_SANITY_04
     [Tags]    IPERF
     Iperf3 Test VM1 To VM2
 
-
 NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_01
     [Documentation]    Traffic steering based on Destination IP
-    [Tags]    P1   TS1
+    [Tags]    P1    TS1
     CPE1.create_policy_rule    ${plcyrule_1}    ${fwp_1}    dest_address_obj=${ipaddobj_2}
-    VD1.move_policy_rule  ${CPE1['Device_name']}       ${cpe1['ORG_NAME']}    Default-Policy      ${plcyrule_1}    first
+    VD1.move_policy_rule    ${CPE1['Device_name']}    ${cpe1['ORG_NAME']}    Default-Policy    ${plcyrule_1}    first
     REQ CLR SESSION ALL
     SHOW SESSION SDWAN DETAIL
     SHOW INTERFACE PORT STATISTICS BRIEF
@@ -97,42 +96,35 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_01
     CPE1.show_config_sdwan_sla_profile    ${sla_prf_1}
     CPE1.show_config_sdwan_fwd_profile    ${fwp_1}
     CPE1.show_config_sdwan_policy_rules    ${plcyrule_1}
-    sleep  10s
-    spirent1.Start Stream Traffic   ${stream1['stream_id']}
+    sleep    10s
+    spirent1.Start Stream Traffic    ${stream1['stream_id']}
     sleep    40s
     SHOW INTERFACE PORT STATISTICS BRIEF
-    ${result}   CPE1.show_session_sdwan_detail  source_port=2000
+    ${result}    CPE1.show_session_sdwan_detail    source_port=2000
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN1_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
-
     spirent1.Start Stream Traffic    ${stream2['stream_id']}
     sleep    40s
     SHOW INTERFACE PORT STATISTICS BRIEF
-    ${result}   CPE1.show_session_sdwan_detail    source_port=2001
+    ${result}    CPE1.show_session_sdwan_detail    source_port=2001
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN2_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
-
     spirent1.Start Stream Traffic    ${stream3['stream_id']}
     sleep    40s
     SHOW INTERFACE PORT STATISTICS BRIEF
-    ${result}   CPE1.show_session_sdwan_detail    source_port=2002
+    ${result}    CPE1.show_session_sdwan_detail    source_port=2002
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN2_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
-
     spirent1.stop_stream_traffic    ${stream3['stream_id']}
     spirent1.stop_stream_traffic    ${stream2['stream_id']}
     spirent1.stop_stream_traffic    ${stream1['stream_id']}
-
     CPE1.delete_policy_rule    ${plcyrule_1}
-
-
-
 
 NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_02
     [Documentation]    Traffic steering based on Source IP
-    [Tags]    P1   TS2
+    [Tags]    P1    TS2
     CPE1.create_policy_rule    ${plcyrule_1}    ${fwp_1}    src_address_obj=${ipaddobj_1}
-    VD1.move_policy_rule  ${CPE1['Device_name']}       ${cpe1['ORG_NAME']}    Default-Policy      ${plcyrule_1}    first
+    VD1.move_policy_rule    ${CPE1['Device_name']}    ${cpe1['ORG_NAME']}    Default-Policy    ${plcyrule_1}    first
     REQ CLR SESSION ALL
     SHOW SESSION SDWAN DETAIL
     SHOW INTERFACE PORT STATISTICS BRIEF
@@ -141,41 +133,35 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_02
     CPE1.show_config_sdwan_sla_profile    ${sla_prf_1}
     CPE1.show_config_sdwan_fwd_profile    ${fwp_1}
     CPE1.show_config_sdwan_policy_rules    ${plcyrule_1}
-    sleep  10s
-    spirent1.Start Stream Traffic   ${stream1['stream_id']}
+    sleep    10s
+    spirent1.Start Stream Traffic    ${stream1['stream_id']}
     sleep    40s
     SHOW INTERFACE PORT STATISTICS BRIEF
-    ${result}   CPE1.show_session_sdwan_detail  source_port=2000
+    ${result}    CPE1.show_session_sdwan_detail    source_port=2000
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN1_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
-
     spirent1.Start Stream Traffic    ${stream2['stream_id']}
     sleep    40s
     SHOW INTERFACE PORT STATISTICS BRIEF
-    ${result}   CPE1.show_session_sdwan_detail    source_port=2001
+    ${result}    CPE1.show_session_sdwan_detail    source_port=2001
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN2_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
-
     spirent1.Start Stream Traffic    ${stream3['stream_id']}
     sleep    40s
     SHOW INTERFACE PORT STATISTICS BRIEF
-    ${result}   CPE1.show_session_sdwan_detail    source_port=2002
+    ${result}    CPE1.show_session_sdwan_detail    source_port=2002
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN2_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
-
     spirent1.stop_stream_traffic    ${stream3['stream_id']}
     spirent1.stop_stream_traffic    ${stream2['stream_id']}
     spirent1.stop_stream_traffic    ${stream1['stream_id']}
-
     CPE1.delete_policy_rule    ${plcyrule_1}
-
-
 
 NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_03
     [Documentation]    Traffic steering based on Source PORT
-    [Tags]    P1   TS3
+    [Tags]    P1    TS3
     CPE1.create_policy_rule    ${plcyrule_1}    ${fwp_1}    port_address_obj=${serviceobj_1}
-    VD1.move_policy_rule  ${CPE1['Device_name']}       ${cpe1['ORG_NAME']}    Default-Policy      ${plcyrule_1}    first
+    VD1.move_policy_rule    ${CPE1['Device_name']}    ${cpe1['ORG_NAME']}    Default-Policy    ${plcyrule_1}    first
     REQ CLR SESSION ALL
     SHOW SESSION SDWAN DETAIL
     SHOW INTERFACE PORT STATISTICS BRIEF
@@ -184,11 +170,11 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_03
     CPE1.show_config_sdwan_sla_profile    ${sla_prf_1}
     CPE1.show_config_sdwan_fwd_profile    ${fwp_1}
     CPE1.show_config_sdwan_policy_rules    ${plcyrule_1}
-    sleep  10s
-    spirent1.Start Stream Traffic   ${stream1['stream_id']}
+    sleep    10s
+    spirent1.Start Stream Traffic    ${stream1['stream_id']}
     sleep    40s
     SHOW INTERFACE PORT STATISTICS BRIEF
-    ${result}   CPE1.show_session_sdwan_detail  source_port=2000
+    ${result}    CPE1.show_session_sdwan_detail    source_port=2000
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN1_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
     spirent1.stop_stream_traffic    ${stream1['stream_id']}
@@ -196,9 +182,9 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_03
 
 NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_04
     [Documentation]    Traffic steering based on Application (IPERF)
-    [Tags]    P1   TS4
+    [Tags]    P1    TS4
     CPE1.create_policy_rule    ${plcyrule_1}    ${fwp_1}    application=IPERF
-    VD1.move_policy_rule  ${CPE1['Device_name']}       ${cpe1['ORG_NAME']}    Default-Policy      ${plcyrule_1}    first
+    VD1.move_policy_rule    ${CPE1['Device_name']}    ${cpe1['ORG_NAME']}    Default-Policy    ${plcyrule_1}    first
     REQ CLR SESSION ALL
     SHOW SESSION SDWAN DETAIL
     SHOW INTERFACE PORT STATISTICS BRIEF
@@ -206,7 +192,7 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_04
     CPE1.show_config_sdwan_sla_profile    ${sla_prf_1}
     CPE1.show_config_sdwan_fwd_profile    ${fwp_1}
     CPE1.show_config_sdwan_policy_rules    ${plcyrule_1}
-    sleep  10s
+    sleep    10s
     ${destip}=    set variable    ${VM2['lan'][1]['second_host']}
     VM2.send_commands_and_expect    pkill iperf3 &
     sleep    10s
@@ -215,7 +201,7 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_04
     ${result}=    VM1.send_commands_and_expect    iperf3 -c ${destip} &
     sleep    5s
     SHOW INTERFACE PORT STATISTICS BRIEF
-    ${result}   CPE1.show_session_sdwan_detail  application=iperf
+    ${result}    CPE1.show_session_sdwan_detail    application=iperf
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN1_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
     CPE1.delete_policy_rule    ${plcyrule_1}
@@ -227,32 +213,30 @@ NV_SINGLE_CPE_HYBRID_QOS_01
     SHOW SESSION SDWAN DETAIL
     SHOW INTERFACE PORT STATISTICS BRIEF
     SHOW COMMIT CHANGES 0
-#    Debug
+    #    Debug
     CPE1.req_clr_stats_cos_qos_plcy_all
     CPE1.show_config_cos_qos_policy_rules
     CPE1.show_cos_qos_policy_rules
-    sleep  10s
-    spirent1.Start Stream Traffic   ${premium_tcp_stream1['stream_id']}
-    spirent1.Start Stream Traffic   ${business1_tcp_stream1['stream_id']}
-    spirent1.Start Stream Traffic   ${business2_tcp_stream1['stream_id']}
-    spirent1.Start Stream Traffic   ${business3_tcp_stream1['stream_id']}
-    spirent1.Start Stream Traffic   ${internet_default_tcp_stream1['stream_id']}
+    sleep    10s
+    spirent1.Start Stream Traffic    ${premium_tcp_stream1['stream_id']}
+    spirent1.Start Stream Traffic    ${business1_tcp_stream1['stream_id']}
+    spirent1.Start Stream Traffic    ${business2_tcp_stream1['stream_id']}
+    spirent1.Start Stream Traffic    ${business3_tcp_stream1['stream_id']}
+    spirent1.Start Stream Traffic    ${internet_default_tcp_stream1['stream_id']}
     sleep    10s
     SHOW INTERFACE PORT STATISTICS BRIEF
-    ${result}  CPE1.show_cos_qos_policy_rules
-    Log To Console  ${result}
-    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Premium\\s+1
-    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Business1\\s+1
-    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Business2\\s+1
-    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Business3\\s+1
-    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Internet-Default\\s+(\\d{1})
-
+    ${result}    CPE1.show_cos_qos_policy_rules
+    Log To Console    ${result}
+    CHECK RESULT    actual=${result}    expected=LAN1-VRF-Premium\\s+1
+    CHECK RESULT    actual=${result}    expected=LAN1-VRF-Business1\\s+1
+    CHECK RESULT    actual=${result}    expected=LAN1-VRF-Business2\\s+1
+    CHECK RESULT    actual=${result}    expected=LAN1-VRF-Business3\\s+1
+    CHECK RESULT    actual=${result}    expected=LAN1-VRF-Internet-Default\\s+(\\d{1})
     spirent1.stop_stream_traffic    ${premium_tcp_stream1['stream_id']}
     spirent1.stop_stream_traffic    ${business1_tcp_stream1['stream_id']}
     spirent1.stop_stream_traffic    ${business2_tcp_stream1['stream_id']}
     spirent1.stop_stream_traffic    ${business3_tcp_stream1['stream_id']}
     spirent1.stop_stream_traffic    ${internet_default_tcp_stream1['stream_id']}
-
 
 NV_SINGLE_CPE_HYBRID_QOS_02
     [Documentation]    Source IP address Based QOS
@@ -260,27 +244,27 @@ NV_SINGLE_CPE_HYBRID_QOS_02
     VD1.modify_qos_device_config    ${CPE1['Device_name']}    ${cpe1['ORG_NAME']}    qos_ip_based_premium.j2    src_address_obj=${ipaddobj_1}
     VD1.move_qos_policy_rule    ${CPE1['Device_name']}    ${cpe1['ORG_NAME']}    Default-Policy    LAN1-VRF-Premium    first
     sleep    10s
-#    Debug
+    #    Debug
     REQ CLR SESSION ALL
     SHOW SESSION SDWAN DETAIL
     SHOW INTERFACE PORT STATISTICS BRIEF
     SHOW COMMIT CHANGES 0
-#    Debug
+    #    Debug
     CPE1.show_config_object_addresses    ${ipaddobj_1}
     CPE1.req_clr_stats_cos_qos_plcy_all
     CPE1.show_config_cos_qos_policy_rules
     CPE1.show_cos_qos_policy_rules
-    sleep  10s
-    spirent1.Start Stream Traffic   ${stream1['stream_id']}
+    sleep    10s
+    spirent1.Start Stream Traffic    ${stream1['stream_id']}
     sleep    10s
     SHOW INTERFACE PORT STATISTICS BRIEF
-    ${result}  CPE1.show_cos_qos_policy_rules
-    Log To Console  ${result}
-    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Premium\\s+1
-    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Business1\\s+0
-    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Business2\\s+0
-    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Business3\\s+0
-    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Internet-Default\\s+(\\d{1})
+    ${result}    CPE1.show_cos_qos_policy_rules
+    Log To Console    ${result}
+    CHECK RESULT    actual=${result}    expected=LAN1-VRF-Premium\\s+1
+    CHECK RESULT    actual=${result}    expected=LAN1-VRF-Business1\\s+0
+    CHECK RESULT    actual=${result}    expected=LAN1-VRF-Business2\\s+0
+    CHECK RESULT    actual=${result}    expected=LAN1-VRF-Business3\\s+0
+    CHECK RESULT    actual=${result}    expected=LAN1-VRF-Internet-Default\\s+(\\d{1})
     spirent1.stop_stream_traffic    ${stream1['stream_id']}
     VD1.modify_qos_device_config    ${CPE1['Device_name']}    ${cpe1['ORG_NAME']}    revert_qos_ip_based_premium.j2    src_address_obj=${ipaddobj_1}
     VD1.move_qos_policy_rule    ${CPE1['Device_name']}    ${cpe1['ORG_NAME']}    Default-Policy    LAN1-VRF-Premium    first
@@ -290,55 +274,52 @@ NV_SINGLE_CPE_HYBRID_QOS_03
     [Tags]    QOS
     VD1.modify_qos_device_config    ${CPE1['Device_name']}    ${cpe1['ORG_NAME']}    qos_ip_based_premium.j2    dst_address_obj=${ipaddobj_2}
     VD1.move_qos_policy_rule    ${CPE1['Device_name']}    ${cpe1['ORG_NAME']}    Default-Policy    LAN1-VRF-Premium    first
-    sleep  10s
+    sleep    10s
     REQ CLR SESSION ALL
     SHOW SESSION SDWAN DETAIL
     SHOW INTERFACE PORT STATISTICS BRIEF
     SHOW COMMIT CHANGES 0
-#    Debug
+    #    Debug
     CPE1.show_config_object_addresses    ${ipaddobj_2}
     CPE1.req_clr_stats_cos_qos_plcy_all
     CPE1.show_config_cos_qos_policy_rules
     CPE1.show_cos_qos_policy_rules
-    sleep  10s
-    spirent1.Start Stream Traffic   ${stream1['stream_id']}
+    sleep    10s
+    spirent1.Start Stream Traffic    ${stream1['stream_id']}
     sleep    10s
     SHOW INTERFACE PORT STATISTICS BRIEF
-    ${result}  CPE1.show_cos_qos_policy_rules
-    Log To Console  ${result}
-    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Premium\\s+1
-    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Business1\\s+0
-    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Business2\\s+0
-    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Business3\\s+0
-    CHECK RESULT     actual=${result}    expected=LAN1-VRF-Internet-Default\\s+(\\d{1})
+    ${result}    CPE1.show_cos_qos_policy_rules
+    Log To Console    ${result}
+    CHECK RESULT    actual=${result}    expected=LAN1-VRF-Premium\\s+1
+    CHECK RESULT    actual=${result}    expected=LAN1-VRF-Business1\\s+0
+    CHECK RESULT    actual=${result}    expected=LAN1-VRF-Business2\\s+0
+    CHECK RESULT    actual=${result}    expected=LAN1-VRF-Business3\\s+0
+    CHECK RESULT    actual=${result}    expected=LAN1-VRF-Internet-Default\\s+(\\d{1})
     spirent1.stop_stream_traffic    ${stream1['stream_id']}
     VD1.modify_qos_device_config    ${CPE1['Device_name']}    ${cpe1['ORG_NAME']}    revert_qos_ip_based_premium.j2    dst_address_obj=${ipaddobj_2}
     VD1.move_qos_policy_rule    ${CPE1['Device_name']}    ${cpe1['ORG_NAME']}    Default-Policy    LAN1-VRF-Premium    first
 
-
 *** Keywords ***
 REQ CLR SESSION ALL
-    ${result}   CPE1.req_clr_sess_all
-    Log To Console  ${result}
+    ${result}    CPE1.req_clr_sess_all
+    Log To Console    ${result}
 
 SHOW INTERFACE PORT STATISTICS BRIEF
-    ${result}   CPE1.show_intf_port_stats_br
-    Log To Console  ${result}
+    ${result}    CPE1.show_intf_port_stats_br
+    Log To Console    ${result}
 
 SHOW SESSION SDWAN DETAIL
-    ${result}   CPE1.show_session_sdwan_detail
-    Log To Console  ${result}
+    ${result}    CPE1.show_session_sdwan_detail
+    Log To Console    ${result}
 
 SHOW COMMIT CHANGES 0
-    ${result}   CPE1.show_commit_changes_0
-    Log To Console  ${result}
-
-
+    ${result}    CPE1.show_commit_changes_0
+    Log To Console    ${result}
 
 CREATE FWD PROFILE
     ${curr_intf_bw}    CPE1.get_vni_interface_bw    ${CPE1['WAN1_INTF']}
-    set suite variable  ${curr_intf_bw}
-    CPE1.modify_interface_bandwidth   ${CPE1['WAN1_INTF']}    ${bw}    ${bw}
+    set suite variable    ${curr_intf_bw}
+    CPE1.modify_interface_bandwidth    ${CPE1['WAN1_INTF']}    ${bw}    ${bw}
     CPE1.get_vni_interface_bw    ${CPE1['WAN1_INTF']}
     CPE1.create_sla_profile    ${sla_prf_1}    circuit_transmit_utilization=5
     CPE1.create_fowarding_profile    ${fwp_1}    ${CPE1['WAN1_NAME']}    ${CPE1['WAN2_NAME']}    sla_name=${sla_prf_1}    evaluate_continuously=disable
@@ -468,15 +449,14 @@ STARTUP
 SPIRENT_STARTUP
     ${device1}    spirent1.Create Device    port=0    vlanid=${CPE1['lan'][1]['vlan']}    intf_ip_addr=${CPE1['lan'][1]['third_host']}    gateway_ip_addr=${CPE1['lan'][1]['first_host']}
     ${device2}    spirent1.Create Device    port=1    vlanid=${CPE2['lan'][1]['vlan']}    intf_ip_addr=${CPE2['lan'][1]['third_host']}    gateway_ip_addr=${CPE2['lan'][1]['first_host']}
-    ${stream1}    spirent1.Create Tcp Stream Block   ${device1}    ${device2}    src_port=2000    rate_mbps=2
-    ${stream2}    spirent1.Create Tcp Stream Block   ${device1}    ${device2}    src_port=2001    rate_mbps=2
-    ${stream3}    spirent1.Create Udp Stream Block   ${device1}    ${device2}    src_port=2002    rate_mbps=2
-    ${premium_tcp_stream1}          spirent1.create_tcp_stream_block   ${device1}     ${device2}    src_port=3001     rate_mbps=1     ip_dscp=46
-    ${business1_tcp_stream1}        spirent1.create_tcp_stream_block   ${device1}     ${device2}    src_port=3002     rate_mbps=1     ip_dscp=26
-    ${business2_tcp_stream1}        spirent1.create_tcp_stream_block   ${device1}     ${device2}    src_port=3003     rate_mbps=1     ip_dscp=18
-    ${business3_tcp_stream1}        spirent1.create_tcp_stream_block   ${device1}     ${device2}    src_port=3004     rate_mbps=1     ip_dscp=10
-    ${internet_default_tcp_stream1}    spirent1.Create Tcp Stream Block   ${device1}    ${device2}    src_port=5000    rate_mbps=1
-    
+    ${stream1}    spirent1.Create Tcp Stream Block    ${device1}    ${device2}    src_port=2000    rate_mbps=2
+    ${stream2}    spirent1.Create Tcp Stream Block    ${device1}    ${device2}    src_port=2001    rate_mbps=2
+    ${stream3}    spirent1.Create Udp Stream Block    ${device1}    ${device2}    src_port=2002    rate_mbps=2
+    ${premium_tcp_stream1}    spirent1.create_tcp_stream_block    ${device1}    ${device2}    src_port=3001    rate_mbps=1    ip_dscp=46
+    ${business1_tcp_stream1}    spirent1.create_tcp_stream_block    ${device1}    ${device2}    src_port=3002    rate_mbps=1    ip_dscp=26
+    ${business2_tcp_stream1}    spirent1.create_tcp_stream_block    ${device1}    ${device2}    src_port=3003    rate_mbps=1    ip_dscp=18
+    ${business3_tcp_stream1}    spirent1.create_tcp_stream_block    ${device1}    ${device2}    src_port=3004    rate_mbps=1    ip_dscp=10
+    ${internet_default_tcp_stream1}    spirent1.Create Tcp Stream Block    ${device1}    ${device2}    src_port=5000    rate_mbps=1
     set suite variable    ${device1}
     set suite variable    ${device2}
     set suite variable    ${stream1}
@@ -488,14 +468,10 @@ SPIRENT_STARTUP
     set suite variable    ${business3_tcp_stream1}
     set suite variable    ${internet_default_tcp_stream1}
 
-
-
-
 CLEANUP
     DELETE FWD PROFILE
     log to console    "cleanup done"
     spirent1.release_ports
-    sleep    40s
 
 CHECK RESULT1
     [Arguments]    ${actual}    ${expected}=True
@@ -510,7 +486,6 @@ CHECK RESULT
     log    ${actual}
     log    ${expected}
     Run Keyword And Continue On Failure    should match regexp    ${actual}    ${expected}
-
 
 Ping Test VM1 to VM2(1 LAN)
     [Tags]    HYBRID

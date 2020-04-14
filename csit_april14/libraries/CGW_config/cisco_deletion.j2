@@ -1,0 +1,22 @@
+{#
+    CISCO Device Create Configuration for Cloud Peering
+    * For Lab Testing
+#}
+
+router bgp {{LOCAL_AS}}
+{% for VRF in CISCO_PEER_VRFS %}
+ no address-family ipv4 vrf {{VRF.VRF_NAME}}
+{% endfor %}
+exit
+
+{% for VRF in CISCO_PEER_VRFS %}
+no interface {{CGW_FACING_INTERFACE}}.{{VRF.VLAN_ID}}
+{% endfor %}
+
+{% for VRF in CISCO_PEER_VRFS %}
+no interface {{VRF.LOOPBACK_ADDRESS_NAME}}
+{% endfor %}
+
+{% for VRF in CISCO_PEER_VRFS %}
+no ip vrf {{VRF.VRF_NAME}}
+{% endfor %}

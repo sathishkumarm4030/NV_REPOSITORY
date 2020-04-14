@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20200401 16:51:12.094" generator="Robot 3.1.2 (Python 2.7.13 on win32)">
+<suite source="C:\Softwares_mine\stefano\NV_REPOSITORY\csit\ROBOT_TESTSUITES\SINGLE_CPE_INTERNET_ONLY_SOLUTION_TEST.robot" id="s1" name="SINGLE CPE INTERNET ONLY SOLUTION TEST">
+<kw type="setup" name="STARTUP">
+<doc>Make connecection to Versa devices</doc>
+<kw name="Login" library="VD1">
+<status status="PASS" endtime="20200401 16:51:37.250" starttime="20200401 16:51:27.255"></status>
+</kw>
+<kw name="Get Data Dict" library="VD1">
+<assign>
+<var>${VD1}</var>
+</assign>
+<msg timestamp="20200401 16:51:37.250" level="INFO">${VD1} = {'ctlr_dict': {'MYS': ['NV-WC01-N7-MYS', 'NV-WC02-N7-MYS'], 'LON': ['NV-WC01-N5-LON', 'NV-WC02-N5-LON'], 'HKG': ['NV-WC01-N1-HKG', 'NV-WC02-N1-HKG'], 'SIN': ['NV-WC01-N6-SIN', 'NV-WC02-N6-SIN']}, 'GUI...</msg>
+<status status="PASS" endtime="20200401 16:51:37.250" starttime="20200401 16:51:37.250"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${VM1}</arg>
+</arguments>
+<msg timestamp="20200401 16:51:37.250" level="INFO">${VM1} = CPE27_LAN_HOST1</msg>
+<status status="PASS" endtime="20200401 16:51:37.250" starttime="20200401 16:51:37.250"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${VM2}</arg>
+</arguments>
+<msg timestamp="20200401 16:51:37.250" level="INFO">${VM2} = CPE11_LAN_HOST1</msg>
+<status status="PASS" endtime="20200401 16:51:37.250" starttime="20200401 16:51:37.250"></status>
+</kw>
+<kw name="Cross Login" library="CPE1">
+<msg timestamp="20200401 16:52:06.413" level="INFO">ssh admin@20.20.90.27
+admin@20.20.90.27's password: 
+
+             .---.,
+            (      ``.
+       _     \        )    __      ________ _____   _____
+      (  `.   \      /     \ \    / /  ____|  __ \ / ____|  /\
+       \    `. )    /       \ \  / /| |__  | |__) | (___   /  \
+        \     |    /         \ \/ / |  __| |  _  / \___ \ / /\ \
+         \    |   /           \  /  | |____| | \ \ ____) / ____ \
+          \   |  /             \/   |______|_|  \_\_____/_/    \_\
+           \  | /
+            \_|/                     ___ _    _____  ___   ___  _ ___
+                                    | __| |  | __\ \/ | \ / / \| | __|
+                                    | _|| |__| _| &gt;  &lt; \ V /| .` | _|
+                                    |_| |____|___/_/\_\ \_/ |_|\_|_|
+
+
+Versa FlexVNF software
+Release     :	16.1R2 (S9)
+Release date:	20190628
+Package ID  :	80561de	
+
+Last login: Wed Apr  1 11:17:42 2020 from 10.92.116.67
+[admin@CPE27-SIN-SINGLE-CPE-INTONLY-IPC00190: ~] # 
+doing redispatch
+set idle-timeout 0
+[ok][2020-04-01 11:23:30]
+admin@CPE27-SIN-SINGLE-CPE-INTONLY-IPC00190-cli&gt;</msg>
+<status status="PASS" endtime="20200401 16:52:06.413" starttime="20200401 16:51:37.256"></status>
+</kw>
+<kw name="Cross Login" library="CPE2">
+<status status="FAIL" endtime="20200401 16:52:07.529" starttime="20200401 16:52:06.413"></status>
+</kw>
+<status status="FAIL" endtime="20200401 16:52:07.667" starttime="20200401 16:51:27.255"></status>
+</kw>
+<test id="s1-t1" name="NV_SINGLE_CPE_HYBRID_SANITY_01">
+<doc>SANITY CHECKS on vCPE</doc>
+<tags>
+<tag>robot:exit</tag>
+<tag>SANITY1</tag>
+</tags>
+<status status="FAIL" endtime="20200401 16:52:07.667" critical="yes" starttime="20200401 16:52:07.667">Test execution stopped due to a fatal error.</status>
+</test>
+<kw type="teardown" name="CLEANUP">
+<kw name="DELETE FWD PROFILE">
+<kw name="Delete Service Object" library="CPE1">
+<arguments>
+<arg>${serviceobj_1}</arg>
+</arguments>
+<msg timestamp="20200401 16:52:07.683" level="INFO">
+DELETE Service Object
+</msg>
+<msg timestamp="20200401 16:52:09.772" level="ERROR"></msg>
+<msg timestamp="20200401 16:52:09.772" level="INFO">
+FAIL : </msg>
+<msg timestamp="20200401 16:52:09.788" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; ADDRESS OBJECT DELETION FAILED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
+<msg timestamp="20200401 16:52:09.788" level="INFO">&lt;Response [404]&gt;</msg>
+<status status="PASS" endtime="20200401 16:52:09.788" starttime="20200401 16:52:07.683"></status>
+</kw>
+<kw name="Delete Address Object" library="CPE1">
+<arguments>
+<arg>${ipaddobj_1}</arg>
+</arguments>
+<msg timestamp="20200401 16:52:09.788" level="INFO">
+DELETE IPaddress Object
+</msg>
+<msg timestamp="20200401 16:52:10.244" level="ERROR"></msg>
+<msg timestamp="20200401 16:52:10.247" level="INFO">
+FAIL : </msg>
+<msg timestamp="20200401 16:52:10.248" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; ADDRESS OBJECT DELETION FAILED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
+<msg timestamp="20200401 16:52:10.249" level="INFO">&lt;Response [404]&gt;</msg>
+<status status="PASS" endtime="20200401 16:52:10.249" starttime="20200401 16:52:09.788"></status>
+</kw>
+<kw name="Delete Address Object" library="CPE1">
+<arguments>
+<arg>${ipaddobj_2}</arg>
+</arguments>
+<msg timestamp="20200401 16:52:10.250" level="INFO">
+DELETE IPaddress Object
+</msg>
+<msg timestamp="20200401 16:52:10.732" level="ERROR"></msg>
+<msg timestamp="20200401 16:52:10.737" level="INFO">
+FAIL : </msg>
+<msg timestamp="20200401 16:52:10.737" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; ADDRESS OBJECT DELETION FAILED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
+<msg timestamp="20200401 16:52:10.738" level="INFO">&lt;Response [404]&gt;</msg>
+<status status="PASS" endtime="20200401 16:52:10.738" starttime="20200401 16:52:10.249"></status>
+</kw>
+<kw name="Delete Fowarding Profile" library="CPE1">
+<arguments>
+<arg>${fwp_1}</arg>
+</arguments>
+<msg timestamp="20200401 16:52:10.739" level="INFO">
+DELETE FWD PROFILE
+</msg>
+<msg timestamp="20200401 16:52:11.237" level="ERROR"></msg>
+<msg timestamp="20200401 16:52:11.241" level="INFO">
+FAIL : </msg>
+<msg timestamp="20200401 16:52:11.242" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; FORWARDING PROFILE DELETION FAILED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
+<msg timestamp="20200401 16:52:11.242" level="INFO">&lt;Response [404]&gt;</msg>
+<status status="PASS" endtime="20200401 16:52:11.242" starttime="20200401 16:52:10.738"></status>
+</kw>
+<kw name="Delete Sla Profile" library="CPE1">
+<arguments>
+<arg>${sla_prf_1}</arg>
+</arguments>
+<msg timestamp="20200401 16:52:11.244" level="INFO">
+DELETE SLA profile
+</msg>
+<msg timestamp="20200401 16:52:11.763" level="ERROR"></msg>
+<msg timestamp="20200401 16:52:11.767" level="INFO">
+FAIL : </msg>
+<msg timestamp="20200401 16:52:11.767" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; DELETE SLA Profile FAILED. &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</msg>
+<msg timestamp="20200401 16:52:11.768" level="INFO">&lt;Response [404]&gt;</msg>
+<status status="PASS" endtime="20200401 16:52:11.768" starttime="20200401 16:52:11.243"></status>
+</kw>
+<kw name="Modify Interface Bandwidth" library="CPE1">
+<arguments>
+<arg>${CPE1['WAN1_INTF']}</arg>
+<arg>${curr_intf_bw['bandwidth']['uplink']}</arg>
+<arg>${curr_intf_bw['bandwidth']['downlink']}</arg>
+</arguments>
+<msg timestamp="20200401 16:52:11.772" level="FAIL">Resolving variable '${CPE1['WAN1_INTF']}' failed: TypeError: string indices must be integers, not str</msg>
+<status status="FAIL" endtime="20200401 16:52:11.772" starttime="20200401 16:52:11.769"></status>
+</kw>
+<kw name="Get Vni Interface Bw" library="CPE1">
+<arguments>
+<arg>${CPE1['WAN1_INTF']}</arg>
+</arguments>
+<msg timestamp="20200401 16:52:11.775" level="FAIL">Resolving variable '${CPE1['WAN1_INTF']}' failed: TypeError: string indices must be integers, not str</msg>
+<status status="FAIL" endtime="20200401 16:52:11.775" starttime="20200401 16:52:11.773"></status>
+</kw>
+<status status="FAIL" endtime="20200401 16:52:11.776" starttime="20200401 16:52:07.683"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"cleanup done"</arg>
+</arguments>
+<status status="PASS" endtime="20200401 16:52:11.782" starttime="20200401 16:52:11.777"></status>
+</kw>
+<kw name="Release Ports" library="spirent1">
+<msg timestamp="20200401 16:52:11.784" level="INFO">Release resources</msg>
+<msg timestamp="20200401 16:52:11.786" level="FAIL">IndexError: list index out of range</msg>
+<status status="FAIL" endtime="20200401 16:52:11.786" starttime="20200401 16:52:11.783"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>40s</arg>
+</arguments>
+<msg timestamp="20200401 16:52:51.788" level="INFO">Slept 40 seconds</msg>
+<status status="PASS" endtime="20200401 16:52:51.788" starttime="20200401 16:52:11.787"></status>
+</kw>
+<status status="FAIL" endtime="20200401 16:52:51.789" starttime="20200401 16:52:07.683">Several failures occurred:
+
+1) Resolving variable '${CPE1['WAN1_INTF']}' failed: TypeError: string indices must be integers, not str
+
+2) Resolving variable '${CPE1['WAN1_INTF']}' failed: TypeError: string indices must be integers, not str
+
+3) IndexError: list index out of range</status>
+</kw>
+<doc>A test suite with tests for SDWAN SINGLE CPE Solution.
+Topology:-
+____________________________
+| VersaDirector |
+|___________________________|
+|
+|
+|
+_____________|_______________
+| WanCtrller1 |
+|____________________________|
+| |
+| |
+| |
+INTERNET/MPLS
+| |
+| |___
+______|__ ___|___
+| | | |
+LAN1--+ CPE1 | | CPE2 +--LAN1
+|________| |_______|
+
+
+Testplan Goals:-
+1. CHECK WAN INTERFACES STATUS.
+2. CHECK BGP NEIGHBOR STATUS.
+3. CHECK LAN ROUTE.
+4. Ping Test.
+5. IPERF Test.
+6. Traffic steering Test.
+7. QOS Test.</doc>
+<metadata>
+<item name="Version">1.0
+More Info For more information about Robot Framework see http://robotframework.org
+Author Sathishkumar murugesan
+Date 12 Dec 2017
+Executed At HOST
+Test Framework Robot Framework Python</item>
+</metadata>
+<status status="FAIL" endtime="20200401 16:52:51.790" starttime="20200401 16:51:12.099">Suite setup failed:
+Execution terminated by signal
+
+Also suite teardown failed:
+Several failures occurred:
+
+1) Resolving variable '${CPE1['WAN1_INTF']}' failed: TypeError: string indices must be integers, not str
+
+2) Resolving variable '${CPE1['WAN1_INTF']}' failed: TypeError: string indices must be integers, not str
+
+3) IndexError: list index out of range</status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat info="combined" fail="0" combined="NOT robot:exit" pass="0">NOT robot:exit</stat>
+<stat fail="1" pass="0">robot:exit</stat>
+<stat fail="1" pass="0">SANITY1</stat>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="SINGLE CPE INTERNET ONLY SOLUTION TEST" pass="0">SINGLE CPE INTERNET ONLY SOLUTION TEST</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20200401 16:52:09.772" level="ERROR"></msg>
+<msg timestamp="20200401 16:52:10.244" level="ERROR"></msg>
+<msg timestamp="20200401 16:52:10.732" level="ERROR"></msg>
+<msg timestamp="20200401 16:52:11.237" level="ERROR"></msg>
+<msg timestamp="20200401 16:52:11.763" level="ERROR"></msg>
+</errors>
+</robot>

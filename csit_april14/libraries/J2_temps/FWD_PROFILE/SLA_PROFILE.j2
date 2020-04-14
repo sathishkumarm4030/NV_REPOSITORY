@@ -1,0 +1,20 @@
+{
+	"sla-profile": {
+		"name": "{{ name }}"
+		{% if description is defined %},"description": "{{ description }}"{% endif %}
+		{%- if tag is defined %},"tag": "{{ tag }}"{% endif %}
+		{%- if delay_variation is defined %},"delay-variation": "{{ delay_variation }}"{% endif %}
+		{%- if circuit_transmit_utilization is defined %},"circuit-transmit-utilization": "{{ circuit_transmit_utilization }}"{% endif %}
+		{%- if circuit_receive_utilization is defined %},"circuit-receive-utilization": "{{ circuit_receive_utilization }}"{% endif %}
+		{%- if loss_percentage is defined %},"loss-percentage": "{{ loss_percentage }}"{% endif %}
+		{%- if forward_loss_percentage is defined %},"forward-loss-percentage": "{{ forward_loss_percentage }}"{% endif %}
+		{%- if reverse_loss_percentage is defined %},"reverse-loss-percentage": "{{ reverse_loss_percentage }}"{% endif %}
+		{%- if latency is defined %},"latency": "{{ latency }}"{% endif %}
+		{%- if mos_score is defined %},"mos-score": "{{ mos_score }}"{% endif %}
+		{%- if low_delay_variation is defined %},"low-delay-variation": "[null]"{% endif %}
+		{%- if low_latency is defined %},"low-latency": "[null]"{% endif %}
+		{%- if low_packet_loss is defined %},"low-packet-loss": "[null]"{% endif %}
+		{%- if low_forward_packet_loss is defined %},"low-forward-packet-loss": "[null]"{% endif %}
+		{%- if low_reverse_packet_loss is defined %},"low-reverse-packet-loss": "[null]"{% endif %}
+	}
+}
