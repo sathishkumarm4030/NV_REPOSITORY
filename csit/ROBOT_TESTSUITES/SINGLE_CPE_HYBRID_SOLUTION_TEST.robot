@@ -299,6 +299,9 @@ NV_SINGLE_CPE_HYBRID_QOS_03
     VD1.modify_qos_device_config    ${CPE1['Device_name']}    ${cpe1['ORG_NAME']}    revert_qos_ip_based_premium.j2    dst_address_obj=${ipaddobj_2}
     VD1.move_qos_policy_rule    ${CPE1['Device_name']}    ${cpe1['ORG_NAME']}    Default-Policy    LAN1-VRF-Premium    first
 
+
+
+
 *** Keywords ***
 REQ CLR SESSION ALL
     ${result}    CPE1.req_clr_sess_all

@@ -1,0 +1,59 @@
+{%- set recompute_timer = recompute_timer|default("40") -%}
+{%- set evaluate_continuously = evaluate_continuously|default("enable") -%}
+
+
+
+
+{
+  "forwarding-profile": {
+    "name": "{{ FW_PROFILE_NAME }}",
+    {% if sla_name is defined %}"sla-profile": "{{ sla_name }}",{% endif %}
+    "encryption": "optional",
+    "connection-selection-method": "weighted-round-robin",
+    "recompute-timer": "{{ recompute_timer }}",
+    "sla-violation-action": "forward",
+    "load-balance": "per-flow",
+    "evaluate-continuously": "{{ evaluate_continuously }}",
+    "turn-redirect": "disable",
+    "symmetric-forwarding": "enable",
+    "circuit-priorities": {
+      "priority": [
+        {
+          "value": "1",
+          "circuit-names": {
+            "local": [
+              "{{ ckt_pr_1_lcl_intf }}"
+            ]
+          }
+        },
+        {
+          "value": "2",
+          "circuit-names": {
+            "local": [
+              "{{ ckt_pr_2_lcl_intf }}"
+            ]
+          }
+        }
+      ]
+    },
+    "gradual-migration": "disable",
+    "replication": {
+      "mode": "disable"
+    },
+    "sla-dampening": {
+      "enable": false
+    },
+    "sla-smoothing": {
+      "enable": false
+    },
+    "fec": {
+      "sender": {
+        "mode": "disable"
+      },
+      "receiver": {
+        "recovery": "enable",
+        "preserve-order": "enable"
+      }
+    }
+  }
+}

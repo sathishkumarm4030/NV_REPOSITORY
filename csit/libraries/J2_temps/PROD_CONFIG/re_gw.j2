@@ -10,8 +10,8 @@ set devices device {{ VNF_GATEWAY_HOSTNAME }} config routing-instances {{ CUSTOM
 {%- for i in range(0,  NO_OF_VRFS) -%}
 {%- set NNI_VLAN_ID = CUSTOMER_ORG_ID * 10 + 2020 + i %}
 {%- set LAN_NO = 1 + i%}
-set devices device {{ VNF_GATEWAY_HOSTNAME }} config routing-instances {{ CUSTOMER_ORG_NAME }}-EXPORT{{ LAN_NO }}-VRF route-distinguisher {{ NNI_VLAN_ID }}L: {{ NNI_VLAN_ID }}2
-set devices device {{ VNF_GATEWAY_HOSTNAME }} config routing-instances {{ CUSTOMER_ORG_NAME }}-LAN{{ LAN_NO }}-VRF route-distinguisher {{ NNI_VLAN_ID }}L: {{ NNI_VLAN_ID }}
+set devices device {{ VNF_GATEWAY_HOSTNAME }} config routing-instances {{ CUSTOMER_ORG_NAME }}-EXPORT{{ LAN_NO }}-VRF route-distinguisher {{ NNI_VLAN_ID }}L:{{ NNI_VLAN_ID }}2
+set devices device {{ VNF_GATEWAY_HOSTNAME }} config routing-instances {{ CUSTOMER_ORG_NAME }}-LAN{{ LAN_NO }}-VRF route-distinguisher {{ NNI_VLAN_ID }}L:{{ NNI_VLAN_ID }}
 {%- endfor -%}
 {%- endif %}
 set devices device {{ VNF_GATEWAY_HOSTNAME }} config routing-instances {{ CUSTOMER_ORG_NAME }}-Control-VR protocols bgp {{ CUSTOMER_ORG_ID }} group GW-WC export EXPORT-{{ CUSTOMER_ORG_NAME }}-GW-TO-WC

@@ -323,3 +323,21 @@ set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN
 set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 debug level debug
 
 {% endfor %}
+
+#REDUNANT GW ROUTE CONFIG
+
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-GW-TO-WC term 1REJECT-R-CPE-ROUTES match family inet-vpn
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-GW-TO-WC term 1REJECT-R-CPE-ROUTES match community "(^|,)666:666($|,)"
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-GW-TO-WC term 1REJECT-R-CPE-ROUTES action reject
+{%- if 'GW1' in DEVICE_NAME or 'GW01' in DEVICE_NAME %}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-GW-TO-WC term 2ACCEPT-REST-ALL action set-local-preference 80
+{%- elif 'GW2' in DEVICE_NAME or 'GW02' in DEVICE_NAME %}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-GW-TO-WC term 2ACCEPT-REST-ALL action set-local-preference 60
+{%- for i in range(0,  NO_OF_VRFS) -%}
+{%- set NNI_VLAN_ID = ORG_ID * 10 + 2020 + i %}
+{%- set LAN_NO = 1 + i%}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ LAN_NO }}-VRF route-distinguisher {{ NNI_VLAN_ID }}L:{{ NNI_VLAN_ID }}2
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ LAN_NO }}-VRF route-distinguisher {{ NNI_VLAN_ID }}L:{{ NNI_VLAN_ID }}
+{%- endfor -%}
+{%- endif %}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group GW-WC export EXPORT-{{ ORG_NAME }}-GW-TO-WC

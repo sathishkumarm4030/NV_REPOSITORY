@@ -230,11 +230,11 @@ CHECK MPLS WAN INTERFACE UP in CPE2
     Run Keyword And Continue On Failure    Should Contain X Times    ${result}    ${up}    2
 
 CHECK INTERNET WAN INTERFACE UP in CPE2
-    ${result}=    CPE1.get interface status    intf_name=${CPE2['WAN2_INTF']}${unit_o} | match INT
+    ${result}=    CPE2.get interface status    intf_name=${CPE2['WAN2_INTF']}${unit_o} | match INT
     Run Keyword And Continue On Failure    Should Contain X Times    ${result}    ${up}    2
 
 CHECK MPLS WAN INTERFACE UP in CPE3
-    ${result}=    CPE2.get interface status    intf_name=${CPE3['WAN1_INTF']}${unit_o} | match MPLS
+    ${result}=    CPE3.get interface status    intf_name=${CPE3['WAN1_INTF']}${unit_o} | match MPLS
     Run Keyword And Continue On Failure    Should Contain X Times    ${result}    ${up}    2
 
 CHECK WC1 BGP NEIGHBOR STATUS in CPE1 & CPE2 and CPE3
