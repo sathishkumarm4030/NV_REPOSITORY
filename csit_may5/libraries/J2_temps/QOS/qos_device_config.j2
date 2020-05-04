@@ -1,0 +1,97 @@
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service rw-rules dscp rw-1 forwarding-class fc_nc loss-priority low code-point af41
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service rw-rules dscp rw-1 forwarding-class fc_ef loss-priority low code-point ef
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service rw-rules dscp rw-1 forwarding-class fc_be loss-priority high code-point be
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service rw-rules dscp rw-1 forwarding-class fc13 loss-priority high code-point af31
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service rw-rules dscp rw-1 forwarding-class fc14 loss-priority high code-point af21
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service rw-rules dscp rw-1 forwarding-class fc15 loss-priority high code-point af11
+
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service forwarding-class-map fc_nc traffic-class tc0
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service forwarding-class-map fc_nc queue 0
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service forwarding-class-map fc_ef traffic-class tc1
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service forwarding-class-map fc_ef queue 0
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service forwarding-class-map fc13 traffic-class tc3
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service forwarding-class-map fc13 queue 0
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service forwarding-class-map fc14 traffic-class tc3
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service forwarding-class-map fc14 queue 1
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service forwarding-class-map fc15 traffic-class tc3
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service forwarding-class-map fc15 queue 2
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service forwarding-class-map fc_be traffic-class tc3
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service forwarding-class-map fc_be queue 3
+
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service interfaces {{ schdulermap_intf }} scheduler-map {{ ORG_NAME }}
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service interfaces tunnel dscp-rewrite-rule rw-1
+
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service scheduler-maps {{ ORG_NAME }} traffic-class tc0 scheduler sc_nc
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service scheduler-maps {{ ORG_NAME }} traffic-class tc1 scheduler sc_ef
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service scheduler-maps {{ ORG_NAME }} traffic-class tc3 scheduler sc_be
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service drop-profiles wred-high-drop maximum 128 minimum 64
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service drop-profiles wred-low-drop maximum 128 minimum 96
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service drop-profiles tail-drop maximum 65 minimum 64
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service schedulers sc_be drop-profile-map loss-priority low drop-profile wred-low-drop
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service schedulers sc_be drop-profile-map loss-priority high drop-profile wred-high-drop
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service schedulers sc_be queue 0 weight 6
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service schedulers sc_be queue 1 weight 4
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service schedulers sc_be queue 2 weight 4
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service schedulers sc_be queue 3 weight 3
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service schedulers sc_ef
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service schedulers sc_nc drop-profile-map loss-priority low drop-profile tail-drop
+
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium set action allow
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium set qos-profile Premium
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match source zone zone-list [ Intf-LAN1-Zone ]
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match destination zone zone-list [ ptvi ]
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match dscp [ 46 ]
+
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 set action allow
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 set qos-profile Business1
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 match source zone zone-list [ Intf-LAN1-Zone ]
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 match dscp [ 26 ]
+
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 set action allow
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 set qos-profile Business2
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 match source zone zone-list [ Intf-LAN1-Zone ]
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 match dscp [ 18 ]
+
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 set action allow
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 set qos-profile Business3
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 match source zone zone-list [ Intf-LAN1-Zone ]
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 match dscp [ 10 ]
+
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Internet-Default set action allow
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Internet-Default set qos-profile Internet-Default
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Internet-Default match source zone zone-list [ Intf-LAN1-Zone ]
+
+
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service app-qos-policies Default-Policy
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Business1 forwarding-class fc13
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Business1 loss-priority high
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Business1 dscp-rw-enable yes
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Business1 dot1p-rw-enable no
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Business2 forwarding-class fc14
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Business2 loss-priority high
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Business2 dscp-rw-enable yes
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Business2 dot1p-rw-enable no
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Business3 forwarding-class fc15
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Business3 loss-priority high
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Business3 dscp-rw-enable yes
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Business3 dot1p-rw-enable no
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Internet-Default forwarding-class fc_be
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Internet-Default loss-priority high
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Internet-Default dscp-rw-enable no
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Internet-Default dot1p-rw-enable no
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Premium forwarding-class fc_ef
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Premium loss-priority low
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Premium dscp-rw-enable yes
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Premium dot1p-rw-enable no
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Routing-Management forwarding-class fc_nc
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Routing-Management loss-priority low
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Routing-Management dscp-rw-enable yes
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-profiles Routing-Management dot1p-rw-enable no
+
+#move rule to first
+move devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Internet-Default  first
+move devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 first
+move devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 first
+move devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 first
+move devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium first
+

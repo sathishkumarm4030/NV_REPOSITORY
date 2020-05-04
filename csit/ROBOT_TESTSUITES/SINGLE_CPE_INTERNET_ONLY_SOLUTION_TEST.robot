@@ -400,6 +400,16 @@ CLEANUP
     CPE1.delete_address_object    ${ipaddobj_1}
     CPE1.delete_address_object    ${ipaddobj_2}
     spirent1.release_ports
+    : FOR    ${i}    IN RANGE    1    ${VM1['NO_OF_VRFS']} + 1
+    \    ${gw} =    set variable    ${VM1['lan'][${i}]['first_host']}
+    \    ${vlan} =    set variable    ${VM1['lan'][${i}]['vlan']}
+    \    ${destination_nw} =    set variable    ${VM2['lan'][${i}]['nw']}
+    \    VM1.send_commands_and_expect    sudo ip route del ${destination_nw} via ${gw} dev ${VM1['LAN_INTF']}.${vlan}
+    : FOR    ${i}    IN RANGE    1    ${VM2['NO_OF_VRFS']} + 1
+    \    ${gw} =    set variable    ${VM2['lan'][${i}]['first_host']}
+    \    ${vlan} =    set variable    ${VM2['lan'][${i}]['vlan']}
+    \    ${destination_nw} =    set variable    ${VM1['lan'][${i}]['nw']}
+    \    VM2.send_commands_and_expect    sudo ip route del ${destination_nw} via ${gw} dev ${VM2['LAN_INTF']}.${vlan}
 
 CHECK RESULT1
     [Arguments]    ${actual}    ${expected}=True

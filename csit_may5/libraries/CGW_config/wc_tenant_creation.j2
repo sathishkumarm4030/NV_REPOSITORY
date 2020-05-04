@@ -1,0 +1,37 @@
+{#
+    Controller Tenant
+#}
+
+
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile {{CUSTOMER_ORG_NAME}}-PostStaging psk-auth-clients remote-client {{CGW1_ID_STRING}} id-type email
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile {{CUSTOMER_ORG_NAME}}-PostStaging psk-auth-clients remote-client {{CGW1_ID_STRING}} key {{CGW1_PSK}}
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile {{CUSTOMER_ORG_NAME}}-PostStaging psk-auth-clients remote-client {{CGW2_ID_STRING}} id-type email
+set devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile {{CUSTOMER_ORG_NAME}}-PostStaging psk-auth-clients remote-client {{CGW2_ID_STRING}} key {{CGW2_PSK}}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} routing-peer-policy EXPORT-Controllers term ACCEPT-CGW-ROUTES match family inet-vpn
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} routing-peer-policy EXPORT-Controllers term ACCEPT-CGW-ROUTES match community "(^|,)*:[5-6][0-1]($|,)"
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} routing-peer-policy EXPORT-Controllers term ACCEPT-CGW-ROUTES action accept
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} routing-peer-policy EXPORT-WC-TO-CGW term ACCEPT-MGMT-VA-SB match ip nlri prefix-list MGMT-VA-SB
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} routing-peer-policy EXPORT-WC-TO-CGW term ACCEPT-MGMT-VA-SB action accept
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} routing-peer-policy EXPORT-WC-TO-CGW term REJECT-MGMT-ROUTES match community "(^|,)100:1($|,)"
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} routing-peer-policy EXPORT-WC-TO-CGW term REJECT-MGMT-ROUTES action reject
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} routing-peer-policy EXPORT-WC-TO-CGW term ACCEPT-CGW-ROUTES match family inet-vpn
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} routing-peer-policy EXPORT-WC-TO-CGW term ACCEPT-CGW-ROUTES match community "(^|,)*:[5-6][0-1]($|,)"
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} routing-peer-policy EXPORT-WC-TO-CGW term ACCEPT-CGW-ROUTES action accept
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} routing-peer-policy EXPORT-WC-TO-CGW term ACCEPT-CPE-ROUTES match family inet-vpn
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} routing-peer-policy EXPORT-WC-TO-CGW term ACCEPT-CPE-ROUTES match community "(^|,)*:10($|,)"
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} routing-peer-policy EXPORT-WC-TO-CGW term ACCEPT-CPE-ROUTES action accept
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} routing-peer-policy EXPORT-WC-TO-CGW term DENY-REST match family inet-vpn
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} routing-peer-policy EXPORT-WC-TO-CGW term DENY-REST action reject
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} group VNF-CGW family inet unicast
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} group VNF-CGW family inet versa-private
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} group VNF-CGW family inet-vpn unicast
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} group VNF-CGW family inet6-vpn unicast
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} group VNF-CGW peer-as {{BGP_ASN}}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} group VNF-CGW route-reflector-client
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} group VNF-CGW export EXPORT-WC-TO-CGW
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} group VNF-CGW bfd-liveness-detection
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} group VNF-CGW bfd-liveness-detection minimum-receive-interval 1000
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} group VNF-CGW bfd-liveness-detection multiplier 3
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} group VNF-CGW bfd-liveness-detection transmit-interval minimum-interval 1000
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} group VNF-CGW neighbor {{CGW1_ESP_IP}} peer-as {{BGP_ASN}}
+set devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} group VNF-CGW neighbor {{CGW2_ESP_IP}} peer-as {{BGP_ASN}}

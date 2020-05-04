@@ -48,7 +48,7 @@ def Do_Cpe_onboarding():
     spirent1 = HltapiLib("10.91.113.124", "10/1", "10/2")
     spirent1.connect_and_reserve_ports()
     device1 = spirent1.create_device(port=0, vlanid='600',
-                           intf_ip_addr='192.169.101.3', gateway_ip_addr='192.169.101.1')
+                           intf_ip_addr='192.170.1.5', gateway_ip_addr='192.170.1.1')
     device2 = spirent1.create_device(port=1, vlanid='610',
                            intf_ip_addr='192.169.111.3', gateway_ip_addr='192.169.111.1')
     src_dev_hdl = device1['handle'].split()[0]

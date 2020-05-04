@@ -91,6 +91,7 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_01
     REQ CLR SESSION ALL
     SHOW SESSION SDWAN DETAIL
     SHOW INTERFACE PORT STATISTICS BRIEF
+    CPE1.show_defpolicy_path_state    ${plcyrule_1}    ${CPE2['Device_name']}
     SHOW COMMIT CHANGES 0
     CPE1.show_config_object_addresses    ${ipaddobj_2}
     CPE1.show_config_sdwan_sla_profile    ${sla_prf_1}
@@ -100,18 +101,24 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_01
     spirent1.Start Stream Traffic    ${stream1['stream_id']}
     sleep    40s
     SHOW INTERFACE PORT STATISTICS BRIEF
+    ${result1}    CPE1.show_defpolicy_path_state    ${plcyrule_1}    ${CPE2['Device_name']}
+    CHECK RESULT    actual=${result1}    expected=SLA Violated
     ${result}    CPE1.show_session_sdwan_detail    source_port=2000
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN1_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
     spirent1.Start Stream Traffic    ${stream2['stream_id']}
     sleep    40s
     SHOW INTERFACE PORT STATISTICS BRIEF
+    ${result1}    CPE1.show_defpolicy_path_state    ${plcyrule_1}    ${CPE2['Device_name']}
+    CHECK RESULT    actual=${result1}    expected=SLA Violated
     ${result}    CPE1.show_session_sdwan_detail    source_port=2001
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN2_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
     spirent1.Start Stream Traffic    ${stream3['stream_id']}
     sleep    40s
     SHOW INTERFACE PORT STATISTICS BRIEF
+    ${result1}    CPE1.show_defpolicy_path_state    ${plcyrule_1}    ${CPE2['Device_name']}
+    CHECK RESULT    actual=${result1}    expected=SLA Violated
     ${result}    CPE1.show_session_sdwan_detail    source_port=2002
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN2_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
@@ -137,18 +144,24 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_02
     spirent1.Start Stream Traffic    ${stream1['stream_id']}
     sleep    40s
     SHOW INTERFACE PORT STATISTICS BRIEF
+    ${result1}    CPE1.show_defpolicy_path_state    ${plcyrule_1}    ${CPE2['Device_name']}
+    CHECK RESULT    actual=${result1}    expected=SLA Violated
     ${result}    CPE1.show_session_sdwan_detail    source_port=2000
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN1_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
     spirent1.Start Stream Traffic    ${stream2['stream_id']}
     sleep    40s
     SHOW INTERFACE PORT STATISTICS BRIEF
+    ${result1}    CPE1.show_defpolicy_path_state    ${plcyrule_1}    ${CPE2['Device_name']}
+    CHECK RESULT    actual=${result1}    expected=SLA Violated
     ${result}    CPE1.show_session_sdwan_detail    source_port=2001
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN2_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
     spirent1.Start Stream Traffic    ${stream3['stream_id']}
     sleep    40s
     SHOW INTERFACE PORT STATISTICS BRIEF
+    ${result1}    CPE1.show_defpolicy_path_state    ${plcyrule_1}    ${CPE2['Device_name']}
+    CHECK RESULT    actual=${result1}    expected=SLA Violated
     ${result}    CPE1.show_session_sdwan_detail    source_port=2002
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN2_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
@@ -174,6 +187,7 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_03
     spirent1.Start Stream Traffic    ${stream1['stream_id']}
     sleep    40s
     SHOW INTERFACE PORT STATISTICS BRIEF
+    CPE1.show_defpolicy_path_state    ${plcyrule_1}    ${CPE2['Device_name']}
     ${result}    CPE1.show_session_sdwan_detail    source_port=2000
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN1_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
@@ -188,6 +202,7 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_04
     REQ CLR SESSION ALL
     SHOW SESSION SDWAN DETAIL
     SHOW INTERFACE PORT STATISTICS BRIEF
+    CPE1.show_defpolicy_path_state    ${plcyrule_1}    ${CPE2['Device_name']}
     SHOW COMMIT CHANGES 0
     CPE1.show_config_sdwan_sla_profile    ${sla_prf_1}
     CPE1.show_config_sdwan_fwd_profile    ${fwp_1}
@@ -201,6 +216,7 @@ NV_SINGLE_CPE_HYBRID_TRAFFIC_STEERING_04
     ${result}=    VM1.send_commands_and_expect    iperf3 -c ${destip} &
     sleep    5s
     SHOW INTERFACE PORT STATISTICS BRIEF
+    CPE1.show_defpolicy_path_state    ${plcyrule_1}    ${CPE2['Device_name']}
     ${result}    CPE1.show_session_sdwan_detail    application=iperf
     CHECK RESULT    actual=${result}    expected=tx-wan-ckt${SPACE*17}${CPE1['WAN1_NAME']}
     CHECK RESULT    actual=${result}    expected=sdwan-rule-name${SPACE*12}${plcyrule_1}
@@ -475,6 +491,16 @@ CLEANUP
     DELETE FWD PROFILE
     log to console    "cleanup done"
     spirent1.release_ports
+    : FOR    ${i}    IN RANGE    1    ${VM1['NO_OF_VRFS']} + 1
+    \    ${gw} =    set variable    ${VM1['lan'][${i}]['first_host']}
+    \    ${vlan} =    set variable    ${VM1['lan'][${i}]['vlan']}
+    \    ${destination_nw} =    set variable    ${VM2['lan'][${i}]['nw']}
+    \    VM1.send_commands_and_expect    sudo ip route del ${destination_nw} via ${gw} dev ${VM1['LAN_INTF']}.${vlan}
+    : FOR    ${i}    IN RANGE    1    ${VM2['NO_OF_VRFS']} + 1
+    \    ${gw} =    set variable    ${VM2['lan'][${i}]['first_host']}
+    \    ${vlan} =    set variable    ${VM2['lan'][${i}]['vlan']}
+    \    ${destination_nw} =    set variable    ${VM1['lan'][${i}]['nw']}
+    \    VM2.send_commands_and_expect    sudo ip route del ${destination_nw} via ${gw} dev ${VM2['LAN_INTF']}.${vlan}
 
 CHECK RESULT1
     [Arguments]    ${actual}    ${expected}=True

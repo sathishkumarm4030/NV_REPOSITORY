@@ -118,7 +118,19 @@ class LinuxLib:
             n = ipaddress.ip_network(nw_addr)
             self.lan[i]['first_host'] = str(n[1])
             self.lan[i]['second_host'] = str(n[2])
+            self.lan[i]['second_host'] = str(n[2])
+            self.lan[i]['third_host'] = str(n[3])
+            if n.prefixlen < 30:
+                self.lan[i]['fourth_host'] = str(n[4])
+                self.lan[i]['fifth_host'] = str(n[5])
+                self.lan[i]['sixth_host'] = str(n[6])
+                self.lan[i]['seventh_host'] = str(n[7])
+                self.lan[i]['eighth_host'] = str(n[8])
+                self.lan[i]['ninth_host'] = str(n[9])
+                self.lan[i]['tenth_host'] = str(n[10])
             self.lan[i]['netmask'] = str(n.netmask)
+            self.lan[i]['prefixlen'] = str(n.prefixlen)
+            self.lan[i]['nw_with_prefixlen'] = str(n.with_prefixlen)
             nw_addr = next(network_address)
         return
 
@@ -165,7 +177,16 @@ class LinuxLib:
             self.lan[i]['peer_nw'] = nw_addr
             n = ipaddress.ip_network(nw_addr)
             self.lan[i]['peer_first_host'] = str(n[1])
-            self.lan[i]['peer_second_host'] = str(n[2])
+            self.lan[i]['second_host'] = str(n[2])
+            self.lan[i]['third_host'] = str(n[3])
+            if n.prefixlen < 30:
+                self.lan[i]['fourth_host'] = str(n[4])
+                self.lan[i]['fifth_host'] = str(n[5])
+                self.lan[i]['sixth_host'] = str(n[6])
+                self.lan[i]['seventh_host'] = str(n[7])
+                self.lan[i]['eighth_host'] = str(n[8])
+                self.lan[i]['ninth_host'] = str(n[9])
+                self.lan[i]['tenth_host'] = str(n[10])
             self.lan[i]['peer_netmask'] = str(n.netmask)
             nw_addr = next(network_address)
         return
@@ -549,6 +570,22 @@ class LinuxLib:
             self.linux_device_config_commands(self.VM_nc,
                                               "sudo ifconfig " + intf + "." + vlan + " " + ip + " netmask " + nmask)
 
+    def VM_pre_op_dual(self):
+        self.VM_nc = self.shell_login()
+        self.linux_device_config_commands(self.VM_nc, "sudo bash", expect_string=":")
+        self.linux_device_config_commands(self.VM_nc, "versa123", expect_string="#")
+        self.linux_device_config_commands(self.VM_nc, "exit", expect_string="\$")
+        self.linux_device_config_commands(self.VM_nc, "sudo ifconfig " + self.LAN_INTF + " up")
+        intf = str(self.LAN_INTF)
+        for i in range(1, self.NO_OF_VRFS+1):
+            ip = str(self.lan[i]['fourth_host'])
+            gw = str(self.lan[i]['first_host'])
+            nmask = str(self.lan[i]['netmask'])
+            vlan = str(self.lan[i]['vlan'])
+            self.linux_device_config_commands(self.VM_nc, "sudo vconfig add " + intf + " " + vlan)
+            self.linux_device_config_commands(self.VM_nc, "sudo ifconfig " + intf + "." + vlan + " up")
+            self.linux_device_config_commands(self.VM_nc,
+                                              "sudo ifconfig " + intf + "." + vlan + " " + ip + " netmask " + nmask)
 
     def shell_ping(self, dest_ip, count=5, **kwargs):
         cmd = "sudo ping " + str(dest_ip) + " -c " + str(count)
@@ -576,11 +613,15 @@ class LinuxLib:
         print output
         return str(" 0% packet loss" in output)
 
-    def send_commands_and_expect(self, cmds, expect_string="\$"):
+    def send_commands_and_expect(self, cmds, expect_string="\$|password|:|#"):
         for cmd in cmds.split("\n"):
             # print cmd
             output = self.shell_nc.send_command_expect(cmd, expect_string=expect_string, strip_prompt=False,
                                                        strip_command=False)
+            if "password|:" in output:
+                output1 = self.shell_nc.send_command_expect(cmd, expect_string=expect_string, strip_prompt=False,
+                                                           strip_command=False)
+                output = output + output1
         #logger.info(output, also_console=True)
         return output
 

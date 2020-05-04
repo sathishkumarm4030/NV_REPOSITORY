@@ -1009,9 +1009,9 @@ class VersaLib:
             self.main_logger.debug(nc_handler.send_command_expect(cmd, expect_string='%', strip_prompt=False, strip_command=False))
         self.main_logger.debug(nc_handler.send_command_expect('commit and-quit', expect_string='>', strip_prompt=False, strip_command=False))
 
-    def device_config_commands_with_return(self, cmds):
+    def device_config_commands_with_return(self, nc, cmds):
         res_check = ""
-        nc_handler = self.nc
+        nc_handler = nc
         self.main_logger.debug(nc_handler.config_mode(config_command='config private'))
         self.main_logger.debug(nc_handler.check_config_mode())
         for cmd in cmds.split("\n"):
@@ -1126,7 +1126,7 @@ class VersaLib:
         temp_dict.update(LAN1_QOS_RULES)
         self.DEVICE_template_modify_config = self.DEVICE_template_modify.render(temp_dict)
         self.main_logger.info(self.DEVICE_template_modify_config)
-        result = self.device_config_commands_with_return(self.DEVICE_template_modify_config)
+        result = self.device_config_commands_with_return(self.nc, self.DEVICE_template_modify_config)
         return result
         self.main_logger.info(">>>>>>>>>> CONFIG QOS passed. <<<<<<<<<<<")
 
@@ -1143,7 +1143,7 @@ class VersaLib:
         temp_dict['ORG_NAME'] = org_name
         self.DEVICE_template_modify_config = self.DEVICE_template_modify.render(temp_dict)
         self.main_logger.info(self.DEVICE_template_modify_config)
-        result = self.device_config_commands_with_return(self.DEVICE_template_modify_config)
+        result = self.device_config_commands_with_return(self.nc, self.DEVICE_template_modify_config)
         return result
         self.main_logger.info(">>>>>>>>>> CONFIG QOS passed. <<<<<<<<<<<")
 
@@ -1493,7 +1493,7 @@ class VersaLib:
 
     def show_session_sdwan_detail(self,  **kwargs):
         cmd = "show orgs org " + self.ORG_NAME + " sessions sdwan detail | nomore"
-        paramlist = ['destination_ip', 'destination_port', 'source_ip', 'source_port']
+        paramlist = ['destination_ip', 'destination_port', 'source_ip', 'source_port', 'application']
         for element in paramlist:
             if element in kwargs.keys():
                 cmd = cmd + "| select " + element.replace('_', '-') + " " + str(kwargs[element])
@@ -1513,6 +1513,15 @@ class VersaLib:
         print cmd
         output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
         return output
+
+    def show_defpolicy_path_state(self, fwp, cpe):
+        cmd = "show orgs org-services " + self.ORG_NAME + " sd-wan policies Default-Policy rules path-state detail " + fwp + " " + cpe + " | tab"
+        print cmd
+        output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
+        return output
+
+
+
 
     def show_commit_changes_0(self):
         cmd = "show commit changes 0 | nomore"
