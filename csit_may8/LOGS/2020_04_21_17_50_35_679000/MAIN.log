@@ -1,0 +1,2936 @@
+2020-04-21 17:50:42,828 - VD1 - INFO - ORG NAME:IPC00199
+2020-04-21 17:50:50,490 - VD1 - DEBUG - <netmiko.versa.versa_ssh.VersaSSH object at 0x000000000E0CA400>
+2020-04-21 17:50:55,693 - VD1 - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2020-04-21 17:50:55,874 - VD1 - INFO - set devices device NV-GW01-N1-HKG config interfaces tvi-0/198 enable true
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/198 mode ipsec
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/198 type p2mp-vxlan
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/198 unit 0 enable true
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/198 description "VxLAN IPC00199 Management"
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/198 unit 0 family
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/198 unit 0 family inet
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/198 unit 0 family inet address 30.99.1.1/32
+
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/199 enable true
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/199 mode ipsec
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/199 type p2mp-esp
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/199 unit 0 enable true
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/199 description "ESP IPC00199 Management"
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/199 unit 0 enable true
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/199 unit 0 family
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/199 unit 0 family inet
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/199 unit 0 family inet address 40.99.1.1/32
+
+
+
+
+set devices device NV-GW01-N1-HKG config interfaces ptvi198 parent-interface tvi-0/199.0 remote-address 10.99.64.1
+
+
+
+set devices device NV-GW01-N1-HKG config interfaces ptvi199 parent-interface tvi-0/199.0 remote-address 10.99.64.11
+
+set devices device NV-GW01-N1-HKG config interfaces vni-0/0 unit 1110 vlan-id 1110
+set devices device NV-GW01-N1-HKG config interfaces vni-0/0 unit 1110 enable true
+set devices device NV-GW01-N1-HKG config interfaces vni-0/0 unit 1110 family
+set devices device NV-GW01-N1-HKG config interfaces vni-0/0 unit 1110 family inet
+set devices device NV-GW01-N1-HKG config interfaces vni-0/0 unit 1110 family inet address 193.99.1.2/30
+
+set devices device NV-GW01-N1-HKG config interfaces vni-0/0 unit 1111 vlan-id 1111
+set devices device NV-GW01-N1-HKG config interfaces vni-0/0 unit 1111 enable true
+set devices device NV-GW01-N1-HKG config interfaces vni-0/0 unit 1111 family
+set devices device NV-GW01-N1-HKG config interfaces vni-0/0 unit 1111 family inet
+set devices device NV-GW01-N1-HKG config interfaces vni-0/0 unit 1111 family inet address 193.99.1.6/30
+
+
+
+
+
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/1110 enable true
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/1110 mode ipsec
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/1110 type paired
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/1110 paired-interface tvi-0/3010
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/1110 unit 0 enable true
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/1110 unit 0 family
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/1110 unit 0 family inet
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/1110 unit 0 family inet address 10.99.47.65/30
+
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/3010 mode ipsec
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/3010 type paired
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/3010 paired-interface tvi-0/1110
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/3010 unit 0 enable true
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/3010 unit 0 family
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/3010 unit 0 family inet
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/3010 unit 0 family inet address 10.99.47.66/30
+
+set devices device NV-GW01-N1-HKG config networks IPC00199-MPLS1 interfaces [ vni-0/0.1110 ]
+
+
+
+
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/1111 enable true
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/1111 mode ipsec
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/1111 type paired
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/1111 paired-interface tvi-0/3011
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/1111 unit 0 enable true
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/1111 unit 0 family
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/1111 unit 0 family inet
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/1111 unit 0 family inet address 10.99.47.69/30
+
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/3011 mode ipsec
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/3011 type paired
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/3011 paired-interface tvi-0/1111
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/3011 unit 0 enable true
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/3011 unit 0 family
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/3011 unit 0 family inet
+set devices device NV-GW01-N1-HKG config interfaces tvi-0/3011 unit 0 family inet address 10.99.47.70/30
+
+set devices device NV-GW01-N1-HKG config networks IPC00199-MPLS2 interfaces [ vni-0/0.1111 ]
+
+
+
+
+
+set devices device NV-GW01-N1-HKG config orgs org IPC00199 available-routing-instances [ INT-TRANSP-VR MPLS-TRANSP-VR IPC00199-Control-VR IPC00199-EXPORT1-VRF IPC00199-EXPORT2-VRF IPC00199-LAN1-VRF IPC00199-LAN2-VRF ]
+set devices device NV-GW01-N1-HKG config orgs org IPC00199 traffic-identification using [ ptvi198 ptvi199 tvi-0/198.0 tvi-0/199.0 tvi-0/1110.0 tvi-0/3010.0 tvi-0/1111.0 tvi-0/3011.0 ]
+set devices device NV-GW01-N1-HKG config orgs org IPC00199 owned-routing-instances [ IPC00199-Control-VR IPC00199-EXPORT1-VRF IPC00199-EXPORT2-VRF IPC00199-LAN1-VRF IPC00199-LAN2-VRF  ]
+set devices device NV-GW01-N1-HKG config orgs org IPC00199 traffic-identification using-networks [ IPC00199-MPLS1 IPC00199-MPLS2 ]
+
+set devices device NV-GW01-N1-HKG config orgs org IPC00199 available-provider-orgs [ IPC00199 ]
+set devices device NV-GW01-N1-HKG config orgs org IPC00199 available-service-node-groups [ default-sng ]
+set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan site
+set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan site global-tenant-id 99
+set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan site site-name NV-GW01-N1-HKG
+set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan site management-routing-instance IPC00199-Control-VR
+set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan site wan-interfaces vni-0/1.428 sla-monitoring fc_be interval 1
+set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan site wan-interfaces vni-0/1.428 sla-monitoring fc_be logging-interval 5
+set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan site wan-interfaces vni-0/1.428 encryption optional
+set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan site wan-interfaces vni-0/1.429 sla-monitoring fc_be interval 1
+set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan site wan-interfaces vni-0/1.429 sla-monitoring fc_be logging-interval 5
+
+
+
+
+set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan controllers NV-WC01-N1-HKG management-addresses IKE ip-address 10.99.0.1 routing-instance IPC00199-Control-VR
+set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan controllers NV-WC01-N1-HKG management-addresses secure ip-address 10.99.64.1 routing-instance IPC00199-Control-VR
+
+
+
+
+set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan controllers NV-WC02-N1-HKG management-addresses IKE ip-address 10.99.0.11 routing-instance IPC00199-Control-VR
+set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan controllers NV-WC02-N1-HKG management-addresses secure ip-address 10.99.64.11 routing-instance IPC00199-Control-VR
+
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 security access-policies Policy1 rules R1 set action allow
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 security access-policies Policy1 rules R1 set lef profile Default-Logging-Profile
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 security access-policies Policy1 rules R1 set lef event end
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 security access-policies Policy1 rules R1 set lef options send-pcap-data enable false
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 objects zones trust
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 objects zones untrust
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 objects zones host
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 traffic-monitoring logging-control Default-Logging-Control profile Default-Logging-Profile
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 traffic-monitoring logging-control Default-Logging-Control options
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 traffic-monitoring logging-control Default-Logging-Control options stats
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 traffic-monitoring logging-control Default-Logging-Control options stats all
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 traffic-monitoring policies Analytics-policy rules rule1 set lef profile Default-Logging-Profile
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector1 destination-address 10.91.127.201 destination-port 5140
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector1 routing-instance IPC00199-Control-VR
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector1 transport tcp
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector1 template Default-LEF-Template
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector2 destination-address 10.91.127.202 destination-port 5140
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector2 routing-instance IPC00199-Control-VR
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector2 transport tcp
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector2 template Default-LEF-Template
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef collector-groups Default-Collector-Group collectors [ LEF-Collector-log_collector1 LEF-Collector-log_collector2 ]
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef templates Default-LEF-Template type ipfix
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef profiles Default-Logging-Profile collector-group Default-Collector-Group
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef default-profile Default-Logging-Profile
+
+
+
+
+
+
+
+
+
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 vpn-type branch-sdwan
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 local-auth-info
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 local-auth-info auth-type psk
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 local-auth-info id-type email
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 local-auth-info key NV-GW01-N1-HKG
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 local-auth-info id-string NV-GW01-N1-HKG@IPC00199.com
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 local
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 local address 30.99.1.1
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 routing-instance IPC00199-Control-VR
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 tunnel-routing-instance IPC00199-Control-VR
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 tunnel-initiate automatic
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ipsec fragmentation pre-fragmentation
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ipsec transform esp-aes128-sha1
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ipsec mode tunnel
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ipsec pfs-group mod-none
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ipsec anti-replay enable
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ipsec life duration 25000
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ike version v2
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ike group mod19
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ike transform aes128-sha1
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ike lifetime 27000
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ike dpd-timeout 10
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 peer-auth-info
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 peer-auth-info auth-type psk
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 peer-auth-info id-type email
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 peer-auth-info key NV-WC01-N1-HKG
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 peer-auth-info id-string NV-WC01-N1-HKG@IPC00199.com
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 peer
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 peer address 10.99.0.1
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 tunnel-interface ptvi198
+
+
+
+
+
+
+
+
+
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 vpn-type branch-sdwan
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 local-auth-info
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 local-auth-info auth-type psk
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 local-auth-info id-type email
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 local-auth-info key NV-GW01-N1-HKG
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 local-auth-info id-string NV-GW01-N1-HKG@IPC00199.com
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 local
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 local address 30.99.1.1
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 routing-instance IPC00199-Control-VR
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 tunnel-routing-instance IPC00199-Control-VR
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 tunnel-initiate automatic
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ipsec fragmentation pre-fragmentation
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ipsec transform esp-aes128-sha1
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ipsec mode tunnel
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ipsec pfs-group mod-none
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ipsec anti-replay enable
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ipsec life duration 25000
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ike version v2
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ike group mod19
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ike transform aes128-sha1
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ike lifetime 27000
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ike dpd-timeout 10
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 peer-auth-info
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 peer-auth-info auth-type psk
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 peer-auth-info id-type email
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 peer-auth-info key NV-WC02-N1-HKG
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 peer-auth-info id-string NV-WC02-N1-HKG@IPC00199.com
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 peer
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 peer address 10.99.0.11
+set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 tunnel-interface ptvi199
+
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR instance-type virtual-router
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR mpls-vpn-core
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR interfaces [ ptvi198 ptvi199 tvi-0/198.0 tvi-0/199.0 ]
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR routing-options mpls-vpn-local-router-address 40.99.1.1
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR routing-options static route 0.0.0.0/0 40.99.1.1 tvi-0/199.0 preference 1
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR routing-options static route 0.0.0.0/0 40.99.1.1 tvi-0/199.0 tag 0
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 router-id 40.99.1.1 local-as as-number 65505
+
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 hold-time 90
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 peer-as 65505
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 route-flap free-max-time 180
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 route-flap reuse-max-time 60
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 route-flap reuse-size 256
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 route-flap reuse-array-size 1024
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 graceful-restart enable
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 graceful-restart recovery-time 120
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 graceful-restart select-defer-time 120
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 graceful-restart stalepath-time 120
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 graceful-restart dynamic-peer-restart-time 0
+
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 ibgp-preference 200
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 ebgp-preference 20
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC type internal
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC family inet unicast
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC family inet versa-private
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC family inet-vpn unicast
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC bfd-liveness-detection
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC bfd-liveness-detection minimum-receive-interval 1000
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC bfd-liveness-detection multiplier 3
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC bfd-liveness-detection transmit-interval minimum-interval 1000
+
+
+
+
+
+
+
+
+
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC neighbor 10.99.64.1
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC neighbor 10.99.64.1 peer-as 65505
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 debug level debug
+
+
+
+
+
+
+
+
+
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC neighbor 10.99.64.11
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC neighbor 10.99.64.11 peer-as 65505
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 debug level debug
+
+
+
+
+
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF instance-type vrf
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF global-vrf-id 11102
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF mpls-vpn-core-instance IPC00199-Control-VR
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF interfaces [ tvi-0/3010.0 ]
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF route-distinguisher 1110L:11102
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF vrf-export-target target:1110L:11102
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 router-id 10.99.47.66 local-as as-number 65506
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 route-flap free-max-time 180
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 route-flap reuse-max-time 60
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 route-flap reuse-size 256
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 route-flap reuse-array-size 1024
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 graceful-restart recovery-time 120
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 graceful-restart select-defer-time 120
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 graceful-restart stalepath-time 120
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 permit
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 address-family ipv4 unicast address-mask 193.99.1.0/30
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT match ip nlri prefix-list NNI1-INT
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT action reject
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES match community "(^|,)852:20($|,)"
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES action reject
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action accept
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community 852:11
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community-action set-specific
+
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 ibgp-preference 200
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 ebgp-preference 20
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 group EBGP-With-LAN_VRF type external
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 group EBGP-With-LAN_VRF import IMPORT-POLICY-FROM-LAN-VRF
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 group EBGP-With-LAN_VRF neighbor 10.99.47.65 local-address 10.99.47.66
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 group EBGP-With-LAN_VRF neighbor 10.99.47.65 peer-as 15404
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 debug level debug
+
+
+
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action set-origin igp
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT match protocol direct
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action accept
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action set-origin igp
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC match protocol static
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action accept
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action set-origin igp
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF instance-type vrf
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF global-vrf-id 1110
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF networks [ IPC00199-MPLS1 ]
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF mpls-vpn-core-instance IPC00199-Control-VR
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF interfaces [ tvi-0/1110.0 ]
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF route-distinguisher 1110L:1110
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF vrf-import-target target:1110L:1110
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF vrf-export-target target:1110L:11102
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 router-id 193.99.1.2 local-as as-number 15404
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 route-flap free-max-time 180
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 route-flap reuse-max-time 60
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 route-flap reuse-size 256
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 route-flap reuse-array-size 1024
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 graceful-restart recovery-time 120
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 graceful-restart select-defer-time 120
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 graceful-restart stalepath-time 120
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 permit
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 address-family ipv4 unicast address-mask 10.99.47.64/30
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT match ip nlri prefix-list PTVI-INT
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT action reject
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP match community "(^|,)852:11($|,)"
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP action reject
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM match community "(^|,)852:10($|,)"
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action accept
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community 100:10
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community-action set-specific
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 4DENY-REST action reject
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP match community "(^|,)852:11($|,)"
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP action reject
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 2ALLOW-REST action accept
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES match community "(^|,)100:10($|,)"
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES action reject
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action accept
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community 852:20
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community-action set-specific
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 ibgp-preference 200
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 ebgp-preference 20
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF type external
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF export EXPORT-PAIR-TVI-LOOP-PREV
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF neighbor 10.99.47.66 local-address 10.99.47.65
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF neighbor 10.99.47.66 peer-as 65506
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI type external
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI import IMPORT-POLICY-NNI
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI export EXPORT-POLICY-NNI
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI neighbor 193.99.1.1 local-address 193.99.1.2
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI neighbor 193.99.1.1 peer-as 8220
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 debug level debug
+
+
+
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF instance-type vrf
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF global-vrf-id 11112
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF mpls-vpn-core-instance IPC00199-Control-VR
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF interfaces [ tvi-0/3011.0 ]
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF route-distinguisher 1111L:11112
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF vrf-export-target target:1111L:11112
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 router-id 10.99.47.70 local-as as-number 65506
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 route-flap free-max-time 180
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 route-flap reuse-max-time 60
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 route-flap reuse-size 256
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 route-flap reuse-array-size 1024
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 graceful-restart recovery-time 120
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 graceful-restart select-defer-time 120
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 graceful-restart stalepath-time 120
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 permit
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 address-family ipv4 unicast address-mask 193.99.1.4/30
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT match ip nlri prefix-list NNI1-INT
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT action reject
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES match community "(^|,)852:20($|,)"
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES action reject
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action accept
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community 852:11
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community-action set-specific
+
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 ibgp-preference 200
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 ebgp-preference 20
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 group EBGP-With-LAN_VRF type external
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 group EBGP-With-LAN_VRF import IMPORT-POLICY-FROM-LAN-VRF
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 group EBGP-With-LAN_VRF neighbor 10.99.47.69 local-address 10.99.47.70
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 group EBGP-With-LAN_VRF neighbor 10.99.47.69 peer-as 15404
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 debug level debug
+
+
+
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action set-origin igp
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT match protocol direct
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action accept
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action set-origin igp
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC match protocol static
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action accept
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action set-origin igp
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF instance-type vrf
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF global-vrf-id 1111
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF networks [ IPC00199-MPLS2 ]
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF mpls-vpn-core-instance IPC00199-Control-VR
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF interfaces [ tvi-0/1111.0 ]
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF route-distinguisher 1111L:1111
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF vrf-import-target target:1111L:1111
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF vrf-export-target target:1111L:11112
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 router-id 193.99.1.2 local-as as-number 15404
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 route-flap free-max-time 180
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 route-flap reuse-max-time 60
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 route-flap reuse-size 256
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 route-flap reuse-array-size 1024
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 graceful-restart maximum-restart-time 120
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 graceful-restart recovery-time 120
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 graceful-restart select-defer-time 120
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 graceful-restart stalepath-time 120
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 permit
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 address-family ipv4 unicast address-mask 10.99.47.68/30
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT match ip nlri prefix-list PTVI-INT
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT action reject
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP match community "(^|,)852:11($|,)"
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP action reject
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM match community "(^|,)852:10($|,)"
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action accept
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community 100:10
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community-action set-specific
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 4DENY-REST action reject
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP match community "(^|,)852:11($|,)"
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP action reject
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 2ALLOW-REST action accept
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES match community "(^|,)100:10($|,)"
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES action reject
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action accept
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community 852:20
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community-action set-specific
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 ibgp-preference 200
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 ebgp-preference 20
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF type external
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF export EXPORT-PAIR-TVI-LOOP-PREV
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF neighbor 10.99.47.70 local-address 10.99.47.69
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF neighbor 10.99.47.70 peer-as 65506
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI type external
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI import IMPORT-POLICY-NNI
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI export EXPORT-POLICY-NNI
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI neighbor 193.99.1.5 local-address 193.99.1.6
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI neighbor 193.99.1.5 peer-as 8220
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 debug level debug
+
+
+
+#REDUNANT GW ROUTE CONFIG
+
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 routing-peer-policy EXPORT-IPC00199-GW-TO-WC term 1REJECT-R-CPE-ROUTES match family inet-vpn
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 routing-peer-policy EXPORT-IPC00199-GW-TO-WC term 1REJECT-R-CPE-ROUTES match community "(^|,)666:666($|,)"
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 routing-peer-policy EXPORT-IPC00199-GW-TO-WC term 1REJECT-R-CPE-ROUTES action reject
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 routing-peer-policy EXPORT-IPC00199-GW-TO-WC term 2ACCEPT-REST-ALL action set-local-preference 80
+set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC export EXPORT-IPC00199-GW-TO-WC
+2020-04-21 17:53:30,744 - VD1 - INFO - configure
+Entering configuration mode private
+[ok][2020-04-21 12:22:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/198 enable true
+[ok][2020-04-21 12:22:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/198 mode ipsec
+[ok][2020-04-21 12:22:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/198 type p2mp-vxlan
+[ok][2020-04-21 12:22:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/198 unit 0 enable true
+[ok][2020-04-21 12:22:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/198 description "VxLAN IPC00199 Management"
+[ok][2020-04-21 12:22:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/198 unit 0 family
+[ok][2020-04-21 12:22:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/198 unit 0 family inet
+[ok][2020-04-21 12:22:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/198 unit 0 family inet address 30.99.1.1/32
+[ok][2020-04-21 12:22:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/199 enable true
+[ok][2020-04-21 12:22:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/199 mode ipsec
+[ok][2020-04-21 12:22:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/199 type p2mp-esp
+[ok][2020-04-21 12:22:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/199 unit 0 enable true
+[ok][2020-04-21 12:22:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/199 description "ESP IPC00199 Management"
+[ok][2020-04-21 12:22:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/199 unit 0 enable true
+[ok][2020-04-21 12:22:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/199 unit 0 family
+[ok][2020-04-21 12:22:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/199 unit 0 family inet
+[ok][2020-04-21 12:22:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/199 unit 0 family inet address 40.99.1.1/32
+[ok][2020-04-21 12:22:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces ptvi198 parent-interface tvi-0/199.0 remote-address 10.99.64.1
+[ok][2020-04-21 12:22:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces ptvi199 parent-interface tvi-0/199.0 remote-address 10.99.64.11
+[ok][2020-04-21 12:22:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces vni-0/0 unit 1110 vlan-id 1110
+[ok][2020-04-21 12:22:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces vni-0/0 unit 1110 enable true
+[ok][2020-04-21 12:22:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces vni-0/0 unit 1110 family
+[ok][2020-04-21 12:22:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces vni-0/0 unit 1110 family inet
+[ok][2020-04-21 12:22:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces vni-0/0 unit 1110 family inet address 193.99.1.2/30
+[ok][2020-04-21 12:22:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces vni-0/0 unit 1111 vlan-id 1111
+[ok][2020-04-21 12:22:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces vni-0/0 unit 1111 enable true
+[ok][2020-04-21 12:22:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces vni-0/0 unit 1111 family
+[ok][2020-04-21 12:22:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces vni-0/0 unit 1111 family inet
+[ok][2020-04-21 12:22:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces vni-0/0 unit 1111 family inet address 193.99.1.6/30
+[ok][2020-04-21 12:22:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/1110 enable true
+[ok][2020-04-21 12:22:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/1110 mode ipsec
+[ok][2020-04-21 12:22:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/1110 type paired
+[ok][2020-04-21 12:22:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/1110 paired-interface tvi-0/3010
+[ok][2020-04-21 12:22:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/1110 unit 0 enable true
+[ok][2020-04-21 12:22:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/1110 unit 0 family
+[ok][2020-04-21 12:22:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/1110 unit 0 family inet
+[ok][2020-04-21 12:22:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/1110 unit 0 family inet address 10.99.47.65/30
+[ok][2020-04-21 12:22:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/3010 mode ipsec
+[ok][2020-04-21 12:22:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/3010 type paired
+[ok][2020-04-21 12:22:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/3010 paired-interface tvi-0/1110
+[ok][2020-04-21 12:22:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/3010 unit 0 enable true
+[ok][2020-04-21 12:22:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/3010 unit 0 family
+[ok][2020-04-21 12:22:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/3010 unit 0 family inet
+[ok][2020-04-21 12:22:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/3010 unit 0 family inet address 10.99.47.66/30
+[ok][2020-04-21 12:22:57]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config networks IPC00199-MPLS1 interfaces [ vni-0/0.1110 ]
+[ok][2020-04-21 12:22:57]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/1111 enable true
+[ok][2020-04-21 12:22:57]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/1111 mode ipsec
+[ok][2020-04-21 12:22:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/1111 type paired
+[ok][2020-04-21 12:22:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/1111 paired-interface tvi-0/3011
+[ok][2020-04-21 12:22:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/1111 unit 0 enable true
+[ok][2020-04-21 12:22:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/1111 unit 0 family
+[ok][2020-04-21 12:22:59]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/1111 unit 0 family inet
+[ok][2020-04-21 12:22:59]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/1111 unit 0 family inet address 10.99.47.69/30
+[ok][2020-04-21 12:22:59]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/3011 mode ipsec
+[ok][2020-04-21 12:23:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/3011 type paired
+[ok][2020-04-21 12:23:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/3011 paired-interface tvi-0/1111
+[ok][2020-04-21 12:23:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/3011 unit 0 enable true
+[ok][2020-04-21 12:23:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/3011 unit 0 family
+[ok][2020-04-21 12:23:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/3011 unit 0 family inet
+[ok][2020-04-21 12:23:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config interfaces tvi-0/3011 unit 0 family inet address 10.99.47.70/30
+[ok][2020-04-21 12:23:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config networks IPC00199-MPLS2 interfaces [ vni-0/0.1111 ]
+[ok][2020-04-21 12:23:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org IPC00199 available-routing-instances [ INT-TRANSP-VR MPLS-TRANSP-VR IPC00199-Control-VR IPC00199-EXPORT1-VRF IPC00199-EXPORT2-VRF IPC00199-LAN1-VRF IPC00199-LAN2-VRF ]
+[ok][2020-04-21 12:23:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org IPC00199 traffic-identification using [ ptvi198 ptvi199 tvi-0/198.0 tvi-0/199.0 tvi-0/1110.0 tvi-0/3010.0 tvi-0/1111.0 tvi-0/3011.0 ]
+[ok][2020-04-21 12:23:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org IPC00199 owned-routing-instances [ IPC00199-Control-VR IPC00199-EXPORT1-VRF IPC00199-EXPORT2-VRF IPC00199-LAN1-VRF IPC00199-LAN2-VRF 
+Possible completions:
+  string  ]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org IPC00199 owned-routing-instances [ IPC00199-Control-VR IPC00199-EXPORT1-VRF IPC00199-EXPORT2-VRF IPC00199-LAN1-VRF IPC00199-LAN2-VRF ]
+[ok][2020-04-21 12:23:04]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org IPC00199 traffic-identification using-networks [ IPC00199-MPLS1 IPC00199-MPLS2 ]
+[ok][2020-04-21 12:23:04]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org IPC00199 available-provider-orgs [ IPC00199 ]
+[ok][2020-04-21 12:23:04]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org IPC00199 available-service-node-groups [ default-sng ]
+[ok][2020-04-21 12:23:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan site
+[ok][2020-04-21 12:23:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan site global-tenant-id 99
+[ok][2020-04-21 12:23:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan site site-name NV-GW01-N1-HKG
+[ok][2020-04-21 12:23:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan site management-routing-instance IPC00199-Control-VR
+[ok][2020-04-21 12:23:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan site wan-interfaces vni-0/1.428 sla-monitoring fc_be interval 1
+[ok][2020-04-21 12:23:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan site wan-interfaces vni-0/1.428 sla-monitoring fc_be logging-interval 5
+[ok][2020-04-21 12:23:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan site wan-interfaces vni-0/1.428 encryption optional
+[ok][2020-04-21 12:23:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan site wan-interfaces vni-0/1.429 sla-monitoring fc_be interval 1
+[ok][2020-04-21 12:23:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan site wan-interfaces vni-0/1.429 sla-monitoring fc_be logging-interval 5
+[ok][2020-04-21 12:23:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan controllers NV-WC01-N1-HKG management-addresses IKE ip-address 10.99.0.1 routing-instance IPC00199-Control-VR
+[ok][2020-04-21 12:23:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan controllers NV-WC01-N1-HKG management-addresses secure ip-address 10.99.64.1 routing-instance IPC00199-Control-VR
+[ok][2020-04-21 12:23:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan controllers NV-WC02-N1-HKG management-addresses IKE ip-address 10.99.0.11 routing-instance IPC00199-Control-VR
+[ok][2020-04-21 12:23:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org IPC00199 sd-wan controllers NV-WC02-N1-HKG management-addresses secure ip-address 10.99.64.11 routing-instance IPC00199-Control-VR
+[ok][2020-04-21 12:23:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 security access-policies Policy1 rules R1 set action allow
+[ok][2020-04-21 12:23:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 security access-policies Policy1 rules R1 set lef profile Default-Logging-Profile
+[ok][2020-04-21 12:23:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 security access-policies Policy1 rules R1 set lef event end
+[ok][2020-04-21 12:23:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 security access-policies Policy1 rules R1 set lef options send-pcap-data enable false
+[ok][2020-04-21 12:23:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 objects zones trust
+[ok][2020-04-21 12:23:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 objects zones untrust
+[ok][2020-04-21 12:23:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 objects zones host
+[ok][2020-04-21 12:23:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 traffic-monitoring logging-control Default-Logging-Control profile Default-Logging-Profile
+[ok][2020-04-21 12:23:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 traffic-monitoring logging-control Default-Logging-Control options
+[ok][2020-04-21 12:23:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 traffic-monitoring logging-control Default-Logging-Control options stats
+[ok][2020-04-21 12:23:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 traffic-monitoring logging-control Default-Logging-Control options stats all
+[ok][2020-04-21 12:23:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 traffic-monitoring policies Analytics-policy rules rule1 set lef  profile Default-Logging-Profile
+[ok][2020-04-21 12:23:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector1 destination-address 10.91.127.201 destination-port 5140
+[ok][2020-04-21 12:23:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector1 routing-instance IPC00199-Control-VR
+[ok][2020-04-21 12:23:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector1 transport tcp
+[ok][2020-04-21 12:23:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector1 template Default-LEF-Template
+[ok][2020-04-21 12:23:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector2 destination-address 10.91.127.202 destination-port 5140
+[ok][2020-04-21 12:23:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector2 routing-instance IPC00199-Control-VR
+[ok][2020-04-21 12:23:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector2 transport tcp
+[ok][2020-04-21 12:23:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector2 template Default-LEF-Template
+[ok][2020-04-21 12:23:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef collector-groups Default-Collector-Group collectors [ LEF-Collector-log_collector1 LEF-Collector-log_collector2 ]
+[ok][2020-04-21 12:23:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef templates Default-LEF-Template type ipfix
+[ok][2020-04-21 12:23:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef profiles Default-Logging-Profile collector-group Default-Collector-Group
+[ok][2020-04-21 12:23:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 lef default-profile Default-Logging-Profile
+[ok][2020-04-21 12:23:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 vpn-type branch-sdwan
+[ok][2020-04-21 12:23:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 local-auth-info
+[ok][2020-04-21 12:23:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 local-auth-info auth-type psk
+[ok][2020-04-21 12:23:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 local-auth-info id-type email
+[ok][2020-04-21 12:23:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 local-auth-info key NV-GW01-N1-HKG
+[ok][2020-04-21 12:23:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 local-auth-info id-string NV-GW01-N1-HKG@IPC00199.com
+[ok][2020-04-21 12:23:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 local
+[ok][2020-04-21 12:23:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 local address 30.99.1.1
+[ok][2020-04-21 12:23:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 routing-instance IPC00199-Control-VR
+[ok][2020-04-21 12:23:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 tunnel-routing-instance IPC00199-Control-VR
+[ok][2020-04-21 12:23:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 tunnel-initiate automatic
+[ok][2020-04-21 12:23:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ipsec fragmentation pre-fragmentation
+[ok][2020-04-21 12:23:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ipsec transform esp-aes128-sha1
+[ok][2020-04-21 12:23:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ipsec mode tunnel
+[ok][2020-04-21 12:23:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ipsec pfs-group mod-none
+[ok][2020-04-21 12:23:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ipsec anti-replay enable
+[ok][2020-04-21 12:23:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ipsec life duration 25000
+[ok][2020-04-21 12:23:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ike version v2
+[ok][2020-04-21 12:23:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ike group mod19
+[ok][2020-04-21 12:23:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ike transform aes128-sha1
+[ok][2020-04-21 12:23:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ike lifetime 27000
+[ok][2020-04-21 12:23:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ike dpd-timeout 10
+[ok][2020-04-21 12:23:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 peer-auth-info
+[ok][2020-04-21 12:23:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 peer-auth-info auth-type psk
+[ok][2020-04-21 12:23:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 peer-auth-info id-type email
+[ok][2020-04-21 12:23:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 peer-auth-info key NV-WC01-N1-HKG
+[ok][2020-04-21 12:23:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 peer-auth-info id-string NV-WC01-N1-HKG@IPC00199.com
+[ok][2020-04-21 12:23:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 peer
+[ok][2020-04-21 12:23:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 peer address 10.99.0.1
+[ok][2020-04-21 12:23:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 tunnel-interface ptvi198
+[ok][2020-04-21 12:23:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 vpn-type branch-sdwan
+[ok][2020-04-21 12:23:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 local-auth-info
+[ok][2020-04-21 12:23:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 local-auth-info auth-type psk
+[ok][2020-04-21 12:23:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 local-auth-info id-type email
+[ok][2020-04-21 12:23:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 local-auth-info key NV-GW01-N1-HKG
+[ok][2020-04-21 12:23:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 local-auth-info id-string NV-GW01-N1-HKG@IPC00199.com
+[ok][2020-04-21 12:23:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 local
+[ok][2020-04-21 12:23:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 local address 30.99.1.1
+[ok][2020-04-21 12:23:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 routing-instance IPC00199-Control-VR
+[ok][2020-04-21 12:23:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 tunnel-routing-instance IPC00199-Control-VR
+[ok][2020-04-21 12:23:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 tunnel-initiate automatic
+[ok][2020-04-21 12:23:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ipsec fragmentation pre-fragmentation
+[ok][2020-04-21 12:23:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ipsec transform esp-aes128-sha1
+[ok][2020-04-21 12:23:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ipsec mode tunnel
+[ok][2020-04-21 12:23:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ipsec pfs-group mod-none
+[ok][2020-04-21 12:23:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ipsec anti-replay enable
+[ok][2020-04-21 12:23:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ipsec life duration 25000
+[ok][2020-04-21 12:23:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ike version v2
+[ok][2020-04-21 12:23:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ike group mod19
+[ok][2020-04-21 12:23:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ike transform aes128-sha1
+[ok][2020-04-21 12:23:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ike lifetime 27000
+[ok][2020-04-21 12:23:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ike dpd-timeout 10
+[ok][2020-04-21 12:23:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 peer-auth-info
+[ok][2020-04-21 12:23:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 peer-auth-info auth-type psk
+[ok][2020-04-21 12:23:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 peer-auth-info id-type email
+[ok][2020-04-21 12:23:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 peer-auth-info key NV-WC02-N1-HKG
+[ok][2020-04-21 12:23:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 peer-auth-info id-string NV-WC02-N1-HKG@IPC00199.com
+[ok][2020-04-21 12:23:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 peer
+[ok][2020-04-21 12:23:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 peer address 10.99.0.11
+[ok][2020-04-21 12:23:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 tunnel-interface ptvi199
+[ok][2020-04-21 12:23:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR instance-type virtual-router
+[ok][2020-04-21 12:23:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR mpls-vpn-core
+[ok][2020-04-21 12:23:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR interfaces [ ptvi198 ptvi199 tvi-0/198.0 tvi-0/199.0 ] 
+[ok][2020-04-21 12:23:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR routing-options mpls-vpn-local-router-address 40.99.1.1
+[ok][2020-04-21 12:23:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR routing-options static route 0.0.0.0/0 40.99.1.1 tvi-0/199.0 preference 1
+[ok][2020-04-21 12:23:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR routing-options static route 0.0.0.0/0 40.99.1.1 tvi-0/199.0 tag 0
+[ok][2020-04-21 12:23:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 router-id 40.99.1.1 local-as as-number 65505
+[ok][2020-04-21 12:23:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 hold-time 90
+[ok][2020-04-21 12:23:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 peer-as 65505
+[ok][2020-04-21 12:23:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 route-flap free-max-time 180
+[ok][2020-04-21 12:23:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 route-flap reuse-max-time 60
+[ok][2020-04-21 12:23:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 route-flap reuse-size 256
+[ok][2020-04-21 12:23:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 route-flap reuse-array-size 1024
+[ok][2020-04-21 12:23:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 graceful-restart enable
+[ok][2020-04-21 12:23:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 graceful-restart maximum-restart-time  120
+[ok][2020-04-21 12:23:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 graceful-restart recovery-time 120
+[ok][2020-04-21 12:23:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 graceful-restart select-defer-time 120
+[ok][2020-04-21 12:23:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 graceful-restart stalepath-time 120
+[ok][2020-04-21 12:23:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 graceful-restart dynamic-peer-restart-time 0
+[ok][2020-04-21 12:23:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 ibgp-preference 200
+[ok][2020-04-21 12:23:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 ebgp-preference 20
+[ok][2020-04-21 12:23:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC type internal
+[ok][2020-04-21 12:23:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC family inet unicast
+[ok][2020-04-21 12:23:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC family inet versa-private 
+[ok][2020-04-21 12:23:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC family inet-vpn unicast
+[ok][2020-04-21 12:23:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC bfd-liveness-detection
+[ok][2020-04-21 12:23:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC bfd-liveness-detection minimum-receive-interval 1000
+[ok][2020-04-21 12:23:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC bfd-liveness-detection multiplier 3
+[ok][2020-04-21 12:23:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC bfd-liveness-detection transmit-interval minimum-interval 1000
+[ok][2020-04-21 12:23:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC neighbor 10.99.64.1
+[ok][2020-04-21 12:23:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC neighbor 10.99.64.1 peer-as 65505
+[ok][2020-04-21 12:23:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 debug level debug
+[ok][2020-04-21 12:23:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC neighbor 10.99.64.11
+[ok][2020-04-21 12:23:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC neighbor 10.99.64.11 peer-as 65505
+[ok][2020-04-21 12:23:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 debug level debug
+[ok][2020-04-21 12:23:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+[ok][2020-04-21 12:23:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+[ok][2020-04-21 12:23:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+[ok][2020-04-21 12:23:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF instance-type vrf
+[ok][2020-04-21 12:23:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF global-vrf-id 11102
+[ok][2020-04-21 12:23:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF mpls-vpn-core-instance IPC00199-Control-VR
+[ok][2020-04-21 12:23:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF interfaces [ tvi-0/3010.0 ]
+[ok][2020-04-21 12:23:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF route-distinguisher 1110L:11102
+[ok][2020-04-21 12:23:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF vrf-export-target target:1110L:11102
+[ok][2020-04-21 12:23:57]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 router-id 10.99.47.66 local-as as-number 65506
+[ok][2020-04-21 12:23:57]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 route-flap free-max-time 180
+[ok][2020-04-21 12:23:57]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 route-flap reuse-max-time 60
+[ok][2020-04-21 12:23:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 route-flap reuse-size 256
+[ok][2020-04-21 12:23:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 route-flap reuse-array-size 1024
+[ok][2020-04-21 12:23:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 graceful-restart maximum-restart-time 120
+[ok][2020-04-21 12:23:59]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 graceful-restart recovery-time 120 
+[ok][2020-04-21 12:23:59]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 graceful-restart select-defer-time  120
+[ok][2020-04-21 12:24:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 graceful-restart stalepath-time 120
+[ok][2020-04-21 12:24:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 graceful-restart dynamic-peer-restart-time 0
+[ok][2020-04-21 12:24:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 permit 
+[ok][2020-04-21 12:24:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 address-family ipv4 unicast address-mask 193.99.1.0/30
+[ok][2020-04-21 12:24:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le ge 30
+[ok][2020-04-21 12:24:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le le 32
+[ok][2020-04-21 12:24:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT match ip nlri prefix-list NNI1-INT
+[ok][2020-04-21 12:24:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT action reject
+[ok][2020-04-21 12:24:04]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES match community "(^|,)852:20($|,)"
+[ok][2020-04-21 12:24:04]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES action reject
+[ok][2020-04-21 12:24:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action accept
+[ok][2020-04-21 12:24:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community 852:11
+[ok][2020-04-21 12:24:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community-action set-specific
+[ok][2020-04-21 12:24:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 ibgp-preference 200
+[ok][2020-04-21 12:24:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 ebgp-preference 20
+[ok][2020-04-21 12:24:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 group EBGP-With-LAN_VRF type external
+[ok][2020-04-21 12:24:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 group EBGP-With-LAN_VRF import IMPORT-POLICY-FROM-LAN-VRF
+[ok][2020-04-21 12:24:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 group EBGP-With-LAN_VRF neighbor 10.99.47.65 local-address 10.99.47.66
+[ok][2020-04-21 12:24:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 group EBGP-With-LAN_VRF neighbor 10.99.47.65 peer-as 15404
+[ok][2020-04-21 12:24:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 debug level debug
+[ok][2020-04-21 12:24:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+[ok][2020-04-21 12:24:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+[ok][2020-04-21 12:24:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action set-origin igp
+[ok][2020-04-21 12:24:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT match protocol direct
+[ok][2020-04-21 12:24:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action accept
+[ok][2020-04-21 12:24:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action set-origin igp
+[ok][2020-04-21 12:24:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC match protocol static
+[ok][2020-04-21 12:24:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action accept
+[ok][2020-04-21 12:24:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action set-origin igp
+[ok][2020-04-21 12:24:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+[ok][2020-04-21 12:24:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF instance-type vrf
+[ok][2020-04-21 12:24:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF global-vrf-id 1110
+[ok][2020-04-21 12:24:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF networks [ IPC00199-MPLS1 ]
+[ok][2020-04-21 12:24:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF mpls-vpn-core-instance IPC00199-Control-VR
+[ok][2020-04-21 12:24:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF interfaces [ tvi-0/1110.0 ]
+[ok][2020-04-21 12:24:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF route-distinguisher 1110L:1110
+[ok][2020-04-21 12:24:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF vrf-import-target target:1110L:1110
+[ok][2020-04-21 12:24:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF vrf-export-target target:1110L:11102
+[ok][2020-04-21 12:24:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 router-id 193.99.1.2 local-as as-number 15404
+[ok][2020-04-21 12:24:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 route-flap free-max-time 180
+[ok][2020-04-21 12:24:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 route-flap reuse-max-time 60
+[ok][2020-04-21 12:24:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 route-flap reuse-size 256
+[ok][2020-04-21 12:24:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 route-flap reuse-array-size 1024
+[ok][2020-04-21 12:24:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 graceful-restart maximum-restart-time  120
+[ok][2020-04-21 12:24:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 graceful-restart recovery-time 120
+[ok][2020-04-21 12:24:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 graceful-restart select-defer-time 120
+[ok][2020-04-21 12:24:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 graceful-restart stalepath-time 120
+[ok][2020-04-21 12:24:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 graceful-restart dynamic-peer-restart-time 0
+[ok][2020-04-21 12:24:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 permit
+[ok][2020-04-21 12:24:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 address-family ipv4 unicast address-mask 10.99.47.64/30
+[ok][2020-04-21 12:24:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le ge 30
+[ok][2020-04-21 12:24:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le le 32
+[ok][2020-04-21 12:24:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI  term 1REJECT-PTVI-INT match ip nlri prefix-list PTVI-INT
+[ok][2020-04-21 12:24:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI  term 1REJECT-PTVI-INT action reject
+[ok][2020-04-21 12:24:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI  term 2REJECT-LOOP match community "(^|,)852:11($|,)"
+[ok][2020-04-21 12:24:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI  term 2REJECT-LOOP action reject
+[ok][2020-04-21 12:24:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI  term 3ADD-SDWAN-COMM match community "(^|,)852:10($|,)"
+[ok][2020-04-21 12:24:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI  term 3ADD-SDWAN-COMM action accept
+[ok][2020-04-21 12:24:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI  term 3ADD-SDWAN-COMM action community 100:10
+[ok][2020-04-21 12:24:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI  term 3ADD-SDWAN-COMM action community-action set-specific
+[ok][2020-04-21 12:24:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI  term 4DENY-REST action reject
+[ok][2020-04-21 12:24:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP match community "(^|,)852:11($|,)"
+[ok][2020-04-21 12:24:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP action reject
+[ok][2020-04-21 12:24:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 2ALLOW-REST action accept
+[ok][2020-04-21 12:24:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI  term 1REJECT-SDWAN-ROUTES match community "(^|,)100:10($|,)"
+[ok][2020-04-21 12:24:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI  term 1REJECT-SDWAN-ROUTES action reject
+[ok][2020-04-21 12:24:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI  term 2ACCEPT-REST action accept
+[ok][2020-04-21 12:24:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI  term 2ACCEPT-REST action community 852:20
+[ok][2020-04-21 12:24:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI  term 2ACCEPT-REST action community-action set-specific
+[ok][2020-04-21 12:24:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 ibgp-preference 200
+[ok][2020-04-21 12:24:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 ebgp-preference 20
+[ok][2020-04-21 12:24:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF type external
+[ok][2020-04-21 12:24:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF export EXPORT-PAIR-TVI-LOOP-PREV
+[ok][2020-04-21 12:24:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF neighbor 10.99.47.66 local-address 10.99.47.65
+[ok][2020-04-21 12:24:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF neighbor 10.99.47.66 peer-as 65506
+[ok][2020-04-21 12:24:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI type external
+[ok][2020-04-21 12:24:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI import  IMPORT-POLICY-NNI
+[ok][2020-04-21 12:24:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI export  EXPORT-POLICY-NNI
+[ok][2020-04-21 12:24:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI neighbor 193.99.1.1 local-address 193.99.1.2
+[ok][2020-04-21 12:24:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI neighbor 193.99.1.1 peer-as 8220
+[ok][2020-04-21 12:24:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 debug level debug
+[ok][2020-04-21 12:24:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+[ok][2020-04-21 12:24:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+[ok][2020-04-21 12:24:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+[ok][2020-04-21 12:24:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF instance-type vrf
+[ok][2020-04-21 12:24:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF global-vrf-id 11112
+[ok][2020-04-21 12:24:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF mpls-vpn-core-instance IPC00199-Control-VR
+[ok][2020-04-21 12:24:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF interfaces [ tvi-0/3011.0 ]
+[ok][2020-04-21 12:24:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF route-distinguisher 1111L:11112
+[ok][2020-04-21 12:24:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF vrf-export-target target:1111L:11112
+[ok][2020-04-21 12:24:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 router-id 10.99.47.70 local-as as-number 65506
+[ok][2020-04-21 12:24:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 route-flap free-max-time 180
+[ok][2020-04-21 12:24:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 route-flap reuse-max-time 60
+[ok][2020-04-21 12:24:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 route-flap reuse-size 256
+[ok][2020-04-21 12:24:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 route-flap reuse-array-size 1024
+[ok][2020-04-21 12:24:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 graceful-restart maximum-restart-time 120
+[ok][2020-04-21 12:24:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 graceful-restart recovery-time 120 
+[ok][2020-04-21 12:24:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 graceful-restart select-defer-time  120
+[ok][2020-04-21 12:24:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 graceful-restart stalepath-time 120
+[ok][2020-04-21 12:24:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 graceful-restart dynamic-peer-restart-time 0
+[ok][2020-04-21 12:24:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 permit 
+[ok][2020-04-21 12:24:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 address-family ipv4 unicast address-mask 193.99.1.4/30
+[ok][2020-04-21 12:24:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le ge 30
+[ok][2020-04-21 12:24:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le le 32
+[ok][2020-04-21 12:24:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT match ip nlri prefix-list NNI1-INT
+[ok][2020-04-21 12:24:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT action reject
+[ok][2020-04-21 12:24:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES match community "(^|,)852:20($|,)"
+[ok][2020-04-21 12:24:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES action reject
+[ok][2020-04-21 12:24:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action accept
+[ok][2020-04-21 12:24:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community 852:11
+[ok][2020-04-21 12:24:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community-action set-specific
+[ok][2020-04-21 12:24:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 ibgp-preference 200
+[ok][2020-04-21 12:24:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 ebgp-preference 20
+[ok][2020-04-21 12:24:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 group EBGP-With-LAN_VRF type external
+[ok][2020-04-21 12:24:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 group EBGP-With-LAN_VRF import IMPORT-POLICY-FROM-LAN-VRF
+[ok][2020-04-21 12:24:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 group EBGP-With-LAN_VRF neighbor 10.99.47.69 local-address 10.99.47.70
+[ok][2020-04-21 12:24:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 group EBGP-With-LAN_VRF neighbor 10.99.47.69 peer-as 15404
+[ok][2020-04-21 12:24:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 debug level debug
+[ok][2020-04-21 12:24:47]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+[ok][2020-04-21 12:24:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+[ok][2020-04-21 12:24:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action set-origin igp
+[ok][2020-04-21 12:24:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT match protocol direct
+[ok][2020-04-21 12:24:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action accept
+[ok][2020-04-21 12:24:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action set-origin igp
+[ok][2020-04-21 12:24:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC match protocol static
+[ok][2020-04-21 12:24:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action accept
+[ok][2020-04-21 12:24:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action set-origin igp
+[ok][2020-04-21 12:24:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+[ok][2020-04-21 12:24:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF instance-type vrf
+[ok][2020-04-21 12:24:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF global-vrf-id 1111
+[ok][2020-04-21 12:24:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF networks [ IPC00199-MPLS2 ]
+[ok][2020-04-21 12:24:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF mpls-vpn-core-instance IPC00199-Control-VR
+[ok][2020-04-21 12:24:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF interfaces [ tvi-0/1111.0 ]
+[ok][2020-04-21 12:24:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF route-distinguisher 1111L:1111
+[ok][2020-04-21 12:24:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF vrf-import-target target:1111L:1111
+[ok][2020-04-21 12:24:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF vrf-export-target target:1111L:11112
+[ok][2020-04-21 12:24:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 router-id 193.99.1.2 local-as as-number 15404
+[ok][2020-04-21 12:24:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 route-flap free-max-time 180
+[ok][2020-04-21 12:24:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 route-flap reuse-max-time 60
+[ok][2020-04-21 12:24:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 route-flap reuse-size 256
+[ok][2020-04-21 12:24:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 route-flap reuse-array-size 1024
+[ok][2020-04-21 12:24:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 graceful-restart maximum-restart-time  120
+[ok][2020-04-21 12:24:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 graceful-restart recovery-time 120
+[ok][2020-04-21 12:24:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 graceful-restart select-defer-time 120
+[ok][2020-04-21 12:24:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 graceful-restart stalepath-time 120
+[ok][2020-04-21 12:24:57]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 graceful-restart dynamic-peer-restart-time 0
+[ok][2020-04-21 12:24:57]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 permit
+[ok][2020-04-21 12:24:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 address-family ipv4 unicast address-mask 10.99.47.68/30
+[ok][2020-04-21 12:24:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le ge 30
+[ok][2020-04-21 12:24:59]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le le 32
+[ok][2020-04-21 12:24:59]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI  term 1REJECT-PTVI-INT match ip nlri prefix-list PTVI-INT
+[ok][2020-04-21 12:25:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI  term 1REJECT-PTVI-INT action reject
+[ok][2020-04-21 12:25:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI  term 2REJECT-LOOP match community "(^|,)852:11($|,)"
+[ok][2020-04-21 12:25:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI  term 2REJECT-LOOP action reject
+[ok][2020-04-21 12:25:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI  term 3ADD-SDWAN-COMM match community "(^|,)852:10($|,)"
+[ok][2020-04-21 12:25:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI  term 3ADD-SDWAN-COMM action accept
+[ok][2020-04-21 12:25:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI  term 3ADD-SDWAN-COMM action community 100:10
+[ok][2020-04-21 12:25:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI  term 3ADD-SDWAN-COMM action community-action set-specific
+[ok][2020-04-21 12:25:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI  term 4DENY-REST action reject
+[ok][2020-04-21 12:25:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP match community "(^|,)852:11($|,)"
+[ok][2020-04-21 12:25:04]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP action reject
+[ok][2020-04-21 12:25:04]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 2ALLOW-REST action accept
+[ok][2020-04-21 12:25:04]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI  term 1REJECT-SDWAN-ROUTES match community "(^|,)100:10($|,)"
+[ok][2020-04-21 12:25:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI  term 1REJECT-SDWAN-ROUTES action reject
+[ok][2020-04-21 12:25:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI  term 2ACCEPT-REST action accept
+[ok][2020-04-21 12:25:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI  term 2ACCEPT-REST action community 852:20
+[ok][2020-04-21 12:25:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI  term 2ACCEPT-REST action community-action set-specific
+[ok][2020-04-21 12:25:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 ibgp-preference 200
+[ok][2020-04-21 12:25:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 ebgp-preference 20
+[ok][2020-04-21 12:25:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF type external
+[ok][2020-04-21 12:25:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF export EXPORT-PAIR-TVI-LOOP-PREV
+[ok][2020-04-21 12:25:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF neighbor 10.99.47.70 local-address 10.99.47.69
+[ok][2020-04-21 12:25:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF neighbor 10.99.47.70 peer-as 65506
+[ok][2020-04-21 12:25:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI type external
+[ok][2020-04-21 12:25:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI import  IMPORT-POLICY-NNI
+[ok][2020-04-21 12:25:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI export  EXPORT-POLICY-NNI
+[ok][2020-04-21 12:25:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI neighbor 193.99.1.5 local-address 193.99.1.6
+[ok][2020-04-21 12:25:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI neighbor 193.99.1.5 peer-as 8220
+[ok][2020-04-21 12:25:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 debug level debug
+[ok][2020-04-21 12:25:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% #REDUNANT GW ROUTE CONFIG
+[ok][2020-04-21 12:25:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 routing-peer-policy EXPORT-IPC00199-GW-TO-WC term 1REJECT-R-CPE-ROUTES match family inet-vpn
+[ok][2020-04-21 12:25:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 routing-peer-policy EXPORT-IPC00199-GW-TO-WC term 1REJECT-R-CPE-ROUTES match community "(^|,)666:666($|,)"
+[ok][2020-04-21 12:25:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 routing-peer-policy EXPORT-IPC00199-GW-TO-WC term 1REJECT-R-CPE-ROUTES action reject
+[ok][2020-04-21 12:25:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 routing-peer-policy EXPORT-IPC00199-GW-TO-WC term 2ACCEPT-REST-ALL action set-local-preference 80
+[ok][2020-04-21 12:25:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% set devices device NV-GW01-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC export EXPORT-IPC00199-GW-TO-WC
+[ok][2020-04-21 12:25:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-04-21 17:55:56,678 - VD1 - INFO - commit
+Aborted: NV-GW01-N1-HKG: transport timeout; closing session
+[error][2020-04-21 12:27:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-04-21 17:55:56,678 - VD1 - INFO - NV-GW01-N1-HKG : Commit failed.
+2020-04-21 17:56:01,651 - VD1 - DEBUG - <netmiko.versa.versa_ssh.VersaSSH object at 0x000000000DECFDD8>
+2020-04-21 17:56:06,851 - VD1 - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2020-04-21 17:56:07,033 - VD1 - INFO - set devices device NV-GW02-N1-HKG config interfaces tvi-0/198 enable true
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/198 mode ipsec
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/198 type p2mp-vxlan
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/198 unit 0 enable true
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/198 description "VxLAN IPC00199 Management"
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/198 unit 0 family
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/198 unit 0 family inet
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/198 unit 0 family inet address 30.99.1.2/32
+
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/199 enable true
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/199 mode ipsec
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/199 type p2mp-esp
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/199 unit 0 enable true
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/199 description "ESP IPC00199 Management"
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/199 unit 0 enable true
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/199 unit 0 family
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/199 unit 0 family inet
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/199 unit 0 family inet address 40.99.1.2/32
+
+
+
+
+set devices device NV-GW02-N1-HKG config interfaces ptvi198 parent-interface tvi-0/199.0 remote-address 10.99.64.1
+
+
+
+set devices device NV-GW02-N1-HKG config interfaces ptvi199 parent-interface tvi-0/199.0 remote-address 10.99.64.11
+
+set devices device NV-GW02-N1-HKG config interfaces vni-0/0 unit 2010 vlan-id 2010
+set devices device NV-GW02-N1-HKG config interfaces vni-0/0 unit 2010 enable true
+set devices device NV-GW02-N1-HKG config interfaces vni-0/0 unit 2010 family
+set devices device NV-GW02-N1-HKG config interfaces vni-0/0 unit 2010 family inet
+set devices device NV-GW02-N1-HKG config interfaces vni-0/0 unit 2010 family inet address 193.99.2.2/30
+
+set devices device NV-GW02-N1-HKG config interfaces vni-0/0 unit 2011 vlan-id 2011
+set devices device NV-GW02-N1-HKG config interfaces vni-0/0 unit 2011 enable true
+set devices device NV-GW02-N1-HKG config interfaces vni-0/0 unit 2011 family
+set devices device NV-GW02-N1-HKG config interfaces vni-0/0 unit 2011 family inet
+set devices device NV-GW02-N1-HKG config interfaces vni-0/0 unit 2011 family inet address 193.99.2.6/30
+
+
+
+
+
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/1110 enable true
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/1110 mode ipsec
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/1110 type paired
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/1110 paired-interface tvi-0/3010
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/1110 unit 0 enable true
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/1110 unit 0 family
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/1110 unit 0 family inet
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/1110 unit 0 family inet address 10.99.47.65/30
+
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/3010 mode ipsec
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/3010 type paired
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/3010 paired-interface tvi-0/1110
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/3010 unit 0 enable true
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/3010 unit 0 family
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/3010 unit 0 family inet
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/3010 unit 0 family inet address 10.99.47.66/30
+
+set devices device NV-GW02-N1-HKG config networks IPC00199-MPLS1 interfaces [ vni-0/0.2010 ]
+
+
+
+
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/1111 enable true
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/1111 mode ipsec
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/1111 type paired
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/1111 paired-interface tvi-0/3011
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/1111 unit 0 enable true
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/1111 unit 0 family
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/1111 unit 0 family inet
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/1111 unit 0 family inet address 10.99.47.69/30
+
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/3011 mode ipsec
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/3011 type paired
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/3011 paired-interface tvi-0/1111
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/3011 unit 0 enable true
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/3011 unit 0 family
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/3011 unit 0 family inet
+set devices device NV-GW02-N1-HKG config interfaces tvi-0/3011 unit 0 family inet address 10.99.47.70/30
+
+set devices device NV-GW02-N1-HKG config networks IPC00199-MPLS2 interfaces [ vni-0/0.2011 ]
+
+
+
+
+
+set devices device NV-GW02-N1-HKG config orgs org IPC00199 available-routing-instances [ INT-TRANSP-VR MPLS-TRANSP-VR IPC00199-Control-VR IPC00199-EXPORT1-VRF IPC00199-EXPORT2-VRF IPC00199-LAN1-VRF IPC00199-LAN2-VRF ]
+set devices device NV-GW02-N1-HKG config orgs org IPC00199 traffic-identification using [ ptvi198 ptvi199 tvi-0/198.0 tvi-0/199.0 tvi-0/1110.0 tvi-0/3010.0 tvi-0/1111.0 tvi-0/3011.0 ]
+set devices device NV-GW02-N1-HKG config orgs org IPC00199 owned-routing-instances [ IPC00199-Control-VR IPC00199-EXPORT1-VRF IPC00199-EXPORT2-VRF IPC00199-LAN1-VRF IPC00199-LAN2-VRF  ]
+set devices device NV-GW02-N1-HKG config orgs org IPC00199 traffic-identification using-networks [ IPC00199-MPLS1 IPC00199-MPLS2 ]
+
+set devices device NV-GW02-N1-HKG config orgs org IPC00199 available-provider-orgs [ IPC00199 ]
+set devices device NV-GW02-N1-HKG config orgs org IPC00199 available-service-node-groups [ default-sng ]
+set devices device NV-GW02-N1-HKG config orgs org IPC00199 sd-wan site
+set devices device NV-GW02-N1-HKG config orgs org IPC00199 sd-wan site global-tenant-id 99
+set devices device NV-GW02-N1-HKG config orgs org IPC00199 sd-wan site site-name NV-GW02-N1-HKG
+set devices device NV-GW02-N1-HKG config orgs org IPC00199 sd-wan site management-routing-instance IPC00199-Control-VR
+set devices device NV-GW02-N1-HKG config orgs org IPC00199 sd-wan site wan-interfaces vni-0/1.529 sla-monitoring fc_be interval 1
+set devices device NV-GW02-N1-HKG config orgs org IPC00199 sd-wan site wan-interfaces vni-0/1.529 sla-monitoring fc_be logging-interval 5
+set devices device NV-GW02-N1-HKG config orgs org IPC00199 sd-wan site wan-interfaces vni-0/1.529 encryption optional
+set devices device NV-GW02-N1-HKG config orgs org IPC00199 sd-wan site wan-interfaces vni-0/1.530 sla-monitoring fc_be interval 1
+set devices device NV-GW02-N1-HKG config orgs org IPC00199 sd-wan site wan-interfaces vni-0/1.530 sla-monitoring fc_be logging-interval 5
+
+
+
+
+set devices device NV-GW02-N1-HKG config orgs org IPC00199 sd-wan controllers NV-WC01-N1-HKG management-addresses IKE ip-address 10.99.0.1 routing-instance IPC00199-Control-VR
+set devices device NV-GW02-N1-HKG config orgs org IPC00199 sd-wan controllers NV-WC01-N1-HKG management-addresses secure ip-address 10.99.64.1 routing-instance IPC00199-Control-VR
+
+
+
+
+set devices device NV-GW02-N1-HKG config orgs org IPC00199 sd-wan controllers NV-WC02-N1-HKG management-addresses IKE ip-address 10.99.0.11 routing-instance IPC00199-Control-VR
+set devices device NV-GW02-N1-HKG config orgs org IPC00199 sd-wan controllers NV-WC02-N1-HKG management-addresses secure ip-address 10.99.64.11 routing-instance IPC00199-Control-VR
+
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 security access-policies Policy1 rules R1 set action allow
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 security access-policies Policy1 rules R1 set lef profile Default-Logging-Profile
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 security access-policies Policy1 rules R1 set lef event end
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 security access-policies Policy1 rules R1 set lef options send-pcap-data enable false
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 objects zones trust
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 objects zones untrust
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 objects zones host
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 traffic-monitoring logging-control Default-Logging-Control profile Default-Logging-Profile
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 traffic-monitoring logging-control Default-Logging-Control options
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 traffic-monitoring logging-control Default-Logging-Control options stats
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 traffic-monitoring logging-control Default-Logging-Control options stats all
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 traffic-monitoring policies Analytics-policy rules rule1 set lef profile Default-Logging-Profile
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector1 destination-address 10.91.127.201 destination-port 5140
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector1 routing-instance IPC00199-Control-VR
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector1 transport tcp
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector1 template Default-LEF-Template
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector2 destination-address 10.91.127.202 destination-port 5140
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector2 routing-instance IPC00199-Control-VR
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector2 transport tcp
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 lef collectors LEF-Collector-log_collector2 template Default-LEF-Template
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 lef collector-groups Default-Collector-Group collectors [ LEF-Collector-log_collector1 LEF-Collector-log_collector2 ]
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 lef templates Default-LEF-Template type ipfix
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 lef profiles Default-Logging-Profile collector-group Default-Collector-Group
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 lef default-profile Default-Logging-Profile
+
+
+
+
+
+
+
+
+
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 vpn-type branch-sdwan
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 local-auth-info
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 local-auth-info auth-type psk
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 local-auth-info id-type email
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 local-auth-info key NV-GW02-N1-HKG
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 local-auth-info id-string NV-GW02-N1-HKG@IPC00199.com
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 local
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 local address 30.99.1.2
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 routing-instance IPC00199-Control-VR
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 tunnel-routing-instance IPC00199-Control-VR
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 tunnel-initiate automatic
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ipsec fragmentation pre-fragmentation
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ipsec transform esp-aes128-sha1
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ipsec mode tunnel
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ipsec pfs-group mod-none
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ipsec anti-replay enable
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ipsec life duration 25000
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ike version v2
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ike group mod19
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ike transform aes128-sha1
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ike lifetime 27000
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 ike dpd-timeout 10
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 peer-auth-info
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 peer-auth-info auth-type psk
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 peer-auth-info id-type email
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 peer-auth-info key NV-WC01-N1-HKG
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 peer-auth-info id-string NV-WC01-N1-HKG@IPC00199.com
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 peer
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 peer address 10.99.0.1
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL1 tunnel-interface ptvi198
+
+
+
+
+
+
+
+
+
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 vpn-type branch-sdwan
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 local-auth-info
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 local-auth-info auth-type psk
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 local-auth-info id-type email
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 local-auth-info key NV-GW02-N1-HKG
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 local-auth-info id-string NV-GW02-N1-HKG@IPC00199.com
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 local
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 local address 30.99.1.2
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 routing-instance IPC00199-Control-VR
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 tunnel-routing-instance IPC00199-Control-VR
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 tunnel-initiate automatic
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ipsec fragmentation pre-fragmentation
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ipsec transform esp-aes128-sha1
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ipsec mode tunnel
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ipsec pfs-group mod-none
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ipsec anti-replay enable
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ipsec life duration 25000
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ike version v2
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ike group mod19
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ike transform aes128-sha1
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ike lifetime 27000
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 ike dpd-timeout 10
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 peer-auth-info
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 peer-auth-info auth-type psk
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 peer-auth-info id-type email
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 peer-auth-info key NV-WC02-N1-HKG
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 peer-auth-info id-string NV-WC02-N1-HKG@IPC00199.com
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 peer
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 peer address 10.99.0.11
+set devices device NV-GW02-N1-HKG config orgs org-services IPC00199 ipsec vpn-profile GW-CTRL2 tunnel-interface ptvi199
+
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR instance-type virtual-router
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR mpls-vpn-core
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR interfaces [ ptvi198 ptvi199 tvi-0/198.0 tvi-0/199.0 ]
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR routing-options mpls-vpn-local-router-address 40.99.1.2
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR routing-options static route 0.0.0.0/0 40.99.1.2 tvi-0/199.0 preference 1
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR routing-options static route 0.0.0.0/0 40.99.1.2 tvi-0/199.0 tag 0
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 router-id 40.99.1.2 local-as as-number 65505
+
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 hold-time 90
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 peer-as 65505
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 route-flap free-max-time 180
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 route-flap reuse-max-time 60
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 route-flap reuse-size 256
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 route-flap reuse-array-size 1024
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 graceful-restart enable
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 graceful-restart maximum-restart-time 120
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 graceful-restart recovery-time 120
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 graceful-restart select-defer-time 120
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 graceful-restart stalepath-time 120
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 graceful-restart dynamic-peer-restart-time 0
+
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 ibgp-preference 200
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 ebgp-preference 20
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC type internal
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC family inet unicast
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC family inet versa-private
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC family inet-vpn unicast
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC bfd-liveness-detection
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC bfd-liveness-detection minimum-receive-interval 1000
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC bfd-liveness-detection multiplier 3
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC bfd-liveness-detection transmit-interval minimum-interval 1000
+
+
+
+
+
+
+
+
+
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC neighbor 10.99.64.1
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC neighbor 10.99.64.1 peer-as 65505
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 debug level debug
+
+
+
+
+
+
+
+
+
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC neighbor 10.99.64.11
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC neighbor 10.99.64.11 peer-as 65505
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 debug level debug
+
+
+
+
+
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF instance-type vrf
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF global-vrf-id 11102
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF mpls-vpn-core-instance IPC00199-Control-VR
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF interfaces [ tvi-0/3010.0 ]
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF route-distinguisher 1110L:11102
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF vrf-export-target target:1110L:11102
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 router-id 10.99.47.66 local-as as-number 65506
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 route-flap free-max-time 180
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 route-flap reuse-max-time 60
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 route-flap reuse-size 256
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 route-flap reuse-array-size 1024
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 graceful-restart maximum-restart-time 120
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 graceful-restart recovery-time 120
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 graceful-restart select-defer-time 120
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 graceful-restart stalepath-time 120
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 permit
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 address-family ipv4 unicast address-mask 193.99.2.0/30
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT match ip nlri prefix-list NNI1-INT
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT action reject
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES match community "(^|,)852:20($|,)"
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES action reject
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action accept
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community 852:12
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community-action set-specific
+
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 ibgp-preference 200
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 ebgp-preference 20
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 group EBGP-With-LAN_VRF type external
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 group EBGP-With-LAN_VRF import IMPORT-POLICY-FROM-LAN-VRF
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 group EBGP-With-LAN_VRF neighbor 10.99.47.65 local-address 10.99.47.66
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 group EBGP-With-LAN_VRF neighbor 10.99.47.65 peer-as 15404
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF protocols bgp 9902 debug level debug
+
+
+
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action set-origin igp
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT match protocol direct
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action accept
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action set-origin igp
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC match protocol static
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action accept
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action set-origin igp
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF instance-type vrf
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF global-vrf-id 1110
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF networks [ IPC00199-MPLS1 ]
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF mpls-vpn-core-instance IPC00199-Control-VR
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF interfaces [ tvi-0/1110.0 ]
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF route-distinguisher 1110L:1110
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF vrf-import-target target:1110L:1110
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF vrf-export-target target:1110L:11102
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 router-id 193.99.2.2 local-as as-number 15404
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 route-flap free-max-time 180
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 route-flap reuse-max-time 60
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 route-flap reuse-size 256
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 route-flap reuse-array-size 1024
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 graceful-restart maximum-restart-time 120
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 graceful-restart recovery-time 120
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 graceful-restart select-defer-time 120
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 graceful-restart stalepath-time 120
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 permit
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 address-family ipv4 unicast address-mask 10.99.47.64/30
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT match ip nlri prefix-list PTVI-INT
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT action reject
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP match community "(^|,)852:12($|,)"
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP action reject
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM match community "(^|,)852:10($|,)"
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action accept
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community 100:10
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community-action set-specific
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 4DENY-REST action reject
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP match community "(^|,)852:12($|,)"
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP action reject
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 2ALLOW-REST action accept
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES match community "(^|,)100:10($|,)"
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES action reject
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action accept
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community 852:20
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community-action set-specific
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 ibgp-preference 200
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 ebgp-preference 20
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF type external
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF export EXPORT-PAIR-TVI-LOOP-PREV
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF neighbor 10.99.47.66 local-address 10.99.47.65
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF neighbor 10.99.47.66 peer-as 65506
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI type external
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI import IMPORT-POLICY-NNI
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI export EXPORT-POLICY-NNI
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI neighbor 193.99.2.1 local-address 193.99.2.2
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI neighbor 193.99.2.1 peer-as 8220
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF protocols bgp 9901 debug level debug
+
+
+
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF instance-type vrf
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF global-vrf-id 11112
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF mpls-vpn-core-instance IPC00199-Control-VR
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF interfaces [ tvi-0/3011.0 ]
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF route-distinguisher 1111L:11112
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF vrf-export-target target:1111L:11112
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 router-id 10.99.47.70 local-as as-number 65506
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 route-flap free-max-time 180
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 route-flap reuse-max-time 60
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 route-flap reuse-size 256
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 route-flap reuse-array-size 1024
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 graceful-restart maximum-restart-time 120
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 graceful-restart recovery-time 120
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 graceful-restart select-defer-time 120
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 graceful-restart stalepath-time 120
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 permit
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 address-family ipv4 unicast address-mask 193.99.2.4/30
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT match ip nlri prefix-list NNI1-INT
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT action reject
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES match community "(^|,)852:20($|,)"
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES action reject
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action accept
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community 852:12
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community-action set-specific
+
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 ibgp-preference 200
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 ebgp-preference 20
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 group EBGP-With-LAN_VRF type external
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 group EBGP-With-LAN_VRF import IMPORT-POLICY-FROM-LAN-VRF
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 group EBGP-With-LAN_VRF neighbor 10.99.47.69 local-address 10.99.47.70
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 group EBGP-With-LAN_VRF neighbor 10.99.47.69 peer-as 15404
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF protocols bgp 9902 debug level debug
+
+
+
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action set-origin igp
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT match protocol direct
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action accept
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action set-origin igp
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC match protocol static
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action accept
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action set-origin igp
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF instance-type vrf
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF global-vrf-id 1111
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF networks [ IPC00199-MPLS2 ]
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF mpls-vpn-core-instance IPC00199-Control-VR
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF interfaces [ tvi-0/1111.0 ]
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF route-distinguisher 1111L:1111
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF vrf-import-target target:1111L:1111
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF vrf-export-target target:1111L:11112
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 router-id 193.99.2.2 local-as as-number 15404
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 route-flap free-max-time 180
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 route-flap reuse-max-time 60
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 route-flap reuse-size 256
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 route-flap reuse-array-size 1024
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 graceful-restart maximum-restart-time 120
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 graceful-restart recovery-time 120
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 graceful-restart select-defer-time 120
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 graceful-restart stalepath-time 120
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 graceful-restart dynamic-peer-restart-time 0
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 permit
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 address-family ipv4 unicast address-mask 10.99.47.68/30
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT match ip nlri prefix-list PTVI-INT
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT action reject
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP match community "(^|,)852:12($|,)"
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP action reject
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM match community "(^|,)852:10($|,)"
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action accept
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community 100:10
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community-action set-specific
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-POLICY-NNI term 4DENY-REST action reject
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP match community "(^|,)852:12($|,)"
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP action reject
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 2ALLOW-REST action accept
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES match community "(^|,)100:10($|,)"
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES action reject
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action accept
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community 852:20
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community-action set-specific
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 ibgp-preference 200
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 ebgp-preference 20
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF type external
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF export EXPORT-PAIR-TVI-LOOP-PREV
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF neighbor 10.99.47.70 local-address 10.99.47.69
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-WITH-EXPORT_VRF neighbor 10.99.47.70 peer-as 65506
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI type external
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI import IMPORT-POLICY-NNI
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI export EXPORT-POLICY-NNI
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI neighbor 193.99.2.5 local-address 193.99.2.6
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 group EBGP-With-SAR-TypeA-NNI neighbor 193.99.2.5 peer-as 8220
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF protocols bgp 9901 debug level debug
+
+
+
+#REDUNANT GW ROUTE CONFIG
+
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 routing-peer-policy EXPORT-IPC00199-GW-TO-WC term 1REJECT-R-CPE-ROUTES match family inet-vpn
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 routing-peer-policy EXPORT-IPC00199-GW-TO-WC term 1REJECT-R-CPE-ROUTES match community "(^|,)666:666($|,)"
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 routing-peer-policy EXPORT-IPC00199-GW-TO-WC term 1REJECT-R-CPE-ROUTES action reject
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 routing-peer-policy EXPORT-IPC00199-GW-TO-WC term 2ACCEPT-REST-ALL action set-local-preference 60
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT1-VRF route-distinguisher 3010L:30102
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN1-VRF route-distinguisher 3010L:3010
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-EXPORT2-VRF route-distinguisher 3011L:30112
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-LAN2-VRF route-distinguisher 3011L:3011
+set devices device NV-GW02-N1-HKG config routing-instances IPC00199-Control-VR protocols bgp 99 group GW-WC export EXPORT-IPC00199-GW-TO-WC

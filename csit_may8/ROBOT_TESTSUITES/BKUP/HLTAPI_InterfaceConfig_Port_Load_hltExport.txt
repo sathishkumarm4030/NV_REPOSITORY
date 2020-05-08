@@ -1,0 +1,50 @@
+############# Spirent HLTAPI Export Log File #############
+#puts "source hltapi_5.10_stc_2.10.tcl"
+#source  hltapi_5.10_stc_2.10.tcl
+puts "package require SpirentHltApi"
+package require SpirentHltApi
+set logged_ret "{offline 0} {port_handle {{10 {{91 {{113 {{124 {{10/1 port1} {10/2 port2}}}}}}}}}}} {status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::interface_config -create_host false -scheduling_mode RATE_BASED -phy_mode copper -port_loadunit MEGABITS_PER_SECOND -control_plane_mtu 1500 -enable_ping_response 0 -autonegotiation 1 -port_handle port1 -duplex full -mode config -port_load 5 -speed ether1000 -intf_mode ethernet"
+set ret [sth::interface_config -create_host false -scheduling_mode RATE_BASED -phy_mode copper -port_loadunit MEGABITS_PER_SECOND -control_plane_mtu 1500 -enable_ping_response 0 -autonegotiation 1 -port_handle port1 -duplex full -mode config -port_load 5 -speed ether1000 -intf_mode ethernet]
+set logged_ret "{arpnd_status 1} {arpnd_cache none} {arpnd_report none} {status 1} {handles 0}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::interface_config -create_host false -scheduling_mode RATE_BASED -phy_mode copper -port_loadunit MEGABITS_PER_SECOND -control_plane_mtu 1500 -enable_ping_response 0 -autonegotiation 1 -port_handle port2 -duplex full -mode config -port_load 5 -speed ether1000 -intf_mode ethernet"
+set ret [sth::interface_config -create_host false -scheduling_mode RATE_BASED -phy_mode copper -port_loadunit MEGABITS_PER_SECOND -control_plane_mtu 1500 -enable_ping_response 0 -autonegotiation 1 -port_handle port2 -duplex full -mode config -port_load 5 -speed ether1000 -intf_mode ethernet]
+set logged_ret "{arpnd_status 1} {arpnd_cache none} {arpnd_report none} {status 1} {handles 0}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::interface_config -mode destroy -port_handle port1"
+set ret [sth::interface_config -mode destroy -port_handle port1]
+set logged_ret "{arpnd_status none} {arpnd_cache none} {arpnd_report none} {status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::interface_config -mode destroy -port_handle port2"
+set ret [sth::interface_config -mode destroy -port_handle port2]
+set logged_ret "{arpnd_status none} {arpnd_cache none} {arpnd_report none} {status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret
+
+puts "\nsth::cleanup_session -port_handle {port1 port2} -clean_dbfile 1"
+set ret [sth::cleanup_session -port_handle {port1 port2} -clean_dbfile 1]
+set logged_ret "{status 1}"
+if {$ret ne $logged_ret} {
+    puts "<warning>NOT same return value as logged result."
+}
+puts $ret

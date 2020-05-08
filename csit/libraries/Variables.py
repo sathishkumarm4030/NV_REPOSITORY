@@ -317,6 +317,14 @@ req_clear_ipsec = """request devices device {{ NAME }} live-status clear ipsec s
 req_cre_snapshot = """request devices device {{ NAME }} live-status system create-snapshot description {{ snapshot_description }} no-confirm
 """
 
+bgp_nbr_set_config = """set devices device {{ Device_name }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group Controllers-Group neighbor {{ WC1_ESP_IP }}
+set devices device {{ Device_name }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group Controllers-Group neighbor {{ WC2_ESP_IP }}
+"""
+
+bgp_nbr_delete_config = """delete devices device {{ Device_name }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group Controllers-Group neighbor {{ WC1_ESP_IP }}
+delete devices device {{ Device_name }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group Controllers-Group neighbor {{ WC2_ESP_IP }}
+"""
+
 #ROBOT_TESTSUITE variables
 
 sla_prf_1 = "SLA112"

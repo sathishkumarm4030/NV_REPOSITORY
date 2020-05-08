@@ -1,0 +1,179 @@
+############# Spirent HLTAPI Log File #############
+Hlt Api (Ver. 4.67) was successfully loaded and initialized
+Internal Version: 4.67GA.0116
+Wed Apr 08 16:31:14 IST 2020 [hltcall] ::sth::connect {-device 10.91.113.124 -port_list {10/1 10/2}}
+Wed Apr 08 16:31:14 IST 2020 [stccall] stc::create project
+Wed Apr 08 16:31:14 IST 2020 [debug] return value: project1 
+Wed Apr 08 16:31:14 IST 2020 [debug] {Calling sth::connect}
+Wed Apr 08 16:31:14 IST 2020 [info] {Generating session table}
+Wed Apr 08 16:31:14 IST 2020 [info] {Calling: ::sth::Session::processConnectDevice}
+Wed Apr 08 16:31:14 IST 2020 [info] {Calling processConnectDevice}
+Wed Apr 08 16:31:14 IST 2020 [stccall] stc::connect 10.91.113.124
+Wed Apr 08 16:31:16 IST 2020 [debug] return value:  
+Wed Apr 08 16:31:16 IST 2020 [debug] {::sth::sthCore::invoke stc::connect Chassis: 10.91.113.124: Status: }
+Wed Apr 08 16:31:16 IST 2020 [debug] Connected to chassis: 10.91.113.124
+Wed Apr 08 16:31:16 IST 2020 [info] {Successfully completed processing switch: device for HltCmd: Connect}
+Wed Apr 08 16:31:16 IST 2020 [info] {Calling: ::sth::Session::processConnectPort_list}
+Wed Apr 08 16:31:16 IST 2020 [stccall] stc::create Port -under project1 -location 10.91.113.124/10/1 -name 10.91.113.124-10-1
+Wed Apr 08 16:31:16 IST 2020 [debug] return value: port1 
+Wed Apr 08 16:31:16 IST 2020 [stccall] stc::perform ReservePort -Location 10.91.113.124/10/1
+Wed Apr 08 16:31:17 IST 2020 [debug] return value: -parent system1 -Name {ReservePortCommand 1} -Location //10.91.113.124/10/1 -PortList {} -RevokeOwner false -AbortOnError true -State COMPLETED -Status Completed! -StartTime 1586343676.35879 -EndTime 1586343677.07135 -ElapsedTime 713 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {Reserving ports...} -ProgressMaxValue 2 -ProgressCurrentValue 1 -ProgressCancelled false -Active true 
+Wed Apr 08 16:31:17 IST 2020 [stccall] stc::get port1 -children-generator
+Wed Apr 08 16:31:17 IST 2020 [debug] return value: generator1 
+Wed Apr 08 16:31:17 IST 2020 [stccall] stc::get generator1 -children-generatorconfig
+Wed Apr 08 16:31:17 IST 2020 [debug] return value: generatorconfig1 
+Wed Apr 08 16:31:17 IST 2020 [stccall] stc::config generatorconfig1 -SchedulingMode RATE_BASED
+Wed Apr 08 16:31:17 IST 2020 [debug] return value:  
+Wed Apr 08 16:31:17 IST 2020 [stccall] stc::create Port -under project1 -location 10.91.113.124/10/2 -name 10.91.113.124-10-2
+Wed Apr 08 16:31:17 IST 2020 [debug] return value: port2 
+Wed Apr 08 16:31:17 IST 2020 [stccall] stc::perform ReservePort -Location 10.91.113.124/10/2
+Wed Apr 08 16:31:17 IST 2020 [debug] return value: -parent system1 -Name {ReservePortCommand 2} -Location //10.91.113.124/10/2 -PortList {} -RevokeOwner false -AbortOnError true -State COMPLETED -Status Completed! -StartTime 1586343677.23392 -EndTime 1586343677.95104 -ElapsedTime 717 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {Reserving ports...} -ProgressMaxValue 2 -ProgressCurrentValue 1 -ProgressCancelled false -Active true 
+Wed Apr 08 16:31:17 IST 2020 [stccall] stc::get port2 -children-generator
+Wed Apr 08 16:31:17 IST 2020 [debug] return value: generator2 
+Wed Apr 08 16:31:18 IST 2020 [stccall] stc::get generator2 -children-generatorconfig
+Wed Apr 08 16:31:18 IST 2020 [debug] return value: generatorconfig2 
+Wed Apr 08 16:31:18 IST 2020 [stccall] stc::config generatorconfig2 -SchedulingMode RATE_BASED
+Wed Apr 08 16:31:18 IST 2020 [debug] return value:  
+Wed Apr 08 16:31:18 IST 2020 [stccall] stc::perform setupPortMappings 
+Wed Apr 08 16:31:19 IST 2020 [debug] return value: -parent system1 -Name {SetupPortMappingsCommand 1} -State COMPLETED -Status {} -StartTime 1586343678.09565 -EndTime 1586343679.61562 -ElapsedTime 1520 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Wed Apr 08 16:31:19 IST 2020 [hltcall] ::sth::interface_config {-create_host false -scheduling_mode RATE_BASED -phy_mode copper -port_loadunit MEGABITS_PER_SECOND -control_plane_mtu 1500 -enable_ping_response 0 -autonegotiation 1 -port_handle port1 -duplex full -mode config -port_load 5 -speed ether1000 -intf_mode ethernet}
+Wed Apr 08 16:31:19 IST 2020 [debug] {Calling: sth::interface_config}
+Wed Apr 08 16:31:19 IST 2020 [info] {Generating session table}
+Wed Apr 08 16:31:19 IST 2020 [stccall] stc::get port1 -ActivePhy-targets
+Wed Apr 08 16:31:19 IST 2020 [debug] return value: ethernetcopper1 
+Wed Apr 08 16:31:19 IST 2020 [stccall] stc::get port1 -supportedPhys
+Wed Apr 08 16:31:19 IST 2020 [debug] return value: ETHERNET_COPPER|ETHERNET_FIBER 
+Wed Apr 08 16:31:19 IST 2020 [stccall] stc::get ethernetcopper1 -LineSpeed
+Wed Apr 08 16:31:19 IST 2020 [debug] return value: SPEED_1G 
+Wed Apr 08 16:31:19 IST 2020 [stccall] stc::get port1 -Online
+Wed Apr 08 16:31:19 IST 2020 [debug] return value: true 
+Wed Apr 08 16:31:19 IST 2020 [info] {Calling interface_config for mode: config}
+Wed Apr 08 16:31:19 IST 2020 [info] {Calling: ::sth::Session::interface_config_config_modify}
+Wed Apr 08 16:31:19 IST 2020 [info] {Calling interface_config_config_modify}
+Wed Apr 08 16:31:19 IST 2020 [info] {Calling processConfigFwdCmd}
+Wed Apr 08 16:31:19 IST 2020 [info] {Calling processConfigFwdCmd}
+Wed Apr 08 16:31:19 IST 2020 [info] {Calling: processConfigCmd}
+Wed Apr 08 16:31:19 IST 2020 [info] {Calling processConfigFwdCmd}
+Wed Apr 08 16:31:19 IST 2020 [info] {Calling processConfigFwdCmd}
+Wed Apr 08 16:31:19 IST 2020 [info] {Calling processConfigFwdCmd}
+Wed Apr 08 16:31:19 IST 2020 [stccall] stc::get port1 -activephy-Targets
+Wed Apr 08 16:31:19 IST 2020 [debug] return value: ethernetcopper1 
+Wed Apr 08 16:31:19 IST 2020 [stccall] stc::get ethernetcopper1 -LineSpeed
+Wed Apr 08 16:31:19 IST 2020 [debug] return value: SPEED_1G 
+Wed Apr 08 16:31:19 IST 2020 [stccall] stc::get port1 -children-EthernetCopper
+Wed Apr 08 16:31:19 IST 2020 [debug] return value: ethernetcopper2 ethernetcopper1 
+Wed Apr 08 16:31:19 IST 2020 [stccall] stc::get port1 -children-Ethernet10GigCopper
+Wed Apr 08 16:31:19 IST 2020 [debug] return value:  
+Wed Apr 08 16:31:19 IST 2020 [stccall] stc::config ethernetcopper2 -Mtu 1500 -AutoNegotiation true -Duplex FULL -LineSpeed SPEED_1G
+Wed Apr 08 16:31:19 IST 2020 [debug] return value:  
+Wed Apr 08 16:31:19 IST 2020 [stccall] stc::perform PortSetupSetActivePhy -activephy ethernetcopper2
+Wed Apr 08 16:31:20 IST 2020 [debug] return value: -parent system1 -Name {PortSetup: PortSetupSetActivePhyCommand 1} -ActivePhy ethernetcopper2 -State COMPLETED -Status {} -StartTime 1586343680.02503 -EndTime 1586343680.11231 -ElapsedTime 87 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Wed Apr 08 16:31:20 IST 2020 [stccall] stc::get ethernetcopper2 -isSpeedAutoNegotiationConfigurable
+Wed Apr 08 16:31:20 IST 2020 [debug] return value: true 
+Wed Apr 08 16:31:20 IST 2020 [stccall] stc::get port1 -children-generator
+Wed Apr 08 16:31:20 IST 2020 [debug] return value: generator1 
+Wed Apr 08 16:31:20 IST 2020 [stccall] stc::get generator1 -children-generatorconfig
+Wed Apr 08 16:31:20 IST 2020 [debug] return value: generatorconfig1 
+Wed Apr 08 16:31:20 IST 2020 [stccall] stc::config generatorconfig1 -SchedulingMode RATE_BASED
+Wed Apr 08 16:31:20 IST 2020 [debug] return value:  
+Wed Apr 08 16:31:20 IST 2020 [stccall] stc::get port1 -AffiliationPort-Sources
+Wed Apr 08 16:31:20 IST 2020 [debug] return value:  
+Wed Apr 08 16:31:20 IST 2020 [stccall] stc::get port1 -children-StreamBlock
+Wed Apr 08 16:31:20 IST 2020 [debug] return value:  
+Wed Apr 08 16:31:20 IST 2020 [stccall] stc::perform ArpNdStart -HandleList port1
+Wed Apr 08 16:31:26 IST 2020 [debug] return value: -parent system1 -Name {Learning: Start ArpNd 1} -HandleList port1 -ArpNdState IDLE -WaitForArpToFinish true -ForceArp true -State COMPLETED -Status {None of the input items require ARP/ND at this time} -StartTime 1586343680.33672 -EndTime 1586343686.21736 -ElapsedTime 5881 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Wed Apr 08 16:31:26 IST 2020 [stccall] ::stc::apply
+Wed Apr 08 16:31:26 IST 2020 [info] [doStcApply] ::stc::apply PASSED. 
+Wed Apr 08 16:31:26 IST 2020 [hltcall] ::sth::interface_config {-create_host false -scheduling_mode RATE_BASED -phy_mode copper -port_loadunit MEGABITS_PER_SECOND -control_plane_mtu 1500 -enable_ping_response 0 -autonegotiation 1 -port_handle port2 -duplex full -mode config -port_load 5 -speed ether1000 -intf_mode ethernet}
+Wed Apr 08 16:31:26 IST 2020 [debug] {Calling: sth::interface_config}
+Wed Apr 08 16:31:26 IST 2020 [info] {Generating session table}
+Wed Apr 08 16:31:26 IST 2020 [stccall] stc::get port2 -ActivePhy-targets
+Wed Apr 08 16:31:26 IST 2020 [debug] return value: ethernetcopper3 
+Wed Apr 08 16:31:26 IST 2020 [stccall] stc::get port2 -supportedPhys
+Wed Apr 08 16:31:26 IST 2020 [debug] return value: ETHERNET_COPPER|ETHERNET_FIBER 
+Wed Apr 08 16:31:26 IST 2020 [stccall] stc::get ethernetcopper3 -LineSpeed
+Wed Apr 08 16:31:26 IST 2020 [debug] return value: SPEED_1G 
+Wed Apr 08 16:31:26 IST 2020 [stccall] stc::get port2 -Online
+Wed Apr 08 16:31:26 IST 2020 [debug] return value: true 
+Wed Apr 08 16:31:26 IST 2020 [info] {Calling interface_config for mode: config}
+Wed Apr 08 16:31:26 IST 2020 [info] {Calling: ::sth::Session::interface_config_config_modify}
+Wed Apr 08 16:31:26 IST 2020 [info] {Calling interface_config_config_modify}
+Wed Apr 08 16:31:26 IST 2020 [info] {Calling processConfigFwdCmd}
+Wed Apr 08 16:31:26 IST 2020 [info] {Calling processConfigFwdCmd}
+Wed Apr 08 16:31:26 IST 2020 [info] {Calling: processConfigCmd}
+Wed Apr 08 16:31:26 IST 2020 [info] {Calling processConfigFwdCmd}
+Wed Apr 08 16:31:26 IST 2020 [info] {Calling processConfigFwdCmd}
+Wed Apr 08 16:31:26 IST 2020 [info] {Calling processConfigFwdCmd}
+Wed Apr 08 16:31:26 IST 2020 [stccall] stc::get port2 -activephy-Targets
+Wed Apr 08 16:31:26 IST 2020 [debug] return value: ethernetcopper3 
+Wed Apr 08 16:31:26 IST 2020 [stccall] stc::get ethernetcopper3 -LineSpeed
+Wed Apr 08 16:31:26 IST 2020 [debug] return value: SPEED_1G 
+Wed Apr 08 16:31:26 IST 2020 [stccall] stc::get port2 -children-EthernetCopper
+Wed Apr 08 16:31:26 IST 2020 [debug] return value: ethernetcopper4 ethernetcopper3 
+Wed Apr 08 16:31:26 IST 2020 [stccall] stc::get port2 -children-Ethernet10GigCopper
+Wed Apr 08 16:31:26 IST 2020 [debug] return value:  
+Wed Apr 08 16:31:26 IST 2020 [stccall] stc::config ethernetcopper4 -Mtu 1500 -AutoNegotiation true -Duplex FULL -LineSpeed SPEED_1G
+Wed Apr 08 16:31:26 IST 2020 [debug] return value:  
+Wed Apr 08 16:31:26 IST 2020 [stccall] stc::perform PortSetupSetActivePhy -activephy ethernetcopper4
+Wed Apr 08 16:31:26 IST 2020 [debug] return value: -parent system1 -Name {PortSetup: PortSetupSetActivePhyCommand 2} -ActivePhy ethernetcopper4 -State COMPLETED -Status {} -StartTime 1586343686.68692 -EndTime 1586343686.76522 -ElapsedTime 78 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Wed Apr 08 16:31:26 IST 2020 [stccall] stc::get ethernetcopper4 -isSpeedAutoNegotiationConfigurable
+Wed Apr 08 16:31:26 IST 2020 [debug] return value: true 
+Wed Apr 08 16:31:26 IST 2020 [stccall] stc::get port2 -children-generator
+Wed Apr 08 16:31:26 IST 2020 [debug] return value: generator2 
+Wed Apr 08 16:31:26 IST 2020 [stccall] stc::get generator2 -children-generatorconfig
+Wed Apr 08 16:31:26 IST 2020 [debug] return value: generatorconfig2 
+Wed Apr 08 16:31:26 IST 2020 [stccall] stc::config generatorconfig2 -SchedulingMode RATE_BASED
+Wed Apr 08 16:31:26 IST 2020 [debug] return value:  
+Wed Apr 08 16:31:26 IST 2020 [stccall] stc::get port2 -AffiliationPort-Sources
+Wed Apr 08 16:31:26 IST 2020 [debug] return value:  
+Wed Apr 08 16:31:26 IST 2020 [stccall] stc::get port2 -children-StreamBlock
+Wed Apr 08 16:31:26 IST 2020 [debug] return value:  
+Wed Apr 08 16:31:26 IST 2020 [stccall] stc::perform ArpNdStart -HandleList port2
+Wed Apr 08 16:31:31 IST 2020 [debug] return value: -parent system1 -Name {Learning: Start ArpNd 2} -HandleList port2 -ArpNdState IDLE -WaitForArpToFinish true -ForceArp true -State COMPLETED -Status {None of the input items require ARP/ND at this time} -StartTime 1586343686.98564 -EndTime 1586343691.37747 -ElapsedTime 4392 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName {} -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Wed Apr 08 16:31:31 IST 2020 [stccall] ::stc::apply
+Wed Apr 08 16:31:31 IST 2020 [info] [doStcApply] ::stc::apply PASSED. 
+Wed Apr 08 16:31:41 IST 2020 [hltcall] ::sth::interface_config {-mode destroy -port_handle port1}
+Wed Apr 08 16:31:41 IST 2020 [debug] {Calling: sth::interface_config}
+Wed Apr 08 16:31:41 IST 2020 [info] {Generating session table}
+Wed Apr 08 16:31:41 IST 2020 [stccall] stc::get port1 -ActivePhy-targets
+Wed Apr 08 16:31:41 IST 2020 [debug] return value: ethernetcopper2 
+Wed Apr 08 16:31:41 IST 2020 [stccall] stc::get port1 -supportedPhys
+Wed Apr 08 16:31:41 IST 2020 [debug] return value: ETHERNET_COPPER|ETHERNET_FIBER 
+Wed Apr 08 16:31:41 IST 2020 [stccall] stc::get ethernetcopper2 -LineSpeed
+Wed Apr 08 16:31:41 IST 2020 [debug] return value: SPEED_1G 
+Wed Apr 08 16:31:41 IST 2020 [stccall] stc::get port1 -Online
+Wed Apr 08 16:31:41 IST 2020 [debug] return value: true 
+Wed Apr 08 16:31:41 IST 2020 [info] {Calling interface_config for mode: destroy}
+Wed Apr 08 16:31:41 IST 2020 [info] {Calling: ::sth::Session::interface_config_destroy}
+Wed Apr 08 16:31:41 IST 2020 [info] {Calling processDeleteCmd}
+Wed Apr 08 16:31:41 IST 2020 [stccall] stc::delete port1
+Wed Apr 08 16:31:41 IST 2020 [debug] return value:  
+Wed Apr 08 16:31:41 IST 2020 [info] {The object with handle: port1 was successfully deleted}
+Wed Apr 08 16:31:41 IST 2020 [hltcall] ::sth::interface_config {-mode destroy -port_handle port2}
+Wed Apr 08 16:31:41 IST 2020 [debug] {Calling: sth::interface_config}
+Wed Apr 08 16:31:41 IST 2020 [info] {Generating session table}
+Wed Apr 08 16:31:41 IST 2020 [stccall] stc::get port2 -ActivePhy-targets
+Wed Apr 08 16:31:41 IST 2020 [debug] return value: ethernetcopper4 
+Wed Apr 08 16:31:41 IST 2020 [stccall] stc::get port2 -supportedPhys
+Wed Apr 08 16:31:41 IST 2020 [debug] return value: ETHERNET_COPPER|ETHERNET_FIBER 
+Wed Apr 08 16:31:41 IST 2020 [stccall] stc::get ethernetcopper4 -LineSpeed
+Wed Apr 08 16:31:41 IST 2020 [debug] return value: SPEED_1G 
+Wed Apr 08 16:31:41 IST 2020 [stccall] stc::get port2 -Online
+Wed Apr 08 16:31:41 IST 2020 [debug] return value: true 
+Wed Apr 08 16:31:41 IST 2020 [info] {Calling interface_config for mode: destroy}
+Wed Apr 08 16:31:41 IST 2020 [info] {Calling: ::sth::Session::interface_config_destroy}
+Wed Apr 08 16:31:41 IST 2020 [info] {Calling processDeleteCmd}
+Wed Apr 08 16:31:41 IST 2020 [stccall] stc::delete port2
+Wed Apr 08 16:31:42 IST 2020 [debug] return value:  
+Wed Apr 08 16:31:42 IST 2020 [info] {The object with handle: port2 was successfully deleted}
+Wed Apr 08 16:31:42 IST 2020 [hltcall] ::sth::cleanup_session {-port_handle {port1 port2} -clean_dbfile 1}
+Wed Apr 08 16:31:42 IST 2020 [debug] {Calling: sth::cleanup_session}
+Wed Apr 08 16:31:42 IST 2020 [info] {Generating session table}
+Wed Apr 08 16:31:42 IST 2020 [info] {Calling: ::sth::Session::processCleanup_sessionPort_list port1 port2}
+Wed Apr 08 16:31:42 IST 2020 [hltcall] ::sth::traffic_config {-mode reset}
+Wed Apr 08 16:31:42 IST 2020 [stccall] stc::get project1 -children-port
+Wed Apr 08 16:31:42 IST 2020 [debug] return value:  
+Wed Apr 08 16:31:42 IST 2020 [stccall] stc::perform DeleteCommand -ConfigList {}
+Wed Apr 08 16:31:42 IST 2020 [debug] return value: -parent system1 -Name {DeleteCommand 25} -ConfigList {} -WarnOnAdditionalDelete false -State COMPLETED -Status {} -StartTime 1586343702.31806 -EndTime 1586343702.32305 -ElapsedTime 5 -ProgressDisplayCounter true -ProgressStepsCount 1 -ProgressCurrentStep 1 -ProgressCurrentStepName Deleting... -ProgressMaxValue 0 -ProgressCurrentValue 0 -ProgressCancelled false -Active true 
+Wed Apr 08 16:31:42 IST 2020 [stccall] ::stc::apply
+Wed Apr 08 16:31:42 IST 2020 [info] [doStcApply] ::stc::apply PASSED. 

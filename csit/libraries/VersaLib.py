@@ -762,7 +762,7 @@ class VersaLib:
             print(output)
         else:
             # cpe_logger.info(output)
-            return "VD to CPE " + self.ESP_IP + "ssh Failed."
+            return "VD to CPE " + self.ESP_IP + " ssh Failed."
         # self.cnc.write_channel("cli\n")
         # time.sleep(2)
         # output1 = self.cnc.read_channel()
@@ -1114,6 +1114,20 @@ class VersaLib:
             self.main_logger.info(">>>>>>>>>> CONFIG VRRP TRACK ROUTE passed. <<<<<<<<<<<")
 
 
+    def config_bgp_nbr_delete(self, cpe):
+        cmd_template = Template(bgp_nbr_delete_config + "\n")
+        cmd = cmd_template.render(cpe)
+        self.main_logger.info(cmd)
+        result = self.device_config_commands_with_return(self.nc, cmd)
+        return result
+
+    def config_bgp_nbr_set(self, cpe):
+        cmd_template = Template(bgp_nbr_set_config + "\n")
+        cmd = cmd_template.render(cpe)
+        self.main_logger.info(cmd)
+        result = self.device_config_commands_with_return(self.nc, cmd)
+        return result
+
     def config_devices_qos(self, device_name, org_name, schdulermap_intf):
         self.main_logger.info("\n\nSTEP :CONFIG QOS\n")
         curr_file_loader = FileSystemLoader(curr_file_dir + "/libraries/J2_temps/QOS/")
@@ -1129,6 +1143,7 @@ class VersaLib:
         result = self.device_config_commands_with_return(self.nc, self.DEVICE_template_modify_config)
         return result
         self.main_logger.info(">>>>>>>>>> CONFIG QOS passed. <<<<<<<<<<<")
+
 
     def modify_qos_device_config(self, device_name, org_name, tempalte_name, **kwargs):
         temp_dict = {}
@@ -1535,6 +1550,11 @@ class VersaLib:
         print output
         return output
 
+    def show_vrrp_grp_summary(self):
+        cmd = "show vrrp group summary"
+        output = self.cnc.send_command_expect(cmd, expect_string=">", strip_prompt=False, strip_command=False)
+        print output
+        return output
 
 
     def show_config_sdwan_policy_rules(self, rules, policy='Default-Policy', **kwargs):

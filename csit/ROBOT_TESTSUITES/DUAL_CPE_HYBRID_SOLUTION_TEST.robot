@@ -73,6 +73,26 @@ NV_DUAL_CPE_HYBRID_SANITY_01
     CHECK CPE1 LAN ROUTE Present in CPE3
     CHECK CPE2 LAN ROUTE Present in CPE3
 
+
+NV_DUAL_CPE_HYBRID_VRRP_01
+    [Documentation]    Check grp summary
+    [Tags]    vrrp
+    CHECK VRRP GRP SUMMARY
+
+
+#NV_DUAL_CPE_HYBRID_VRRP_02
+#    [Documentation]    Check grp summary
+#    [Tags]    vrrp2
+#    CHECK VRRP GRP SUMMARY
+#    ${result}    VD1.config_bgp_nbr_delete    ${CPE1}
+#    CHECK RESULT    actual=${result}    expected=Commit\\s+SUCCUESS
+#    sleep    10s
+#    CHECK VRRP GRP SUMMARY
+#    ${result}    VD1.config_bgp_nbr_set    ${CPE1}
+#    CHECK RESULT    actual=${result}    expected=Commit\\s+SUCCUESS
+#    sleep    10s
+#    CHECK VRRP GRP SUMMARY
+
 NV_DUAL_CPE_HYBRID_SANITY_02
     [Documentation]    Ping test CPE1 LAN1 VM to CPE2 LAN1 VM
     [Tags]    PING
@@ -447,9 +467,15 @@ STARTUP
     ${VD1}    VD1.get_data_dict
     set suite variable    ${VM1}
     set suite variable    ${VM2}
-    CPE1.cross login
-    CPE2.cross_login
-    CPE3.cross_login
+    ${result}    CPE1.cross login
+    ${result1}    Convert To String   ${result}
+    should not contain  ${result1}    ssh Failed    msg=${result1}
+    ${result}    CPE2.cross_login
+    ${result1}    Convert To String   ${result}
+    should not contain  ${result1}    ssh Failed    msg=${result1}
+    ${result}    CPE3.cross_login
+    ${result1}    Convert To String   ${result}
+    should not contain  ${result1}    ssh Failed    msg=${result1}
     spirent1.Connect And Reserve Ports
     ${CPE1_dev_info_on_vd} =    CPE1.get_device_info
     ${CPE1}    CPE1.get_data_dict
@@ -584,3 +610,14 @@ Iperf3 test VM1 to VM2
     VM2.send_commands_and_expect    iperf3 -s &
     ${result}=    VM1.send_commands_and_expect    iperf3 -c ${destip}
     Should Contain    ${result}    iperf Done.
+
+
+CHECK VRRP GRP SUMMARY
+    ${result}    CPE1.show_vrrp_grp_summary
+    CHECK RESULT    actual=${result}    expected=Master\\s+Active\\s+105
+    CHECK RESULT    actual=${result}    expected=Primary\\s+${CPE1['lan'][1]['second_host']}
+    CHECK RESULT    actual=${result}    expected=Virtual\\s+${CPE1['lan'][1]['first_host']}
+    ${result}    CPE2.show_vrrp_grp_summary
+    CHECK RESULT    actual=${result}    expected=Backup\\s+Active\\s+100
+    CHECK RESULT    actual=${result}    expected=Primary\\s+${CPE2['lan'][1]['third_host']}
+    CHECK RESULT    actual=${result}    expected=Virtual\\s+${CPE2['lan'][1]['first_host']}
