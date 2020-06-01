@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20200408 16:30:57.071" generator="Robot 3.1.2 (Python 2.7.13 on win32)">
+<suite source="C:\Softwares_mine\stefano\NV_REPOSITORY\csit\ROBOT_TESTSUITES\BKUP\sample1.robot" id="s1" name="Sample1">
+<test id="s1-t1" name="Checking_test">
+<kw name="Connect And Reserve Ports" library="spirent1">
+<msg timestamp="20200408 16:31:31.470" level="INFO">reserved ports 10/1 : port1 : port_handle[0]
+
+ reserved ports 10/2 : port2 : port_handle[1]
+***** run sth.interface_config successfully
+***** run sth.interface_config successfully</msg>
+<status status="PASS" endtime="20200408 16:31:31.470" starttime="20200408 16:31:14.823"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10s</arg>
+</arguments>
+<msg timestamp="20200408 16:31:41.472" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" endtime="20200408 16:31:41.472" starttime="20200408 16:31:31.471"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>should match regexp</arg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Should Match Regexp" library="BuiltIn">
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+</arguments>
+<status status="PASS" endtime="20200408 16:31:41.474" starttime="20200408 16:31:41.473"></status>
+</kw>
+<msg timestamp="20200408 16:31:41.474" level="INFO">${result} = +192.169.101.0/24 20.20.90.11</msg>
+<status status="PASS" endtime="20200408 16:31:41.474" starttime="20200408 16:31:41.473"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<status status="PASS" endtime="20200408 16:31:41.475" starttime="20200408 16:31:41.474"></status>
+</kw>
+<kw name="Release Ports" library="spirent1">
+<msg timestamp="20200408 16:31:42.438" level="INFO">Release resources
+***** run sth.interface_config_delete successfully
+***** run sth.interface_config_delete successfully
+***** run sth.cleanup_session successfully</msg>
+<status status="PASS" endtime="20200408 16:31:42.438" starttime="20200408 16:31:41.476"></status>
+</kw>
+<status status="PASS" endtime="20200408 16:31:42.439" critical="yes" starttime="20200408 16:31:14.823"></status>
+</test>
+<status status="PASS" endtime="20200408 16:31:42.440" starttime="20200408 16:30:57.076"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Sample1" pass="1">Sample1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

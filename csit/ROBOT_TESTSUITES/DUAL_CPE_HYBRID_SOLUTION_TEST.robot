@@ -36,7 +36,7 @@ Metadata          Version    1.0\nMore Info For more information about Robot Fra
 Variables         ../libraries/Variables.py
 Library           Collections
 Library           String
-Variables         DUAL_CPE_SOLUTION_TEST_TOPOLOGY.py
+Variables         DUAL_CPE_HYBRID_SOLUTION_TEST_TOPOLOGY.py
 Library           ../libraries/VersaLib.py    VD1    topofile=Devices.csv    WITH NAME    VD1
 Library           ../libraries/VersaLib.py    ${CPE1}    topofile=Devices.csv    WITH NAME    CPE1
 Library           ../libraries/VersaLib.py    ${CPE2}    topofile=Devices.csv    WITH NAME    CPE2
@@ -376,7 +376,7 @@ DELETE FWD PROFILE
     CPE1.delete_address_object    ${ipaddobj_2}
     CPE1.delete_fowarding_profile    ${fwp_1}
     CPE1.delete_sla_profile    ${sla_prf_1}
-    CPE1.modify_interface_bandwidth    ${CPE1['WAN1_INTF']}    ${curr_intf_bw['bandwidth']['uplink']}    ${curr_intf_bw['bandwidth']['downlink']}
+    #CPE1.modify_interface_bandwidth    ${CPE1['WAN1_INTF']}    ${curr_intf_bw['bandwidth']['uplink']}    ${curr_intf_bw['bandwidth']['downlink']}
     CPE1.get_vni_interface_bw    ${CPE1['WAN1_INTF']}
 
 
@@ -467,6 +467,7 @@ STARTUP
     ${VD1}    VD1.get_data_dict
     set suite variable    ${VM1}
     set suite variable    ${VM2}
+    Debug
     ${result}    CPE1.cross login
     ${result1}    Convert To String   ${result}
     should not contain  ${result1}    ssh Failed    msg=${result1}

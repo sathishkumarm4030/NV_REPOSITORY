@@ -1,0 +1,657 @@
+2020-05-22 11:29:30,345 - VD1 - DEBUG - <netmiko.versa.versa_ssh.VersaSSH object at 0x000000000DC0EB38>
+2020-05-22 11:29:35,551 - VD1 - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2020-05-22 11:29:40,743 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - DEBUG - <netmiko.versa.versa_ssh.VersaSSH object at 0x000000000DC43B38>
+2020-05-22 11:29:45,947 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2020-05-22 11:30:12,140 - CPE27-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-S - DEBUG - <netmiko.versa.versa_ssh.VersaSSH object at 0x000000000DC69B38>
+2020-05-22 11:30:17,345 - CPE27-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-S - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2020-05-22 11:30:43,743 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - <netmiko.versa.versa_ssh.VersaSSH object at 0x000000000DC77358>
+2020-05-22 11:30:49,051 - CPE11-HKG-HYBRD-IPC00190 - DEBUG - versa: Automated@VDir-BLR-NEW-01>
+2020-05-22 11:32:46,487 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - 
+CREATE SLA profile
+
+2020-05-22 11:32:48,246 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - DEBUG - <Response [201]>
+2020-05-22 11:32:48,247 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - 
+PASS
+2020-05-22 11:32:48,249 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - >>>>>>>>>> CREATE SLA Profile PASSED. <<<<<<<<<<<
+2020-05-22 11:32:48,253 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - 
+CREATE FWD PROFILE
+
+2020-05-22 11:32:50,003 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - DEBUG - <Response [201]>
+2020-05-22 11:32:50,003 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - 
+PASS
+2020-05-22 11:32:50,006 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - >>>>>>>>>> FORWARDING PROFILE CREATION PASSED. <<<<<<<<<<<
+2020-05-22 11:32:50,010 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - 
+CREATE IPaddress Object
+
+2020-05-22 11:32:51,703 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - DEBUG - <Response [201]>
+2020-05-22 11:32:51,706 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - 
+PASS
+2020-05-22 11:32:51,707 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - >>>>>>>>>> ADDRESS OBJECT CREATION PASSED. <<<<<<<<<<<
+2020-05-22 11:32:51,716 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - 
+CREATE IPaddress Object
+
+2020-05-22 11:32:53,441 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - DEBUG - <Response [201]>
+2020-05-22 11:32:53,444 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - 
+PASS
+2020-05-22 11:32:53,444 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - >>>>>>>>>> ADDRESS OBJECT CREATION PASSED. <<<<<<<<<<<
+2020-05-22 11:32:53,448 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - 
+CREATE Service Object
+
+2020-05-22 11:32:56,003 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - DEBUG - <Response [201]>
+2020-05-22 11:32:56,005 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - 
+PASS
+2020-05-22 11:32:56,006 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - >>>>>>>>>> Service OBJECT CREATION PASSED. <<<<<<<<<<<
+2020-05-22 11:32:56,015 - VD1 - INFO - 
+
+STEP :CONFIG QOS
+
+2020-05-22 11:32:56,118 - VD1 - INFO - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc_nc loss-priority low code-point af41
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc_ef loss-priority low code-point ef
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc_be loss-priority high code-point be
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc13 loss-priority high code-point af31
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc14 loss-priority high code-point af21
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc15 loss-priority high code-point af11
+
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc_nc traffic-class tc0
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc_nc queue 0
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc_ef traffic-class tc1
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc_ef queue 0
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc13 traffic-class tc3
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc13 queue 0
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc14 traffic-class tc3
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc14 queue 1
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc15 traffic-class tc3
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc15 queue 2
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc_be traffic-class tc3
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc_be queue 3
+
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service interfaces vni-0/1 scheduler-map IPC00190
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service interfaces tunnel dscp-rewrite-rule rw-1
+
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service scheduler-maps IPC00190 traffic-class tc0 scheduler sc_nc
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service scheduler-maps IPC00190 traffic-class tc1 scheduler sc_ef
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service scheduler-maps IPC00190 traffic-class tc3 scheduler sc_be
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service drop-profiles wred-high-drop maximum 128 minimum 64
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service drop-profiles wred-low-drop maximum 128 minimum 96
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service drop-profiles tail-drop maximum 65 minimum 64
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service schedulers sc_be drop-profile-map loss-priority low drop-profile wred-low-drop
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service schedulers sc_be drop-profile-map loss-priority high drop-profile wred-high-drop
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service schedulers sc_be queue 0 weight 6
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service schedulers sc_be queue 1 weight 4
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service schedulers sc_be queue 2 weight 4
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service schedulers sc_be queue 3 weight 3
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service schedulers sc_ef
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service schedulers sc_nc drop-profile-map loss-priority low drop-profile tail-drop
+
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium set action allow
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium set qos-profile Premium
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match source zone zone-list [ Intf-LAN1-Zone ]
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match destination zone zone-list [ ptvi ]
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match dscp [ 46 ]
+
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 set action allow
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 set qos-profile Business1
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 match source zone zone-list [ Intf-LAN1-Zone ]
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 match dscp [ 26 ]
+
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 set action allow
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 set qos-profile Business2
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 match source zone zone-list [ Intf-LAN1-Zone ]
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 match dscp [ 18 ]
+
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 set action allow
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 set qos-profile Business3
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 match source zone zone-list [ Intf-LAN1-Zone ]
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 match dscp [ 10 ]
+
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Internet-Default set action allow
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Internet-Default set qos-profile Internet-Default
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Internet-Default match source zone zone-list [ Intf-LAN1-Zone ]
+
+
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service app-qos-policies Default-Policy
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business1 forwarding-class fc13
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business1 loss-priority high
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business1 dscp-rw-enable yes
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business1 dot1p-rw-enable no
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business2 forwarding-class fc14
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business2 loss-priority high
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business2 dscp-rw-enable yes
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business2 dot1p-rw-enable no
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business3 forwarding-class fc15
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business3 loss-priority high
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business3 dscp-rw-enable yes
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business3 dot1p-rw-enable no
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Internet-Default forwarding-class fc_be
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Internet-Default loss-priority high
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Internet-Default dscp-rw-enable no
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Internet-Default dot1p-rw-enable no
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Premium forwarding-class fc_ef
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Premium loss-priority low
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Premium dscp-rw-enable yes
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Premium dot1p-rw-enable no
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Routing-Management forwarding-class fc_nc
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Routing-Management loss-priority low
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Routing-Management dscp-rw-enable yes
+set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Routing-Management dot1p-rw-enable no
+
+#move rule to first
+move devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Internet-Default  first
+move devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 first
+move devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 first
+move devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 first
+move devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium first
+
+2020-05-22 11:32:56,250 - VD1 - DEBUG - 
+Automated@VDir-BLR-NEW-01> 
+2020-05-22 11:32:56,275 - VD1 - DEBUG - True
+2020-05-22 11:32:57,085 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc_nc loss-priority low code-point af41
+[ok][2020-05-22 06:05:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:32:57,894 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc_ef loss-priority low code-point ef
+[ok][2020-05-22 06:05:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:32:58,701 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc_be loss-priority high code-point be
+[ok][2020-05-22 06:05:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:32:59,714 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc13 loss-priority high code-point af31
+[ok][2020-05-22 06:05:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:00,525 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc14 loss-priority high code-point af21
+[ok][2020-05-22 06:05:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:01,545 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service rw-rules dscp rw-1 forwarding-class fc15 loss-priority high code-point af11
+[ok][2020-05-22 06:05:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:01,948 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:02,776 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc_nc traffic-class tc0
+[ok][2020-05-22 06:05:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:03,384 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc_nc queue 0
+[ok][2020-05-22 06:05:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:03,994 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc_ef traffic-class tc1
+[ok][2020-05-22 06:05:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:04,599 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc_ef queue 0
+[ok][2020-05-22 06:05:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:05,207 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc13 traffic-class tc3
+[ok][2020-05-22 06:05:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:05,819 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc13 queue 0
+[ok][2020-05-22 06:05:19]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:06,627 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc14 traffic-class tc3
+[ok][2020-05-22 06:05:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:07,434 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc14 queue 1
+[ok][2020-05-22 06:05:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:08,043 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc15 traffic-class tc3
+[ok][2020-05-22 06:05:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:08,650 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc15 queue 2
+[ok][2020-05-22 06:05:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:09,257 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc_be traffic-class tc3
+[ok][2020-05-22 06:05:22]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:09,867 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service forwarding-class-map fc_be queue 3
+[ok][2020-05-22 06:05:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:10,273 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:10,880 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service interfaces vni-0/1 scheduler-map IPC00190
+[ok][2020-05-22 06:05:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:11,690 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service interfaces tunnel dscp-rewrite-rule rw-1
+[ok][2020-05-22 06:05:25]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:12,094 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:13,101 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service scheduler-maps IPC00190  traffic-class tc0 scheduler sc_nc
+[ok][2020-05-22 06:05:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:13,910 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service scheduler-maps IPC00190  traffic-class tc1 scheduler sc_ef
+[ok][2020-05-22 06:05:27]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:14,719 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service scheduler-maps IPC00190  traffic-class tc3 scheduler sc_be
+[ok][2020-05-22 06:05:28]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:15,526 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service drop-profiles wred-high-drop maximum 128 minimum 64
+[ok][2020-05-22 06:05:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:16,338 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service drop-profiles wred-low-drop maximum 128 minimum 96
+[ok][2020-05-22 06:05:29]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:17,148 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service drop-profiles tail-drop  maximum 65 minimum 64
+[ok][2020-05-22 06:05:30]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:17,957 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service schedulers sc_be drop-profile-map loss-priority low drop-profile wred-low-drop
+[ok][2020-05-22 06:05:31]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:18,763 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service schedulers sc_be drop-profile-map loss-priority high drop-profile wred-high-drop
+[ok][2020-05-22 06:05:32]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:19,775 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service schedulers sc_be queue  0 weight 6
+[ok][2020-05-22 06:05:33]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:20,584 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service schedulers sc_be queue  1 weight 4
+[ok][2020-05-22 06:05:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:21,394 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service schedulers sc_be queue  2 weight 4
+[ok][2020-05-22 06:05:34]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:22,201 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service schedulers sc_be queue  3 weight 3
+[ok][2020-05-22 06:05:35]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:23,009 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service schedulers sc_ef
+[ok][2020-05-22 06:05:36]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:23,818 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service schedulers sc_nc drop-profile-map loss-priority low drop-profile tail-drop
+[ok][2020-05-22 06:05:37]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:24,221 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:25,029 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium set action allow
+[ok][2020-05-22 06:05:38]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:25,835 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium set qos-profile Premium
+[ok][2020-05-22 06:05:39]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:26,845 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match source zone zone-list [ Intf-LAN1-Zone ]
+[ok][2020-05-22 06:05:40]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:28,076 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match destination zone zone-list [ ptvi ]
+[ok][2020-05-22 06:05:41]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:29,088 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium match dscp [ 46 ]
+[ok][2020-05-22 06:05:42]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:29,493 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:30,506 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 set action allow
+[ok][2020-05-22 06:05:43]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:31,516 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 set qos-profile Business1
+[ok][2020-05-22 06:05:44]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:32,526 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 match source zone zone-list [ Intf-LAN1-Zone ]
+[ok][2020-05-22 06:05:45]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:33,535 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 match dscp [ 26 ]
+[ok][2020-05-22 06:05:46]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:33,940 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:34,947 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 set action allow
+[ok][2020-05-22 06:05:48]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:35,757 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 set qos-profile Business2
+[ok][2020-05-22 06:05:49]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:36,769 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 match source zone zone-list [ Intf-LAN1-Zone ]
+[ok][2020-05-22 06:05:50]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:37,776 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 match dscp [ 18 ]
+[ok][2020-05-22 06:05:51]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:38,180 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:38,992 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 set action allow
+[ok][2020-05-22 06:05:52]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:39,799 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 set qos-profile Business3
+[ok][2020-05-22 06:05:53]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:40,811 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 match source zone zone-list [ Intf-LAN1-Zone ]
+[ok][2020-05-22 06:05:54]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:41,823 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 match dscp [ 10 ]
+[ok][2020-05-22 06:05:55]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:42,230 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:43,042 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Internet-Default set action allow
+[ok][2020-05-22 06:05:56]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:43,848 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Internet-Default set qos-profile Internet-Default
+[ok][2020-05-22 06:05:57]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:45,062 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Internet-Default match source zone zone-list [ Intf-LAN1-Zone ]
+[ok][2020-05-22 06:05:58]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:45,466 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:45,874 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:46,680 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service app-qos-policies Default-Policy
+[ok][2020-05-22 06:06:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:47,489 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business1  forwarding-class fc13
+[ok][2020-05-22 06:06:00]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:48,095 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business1  loss-priority high
+[ok][2020-05-22 06:06:01]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:48,700 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business1  dscp-rw-enable yes
+[ok][2020-05-22 06:06:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:49,507 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business1  dot1p-rw-enable no
+[ok][2020-05-22 06:06:02]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:50,313 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business2  forwarding-class fc14
+[ok][2020-05-22 06:06:03]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:51,119 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business2  loss-priority high
+[ok][2020-05-22 06:06:04]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:51,724 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business2  dscp-rw-enable yes
+[ok][2020-05-22 06:06:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:52,532 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business2  dot1p-rw-enable no
+[ok][2020-05-22 06:06:05]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:53,138 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business3  forwarding-class fc15
+[ok][2020-05-22 06:06:06]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:53,746 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business3  loss-priority high
+[ok][2020-05-22 06:06:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:54,355 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business3  dscp-rw-enable yes
+[ok][2020-05-22 06:06:07]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:55,165 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Business3  dot1p-rw-enable no
+[ok][2020-05-22 06:06:08]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:55,773 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Internet-Default forwarding-class fc_be
+[ok][2020-05-22 06:06:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:56,381 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Internet-Default loss-priority high
+[ok][2020-05-22 06:06:09]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:57,190 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Internet-Default dscp-rw-enable no
+[ok][2020-05-22 06:06:10]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:57,996 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Internet-Default dot1p-rw-enable no
+[ok][2020-05-22 06:06:11]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:58,802 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Premium forwarding-class fc_ef
+[ok][2020-05-22 06:06:12]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:33:59,812 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Premium loss-priority low
+[ok][2020-05-22 06:06:13]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:34:00,622 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Premium dscp-rw-enable yes
+[ok][2020-05-22 06:06:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:34:01,431 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Premium dot1p-rw-enable no
+[ok][2020-05-22 06:06:14]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:34:02,242 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Routing-Management forwarding-class fc_nc
+[ok][2020-05-22 06:06:15]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:34:02,846 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Routing-Management loss-priority low
+[ok][2020-05-22 06:06:16]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:34:03,654 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Routing-Management dscp-rw-enable yes
+[ok][2020-05-22 06:06:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:34:04,463 - VD1 - DEBUG - set devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-profiles Routing-Management dot1p-rw-enable no
+[ok][2020-05-22 06:06:17]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:34:04,868 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:34:05,273 - VD1 - DEBUG - #move rule to first
+[ok][2020-05-22 06:06:18]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:34:06,885 - VD1 - DEBUG - move devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Internet-Default 
+Possible completions:
+  after  before  first  last
+Automated@VDir-BLR-NEW-01% move devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Internet-Default first
+[ok][2020-05-22 06:06:20]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:34:08,299 - VD1 - DEBUG - move devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business3 first
+[ok][2020-05-22 06:06:21]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:34:09,710 - VD1 - DEBUG - move devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business2 first
+[ok][2020-05-22 06:06:23]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:34:11,325 - VD1 - DEBUG - move devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Business1 first
+[ok][2020-05-22 06:06:24]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:34:13,155 - VD1 - DEBUG - move devices device CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P config orgs org-services IPC00190 class-of-service qos-policies Default-Policy rules LAN1-VRF-Premium first
+[ok][2020-05-22 06:06:26]
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:34:13,762 - VD1 - DEBUG - 
+
+[edit]
+Automated@VDir-BLR-NEW-01% 
+2020-05-22 11:34:14,566 - VD1 - DEBUG - commit and-quit
+No modifications to commit.
+[ok][2020-05-22 06:06:27]
+Automated@VDir-BLR-NEW-01> 
+2020-05-22 11:36:06,398 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - 
+DELETE Service Object
+
+2020-05-22 11:36:09,229 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - 
+PASS
+2020-05-22 11:36:09,229 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - >>>>>>>>>> ADDRESS OBJECT DELETION PASSED. <<<<<<<<<<<
+2020-05-22 11:36:09,230 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - 
+DELETE IPaddress Object
+
+2020-05-22 11:36:11,023 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - 
+PASS
+2020-05-22 11:36:11,025 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - >>>>>>>>>> ADDRESS OBJECT DELETION PASSED. <<<<<<<<<<<
+2020-05-22 11:36:11,028 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - 
+DELETE IPaddress Object
+
+2020-05-22 11:36:13,059 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - 
+PASS
+2020-05-22 11:36:13,061 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - >>>>>>>>>> ADDRESS OBJECT DELETION PASSED. <<<<<<<<<<<
+2020-05-22 11:36:13,063 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - 
+DELETE FWD PROFILE
+
+2020-05-22 11:36:15,361 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - 
+PASS
+2020-05-22 11:36:15,361 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - >>>>>>>>>> FORWARDING PROFILE DELETION PASSED. <<<<<<<<<<<
+2020-05-22 11:36:15,364 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - 
+DELETE SLA profile
+
+2020-05-22 11:36:17,032 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - 
+PASS
+2020-05-22 11:36:17,032 - CPE26-SIN-DUAL-CPE-DUAL-MPLS-IPC00190-P - INFO - >>>>>>>>>> DELETE SLA Profile PASSED. <<<<<<<<<<<

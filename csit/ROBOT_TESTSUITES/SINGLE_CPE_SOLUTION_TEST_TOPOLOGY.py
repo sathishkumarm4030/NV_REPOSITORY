@@ -1,8 +1,9 @@
 #TOPO
 #CPE1 - SINGLE-CPE-HYBRID
 #CPE2 - SINGLE-CPE-HYBRID
-#VM1  - linux VM connected to CPE1 LAN
-#VM2  - linux VM connected to CPE2 LAN
+#VM1  - linux VM connected to LAN switch. CPE1 LAN VM
+#VM2  - linux VM connected to LAN switch. CPE2 LAN VM
+#Spirent 2 Ports connected LAN switch.
 
 CPE1 = "CPE11-HKG-HYBRD-IPC00190"
 CPE2 = "CPE12-HKG-HYBRD-IPC00190"

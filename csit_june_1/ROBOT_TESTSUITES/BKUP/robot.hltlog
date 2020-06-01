@@ -1,0 +1,80 @@
+[2020-04-08 16:30:57]: Started process.  Command line: 
+[2020-04-08 16:30:57]:      port number: 59943
+[2020-04-08 16:30:57]:    timeout value: 120
+[2020-04-08 16:30:57]:       log option: log
+[2020-04-08 16:30:57]: results dir path: C:\Softwares_mine\stefano\NV_REPOSITORY\csit\ROBOT_TESTSUITES\BKUP
+[2020-04-08 16:30:57]:    log file name: robot.hltlog
+[2020-04-08 16:30:57]: Working directory is now: C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/BKUP
+[2020-04-08 16:30:57]: Sourcing initialization file "stcinit.srv".
+[2020-04-08 16:30:57]: Connecting to port 59943 on 127.0.0.1.
+[2020-04-08 16:30:57]: Creating server socket.
+[2020-04-08 16:30:57]: Generated port number: 59945
+[2020-04-08 16:30:57]: Setting up timeout check.
+[2020-04-08 16:30:57]: Waiting for client connection.
+[2020-04-08 16:30:57]: Client connection from 127.0.0.1 port 59946.
+[2020-04-08 16:30:57]: Executing: <package require SpirentHltApi>
+[2020-04-08 16:31:14]: Return value: <4.67>
+[2020-04-08 16:31:14]: custom_path--C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/BKUP
+[2020-04-08 16:31:14]: Executing: <set ret [sth::test_config -vendorlogfile HLTAPI_InterfaceConfig_Port_Load_stcExport -log_level 7 -log 1 -hlt2stcmappingfile HHLTAPI_InterfaceConfig_Port_Load_hlt2StcMapping -hlt2stcmapping 1 -hltlog 1 -logfile HLTAPI_InterfaceConfig_Port_Load_logfile -vendorlog 1 -hltlogfile HLTAPI_InterfaceConfig_Port_Load_hltExport]>
+[2020-04-08 16:31:14]: Return value: <{status 1}>
+[2020-04-08 16:31:14]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-04-08 16:31:14]: Return value: <>
+[2020-04-08 16:31:14]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-04-08 16:31:14]: Return value: <>
+[2020-04-08 16:31:14]: Executing: <set hashkey>
+[2020-04-08 16:31:14]: Return value: <status>
+[2020-04-08 16:31:14]: Executing: <set hashvalue>
+[2020-04-08 16:31:14]: Return value: <1>
+[2020-04-08 16:31:14]: Executing: <sth::connect -device 10.91.113.124 -port_list "10/1 10/2">
+[2020-04-08 16:31:19]: Return value: <{offline 0} {port_handle {{10 {{91 {{113 {{124 {{10/1 port1} {10/2 port2}}}}}}}}}}} {status 1}>
+[2020-04-08 16:31:19]: Executing: <set ret [sth::interface_config -create_host false -scheduling_mode RATE_BASED -phy_mode copper -port_loadunit MEGABITS_PER_SECOND -control_plane_mtu 1500 -enable_ping_response 0 -autonegotiation 1 -port_handle port1 -duplex full -mode config -port_load 5 -speed ether1000 -intf_mode ethernet]>
+[2020-04-08 16:31:26]: Return value: <{arpnd_status 1} {arpnd_cache none} {arpnd_report none} {status 1} {handles 0}>
+[2020-04-08 16:31:26]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-04-08 16:31:26]: Return value: <>
+[2020-04-08 16:31:26]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-04-08 16:31:26]: Return value: <>
+[2020-04-08 16:31:26]: Executing: <set hashkey>
+[2020-04-08 16:31:26]: Return value: <arpnd_status arpnd_cache arpnd_report status handles>
+[2020-04-08 16:31:26]: Executing: <set hashvalue>
+[2020-04-08 16:31:26]: Return value: <1 none none 1 0>
+[2020-04-08 16:31:26]: Executing: <set ret [sth::interface_config -create_host false -scheduling_mode RATE_BASED -phy_mode copper -port_loadunit MEGABITS_PER_SECOND -control_plane_mtu 1500 -enable_ping_response 0 -autonegotiation 1 -port_handle port2 -duplex full -mode config -port_load 5 -speed ether1000 -intf_mode ethernet]>
+[2020-04-08 16:31:31]: Return value: <{arpnd_status 1} {arpnd_cache none} {arpnd_report none} {status 1} {handles 0}>
+[2020-04-08 16:31:31]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-04-08 16:31:31]: Return value: <>
+[2020-04-08 16:31:31]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-04-08 16:31:31]: Return value: <>
+[2020-04-08 16:31:31]: Executing: <set hashkey>
+[2020-04-08 16:31:31]: Return value: <arpnd_status arpnd_cache arpnd_report status handles>
+[2020-04-08 16:31:31]: Executing: <set hashvalue>
+[2020-04-08 16:31:31]: Return value: <1 none none 1 0>
+[2020-04-08 16:31:41]: Executing: <set ret [sth::interface_config -mode destroy -port_handle port1]>
+[2020-04-08 16:31:41]: Return value: <{arpnd_status none} {arpnd_cache none} {arpnd_report none} {status 1}>
+[2020-04-08 16:31:41]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-04-08 16:31:41]: Return value: <>
+[2020-04-08 16:31:41]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-04-08 16:31:41]: Return value: <>
+[2020-04-08 16:31:41]: Executing: <set hashkey>
+[2020-04-08 16:31:41]: Return value: <arpnd_status arpnd_cache arpnd_report status>
+[2020-04-08 16:31:41]: Executing: <set hashvalue>
+[2020-04-08 16:31:41]: Return value: <none none none 1>
+[2020-04-08 16:31:41]: Executing: <set ret [sth::interface_config -mode destroy -port_handle port2]>
+[2020-04-08 16:31:42]: Return value: <{arpnd_status none} {arpnd_cache none} {arpnd_report none} {status 1}>
+[2020-04-08 16:31:42]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-04-08 16:31:42]: Return value: <>
+[2020-04-08 16:31:42]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-04-08 16:31:42]: Return value: <>
+[2020-04-08 16:31:42]: Executing: <set hashkey>
+[2020-04-08 16:31:42]: Return value: <arpnd_status arpnd_cache arpnd_report status>
+[2020-04-08 16:31:42]: Executing: <set hashvalue>
+[2020-04-08 16:31:42]: Return value: <none none none 1>
+[2020-04-08 16:31:42]: Executing: <set ret [sth::cleanup_session -port_handle "port1 port2" -clean_dbfile 1]>
+[2020-04-08 16:31:42]: Return value: <{status 1}>
+[2020-04-08 16:31:42]: Executing: <set hashkey ""; set hashvalue ""; set nested_hashkey "">
+[2020-04-08 16:31:42]: Return value: <>
+[2020-04-08 16:31:42]: Executing: <ret_hash ret hashkey hashvalue nested_hashkey>
+[2020-04-08 16:31:42]: Return value: <>
+[2020-04-08 16:31:42]: Executing: <set hashkey>
+[2020-04-08 16:31:42]: Return value: <status>
+[2020-04-08 16:31:42]: Executing: <set hashvalue>
+[2020-04-08 16:31:42]: Return value: <1>
+[2020-04-08 16:31:42]: Client connection has been broken.  Exiting.

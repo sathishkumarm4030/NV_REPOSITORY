@@ -1,0 +1,7 @@
+
+
+delete devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile {{CUSTOMER_ORG_NAME}}-PostStaging psk-auth-clients remote-client {{CGW1_ID_STRING}}
+delete devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}} ipsec vpn-profile {{CUSTOMER_ORG_NAME}}-PostStaging psk-auth-clients remote-client {{CGW2_ID_STRING}}
+delete devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} routing-peer-policy EXPORT-Controllers term ACCEPT-CGW-ROUTES
+delete devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} routing-peer-policy EXPORT-WC-TO-CGW
+delete devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR protocols bgp {{CUSTOMER_ORG_ID}} group VNF-CGW

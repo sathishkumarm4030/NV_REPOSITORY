@@ -352,7 +352,7 @@ DELETE FWD PROFILE
     CPE1.delete_address_object    ${ipaddobj_2}
     CPE1.delete_fowarding_profile    ${fwp_1}
     CPE1.delete_sla_profile    ${sla_prf_1}
-    CPE1.modify_interface_bandwidth    ${CPE1['WAN1_INTF']}    ${curr_intf_bw['bandwidth']['uplink']}    ${curr_intf_bw['bandwidth']['downlink']}
+    #CPE1.modify_interface_bandwidth    ${CPE1['WAN1_INTF']}    ${curr_intf_bw['bandwidth']['uplink']}    ${curr_intf_bw['bandwidth']['downlink']}
     CPE1.get_vni_interface_bw    ${CPE1['WAN1_INTF']}
 
 CHECK MPLS WAN INTERFACE UP in CPE1 & CPE2

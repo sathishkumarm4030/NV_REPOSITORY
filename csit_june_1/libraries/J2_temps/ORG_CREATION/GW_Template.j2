@@ -1,0 +1,343 @@
+set devices device {{ DEVICE_NAME }} config interfaces {{ VXLAN_TVI_INTERFACE }} enable true
+set devices device {{ DEVICE_NAME }} config interfaces {{ VXLAN_TVI_INTERFACE }} mode ipsec
+set devices device {{ DEVICE_NAME }} config interfaces {{ VXLAN_TVI_INTERFACE }} type p2mp-vxlan
+set devices device {{ DEVICE_NAME }} config interfaces {{ VXLAN_TVI_INTERFACE }} unit 0 enable true
+set devices device {{ DEVICE_NAME }} config interfaces {{ VXLAN_TVI_INTERFACE }} description "VxLAN {{ ORG_NAME }} Management"
+set devices device {{ DEVICE_NAME }} config interfaces {{ VXLAN_TVI_INTERFACE }} unit 0 family
+set devices device {{ DEVICE_NAME }} config interfaces {{ VXLAN_TVI_INTERFACE }} unit 0 family inet
+set devices device {{ DEVICE_NAME }} config interfaces {{ VXLAN_TVI_INTERFACE }} unit 0 family inet address {{ VXLAN_IP }}/32
+
+set devices device {{ DEVICE_NAME }} config interfaces {{ ESP_TVI_INTERFACE }} enable true
+set devices device {{ DEVICE_NAME }} config interfaces {{ ESP_TVI_INTERFACE }} mode ipsec
+set devices device {{ DEVICE_NAME }} config interfaces {{ ESP_TVI_INTERFACE }} type p2mp-esp
+set devices device {{ DEVICE_NAME }} config interfaces {{ ESP_TVI_INTERFACE }} unit 0 enable true
+set devices device {{ DEVICE_NAME }} config interfaces {{ ESP_TVI_INTERFACE }} description "ESP {{ ORG_NAME }} Management"
+set devices device {{ DEVICE_NAME }} config interfaces {{ ESP_TVI_INTERFACE }} unit 0 enable true
+set devices device {{ DEVICE_NAME }} config interfaces {{ ESP_TVI_INTERFACE }} unit 0 family
+set devices device {{ DEVICE_NAME }} config interfaces {{ ESP_TVI_INTERFACE }} unit 0 family inet
+set devices device {{ DEVICE_NAME }} config interfaces {{ ESP_TVI_INTERFACE }} unit 0 family inet address {{ ESP_IP }}/32
+
+{% for WC in WC_LIST %}
+{% set WAN_CONTROLLER_ESP_ADDRESS = WCDICT[WC]['ESP_IP'] %}
+{% set PTVI_INTF = PTVI_INTERFACES[ loop.index ] %}
+set devices device {{ DEVICE_NAME }} config interfaces {{ PTVI_INTF }} parent-interface {{ ESP_TVI_INTERFACE }}.0 remote-address {{ WAN_CONTROLLER_ESP_ADDRESS }}
+{% endfor -%}
+
+
+
+
+
+{% for VRF in range(NO_OF_VRFS) -%}
+{%- set lan_number = VRF + 1 -%}
+{%- set NNI1_VLAN = NNI_LAN[lan_number]['vlan'] %}
+{%- set NNI_INTERFACE_ADDRESS = NNI_LAN[lan_number]['second_host'] %}
+set devices device {{ DEVICE_NAME }} config interfaces vni-0/0 unit {{ NNI1_VLAN }} vlan-id {{ NNI1_VLAN }}
+set devices device {{ DEVICE_NAME }} config interfaces vni-0/0 unit {{ NNI1_VLAN }} enable true
+set devices device {{ DEVICE_NAME }} config interfaces vni-0/0 unit {{ NNI1_VLAN }} family
+set devices device {{ DEVICE_NAME }} config interfaces vni-0/0 unit {{ NNI1_VLAN }} family inet
+set devices device {{ DEVICE_NAME }} config interfaces vni-0/0 unit {{ NNI1_VLAN }} family inet address {{ NNI_INTERFACE_ADDRESS }}/30
+{% endfor %}
+
+{% for VRF in range(NO_OF_VRFS) -%}
+{%- set lan_number = VRF + 1 -%}
+{%- set NNI1_VLAN = NNI_LAN[lan_number]['vlan'] %}
+{%- set NNI_INTERFACE_ADDRESS = NNI_LAN[lan_number]['second_host'] %}
+{%- set PAIRED_TVI_INTERFACE1 = "tvi-0/" + (ORG_ID * 10 + 120 + VRF)|string %}
+{%- set PAIRED_TVI_INTERFACE2 = "tvi-0/" + (ORG_ID * 10 + 2020 + VRF)|string %}
+{%- set PAIRED_TVI_INTERFACE1_address = PAIRED_TVI_LAN[lan_number]['first_host'] %}
+{%- set PAIRED_TVI_INTERFACE2_address = PAIRED_TVI_LAN[lan_number]['second_host'] %}
+
+
+set devices device {{ DEVICE_NAME }} config interfaces {{ PAIRED_TVI_INTERFACE1 }} enable true
+set devices device {{ DEVICE_NAME }} config interfaces {{ PAIRED_TVI_INTERFACE1 }} mode ipsec
+set devices device {{ DEVICE_NAME }} config interfaces {{ PAIRED_TVI_INTERFACE1 }} type paired
+set devices device {{ DEVICE_NAME }} config interfaces {{ PAIRED_TVI_INTERFACE1 }} paired-interface {{ PAIRED_TVI_INTERFACE2 }}
+set devices device {{ DEVICE_NAME }} config interfaces {{ PAIRED_TVI_INTERFACE1 }} unit 0 enable true
+set devices device {{ DEVICE_NAME }} config interfaces {{ PAIRED_TVI_INTERFACE1 }} unit 0 family
+set devices device {{ DEVICE_NAME }} config interfaces {{ PAIRED_TVI_INTERFACE1 }} unit 0 family inet
+set devices device {{ DEVICE_NAME }} config interfaces {{ PAIRED_TVI_INTERFACE1 }} unit 0 family inet address {{ PAIRED_TVI_INTERFACE1_address }}/30
+
+set devices device {{ DEVICE_NAME }} config interfaces {{ PAIRED_TVI_INTERFACE2 }} mode ipsec
+set devices device {{ DEVICE_NAME }} config interfaces {{ PAIRED_TVI_INTERFACE2 }} type paired
+set devices device {{ DEVICE_NAME }} config interfaces {{ PAIRED_TVI_INTERFACE2 }} paired-interface {{ PAIRED_TVI_INTERFACE1 }}
+set devices device {{ DEVICE_NAME }} config interfaces {{ PAIRED_TVI_INTERFACE2 }} unit 0 enable true
+set devices device {{ DEVICE_NAME }} config interfaces {{ PAIRED_TVI_INTERFACE2 }} unit 0 family
+set devices device {{ DEVICE_NAME }} config interfaces {{ PAIRED_TVI_INTERFACE2 }} unit 0 family inet
+set devices device {{ DEVICE_NAME }} config interfaces {{ PAIRED_TVI_INTERFACE2 }} unit 0 family inet address {{ PAIRED_TVI_INTERFACE2_address }}/30
+
+set devices device {{ DEVICE_NAME }} config networks {{ ORG_NAME }}-MPLS{{ lan_number }} interfaces [ vni-0/0.{{ NNI1_VLAN }} ]
+
+{% endfor %}
+
+
+
+set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} available-routing-instances [ INT-TRANSP-VR MPLS-TRANSP-VR {{ ORG_NAME }}-Control-VR {{ EXPORT_VRFS_SET }}{{ LAN_VRFS_SET }}]
+set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} traffic-identification using [ {{ PTVI_INTERFACE1 }} {{ PTVI_INTERFACE2 }} {{ VXLAN_TVI_INTERFACE }}.0 {{ ESP_TVI_INTERFACE }}.0 {{ PAIRED_TVI_INTERFACE_SET }}]
+set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} owned-routing-instances [ {{ ORG_NAME }}-Control-VR {{ EXPORT_VRFS_SET }}{{ LAN_VRFS_SET }} ]
+set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} traffic-identification using-networks [ {{ MPLS_NW_SET }}]
+
+set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} available-provider-orgs [ {{ ORG_NAME }} ]
+set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} available-service-node-groups [ default-sng ]
+set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site
+set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site global-tenant-id {{ ORG_ID }}
+set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site site-name {{ DEVICE_NAME }}
+set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site management-routing-instance {{ ORG_NAME }}-Control-VR
+set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces {{ INTERNET_INTERFACE }} sla-monitoring fc_be interval 1
+set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces {{ INTERNET_INTERFACE }} sla-monitoring fc_be logging-interval 5
+set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces {{ INTERNET_INTERFACE }} encryption optional
+set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces {{ MPLS_INTERFACE }} sla-monitoring fc_be interval 1
+set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} sd-wan site wan-interfaces {{ MPLS_INTERFACE }} sla-monitoring fc_be logging-interval 5
+{% for WC in WC_LIST %}
+{% set WAN_CONTROLLER_HOSTNAME = WCDICT[WC]['DEVICE_NAME'] %}
+{% set WAN_CONTROLLER_VXLAN_IP = WCDICT[WC]['VXLAN_IP'] %}
+{% set WAN_CONTROLLER_ESP_IP = WCDICT[WC]['ESP_IP'] %}
+set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} sd-wan controllers {{ WAN_CONTROLLER_HOSTNAME }} management-addresses IKE ip-address {{ WAN_CONTROLLER_VXLAN_IP }} routing-instance {{ ORG_NAME }}-Control-VR
+set devices device {{ DEVICE_NAME }} config orgs org {{ ORG_NAME }} sd-wan controllers {{ WAN_CONTROLLER_HOSTNAME }} management-addresses secure ip-address {{ WAN_CONTROLLER_ESP_IP }} routing-instance {{ ORG_NAME }}-Control-VR
+{% endfor %}
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} security access-policies Policy1 rules R1 set action allow
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} security access-policies Policy1 rules R1 set lef profile Default-Logging-Profile
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} security access-policies Policy1 rules R1 set lef event end
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} security access-policies Policy1 rules R1 set lef options send-pcap-data enable false
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} objects zones trust
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} objects zones untrust
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} objects zones host
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} traffic-monitoring logging-control Default-Logging-Control profile Default-Logging-Profile
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} traffic-monitoring logging-control Default-Logging-Control options
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} traffic-monitoring logging-control Default-Logging-Control options stats
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} traffic-monitoring logging-control Default-Logging-Control options stats all
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} traffic-monitoring policies Analytics-policy rules rule1 set lef profile Default-Logging-Profile
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} lef collectors LEF-Collector-log_collector1 destination-address {{ LOG_COLLECTOR1_ADDRESS }} destination-port 5140
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} lef collectors LEF-Collector-log_collector1 routing-instance {{ ORG_NAME }}-Control-VR
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} lef collectors LEF-Collector-log_collector1 transport tcp
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} lef collectors LEF-Collector-log_collector1 template Default-LEF-Template
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} lef collectors LEF-Collector-log_collector2 destination-address {{ LOG_COLLECTOR2_ADDRESS }} destination-port 5140
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} lef collectors LEF-Collector-log_collector2 routing-instance {{ ORG_NAME }}-Control-VR
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} lef collectors LEF-Collector-log_collector2 transport tcp
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} lef collectors LEF-Collector-log_collector2 template Default-LEF-Template
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} lef collector-groups Default-Collector-Group collectors [ LEF-Collector-log_collector1 LEF-Collector-log_collector2 ]
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} lef templates Default-LEF-Template type ipfix
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} lef profiles Default-Logging-Profile collector-group Default-Collector-Group
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} lef default-profile Default-Logging-Profile
+{% for WC in WC_LIST %}
+{% set ctrl_num = loop.index %}
+{% set PTVI_INTF = PTVI_INTERFACES[ loop.index] %}
+{% set WAN_CONTROLLER_HOSTNAME = WCDICT[WC]['DEVICE_NAME'] %}
+{% set WAN_CONTROLLER_VXLAN_IP = WCDICT[WC]['VXLAN_IP'] %}
+{% set WAN_CONTROLLER_ESP_IP = WCDICT[WC]['ESP_IP'] %}
+{% set WAN_CONTROLLER_AUTH_STRING = WCDICT[WC]['AUTH_STRING'] %}
+{% set WAN_CONTROLLER_AUTH_KEY = WCDICT[WC]['AUTH_KEY'] %}
+
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} vpn-type branch-sdwan
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} local-auth-info
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} local-auth-info auth-type psk
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} local-auth-info id-type email
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} local-auth-info key {{ AUTH_KEY }}
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} local-auth-info id-string {{ AUTH_STRING }}
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} local
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} local address {{ VXLAN_IP }}
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} routing-instance {{ ORG_NAME }}-Control-VR
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} tunnel-routing-instance {{ ORG_NAME }}-Control-VR
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} tunnel-initiate automatic
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} ipsec fragmentation pre-fragmentation
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} ipsec transform esp-aes128-sha1
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} ipsec mode tunnel
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} ipsec pfs-group mod-none
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} ipsec anti-replay enable
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} ipsec life duration 25000
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} ike version v2
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} ike group mod19
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} ike transform aes128-sha1
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} ike lifetime 27000
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} ike dpd-timeout 10
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} peer-auth-info
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} peer-auth-info auth-type psk
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} peer-auth-info id-type email
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} peer-auth-info key {{ WAN_CONTROLLER_AUTH_KEY }}
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} peer-auth-info id-string {{ WAN_CONTROLLER_AUTH_STRING }}
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} peer
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} peer address {{ WAN_CONTROLLER_VXLAN_IP }}
+set devices device {{ DEVICE_NAME }} config orgs org-services {{ ORG_NAME }} ipsec vpn-profile GW-CTRL{{ ctrl_num }} tunnel-interface {{ PTVI_INTF }}
+{% endfor %}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR instance-type virtual-router
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR mpls-vpn-core
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR interfaces [ {{ PTVI_INTERFACE1 }} {{ PTVI_INTERFACE2 }} {{ VXLAN_TVI_INTERFACE }}.0 {{ ESP_TVI_INTERFACE }}.0 ]
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR routing-options mpls-vpn-local-router-address {{ ESP_IP }}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR routing-options static route 0.0.0.0/0 {{ ESP_IP }} {{ ESP_TVI_INTERFACE }}.0 preference 1
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR routing-options static route 0.0.0.0/0 {{ ESP_IP }} {{ ESP_TVI_INTERFACE }}.0 tag 0
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} router-id {{ ESP_IP }} local-as as-number 65505
+
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} hold-time 90
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} peer-as 65505
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} route-flap free-max-time 180
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} route-flap reuse-max-time 60
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} route-flap reuse-size 256
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} route-flap reuse-array-size 1024
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} graceful-restart enable
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} graceful-restart maximum-restart-time 120
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} graceful-restart recovery-time 120
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} graceful-restart select-defer-time 120
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} graceful-restart stalepath-time 120
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} graceful-restart dynamic-peer-restart-time 0
+
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} ibgp-preference 200
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} ebgp-preference 20
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group GW-WC type internal
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group GW-WC family inet unicast
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group GW-WC family inet versa-private
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group GW-WC family inet-vpn unicast
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group GW-WC bfd-liveness-detection
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group GW-WC bfd-liveness-detection minimum-receive-interval 1000
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group GW-WC bfd-liveness-detection multiplier 3
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group GW-WC bfd-liveness-detection transmit-interval minimum-interval 1000
+{% for WC in WC_LIST %}
+{% set ctrl_num = loop.index %}
+{% set PTVI_INTF = PTVI_INTERFACES[ loop.index] %}
+{% set WAN_CONTROLLER_HOSTNAME = WCDICT[WC]['DEVICE_NAME'] %}
+{% set WAN_CONTROLLER_VXLAN_IP = WCDICT[WC]['VXLAN_IP'] %}
+{% set WAN_CONTROLLER_ESP_IP = WCDICT[WC]['ESP_IP'] %}
+{% set WAN_CONTROLLER_AUTH_STRING = WCDICT[WC]['AUTH_STRING'] %}
+{% set WAN_CONTROLLER_AUTH_KEY = WCDICT[WC]['AUTH_KEY'] %}
+
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group GW-WC neighbor {{ WAN_CONTROLLER_ESP_IP }}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group GW-WC neighbor {{ WAN_CONTROLLER_ESP_IP }} peer-as 65505
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} debug level debug
+{% endfor %}
+
+
+{% for VRF in range(NO_OF_VRFS) -%}
+{%- set lan_number = VRF + 1 -%}
+{%- set VRF_ID = ORG_ID * 10 + 120 + VRF -%}
+{%- set NNI1_VLAN = NNI_LAN[lan_number]['vlan'] %}
+{%- set NNI_SUBNET = NNI_LAN[lan_number]['nw'] %}
+{%- set NNI_INTERFACE_ADDRESS = NNI_LAN[lan_number]['second_host'] %}
+{%- set NNI_GATEWAY_ADDRESS = NNI_LAN[lan_number]['first_host'] %}
+{%- set PAIRED_TVI_INTERFACE1 = "tvi-0/" + (ORG_ID * 10 + 120 + VRF)|string %}
+{%- set PAIRED_TVI_INTERFACE2 = "tvi-0/" + (ORG_ID * 10 + 2020 + VRF)|string %}
+{%- set PAIRED_TVI_INTERFACE1_address = PAIRED_TVI_LAN[lan_number]['first_host'] %}
+{%- set PAIRED_TVI_INTERFACE2_address = PAIRED_TVI_LAN[lan_number]['second_host'] %}
+{%- set PAIRED_TVI_INTERFACE_SUBNET = PAIRED_TVI_LAN[lan_number]['nw'] %}
+
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF instance-type vrf
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF global-vrf-id {{ VRF_ID }}2
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF mpls-vpn-core-instance {{ ORG_NAME }}-Control-VR
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF interfaces [ {{ PAIRED_TVI_INTERFACE2 }}.0 ]
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF route-distinguisher {{ VRF_ID }}L:{{ VRF_ID }}2
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF vrf-export-target target:{{ VRF_ID }}L:{{ VRF_ID }}2
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 router-id {{ PAIRED_TVI_INTERFACE2_address }} local-as as-number 65506
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 route-flap free-max-time 180
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 route-flap reuse-max-time 60
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 route-flap reuse-size 256
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 route-flap reuse-array-size 1024
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 graceful-restart maximum-restart-time 120
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 graceful-restart recovery-time 120
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 graceful-restart select-defer-time 120
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 graceful-restart stalepath-time 120
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 graceful-restart dynamic-peer-restart-time 0
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 prefix-list NNI1-INT seq 10 permit
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 prefix-list NNI1-INT seq 10 address-family ipv4 unicast address-mask {{ NNI_SUBNET }}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 prefix-list NNI1-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT match ip nlri prefix-list NNI1-INT
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 1REJECT-NNI-INT action reject
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES match community "(^|,){{ LCC }}:20($|,)"
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 2REJECT-NNI-ROUTES action reject
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action accept
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community {{ LCC }}:1{{ GW_NUMBER }}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 routing-peer-policy IMPORT-POLICY-FROM-LAN-VRF term 3ACCEPT-REST action community-action set-specific
+
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 ibgp-preference 200
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 ebgp-preference 20
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 group EBGP-With-LAN_VRF type external
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 group EBGP-With-LAN_VRF import IMPORT-POLICY-FROM-LAN-VRF
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 group EBGP-With-LAN_VRF neighbor {{ PAIRED_TVI_INTERFACE1_address }} local-address {{ PAIRED_TVI_INTERFACE2_address }}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 group EBGP-With-LAN_VRF neighbor {{ PAIRED_TVI_INTERFACE1_address }} peer-as 15404
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}02 debug level debug
+
+
+
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP match protocol bgp
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action accept
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-BGP action set-origin igp
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT match protocol direct
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action accept
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-DIRECT action set-origin igp
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC match protocol static
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action accept
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF policy-options redistribution-policy REDIS-TO-BGP term ACCEPT-STATIC action set-origin igp
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF policy-options redistribute-to-bgp REDIS-TO-BGP
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF instance-type vrf
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF global-vrf-id {{ VRF_ID }}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF networks [ {{ ORG_NAME }}-MPLS{{ lan_number }} ]
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF mpls-vpn-core-instance {{ ORG_NAME }}-Control-VR
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF interfaces [ {{ PAIRED_TVI_INTERFACE1 }}.0 ]
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF route-distinguisher {{ VRF_ID }}L:{{ VRF_ID }}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF vrf-import-target target:{{ VRF_ID }}L:{{ VRF_ID }}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF vrf-export-target target:{{ VRF_ID }}L:{{ VRF_ID }}2
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 router-id {{ NNI1_INTERFACE_ADDRESS }} local-as as-number 15404
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 route-flap free-max-time 180
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 route-flap reuse-max-time 60
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 route-flap reuse-size 256
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 route-flap reuse-array-size 1024
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 graceful-restart maximum-restart-time 120
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 graceful-restart recovery-time 120
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 graceful-restart select-defer-time 120
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 graceful-restart stalepath-time 120
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 graceful-restart dynamic-peer-restart-time 0
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 prefix-list PTVI-INT seq 10 permit
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 prefix-list PTVI-INT seq 10 address-family ipv4 unicast address-mask {{ PAIRED_TVI_INTERFACE_SUBNET }}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le ge 30
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 prefix-list PTVI-INT seq 10 address-family ipv4 unicast ge_le le 32
+
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT match ip nlri prefix-list PTVI-INT
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 routing-peer-policy EXPORT-POLICY-NNI term 1REJECT-PTVI-INT action reject
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP match community "(^|,){{ LCC }}:1{{ GW_NUMBER }}($|,)"
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 routing-peer-policy EXPORT-POLICY-NNI term 2REJECT-LOOP action reject
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM match community "(^|,){{ LCC }}:10($|,)"
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action accept
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community 100:10
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 routing-peer-policy EXPORT-POLICY-NNI term 3ADD-SDWAN-COMM action community-action set-specific
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 routing-peer-policy EXPORT-POLICY-NNI term 4DENY-REST action reject
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP match community "(^|,){{ LCC }}:1{{ GW_NUMBER }}($|,)"
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 1DENY-LOOP action reject
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 routing-peer-policy EXPORT-PAIR-TVI-LOOP-PREV term 2ALLOW-REST action accept
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES match community "(^|,)100:10($|,)"
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 routing-peer-policy IMPORT-POLICY-NNI term 1REJECT-SDWAN-ROUTES action reject
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action accept
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community {{ LCC }}:20
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 routing-peer-policy IMPORT-POLICY-NNI term 2ACCEPT-REST action community-action set-specific
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 ibgp-preference 200
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 ebgp-preference 20
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 group EBGP-WITH-EXPORT_VRF type external
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 group EBGP-WITH-EXPORT_VRF export EXPORT-PAIR-TVI-LOOP-PREV
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 group EBGP-WITH-EXPORT_VRF neighbor {{ PAIRED_TVI_INTERFACE2_address }} local-address {{ PAIRED_TVI_INTERFACE1_address }}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 group EBGP-WITH-EXPORT_VRF neighbor {{ PAIRED_TVI_INTERFACE2_address }} peer-as 65506
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 group EBGP-With-SAR-TypeA-NNI type external
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 group EBGP-With-SAR-TypeA-NNI import IMPORT-POLICY-NNI
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 group EBGP-With-SAR-TypeA-NNI export EXPORT-POLICY-NNI
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 group EBGP-With-SAR-TypeA-NNI neighbor {{ NNI_GATEWAY_ADDRESS }} local-address {{ NNI_INTERFACE_ADDRESS }}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 group EBGP-With-SAR-TypeA-NNI neighbor {{ NNI_GATEWAY_ADDRESS }} peer-as 8220
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ lan_number }}-VRF protocols bgp {{ ORG_ID }}01 debug level debug
+
+{% endfor %}
+
+#REDUNANT GW ROUTE CONFIG
+
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-GW-TO-WC term 1REJECT-R-CPE-ROUTES match family inet-vpn
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-GW-TO-WC term 1REJECT-R-CPE-ROUTES match community "(^|,)666:666($|,)"
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-GW-TO-WC term 1REJECT-R-CPE-ROUTES action reject
+{%- if 'GW1' in DEVICE_NAME or 'GW01' in DEVICE_NAME %}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-GW-TO-WC term 2ACCEPT-REST-ALL action set-local-preference 80
+{%- elif 'GW2' in DEVICE_NAME or 'GW02' in DEVICE_NAME %}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} routing-peer-policy EXPORT-{{ ORG_NAME }}-GW-TO-WC term 2ACCEPT-REST-ALL action set-local-preference 60
+{%- for i in range(0,  NO_OF_VRFS) -%}
+{%- set NNI_VLAN_ID = ORG_ID * 10 + 2020 + i %}
+{%- set LAN_NO = 1 + i%}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-EXPORT{{ LAN_NO }}-VRF route-distinguisher {{ NNI_VLAN_ID }}L:{{ NNI_VLAN_ID }}2
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-LAN{{ LAN_NO }}-VRF route-distinguisher {{ NNI_VLAN_ID }}L:{{ NNI_VLAN_ID }}
+{%- endfor -%}
+{%- endif %}
+set devices device {{ DEVICE_NAME }} config routing-instances {{ ORG_NAME }}-Control-VR protocols bgp {{ ORG_ID }} group GW-WC export EXPORT-{{ ORG_NAME }}-GW-TO-WC

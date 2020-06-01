@@ -2,9 +2,10 @@
 #CPE1 - SINGLE-CPE-MPLS-ONLY
 #CPE2 - SINGLE-CPE-HYBRID
 #CPE3 - SINGLE-CPE-INTERNET-ONLY
-#VM1  - linux VM connected to CPE1 LAN
-#VM2  - linux VM connected to CPE2 LAN
-#VM3  - linux VM connected to CPE2 LAN
+#VM1  - linux VM connected to LAN switch. CPE1 LAN VM
+#VM2  - linux VM connected to LAN switch. CPE2 LAN VM
+#VM3  - linux VM connected to LAN switch. CPE3 LAN VM
+#Spirent 2 Ports connected LAN switch
 
 CPE1 = "CPE26-HKG-SINGLE-CPE-MPLSONLY-IPC00190"
 CPE2 = "CPE11-HKG-HYBRD-IPC00190"

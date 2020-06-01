@@ -1,0 +1,1116 @@
+############# HLT2STC Mapping Log File #############
+stc::create project
+::stc::get project1 -parent
+::stc::get system1 -children-sequencer
+stc::connect 10.91.113.124
+stc::create Port -under project1 -location 10.91.113.124/10/1 -name 10.91.113.124-10-1
+stc::perform ReservePort -Location 10.91.113.124/10/1
+stc::get port1 -children-generator
+stc::get generator1 -children-generatorconfig
+stc::config generatorconfig1 -SchedulingMode RATE_BASED
+stc::create Port -under project1 -location 10.91.113.124/10/2 -name 10.91.113.124-10-2
+stc::perform ReservePort -Location 10.91.113.124/10/2
+stc::get port2 -children-generator
+stc::get generator2 -children-generatorconfig
+stc::config generatorconfig2 -SchedulingMode RATE_BASED
+stc::perform setupPortMappings
+
+
+sth::interface_config -create_host false -scheduling_mode RATE_BASED -phy_mode copper -port_loadunit MEGABITS_PER_SECOND -control_plane_mtu 1500 -enable_ping_response 0 -autonegotiation 1 -port_handle port1 -duplex full -mode config -port_load 5 -speed ether1000 -intf_mode ethernet
+stc::get port1 -ActivePhy-targets
+stc::get port1 -supportedPhys
+stc::get ethernetcopper1 -LineSpeed
+stc::get port1 -Online
+stc::get port1 -activephy-Targets
+stc::get ethernetcopper1 -LineSpeed
+stc::get port1 -children-EthernetCopper
+stc::get port1 -children-Ethernet10GigCopper
+stc::config ethernetcopper2 -Mtu 1500 -AutoNegotiation true -Duplex FULL -LineSpeed SPEED_1G
+stc::perform PortSetupSetActivePhy -activephy ethernetcopper2
+stc::get ethernetcopper2 -isSpeedAutoNegotiationConfigurable
+stc::get port1 -children-Ethernet10GigCopper
+stc::get port1 -children-generator
+stc::get generator1 -children-generatorconfig
+stc::config generatorconfig1 -SchedulingMode RATE_BASED
+stc::get port1 -AffiliationPort-Sources
+stc::get port1 -children-StreamBlock
+stc::perform ArpNdStart -HandleList port1
+::stc::apply
+stc::get port1 -children-Ethernet10GigCopper
+
+
+sth::interface_config -create_host false -scheduling_mode RATE_BASED -phy_mode copper -port_loadunit MEGABITS_PER_SECOND -control_plane_mtu 1500 -enable_ping_response 0 -autonegotiation 1 -port_handle port2 -duplex full -mode config -port_load 5 -speed ether1000 -intf_mode ethernet
+stc::get port2 -ActivePhy-targets
+stc::get port2 -supportedPhys
+stc::get ethernetcopper3 -LineSpeed
+stc::get port2 -Online
+stc::get port2 -activephy-Targets
+stc::get ethernetcopper3 -LineSpeed
+stc::get port2 -children-EthernetCopper
+stc::get port2 -children-Ethernet10GigCopper
+stc::config ethernetcopper4 -Mtu 1500 -AutoNegotiation true -Duplex FULL -LineSpeed SPEED_1G
+stc::perform PortSetupSetActivePhy -activephy ethernetcopper4
+stc::get ethernetcopper4 -isSpeedAutoNegotiationConfigurable
+stc::get port2 -children-Ethernet10GigCopper
+stc::get port2 -children-generator
+stc::get generator2 -children-generatorconfig
+stc::config generatorconfig2 -SchedulingMode RATE_BASED
+stc::get port2 -AffiliationPort-Sources
+stc::get port2 -children-StreamBlock
+stc::perform ArpNdStart -HandleList port2
+::stc::apply
+stc::get port2 -children-Ethernet10GigCopper
+
+
+sth::emulation_device_config -resolve_gateway_mac true -port_handle port1 -intf_ip_addr 192.170.1.5 -mode create -vlan_id 750 -gateway_ip_addr 192.170.1.1 -ip_version ipv4 -encapsulation ethernet_ii_vlan -enable_ping_response 1
+stc::perform DeviceCreate -ParentList project1 -DeviceType Host -IfStack {Ipv4If VlanIf EthIIIf} -IfCount {1 1 1} -Port port1
+stc::config host1 -EnablePingResponse TRUE
+stc::get host1 -children-EthIIIf
+stc::get host1 -children-VlanIf
+stc::get host1 -children-Ipv4If
+stc::config ipv4if1 -ResolveGatewayMac TRUE -Address 192.170.1.5 -Gateway 192.170.1.1
+stc::config host1 -TopLevelIf-targets ipv4if1
+stc::get host1 -children-VlanIf
+stc::get vlanif1 -parent
+stc::config vlanif1 -VlanId 750
+
+
+sth::emulation_device_config -resolve_gateway_mac true -port_handle port2 -intf_ip_addr 192.169.101.2 -mode create -vlan_id 600 -gateway_ip_addr 192.169.101.1 -ip_version ipv4 -encapsulation ethernet_ii_vlan -enable_ping_response 1
+stc::perform DeviceCreate -ParentList project1 -DeviceType Host -IfStack {Ipv4If VlanIf EthIIIf} -IfCount {1 1 1} -Port port2
+stc::config host2 -EnablePingResponse TRUE
+stc::get host2 -children-EthIIIf
+stc::get host2 -children-VlanIf
+stc::get host2 -children-Ipv4If
+stc::config ipv4if2 -ResolveGatewayMac TRUE -Address 192.169.101.2 -Gateway 192.169.101.1
+stc::config host2 -TopLevelIf-targets ipv4if2
+stc::get host2 -children-VlanIf
+stc::get vlanif2 -parent
+stc::config vlanif2 -VlanId 600
+
+
+sth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.170.1.1 -rate_mbps 2 -tcp_src_port 2000 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 48 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 0 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 1 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create
+::stc::create streamBlock -under port1 -frameconfig {} -EnableStreamOnlyGeneration true -ShowAllHeaders true
+stc::perform StreamBlockUpdate -streamblock streamblock1
+stc::get streamblock1 -children
+::stc::delete ethernet:ethernetii3
+::stc::delete ipv4:ipv43
+stc::get port1 -children-generator
+stc::get generator1 -children-generatorconfig
+stc::config generatorconfig1 -DurationMode CONTINUOUS -BurstSize 1
+stc::config streamblock1 -FrameLengthMode fixed -FixedFrameLength 160 -FillType CONSTANT -ConstantFillPattern 0 -EnableTxPortSendingTrafficToSelf false -LoadUnit MEGABITS_PER_SECOND -Load 2 -EnableFcsErrorInsertion 0 -Active 1 -ExpectedRx-targets port2 -InsertSig true -EnableHighSpeedResultAnalysis 1 -EnableControlPlane 0
+::stc::create ethernet:EthernetII -under streamblock1
+stc::get host1 -TopLevelIf-targets
+stc::get ipv4if1 -address
+stc::get ipv4if1 -address
+stc::config ipv4if1 -address 192.170.1.5
+stc::config streamblock1 -SrcBinding-targets ipv4if1
+stc::get host1 -children-ipv4networkblock
+stc::get host2 -TopLevelIf-targets
+stc::get ipv4if2 -address
+stc::get ipv4if2 -address
+stc::config ipv4if2 -address 192.169.101.2
+stc::config streamblock1 -DstBinding-targets ipv4if2
+stc::get host2 -children-ipv4networkblock
+stc::get host2 -children
+stc::get host2 -children-ipv4if
+stc::get streamblock1 -children-pathdescriptor
+stc::create PathDescriptor -under streamblock1 -Index 0
+stc::get host1 -children-ipv4networkblock
+stc::get host1 -children
+stc::get host1 -children-ipv4if
+stc::get host1 -children-vxlanvmtovteplink
+stc::config pathdescriptor1 -encapsulation-targets {} -dstbinding-targets ipv4if2 -srcbinding-targets ipv4if1
+stc::perform StreamBlockUpdate -streamblock streamblock1
+stc::get streamblock1 -children
+stc::get streamblock1 -children-ipv4:ipv4
+::stc::get streamblock1 -children-ipv4:IPv4
+stc::get streamblock1 -children
+stc::config ipv4:ipv47 -ihl 5 -identification 0 -ttl 255 -fragOffset 0 -gateway 192.170.1.1
+stc::get ipv4:ipv47 -children-tosDiffserv
+stc::get tosdiffserv3 -children-diffServ
+stc::create diffServ -under tosdiffserv3
+stc::config diffserv1 -dscpHigh 6 -dscpLow 0
+::stc::create tcp:Tcp -under streamblock1 -sourcePort 2000 -destPort 1024
+stc::get streamblock1 -children-tcp:Tcp
+stc::get tcp:tcp1 -name
+stc::get tcp:tcp1 -sourcePort
+stc::get streamblock1 -children-randomModifier
+stc::get streamblock1 -children-rangeModifier
+stc::get streamblock1 -children-tableModifier
+::stc::create rangeModifier -under streamblock1 -OffsetReference tcp_2598.sourcePort
+stc::config rangemodifier1 -data 2000 -EnableStream 1 -Mask 65535 -ModifierMode INCR -RecycleCount 1 -RepeatCount 0 -StepValue 1
+::stc::apply
+
+
+sth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.170.1.1 -rate_mbps 2 -tcp_src_port 2001 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 48 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 0 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 1 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create
+::stc::create streamBlock -under port1 -frameconfig {} -EnableStreamOnlyGeneration true -ShowAllHeaders true
+stc::perform StreamBlockUpdate -streamblock streamblock2
+stc::get streamblock2 -children
+::stc::delete ethernet:ethernetii13
+::stc::delete ipv4:ipv412
+stc::get port1 -children-generator
+stc::get generator1 -children-generatorconfig
+stc::config generatorconfig1 -DurationMode CONTINUOUS -BurstSize 1
+stc::config streamblock2 -FrameLengthMode fixed -FixedFrameLength 160 -FillType CONSTANT -ConstantFillPattern 0 -EnableTxPortSendingTrafficToSelf false -LoadUnit MEGABITS_PER_SECOND -Load 2 -EnableFcsErrorInsertion 0 -Active 1 -ExpectedRx-targets port2 -InsertSig true -EnableHighSpeedResultAnalysis 1 -EnableControlPlane 0
+::stc::create ethernet:EthernetII -under streamblock2
+stc::get host1 -TopLevelIf-targets
+stc::get ipv4if1 -address
+stc::get ipv4if1 -address
+stc::config ipv4if1 -address 192.170.1.5
+stc::config streamblock2 -SrcBinding-targets ipv4if1
+stc::get host1 -children-ipv4networkblock
+stc::get host2 -TopLevelIf-targets
+stc::get ipv4if2 -address
+stc::get ipv4if2 -address
+stc::config ipv4if2 -address 192.169.101.2
+stc::config streamblock2 -DstBinding-targets ipv4if2
+stc::get host2 -children-ipv4networkblock
+stc::get host2 -children
+stc::get host2 -children-ipv4if
+stc::get streamblock2 -children-pathdescriptor
+stc::create PathDescriptor -under streamblock2 -Index 0
+stc::get host1 -children-ipv4networkblock
+stc::get host1 -children
+stc::get host1 -children-ipv4if
+stc::get host1 -children-vxlanvmtovteplink
+stc::config pathdescriptor2 -encapsulation-targets {} -dstbinding-targets ipv4if2 -srcbinding-targets ipv4if1
+stc::perform StreamBlockUpdate -streamblock streamblock2
+stc::get streamblock2 -children
+stc::get streamblock2 -children-ipv4:ipv4
+::stc::get streamblock2 -children-ipv4:IPv4
+stc::get streamblock2 -children
+stc::config ipv4:ipv416 -ihl 5 -identification 0 -ttl 255 -fragOffset 0 -gateway 192.170.1.1
+stc::get ipv4:ipv416 -children-tosDiffserv
+stc::get tosdiffserv7 -children-diffServ
+stc::create diffServ -under tosdiffserv7
+stc::config diffserv3 -dscpHigh 6 -dscpLow 0
+::stc::create tcp:Tcp -under streamblock2 -sourcePort 2001 -destPort 1024
+stc::get streamblock2 -children-tcp:Tcp
+stc::get tcp:tcp4 -name
+stc::get tcp:tcp4 -sourcePort
+stc::get streamblock2 -children-randomModifier
+stc::get streamblock2 -children-rangeModifier
+stc::get streamblock2 -children-tableModifier
+::stc::create rangeModifier -under streamblock2 -OffsetReference tcp_2684.sourcePort
+stc::config rangemodifier2 -data 2001 -EnableStream 1 -Mask 65535 -ModifierMode INCR -RecycleCount 1 -RepeatCount 0 -StepValue 1
+::stc::apply
+
+
+sth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.170.1.1 -rate_mbps 2 -pkts_per_burst 1 -udp_src_port_repeat_count 0 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -udp_dst_port 1025 -udp_src_port_mode increment -fill_type constant -length_mode fixed -fcs_error 0 -udp_src_port 2002 -port_handle port1 -emulation_dst_handle host2 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 48 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_protocol 17 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -udp_src_port_count 1 -frame_size 160 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -udp_src_port_step 1 -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -l4_protocol udp -high_speed_result_analysis 1 -mode create
+::stc::create streamBlock -under port1 -frameconfig {} -EnableStreamOnlyGeneration true -ShowAllHeaders true
+stc::perform StreamBlockUpdate -streamblock streamblock3
+stc::get streamblock3 -children
+::stc::delete ethernet:ethernetii23
+::stc::delete ipv4:ipv421
+stc::get port1 -children-generator
+stc::get generator1 -children-generatorconfig
+stc::config generatorconfig1 -DurationMode CONTINUOUS -BurstSize 1
+stc::config streamblock3 -FrameLengthMode fixed -FixedFrameLength 160 -FillType CONSTANT -ConstantFillPattern 0 -EnableTxPortSendingTrafficToSelf false -LoadUnit MEGABITS_PER_SECOND -Load 2 -EnableFcsErrorInsertion 0 -Active 1 -ExpectedRx-targets port2 -InsertSig true -EnableHighSpeedResultAnalysis 1 -EnableControlPlane 0
+::stc::create ethernet:EthernetII -under streamblock3
+stc::get host1 -TopLevelIf-targets
+stc::get ipv4if1 -address
+stc::get ipv4if1 -address
+stc::config ipv4if1 -address 192.170.1.5
+stc::config streamblock3 -SrcBinding-targets ipv4if1
+stc::get host1 -children-ipv4networkblock
+stc::get host2 -TopLevelIf-targets
+stc::get ipv4if2 -address
+stc::get ipv4if2 -address
+stc::config ipv4if2 -address 192.169.101.2
+stc::config streamblock3 -DstBinding-targets ipv4if2
+stc::get host2 -children-ipv4networkblock
+stc::get host2 -children
+stc::get host2 -children-ipv4if
+stc::get streamblock3 -children-pathdescriptor
+stc::create PathDescriptor -under streamblock3 -Index 0
+stc::get host1 -children-ipv4networkblock
+stc::get host1 -children
+stc::get host1 -children-ipv4if
+stc::get host1 -children-vxlanvmtovteplink
+stc::config pathdescriptor3 -encapsulation-targets {} -dstbinding-targets ipv4if2 -srcbinding-targets ipv4if1
+stc::perform StreamBlockUpdate -streamblock streamblock3
+stc::get streamblock3 -children
+stc::get streamblock3 -children-ipv4:ipv4
+::stc::get streamblock3 -children-ipv4:IPv4
+stc::get streamblock3 -children
+stc::config ipv4:ipv425 -protocol 17 -ihl 5 -identification 0 -ttl 255 -fragOffset 0 -gateway 192.170.1.1
+stc::get ipv4:ipv425 -children-tosDiffserv
+stc::get tosdiffserv11 -children-diffServ
+stc::create diffServ -under tosdiffserv11
+stc::config diffserv5 -dscpHigh 6 -dscpLow 0
+::stc::create udp:Udp -under streamblock3 -destPort 1025 -sourcePort 2002
+stc::get streamblock3 -children-udp:Udp
+stc::get udp:udp1 -name
+stc::get udp:udp1 -sourcePort
+stc::get streamblock3 -children-randomModifier
+stc::get streamblock3 -children-rangeModifier
+stc::get streamblock3 -children-tableModifier
+::stc::create rangeModifier -under streamblock3 -OffsetReference udp_2770.sourcePort
+stc::config rangemodifier3 -data 2002 -EnableStream 1 -Mask 65535 -ModifierMode INCR -RecycleCount 1 -RepeatCount 0 -StepValue 1
+::stc::apply
+
+
+sth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.170.1.1 -rate_mbps 1 -tcp_src_port 3001 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 46 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 0 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 1 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create
+::stc::create streamBlock -under port1 -frameconfig {} -EnableStreamOnlyGeneration true -ShowAllHeaders true
+stc::perform StreamBlockUpdate -streamblock streamblock4
+stc::get streamblock4 -children
+::stc::delete ethernet:ethernetii33
+::stc::delete ipv4:ipv430
+stc::get port1 -children-generator
+stc::get generator1 -children-generatorconfig
+stc::config generatorconfig1 -DurationMode CONTINUOUS -BurstSize 1
+stc::config streamblock4 -FrameLengthMode fixed -FixedFrameLength 160 -FillType CONSTANT -ConstantFillPattern 0 -EnableTxPortSendingTrafficToSelf false -LoadUnit MEGABITS_PER_SECOND -Load 1 -EnableFcsErrorInsertion 0 -Active 1 -ExpectedRx-targets port2 -InsertSig true -EnableHighSpeedResultAnalysis 1 -EnableControlPlane 0
+::stc::create ethernet:EthernetII -under streamblock4
+stc::get host1 -TopLevelIf-targets
+stc::get ipv4if1 -address
+stc::get ipv4if1 -address
+stc::config ipv4if1 -address 192.170.1.5
+stc::config streamblock4 -SrcBinding-targets ipv4if1
+stc::get host1 -children-ipv4networkblock
+stc::get host2 -TopLevelIf-targets
+stc::get ipv4if2 -address
+stc::get ipv4if2 -address
+stc::config ipv4if2 -address 192.169.101.2
+stc::config streamblock4 -DstBinding-targets ipv4if2
+stc::get host2 -children-ipv4networkblock
+stc::get host2 -children
+stc::get host2 -children-ipv4if
+stc::get streamblock4 -children-pathdescriptor
+stc::create PathDescriptor -under streamblock4 -Index 0
+stc::get host1 -children-ipv4networkblock
+stc::get host1 -children
+stc::get host1 -children-ipv4if
+stc::get host1 -children-vxlanvmtovteplink
+stc::config pathdescriptor4 -encapsulation-targets {} -dstbinding-targets ipv4if2 -srcbinding-targets ipv4if1
+stc::perform StreamBlockUpdate -streamblock streamblock4
+stc::get streamblock4 -children
+stc::get streamblock4 -children-ipv4:ipv4
+::stc::get streamblock4 -children-ipv4:IPv4
+stc::get streamblock4 -children
+stc::config ipv4:ipv434 -ihl 5 -identification 0 -ttl 255 -fragOffset 0 -gateway 192.170.1.1
+stc::get ipv4:ipv434 -children-tosDiffserv
+stc::get tosdiffserv15 -children-diffServ
+stc::create diffServ -under tosdiffserv15
+stc::config diffserv7 -dscpHigh 5 -dscpLow 6
+::stc::create tcp:Tcp -under streamblock4 -sourcePort 3001 -destPort 1024
+stc::get streamblock4 -children-tcp:Tcp
+stc::get tcp:tcp7 -name
+stc::get tcp:tcp7 -sourcePort
+stc::get streamblock4 -children-randomModifier
+stc::get streamblock4 -children-rangeModifier
+stc::get streamblock4 -children-tableModifier
+::stc::create rangeModifier -under streamblock4 -OffsetReference tcp_2856.sourcePort
+stc::config rangemodifier4 -data 3001 -EnableStream 1 -Mask 65535 -ModifierMode INCR -RecycleCount 1 -RepeatCount 0 -StepValue 1
+::stc::apply
+
+
+sth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.170.1.1 -rate_mbps 1 -tcp_src_port 3002 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 26 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 0 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 1 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create
+::stc::create streamBlock -under port1 -frameconfig {} -EnableStreamOnlyGeneration true -ShowAllHeaders true
+stc::perform StreamBlockUpdate -streamblock streamblock5
+stc::get streamblock5 -children
+::stc::delete ethernet:ethernetii43
+::stc::delete ipv4:ipv439
+stc::get port1 -children-generator
+stc::get generator1 -children-generatorconfig
+stc::config generatorconfig1 -DurationMode CONTINUOUS -BurstSize 1
+stc::config streamblock5 -FrameLengthMode fixed -FixedFrameLength 160 -FillType CONSTANT -ConstantFillPattern 0 -EnableTxPortSendingTrafficToSelf false -LoadUnit MEGABITS_PER_SECOND -Load 1 -EnableFcsErrorInsertion 0 -Active 1 -ExpectedRx-targets port2 -InsertSig true -EnableHighSpeedResultAnalysis 1 -EnableControlPlane 0
+::stc::create ethernet:EthernetII -under streamblock5
+stc::get host1 -TopLevelIf-targets
+stc::get ipv4if1 -address
+stc::get ipv4if1 -address
+stc::config ipv4if1 -address 192.170.1.5
+stc::config streamblock5 -SrcBinding-targets ipv4if1
+stc::get host1 -children-ipv4networkblock
+stc::get host2 -TopLevelIf-targets
+stc::get ipv4if2 -address
+stc::get ipv4if2 -address
+stc::config ipv4if2 -address 192.169.101.2
+stc::config streamblock5 -DstBinding-targets ipv4if2
+stc::get host2 -children-ipv4networkblock
+stc::get host2 -children
+stc::get host2 -children-ipv4if
+stc::get streamblock5 -children-pathdescriptor
+stc::create PathDescriptor -under streamblock5 -Index 0
+stc::get host1 -children-ipv4networkblock
+stc::get host1 -children
+stc::get host1 -children-ipv4if
+stc::get host1 -children-vxlanvmtovteplink
+stc::config pathdescriptor5 -encapsulation-targets {} -dstbinding-targets ipv4if2 -srcbinding-targets ipv4if1
+stc::perform StreamBlockUpdate -streamblock streamblock5
+stc::get streamblock5 -children
+stc::get streamblock5 -children-ipv4:ipv4
+::stc::get streamblock5 -children-ipv4:IPv4
+stc::get streamblock5 -children
+stc::config ipv4:ipv443 -ihl 5 -identification 0 -ttl 255 -fragOffset 0 -gateway 192.170.1.1
+stc::get ipv4:ipv443 -children-tosDiffserv
+stc::get tosdiffserv19 -children-diffServ
+stc::create diffServ -under tosdiffserv19
+stc::config diffserv9 -dscpHigh 3 -dscpLow 2
+::stc::create tcp:Tcp -under streamblock5 -sourcePort 3002 -destPort 1024
+stc::get streamblock5 -children-tcp:Tcp
+stc::get tcp:tcp10 -name
+stc::get tcp:tcp10 -sourcePort
+stc::get streamblock5 -children-randomModifier
+stc::get streamblock5 -children-rangeModifier
+stc::get streamblock5 -children-tableModifier
+::stc::create rangeModifier -under streamblock5 -OffsetReference tcp_2942.sourcePort
+stc::config rangemodifier5 -data 3002 -EnableStream 1 -Mask 65535 -ModifierMode INCR -RecycleCount 1 -RepeatCount 0 -StepValue 1
+::stc::apply
+
+
+sth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.170.1.1 -rate_mbps 1 -tcp_src_port 3003 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 18 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 0 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 1 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create
+::stc::create streamBlock -under port1 -frameconfig {} -EnableStreamOnlyGeneration true -ShowAllHeaders true
+stc::perform StreamBlockUpdate -streamblock streamblock6
+stc::get streamblock6 -children
+::stc::delete ethernet:ethernetii53
+::stc::delete ipv4:ipv448
+stc::get port1 -children-generator
+stc::get generator1 -children-generatorconfig
+stc::config generatorconfig1 -DurationMode CONTINUOUS -BurstSize 1
+stc::config streamblock6 -FrameLengthMode fixed -FixedFrameLength 160 -FillType CONSTANT -ConstantFillPattern 0 -EnableTxPortSendingTrafficToSelf false -LoadUnit MEGABITS_PER_SECOND -Load 1 -EnableFcsErrorInsertion 0 -Active 1 -ExpectedRx-targets port2 -InsertSig true -EnableHighSpeedResultAnalysis 1 -EnableControlPlane 0
+::stc::create ethernet:EthernetII -under streamblock6
+stc::get host1 -TopLevelIf-targets
+stc::get ipv4if1 -address
+stc::get ipv4if1 -address
+stc::config ipv4if1 -address 192.170.1.5
+stc::config streamblock6 -SrcBinding-targets ipv4if1
+stc::get host1 -children-ipv4networkblock
+stc::get host2 -TopLevelIf-targets
+stc::get ipv4if2 -address
+stc::get ipv4if2 -address
+stc::config ipv4if2 -address 192.169.101.2
+stc::config streamblock6 -DstBinding-targets ipv4if2
+stc::get host2 -children-ipv4networkblock
+stc::get host2 -children
+stc::get host2 -children-ipv4if
+stc::get streamblock6 -children-pathdescriptor
+stc::create PathDescriptor -under streamblock6 -Index 0
+stc::get host1 -children-ipv4networkblock
+stc::get host1 -children
+stc::get host1 -children-ipv4if
+stc::get host1 -children-vxlanvmtovteplink
+stc::config pathdescriptor6 -encapsulation-targets {} -dstbinding-targets ipv4if2 -srcbinding-targets ipv4if1
+stc::perform StreamBlockUpdate -streamblock streamblock6
+stc::get streamblock6 -children
+stc::get streamblock6 -children-ipv4:ipv4
+::stc::get streamblock6 -children-ipv4:IPv4
+stc::get streamblock6 -children
+stc::config ipv4:ipv452 -ihl 5 -identification 0 -ttl 255 -fragOffset 0 -gateway 192.170.1.1
+stc::get ipv4:ipv452 -children-tosDiffserv
+stc::get tosdiffserv23 -children-diffServ
+stc::create diffServ -under tosdiffserv23
+stc::config diffserv11 -dscpHigh 2 -dscpLow 2
+::stc::create tcp:Tcp -under streamblock6 -sourcePort 3003 -destPort 1024
+stc::get streamblock6 -children-tcp:Tcp
+stc::get tcp:tcp13 -name
+stc::get tcp:tcp13 -sourcePort
+stc::get streamblock6 -children-randomModifier
+stc::get streamblock6 -children-rangeModifier
+stc::get streamblock6 -children-tableModifier
+::stc::create rangeModifier -under streamblock6 -OffsetReference tcp_3037.sourcePort
+stc::config rangemodifier6 -data 3003 -EnableStream 1 -Mask 65535 -ModifierMode INCR -RecycleCount 1 -RepeatCount 0 -StepValue 1
+::stc::apply
+
+
+sth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.170.1.1 -rate_mbps 1 -tcp_src_port 3004 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 10 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 0 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 1 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create
+::stc::create streamBlock -under port1 -frameconfig {} -EnableStreamOnlyGeneration true -ShowAllHeaders true
+stc::perform StreamBlockUpdate -streamblock streamblock7
+stc::get streamblock7 -children
+::stc::delete ethernet:ethernetii63
+::stc::delete ipv4:ipv457
+stc::get port1 -children-generator
+stc::get generator1 -children-generatorconfig
+stc::config generatorconfig1 -DurationMode CONTINUOUS -BurstSize 1
+stc::config streamblock7 -FrameLengthMode fixed -FixedFrameLength 160 -FillType CONSTANT -ConstantFillPattern 0 -EnableTxPortSendingTrafficToSelf false -LoadUnit MEGABITS_PER_SECOND -Load 1 -EnableFcsErrorInsertion 0 -Active 1 -ExpectedRx-targets port2 -InsertSig true -EnableHighSpeedResultAnalysis 1 -EnableControlPlane 0
+::stc::create ethernet:EthernetII -under streamblock7
+stc::get host1 -TopLevelIf-targets
+stc::get ipv4if1 -address
+stc::get ipv4if1 -address
+stc::config ipv4if1 -address 192.170.1.5
+stc::config streamblock7 -SrcBinding-targets ipv4if1
+stc::get host1 -children-ipv4networkblock
+stc::get host2 -TopLevelIf-targets
+stc::get ipv4if2 -address
+stc::get ipv4if2 -address
+stc::config ipv4if2 -address 192.169.101.2
+stc::config streamblock7 -DstBinding-targets ipv4if2
+stc::get host2 -children-ipv4networkblock
+stc::get host2 -children
+stc::get host2 -children-ipv4if
+stc::get streamblock7 -children-pathdescriptor
+stc::create PathDescriptor -under streamblock7 -Index 0
+stc::get host1 -children-ipv4networkblock
+stc::get host1 -children
+stc::get host1 -children-ipv4if
+stc::get host1 -children-vxlanvmtovteplink
+stc::config pathdescriptor7 -encapsulation-targets {} -dstbinding-targets ipv4if2 -srcbinding-targets ipv4if1
+stc::perform StreamBlockUpdate -streamblock streamblock7
+stc::get streamblock7 -children
+stc::get streamblock7 -children-ipv4:ipv4
+::stc::get streamblock7 -children-ipv4:IPv4
+stc::get streamblock7 -children
+stc::config ipv4:ipv461 -ihl 5 -identification 0 -ttl 255 -fragOffset 0 -gateway 192.170.1.1
+stc::get ipv4:ipv461 -children-tosDiffserv
+stc::get tosdiffserv27 -children-diffServ
+stc::create diffServ -under tosdiffserv27
+stc::config diffserv13 -dscpHigh 1 -dscpLow 2
+::stc::create tcp:Tcp -under streamblock7 -sourcePort 3004 -destPort 1024
+stc::get streamblock7 -children-tcp:Tcp
+stc::get tcp:tcp16 -name
+stc::get tcp:tcp16 -sourcePort
+stc::get streamblock7 -children-randomModifier
+stc::get streamblock7 -children-rangeModifier
+stc::get streamblock7 -children-tableModifier
+::stc::create rangeModifier -under streamblock7 -OffsetReference tcp_3123.sourcePort
+stc::config rangemodifier7 -data 3004 -EnableStream 1 -Mask 65535 -ModifierMode INCR -RecycleCount 1 -RepeatCount 0 -StepValue 1
+::stc::apply
+
+
+sth::traffic_config -tx_port_sending_traffic_to_self_en false -mac_discovery_gw 192.170.1.1 -rate_mbps 1 -tcp_src_port 5000 -frame_size 160 -pkts_per_burst 1 -high_speed_result_analysis 1 -tcp_dst_port 1024 -enable_stream_only_gen 1 -inter_stream_gap_unit bytes -emulation_dst_handle host2 -fill_type constant -length_mode fixed -fcs_error 0 -port_handle port1 -ip_ttl 255 -ip_fragment_offset 0 -ip_dscp 48 -traffic_state 1 -burst_loop_count 30 -enable_control_plane 0 -ip_hdr_length 5 -l3_length 160 -ip_mbz 0 -dest_port_list port2 -transmit_mode continuous -tcp_src_port_repeat_count 0 -ip_id 0 -l3_protocol ipv4 -disable_signature 0 -tcp_src_port_count 1 -tcp_src_port_mode increment -emulation_src_handle host1 -ip_precedence 6 -fill_value 0 -inter_stream_gap 12 -tcp_src_port_step 1 -l4_protocol tcp -mode create
+::stc::create streamBlock -under port1 -frameconfig {} -EnableStreamOnlyGeneration true -ShowAllHeaders true
+stc::perform StreamBlockUpdate -streamblock streamblock8
+stc::get streamblock8 -children
+::stc::delete ethernet:ethernetii73
+::stc::delete ipv4:ipv466
+stc::get port1 -children-generator
+stc::get generator1 -children-generatorconfig
+stc::config generatorconfig1 -DurationMode CONTINUOUS -BurstSize 1
+stc::config streamblock8 -FrameLengthMode fixed -FixedFrameLength 160 -FillType CONSTANT -ConstantFillPattern 0 -EnableTxPortSendingTrafficToSelf false -LoadUnit MEGABITS_PER_SECOND -Load 1 -EnableFcsErrorInsertion 0 -Active 1 -ExpectedRx-targets port2 -InsertSig true -EnableHighSpeedResultAnalysis 1 -EnableControlPlane 0
+::stc::create ethernet:EthernetII -under streamblock8
+stc::get host1 -TopLevelIf-targets
+stc::get ipv4if1 -address
+stc::get ipv4if1 -address
+stc::config ipv4if1 -address 192.170.1.5
+stc::config streamblock8 -SrcBinding-targets ipv4if1
+stc::get host1 -children-ipv4networkblock
+stc::get host2 -TopLevelIf-targets
+stc::get ipv4if2 -address
+stc::get ipv4if2 -address
+stc::config ipv4if2 -address 192.169.101.2
+stc::config streamblock8 -DstBinding-targets ipv4if2
+stc::get host2 -children-ipv4networkblock
+stc::get host2 -children
+stc::get host2 -children-ipv4if
+stc::get streamblock8 -children-pathdescriptor
+stc::create PathDescriptor -under streamblock8 -Index 0
+stc::get host1 -children-ipv4networkblock
+stc::get host1 -children
+stc::get host1 -children-ipv4if
+stc::get host1 -children-vxlanvmtovteplink
+stc::config pathdescriptor8 -encapsulation-targets {} -dstbinding-targets ipv4if2 -srcbinding-targets ipv4if1
+stc::perform StreamBlockUpdate -streamblock streamblock8
+stc::get streamblock8 -children
+stc::get streamblock8 -children-ipv4:ipv4
+::stc::get streamblock8 -children-ipv4:IPv4
+stc::get streamblock8 -children
+stc::config ipv4:ipv470 -ihl 5 -identification 0 -ttl 255 -fragOffset 0 -gateway 192.170.1.1
+stc::get ipv4:ipv470 -children-tosDiffserv
+stc::get tosdiffserv31 -children-diffServ
+stc::create diffServ -under tosdiffserv31
+stc::config diffserv15 -dscpHigh 6 -dscpLow 0
+::stc::create tcp:Tcp -under streamblock8 -sourcePort 5000 -destPort 1024
+stc::get streamblock8 -children-tcp:Tcp
+stc::get tcp:tcp19 -name
+stc::get tcp:tcp19 -sourcePort
+stc::get streamblock8 -children-randomModifier
+stc::get streamblock8 -children-rangeModifier
+stc::get streamblock8 -children-tableModifier
+::stc::create rangeModifier -under streamblock8 -OffsetReference tcp_3209.sourcePort
+stc::config rangemodifier8 -data 5000 -EnableStream 1 -Mask 65535 -ModifierMode INCR -RecycleCount 1 -RepeatCount 0 -StepValue 1
+::stc::apply
+
+
+sth::traffic_control -action run -stream_handle streamblock1
+stc::get project1 -children-port
+stc::get port1 -children-generator
+stc::get generator1.GeneratorConfig -DurationMode
+stc::get port2 -children-generator
+stc::get generator2.GeneratorConfig -DurationMode
+stc::get project1 -children-port
+stc::get port1 -children-generator
+stc::get generator1.GeneratorConfig -DurationMode
+stc::get port2 -children-generator
+stc::get generator2.GeneratorConfig -DurationMode
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+::stc::apply
+stc::get streamblock1 -parent
+stc::get port1 -affiliationport-Sources
+stc::get host1 -children-PppoeClientBlockConfig
+stc::get host1 -children-PppoeServerBlockConfig
+stc::get host1 -children-riprouterconfig
+stc::get port1 -children-streamblock
+stc::perform ArpNdStart -HandleList {streamblock1 streamblock2 streamblock3 streamblock4 streamblock5 streamblock6 streamblock7 streamblock8}
+stc::perform StreamBlockStart -StreamBlockList streamblock1
+
+
+sth::traffic_control -action run -stream_handle streamblock2
+stc::get project1 -children-port
+stc::get project1 -children-port
+stc::get port1 -children-generator
+stc::get generator1.GeneratorConfig -DurationMode
+stc::get port2 -children-generator
+stc::get generator2.GeneratorConfig -DurationMode
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+::stc::apply
+stc::get streamblock2 -parent
+stc::perform StreamBlockStart -StreamBlockList streamblock2
+
+
+sth::traffic_control -action run -stream_handle streamblock3
+stc::get project1 -children-port
+stc::get project1 -children-port
+stc::get port1 -children-generator
+stc::get generator1.GeneratorConfig -DurationMode
+stc::get port2 -children-generator
+stc::get generator2.GeneratorConfig -DurationMode
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+::stc::apply
+stc::get streamblock3 -parent
+stc::perform StreamBlockStart -StreamBlockList streamblock3
+
+
+sth::traffic_control -action stop -stream_handle streamblock3
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+stc::get streamblock3 -parent
+stc::get port1 -children-generator
+stc::get generator1 -state
+stc::get port1 -children-streamblock
+stc::get generator1 -children-generatorportresults
+stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}
+stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3 streamblock4 streamblock5 streamblock6 streamblock7 streamblock8} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}
+stc::get generator1 -children-generatorportresults
+stc::get generatorportresults1 -TotalFrameRate
+stc::get generatorportresults1 -TotalFrameCount
+stc::unsubscribe resultdataset1
+stc::delete resultdataset1
+stc::get streamblock1 -RunningState
+stc::get streamblock1 -children-TxStreamBlockResults
+stc::get txstreamblockresults1 -FrameRate
+stc::get txstreamblockresults1 -FrameCount
+stc::get streamblock2 -RunningState
+stc::get streamblock2 -children-TxStreamBlockResults
+stc::get txstreamblockresults2 -FrameRate
+stc::get txstreamblockresults2 -FrameCount
+stc::get streamblock3 -RunningState
+stc::get streamblock3 -children-TxStreamBlockResults
+stc::get txstreamblockresults3 -FrameRate
+stc::get txstreamblockresults3 -FrameCount
+stc::get streamblock4 -RunningState
+stc::unsubscribe resultdataset2
+stc::delete resultdataset2
+stc::perform StreamBlockStop -StreamBlockList streamblock3
+stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi125148.db
+
+
+sth::traffic_control -action stop -stream_handle streamblock2
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+stc::get streamblock2 -parent
+stc::get port1 -children-generator
+stc::get generator1 -state
+stc::get port1 -children-streamblock
+stc::get generator1 -children-generatorportresults
+stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}
+stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3 streamblock4 streamblock5 streamblock6 streamblock7 streamblock8} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}
+stc::get generator1 -children-generatorportresults
+stc::get generatorportresults2 -TotalFrameRate
+stc::get generatorportresults2 -TotalFrameCount
+stc::unsubscribe resultdataset3
+stc::delete resultdataset3
+stc::get streamblock1 -RunningState
+stc::get streamblock1 -children-TxStreamBlockResults
+stc::get txstreamblockresults4 -FrameRate
+stc::get txstreamblockresults4 -FrameCount
+stc::get streamblock2 -RunningState
+stc::get streamblock2 -children-TxStreamBlockResults
+stc::get txstreamblockresults5 -FrameRate
+stc::get txstreamblockresults5 -FrameCount
+stc::get streamblock3 -RunningState
+stc::unsubscribe resultdataset4
+stc::delete resultdataset4
+stc::perform StreamBlockStop -StreamBlockList streamblock2
+stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi125159.db
+
+
+sth::traffic_control -action stop -stream_handle streamblock1
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+stc::get streamblock1 -parent
+stc::get port1 -children-generator
+stc::get generator1 -state
+stc::get port1 -children-streamblock
+stc::get generator1 -children-generatorportresults
+stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}
+stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3 streamblock4 streamblock5 streamblock6 streamblock7 streamblock8} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}
+stc::get generator1 -children-generatorportresults
+stc::get generatorportresults3 -TotalFrameRate
+stc::get generatorportresults3 -TotalFrameCount
+stc::unsubscribe resultdataset5
+stc::delete resultdataset5
+stc::get streamblock1 -RunningState
+stc::get streamblock1 -children-TxStreamBlockResults
+stc::get txstreamblockresults6 -FrameRate
+stc::get txstreamblockresults6 -FrameCount
+stc::get streamblock2 -RunningState
+stc::unsubscribe resultdataset6
+stc::delete resultdataset6
+stc::perform StreamBlockStop -StreamBlockList streamblock1
+stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi125208.db
+
+
+sth::traffic_control -action run -stream_handle streamblock1
+stc::get project1 -children-port
+stc::get project1 -children-port
+stc::get port1 -children-generator
+stc::get generator1.GeneratorConfig -DurationMode
+stc::get port2 -children-generator
+stc::get generator2.GeneratorConfig -DurationMode
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+::stc::apply
+stc::get streamblock1 -parent
+stc::perform StreamBlockStart -StreamBlockList streamblock1
+
+
+sth::traffic_control -action run -stream_handle streamblock2
+stc::get project1 -children-port
+stc::get project1 -children-port
+stc::get port1 -children-generator
+stc::get generator1.GeneratorConfig -DurationMode
+stc::get port2 -children-generator
+stc::get generator2.GeneratorConfig -DurationMode
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+::stc::apply
+stc::get streamblock2 -parent
+stc::perform StreamBlockStart -StreamBlockList streamblock2
+
+
+sth::traffic_control -action run -stream_handle streamblock3
+stc::get project1 -children-port
+stc::get project1 -children-port
+stc::get port1 -children-generator
+stc::get generator1.GeneratorConfig -DurationMode
+stc::get port2 -children-generator
+stc::get generator2.GeneratorConfig -DurationMode
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+::stc::apply
+stc::get streamblock3 -parent
+stc::perform StreamBlockStart -StreamBlockList streamblock3
+
+
+sth::traffic_control -action stop -stream_handle streamblock3
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+stc::get streamblock3 -parent
+stc::get port1 -children-generator
+stc::get generator1 -state
+stc::get port1 -children-streamblock
+stc::get generator1 -children-generatorportresults
+stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}
+stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3 streamblock4 streamblock5 streamblock6 streamblock7 streamblock8} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}
+stc::get generator1 -children-generatorportresults
+stc::get generatorportresults4 -TotalFrameRate
+stc::get generatorportresults4 -TotalFrameCount
+stc::unsubscribe resultdataset7
+stc::delete resultdataset7
+stc::get streamblock1 -RunningState
+stc::get streamblock1 -children-TxStreamBlockResults
+stc::get txstreamblockresults7 -FrameRate
+stc::get txstreamblockresults7 -FrameCount
+stc::get streamblock2 -RunningState
+stc::get streamblock2 -children-TxStreamBlockResults
+stc::get txstreamblockresults8 -FrameRate
+stc::get txstreamblockresults8 -FrameCount
+stc::get streamblock3 -RunningState
+stc::get streamblock3 -children-TxStreamBlockResults
+stc::get txstreamblockresults9 -FrameRate
+stc::get txstreamblockresults9 -FrameCount
+stc::get streamblock4 -RunningState
+stc::unsubscribe resultdataset8
+stc::delete resultdataset8
+stc::perform StreamBlockStop -StreamBlockList streamblock3
+stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi125459.db
+
+
+sth::traffic_control -action stop -stream_handle streamblock2
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+stc::get streamblock2 -parent
+stc::get port1 -children-generator
+stc::get generator1 -state
+stc::get port1 -children-streamblock
+stc::get generator1 -children-generatorportresults
+stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}
+stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3 streamblock4 streamblock5 streamblock6 streamblock7 streamblock8} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}
+stc::get generator1 -children-generatorportresults
+stc::get generatorportresults5 -TotalFrameRate
+stc::get generatorportresults5 -TotalFrameCount
+stc::unsubscribe resultdataset9
+stc::delete resultdataset9
+stc::get streamblock1 -RunningState
+stc::get streamblock1 -children-TxStreamBlockResults
+stc::get txstreamblockresults10 -FrameRate
+stc::get txstreamblockresults10 -FrameCount
+stc::get streamblock2 -RunningState
+stc::get streamblock2 -children-TxStreamBlockResults
+stc::get txstreamblockresults11 -FrameRate
+stc::get txstreamblockresults11 -FrameCount
+stc::get streamblock3 -RunningState
+stc::unsubscribe resultdataset10
+stc::delete resultdataset10
+stc::perform StreamBlockStop -StreamBlockList streamblock2
+stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi125509.db
+
+
+sth::traffic_control -action stop -stream_handle streamblock1
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+stc::get streamblock1 -parent
+stc::get port1 -children-generator
+stc::get generator1 -state
+stc::get port1 -children-streamblock
+stc::get generator1 -children-generatorportresults
+stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}
+stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3 streamblock4 streamblock5 streamblock6 streamblock7 streamblock8} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}
+stc::get generator1 -children-generatorportresults
+stc::get generatorportresults6 -TotalFrameRate
+stc::get generatorportresults6 -TotalFrameCount
+stc::unsubscribe resultdataset11
+stc::delete resultdataset11
+stc::get streamblock1 -RunningState
+stc::get streamblock1 -children-TxStreamBlockResults
+stc::get txstreamblockresults12 -FrameRate
+stc::get txstreamblockresults12 -FrameCount
+stc::get streamblock2 -RunningState
+stc::unsubscribe resultdataset12
+stc::delete resultdataset12
+stc::perform StreamBlockStop -StreamBlockList streamblock1
+stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi125517.db
+
+
+sth::traffic_control -action run -stream_handle streamblock1
+stc::get project1 -children-port
+stc::get project1 -children-port
+stc::get port1 -children-generator
+stc::get generator1.GeneratorConfig -DurationMode
+stc::get port2 -children-generator
+stc::get generator2.GeneratorConfig -DurationMode
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+::stc::apply
+stc::get streamblock1 -parent
+stc::perform StreamBlockStart -StreamBlockList streamblock1
+
+
+sth::traffic_control -action stop -stream_handle streamblock1
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+stc::get streamblock1 -parent
+stc::get port1 -children-generator
+stc::get generator1 -state
+stc::get port1 -children-streamblock
+stc::get generator1 -children-generatorportresults
+stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}
+stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3 streamblock4 streamblock5 streamblock6 streamblock7 streamblock8} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}
+stc::get generator1 -children-generatorportresults
+stc::get generatorportresults7 -TotalFrameRate
+stc::get generatorportresults7 -TotalFrameCount
+stc::unsubscribe resultdataset13
+stc::delete resultdataset13
+stc::get streamblock1 -RunningState
+stc::get streamblock1 -children-TxStreamBlockResults
+stc::get txstreamblockresults13 -FrameRate
+stc::get txstreamblockresults13 -FrameCount
+stc::get streamblock2 -RunningState
+stc::unsubscribe resultdataset14
+stc::delete resultdataset14
+stc::perform StreamBlockStop -StreamBlockList streamblock1
+stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi125641.db
+
+
+sth::traffic_control -action run -stream_handle streamblock4
+stc::get project1 -children-port
+stc::get project1 -children-port
+stc::get port1 -children-generator
+stc::get generator1.GeneratorConfig -DurationMode
+stc::get port2 -children-generator
+stc::get generator2.GeneratorConfig -DurationMode
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+::stc::apply
+stc::get streamblock4 -parent
+stc::perform StreamBlockStart -StreamBlockList streamblock4
+
+
+sth::traffic_control -action run -stream_handle streamblock5
+stc::get project1 -children-port
+stc::get project1 -children-port
+stc::get port1 -children-generator
+stc::get generator1.GeneratorConfig -DurationMode
+stc::get port2 -children-generator
+stc::get generator2.GeneratorConfig -DurationMode
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+::stc::apply
+stc::get streamblock5 -parent
+stc::perform StreamBlockStart -StreamBlockList streamblock5
+
+
+sth::traffic_control -action run -stream_handle streamblock6
+stc::get project1 -children-port
+stc::get project1 -children-port
+stc::get port1 -children-generator
+stc::get generator1.GeneratorConfig -DurationMode
+stc::get port2 -children-generator
+stc::get generator2.GeneratorConfig -DurationMode
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+::stc::apply
+stc::get streamblock6 -parent
+stc::perform StreamBlockStart -StreamBlockList streamblock6
+
+
+sth::traffic_control -action run -stream_handle streamblock7
+stc::get project1 -children-port
+stc::get project1 -children-port
+stc::get port1 -children-generator
+stc::get generator1.GeneratorConfig -DurationMode
+stc::get port2 -children-generator
+stc::get generator2.GeneratorConfig -DurationMode
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+::stc::apply
+stc::get streamblock7 -parent
+stc::perform StreamBlockStart -StreamBlockList streamblock7
+
+
+sth::traffic_control -action run -stream_handle streamblock8
+stc::get project1 -children-port
+stc::get project1 -children-port
+stc::get port1 -children-generator
+stc::get generator1.GeneratorConfig -DurationMode
+stc::get port2 -children-generator
+stc::get generator2.GeneratorConfig -DurationMode
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+::stc::apply
+stc::get streamblock8 -parent
+stc::perform StreamBlockStart -StreamBlockList streamblock8
+
+
+sth::traffic_control -action stop -stream_handle streamblock4
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+stc::get streamblock4 -parent
+stc::get port1 -children-generator
+stc::get generator1 -state
+stc::get port1 -children-streamblock
+stc::get generator1 -children-generatorportresults
+stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}
+stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3 streamblock4 streamblock5 streamblock6 streamblock7 streamblock8} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}
+stc::get generator1 -children-generatorportresults
+stc::get generatorportresults8 -TotalFrameRate
+stc::get generatorportresults8 -TotalFrameCount
+stc::unsubscribe resultdataset15
+stc::delete resultdataset15
+stc::get streamblock1 -RunningState
+stc::unsubscribe resultdataset16
+stc::delete resultdataset16
+stc::perform StreamBlockStop -StreamBlockList streamblock4
+stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi125819.db
+
+
+sth::traffic_control -action stop -stream_handle streamblock5
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+stc::get streamblock5 -parent
+stc::get port1 -children-generator
+stc::get generator1 -state
+stc::get port1 -children-streamblock
+stc::get generator1 -children-generatorportresults
+stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}
+stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3 streamblock4 streamblock5 streamblock6 streamblock7 streamblock8} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}
+stc::get generator1 -children-generatorportresults
+stc::get generatorportresults9 -TotalFrameRate
+stc::get generatorportresults9 -TotalFrameCount
+stc::unsubscribe resultdataset17
+stc::delete resultdataset17
+stc::get streamblock1 -RunningState
+stc::unsubscribe resultdataset18
+stc::delete resultdataset18
+stc::perform StreamBlockStop -StreamBlockList streamblock5
+stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi125830.db
+
+
+sth::traffic_control -action stop -stream_handle streamblock6
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+stc::get streamblock6 -parent
+stc::get port1 -children-generator
+stc::get generator1 -state
+stc::get port1 -children-streamblock
+stc::get generator1 -children-generatorportresults
+stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}
+stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3 streamblock4 streamblock5 streamblock6 streamblock7 streamblock8} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}
+stc::get generator1 -children-generatorportresults
+stc::get generatorportresults10 -TotalFrameRate
+stc::get generatorportresults10 -TotalFrameCount
+stc::unsubscribe resultdataset19
+stc::delete resultdataset19
+stc::get streamblock1 -RunningState
+stc::unsubscribe resultdataset20
+stc::delete resultdataset20
+stc::perform StreamBlockStop -StreamBlockList streamblock6
+stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi125838.db
+
+
+sth::traffic_control -action stop -stream_handle streamblock7
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+stc::get streamblock7 -parent
+stc::get port1 -children-generator
+stc::get generator1 -state
+stc::get port1 -children-streamblock
+stc::get generator1 -children-generatorportresults
+stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}
+stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3 streamblock4 streamblock5 streamblock6 streamblock7 streamblock8} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}
+stc::get generator1 -children-generatorportresults
+stc::get generatorportresults11 -TotalFrameRate
+stc::get generatorportresults11 -TotalFrameCount
+stc::unsubscribe resultdataset21
+stc::delete resultdataset21
+stc::get streamblock1 -RunningState
+stc::unsubscribe resultdataset22
+stc::delete resultdataset22
+stc::perform StreamBlockStop -StreamBlockList streamblock7
+stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi125846.db
+
+
+sth::traffic_control -action stop -stream_handle streamblock8
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+stc::get streamblock8 -parent
+stc::get port1 -children-generator
+stc::get generator1 -state
+stc::get port1 -children-streamblock
+stc::get generator1 -children-generatorportresults
+stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}
+stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3 streamblock4 streamblock5 streamblock6 streamblock7 streamblock8} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}
+stc::get generator1 -children-generatorportresults
+stc::get generatorportresults12 -TotalFrameRate
+stc::get generatorportresults12 -TotalFrameCount
+stc::unsubscribe resultdataset23
+stc::delete resultdataset23
+stc::get streamblock1 -RunningState
+stc::unsubscribe resultdataset24
+stc::delete resultdataset24
+stc::perform StreamBlockStop -StreamBlockList streamblock8
+stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi125854.db
+
+
+sth::traffic_control -action run -stream_handle streamblock1
+stc::get project1 -children-port
+stc::get project1 -children-port
+stc::get port1 -children-generator
+stc::get generator1.GeneratorConfig -DurationMode
+stc::get port2 -children-generator
+stc::get generator2.GeneratorConfig -DurationMode
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+::stc::apply
+stc::get streamblock1 -parent
+stc::perform StreamBlockStart -StreamBlockList streamblock1
+
+
+sth::traffic_control -action stop -stream_handle streamblock1
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+stc::get streamblock1 -parent
+stc::get port1 -children-generator
+stc::get generator1 -state
+stc::get port1 -children-streamblock
+stc::get generator1 -children-generatorportresults
+stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}
+stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3 streamblock4 streamblock5 streamblock6 streamblock7 streamblock8} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}
+stc::get generator1 -children-generatorportresults
+stc::get generatorportresults13 -TotalFrameRate
+stc::get generatorportresults13 -TotalFrameCount
+stc::unsubscribe resultdataset25
+stc::delete resultdataset25
+stc::get streamblock1 -RunningState
+stc::get streamblock1 -children-TxStreamBlockResults
+stc::get txstreamblockresults14 -FrameRate
+stc::get txstreamblockresults14 -FrameCount
+stc::get streamblock2 -RunningState
+stc::unsubscribe resultdataset26
+stc::delete resultdataset26
+stc::perform StreamBlockStop -StreamBlockList streamblock1
+stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi125957.db
+
+
+sth::traffic_control -action run -stream_handle streamblock1
+stc::get project1 -children-port
+stc::get project1 -children-port
+stc::get port1 -children-generator
+stc::get generator1.GeneratorConfig -DurationMode
+stc::get port2 -children-generator
+stc::get generator2.GeneratorConfig -DurationMode
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+::stc::apply
+stc::get streamblock1 -parent
+stc::perform StreamBlockStart -StreamBlockList streamblock1
+
+
+sth::traffic_control -action stop -stream_handle streamblock1
+stc::get project1 -children-trafficoptions
+stc::config trafficoptions1 -TrafficStartMode asynchronous
+stc::get streamblock1 -parent
+stc::get port1 -children-generator
+stc::get generator1 -state
+stc::get port1 -children-streamblock
+stc::get generator1 -children-generatorportresults
+stc::subscribe -Parent project1 -ResultParent port1 -ConfigType Generator -resulttype GeneratorPortResults -viewAttributeList {TotalFrameRate TotalFrameCount}
+stc::subscribe -Parent project1 -ResultParent {streamblock1 streamblock2 streamblock3 streamblock4 streamblock5 streamblock6 streamblock7 streamblock8} -ConfigType StreamBlock -resulttype TxStreamBlockResults -viewAttributeList {FrameRate FrameCount}
+stc::get generator1 -children-generatorportresults
+stc::get generatorportresults14 -TotalFrameRate
+stc::get generatorportresults14 -TotalFrameCount
+stc::unsubscribe resultdataset27
+stc::delete resultdataset27
+stc::get streamblock1 -RunningState
+stc::get streamblock1 -children-TxStreamBlockResults
+stc::get txstreamblockresults15 -FrameRate
+stc::get txstreamblockresults15 -FrameCount
+stc::get streamblock2 -RunningState
+stc::unsubscribe resultdataset28
+stc::delete resultdataset28
+stc::perform StreamBlockStop -StreamBlockList streamblock1
+stc::perform SaveResult -SaveDetailedResults true -SaveToDatabase true -OverwriteIfExist true -DatabaseConnectionString C:/Softwares_mine/stefano/NV_REPOSITORY/csit/ROBOT_TESTSUITES/eotResultsHltApi130114.db
+
+
+sth::interface_config -mode destroy -port_handle port1
+stc::get port1 -ActivePhy-targets
+stc::get port1 -supportedPhys
+stc::get ethernetcopper2 -LineSpeed
+stc::get port1 -Online
+stc::delete port1
+
+
+sth::interface_config -mode destroy -port_handle port2
+stc::get port2 -ActivePhy-targets
+stc::get port2 -supportedPhys
+stc::get ethernetcopper4 -LineSpeed
+stc::get port2 -Online
+stc::delete port2
+
+
+sth::cleanup_session -port_handle {port1 port2} -clean_dbfile 1
+stc::get project1 -children-port
+stc::perform DeleteCommand -ConfigList {}
+::stc::apply

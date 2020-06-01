@@ -1,0 +1,49 @@
+
+{% if LIB1 is defined and LIB1 == 'YES'%}
+sathish
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules WAN_IN set action allow
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules WAN_IN match source zone zone-list [ Intf-INT-WAN-Zone ]
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules WAN_OUT set action allow
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} class-of-service qos-policies Default-Policy rules WAN_OUT match destination zone zone-list [ Intf-INT-WAN-Zone ]
+{% endif -%}
+
+
+
+{% for i in range(1,  NO_OF_VRFS+1) %}
+{% set lan_number = loop.index %}
+{% set vlanid = lan[i]['vlan'] %}
+{% set lan_ip_address = lan[lan_number]['third_host'] %}
+{% set lan_ip_prefixlen = lan[lan_number]['prefixlen'] %}
+set devices device {{ Device_name }} config interfaces {{ LAN_INTF }} unit {{ vlanid }} family inet address {{ lan_ip_address }}/{{ lan_ip_prefixlen }} vrrp-group {{ lan_number }} priority 100
+set devices device {{ Device_name }} config interfaces {{ LAN_INTF }} unit {{ vlanid }} family inet address {{ lan_ip_address }}/{{ lan_ip_prefixlen }} vrrp-group {{ lan_number }} track route {{ TRACK_MANAGEMENT_SUBNET }} routing-instance {{ ORG_NAME }}-Control-VR
+set devices device {{ Device_name }} config interfaces {{ LAN_INTF }} unit {{ vlanid }} family inet address {{ lan_ip_address }}/{{ lan_ip_prefixlen }} vrrp-group {{ lan_number }} track route {{ TRACK_MANAGEMENT_SUBNET }} priority-cost 10
+set devices device {{ Device_name }} config interfaces {{ LAN_INTF }} unit {{ vlanid }} family inet address {{ lan_ip_address }}/{{ lan_ip_prefixlen }} vrrp-group {{ lan_number }} warmup-interval 1
+{% endfor -%}
+
+
+#Firewall
+set devices device {{ Device_name }} config orgs org {{ ORG_NAME }} services [ cgnat stateful-firewall sdwan ]
+set devices device {{ Device_name }} config service-node-groups default-sng services [ cgnat stateful-firewall sdwan ]
+delete devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies Default-Policy
+
+
+{% set LAN_NO = NO_OF_VRFS %}
+
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules CUST-LAN-INT-DENY set action deny
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules CUST-LAN-INT-DENY match source zone zone-list [ Intf-LAN{{ LAN_NO }}-Zone W-ST-LAN{{ LAN_NO }}-VRF-INT-WAN ]
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules CUST-LAN-INT-DENY match destination zone zone-list [ Intf-INT-WAN-Zone L-ST-LAN{{ LAN_NO }}-VRF-INT-WAN ]
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules CUST-LAN-INT-DENY set lef profile Default-Logging-Profile
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules CUST-LAN-INT-DENY set lef event both
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules SDWAN-ALLOW-INBOUND set action allow
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules SDWAN-ALLOW-INBOUND match source zone zone-list [ ptvi ]
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules SDWAN-ALLOW-INBOUND match destination zone zone-list [ Intf-LAN{{ LAN_NO }}-Zone ]
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules SDWAN-ALLOW-OUTBOUND set action allow
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules SDWAN-ALLOW-OUTBOUND match source zone zone-list [ Intf-LAN{{ LAN_NO }}-Zone ]
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules SDWAN-ALLOW-OUTBOUND match destination zone zone-list [ ptvi ]
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules SDWAN-ALLOW-TRANS-INBOUND set action allow
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules SDWAN-ALLOW-TRANS-INBOUND match destination zone zone-list [ Intf-INT-WAN-Failover-Zone ]
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules SDWAN-ALLOW-TRANS-OUTBOUND set action allow
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules SDWAN-ALLOW-TRANS-OUTBOUND match source zone zone-list [ Intf-INT-WAN-Failover-Zone ]
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules DEFAULT-DENY-ALL set action deny
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules DEFAULT-DENY-ALL set lef profile Default-Logging-Profile
+set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} security access-policies FW-ACCESS-POLICY rules DEFAULT-DENY-ALL set lef event both

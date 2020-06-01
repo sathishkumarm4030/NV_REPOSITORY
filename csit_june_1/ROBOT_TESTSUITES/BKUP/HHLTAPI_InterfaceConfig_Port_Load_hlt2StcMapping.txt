@@ -1,0 +1,84 @@
+############# HLT2STC Mapping Log File #############
+stc::create project
+::stc::get project1 -parent
+::stc::get system1 -children-sequencer
+stc::connect 10.91.113.124
+stc::create Port -under project1 -location 10.91.113.124/10/1 -name 10.91.113.124-10-1
+stc::perform ReservePort -Location 10.91.113.124/10/1
+stc::get port1 -children-generator
+stc::get generator1 -children-generatorconfig
+stc::config generatorconfig1 -SchedulingMode RATE_BASED
+stc::create Port -under project1 -location 10.91.113.124/10/2 -name 10.91.113.124-10-2
+stc::perform ReservePort -Location 10.91.113.124/10/2
+stc::get port2 -children-generator
+stc::get generator2 -children-generatorconfig
+stc::config generatorconfig2 -SchedulingMode RATE_BASED
+stc::perform setupPortMappings
+
+
+sth::interface_config -create_host false -scheduling_mode RATE_BASED -phy_mode copper -port_loadunit MEGABITS_PER_SECOND -control_plane_mtu 1500 -enable_ping_response 0 -autonegotiation 1 -port_handle port1 -duplex full -mode config -port_load 5 -speed ether1000 -intf_mode ethernet
+stc::get port1 -ActivePhy-targets
+stc::get port1 -supportedPhys
+stc::get ethernetcopper1 -LineSpeed
+stc::get port1 -Online
+stc::get port1 -activephy-Targets
+stc::get ethernetcopper1 -LineSpeed
+stc::get port1 -children-EthernetCopper
+stc::get port1 -children-Ethernet10GigCopper
+stc::config ethernetcopper2 -Mtu 1500 -AutoNegotiation true -Duplex FULL -LineSpeed SPEED_1G
+stc::perform PortSetupSetActivePhy -activephy ethernetcopper2
+stc::get ethernetcopper2 -isSpeedAutoNegotiationConfigurable
+stc::get port1 -children-Ethernet10GigCopper
+stc::get port1 -children-generator
+stc::get generator1 -children-generatorconfig
+stc::config generatorconfig1 -SchedulingMode RATE_BASED
+stc::get port1 -AffiliationPort-Sources
+stc::get port1 -children-StreamBlock
+stc::perform ArpNdStart -HandleList port1
+::stc::apply
+stc::get port1 -children-Ethernet10GigCopper
+
+
+sth::interface_config -create_host false -scheduling_mode RATE_BASED -phy_mode copper -port_loadunit MEGABITS_PER_SECOND -control_plane_mtu 1500 -enable_ping_response 0 -autonegotiation 1 -port_handle port2 -duplex full -mode config -port_load 5 -speed ether1000 -intf_mode ethernet
+stc::get port2 -ActivePhy-targets
+stc::get port2 -supportedPhys
+stc::get ethernetcopper3 -LineSpeed
+stc::get port2 -Online
+stc::get port2 -activephy-Targets
+stc::get ethernetcopper3 -LineSpeed
+stc::get port2 -children-EthernetCopper
+stc::get port2 -children-Ethernet10GigCopper
+stc::config ethernetcopper4 -Mtu 1500 -AutoNegotiation true -Duplex FULL -LineSpeed SPEED_1G
+stc::perform PortSetupSetActivePhy -activephy ethernetcopper4
+stc::get ethernetcopper4 -isSpeedAutoNegotiationConfigurable
+stc::get port2 -children-Ethernet10GigCopper
+stc::get port2 -children-generator
+stc::get generator2 -children-generatorconfig
+stc::config generatorconfig2 -SchedulingMode RATE_BASED
+stc::get port2 -AffiliationPort-Sources
+stc::get port2 -children-StreamBlock
+stc::perform ArpNdStart -HandleList port2
+::stc::apply
+stc::get port2 -children-Ethernet10GigCopper
+
+
+sth::interface_config -mode destroy -port_handle port1
+stc::get port1 -ActivePhy-targets
+stc::get port1 -supportedPhys
+stc::get ethernetcopper2 -LineSpeed
+stc::get port1 -Online
+stc::delete port1
+
+
+sth::interface_config -mode destroy -port_handle port2
+stc::get port2 -ActivePhy-targets
+stc::get port2 -supportedPhys
+stc::get ethernetcopper4 -LineSpeed
+stc::get port2 -Online
+stc::delete port2
+
+
+sth::cleanup_session -port_handle {port1 port2} -clean_dbfile 1
+stc::get project1 -children-port
+stc::perform DeleteCommand -ConfigList {}
+::stc::apply

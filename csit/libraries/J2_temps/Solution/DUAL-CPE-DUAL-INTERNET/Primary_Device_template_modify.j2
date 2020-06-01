@@ -13,8 +13,7 @@ set devices device {{ Device_name }} config orgs org-services {{ ORG_NAME }} cla
 {% set vlanid = lan[i]['vlan'] %}
 {% set lan_ip_address = lan[lan_number]['second_host'] %}
 {% set lan_ip_prefixlen = lan[lan_number]['prefixlen'] %}
-
+set devices device {{ Device_name }} config interfaces {{ LAN_INTF }} unit {{ vlanid }} family inet address {{ lan_ip_address }}/{{ lan_ip_prefixlen }} vrrp-group {{ lan_number }} priority 105
 set devices device {{ Device_name }} config interfaces {{ LAN_INTF }} unit {{ vlanid }} family inet address {{ lan_ip_address }}/{{ lan_ip_prefixlen }} vrrp-group {{ lan_number }} track route 0.0.0.0/0 priority-cost 10
 set devices device {{ Device_name }} config interfaces {{ LAN_INTF }} unit {{ vlanid }} family inet address {{ lan_ip_address }}/{{ lan_ip_prefixlen }} vrrp-group {{ lan_number }} track route 0.0.0.0/0 routing-instance LAN{{ lan_number }}-VRF
-
 {% endfor -%}

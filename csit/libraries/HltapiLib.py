@@ -115,7 +115,7 @@ class HltapiLib:
             device_ret0['port'] = self.port_handle[int(port)]
             device_ret0['gateway_ip_addr'] = gateway_ip_addr
             device_ret0['vlanid'] = vlanid
-            device_ret0['intf_ip_addr'] = gateway_ip_addr
+            device_ret0['intf_ip_addr'] = intf_ip_addr
             print("***** run sth.emulation_device_config successfully")
             return device_ret0
 

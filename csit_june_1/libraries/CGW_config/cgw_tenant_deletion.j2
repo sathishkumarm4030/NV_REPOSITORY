@@ -1,0 +1,28 @@
+{#
+    SDWAN Cloud Gateway Tenant Deletion
+    * For Lab Testing
+#}
+
+{% set VXLAN_TVI_INTERFACE = "tvi-0/%s"|format(2*CUSTOMER_ORG_ID) %}
+{% set ESP_TVI_INTERFACE = "tvi-0/%s"|format(2*CUSTOMER_ORG_ID + 1) %}
+{% set PTVI_INTERFACE1 = "ptvi%s"|format(2*CUSTOMER_ORG_ID) %}
+{% set PTVI_INTERFACE2 = "ptvi%s"|format(2*CUSTOMER_ORG_ID + 1) %}
+
+delete devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-LAN1-VRF
+delete devices device {{HOSTNAME}} config routing-instances {{CUSTOMER_ORG_NAME}}-Control-VR
+delete devices device {{HOSTNAME}} config orgs org-services {{CUSTOMER_ORG_NAME}}
+delete devices device {{HOSTNAME}} config orgs org {{CUSTOMER_ORG_NAME}}
+
+{% for PEERING in CSP_PEERINGS %}
+delete devices device {{HOSTNAME}} config networks {{CUSTOMER_ORG_NAME}}-{{PEERING.NAME}}
+{% endfor %}
+
+delete devices device {{HOSTNAME}} config interfaces {{PTVI_INTERFACE1}}
+delete devices device {{HOSTNAME}} config interfaces {{PTVI_INTERFACE2}}
+
+{% for PEERING in CSP_PEERINGS %}
+delete devices device {{HOSTNAME}} config interfaces {{CSP_INTERFACE}} unit {{PEERING.VLAN}}
+{% endfor %}
+
+delete devices device {{HOSTNAME}} config interfaces {{VXLAN_TVI_INTERFACE}}
+delete devices device {{HOSTNAME}} config interfaces {{ESP_TVI_INTERFACE}}
